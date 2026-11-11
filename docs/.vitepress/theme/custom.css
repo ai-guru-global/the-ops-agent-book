@@ -646,6 +646,10 @@ body {
   border-left: 1px solid var(--book-line);
 }
 
+.book-scenarios--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .book-scenario {
   display: block;
   padding: 20px;
@@ -780,6 +784,16 @@ body {
   .book-columns,
   .book-scenarios,
   .book-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .book-scenarios--four {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .book-scenarios--four {
     grid-template-columns: 1fr;
   }
 

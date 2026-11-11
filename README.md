@@ -2,7 +2,7 @@
 
 > 面向运维场景的智能体工程手册。规划、设计、建设、维护、优化、迭代。
 
-运维 Agent 的难点不在模型，而在证据、权限、变更与可验证性。这本书给出一套从想法到退役的工程方法，K8s 集群、RDMA 高网、GPU 推理等场景的可落地手册，以及覆盖全球与中国主要厂商的运维 Agent 产品地图。
+运维 Agent 的难点不在模型，而在证据、权限、变更与可验证性。这本书给出一套从想法到退役的工程方法，K8s 集群、RDMA 高网、GPU 推理等场景的可落地手册，覆盖全球与中国主要厂商的运维 Agent 产品地图，以及 2026 工程域：AgentOps、身份与安全、成本/ROI、2027+ 路线图。
 
 当前版本：**v0.1**（2026-11）。适合 SRE、平台工程师、AI 工程师、运维产品经理与架构师。
 
@@ -53,7 +53,14 @@
 - [垂直行业运维 Agent](docs/vendors/vertical-ops.md) — 电信 NOC、金融、制造/OT、能源、零售、物流、医疗、政务
 - [厂商评估方法](docs/vendors/methodology.md) — 分层、证据分级、POC、TCO 与选型模板
 
-### 第四部分 · 模板与工具箱
+### 第四部分 · 2026 工程域
+
+11. [AgentOps 与可观测性](docs/guide/11-agentops-observability.md)
+12. [身份、权限与安全](docs/guide/12-identity-security.md)
+13. [成本、ROI 与组合管理](docs/guide/13-cost-roi-portfolio.md)
+14. [2027+：自进化、A2A 与自治运维](docs/guide/14-future-roadmap.md)
+
+### 第五部分 · 模板与工具箱
 
 - [Agent 设计文档](docs/templates/agent-design-doc.md)
 - [工具契约](docs/templates/tool-contract.md)

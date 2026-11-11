@@ -51,6 +51,13 @@ title: The Ops Agent Book
         <div class="book-hero__part">
           <div class="book-hero__part-num">04</div>
           <div>
+            <div class="book-hero__part-title">2026 工程域</div>
+            <div class="book-hero__part-note">AgentOps、身份与安全、成本/ROI、2027+ 自进化与自治运维</div>
+          </div>
+        </div>
+        <div class="book-hero__part">
+          <div class="book-hero__part-num">05</div>
+          <div>
             <div class="book-hero__part-title">模板与工具箱</div>
             <div class="book-hero__part-note">设计文档、工具契约、评测集、权限矩阵、Runbook 映射、发布清单</div>
           </div>
@@ -129,6 +136,14 @@ title: The Ops Agent Book
     </div>
     <div class="book-toc__row">
       <div class="book-toc__part">Part 04</div>
+      <div>
+        <div class="book-toc__title">2026 工程域</div>
+        <div class="book-toc__note">AgentOps 与可观测性 · 身份/权限/OWASP 安全 · 成本、ROI 与组合管理 · 2027+ 自进化、A2A 与自治运维。</div>
+      </div>
+      <a class="book-toc__link" href="./guide/11-agentops-observability.html">进入 →</a>
+    </div>
+    <div class="book-toc__row">
+      <div class="book-toc__part">Part 05</div>
       <div>
         <div class="book-toc__title">模板与工具箱</div>
         <div class="book-toc__note">Agent 设计文档 · 工具契约 · 评测集 · 权限矩阵 · Runbook → Tool 映射 · 发布与回滚清单 · 事故复盘。</div>
@@ -222,6 +237,36 @@ title: The Ops Agent Book
       <div class="book-scenario__id">VENDORS 06</div>
       <h3>垂直行业运维</h3>
       <p>电信 NOC、金融、制造/OT、能源、零售、物流、医疗、政务。</p>
+    </a>
+  </div>
+</section>
+
+<section class="book-section">
+  <div class="book-kicker">2026 Engineering</div>
+  <h2>把 2026 的工程层补进运维 Agent。</h2>
+  <p class="book-section__lead">
+    AgentOps、身份与安全、成本/ROI、2027+ 路线图——这四章决定 Agent 能不能上生产、能不能算过账、能不能持续演进。
+  </p>
+  <div class="book-scenarios book-scenarios--four">
+    <a class="book-scenario" href="./guide/11-agentops-observability.html">
+      <div class="book-scenario__id">CHAPTER 11</div>
+      <h3>AgentOps 与可观测性</h3>
+      <p>OTel GenAI、Trace/Session、工具调用、评测数据飞轮、异常检测与成本归因。</p>
+    </a>
+    <a class="book-scenario" href="./guide/12-identity-security.html">
+      <div class="book-scenario__id">CHAPTER 12</div>
+      <h3>身份、权限与安全</h3>
+      <p>NHI、委托、短时凭证、MCP 信任、OWASP Agentic Top 10 与供应链。</p>
+    </a>
+    <a class="book-scenario" href="./guide/13-cost-roi-portfolio.html">
+      <div class="book-scenario__id">CHAPTER 13</div>
+      <h3>成本、ROI 与组合</h3>
+      <p>TCO、单位经济、ROI 测算、试点组合与 FinOps 控制。</p>
+    </a>
+    <a class="book-scenario" href="./guide/14-future-roadmap.html">
+      <div class="book-scenario__id">CHAPTER 14</div>
+      <h3>2027+ 路线图</h3>
+      <p>自进化、A2A、仿真/数字孪生、形式化保障、监管与能效。</p>
     </a>
   </div>
 </section>

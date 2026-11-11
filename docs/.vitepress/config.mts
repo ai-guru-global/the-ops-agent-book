@@ -30,6 +30,7 @@ export default defineConfig({
       { text: "方法", link: "/guide/01-why-ops-agents" },
       { text: "场景手册", link: "/playbooks/" },
       { text: "厂商", link: "/vendors/" },
+      { text: "工程域", link: "/guide/11-agentops-observability" },
       { text: "模板", link: "/templates/" },
       { text: "附录", link: "/appendix/alibaba-agent-landscape" },
     ],
@@ -78,7 +79,16 @@ export default defineConfig({
         ],
       },
       {
-        text: "第四部分 · 模板与工具箱",
+        text: "第四部分 · 2026 工程域",
+        items: [
+          { text: "11 AgentOps 与可观测性", link: "/guide/11-agentops-observability" },
+          { text: "12 身份、权限与安全", link: "/guide/12-identity-security" },
+          { text: "13 成本、ROI 与组合管理", link: "/guide/13-cost-roi-portfolio" },
+          { text: "14 2027+：自进化、A2A 与自治运维", link: "/guide/14-future-roadmap" },
+        ],
+      },
+      {
+        text: "第五部分 · 模板与工具箱",
         items: [
           { text: "模板导读", link: "/templates/" },
           { text: "Agent 设计文档", link: "/templates/agent-design-doc" },
