@@ -29,6 +29,7 @@ export default defineConfig({
       { text: "导读", link: "/guide/" },
       { text: "方法", link: "/guide/01-why-ops-agents" },
       { text: "场景手册", link: "/playbooks/" },
+      { text: "厂商", link: "/vendors/" },
       { text: "模板", link: "/templates/" },
       { text: "附录", link: "/appendix/alibaba-agent-landscape" },
     ],
@@ -64,7 +65,20 @@ export default defineConfig({
         ],
       },
       {
-        text: "第三部分 · 模板与工具箱",
+        text: "第三部分 · 厂商与产品全景",
+        items: [
+          { text: "厂商地图导读", link: "/vendors/" },
+          { text: "全球云厂商", link: "/vendors/global-cloud" },
+          { text: "中国云厂商", link: "/vendors/china-cloud" },
+          { text: "可观测与 AIOps", link: "/vendors/observability-aiops" },
+          { text: "安全、网络与 FinOps", link: "/vendors/security-network-finops" },
+          { text: "内嵌 Agent 助手", link: "/vendors/embedded-assistants" },
+          { text: "垂直行业运维 Agent", link: "/vendors/vertical-ops" },
+          { text: "厂商评估方法", link: "/vendors/methodology" },
+        ],
+      },
+      {
+        text: "第四部分 · 模板与工具箱",
         items: [
           { text: "模板导读", link: "/templates/" },
           { text: "Agent 设计文档", link: "/templates/agent-design-doc" },

@@ -2,7 +2,7 @@
 
 > 面向运维场景的智能体工程手册。规划、设计、建设、维护、优化、迭代。
 
-运维 Agent 的难点不在模型，而在证据、权限、变更与可验证性。这本书给出一套从想法到退役的工程方法，以及 K8s 集群、RDMA 高网、GPU 推理等场景的可落地手册。
+运维 Agent 的难点不在模型，而在证据、权限、变更与可验证性。这本书给出一套从想法到退役的工程方法，K8s 集群、RDMA 高网、GPU 推理等场景的可落地手册，以及覆盖全球与中国主要厂商的运维 Agent 产品地图。
 
 当前版本：**v0.1**（2026-11）。适合 SRE、平台工程师、AI 工程师、运维产品经理与架构师。
 
@@ -42,7 +42,18 @@
 - [数据库运维 Agent](docs/playbooks/database.md)
 - [事故指挥 Agent](docs/playbooks/incident-commander.md)
 
-### 第三部分 · 模板与工具箱
+### 第三部分 · 厂商与产品全景
+
+- [厂商地图导读](docs/vendors/index.md)
+- [全球云厂商](docs/vendors/global-cloud.md) — AWS、Microsoft、Google、IBM、Oracle、SAP、ServiceNow、Salesforce
+- [中国云厂商](docs/vendors/china-cloud.md) — 阿里云、华为云、腾讯云、百度智能云、火山引擎、京东云、移动云、浪潮云与国产 AIOps
+- [可观测与 AIOps](docs/vendors/observability-aiops.md) — Datadog、Dynatrace、New Relic、Splunk、PagerDuty、Grafana、BMC、ManageEngine
+- [安全、网络与 FinOps](docs/vendors/security-network-finops.md) — Security Copilot、Palo Alto、CrowdStrike、Cisco、Juniper、Arista、Cloudability
+- [内嵌 Agent 助手](docs/vendors/embedded-assistants.md) — M365 Copilot、Azure Copilot、Gemini Cloud Assist、Now Assist、Agentforce、Joule
+- [垂直行业运维 Agent](docs/vendors/vertical-ops.md) — 电信 NOC、金融、制造/OT、能源、零售、物流、医疗、政务
+- [厂商评估方法](docs/vendors/methodology.md) — 分层、证据分级、POC、TCO 与选型模板
+
+### 第四部分 · 模板与工具箱
 
 - [Agent 设计文档](docs/templates/agent-design-doc.md)
 - [工具契约](docs/templates/tool-contract.md)
@@ -84,7 +95,7 @@ npm run docs:preview  # 预览构建产物
 
 [`agent-landing`](https://github.com/ai-guru-global/agent-landing) 是官方 Agent 服务目录的检索与选型工具，当前快照为 36 个官方 Agent 与 328 个 Skills。
 
-阿里实际的 Agent 版图远不止这 36 个产品：还包括 AgentRun（Agent Runtime）、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼 Agent 平台、AgentLoop、Agentic OS 等运行、开发与治理产品。书的附录会把这层全景与生命周期对应起来，避免把“官方目录中的可即用 Agent”误认为“阿里 Agent 产品的全部”。
+阿里实际的 Agent 版图远不止这 36 个产品：还包括 AgentRun（Agent Runtime）、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼 Agent 平台、AgentLoop、Agentic OS 等运行、开发与治理产品。书的“厂商与产品全景”部分把这层全景扩展到全球与中国主要厂商，并区分独立运维 Agent、内嵌助手、运行时、平台与 AIOps 能力，避免把不同层级的产品放在同一张表里比较。
 
 ## 部署
 

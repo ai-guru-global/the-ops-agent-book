@@ -213,6 +213,35 @@ body {
   line-height: 1.6;
 }
 
+.vendor-cloud .vp-doc table {
+  table-layout: fixed;
+}
+
+.vendor-cloud .vp-doc table th:nth-child(1),
+.vendor-cloud .vp-doc table td:nth-child(1) {
+  width: 17%;
+}
+
+.vendor-cloud .vp-doc table th:nth-child(2),
+.vendor-cloud .vp-doc table td:nth-child(2) {
+  width: 22%;
+}
+
+.vendor-cloud .vp-doc table th:nth-child(3),
+.vendor-cloud .vp-doc table td:nth-child(3) {
+  width: 11%;
+}
+
+.vendor-cloud .vp-doc table th:nth-child(4),
+.vendor-cloud .vp-doc table td:nth-child(4) {
+  width: 38%;
+}
+
+.vendor-cloud .vp-doc table th:nth-child(5),
+.vendor-cloud .vp-doc table td:nth-child(5) {
+  width: 12%;
+}
+
 .vp-doc th {
   background: var(--book-paper-alt);
   font-family: var(--vp-font-family-mono);

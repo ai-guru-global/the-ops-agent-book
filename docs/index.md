@@ -44,6 +44,13 @@ title: The Ops Agent Book
         <div class="book-hero__part">
           <div class="book-hero__part-num">03</div>
           <div>
+            <div class="book-hero__part-title">厂商与产品全景</div>
+            <div class="book-hero__part-note">全球云、中国云、可观测/AIOps、安全/网络/FinOps、内嵌助手、垂直行业</div>
+          </div>
+        </div>
+        <div class="book-hero__part">
+          <div class="book-hero__part-num">04</div>
+          <div>
             <div class="book-hero__part-title">模板与工具箱</div>
             <div class="book-hero__part-note">设计文档、工具契约、评测集、权限矩阵、Runbook 映射、发布清单</div>
           </div>
@@ -93,7 +100,7 @@ title: The Ops Agent Book
   <div class="book-kicker">Contents</div>
   <h2>全书目录</h2>
   <p class="book-section__lead">
-    建议按顺序读第一部分，再选一本与你当前场景最接近的册子；如果你已经在生产环境运行 Agent，可以从第 05 章开始。
+    建议按顺序读第一部分，再选一本与你当前场景最接近的册子；如果你已经在生产环境运行 Agent，可以从第 05 章开始。厂商地图用于选型、竞品研究与“自建还是采购”的决策。
   </p>
   <div class="book-toc">
     <div class="book-toc__row">
@@ -114,6 +121,14 @@ title: The Ops Agent Book
     </div>
     <div class="book-toc__row">
       <div class="book-toc__part">Part 03</div>
+      <div>
+        <div class="book-toc__title">厂商与产品全景</div>
+        <div class="book-toc__note">全球云（AWS / Azure / Google / IBM / Oracle / SAP / ServiceNow）· 中国云（阿里 / 华为 / 腾讯 / 百度 / 火山 / 京东 / 移动 / 浪潮）· 可观测/AIOps · 安全/网络/FinOps · 内嵌助手 · 垂直行业。</div>
+      </div>
+      <a class="book-toc__link" href="./vendors/">进入 →</a>
+    </div>
+    <div class="book-toc__row">
+      <div class="book-toc__part">Part 04</div>
       <div>
         <div class="book-toc__title">模板与工具箱</div>
         <div class="book-toc__note">Agent 设计文档 · 工具契约 · 评测集 · 权限矩阵 · Runbook → Tool 映射 · 发布与回滚清单 · 事故复盘。</div>
@@ -167,6 +182,46 @@ title: The Ops Agent Book
       <div class="book-scenario__id">OVERVIEW</div>
       <h3>场景手册导读</h3>
       <p>如何选择第一本册子，以及三本手册共享的设计语言。</p>
+    </a>
+  </div>
+</section>
+
+<section class="book-section">
+  <div class="book-kicker">Vendor map</div>
+  <h2>覆盖主要厂商，而不是只列阿里。</h2>
+  <p class="book-section__lead">
+    独立运维 Agent、云产品内嵌助手、Agent 运行时、AIOps 平台里的 AI、垂直行业 Agent——按产品形态分层，而不是把不同层级混在一张表里比较。
+  </p>
+  <div class="book-scenarios">
+    <a class="book-scenario" href="./vendors/global-cloud.html">
+      <div class="book-scenario__id">VENDORS 01</div>
+      <h3>全球云厂商</h3>
+      <p>AWS、Microsoft、Google、IBM、Oracle、SAP、ServiceNow、Salesforce。</p>
+    </a>
+    <a class="book-scenario" href="./vendors/china-cloud.html">
+      <div class="book-scenario__id">VENDORS 02</div>
+      <h3>中国云厂商</h3>
+      <p>阿里、华为、腾讯、百度、火山引擎、京东云、移动云、浪潮与国产 AIOps。</p>
+    </a>
+    <a class="book-scenario" href="./vendors/observability-aiops.html">
+      <div class="book-scenario__id">VENDORS 03</div>
+      <h3>可观测与 AIOps</h3>
+      <p>Datadog、Dynatrace、New Relic、Splunk、PagerDuty、Grafana、BMC、ManageEngine。</p>
+    </a>
+    <a class="book-scenario" href="./vendors/security-network-finops.html">
+      <div class="book-scenario__id">VENDORS 04</div>
+      <h3>安全、网络与 FinOps</h3>
+      <p>Security Copilot、Palo Alto、CrowdStrike、Cisco、Juniper、Arista、Cloudability。</p>
+    </a>
+    <a class="book-scenario" href="./vendors/embedded-assistants.html">
+      <div class="book-scenario__id">VENDORS 05</div>
+      <h3>内嵌 Agent 助手</h3>
+      <p>M365 Copilot、Azure Copilot、Gemini Cloud Assist、Now Assist、Agentforce、Joule。</p>
+    </a>
+    <a class="book-scenario" href="./vendors/vertical-ops.html">
+      <div class="book-scenario__id">VENDORS 06</div>
+      <h3>垂直行业运维</h3>
+      <p>电信 NOC、金融、制造/OT、能源、零售、物流、医疗、政务。</p>
     </a>
   </div>
 </section>
