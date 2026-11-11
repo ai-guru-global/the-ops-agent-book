@@ -1,0 +1,18 @@
+{
+  "name": "the-ops-agent-book",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "面向运维场景的智能体工程手册：规划、设计、建设、维护、优化、迭代",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@fontsource/ibm-plex-mono": "^5.1.0",
+    "@fontsource/ibm-plex-sans": "^5.1.0",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.45"
+  }
+}
