@@ -55,4 +55,17 @@ description: Datadog、Dynatrace、New Relic、Splunk、PagerDuty、Grafana 等�
 很多产品只是把大模型接进告警通知：能摘要、能聊天，不能调查、不能行动。用“是否能形成证据链、是否能验证结果”来区分。
 :::
 
+## 来源与核实
+
+本页信息最后核实：**2026-11-12**。可观测厂商的功能与计费变化很快，表中产品能力以官方页面为准：
+
+- [Datadog AI](https://www.datadoghq.com/product/ai/)
+- [Dynatrace AI](https://www.dynatrace.com/platform/artificial-intelligence/)
+- [PagerDuty](https://www.pagerduty.com/)
+- [Grafana](https://grafana.com/)
+- [Elastic](https://www.elastic.co/)
+- [Datadog / Dynatrace AIOps 对比（参考）](https://bbs.huaweicloud.com/blogs/489129)
+
+完整来源清单见[参考资料](../appendix/references)。
+
 下一篇：[安全、网络与 FinOps](./security-network-finops)

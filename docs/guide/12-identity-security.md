@@ -32,16 +32,13 @@ Human / System
 
 ## 委托与权限模型
 
+基础权限模型（工具、资源、环境、时间、blast radius、审批）见[第 05 章](./05-tools-permissions)。身份章额外回答三个问题：
+
 | 维度 | 问题 |
 | --- | --- |
-| Principal | Agent 身份是什么？代表谁？ |
-| Tool | 能调用哪些工具？ |
-| Resource | 能操作哪些资源/租户/集群？ |
-| Environment | dev/staging/prod/DR？ |
-| Time | 任务有效期、变更窗口？ |
-| Blast radius | 最多影响多少资源？ |
-| Approval | 自动/单人/双人/CAB？ |
-| Credential | 短时令牌、按工具授权、不落盘？ |
+| Principal / 委托链 | Agent 代表谁？委托是否可传递？上级权限被回收后是否立即失效？ |
+| Credential | 凭证是否短时、按工具授权、不落盘、不进入 Prompt/日志？ |
+| 审计与回收 | 每次调用能否回答“谁、代表谁、做了什么、谁批准”？退役时能否立即回收？ |
 
 ## OWASP Agentic Top 10（2026）
 

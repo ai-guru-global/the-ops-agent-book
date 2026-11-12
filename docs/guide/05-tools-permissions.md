@@ -163,6 +163,49 @@ audit:
 
 完整模板见[工具契约](../templates/tool-contract)。
 
+## 贯穿案例：节点 drain 的契约与权限
+
+以第 02 章的 NotReady 节点为例。drain 是高风险动作，契约必须写清楚 PDB、范围、审批、回滚和验证：
+
+```yaml
+name: k8s.drain_node
+description: 在 PDB 允许的前提下 cordon 并 drain 单个节点
+side_effects: true
+idempotent: true
+dry_run: true
+reversible: true
+scope:
+  resource_types: [node]
+  environments: [prod]
+  max_blast_radius: 1
+permissions:
+  approval: dual
+  change_window: required
+input_schema:
+  required: [cluster, node]
+  properties:
+    cluster: { type: string }
+    node: { type: string }
+    ignore_daemonsets: { type: boolean, default: true }
+output_schema:
+  properties:
+    evicted_pods: { type: integer }
+    pdb_violations: { type: integer }
+    cordoned: { type: boolean }
+execution:
+  timeout_seconds: 900
+  rate_limit: "2/hour"
+rollback:
+  tool: k8s.uncordon
+  window_minutes: 10
+verification:
+  - node_ready
+  - pdb_satisfied
+  - slo_recovered
+```
+
+审批人至少看到：节点与节点池、当前 NotReady 证据、待驱逐 Pod 与 PDB、预计影响面、清理/恢复步骤、回滚与验证。没有 PDB 检查或回滚工具时，不允许注册这个工具。案例的完整走查见[附录：K8s 节点 NotReady 端到端案例](../appendix/case-notready)。
+
 ## 本章检查清单
 
 - [ ] Agent 当前处于动作阶梯的哪一级？是否有人批准升级？

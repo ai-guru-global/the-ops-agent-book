@@ -91,6 +91,19 @@ description: K8s 集群运维 Agent 的范围、证据源、工具清单、任�
 8. 验证：节点 Ready、Pod 恢复、PDB 满足
 ```
 
+### 4.2.1 贯穿案例：磁盘压力导致的 NotReady
+
+集群 `prod-us-east-1`，节点 `ip-10-42-7-19` 在 02:07 报 NotReady。Agent 的执行过程：
+
+1. **取证**：node conditions `DiskPressure=True`；kubelet 日志出现 `imagefs.available below eviction threshold`；node filesystem 使用率 97%；事件显示多个 Pod 被驱逐；最近一次变更是日志采集配置上线。
+2. **假设**：容器日志未轮转导致磁盘打满（支持证据：磁盘使用率、kubelet 驱逐日志、变更时间线）；反证：内存/PID 压力为 False。
+3. **计划**：cordon → 检查 PDB → drain → 清理 `/var/log/pods` 旧日志 → 视情况重启 kubelet → uncordon；不删除 Pod、不替换节点。
+4. **审批包**：节点与节点池、待驱逐 Pod、PDB 影响、磁盘证据、回滚（uncordon）、验证（Node Ready、PDB 满足、SLO 恢复）。
+5. **执行与验证**：drain 双人审批；清理后磁盘降到 62%；kubelet 恢复上报；节点 Ready；Pod 重新调度；SLO 回到基线。
+6. **复盘**：把“日志轮转缺失”加入评测集；更新 Runbook；给日志采集配置加容量告警。
+
+完整证据包、时间线与评测记录见[附录：K8s 节点 NotReady 端到端案例](../appendix/case-notready)。
+
 ### 4.3 Pending / 调度失败
 
 - 查 scheduler 事件：Insufficient CPU/Memory、taint/toleration、affinity、PVC、quota。

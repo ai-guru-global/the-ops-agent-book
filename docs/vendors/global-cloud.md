@@ -78,4 +78,19 @@ IBM 的优势在“**可观测 + FinOps + 自动化 + 安全**”的组合，适
 
 > 产品状态与计费以官方最新页面为准。AWS DevOps Agent、Azure SRE Agent、Gemini Agent 等均处于预览/快速演进阶段，上线前需重新核实。
 
+## 来源与核实
+
+本页信息最后核实：**2026-11-12**。表中“官方产品页/公开报道”对应的具体来源如下；未逐条引用的产品能力，使用前请查厂商官方文档。
+
+- [AWS DevOps Agent](https://aws.amazon.com/devops-agent/)
+- [Azure SRE Agent](https://azure.microsoft.com/en-us/products/sre-agent)
+- [Azure Copilot](https://azure.microsoft.com/en-us/products/copilot)
+- [Gemini at Work 2026（Google Cloud）](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
+- [IBM Concert](https://www.ibm.com/products/concert)
+- [ServiceNow Now Assist / AI Agents](https://www.servicenow.com/community/now-assist-articles/ai-agents-faq-and-troubleshooting/tac-p/3207986/highlight/true)
+- [Oracle OCI Generative AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/)
+- [Salesforce Agentforce](https://www.salesforce.com/agentforce/)
+
+完整来源清单见[参考资料](../appendix/references)。
+
 下一篇：[中国云厂商](./china-cloud)

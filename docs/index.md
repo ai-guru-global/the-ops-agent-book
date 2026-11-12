@@ -11,12 +11,12 @@ title: The Ops Agent Book
 <section class="book-hero">
   <div class="book-hero__inner">
     <div>
-      <div class="book-hero__meta">Field Manual · V0.1 · 2026</div>
+      <div class="book-hero__meta">Field Manual · V0.1.1 · 2026</div>
       <h1>运维智能体<br /><em>工程手册</em></h1>
       <div class="book-hero__sub">The Ops Agent Book</div>
       <p class="book-hero__lead">
         给运维场景做 Agent，难点不在模型，而在证据、权限、变更与可验证性。
-        这本书给出一套从规划到退役的工程方法，以及 K8s、RDMA、GPU 推理三本可以直接照做的场景手册。
+        这本书给出一套从规划到退役的工程方法，以及 K8s、RDMA、GPU 推理、数据库与事故指挥五本可以直接照做的场景手册。
       </p>
       <div class="book-hero__actions">
         <a class="book-btn primary" href="./guide/">开始阅读</a>
@@ -153,8 +153,8 @@ title: The Ops Agent Book
     <div class="book-toc__row">
       <div class="book-toc__part">Appendix</div>
       <div>
-        <div class="book-toc__title">阿里 Agent 产品全景与参考资料</div>
-        <div class="book-toc__note">官方 Agent 服务目录之外，AgentRun、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼、AgentLoop、Agentic OS 等产品如何映射到生命周期；指标库、术语与来源。</div>
+        <div class="book-toc__title">案例、阿里 Agent 产品全景与参考资料</div>
+        <div class="book-toc__note">一次 K8s 节点 NotReady 的端到端走查、一个未上线项目的失败复盘；官方 Agent 服务目录之外，AgentRun、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼、AgentLoop、Agentic OS 等产品如何映射到生命周期；指标库、术语与来源。</div>
       </div>
       <a class="book-toc__link" href="./appendix/alibaba-agent-landscape.html">进入 →</a>
     </div>
@@ -163,7 +163,7 @@ title: The Ops Agent Book
 
 <section class="book-section">
   <div class="book-kicker">Playbooks</div>
-  <h2>从三个最难的场景开始。</h2>
+  <h2>从五个高价值场景开始。</h2>
   <p class="book-section__lead">
     每个场景手册都按同一套结构写：范围与非目标、证据源、工具清单、典型任务流、权限与护栏、评测集、SLO 与失败模式。
   </p>
@@ -196,7 +196,32 @@ title: The Ops Agent Book
     <a class="book-scenario" href="./playbooks/">
       <div class="book-scenario__id">OVERVIEW</div>
       <h3>场景手册导读</h3>
-      <p>如何选择第一本册子，以及三本手册共享的设计语言。</p>
+      <p>如何选择第一本册子，以及五本手册共享的设计语言。</p>
+    </a>
+  </div>
+</section>
+
+<section class="book-section">
+  <div class="book-kicker">Field cases</div>
+  <h2>两个走查：一个成功，一个失败。</h2>
+  <p class="book-section__lead">
+    方法只有在具体证据、审批和回滚里才站得住。案例均基于合成/脱敏场景，保留真实工程约束，不包含真实客户数据。
+  </p>
+  <div class="book-scenarios">
+    <a class="book-scenario" href="./appendix/case-notready.html">
+      <div class="book-scenario__id">CASE 01</div>
+      <h3>K8s 节点 NotReady</h3>
+      <p>从告警、证据包、假设、审批包到 drain、清理、验证与复盘的一次完整闭环。</p>
+    </a>
+    <a class="book-scenario" href="./appendix/case-failed-agent.html">
+      <div class="book-scenario__id">CASE 02</div>
+      <h3>一个没有上线的 Agent</h3>
+      <p>为什么 Demo 很好、评测也过，却在灰度前被叫停：权限、Owner、评测集与流程的失败复盘。</p>
+    </a>
+    <a class="book-scenario" href="./appendix/references.html">
+      <div class="book-scenario__id">SOURCES</div>
+      <h3>参考资料</h3>
+      <p>厂商、协议、标准与场景手册的官方来源与核对日期。</p>
     </a>
   </div>
 </section>

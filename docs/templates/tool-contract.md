@@ -137,6 +137,71 @@ audit:
   fields: [caller, agent_run_id, approval_id, cluster, namespace, name]
 ```
 
+## 贯穿案例：K8s 节点 drain
+
+以[附录案例](../appendix/case-notready)中的 NotReady 节点为例，drain 契约要把 PDB、审批、回滚与验证写全：
+
+```yaml
+name: k8s.drain_node
+version: 1.0.0
+description: 在 PDB 允许的前提下 cordon 并 drain 单个节点；不做批量操作
+side_effects: true
+idempotent: true
+dry_run: true
+reversible: true
+scope:
+  resource_types: [node]
+  environments: [prod]
+  max_blast_radius: 1
+  required_labels: [managed-by=platform]
+permissions:
+  role: ops-agent-senior-operator
+  approval: dual
+  change_window: required
+  break_glass: false
+input_schema:
+  type: object
+  required: [cluster, node]
+  properties:
+    cluster: { type: string }
+    node: { type: string }
+    ignore_daemonsets: { type: boolean, default: true }
+    reason: { type: string }
+output_schema:
+  type: object
+  properties:
+    cordoned: { type: boolean }
+    evicted_pods: { type: integer }
+    pdb_violations: { type: integer }
+    rollback_token: { type: string }
+execution:
+  timeout_seconds: 900
+  rate_limit: "2/hour"
+  concurrency_limit: 1
+  retry:
+    max_attempts: 1
+    backoff: none
+  error_taxonomy: [retryable, auth, validation, conflict, pdb_blocked, unknown]
+security:
+  credentials: short_lived
+  secret_handling: never_log
+  input_validation: strict
+preconditions:
+  - node_exists
+  - node_not_ready
+  - pdb_check_passed
+  - no_active_incident_in_scope
+rollback:
+  tool: k8s.uncordon
+  window_minutes: 10
+  verification: k8s.node_ready
+audit:
+  fields: [caller, agent_run_id, approval_id, cluster, node, reason]
+  retention_days: 365
+```
+
+没有 PDB 前置检查、回滚工具或双人审批时，不应注册这个工具。
+
 ## 常见错误
 
 - 只写“输入/输出”，不写副作用与回滚。

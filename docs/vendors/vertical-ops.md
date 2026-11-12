@@ -44,4 +44,16 @@ description: 电信 NOC、金融、制造/OT、能源、零售、物流、医疗
 - [ ] 监管/安全边界与审计
 - [ ] 行业专家 owner
 
+## 来源与核实
+
+本页信息最后核实：**2026-11-12**。垂直行业产品与案例分散在厂商官网、行业报告与公开报道中，表中代表厂商仅作导航：
+
+- [华为 MindOps / Agentic AI 运维报道](https://news.sina.cn/sx/2026-09-22/detail-inissitm5623944.d.html)
+- [腾讯云 CloudQ 与 AI 可观测](https://www.bjnews.com.cn/detail/1793772689129886.html)
+- [百度智能云产业智能体操作系统](https://m.tmtpost.com/nictation/8141994.html)
+- [2026 国产运维智能体 TOP10 横评](https://baijiahao.baidu.com/s?id=1877001265169160727)
+- [2026 运维智能体定义、架构与落地实践白皮书](https://m.sohu.com/a/1099405014_468661/)
+
+行业厂商（Siemens、Rockwell、Schneider、ABB、GE Vernova、PTC 等）的具体产品能力以官网为准；完整来源见[参考资料](../appendix/references)。
+
 下一篇：[厂商评估方法](./methodology)

@@ -55,4 +55,16 @@ FinOps Agent 的典型任务：成本异常归因、闲置资源识别、规格�
 - FinOps Agent 必须接账单、标签、资源与变更；否则只能做报表。
 - 三类都要有**人审、回滚、审计**；默认只读，逐步升级到受控执行。
 
+## 来源与核实
+
+本页信息最后核实：**2026-11-12**。安全/网络/FinOps 产品的 Agent 能力与计费口径差异很大，使用前请查官方文档：
+
+- [Palo Alto Cortex](https://www.paloaltonetworks.com/cortex)
+- [CrowdStrike Charlotte AI](https://www.crowdstrike.com/en-us/platform/charlotte-ai/)
+- [IBM QRadar](https://www.ibm.com/products/qradar)
+- [Arista CloudVision](https://www.arista.com/en/products/cloudvision)
+- [IBM Apptio Cloudability](https://www.apptio.com/products/cloudability/)
+
+Cisco、Juniper、Microsoft Security Copilot 等产品的具体能力以厂商官网为准；完整来源清单见[参考资料](../appendix/references)。
+
 下一篇：[内嵌 Agent 助手](./embedded-assistants)

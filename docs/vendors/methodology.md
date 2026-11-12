@@ -95,3 +95,16 @@ POC 结论：
 风险与未决问题：
 建议：
 ```
+
+## 来源与核实
+
+本页评估框架最后核实：**2026-11-12**。证据分级与 POC 方法为本书原创，外部标准与来源参考：
+
+- [OWASP GenAI Security Project](https://genai.owasp.org/)
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- [ISO/IEC 42001](https://www.iso.org/standard/81230.html)
+- [EU AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+- [OpenTelemetry GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
+- [Google SRE Workbook](https://sre.google/workbook/table-of-contents/)
+
+完整来源清单见[参考资料](../appendix/references)。

@@ -32,6 +32,7 @@ export default defineConfig({
       { text: "厂商", link: "/vendors/" },
       { text: "工程域", link: "/guide/11-agentops-observability" },
       { text: "模板", link: "/templates/" },
+      { text: "案例", link: "/appendix/case-notready" },
       { text: "附录", link: "/appendix/alibaba-agent-landscape" },
     ],
     sidebar: [
@@ -103,6 +104,8 @@ export default defineConfig({
       {
         text: "附录",
         items: [
+          { text: "案例：K8s 节点 NotReady", link: "/appendix/case-notready" },
+          { text: "失败复盘：一个没有上线的 Agent", link: "/appendix/case-failed-agent" },
           { text: "阿里 Agent 产品全景", link: "/appendix/alibaba-agent-landscape" },
           { text: "指标与 SLO 库", link: "/appendix/metrics" },
           { text: "术语表", link: "/appendix/glossary" },

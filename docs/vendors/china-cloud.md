@@ -94,4 +94,19 @@ description: 阿里云、华为云、腾讯云、百度智能云、火山引擎�
 - **Agent 平台 vs AIOps 产品**：平台给你“造 Agent”，AIOps 产品给你“现成的运维场景”；多数企业需要两者组合。
 - **证据**：中国厂商的公开材料常混合“发布/预览/商用”，选型时必须要求官方文档、POC 与真实客户案例。
 
+## 来源与核实
+
+本页信息最后核实：**2026-11-12**。中国厂商产品命名与发布节奏变化快，表中“官方发布/公开报道”对应的具体来源如下：
+
+- [阿里 Agent 产品全景（本书附录）](../appendix/alibaba-agent-landscape)
+- [阿里云 Agent 服务目录](https://agentcatalog.aliyun.com/)
+- [华为 MindOps / Agentic AI 运维报道](https://news.sina.cn/sx/2026-09-22/detail-inissitm5623944.d.html)
+- [华为智能体 @AEI 白皮书报道](https://culture.ifeng.com/c/8wZOlujO5vw)
+- [腾讯云 CloudQ 与 AI 可观测](https://www.bjnews.com.cn/detail/1793772689129886.html)
+- [百度智能云产业智能体操作系统](https://m.tmtpost.com/nictation/8141994.html)
+- [2026 国产运维智能体 TOP10 横评](https://baijiahao.baidu.com/s?id=1877001265169160727)
+- [华为官网](https://www.huawei.com/) · [腾讯云](https://cloud.tencent.com/) · [百度智能云](https://cloud.baidu.com/) · [火山引擎](https://www.volcengine.com/) · [京东云](https://www.jdcloud.com/) · [浪潮](https://www.inspur.com/)
+
+完整来源清单见[参考资料](../appendix/references)。
+
 下一篇：[可观测与 AIOps](./observability-aiops)

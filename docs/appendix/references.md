@@ -5,7 +5,7 @@ description: 阿里 Agent 产品、K8s、RDMA、GPU 推理与 Agent 工程的官
 
 # 附录：参考资料
 
-> 访问与核对时间：2026-11-11。产品能力、计费与文档会变化，使用前请以官方最新页面为准。
+> 访问与核对时间：2026-11-12。产品能力、计费与文档会变化，使用前请以官方最新页面为准。
 
 ## 阿里 Agent 产品与生态
 
@@ -37,6 +37,29 @@ description: 阿里 Agent 产品、K8s、RDMA、GPU 推理与 Agent 工程的官
 - [ServiceNow Now Assist / AI Agents](https://www.servicenow.com/community/now-assist-articles/ai-agents-faq-and-troubleshooting/tac-p/3207986/highlight/true) — Now Assist 与 AI Agents。
 - [2026 国产运维智能体 TOP10 横评](https://baijiahao.baidu.com/s?id=1877001265169160727) — 国产 AIOps/运维智能体概览。
 - [2026 运维智能体定义、架构与落地实践白皮书](https://m.sohu.com/a/1099405014_468661/) — AgenticOps L1–L4 与行业路径。
+
+## 厂商官方产品页
+
+- [AWS DevOps Agent](https://aws.amazon.com/devops-agent/)
+- [Azure SRE Agent](https://azure.microsoft.com/en-us/products/sre-agent)
+- [Azure Copilot](https://azure.microsoft.com/en-us/products/copilot)
+- [Amazon Q](https://aws.amazon.com/q/)
+- [IBM Concert](https://www.ibm.com/products/concert)
+- [IBM Instana](https://www.ibm.com/products/instana)
+- [IBM Turbonomic](https://www.ibm.com/products/turbonomic)
+- [Oracle OCI Generative AI Agents](https://www.oracle.com/artificial-intelligence/generative-ai/agents/)
+- [Salesforce Agentforce](https://www.salesforce.com/agentforce/)
+- [Datadog AI](https://www.datadoghq.com/product/ai/)
+- [Dynatrace AI](https://www.dynatrace.com/platform/artificial-intelligence/)
+- [Palo Alto Cortex](https://www.paloaltonetworks.com/cortex)
+- [CrowdStrike Charlotte AI](https://www.crowdstrike.com/en-us/platform/charlotte-ai/)
+- [IBM QRadar](https://www.ibm.com/products/qradar)
+- [Arista CloudVision](https://www.arista.com/en/products/cloudvision)
+- [IBM Apptio Cloudability](https://www.apptio.com/products/cloudability/)
+- [Atlassian Rovo](https://www.atlassian.com/software/rovo)
+- [PagerDuty](https://www.pagerduty.com/)
+- [Grafana](https://grafana.com/)
+- [Elastic](https://www.elastic.co/)
 
 ## AgentOps、可观测与评测
 
@@ -88,6 +111,13 @@ description: 阿里 Agent 产品、K8s、RDMA、GPU 推理与 Agent 工程的官
 
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+
+## 本书案例
+
+- [端到端案例：K8s 节点 NotReady](./case-notready) — 合成/脱敏案例，用于演示证据包、审批、执行与复盘。
+- [失败复盘：一个没有上线的 Agent](./case-failed-agent) — 合成复盘，由多个真实项目中反复出现的失败模式组合而成。
+
+两个案例均不包含真实客户数据；如与你的环境相似，请替换为自有证据与流程后再使用。
 
 ## 本仓库相关
 

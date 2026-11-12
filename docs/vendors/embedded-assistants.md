@@ -95,4 +95,19 @@ description: 既有产品中的 Agent 助手矩阵：Microsoft、Google、AWS、
 日常运维先用内嵌助手（数据/权限现成），跨域诊断与复杂闭环用独立 Agent（跨源调查/行动编排），两者通过 MCP/OpenAPI/工单系统连接。
 :::
 
+## 来源与核实
+
+本页信息最后核实：**2026-11-12**。内嵌助手的产品名称、许可与可用区域变化很快，使用前请查官方页面：
+
+- [Azure Copilot](https://azure.microsoft.com/en-us/products/copilot)
+- [Amazon Q](https://aws.amazon.com/q/)
+- [Gemini at Work 2026（Google Cloud）](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
+- [ServiceNow Now Assist / AI Agents](https://www.servicenow.com/community/now-assist-articles/ai-agents-faq-and-troubleshooting/tac-p/3207986/highlight/true)
+- [Salesforce Agentforce](https://www.salesforce.com/agentforce/)
+- [Atlassian Rovo](https://www.atlassian.com/software/rovo)
+- [Datadog AI](https://www.datadoghq.com/product/ai/)
+- [Dynatrace AI](https://www.dynatrace.com/platform/artificial-intelligence/)
+
+SAP Joule、Oracle Fusion AI Agents、Workday Illuminate 等产品以厂商官网为准；完整来源清单见[参考资料](../appendix/references)。
+
 下一篇：[垂直行业运维 Agent](./vertical-ops)

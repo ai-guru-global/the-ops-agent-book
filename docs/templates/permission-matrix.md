@@ -18,8 +18,14 @@ description: 运维 Agent 的工具、环境、资源范围、审批与 blast ra
 | `k8s.restart_deployment` | prod | namespace | operator | 单人 + 窗口 | 1 deployment | 必须 | rollout undo |
 | `k8s.scale` | prod | namespace | operator | 单人 + 窗口 | 1 workload | 必须 | 恢复副本 |
 | `k8s.drain_node` | prod | node pool | senior | 双人 + 窗口 | 1 node | 必须 | uncordon |
+| `k8s.restart_kubelet` | prod | node | senior | 双人 + 窗口 | 1 node | 必须 | 重启前确认可回滚 |
+| `k8s.uncordon` | prod | node | senior | 单人 | 1 node | N/A | 重新 drain |
 | `cloud.replace_node` | prod | node pool | senior | 双人 + CAB | 1 node | 必须 | 回滚/替换 |
 | `k8s.delete_namespace` | 任意 | 任意 | — | 禁止 | — | — | — |
+
+::: tip 贯穿案例
+在[K8s 节点 NotReady 案例](../appendix/case-notready)里，Agent 只能建议 `drain_node`，不能直接执行；drain 需要双人审批、PDB 检查和 `uncordon` 回滚，重启 kubelet 与节点替换分别升级到更严格的审批。
+:::
 
 ## 权限规则
 
