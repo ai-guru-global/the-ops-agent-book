@@ -17,6 +17,18 @@ description: 全球与中国主要厂商的运维 Agent 产品地图：独立产
 | **Agent 开发/编排平台** | 构建 Agent、多 Agent、RAG、工具、评测 | AgentScope、百炼、Microsoft Foundry、Spring AI Alibaba、Qwen-Agent | 框架开放度、可观测、评测、部署 |
 | **平台中的 Agent 能力** | 传统 AIOps/ITSM/安全/网络/FinOps 平台新增的 Agent 功能 | Dynatrace、ServiceNow、Palo Alto、Cisco、Apptio | 与既有数据/流程的集成、Agent 是否真能行动 |
 
+::: diagram 图 21 · 运维 Agent 的五类产品形态 | 五类产品形态是并列分类，不是演进顺序；选型先确定层级。
+```mermaid
+flowchart TB
+  H[运维 Agent 产品形态]
+  H --> A[独立运维 Agent<br/>AWS / Azure / CloudQ]
+  H --> B[内嵌 Agent 助手<br/>Azure Copilot / Now Assist]
+  H --> C[Agent 运行时<br/>AgentRun / AgentCore]
+  H --> D[Agent 开发 / 编排平台<br/>AgentScope / 百炼]
+  H --> E[平台中的 Agent 能力<br/>Dynatrace / ServiceNow]
+```
+:::
+
 ## 覆盖地图
 
 | 区域 | 覆盖的厂商/产品家族 |

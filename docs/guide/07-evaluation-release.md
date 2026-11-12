@@ -9,17 +9,22 @@ description: 运维 Agent 的评测金字塔、数据集设计、指标、回放
 
 ## 评测金字塔
 
-```text
-                 ┌─────────────────┐
-                 │  Production      │  影子 / 灰度 / 真实流量
-                 ├─────────────────┤
-                 │  Scenario E2E    │  完整事故回放与端到端任务
-                 ├─────────────────┤
-                 │  Task            │  诊断、计划、执行、验证
-                 ├─────────────────┤
-                 │  Tool / Unit     │  工具调用、参数、权限、错误处理
-                 └─────────────────┘
+::: diagram 图 09 · 评测金字塔与发布阶梯 | 评测金字塔与发布阶梯；越往上越接近真实，越往下越便宜。
+```mermaid
+flowchart TB
+  subgraph Pyramid[评测金字塔]
+    direction TB
+    Prod[Production<br/>影子 / 灰度 / 真实流量] --> E2E[Scenario E2E<br/>完整事故回放]
+    E2E --> Task[Task<br/>诊断 / 计划 / 执行 / 验证]
+    Task --> Unit[Tool / Unit<br/>工具调用 / 参数 / 权限]
+  end
+  subgraph Ladder[发布阶梯]
+    direction LR
+    Offline[离线评测] --> Replay[历史回放] --> Shadow[影子模式] --> Advise[建议模式] --> Control[受控执行] --> Auto[有界自治]
+  end
+  Unit --> Offline
 ```
+:::
 
 越往下越便宜、越可自动化；越往上越接近真实，但成本越高。四层都要有，不能只做 Demo。
 

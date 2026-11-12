@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T23:10:00+08:00",
+  "title": "Design System: The Ops Agent Book",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "IBM Blue 60",
+        "canonical": "#0f62fe",
+        "tonalRamp": ["#001141", "#002d9c", "#0043ce", "#0f62fe", "#4589ff", "#78a9ff", "#a6c8ff", "#d0e2ff"]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "IBM Blue 70",
+        "canonical": "#0043ce",
+        "tonalRamp": ["#001141", "#001d6c", "#002d9c", "#0043ce", "#0f62fe", "#4589ff", "#78a9ff", "#a6c8ff"]
+      },
+      "primary-soft": {
+        "role": "primary",
+        "displayName": "IBM Blue 10",
+        "canonical": "#edf5ff",
+        "tonalRamp": ["#edf5ff", "#d0e2ff", "#a6c8ff", "#78a9ff", "#4589ff", "#0f62fe", "#0043ce", "#002d9c"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "IBM Gray 10",
+        "canonical": "#f4f4f4",
+        "tonalRamp": ["#161616", "#262626", "#393939", "#525252", "#6f6f6f", "#8d8d8d", "#c6c6c6", "#f4f4f4"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "IBM Gray 100",
+        "canonical": "#161616",
+        "tonalRamp": ["#161616", "#262626", "#393939", "#525252", "#6f6f6f", "#8d8d8d", "#c6c6c6", "#e0e0e0"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "IBM Gray 70",
+        "canonical": "#525252",
+        "tonalRamp": ["#161616", "#262626", "#393939", "#525252", "#6f6f6f", "#8d8d8d", "#a8a8a8", "#c6c6c6"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "IBM Gray 20",
+        "canonical": "#e0e0e0",
+        "tonalRamp": ["#161616", "#393939", "#525252", "#6f6f6f", "#8d8d8d", "#a8a8a8", "#c6c6c6", "#e0e0e0"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#e0e0e0", "#f4f4f4", "#fafafa", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "IBM Amber",
+        "canonical": "#f1c21b",
+        "tonalRamp": ["#3d2b00", "#684e00", "#8e6a00", "#b28600", "#d2a100", "#f1c21b", "#fcf4d6", "#fff8e1"]
+      },
+      "danger": {
+        "role": "semantic",
+        "displayName": "IBM Red",
+        "canonical": "#da1e28",
+        "tonalRamp": ["#2d0709", "#520408", "#750e13", "#a2191f", "#da1e28", "#fa4d56", "#ff8389", "#fff1f1"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Homepage title only; second line may be IBM Blue 60."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Homepage section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Article h2 and h3 headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running prose at a 65–75ch measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Sidebar groups, metadata labels, table headers."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code, identifiers, figure numbers, and stage labels only."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "control",
+        "value": "120ms ease",
+        "purpose": "Hover and active state transitions for buttons and links."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "960px" },
+      { "name": "lg", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Square IBM blue action button for the main next step.",
+      "html": "<button class=\"ds-btn-primary\">开始阅读</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 20px; border: 1px solid var(--book-blue); border-radius: 0; background: var(--book-blue); color: var(--book-white); font: 500 13px/1 \"IBM Plex Sans\", sans-serif; cursor: pointer; transition: background-color 120ms ease, border-color 120ms ease; } .ds-btn-primary:hover { background: var(--book-blue-dark); border-color: var(--book-blue-dark); } .ds-btn-primary:focus-visible { outline: 2px solid var(--book-blue); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "White, square button with a gray rule for secondary actions.",
+      "html": "<button class=\"ds-btn-secondary\">场景手册</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 20px; border: 1px solid var(--book-line-strong); border-radius: 0; background: var(--book-white); color: var(--book-ink); font: 500 13px/1 \"IBM Plex Sans\", sans-serif; cursor: pointer; transition: background-color 120ms ease, border-color 120ms ease; } .ds-btn-secondary:hover { border-color: var(--book-ink); background: var(--book-gray-10); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--book-blue); outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "button-secondary",
+      "description": "Muted text link; active state turns IBM blue and semibold without an underline.",
+      "html": "<a class=\"ds-nav-link ds-nav-link--active\" href=\"#\">场景手册</a>",
+      "css": ".ds-nav-link { display: inline-flex; align-items: center; height: 64px; color: var(--book-muted); font: 400 13px/1 \"IBM Plex Sans\", sans-serif; text-decoration: none; } .ds-nav-link:hover { color: var(--book-ink); } .ds-nav-link--active { color: var(--book-blue); font-weight: 600; } .ds-nav-link:focus-visible { outline: 2px solid var(--book-blue); outline-offset: 2px; }"
+    },
+    {
+      "name": "Data Table",
+      "kind": "custom",
+      "refersTo": "table-header",
+      "description": "Dense 1px-ruled table for evidence, permissions, and vendor comparisons.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>工具</th><th>类型</th><th>审批</th></tr></thead><tbody><tr><td>k8s.drain_node</td><td>变更</td><td>双人</td></tr><tr><td>k8s.get_pod</td><td>只读</td><td>无</td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; background: var(--book-white); color: var(--book-body); font: 400 13px/1.58 \"IBM Plex Sans\", sans-serif; } .ds-table th { padding: 0.65rem 0.75rem; border: 1px solid var(--book-line); background: var(--book-gray-10); color: var(--book-muted); font-size: 11px; font-weight: 600; text-align: left; } .ds-table td { padding: 0.65rem 0.75rem; border: 1px solid var(--book-line); vertical-align: top; } .ds-table tbody tr:nth-child(even) { background: #fafafa; } .ds-table tbody tr:hover { background: var(--book-blue-10); }"
+    },
+    {
+      "name": "Diagram Figure",
+      "kind": "custom",
+      "refersTo": "diagram",
+      "description": "Numbered Mermaid figure with a gray caption strip and a white drawing body.",
+      "html": "<figure class=\"ds-diagram\"><figcaption>图 01 · 运维 Agent 的最小闭环</figcaption><div class=\"ds-diagram__body\"><svg width=\"100%\" height=\"80\" viewBox=\"0 0 400 80\" role=\"img\" aria-label=\"Diagram placeholder\"><rect x=\"8\" y=\"20\" width=\"90\" height=\"40\" fill=\"#edf5ff\" stroke=\"#0f62fe\"></rect><text x=\"53\" y=\"45\" text-anchor=\"middle\" font-family=\"IBM Plex Sans\" font-size=\"12\" fill=\"#161616\">Observe</text><path d=\"M100 40 H150\" stroke=\"#525252\" fill=\"none\" marker-end=\"url(#arrow)\"></path><defs><marker id=\"arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0 0 L6 3 L0 6 z\" fill=\"#525252\"></path></marker></defs></svg></div></figure>",
+      "css": ".ds-diagram { margin: 0; border: 1px solid var(--book-line); background: var(--book-white); } .ds-diagram figcaption { padding: 10px 14px; border-bottom: 1px solid var(--book-line); background: var(--book-gray-10); color: var(--book-muted); font: 600 11px/1.4 \"IBM Plex Sans\", sans-serif; letter-spacing: 0.04em; } .ds-diagram__body { padding: 24px 16px; overflow-x: auto; background: var(--book-white); }"
+    },
+    {
+      "name": "Index Row",
+      "kind": "custom",
+      "refersTo": "button-secondary",
+      "description": "Homepage contents row: blue number, title and note, action link. The signature alternative to cards.",
+      "html": "<ol class=\"ds-index\"><li><span class=\"ds-index__num\">01</span><div class=\"ds-index__body\"><h3>方法与生命周期</h3><p>为什么运维 Agent 不一样 · 全生命周期 · 场景选择 · 架构 · 工具与权限</p></div><a class=\"ds-index__link\" href=\"#\">进入 →</a></li></ol>",
+      "css": ".ds-index { margin: 0; padding: 0; border-top: 1px solid var(--book-line); list-style: none; } .ds-index li { display: grid; grid-template-columns: 88px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding: 18px 0; border-bottom: 1px solid var(--book-line); } .ds-index__num { padding-top: 4px; color: var(--book-blue); font: 500 11px/1.4 \"IBM Plex Mono\", monospace; } .ds-index__body h3 { margin: 0; color: var(--book-ink); font: 600 18px/1.35 \"IBM Plex Sans\", sans-serif; } .ds-index__body p { margin: 6px 0 0; color: var(--book-muted); font: 400 13px/1.7 \"IBM Plex Sans\", sans-serif; } .ds-index__link { padding-top: 4px; color: var(--book-blue); font: 500 12px/1.4 \"IBM Plex Sans\", sans-serif; text-decoration: none; white-space: nowrap; } .ds-index__link:hover { color: var(--book-blue-dark); text-decoration: underline; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The IBM Field Manual",
+    "overview": "The site is a technical publication, not a product landing page. It should read like an IBM engineering manual set on white paper: precise headings, thin gray rules, a calm reading column, and one confident blue that marks action and evidence. The world owns the frame, the masthead, the contents index, and the figure system; the prose column stays quiet and readable. The redesign removes the previous dark hero, warm paper ground, card grid, and eyebrow labels. What remains is a document-first system: a white page, IBM Plex type, square geometry, data tables, and numbered Mermaid diagrams. The diagram system is the signature: blue-stroked flowcharts, sequence diagrams, state machines, and timelines that explain the method in the same visual grammar across the book.",
+    "keyCharacteristics": [
+      "White #ffffff ground with IBM Gray rules; no dark mode.",
+      "IBM Blue 60 #0f62fe is the only accent.",
+      "IBM Plex Sans for reading; IBM Plex Mono only for code, IDs, figure numbers, and stage labels.",
+      "Square corners, 1px borders, no shadows.",
+      "Tables, index rows, and numbered diagrams instead of cards.",
+      "65–75ch body measure and generous section rhythm."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Blue is the only accent. Do not introduce a second brand hue, gradient, or colored glow; emphasis comes from blue, weight, and scale.",
+        "section": "colors"
+      },
+      {
+        "name": "The Surface Rule",
+        "body": "The page ground is white. Gray 10 is a surface for data and annotations, never a page-wide background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Column Rule",
+        "body": "Running text stays at 65–75ch and 1.8 line-height. Never set body prose or headings in monospace.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono-For-Data Rule",
+        "body": "Monospace is for code, IDs, measurements, figure numbers, and stage labels. It is not a “technical” costume for labels or nav.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rule-Not-Shadow Rule",
+        "body": "If a boundary is needed, draw a 1px rule. Never use a shadow to imply hierarchy.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use IBM Plex Sans for reading and IBM Plex Mono only for code, IDs, figure numbers, and stage labels.",
+      "Do keep the page ground white and use Gray 10 only for data surfaces and annotations.",
+      "Do use IBM Blue 60 for action, links, active navigation, and diagram strokes; keep it rare enough to mean something.",
+      "Do use 1px gray rules to separate sections, rows, and metadata.",
+      "Do number every concept diagram and give it a caption plus surrounding text explanation.",
+      "Do keep the body measure at 65–75ch and section rhythm generous."
+    ],
+    "donts": [
+      "Don't add a dark theme or a theme toggle; this world is forced light.",
+      "Don't use gradient text, glass, colored glows, or decorative shadows.",
+      "Don't use rounded cards, card grids, or nested cards for structure; use index rows and tables.",
+      "Don't put an eyebrow/kicker label above a heading; the heading carries its own weight.",
+      "Don't use a colored left border above 1px on cards, callouts, or list items.",
+      "Don't set running prose or headings in monospace.",
+      "Don't introduce a second accent color; blue is the only one."
+    ]
+  }
+}

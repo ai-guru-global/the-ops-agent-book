@@ -18,13 +18,15 @@ Agent 是一个非人类身份（Non-Human Identity, NHI），必须有：
 - **短时凭证**：按任务签发，任务结束即失效。
 - **可审计**：每次调用记录身份、委托、审批、动作。
 
-```text
-Human / System
-  → delegates to Agent Identity（短期、受限）
-    → tool call（按 scope 授权）
-      → approval（高风险动作）
-        → audit（who/what/why/outcome）
+::: diagram 图 14 · 身份、委托与审计链 | 人类/系统委托给 Agent 身份，再按 scope 调用工具、审批与审计。
+```mermaid
+flowchart LR
+  H[Human / System] --> A[Agent Identity<br/>短期 / 受限]
+  A --> T[Tool call<br/>按 scope 授权]
+  T --> P[Approval<br/>高风险动作]
+  P --> U[Audit<br/>who / what / why / outcome]
 ```
+:::
 
 ::: warning 不要给 Agent 一个“超级账号”
 共享高权限账号会让事故无法归因、权限无法回收、审计无法通过。Agent 身份要像服务账号一样被治理，而不是像人的账号一样被借用。

@@ -91,6 +91,26 @@ description: K8s 集群运维 Agent 的范围、证据源、工具清单、任�
 8. 验证：节点 Ready、Pod 恢复、PDB 满足
 ```
 
+::: diagram 图 16 · K8s 节点 NotReady 诊断与恢复 | 节点 NotReady 的取证、假设、审批、执行与验证路径；drain 不是第一步。
+```mermaid
+flowchart TD
+  A[告警: Node NotReady] --> B[读取 node conditions]
+  B --> C{Ready=False?}
+  C -- 否 --> X[检查其他信号或结束]
+  C -- 是 --> D{Memory / Disk / PID Pressure?}
+  D -- DiskPressure --> E[kubelet 日志 + 文件系统 + 事件]
+  D -- 否 --> F[kubelet / containerd / CNI / 云主机]
+  E --> G[形成假设与证据包]
+  F --> G
+  G --> H{需要 drain?}
+  H -- 否 --> I[只读建议 / 观察]
+  H -- 是 --> J[PDB 检查 + 双人审批]
+  J --> K[drain + 清理 / 重启 / 替换]
+  K --> L[验证 Node Ready / Pod / SLO]
+  L --> M[复盘 + 评测集更新]
+```
+:::
+
 ### 4.2.1 贯穿案例：磁盘压力导致的 NotReady
 
 集群 `prod-us-east-1`，节点 `ip-10-42-7-19` 在 02:07 报 NotReady。Agent 的执行过程：

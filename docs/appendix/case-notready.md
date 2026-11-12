@@ -37,6 +37,29 @@ description: 从告警、证据包、假设、审批包到 drain、清理、验�
 | 02:50 | 推理 P95 回到 SLO 基线 | monitoring | 系统 |
 | 03:10 | 事故关闭，生成复盘与评测案例 | agent | 人 + Agent |
 
+::: diagram 图 22 · NotReady 案例的取证、审批与验证时序 | NotReady 案例的取证、双人审批、drain、验证与复盘时序。
+```mermaid
+sequenceDiagram
+  autonumber
+  participant M as Monitoring
+  participant A as Agent
+  participant H as Human Approver
+  participant K as K8s
+  participant S as SLO
+  M->>A: NotReady 告警
+  A->>K: 读 node conditions / logs / metrics
+  K-->>A: DiskPressure=True，imagefs below threshold
+  A->>A: 证据包 + 假设
+  A->>H: drain 计划 + 审批包
+  H-->>A: 双人审批通过
+  A->>K: cordon + PDB 检查 + drain
+  A->>K: 清理旧日志（同一审批包）
+  K-->>A: 节点 Ready，Pod 重新调度
+  A->>S: 验证 P95 回到基线
+  A->>H: 复盘 + 评测集更新
+```
+:::
+
 ## 3. 证据包
 
 ```json

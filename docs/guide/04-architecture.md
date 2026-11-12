@@ -9,22 +9,16 @@ description: 运维 Agent 的参考架构、五种运行模式、工具分层、
 
 ## 参考架构
 
-```text
-┌──────────────────────────────────────────────────────────────┐
-│ 入口       Chat / IM / 工单 / CLI / API / 告警事件            │
-├──────────────────────────────────────────────────────────────┤
-│ 编排       Single Agent / Workflow / Supervisor / Multi-Agent│
-├──────────────────────────────────────────────────────────────┤
-│ 上下文     服务目录 / 拓扑 / 指标 / 日志 / 链路 / 变更历史    │
-│            Runbook / 事故库 / 策略与约束                      │
-├──────────────────────────────────────────────────────────────┤
-│ 工具       只读查询 / 分析 / 变更 / 验证 / 审批 / 凭证        │
-├──────────────────────────────────────────────────────────────┤
-│ 策略       RBAC/ABAC / 变更窗口 / blast radius / dry-run      │
-├──────────────────────────────────────────────────────────────┤
-│ 运营       Trace / 评测 / 成本 / 审计 / 反馈 / 版本管理       │
-└──────────────────────────────────────────────────────────────┘
+::: diagram 图 04 · 运维 Agent 参考架构 | 六层参考架构；证据格式、工具契约、权限模型与 Trace 不应随模型替换。
+```mermaid
+flowchart TB
+  U[入口<br/>Chat / IM / 工单 / CLI / API / 告警事件] --> O[编排<br/>Single Agent / Workflow / Supervisor / Multi-Agent]
+  O --> C[上下文<br/>服务目录 / 拓扑 / 指标 / 日志 / 链路 / 变更历史 / Runbook / 事故库]
+  C --> T[工具<br/>只读查询 / 分析 / 变更 / 验证 / 审批 / 凭证]
+  T --> P[策略<br/>RBAC/ABAC / 变更窗口 / blast radius / dry-run]
+  P --> X[运营<br/>Trace / 评测 / 成本 / 审计 / 反馈 / 版本管理]
 ```
+:::
 
 每一层都要能独立替换：模型可以换、工具可以换、运行时可以换，但**证据格式、工具契约、权限模型和 Trace 数据模型**应保持稳定。
 
@@ -44,11 +38,24 @@ description: 运维 Agent 的参考架构、五种运行模式、工具分层、
 
 ## 一次运行的 State Machine
 
-```text
-INTAKE → OBSERVE → HYPOTHESIZE → PLAN → AWAIT_APPROVAL
-      → EXECUTE → VERIFY → REPORT → CLOSED
-                      ↘ ESCALATE ↗
+::: diagram 图 05 · 一次运行的 State Machine | 一次运行的状态机；审批、升级与验证是三个不可省略的状态。
+```mermaid
+stateDiagram-v2
+  [*] --> INTAKE
+  INTAKE --> OBSERVE
+  OBSERVE --> HYPOTHESIZE
+  HYPOTHESIZE --> PLAN
+  PLAN --> AWAIT_APPROVAL
+  AWAIT_APPROVAL --> EXECUTE: approved
+  AWAIT_APPROVAL --> ESCALATE: timeout / high risk
+  EXECUTE --> VERIFY
+  VERIFY --> REPORT
+  REPORT --> CLOSED
+  VERIFY --> ESCALATE: failed
+  ESCALATE --> [*]
+  CLOSED --> [*]
 ```
+:::
 
 | 状态 | 系统要做什么 | 必须留下什么 |
 | --- | --- | --- |

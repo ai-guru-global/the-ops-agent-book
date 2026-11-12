@@ -106,9 +106,17 @@ decisions:
 
 ## 5. 典型任务流
 
-```text
-Detect → Declare → Assemble → Triage → Mitigate → Resolve → Review
+::: diagram 图 20 · 事故指挥流程 | 事故指挥从发现到复盘的七个阶段；指挥 Agent 负责记录、分派与汇总。
+```mermaid
+flowchart LR
+  D[Detect<br/>发现] --> C[Declare<br/>定级]
+  C --> A[Assemble<br/>拉群与建板]
+  A --> T[Triage<br/>假设与证据]
+  T --> M[Mitigate<br/>方案与审批]
+  M --> R[Resolve<br/>验证恢复]
+  R --> V[Review<br/>复盘与评测更新]
 ```
+:::
 
 | 阶段 | Coordinator Agent 做什么 |
 | --- | --- |

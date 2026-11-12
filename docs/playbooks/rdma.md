@@ -39,6 +39,32 @@ description: RDMA/RoCE/IB 高网的证据源、工具、任务流、护栏、评
 | 调度 | 作业放置、rail 对齐、GPU 拓扑 | 性能回归是否与放置有关 |
 | 固件/驱动 | 兼容性矩阵、版本清单 | 版本漂移与已知问题 |
 
+::: diagram 图 17 · RDMA fabric 的 rail / leaf / spine 拓扑 | Spine–Leaf–Rail–Host 的 fabric 拓扑；先确认 rail 对齐与端口映射。
+```mermaid
+flowchart TB
+  subgraph Spine[Spine]
+    S1[Spine 1]
+    S2[Spine 2]
+  end
+  subgraph Leaf[Leaf]
+    L1[Leaf 1]
+    L2[Leaf 2]
+  end
+  subgraph Rail[Rail]
+    R1[Rail 0<br/>GPU 0–3]
+    R2[Rail 1<br/>GPU 4–7]
+  end
+  S1 --- L1
+  S1 --- L2
+  S2 --- L1
+  S2 --- L2
+  L1 --- R1
+  L2 --- R2
+  R1 --- H1[Host A<br/>NIC / GPU]
+  R2 --- H2[Host B<br/>NIC / GPU]
+```
+:::
+
 ## 3. 工具清单
 
 | 工具 | 类型 | 风险 | 审批 | 说明 |

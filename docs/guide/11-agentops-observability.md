@@ -11,17 +11,19 @@ description: 运维 Agent 的 Trace、Session、工具调用、评测数据飞�
 
 传统服务的 Trace 是确定的：HTTP → DB → cache。Agent 的 Trace 是概率性的、多步的、带工具调用的：
 
-```text
-Session
-  └─ Run
-      ├─ Model call（prompt / tokens / latency）
-      ├─ Reasoning / plan
-      ├─ Tool call 1（input / output / error）
-      ├─ Tool call 2
-      ├─ Approval（who / when / what）
-      ├─ Verification（metrics / logs / SLO）
-      └─ Outcome（success / fail / escalate / rollback）
+::: diagram 图 12 · AgentOps Trace | Session–Run–Tool–Approval–Outcome 的 Trace 结构；成本和版本必须可归因。
+```mermaid
+flowchart LR
+  S[Session] --> R[Run]
+  R --> M[Model call<br/>prompt / tokens / latency]
+  R --> P[Reasoning / plan]
+  R --> T1[Tool call 1<br/>input / output / error]
+  R --> T2[Tool call 2]
+  R --> A[Approval<br/>who / when / what]
+  R --> V[Verification<br/>metrics / logs / SLO]
+  R --> O[Outcome<br/>success / fail / escalate / rollback]
 ```
+:::
 
 没有这条链，事故复盘只能靠聊天记录；没有成本字段，就无法按团队/场景核算；没有版本字段，就无法定位“是哪次 Prompt/模型/工具变更导致退化”。
 
@@ -76,14 +78,17 @@ Session
 
 ## 从生产轨迹到评测集
 
-```text
-真实告警/工单
-  → Agent Run Trace
-    → 人工标注（对/错/风险）
-      → 评测案例（输入、证据、期望动作、禁止动作）
-        → 回归测试
-          → 发布门禁
+::: diagram 图 13 · 从生产轨迹到评测集的数据飞轮 | 生产轨迹经过标注、评测、回归与发布门禁，回到下一轮生产。
+```mermaid
+flowchart LR
+  A[真实告警 / 工单] --> B[Agent Run Trace]
+  B --> C[人工标注<br/>对 / 错 / 风险]
+  C --> D[评测案例<br/>输入 / 证据 / 动作 / 禁止项]
+  D --> E[回归测试]
+  E --> F[发布门禁]
+  F --> A
 ```
+:::
 
 这条飞轮是 AgentOps 最大的价值：**生产数据不是只用来排障，而是用来让下一版更可靠。**
 

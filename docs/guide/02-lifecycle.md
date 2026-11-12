@@ -22,9 +22,12 @@ description: 运维 Agent 的八个阶段、六道门禁、核心交付物与常
 
 ## 六道门禁
 
-```text
-G0 问题门禁 → G1 设计门禁 → G2 建设门禁 → G3 评测门禁 → G4 发布门禁 → G5 运营评审
+::: diagram 图 02 · 八阶段与六道门禁 | 八个阶段与六道门禁的对应关系；门禁是进入下一阶段的条件。
+```mermaid
+flowchart LR
+  P[Plan<br/>G0 问题] --> D[Design<br/>G1 设计] --> B[Build<br/>G2 建设] --> V[Validate<br/>G3 评测] --> R[Release<br/>G4 发布] --> O[Operate<br/>G5 运营] --> I[Improve] --> T[Retire]
 ```
+:::
 
 ### G0 问题门禁
 

@@ -1,8 +1,10 @@
 import { defineConfig } from "vitepress";
+import { withMermaid } from "vitepress-plugin-mermaid";
+import container from "markdown-it-container";
 
 const base = process.env.GITHUB_PAGES ? "/the-ops-agent-book/" : "/";
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   lang: "zh-CN",
   title: "The Ops Agent Book",
   titleTemplate: ":title · 运维智能体工程手册",
@@ -12,7 +14,7 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: `${base}favicon.svg` }],
-    ["meta", { name: "theme-color", content: "#161616" }],
+    ["meta", { name: "theme-color", content: "#ffffff" }],
     [
       "meta",
       {
@@ -22,6 +24,30 @@ export default defineConfig({
       },
     ],
   ],
+  markdown: {
+    config: (md: any) => {
+      md.use(container, "diagram", {
+        render: (tokens: any[], idx: number) => {
+          const token = tokens[idx];
+          if (token.nesting === 1) {
+            const raw = token.info.trim().slice("diagram".length).trim();
+            const [title, ...noteParts] = raw.split("|");
+            const note = noteParts.join("|").trim();
+            const titleHtml = title.trim()
+              ? `<p class="custom-block-title">${md.utils.escapeHtml(
+                  title.trim()
+                )}</p>`
+              : "";
+            const noteHtml = note
+              ? `<p class="diagram-note">${md.utils.escapeHtml(note)}</p>`
+              : "";
+            return `<div class="custom-block diagram"><div class="diagram-head">${titleHtml}${noteHtml}</div>\n`;
+          }
+          return "</div>\n";
+        },
+      });
+    },
+  },
   themeConfig: {
     logo: "/favicon.svg",
     siteTitle: "The Ops Agent Book",
@@ -129,4 +155,83 @@ export default defineConfig({
       copyright: "© 2026 ai-guru-global contributors · CC BY 4.0",
     },
   },
-});
+  appearance: false,
+  mermaid: {
+    theme: "base",
+    themeVariables: {
+      fontFamily:
+        '"IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif',
+      fontSize: "14px",
+      primaryColor: "#f4f4f4",
+      primaryTextColor: "#161616",
+      primaryBorderColor: "#0f62fe",
+      secondaryColor: "#f4f4f4",
+      secondaryTextColor: "#161616",
+      secondaryBorderColor: "#8d8d8d",
+      tertiaryColor: "#ffffff",
+      tertiaryTextColor: "#161616",
+      tertiaryBorderColor: "#c6c6c6",
+      lineColor: "#525252",
+      textColor: "#161616",
+      mainBkg: "#f4f4f4",
+      nodeBorder: "#0f62fe",
+      clusterBkg: "#ffffff",
+      clusterBorder: "#c6c6c6",
+      edgeLabelBackground: "#ffffff",
+      actorBkg: "#f4f4f4",
+      actorBorder: "#0f62fe",
+      actorTextColor: "#161616",
+      signalColor: "#525252",
+      signalTextColor: "#161616",
+      labelBoxBkgColor: "#f4f4f4",
+      labelBoxBorderColor: "#0f62fe",
+      labelTextColor: "#161616",
+      loopTextColor: "#161616",
+      noteBkgColor: "#f4f4f4",
+      noteBorderColor: "#c6c6c6",
+      noteTextColor: "#161616",
+      activationBkgColor: "#d0e2ff",
+      activationBorderColor: "#0f62fe",
+      sequenceNumberColor: "#ffffff",
+      pie1: "#0f62fe",
+      pie2: "#78a9ff",
+      pie3: "#a6c8ff",
+      pie4: "#d0e2ff",
+      pieTitleTextSize: "16px",
+      pieSectionTextSize: "12px",
+      pieLegendTextSize: "12px",
+      cScale0: "#0f62fe",
+      cScale1: "#78a9ff",
+      cScale2: "#a6c8ff",
+      cScale3: "#d0e2ff",
+      cScale4: "#0043ce",
+      cScale5: "#8d8d8d",
+      cScale6: "#525252",
+      sectionBkgColor: "#edf5ff",
+      altSectionBkgColor: "#d0e2ff",
+      sectionBkgColor2: "#f4f4f4",
+      taskBkgColor: "#0f62fe",
+      taskBorderColor: "#0043ce",
+      taskTextColor: "#ffffff",
+      taskTextOutsideColor: "#161616",
+      taskTextLightColor: "#161616",
+      taskTextDarkColor: "#ffffff",
+      gridColor: "#e0e0e0",
+      todayLineColor: "#0f62fe",
+    },
+    flowchart: {
+      curve: "linear",
+      htmlLabels: true,
+      nodeSpacing: 36,
+      rankSpacing: 48,
+      padding: 12,
+    },
+    sequence: {
+      actorMargin: 44,
+      messageMargin: 32,
+      boxMargin: 8,
+      useMaxWidth: true,
+    },
+    timeline: { useMaxWidth: true },
+  },
+}));

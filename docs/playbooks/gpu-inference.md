@@ -71,6 +71,28 @@ description: GPU 推理运维 Agent 的证据源、KV Cache/OOM/XID 诊断、工
 10. 验证：TTFT/TPOT、错误率、吞吐、SLO
 ```
 
+::: diagram 图 18 · GPU 推理延迟 triage | TTFT/TPOT 升高的四类瓶颈与对应动作；先限流/调参，再考虑硬件。
+```mermaid
+flowchart TD
+  A[TTFT / TPOT 升高] --> B[流量与队列]
+  A --> C[批处理与 KV Cache]
+  A --> D[GPU / 节点健康]
+  A --> E[版本与配置变更]
+  B --> F{主要瓶颈}
+  C --> F
+  D --> F
+  E --> F
+  F -- 流量 --> G[限流 / 扩副本]
+  F -- KV Cache --> H[调 max_model_len / batch]
+  F -- 硬件 --> I[drain / 复位 / 替换]
+  F -- 版本 --> J[canary / 回滚]
+  G --> K[验证 TTFT / TPOT / 错误率 / SLO]
+  H --> K
+  I --> K
+  J --> K
+```
+:::
+
 ### 4.2 OOM / KV Cache 耗尽
 
 先算账，再调参：

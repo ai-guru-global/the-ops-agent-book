@@ -11,17 +11,19 @@ description: 运维 Agent 的工程边界、三种角色、最小闭环与阅读
 
 先看一个最小的运维 Agent 闭环。它不是“用户问、模型答”，而是：
 
-```text
-观察 Observe
-  → 取证 Evidence
-    → 假设 Hypothesize
-      → 计划 Plan
-        → 审批 Approve
-          → 执行 Act
-            → 验证 Verify
-              → 复盘 Learn
-                → 回到观察
+::: diagram 图 01 · 运维 Agent 的最小闭环 | 从观察到复盘的闭环；任何一环缺失都会让 Agent 退化。
+```mermaid
+flowchart LR
+  A[观察<br/>Observe] --> B[取证<br/>Evidence]
+  B --> C[假设<br/>Hypothesize]
+  C --> D[计划<br/>Plan]
+  D --> E[审批<br/>Approve]
+  E --> F[执行<br/>Act]
+  F --> G[验证<br/>Verify]
+  G --> H[复盘<br/>Learn]
+  H --> A
 ```
+:::
 
 任何一步缺失，Agent 都会退化：
 

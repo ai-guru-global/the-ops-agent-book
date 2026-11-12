@@ -96,6 +96,22 @@ Agent 的“成本”不仅是 Token：还有 GPU、沙箱、存储、网络与�
 
 ## 2026–2028 路线图
 
+::: diagram 图 15 · 2026–2028 运维 Agent 路线图 | 2026–2028 的三个阶段；从只读 Copilot 到有界自治。
+```mermaid
+flowchart LR
+  subgraph Y2026[2026]
+    A1[只读 Copilot] --- A2[评测集与 AgentOps] --- A3[身份 / 权限与受控执行]
+  end
+  subgraph Y2027[2027]
+    B1[多 Agent / A2A] --- B2[仿真与数字孪生] --- B3[受控自进化与合规]
+  end
+  subgraph Y2028[2028]
+    C1[有界自治] --- C2[跨域协作] --- C3[形式化保障与能效优化]
+  end
+  Y2026 --> Y2027 --> Y2028
+```
+:::
+
 | 阶段 | 重点 |
 | --- | --- |
 | **2026** | 只读 Copilot、评测集、AgentOps、身份/权限、受控执行 |
