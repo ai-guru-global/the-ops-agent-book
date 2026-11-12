@@ -8,7 +8,7 @@
 
 ![The Ops Agent Book 首页](assets/preview.png)
 
-在线阅读：**https://ai-guru-global.github.io/the-ops-agent-book/**（启用 GitHub Pages 后）
+在线阅读：**https://ai-guru-global.github.io/the-ops-agent-book/**
 
 ## 这本书回答什么
 
