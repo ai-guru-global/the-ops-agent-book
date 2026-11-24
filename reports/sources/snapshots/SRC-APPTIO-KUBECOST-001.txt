@@ -1,0 +1,396 @@
+IBM Kubecost - K8s Cost Monitoring - Apptio
+URL: https://www.apptio.com/products/kubecost/
+Captured: 2026-11-25
+Content-Type: text/html; charset=UTF-8
+
+IBM Kubecost - K8s Cost Monitoring - Apptio
+Skip to content
+Contact Us
+Search
+Support
+Login
+Americas
+Europe & Middle East
+Asia-Pacific
+Login
+Americas
+Europe & Middle East
+Asia-Pacific
+Solutions
+IT Financial Management
+Cloud Financial Management
+Strategic Portfolio Management
+Financial Intelligence
+Public Sector IT
+View All Solutions
+Products
+IBM Apptio
+IBM Cloudability
+Cloudability
+Cloudability Savings Automation
+Cloudability MSP
+IBM Kubecost
+IBM Targetprocess
+View All Products
+Resources
+Explore
+Case Studies
+Resource Center
+Blog
+Kubernetes Guides
+Shows & Podcasts
+Customer Success
+Support
+Education Services
+Professional Services
+Connect
+Community
+Apptio User Groups
+Events & Webinars
+View Resources Overview
+Company
+Culture & Careers
+Leadership
+Technology Business Management
+Trust
+Partners
+News
+Locations
+View Company Overview
+Request a Demo
+Search
+Support
+Login
+Americas
+Europe & Middle East
+Asia-Pacific
+Solutions
+IT Financial Management
+Cloud Financial Management
+Strategic Portfolio Management
+Financial Intelligence
+Public Sector IT
+View All Solutions
+Products
+IBM Apptio
+IBM Cloudability
+Cloudability
+Cloudability Savings Automation
+Cloudability MSP
+IBM Kubecost
+IBM Targetprocess
+View All Products
+Resources
+Explore
+Case Studies
+Resource Center
+Blog
+Kubernetes Guides
+Shows & Podcasts
+Customer Success
+Support
+Education Services
+Professional Services
+Connect
+Community
+Apptio User Groups
+Events & Webinars
+View Resources Overview
+Company
+Culture & Careers
+Leadership
+Technology Business Management
+Trust
+Partners
+News
+Locations
+View Company Overview
+Request a Demo
+Search
+Support
+Login
+Americas
+Europe & Middle East
+Asia-Pacific
+Solutions
+IT Financial Management
+Total Cost of Ownership (TCO) Solutions
+Cost Transparency
+IT Planning
+Showback & Chargeback
+Cloud Financial Management
+FinOps for AI
+Cloud Cost Management & Optimization
+Cloud Total Cost of Ownership
+Strategic Portfolio Management
+Workforce Management
+Dependency Management
+Demand Intake
+AI-Accelerated Financial Intelligence
+AI Investment Management
+AI-Powered Apptio
+Intelligent Forecasting
+Best Practice Frameworks
+Technology Business Management (TBM)
+FinOps
+Scaled Agile Framework (SAFe)
+Public Sector IT
+View All Solutions >
+Products
+IBM Apptio
+Take control of your IT investments with market-leading ITFM solutions
+Explore Apptio
+IBM Cloudability
+Track, analyze, and optimize your
+cloud spend.
+Explore Cloudability
+Cloudability Savings Automation
+Cloudability MSP
+IBM Kubecost
+Get the Kubernetes visibility you
+need
+Explore Kubecost
+IBM Targetprocess
+Align strategy, optimize
+investments, and deliver
+outcomes
+Explore Targetprocess
+The Financial Intelligence Layer
+Financial Intelligence
+turns islands of data into insights with
+AI-Powered Apptio
+and
+AI Investment Management
+​
+View All Products >
+Resources
+Explore
+Case Studies
+Resource Center
+Blog
+Kubernetes Guides
+Shows & Podcasts
+Customer Success
+Support
+Education Services
+Professional Services
+Connect
+Community
+User Groups
+Events & Webinars
+Analyst Report
+The Forrester Wave™: IT Financial Management Software, Q2 2026
+IBM Apptio was named a Leader in the Forrester ITFM 2026 report and received the highest score possible in the Current Offering category.
+Read the Report
+Analyst Report
+2025 Gartner
+®
+Magic Quadrant™ for Cloud Financial Management Tools
+IBM was positioned furthest in Vision and highest in Execution for IBM Cloudability on the Gartner® Magic Quadrant™ for Cloud Financial Management Tools.
+Read the Report
+View Resources Overview >
+Company
+Culture & Careers
+Leadership
+Technology Business Management
+Trust
+Partners
+News
+Locations
+Join the Apptio Team >
+Join the more than 1,000 Apptians across the globe. Regardless of your specialty or location, we’ve got an
+opportunity for you.
+View Company Overview >
+Solutions
+IT Financial Management
+Cloud Financial Management
+Strategic Portfolio Management
+Financial Intelligence
+Public Sector IT
+View All Solutions
+Products
+IBM Apptio
+IBM Cloudability
+Cloudability
+Cloudability Savings Automation
+Cloudability MSP
+IBM Kubecost
+IBM Targetprocess
+View All Products
+Resources
+Explore
+Case Studies
+Resource Center
+Blog
+Kubernetes Guides
+Shows & Podcasts
+Customer Success
+Support
+Education Services
+Professional Services
+Connect
+Community
+Apptio User Groups
+Events & Webinars
+View Resources Overview
+Company
+Culture & Careers
+Leadership
+Technology Business Management
+Trust
+Partners
+News
+Locations
+View Company Overview
+Request a Demo
+Search
+Support
+Login
+Americas
+Europe & Middle East
+Asia-Pacific
+Install Now
+IBM Kubecost
+Run fast. Spend smart.
+Install Now
+Contact Sales
+Understand and optimize your Kubernetes costs in real-time
+Kubernetes waste quietly drives up cloud spend, often going unnoticed until the monthly cloud bill arrives. Even then, teams are left with an aggregate total and no clear view into which teams or workloads drove the spend, what changed, or where waste is hiding. IBM Kubecost helps teams continuously reduce the cost of operating Kubernetes with real-time visibility, allocation, optimization, and governance. Scale clusters confidently without cost surprises or performance trade-offs. Free to install —
+get started in under 5 minutes
+.
+Typical customer outcomes with IBM Kubecost
+30-50%
+savings on Kubernetes costs
+5 minutes
+to install for free
+10+
+million installs
+Turn Kubernetes cost visibility into savings
+Unify costs across every environment
+Bring Kubernetes cost and usage data, from multi-cloud to on-prem, into one consistent, scalable view.
+Follow the money through your clusters
+See which teams, products, and workloads are driving spend across clusters and reconcile costs with your cloud bill.
+Take action on savings opportunities
+Surface usage insights to spot overprovisioned workloads and automate actions that deliver measurable savings.
+Drive accountability across teams
+Keep spend predictable without slowing teams down, with clear guardrails that maintain cost control as you scale.
+The Leader's Guide to Kubernetes Cost Optimization
+Most Kubernetes waste hides in plain sight — inside over-requested workloads and shared cluster resources. Platform and cloud leaders discover significant gaps between requested and actual resource usage only after cluster spend rises or reliability risk appears. Optimization is possible, but done blindly it can introduce performance and delivery risk.
+Learn more about why Kubernetes cost inefficiency happens and how leading organizations improve visibility, accountability, and efficiency without slowing engineering teams.
+Get the eBook
+Kubecost capabilities
+Visibility
+See real-time Kubernetes costs across clusters, teams, namespaces, workloads, and shared resources. Break down spend by any Kubernetes object and reconcile it with your cloud bill for defensible showback and chargeback.
+Operability
+Operate across Kubernetes anywhere, including multi-cloud and hybrid environments. Combine native cloud billing and custom pricing in a lightweight architecture that scales reliably as your Kubernetes environments grow.
+Optimization
+Drive savings with real usage data to surface over-provisioned workloads across clusters, containers, nodes, and storage. Turn recommendations into automated actions like automated request sizing or namespace turndown.
+Governance
+Prevent overspend and improve predictability with budgets, forecasting, and detect anomalies. Trigger alerts when spend drifts and provide role-based access and reporting that align engineering, FinOps, and finance.
+Purpose-built for teams running Kubernetes
+Kubecost began as an open-source project to give engineering teams visibility into Kubernetes costs. It’s designed from the ground up for Kubernetes, reflecting its open-source roots in the cloud native ecosystem.
+Choose the deployment option that best fits your Kubernetes footprint.
+Foundations
+For individuals, small teams, or those that just need a quick snapshot of their current Kubernetes spend and individual cluster usage in a self-hosted deployment.
+Install Now
+Foundations features:
+Always free
+Unlimited clusters up to 250 cores
+15-day metric retention
+Unlimited users
+EKS, AKS, GKE, on-prem, and more
+Reconciliation with your CSP bill for price accuracy
+Cost optimization insights and automation
+Community support
++ Show all options
+Enterprise Self-hosted
+The self-hosted version of Kubecost provides comprehensive cost monitoring and optimization solution for teams running Kubernetes at scale.
+Buy Now
+For deployments above 3,200 VPCs, please
+contact us
+.
+All Foundations features, plus:
+Unified, multi-cluster view
+Unlimited clusters at any scale
+Unlimited metric retention
+Support for custom pricing
+Role-based Access Control
+Enterprise integrations
+Enhanced GPU optimization
+Resource Quota automations
+Dedicated support and professional services
++ Show all options
+Enterprise Cloud
+Shift the overhead of managing Kubecost to us. Our SaaS solution runs the Kubecost agent locally on your Kubernetes clusters across public cloud and on-prem.
+Contact Us
+All Self-hosted features, plus:
+Updates and configuration managed by Kubecost
+Dedicated domain for your team
+Reduced maintenance and technical overhead
+Kubecost-managed High Availability and Disaster Recovery
+Bring your own identity provider
+Automated scaling and resource management
++ Show all options
+How to Build Cost Awareness into DevOps Workflows
+FinOps has long been reactive—surfacing waste only after configurations are deployed and money is already spent. DevOps leaders are now shifting left, giving teams earlier cost visibility to reduce rework and improve efficiency. This guide shows how to embed cost management into workflows so projects stay accountable, optimized, and aligned to business value.
+Get the Guide
+More Kubecost Resources
+Docs site
+Technical documentation, deployment guides, and API references
+Slack community
+Connect with users and talk directly to our team
+Monthly Kubechats
+Live and on-demand webinars with product experts
+K8s guides
+Hands-on guides for operating and optimizing Kubernetes
+Install for free
+Save 30 – 50% on Kubernetes costs
+Install Kubecost for free and get real-time visibility into Kubernetes spend and resource usage – so you can make smarter, faster decisions. Kubecost is free to install and takes less than 5 minutes to get started.
+Get instant access to our step-by-step installation guide.
+Linkedin-in
+Envelope
+Global – English
+日本 – 日本語
+Latinoamérica – Español
+Brasil – Português
+France – Français
+DACH – Deutsch
+Italia – Italiano
+Global – English
+日本 – 日本語
+Latinoamérica – Español
+Brasil – Português
+France – Français
+DACH – Deutsch
+Italia – Italiano
+Solutions
+IT Financial Management
+Cloud Financial Management
+Strategic Portfolio Management
+Financial Intelligence
+Products
+IBM Apptio
+IBM Cloudability
+IBM Kubecost
+IBM Targetprocess
+Resources
+Resource Center
+Blog
+Kubernetes Guides
+Shows & Podcasts
+Events & Webinars
+Company
+Culture & Careers
+Leadership
+Trust
+News
+Locations
+Founder and Technical Advisor to the TBM Council
+©Copyright 2007-2026 Apptio, an IBM Company. All rights reserved. |
+Privacy Policy
+|
+Cookie Settings
+|
+California Privacy Rights
+|
+Modern Slavery Act Statement

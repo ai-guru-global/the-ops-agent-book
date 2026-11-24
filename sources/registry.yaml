@@ -798,6 +798,7 @@ sources:
   notes: 厂商官方博客支持 OpManager Nexus/Zia、本地模型与私有化、AI 不另收费自述；属于厂商营销材料，不是独立横评或生产证明。
   claims:
   - CN-DOM-06
+  - OBS-15
   snapshot:
     path: reports/sources/snapshots/SRC-ME-AIOPS-GUIDE-001.txt
     sha256: 1f5df2d62d9abfbb48006f8e9469bdad3f4540d73113b12e4c98cbde29e00c89
@@ -1305,6 +1306,370 @@ sources:
   snapshot:
     path: reports/sources/snapshots/SRC-BP-L1AGENT-001.txt
     sha256: d2e6bc9a1de0412c84dcbb4cb3a586ffb153b72702dfc01d91f05f326ad4d9de
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-AWS-CLOUDWATCH-OMNI-001
+  title: CloudWatch Omni
+  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-omni.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 Omni 的 AI 可观测体验、事故调查与根因分析；不证明所有区域或集成均 GA。
+  claims:
+    - GC-AWS-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-CLOUDWATCH-OMNI-001.txt
+    sha256: 4c46db70b6827fdd789e407d4f6d83ecabdffd4761efc1e1efefe0ad7abe528f
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-AWS-OMNI-PRICING-001
+  title: Amazon CloudWatch Omni Pricing
+  url: https://aws.amazon.com/cloudwatch/omni/pricing/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方定价页支持 CloudWatch 标准摄取/存储费率与调查相关 API 费用；具体账户价格需另行核算。
+  claims:
+    - GC-AWS-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-OMNI-PRICING-001.txt
+    sha256: 9a1d9f622e5ced481467299724bba33cfbd12d3b131e2852e7194fff6c84cfd6
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-AWS-OMNI-SECURITY-001
+  title: Security in CloudWatch investigations
+  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方安全文档说明调查数据存储与跨区域推理风险；不能据此认定数据始终留在主区域。
+  claims:
+    - GC-AWS-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-OMNI-SECURITY-001.txt
+    sha256: d98f9728e015cac7462b2f870396fa99aebe5b2645275283eb463a91693c6b56
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-AWS-OMNI-RETENTION-001
+  title: CloudWatch investigations data retention
+  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Retention.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持调查数据保留与删除规则；报告可复制不等于完整平台数据可迁移。
+  claims:
+    - GC-AWS-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-OMNI-RETENTION-001.txt
+    sha256: f0f67394d9fe5879359d54b9860ff2cc0f913bffc0c094c34826ce6e8fca78ef
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-AWS-OMNI-REGIONS-001
+  title: CloudWatch Omni regional availability
+  url: https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-omni-8-regions/
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方公告支持 Omni 区域可用性；区域清单具有时点性。
+  claims:
+    - GC-AWS-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-OMNI-REGIONS-001.txt
+    sha256: 935bd1cd0c0a636dc7370ef0d9eea7b3fed3233b141dfc55128f8aa133fb9707
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-OR-OPSINSIGHTS-001
+  title: About OCI Operations Insights
+  url: https://docs.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持数据库/主机资源与容量洞察、SQL/Exadata 分析；MySQL HeatWave 弃用与存量迁移需按文档执行。
+  claims:
+    - GC-OR-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-OPSINSIGHTS-001.txt
+    sha256: 0285eecea343fa86a8db9f7857ecc9c1e20de7d8f32ec81e246495e84eb13ec7
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-OR-FUSION-AI-001
+  title: Explore AI Agents for Oracle Fusion Cloud Applications
+  url: https://docs.oracle.com/en/cloud/saas/readiness/common/25c/common25c/25C-common-wn-f39182.htm
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 25C 发布说明支持 AI Agents 页面、会话与聊天入口；统一 GA 范围和商业条款未核实。
+  claims:
+    - GC-OR-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-FUSION-AI-001.txt
+    sha256: d06de5c345db14bbcbd83190eb148f4e12b3c3b9b522b7af994e4bf980660ec1
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-SN-CONTROLTOWER-001
+  title: ServiceNow Super Intelligence Control Tower release
+  url: https://www.servicenow.com/community/si-control-tower-articles/what-s-new-in-ai-control-tower-for-august-amp-september-2026/ta-p/3597749
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方社区发布说明支持 AI 资产发现、治理、安全、观测、度量、运行时监控与 kill switch；公开报价未核实。
+  claims:
+    - GC-SN-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-SN-CONTROLTOWER-001.txt
+    sha256: 1c05f6776b77e9a2b9b4e2c493bc8f56f802cae22c935f77cecf0b0edd478f91
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ALI-QODER-CN-001
+  title: Qoder CN 系列
+  url: https://help.aliyun.com/zh/lingma/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持 Qoder CN 产品族、编码/办公形态与国内部署表述；不证明所有子产品同状态。
+  claims:
+    - ALI-18
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-QODER-CN-001.txt
+    sha256: 5bd4a9837d3418d60598c9d8506e5cf16bb71ffa4df1de865a1c984657f4683b
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ALI-QODER-CN-BILLING-001
+  title: Qoder CN 计费说明
+  url: https://help.aliyun.com/zh/lingma/billing-description
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方计费页支持席位与订阅口径；具体合同、超额与导出需另核。
+  claims:
+    - ALI-18
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-QODER-CN-BILLING-001.txt
+    sha256: b49eeb8618878b367446039ee2d079b7f64581a8e33ab0dbefb13799780c457d
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ALI-QODERWORK-CN-001
+  title: QoderWork CN 下载与迁移说明
+  url: https://qoder.com.cn/download
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方说明支持 QoderWork CN 停运与任务记录/技能/记忆迁移入口；完整数据导出与退出未核实。
+  claims:
+    - ALI-18
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-QODERWORK-CN-001.txt
+    sha256: c58dc77159ff1f2c0beb17353625e3ad7edfbaa37e0653e0900f2c4cc1f7240d
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-HW-CCAE-001
+  title: 华为 CCAE 新型基础设施
+  url: https://www.huawei.com/cn/huaweitech/publication/202402/unleashing-intelligence-with-new-infrastructure
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方技术文章支持 CCAE 底座与跨域故障定位方向；不证明算小维商用状态或客户生产效果。
+  claims:
+    - CN-HW-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-CCAE-001.txt
+    sha256: c245f7f6688cd95c55952b33310965cfe16ca19471d121293d896c8bfc1fafbd
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-HW-SUANXIAOWEI-001
+  title: 第一代集群运维智能体算小维官方视频
+  url: https://www.bilibili.com/video/BV1ZBaG62Ek7
+  type: community
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 华为计算官方账号视频标题确认算小维产品名与第一代展示；页面无完整文字简介，商用状态未知。
+  claims:
+    - CN-HW-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-SUANXIAOWEI-001.txt
+    sha256: 5cc7023d7066553b458b98f5b3d04c9daa2938662c6185576ca4969f46433cb8
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-VOLC-HIAGENT-001
+  title: HiAgent 一站式数字员工派遣站
+  url: https://www.volcengine.com/product/hiagent
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持智能体开发/运行/消费/治理、私有化数据不出域、审计与模型防火墙表述；商业条款未核实。
+  claims:
+    - CN-OT-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-VOLC-HIAGENT-001.txt
+    sha256: 2df224e068db9bc75564d74caddddb1b72aa0e872331c716d6042d27efbd6cfc
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-CMCC-OPSAGENT-001
+  title: 智算平台运维智能体
+  url: https://ecloud.10086.cn/op-help-center/doc/article/95316
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方帮助文档支持专属集群性能指标问答与历史对话；未确认产品名“大云智能运维”，区域/许可/驻留未知。
+  claims:
+    - CN-OT-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-CMCC-OPSAGENT-001.txt
+    sha256: 5c9bcb838bcd43c2bb836c6cedf0df4174d560f37869bad95be273c0a94c0a53
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-MS-SECCOPILOT-COMPLIANCE-001
+  title: Microsoft Security Copilot Data and Compliance FAQ
+  url: https://learn.microsoft.com/en-us/copilot/security/faq-data-compliance
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 FAQ 支持 Security Copilot 数据与合规、租户地域、EU 数据边界和支持删除入口；具体合同与跨租户配置需另核。
+  claims:
+    - SEC-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SECCOPILOT-COMPLIANCE-001.txt
+    sha256: 206654cec2e1c4730c51288e7172ebcca3e9f8b6dc97935797cce0f25dc20b32
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-DROPZONE-AISOC-001
+  title: Dropzone AI SOC Analyst
+  url: https://www.dropzone.ai/ai-soc-analyst
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持 AI SOC 告警调查、Analyst 在售、Hunter Beta 与证据报告；客户效果为厂商自述。
+  claims:
+    - SEC-08
+  snapshot:
+    path: reports/sources/snapshots/SRC-DROPZONE-AISOC-001.txt
+    sha256: 3da736e185bc086710d8de3527c95baa68d397e599cc174fc60377eea0b57849
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-DROPZONE-EU-001
+  title: Dropzone EU Data Residency for AI SOC
+  url: https://www.dropzone.ai/eu/ai-soc-data-residency
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持 EU 专属租户与数据驻留选项；适用区域、合同和跨境例外需另核。
+  claims:
+    - SEC-08
+  snapshot:
+    path: reports/sources/snapshots/SRC-DROPZONE-EU-001.txt
+    sha256: 807f8136b82e7e2499d1f5fa18edcfb933e39fac5a3dfad09e4b17b00ba4afec
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-DD-BITS-SECURITY-001
+  title: Datadog Bits Security Analyst
+  url: https://www.datadoghq.com/blog/bits-ai-security-analyst/
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方发布说明支持 Bits Security Analyst GA、Cloud SIEM 自主调查与第三方 AI 零留存/零训练表述；Culminate 独立产品状态未核实。
+  claims:
+    - SEC-09
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-BITS-SECURITY-001.txt
+    sha256: 4345ead60e77fe7636cbc27c46e526d02b1d6f9b9c70387eebc605027d014f97
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-HARNESS-CCM-001
+  title: Harness AI and Cloud Costs
+  url: https://www.harness.io/products/cloud-ai-cost-management
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持云/AI 成本归因、优化与治理；企业模块价格、区域与退出需另核。
+  claims:
+    - FIN-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-HARNESS-CCM-001.txt
+    sha256: daf277d866f570f2edd46983c6b6b7babe1075cd74488949347e1a7722a445b1
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-APPTIO-KUBECOST-001
+  title: IBM Kubecost
+  url: https://www.apptio.com/products/kubecost/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持实时 K8s 成本、Free/Enterprise 与自托管；具体许可与数据导出需另核。
+  claims:
+    - FIN-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-APPTIO-KUBECOST-001.txt
+    sha256: da0a0616f939680cb5b6415043930e1d9d863cb49ff8a1cd3e7954eb37e36ba9
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-VANTAGE-PRICING-001
+  title: Vantage pricing
+  url: https://www.vantage.sh/pricing
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方定价页支持固定费率套餐与 CSV/API/Snowflake/Databricks 连接；区域、驻留和完整退出未核实。
+  claims:
+    - FIN-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-VANTAGE-PRICING-001.txt
+    sha256: 30cdc85bb67fbadc8026c2fcfffa1c119b242068bc11faca41eef3eeed4ebe32
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-CLOUDZERO-PRICING-001
+  title: CloudZero pricing
+  url: https://www.cloudzero.com/pricing/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方定价页支持商业订阅与小时成本能力；公开报价需询价。
+  claims:
+    - FIN-07
+  snapshot:
+    path: reports/sources/snapshots/SRC-CLOUDZERO-PRICING-001.txt
+    sha256: 879c3039e996aaca5e3f58b9595c11a6031a0bbd2a25cf4ad67f2e3af459f1b4
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-CLOUDZERO-API-001
+  title: CloudZero billing costs API
+  url: https://docs.cloudzero.com/reference/getbillingcosts.md
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 API 文档支持成本数据接口与速率限制；不等于完整平台数据可迁移。
+  claims:
+    - FIN-07
+  snapshot:
+    path: reports/sources/snapshots/SRC-CLOUDZERO-API-001.txt
+    sha256: dec2a1b9bf03978d6b2688150f3613d52c43b7b61229a82c8174ba6e2a5ae3eb
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-FINOUT-PRICING-001
+  title: Finout pricing
+  url: https://www.finout.io/pricing
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方定价页支持固定年费、MegaBill 归因和 K8s 加购；区域、驻留和退出未核实。
+  claims:
+    - FIN-08
+  snapshot:
+    path: reports/sources/snapshots/SRC-FINOUT-PRICING-001.txt
+    sha256: 4ad4f434c851a174b3659270eaf9b81969c68ffdb474413ad92913c39ac72b8c
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-FLEXERA-CCO-001
+  title: Flexera Cloud Cost Optimization
+  url: https://www.flexera.com/products/flexera-one/cloud-cost-optimization
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持成本分配、预算、治理与策略动作；区域、许可、驻留和退出未核实。
+  claims:
+    - FIN-09
+  snapshot:
+    path: reports/sources/snapshots/SRC-FLEXERA-CCO-001.txt
+    sha256: bbc674530f070140d4cf4db7c46e9efcf4d32cd647194e522c1dbafbd5ca65b2
     captured_at: 2026-11-25
     method: html-to-text
 - source_id: SRC-MCP-001

@@ -1,0 +1,34 @@
+CloudWatch investigations data retention - Amazon CloudWatchCloudWatch investigations data retention - Amazon CloudWatch
+URL: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Retention.html
+Captured: 2026-11-25
+Content-Type: text/html
+
+CloudWatch investigations data retention - Amazon CloudWatch
+View a markdown version of this page
+CloudWatch investigations data retention - Amazon CloudWatch
+Documentation
+Amazon CloudWatch
+User Guide
+Incident report retention
+CloudWatch investigations data retention
+The retention period that you set for an investigation group determines how long that investigation data is kept. Valid values are seven days to 90 days.
+After you first create an investigation, if you don't end it manually, it moves to a CLOSED state automatically after seven days. Then, the retention period determines how long the data is kept after the investigation moves to the CLOSED state. The data that is kept during the retention period includes the data in the investigation, accepted and discarded findings, and AI assistant audit log messages.
+When this retention period expires, the investigation data is deleted.
+If you manually end an investigation, that also moves the investigation to the CLOSED state and the retention period time begins to be in effect.
+Note
+Investigations conducted without configuring your CloudWatch investigations settings are linked to individual user sessions and are deleted after 24 hours, with no recovery option available.
+Incident report retention
+Incident reports generated from investigations follow the same retention policy as their parent investigations.
+We recommend copying important incident reports to external systems if you need to retain them beyond the investigation retention period.
+For more information, see
+Generate incident reports
+.
+Document Conventions
+Security in CloudWatch investigations
+Troubleshooting
+Did this page help you? - Yes
+Thanks for letting us know we're doing a good job!
+If you've got a moment, please tell us what we did right so we can do more of it.
+Did this page help you? - No
+Thanks for letting us know this page needs work. We're sorry we let you down.
+If you've got a moment, please tell us how we can make the documentation better.

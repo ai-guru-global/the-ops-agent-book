@@ -108,6 +108,7 @@ npm run eval:self-test
 npm run eval:demo
 npm run judge:generate
 npm run judge:status
+npm run gaps:check
 npm run cost:demo
 npm run poc:demo
 npm run export:pdf

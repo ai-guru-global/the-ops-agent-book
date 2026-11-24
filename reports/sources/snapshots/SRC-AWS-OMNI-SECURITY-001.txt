@@ -1,0 +1,396 @@
+Security in CloudWatch investigations - Amazon CloudWatchSecurity in CloudWatch investigations - Amazon CloudWatch
+URL: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html
+Captured: 2026-11-25
+Content-Type: text/html
+
+Security in CloudWatch investigations - Amazon CloudWatch
+View a markdown version of this page
+Security in CloudWatch investigations - Amazon CloudWatch
+Documentation
+Amazon CloudWatch
+User Guide
+Default CloudWatch investigations permissions, retention, and encryption
+User permissions for your CloudWatch investigations group
+Additional permissions for Database Insights
+How to control what data CloudWatch investigations has access to during investigations
+Encryption of investigation data
+Cross-Region inference
+Security in CloudWatch investigations
+This section includes topics about how CloudWatch investigations integrate with AWS security and permissions features.
+Topics
+Default CloudWatch investigations permissions, retention, and encryption
+User permissions for your CloudWatch investigations group
+Additional permissions for Database Insights
+How to control what data CloudWatch investigations has access to during investigations
+Encryption of investigation data
+Cross-Region inference
+Default CloudWatch investigations permissions, retention, and encryption
+When you run investigations using default settings without additional configuration in your account the investigation uses the permissions available to your current console session and only accesses telemetry data using Read-only permissions. No investigation group IAM role configuration or permission policy is needed. However, that means the investigation's access to data is limited by the signed in user's permissions.
+This investigation is only available to the same user that started the investigation. The investigation is available to view only for a 24 hour period, after which the investigation is deleted with no recovery option available.
+The investigation data is encrypted at rest with an AWS owned key. You can't view or manage AWS owned keys, and you can't use them for other purposes or audit their use. However, you don't have to take any action or change any settings to use these keys. For more information, see
+AWS KMS keys
+.
+User permissions for your CloudWatch investigations group
+AWS has created three managed IAM policies that you can use for your users who will be working with your CloudWatch investigations group.
+AIOpsConsoleAdminPolicy
+– grants an administrator the ability to set up CloudWatch investigations in the account, access to CloudWatch investigations actions, the management of trusted identity propagation, and the management of integration with IAM Identity Center and organizational access.
+AIOpsOperatorAccess
+– grants a user access to investigation actions including starting an investigation. It also grants additional permissions that are necessary for accessing investigation events.
+AIOpsReadOnlyAccess
+– grants read-only permissions for CloudWatch investigations and other related services.
+We recommend that you use three IAM principals, granting one of them the
+AIOpsConsoleAdminPolicy
+IAM policy, granting another the
+AIOpsOperatorAccess
+policy, and granting the third the
+AIOpsReadOnlyAccess
+policy. These principals could be either IAM roles (recommended) or IAM users. Then your users who work with CloudWatch investigations would sign on using one of these principals.
+Permissions for incident report generation
+Incident report generation requires additional permissions to allow the AI to collect events, facts, and then create reports.
+Users with
+AIOpsConsoleAdminPolicy
+can generate, edit, and copy incident reports. By default, your investigation group is assigned the
+AIOpsAssistantPolicy
+to give it access to resource. However, it does not have the permissions required to generate an investigation report. To give permissions to your investigation group to collate the investigation data into an incident report you must add a policy similar to the following example that includes additional permissions or add the additional actions as an inline policy to the group:
+JSON
+{
+"Version":"2012-10-17", "Statement": [
+{
+"Sid": "IncidentReportOperations", "Effect": "Allow", "Action": [ "aiops:GetInvestigation", "aiops:ListInvestigationEvents", "aiops:GetInvestigationEvent", "aiops:CreateReport", "aiops:UpdateReport", "aiops:GetReport", "aiops:PutFact", "aiops:ListFacts", "aiops:GetFact", "aiops:GetFactVersions" ], "Resource": [ "arn:aws:aiops:*:*:investigation-group/*" ] } ] }
+The new managed policy
+AIOpsAssistantIncidentReportPolicy
+provides the required permissions and is automatically added to investigation groups created after October 10, 2025. For more information, see
+AIOpsAssistantIncidentReportPolicy
+.
+Additional permissions for Database Insights
+To use Database Insights capabilities during investigations, you must attach the
+AmazonRDSPerformanceInsightsFullAccess
+managed policy to the IAM role or user that you use to perform investigations. CloudWatch investigations requires these permissions to create and access performance analysis reports for your Amazon RDS database instances.
+To attach this policy, use the IAM console to add the
+AmazonRDSPerformanceInsightsFullAccess
+managed policy to your investigation principal. For more information about this managed policy and its permissions, see
+AmazonRDSPerformanceInsightsFullAccess
+.
+How to control what data CloudWatch investigations has access to during investigations
+When you configure an investigation group in your account, you specify what permissions that CloudWatch investigations has to access your resources during investigations. You do this by assigning an IAM role to the investigation group.
+To enable CloudWatch investigations to access resources and be able to make suggestions and hypotheses, the recommended method is to attach the
+AIOpsAssistantPolicy
+to the investigation group role. This grants the investigation group permissions to analyze your AWS resources during your investigations. For information about the complete contents of this policy, see
+AIOpsAssistantPolicy
+.
+You can also choose to attach the general AWS
+ReadOnlyAccess
+to the investigation group role, in addition to attaching
+AIOpsAssistantPolicy
+. The reason to do this is that AWS updates
+ReadOnlyAccess
+more frequently with permissions for new AWS services and actions that are released. The
+AIOpsAssistantPolicy
+will also be updated for new actions, but not as frequently.
+If you want to scope down the permissions granted to CloudWatch investigations, you can attach a custom IAM policy to the investigation group IAM role instead of attaching the
+AIOpsAssistantPolicy
+policy. To do this, start your custom policy with the contents of
+AIOpsAssistantPolicy
+and then remove permissions that you don't want to grant to CloudWatch investigations. This will prevent CloudWatch investigations from making suggestions based on the AWS services or actions that you don't grant access to.
+Note
+Anything that CloudWatch investigations can access can be added to the investigation and seen by your investigation operators. We recommend that you align CloudWatch investigations permissions with the permissions that your investigation group operators have.
+Allowing CloudWatch investigations to decrypt encrypted data during investigations
+If you encrypt your data in any of the following services with a customer managed key in AWS KMS, and you want CloudWatch investigations to be able to decrypt the data from these services and include them in investigations, you'll need to attach one or more additional IAM policies to the investigation group IAM role.
+AWS Step Functions
+The policy statement should include a context key for encryption context to help scope down the permissions. For example, the following policy would enable CloudWatch investigations to decrypt data for a Step Functions state machine.
+JSON
+{
+"Version":"2012-10-17", "Statement": [
+{
+"Sid": "AIOPSKMSAccessForStepFunctions", "Effect": "Allow", "Principal":
+{
+"Service": "aiops.amazonaws.com" }, "Action": [ "kms:Decrypt" ], "Resource": "*", "Condition":
+{
+"StringEquals":
+{
+"kms:ViaService": "states.*.amazonaws.com", "kms:EncryptionContext:aws:states:
+stateMachineArn
+": "arn:aws:states:
+region
+:
+accountId
+:stateMachine:*" } } } ] }
+For more information about these types of policies and using these context keys, see
+kms:ViaService
+and
+kms:EncryptionContext:
+context-key
+in the AWS Key Management Service Developer Guide, and
+aws:SourceArn
+in the IAM User Guide.
+Encryption of investigation data
+For the encryption of your investigation data, AWS offers two options:
+AWS owned keys
+– By default, CloudWatch investigations encrypts investigation data at rest with an AWS owned key. You can't view or manage AWS owned keys, and you can't use them for other purposes or audit their use. However, you don't have to take any action or change any settings to use these keys. For more information about AWS owned keys, see
+AWS owned keys
+.
+Customer managed keys
+– These are keys that you create and manage yourself. You can choose to use a customer managed key instead of an AWS owned key for your investigation data. For more information about customer managed keys, see
+Customer managed keys
+.
+Incident reports generated from investigations use the same encryption settings as the parent investigation. This maintains a consistent security posture across your investigation data and documentation
+Note
+CloudWatch investigations automatically enables encryption at rest using AWS owned keys at no charge. If you use a customer managed key, AWS KMS charges apply. For more information about pricing, see
+AWS Key Management Service pricing
+.
+For more information about AWS KMS, see
+AWS Key Management Service
+.
+Using a customer managed key for your investigation group
+You can associate an investigation group with a customer managed key, and then all investigations created in that group will use the customer managed key to encrypt your investigation data at rest.
+CloudWatch investigations customer managed key usage has the following conditions:
+CloudWatch investigations supports only symmetric encryption AWS KMS keys with the default key spec,
+SYMMETRIC_DEFAULT
+, and that have usage defined as
+ENCRYPT_DECRYPT
+.
+For a user to create or update an investigation group with a customer managed key, that user must have the
+kms:DescribeKey
+,
+kms:GenerateDataKey
+, and
+kms:Decrypt
+permissions.
+For a user to create or update an investigation in an investigation group that uses a customer managed key, that user must have the
+kms:GenerateDataKey
+and
+kms:Decrypt
+permissions.
+For a user to view investigation data in an investigation group that uses a customer managed key, that user must have the
+kms:Decrypt
+permission.
+Setting up investigations to use a AWS KMS customer managed key
+First, if you don't already have a symmetric key that you want to use, create a new key with the following command.
+aws kms create-key
+The command output includes the key ID and the Amazon Resource Name (ARN) of the key. You will need those in later steps in this section. The following is an example of this output.
+{
+"KeyMetadata":
+{
+"Origin": "AWS_KMS", "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab", "Description": "", "KeyManager": "CUSTOMER", "Enabled": true, "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT", "KeyUsage": "ENCRYPT_DECRYPT", "KeyState": "Enabled", "CreationDate": 1478910250.94, "Arn": "arn:aws:kms:us-west-2:111122223333:key/6f815f63-e628-448c-8251-e4EXAMPLE", "AWSAccountId": "111122223333", "EncryptionAlgorithms": [ "SYMMETRIC_DEFAULT" ] } }
+Set permissions on the key
+Next, set permissions on the key. By default, all AWS KMS keys are private. Only the resource owner can use it to encrypt and decrypt data. However, the resource owner can grant permissions to access the key to other users and resources. With this step, you give the AI Operations service principal permission to use the key. This service principal must be in the same AWS Region where the KMS key is stored.
+As a best practice, we recommend that you restrict the use of the KMS key to only those AWS accounts or resources that you specify.
+The first step to set the permissions is to save the default policy for your key as
+policy.json
+. Use the following command to do so. Replace
+key-id
+with the ID of your key.
+aws kms get-key-policy --key-id
+key-id
+--policy-name default --output text > ./policy.json
+Open the
+policy.json
+file in a text editor and add the following policy sections into that policy. Separate the existing statement from the new sections with a comma. These new sections use
+Condition
+sections to enhance the security of the AWS KMS key. For more information, see
+AWS KMS keys and encryption context
+.
+This policy provides permissions for service principals for the following reasons:
+The
+aiops
+service needs
+GenerateDataKey
+permissions to get the data key and use that data key to encrypt your data while it is stored in rest. The
+Decrypt
+permission is needed to decrypt your data while reading from the data store. The decryption happens when you read the data using
+aiops
+APIs or when you update the investigation or investigation event. The update operation fetches the existing data after decrypting it, updates the data, and stores the updated data in the data store after encrypting
+The CloudWatch alarms service can create investigations or investigation events. These create operations verify that the caller has access to the AWS KMS key defined for the investigation group. The policy statement gives the
+GenerateDataKey
+and
+Decrypt
+permissions to the CloudWatch alarms service to create investigations on behalf of you.
+Note
+The following policy assumes that you follow the recommendation of using three IAM principals, and granting one of them the
+AIOpsConsoleAdminPolicy
+IAM policy, granting another the
+AIOpsOperatorAccess
+policy, and granting the third the
+AIOpsReadOnlyAccess
+policy. These principals could be either IAM roles (recommended) or IAM users. Then your users who work with CloudWatch investigations would sign on with one of these principals.
+For the following policy, you'll need the ARNs of those three principals.
+{
+"Sid": "Enable AI Operations Admin for the DescribeKey permissions", "Effect": "Allow", "Principal":
+{
+"AWS": "arn:aws:iam::
+{
+account-id}:role/
+{
+AIOpsConsoleAdmin}" }, "Action": [ "kms:DescribeKey" ], "Resource": "*", "Condition":
+{
+"StringEquals":
+{
+"kms:ViaService": "aiops.
+{
+region}.amazonaws.com" } } },
+{
+"Sid": "Enable AI Operations Admin and Operator for the Decrypt and GenerateDataKey permissions", "Effect": "Allow", "Principal":
+{
+"AWS": [ "arn:aws:iam::
+{
+account-id}:role/
+{
+AIOpsConsoleAdmin}", "arn:aws:iam::
+{
+account-id}:role/
+{
+AIOpsOperator}" ] }, "Action": [ "kms:Decrypt", "kms:GenerateDataKey" ], "Resource": "*", "Condition":
+{
+"StringEquals":
+{
+"kms:ViaService": "aiops.
+{
+region}.amazonaws.com" }, "ArnLike":
+{
+"kms:EncryptionContext:aws:aiops:investigation-group-arn": "arn:aws:aiops:
+{
+region}:
+{
+account-id}:investigation-group/*" } } },
+{
+"Sid": "Enable AI Operations ReadOnly for the Decrypt permission", "Effect": "Allow", "Principal":
+{
+"AWS": "arn:aws:iam::
+{
+account-id}:role/
+{
+AIOpsReadOnly}" }, "Action": [ "kms:Decrypt" ], "Resource": "*", "Condition":
+{
+"StringEquals":
+{
+"kms:ViaService": "aiops.
+{
+region}.amazonaws.com" }, "ArnLike":
+{
+"kms:EncryptionContext:aws:aiops:investigation-group-arn": "arn:aws:aiops:
+{
+region}:
+{
+account-id}:investigation-group/*" } } },
+{
+"Sid": "Enable the AI Operations service to have the DescribeKey permission", "Effect": "Allow", "Principal":
+{
+"Service": "aiops.amazonaws.com" }, "Action": [ "kms:DescribeKey" ], "Resource": "*", "Condition":
+{
+"StringEquals":
+{
+"aws:SourceAccount": "
+{
+account-id}" }, "StringLike":
+{
+"aws:SourceArn": "arn:aws:aiops:
+{
+region}:
+{
+account-id}:investigation-group/*" } } },
+{
+"Sid": "Enable the AI Operations service to have the Decrypt and GenerateDataKey permissions", "Effect": "Allow", "Principal":
+{
+"Service": "aiops.amazonaws.com" }, "Action": [ "kms:Decrypt", "kms:GenerateDataKey" ], "Resource": "*", "Condition":
+{
+"StringEquals":
+{
+"aws:SourceAccount": "
+{
+account-id}" }, "StringLike":
+{
+"aws:SourceArn": "arn:aws:aiops:
+{
+region}:
+{
+account-id}:investigation-group/*" }, "ArnLike":
+{
+"kms:EncryptionContext:aws:aiops:investigation-group-arn": "arn:aws:aiops:
+{
+region}:
+{
+account-id}:investigation-group/*" } } },
+{
+"Sid": "Enable CloudWatch to have the Decrypt and GenerateDataKey permissions", "Effect": "Allow", "Principal":
+{
+"Service": "aiops.alarms.cloudwatch.amazonaws.com" }, "Action": [ "kms:GenerateDataKey", "kms:Decrypt" ], "Resource": "*", "Condition":
+{
+"ArnLike":
+{
+"kms:EncryptionContext:aws:aiops:investigation-group-arn": "arn:aws:aiops:
+{
+region}:
+{
+account-id}:investigation-group/*" }, "StringEquals":
+{
+"aws:SourceAccount": "
+{
+account-id}", "kms:ViaService": "aiops.
+{
+region}.amazonaws.com" }, "StringLike":
+{
+"aws:SourceArn": "arn:aws:cloudwatch:
+{
+region}:
+{
+account-id}:alarm:*" } } }
+After you've updated the policy, assign it to the key by entering the following command.
+aws kms put-key-policy --key-id
+key-id
+--policy-name default --policy file://policy.json
+Associate the key with the investigation group
+When you use the CloudWatch console to create an investigation group, you can choose to associate the AWS KMS key with the investigation group. For more information, see
+Set up an investigation group
+.
+You can also associate a customer managed key with an existing investigation group.
+Changing your encryption configuration
+You can update an investigation group to change between using a customer managed key or a service owned key. You can also change from using one customer managed key to using another. When you make such a change, the change applies to new investigations created after the change. Previous investigations are still associated with the old encryption configuration. Current ongoing investigations also continue using the original key for new data.
+As long as a previously-used key is active and Amazon Q has access to it for investigations, you can retrieve the older investigations encrypted with that method, as well as data in current investigations that was encrypted with the previous key. If you delete a previously-used key or revoke access to it, the investigation data encrypted with that key can't be retrieved.
+Cross-Region inference
+CloudWatch investigations uses
+cross-Region inference
+to distribute traffic across different AWS Region. Although the data remains stored only in the primary Region, when using cross-Region inference, your investigation data might move outside of your primary Region. All data will be transmitted encrypted across Amazon’s secure network.
+For details about where cross-Region inference distribution occurs for each Region, see the following table.
+Supported CloudWatch investigations geography
+Investigation Region
+Possible inference Regions
+United States (US)
+US East (N. Virginia)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+US East (Ohio)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+US West (Oregon)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Europe (EU)
+Europe (Frankfurt)
+Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm)
+Europe (Ireland)
+Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm)
+Europe (Spain)
+Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm)
+Europe (Stockholm)
+Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm)
+Asia-Pacific (AP)
+Asia Pacific (Hong Kong)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Asia Pacific (Mumbai)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Asia Pacific (Singapore)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Asia Pacific (Sydney)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Asia Pacific (Tokyo)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Asia Pacific (Malaysia)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Asia Pacific (Thailand)
+US East (N. Virginia), US East (Ohio), US West (Oregon)
+Document Conventions
+Integrations with other systems
+CloudWatch investigations data retention
+Did this page help you? - Yes
+Thanks for letting us know we're doing a good job!
+If you've got a moment, please tell us what we did right so we can do more of it.
+Did this page help you? - No
+Thanks for letting us know this page needs work. We're sorry we let you down.
+If you've got a moment, please tell us how we can make the documentation better.

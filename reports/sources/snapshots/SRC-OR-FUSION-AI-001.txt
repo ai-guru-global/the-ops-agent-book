@@ -1,0 +1,29 @@
+Explore AI Agents for Oracle Fusion Cloud Applications
+URL: https://docs.oracle.com/en/cloud/saas/readiness/common/25c/common25c/25C-common-wn-f39182.htm
+Captured: 2026-11-25
+Content-Type: text/html
+
+Explore AI Agents for Oracle Fusion Cloud Applications
+Previous
+Next
+JavaScript must be enabled to correctly display this content
+Explore AI Agents for Oracle Fusion Cloud Applications
+Users can now view all available AI Agents from the AI Agents page.
+To access the AI Agents page, add
+/fscmUI/redwood/human-resources/ai-studio/agent-explore
+to the end of the URL for your application environment. For example, https://example.com/fscmUI/redwood/human-resources/ai-studio/agent-explore.
+You can do these things from the AI Agents page:
+Search for available agents
+View your conversations with agents
+Start or resume a chat session with an agent
+Identify if there are open issues with any agent
+Steps to enable and configure
+Set the
+Enable VBCS Progressive Web Application User Interface
+(ORA_HCM_VBCS_PWA_ENABLED) profile option to
+Yes
+, and add the required privileges and duty roles. See
+How can I give users access to AI agents?
+Access requirements
+See
+How can I give users access to AI agents?

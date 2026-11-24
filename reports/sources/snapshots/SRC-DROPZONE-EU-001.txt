@@ -1,0 +1,697 @@
+EU Data Residency for AI SOC Investigations | Dropzone AI
+URL: https://www.dropzone.ai/eu/ai-soc-data-residency
+Captured: 2026-11-25
+Content-Type: text/html
+
+EU Data Residency for AI SOC Investigations | Dropzone AI
+Products
+Solutions
+Customers
+Pricing
+Resources
+Company
+self-guided demo
+Request a demo
+EU Data Residency
+AI SOC Investigations
+with EU in-region deployment
+EU customers can request an in-region Dropzone AI deployment. Each customer runs in a dedicated tenant, no customer data trains models, and every investigation ends in a report with its evidence.
+Request a Demo
+Self-guided demo
+EU Data Residency
+AI SOC Investigations
+with EU in-region deployment
+EU customers can request an in-region Dropzone AI deployment. Each customer runs in a dedicated tenant, no customer data trains models, and every investigation ends in a report with its evidence.
+Request a Demo
+Self-guided demo
+EU Data Residency
+AI SOC Investigations
+with EU in-region deployment
+EU customers can request an in-region Dropzone AI deployment. Each customer runs in a dedicated tenant, no customer data trains models, and every investigation ends in a report with its evidence.
+Request a Demo
+Self-guided demo
+EU Data Residency
+AI SOC Investigations
+with EU in-region deployment
+EU customers can request an in-region Dropzone AI deployment. Each customer runs in a dedicated tenant, no customer data trains models, and every investigation ends in a report with its evidence.
+Request a Demo
+Self-guided demo
+4
+0
+0
++
+production deployments
+1
+0
+0
++
+integrations
+G
+a
+r
+t
+n
+e
+r
+®
+C
+o
+o
+l
+V
+e
+n
+d
+o
+r
+for the Modern SOC
+4
+0
+0
++
+production deployments
+1
+0
+0
++
+integrations
+G
+a
+r
+t
+n
+e
+r
+®
+C
+o
+o
+l
+V
+e
+n
+d
+o
+r
+for the Modern SOC
+4
+0
+0
++
+production deployments
+1
+0
+0
++
+integrations
+G
+a
+r
+t
+n
+e
+r
+®
+C
+o
+o
+l
+V
+e
+n
+d
+o
+r
+for the Modern SOC
+4
+0
+0
++
+production deployments
+1
+0
+0
++
+integrations
+G
+a
+r
+t
+n
+e
+r
+®
+C
+o
+o
+l
+V
+e
+n
+d
+o
+r
+for the Modern SOC
+Documents for your DPO's review
+Trust center
+Learn More
+Data processing addendum
+Learn more
+Subprocessor list
+Learn More
+Security, privacy, and trust
+Learn more
+Documents for your DPO's review
+Trust center
+Learn More
+Data processing addendum
+Learn more
+Subprocessor list
+Learn More
+Security, privacy, and trust
+Learn more
+Documents for your DPO's review
+Trust center
+Learn More
+Data processing addendum
+Learn more
+Subprocessor list
+Learn More
+Security, privacy, and trust
+Learn more
+At a glance for EU buyers
+EU customers can request an in-region Dropzone AI deployment. No customer data is used to train Dropzone AI's models or its sub-processors' models. Each customer runs in a dedicated tenant with no co-mingling of data.
+In-region deployment
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant with no co-mingling, and the context your agents learn about your environment stays in that tenant.
+No model training
+No customer data is used to train Dropzone AI's models or its sub-processors' models. Security experts employed by Dropzone AI manually review investigations to improve the agents' knowledge and tools.
+Evidence-backed audit trail
+Each investigation ends in a report with the data sources used and links to the raw evidence. Your analysts review it and own every verdict.
+At a glance for EU buyers
+EU customers can request an in-region Dropzone AI deployment. No customer data is used to train Dropzone AI's models or its sub-processors' models. Each customer runs in a dedicated tenant with no co-mingling of data.
+In-region deployment
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant with no co-mingling, and the context your agents learn about your environment stays in that tenant.
+No model training
+No customer data is used to train Dropzone AI's models or its sub-processors' models. Security experts employed by Dropzone AI manually review investigations to improve the agents' knowledge and tools.
+Evidence-backed audit trail
+Each investigation ends in a report with the data sources used and links to the raw evidence. Your analysts review it and own every verdict.
+At a glance for EU buyers
+EU customers can request an in-region Dropzone AI deployment. No customer data is used to train Dropzone AI's models or its sub-processors' models. Each customer runs in a dedicated tenant with no co-mingling of data.
+In-region deployment
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant with no co-mingling, and the context your agents learn about your environment stays in that tenant.
+No model training
+No customer data is used to train Dropzone AI's models or its sub-processors' models. Security experts employed by Dropzone AI manually review investigations to improve the agents' knowledge and tools.
+Evidence-backed audit trail
+Each investigation ends in a report with the data sources used and links to the raw evidence. Your analysts review it and own every verdict.
+At a glance for EU buyers
+EU customers can request an in-region Dropzone AI deployment. No customer data is used to train Dropzone AI's models or its sub-processors' models. Each customer runs in a dedicated tenant with no co-mingling of data.
+In-region deployment
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant with no co-mingling, and the context your agents learn about your environment stays in that tenant.
+No model training
+No customer data is used to train Dropzone AI's models or its sub-processors' models. Security experts employed by Dropzone AI manually review investigations to improve the agents' knowledge and tools.
+Evidence-backed audit trail
+Each investigation ends in a report with the data sources used and links to the raw evidence. Your analysts review it and own every verdict.
+How EU data residency works for AI SOC investigations
+Alerts from the sources you connect arrive in your dedicated tenant. The AI SOC Analyst forms hypotheses about why each alert fired and collects evidence from your security tools and internal systems for each line of investigation. Investigations operate within the integrations and permissions you configure, and data is pulled only as needed to resolve the alert in question. This supports the data minimisation principle in GDPR Article 5.
+[
+01
+]
+Ingest
+Alerts from the sources you connect arrive in your dedicated tenant.
+[
+02
+]
+Investigate
+Evidence comes from your security tools and internal systems, gathered for each line of investigation.
+[
+03
+]
+Report
+Each report lists the data sources used and links to the raw evidence.
+How EU data residency works for AI SOC investigations
+Alerts from the sources you connect arrive in your dedicated tenant. The AI SOC Analyst forms hypotheses about why each alert fired and collects evidence from your security tools and internal systems for each line of investigation. Investigations operate within the integrations and permissions you configure, and data is pulled only as needed to resolve the alert in question. This supports the data minimisation principle in GDPR Article 5.
+[
+01
+]
+Ingest
+Alerts from the sources you connect arrive in your dedicated tenant.
+[
+02
+]
+Investigate
+Evidence comes from your security tools and internal systems, gathered for each line of investigation.
+[
+03
+]
+Report
+Each report lists the data sources used and links to the raw evidence.
+How EU data residency works for AI SOC investigations
+Alerts from the sources you connect arrive in your dedicated tenant. The AI SOC Analyst forms hypotheses about why each alert fired and collects evidence from your security tools and internal systems for each line of investigation. Investigations operate within the integrations and permissions you configure, and data is pulled only as needed to resolve the alert in question. This supports the data minimisation principle in GDPR Article 5.
+[
+01
+]
+Ingest
+Alerts from the sources you connect arrive in your dedicated tenant.
+[
+02
+]
+Investigate
+Evidence comes from your security tools and internal systems, gathered for each line of investigation.
+[
+03
+]
+Report
+Each report lists the data sources used and links to the raw evidence.
+How EU data residency works for AI SOC investigations
+Alerts from the sources you connect arrive in your dedicated tenant. The AI SOC Analyst forms hypotheses about why each alert fired and collects evidence from your security tools and internal systems for each line of investigation. Investigations operate within the integrations and permissions you configure, and data is pulled only as needed to resolve the alert in question. This supports the data minimisation principle in GDPR Article 5.
+[
+01
+]
+Ingest
+Alerts from the sources you connect arrive in your dedicated tenant.
+[
+02
+]
+Investigate
+Evidence comes from your security tools and internal systems, gathered for each line of investigation.
+[
+03
+]
+Report
+Each report lists the data sources used and links to the raw evidence.
+Your EU deployment questions, answered
+How does Dropzone AI handle investigation data for EU customers?
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant in its own isolated subnet, with no co-mingling of data.
+You choose which alert and data sources connect. Confirm the region and processing locations for your deployment with Dropzone AI when you scope it.
+Do the LLMs learn from our data?
+No. Customer data is not used to train Dropzone AI's models or its sub-processors' models.
+Dropzone AI's LLM providers are contractually obligated not to store or retain your data beyond immediate query processing. Your context memory exists only within your tenant.
+Are investigations fully auditable?
+Each investigation produces a report with the recommended conclusion, the data sources used and links to the raw evidence.
+Data lineage provides an audit trail for the analysis. Investigation data is retained until contract end or on request.
+Are humans in control?
+Yes. Your analysts own every verdict, and each investigation arrives with its evidence for review.
+Access is read-only by default, and you choose where to grant write access.
+Response actions, such as blocking a malicious IP or disabling a compromised account, run within the bounds you set, on threats the agents have confirmed.
+Can humans outside the EU access our data?
+Your own team reaches the platform through the roles you assign, with local login, Microsoft or Google single sign-on, or SAML.
+You can bring your own encryption keys.
+Does any of our data leave the EU?
+Investigation data, findings and context memory are stored in your dedicated tenant, which is not shared with other customers. EU customers can request that tenant in-region.
+Investigations also call outside services, including LLM providers and threat intelligence feeds. Some feeds may not offer EU-specific endpoints. You decide which alert and data sources connect.
+Your EU deployment questions, answered
+How does Dropzone AI handle investigation data for EU customers?
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant in its own isolated subnet, with no co-mingling of data.
+You choose which alert and data sources connect. Confirm the region and processing locations for your deployment with Dropzone AI when you scope it.
+Do the LLMs learn from our data?
+No. Customer data is not used to train Dropzone AI's models or its sub-processors' models.
+Dropzone AI's LLM providers are contractually obligated not to store or retain your data beyond immediate query processing. Your context memory exists only within your tenant.
+Are investigations fully auditable?
+Each investigation produces a report with the recommended conclusion, the data sources used and links to the raw evidence.
+Data lineage provides an audit trail for the analysis. Investigation data is retained until contract end or on request.
+Are humans in control?
+Yes. Your analysts own every verdict, and each investigation arrives with its evidence for review.
+Access is read-only by default, and you choose where to grant write access.
+Response actions, such as blocking a malicious IP or disabling a compromised account, run within the bounds you set, on threats the agents have confirmed.
+Can humans outside the EU access our data?
+Your own team reaches the platform through the roles you assign, with local login, Microsoft or Google single sign-on, or SAML.
+You can bring your own encryption keys.
+Does any of our data leave the EU?
+Investigation data, findings and context memory are stored in your dedicated tenant, which is not shared with other customers. EU customers can request that tenant in-region.
+Investigations also call outside services, including LLM providers and threat intelligence feeds. Some feeds may not offer EU-specific endpoints. You decide which alert and data sources connect.
+Your EU deployment questions, answered
+How does Dropzone AI handle investigation data for EU customers?
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant in its own isolated subnet, with no co-mingling of data.
+You choose which alert and data sources connect. Confirm the region and processing locations for your deployment with Dropzone AI when you scope it.
+Do the LLMs learn from our data?
+No. Customer data is not used to train Dropzone AI's models or its sub-processors' models.
+Dropzone AI's LLM providers are contractually obligated not to store or retain your data beyond immediate query processing. Your context memory exists only within your tenant.
+Are investigations fully auditable?
+Each investigation produces a report with the recommended conclusion, the data sources used and links to the raw evidence.
+Data lineage provides an audit trail for the analysis. Investigation data is retained until contract end or on request.
+Are humans in control?
+Yes. Your analysts own every verdict, and each investigation arrives with its evidence for review.
+Access is read-only by default, and you choose where to grant write access.
+Response actions, such as blocking a malicious IP or disabling a compromised account, run within the bounds you set, on threats the agents have confirmed.
+Can humans outside the EU access our data?
+Your own team reaches the platform through the roles you assign, with local login, Microsoft or Google single sign-on, or SAML.
+You can bring your own encryption keys.
+Does any of our data leave the EU?
+Investigation data, findings and context memory are stored in your dedicated tenant, which is not shared with other customers. EU customers can request that tenant in-region.
+Investigations also call outside services, including LLM providers and threat intelligence feeds. Some feeds may not offer EU-specific endpoints. You decide which alert and data sources connect.
+Your EU deployment questions, answered
+How does Dropzone AI handle investigation data for EU customers?
+EU customers can request an in-region deployment. Each customer runs in a dedicated tenant in its own isolated subnet, with no co-mingling of data.
+You choose which alert and data sources connect. Confirm the region and processing locations for your deployment with Dropzone AI when you scope it.
+Do the LLMs learn from our data?
+No. Customer data is not used to train Dropzone AI's models or its sub-processors' models.
+Dropzone AI's LLM providers are contractually obligated not to store or retain your data beyond immediate query processing. Your context memory exists only within your tenant.
+Are investigations fully auditable?
+Each investigation produces a report with the recommended conclusion, the data sources used and links to the raw evidence.
+Data lineage provides an audit trail for the analysis. Investigation data is retained until contract end or on request.
+Are humans in control?
+Yes. Your analysts own every verdict, and each investigation arrives with its evidence for review.
+Access is read-only by default, and you choose where to grant write access.
+Response actions, such as blocking a malicious IP or disabling a compromised account, run within the bounds you set, on threats the agents have confirmed.
+Can humans outside the EU access our data?
+Your own team reaches the platform through the roles you assign, with local login, Microsoft or Google single sign-on, or SAML.
+You can bring your own encryption keys.
+Does any of our data leave the EU?
+Investigation data, findings and context memory are stored in your dedicated tenant, which is not shared with other customers. EU customers can request that tenant in-region.
+Investigations also call outside services, including LLM providers and threat intelligence feeds. Some feeds may not offer EU-specific endpoints. You decide which alert and data sources connect.
+Built to support your GDPR and EU AI Act review
+AI SOC Data Residency: Enterprise Compliance Guide
+Where does your data go during an AI SOC investigation? Download this guide to learn about data residency, GDPR compliance, and trust.
+Learn more
+Can the SOC Keep Pace?
+Closing the investigation gap in European security operations. 2026 research from 750 security decision-makers in the UK, France and Germany.
+Learn more
+Built to support your GDPR and EU AI Act review
+AI SOC Data Residency: Enterprise Compliance Guide
+Where does your data go during an AI SOC investigation? Download this guide to learn about data residency, GDPR compliance, and trust.
+Learn more
+Can the SOC Keep Pace?
+Closing the investigation gap in European security operations. 2026 research from 750 security decision-makers in the UK, France and Germany.
+Learn more
+Built to support your GDPR and EU AI Act review
+AI SOC Data Residency: Enterprise Compliance Guide
+Where does your data go during an AI SOC investigation? Download this guide to learn about data residency, GDPR compliance, and trust.
+Learn more
+Can the SOC Keep Pace?
+Closing the investigation gap in European security operations. 2026 research from 750 security decision-makers in the UK, France and Germany.
+Learn more
+Built to support your GDPR and EU AI Act review
+AI SOC Data Residency: Enterprise Compliance Guide
+Where does your data go during an AI SOC investigation? Download this guide to learn about data residency, GDPR compliance, and trust.
+Learn more
+Can the SOC Keep Pace?
+Closing the investigation gap in European security operations. 2026 research from 750 security decision-makers in the UK, France and Germany.
+Learn more
+Frequently Asked Questions
+[
+01
+]
+Does AI security investigation data constitute personal data under GDPR?
+[
+02
+]
+How do AI security tools comply with the GDPR principle of data minimisation?
+[
+03
+]
+What does a DPIA need to cover before deploying an AI SOC analyst?
+[
+04
+]
+Is an AI SOC analyst classified as a high-risk AI system under the EU AI Act?
+[
+05
+]
+What's the difference between data residency and data sovereignty for cybersecurity?
+[
+06
+]
+How does GDPR Article 22 apply to automated AI security decisions?
+[
+07
+]
+Is there a meaningful difference between EU GDPR and UK GDPR for security operations?
+Frequently Asked Questions
+[
+01
+]
+Does AI security investigation data constitute personal data under GDPR?
+[
+02
+]
+How do AI security tools comply with the GDPR principle of data minimisation?
+[
+03
+]
+What does a DPIA need to cover before deploying an AI SOC analyst?
+[
+04
+]
+Is an AI SOC analyst classified as a high-risk AI system under the EU AI Act?
+[
+05
+]
+What's the difference between data residency and data sovereignty for cybersecurity?
+[
+06
+]
+How does GDPR Article 22 apply to automated AI security decisions?
+[
+07
+]
+Is there a meaningful difference between EU GDPR and UK GDPR for security operations?
+Frequently Asked Questions
+[
+01
+]
+Does AI security investigation data constitute personal data under GDPR?
+[
+02
+]
+How do AI security tools comply with the GDPR principle of data minimisation?
+[
+03
+]
+What does a DPIA need to cover before deploying an AI SOC analyst?
+[
+04
+]
+Is an AI SOC analyst classified as a high-risk AI system under the EU AI Act?
+[
+05
+]
+What's the difference between data residency and data sovereignty for cybersecurity?
+[
+06
+]
+How does GDPR Article 22 apply to automated AI security decisions?
+[
+07
+]
+Is there a meaningful difference between EU GDPR and UK GDPR for security operations?
+Frequently Asked Questions
+[
+01
+]
+Does AI security investigation data constitute personal data under GDPR?
+[
+02
+]
+How do AI security tools comply with the GDPR principle of data minimisation?
+[
+03
+]
+What does a DPIA need to cover before deploying an AI SOC analyst?
+[
+04
+]
+Is an AI SOC analyst classified as a high-risk AI system under the EU AI Act?
+[
+05
+]
+What's the difference between data residency and data sovereignty for cybersecurity?
+[
+06
+]
+How does GDPR Article 22 apply to automated AI security decisions?
+[
+07
+]
+Is there a meaningful difference between EU GDPR and UK GDPR for security operations?
+Ready to evaluate Dropzone AI for your EU SOC?
+See how the AI SOC Analyst investigates an alert, then start the procurement conversation.
+Request a demo
+Self-Guided Demo
+Ready to evaluate Dropzone AI for your EU SOC?
+See how the AI SOC Analyst investigates an alert, then start the procurement conversation.
+Request a demo
+Self-Guided Demo
+Ready to evaluate Dropzone AI for your EU SOC?
+See how the AI SOC Analyst investigates an alert, then start the procurement conversation.
+Request a demo
+Self-Guided Demo
+Ready to evaluate Dropzone AI for your EU SOC?
+See how the AI SOC Analyst investigates an alert, then start the procurement conversation.
+Request a demo
+Self-Guided Demo
+Product
+AI SOC Analyst
+AI Threat Hunter
+AI Threat Intel Analyst
+Integrations
+Security, Privacy, Trust
+EU Data Residency
+Customers
+Pricing
+Documentation
+Use Cases
+solutions
+MSSP
+SOC Coverage
+Scale SOC Capacity
+24/7 SOC
+Agentic SOC
+For Federal Agencies
+Resources
+Insights
+Blog
+Case Studies
+Dropzone COACH
+Resource Center
+Learning Guides
+Solution Sheets
+White Papers & e-Books
+Reports
+Product Tours
+Company
+About Dropzone
+Why Dropzone
+Partners
+Careers
+Newsroom
+Security Trust Center
+Contact Us
+Glossary
+Consent Preferences
+|
+Privacy Policy
+|
+Terms of Service |
+Copyright © Dropzone AI 2026. All Rights Reserved
+Product
+AI SOC Analyst
+AI Threat Hunter
+AI Threat Intel Analyst
+Integrations
+Security, Privacy, Trust
+EU Data Residency
+Customers
+Pricing
+Documentation
+Use Cases
+solutions
+MSSP
+SOC Coverage
+Scale SOC Capacity
+24/7 SOC
+Agentic SOC
+For Federal Agencies
+Resources
+Insights
+Blog
+Case Studies
+Dropzone COACH
+Resource Center
+Learning Guides
+Solution Sheets
+White Papers & e-Books
+Reports
+Product Tours
+Company
+About Dropzone
+Why Dropzone
+Partners
+Careers
+Newsroom
+Security Trust Center
+Contact Us
+Glossary
+Consent Preferences
+|
+Privacy Policy
+|
+Terms of Service |
+Copyright © Dropzone AI 2026. All Rights Reserved
+Product
+AI SOC Analyst
+AI Threat Hunter
+AI Threat Intel Analyst
+Integrations
+Security, Privacy, Trust
+EU Data Residency
+Customers
+Pricing
+Documentation
+Use Cases
+solutions
+MSSP
+SOC Coverage
+Scale SOC Capacity
+24/7 SOC
+Agentic SOC
+For Federal Agencies
+Resources
+Insights
+Blog
+Case Studies
+Dropzone COACH
+Resource Center
+Learning Guides
+Solution Sheets
+White Papers & e-Books
+Reports
+Product Tours
+Company
+About Dropzone
+Why Dropzone
+Partners
+Careers
+Newsroom
+Security Trust Center
+Contact Us
+Glossary
+Consent Preferences
+|
+Privacy Policy
+|
+Terms of Service |
+Copyright © Dropzone AI 2026. All Rights Reserved
+Product
+AI SOC Analyst
+AI Threat Hunter
+AI Threat Intel Analyst
+Integrations
+Security, Privacy, Trust
+EU Data Residency
+Customers
+Pricing
+Documentation
+Use Cases
+solutions
+MSSP
+SOC Coverage
+Scale SOC Capacity
+24/7 SOC
+Agentic SOC
+For Federal Agencies
+Resources
+Insights
+Blog
+Case Studies
+Dropzone COACH
+Resource Center
+Learning Guides
+Solution Sheets
+White Papers & e-Books
+Reports
+Product Tours
+Company
+About Dropzone
+Why Dropzone
+Partners
+Careers
+Newsroom
+Security Trust Center
+Contact Us
+Glossary
+Consent Preferences
+|
+Privacy Policy
+|
+Terms of Service |
+Copyright © Dropzone AI 2026. All Rights Reserved

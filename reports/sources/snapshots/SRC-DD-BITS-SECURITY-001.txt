@@ -1,0 +1,758 @@
+Automate Cloud SIEM investigations with Bits Security Analyst | Datadog
+URL: https://www.datadoghq.com/blog/bits-ai-security-analyst/
+Captured: 2026-11-25
+Content-Type: text/html
+
+Automate Cloud SIEM investigations with Bits Security Analyst | Datadog
+Datadog named a Leader in the Gartner® Magic Quadrant™ for Observability Platforms
+Leader in the Gartner® Magic Quadrant™
+Product
+The integrated platform for monitoring & security
+Observability
+Security
+Digital Experience
+Software Delivery
+Service Management
+AI
+Platform Capabilities
+View pricing
+Observability
+End-to-end, simplified visibility into your stack’s health & performance
+Infrastructure
+Infrastructure Monitoring
+Custom Metrics
+Network Monitoring
+End User Device Monitoring
+Container Monitoring
+Kubernetes Autoscaling
+Serverless Monitoring
+Cloud Cost Management
+Storage Management
+GPU Monitoring
+Applications
+Application Performance Monitoring
+Universal Service Monitoring
+Continuous Profiler
+Dynamic Instrumentation
+Agent Observability
+Data
+Database Monitoring
+Data Observability
+Data Streams Monitoring
+Logs
+Log Management
+Audit Trail
+Observability Pipelines
+Error Tracking
+Bring Your Own Cloud Log Management
+Sensitive Data Scanner
+Infrastructure
+Applications
+Data
+Logs
+Security
+Outpace AI-powered attacks with unified security and observability
+Learn more
+Code Security
+Code Security
+Software Composition Analysis
+Static Code Analysis
+Runtime Code Analysis
+IaC Security
+Secret Scanning
+Cloud Security
+Cloud Security
+Cloud Security Posture Management
+Cloud Infrastructure Entitlement Management
+Vulnerability Management
+Compliance
+Cloud Workload Protection
+App & API Protection
+SIEM
+Cloud SIEM
+Bits Security Analyst
+AI & Data Security
+AI Guard
+Sensitive Data Scanner
+Digital Experience
+Optimize front-end performance and enhance user experiences
+Digital Experience
+Product Analytics
+Experiments
+Real User Monitoring
+Session Replay
+Synthetic Monitoring
+Mobile App Testing
+Continuous Testing
+Error Tracking
+Dashboards
+Software Delivery
+Build, test, secure and ship quality code faster
+Software Delivery
+Continuous Testing
+Internal Developer Portal (IDP)
+CI Visibility
+Test Optimization
+Feature Flags
+Code Coverage
+Software Composition Analysis
+DORA Metrics + AI Impact
+Service Management
+Integrated, streamlined workflows for faster time-to-resolution
+Incident Response
+Incident Management
+Work Management
+Service Level Objectives
+Actions
+Workflow Automation
+Datadog Apps
+Event Management
+Context Graph
+Internal Developer Portal (IDP)
+Software Catalog
+AI
+Monitor and improve model performance. Pinpoint root causes and detect anomalies
+AI for Datadog
+Bits Investigation
+Bits AI
+Bits Chat
+Bits Agent Builder
+Bits Code
+Bits Security Analyst
+Datadog for AI
+Agent Observability
+AI Guard
+MCP Server
+Pup CLI
+GPU Monitoring
+Platform Capabilities
+Built-in features & integrations that power the Datadog platform
+Built-in Features
+Bits AI
+Bits Chat
+Bits Agent Builder
+Alerts
+Custom Metrics
+Dashboards
+Notebooks
+Mobile App
+Fleet Automation
+Access Control
+Governance Console
+DORA Metrics + AI Impact
+Incident Management
+Work Management
+Workflow Automation
+Teams
+Extensibility
+OpenTelemetry
+Integrations
+IDE Plugins
+MCP Server
+Agent Directory
+Datadog Apps
+API
+Marketplace
+Pup CLI
+Software Catalog
+Service Level Objectives
+Customers
+Pricing
+Solutions
+Industry
+Financial Services
+Manufacturing & Logistics
+Healthcare/Life Sciences
+Retail/E-Commerce
+Government
+Education
+Media & Entertainment
+Technology
+Gaming
+Technology
+Amazon Web Services Monitoring
+Azure Monitoring
+Google Cloud Monitoring
+Oracle Cloud Monitoring
+Kubernetes Monitoring
+Red Hat OpenShift
+Pivotal Platform
+OpenAI
+SAP Monitoring
+OpenTelemetry
+Use Case
+Application Security
+Cloud Migration
+Monitoring Consolidation
+Unified Commerce Monitoring
+SOAR
+DevOps
+FinOps
+Shift-Left Testing
+Digital Experience Monitoring
+Security Analytics
+Compliance for CIS Benchmarks
+Hybrid Cloud Monitoring
+Edge Device Monitoring
+Real-Time BI
+On-Premises Monitoring
+Log Analysis & Correlation
+CNAPP
+Database Visibility
+Docs
+About
+Contact
+Partners
+Newsroom
+Events & Webinars
+Leadership
+Careers
+Analyst Reports
+Investor Relations
+ESG Report
+Trust Hub
+Blog
+The Monitor
+Engineering
+AI
+Security Labs
+Login
+GET STARTED FREE
+Free Trial
+Toggle navigation
+Product
+Infrastructure
+Infrastructure Monitoring
+Custom Metrics
+Network Monitoring
+End User Device Monitoring
+Container Monitoring
+Kubernetes Autoscaling
+Serverless Monitoring
+Cloud Cost Management
+Storage Management
+GPU Monitoring
+Applications
+Application Performance Monitoring
+Universal Service Monitoring
+Continuous Profiler
+Dynamic Instrumentation
+Agent Observability
+Data
+Database Monitoring
+Data Observability
+Data Streams Monitoring
+Logs
+Log Management
+Audit Trail
+Observability Pipelines
+Error Tracking
+Bring Your Own Cloud Log Management
+Sensitive Data Scanner
+Security
+Overview
+Code Security
+Software Composition Analysis
+Static Code Analysis
+Runtime Code Analysis
+IaC Security
+Secret Scanning
+Cloud Security
+Cloud Security Posture Management
+Cloud Infrastructure Entitlement Management
+Vulnerability Management
+Compliance
+Cloud Workload Protection
+App & API Protection
+Cloud SIEM
+Bits Security Analyst
+AI Guard
+Sensitive Data Scanner
+Digital Experience
+Product Analytics
+Experiments
+Real User Monitoring
+Session Replay
+Synthetic Monitoring
+Mobile App Testing
+Continuous Testing
+Error Tracking
+Dashboards
+Software Delivery
+Continuous Testing
+Internal Developer Portal (IDP)
+CI Visibility
+Test Optimization
+Feature Flags
+Code Coverage
+Software Composition Analysis
+DORA Metrics + AI Impact
+Service Management
+Incident Management
+Work Management
+Service Level Objectives
+Workflow Automation
+Datadog Apps
+Event Management
+Internal Developer Portal (IDP)
+Software Catalog
+AI
+Bits Investigation
+Bits AI
+Bits Chat
+Bits Agent Builder
+Bits Code
+Bits Security Analyst
+Agent Observability
+AI Guard
+MCP Server
+Pup CLI
+GPU Monitoring
+Platform Capabilities
+Bits AI
+Bits Chat
+Bits Agent Builder
+Alerts
+Custom Metrics
+Dashboards
+Notebooks
+Mobile App
+Fleet Automation
+Access Control
+Governance Console
+DORA Metrics + AI Impact
+Incident Management
+Work Management
+Workflow Automation
+Teams
+OpenTelemetry
+Integrations
+IDE Plugins
+MCP Server
+Agent Directory
+Datadog Apps
+API
+Marketplace
+Pup CLI
+Software Catalog
+Service Level Objectives
+Customers
+Pricing
+Solutions
+Industry
+Financial Services
+Manufacturing & Logistics
+Healthcare/Life Sciences
+Retail/E-Commerce
+Government
+Education
+Media & Entertainment
+Technology
+Gaming
+Technology
+Amazon Web Services Monitoring
+Azure Monitoring
+Google Cloud Monitoring
+Oracle Cloud Monitoring
+Kubernetes Monitoring
+Red Hat OpenShift
+Pivotal Platform
+OpenAI
+SAP Monitoring
+OpenTelemetry
+Use Case
+Application Security
+Cloud Migration
+Monitoring Consolidation
+Unified Commerce Monitoring
+SOAR
+DevOps
+FinOps
+Shift-Left Testing
+Digital Experience Monitoring
+Security Analytics
+Compliance for CIS Benchmarks
+Hybrid Cloud Monitoring
+Edge Device Monitoring
+Real-Time BI
+On-Premises Monitoring
+Log Analysis & Correlation
+CNAPP
+Database Visibility
+About
+Contact
+Partners
+Newsroom
+Events & Webinars
+Leadership
+Careers
+Analyst Reports
+Investor Relations
+ESG Report
+Trust Hub
+Blog
+The Monitor
+Engineering
+AI
+Security Labs
+Docs
+Login
+Get Started
+Get Started with Datadog
+Close modal
+The Monitor
+Automate Cloud SIEM investigations with Bits Security Analyst
+bits ai
+security
+cloud siem
+ai
+Published
+Jun 10, 2025
+Updated
+Mar 23, 2026
+Read time
+4m
+Vera Chan
+Senior Product Marketing Manager
+Ron Feldman
+Rex Guo
+Security analysts face unprecedented challenges in today’s cloud landscape. Security operations center (SOC) teams are chronically understaffed, and cybersecurity threats are skyrocketing—further intensified by GenAI-driven attacks. High false positive rates add to this strain, fueling alert fatigue and delaying the detection of real threats. These hurdles make it harder for analysts to keep pace, which ultimately drives up mean time to resolution (MTTR).
+Datadog Cloud SIEM
+has continually evolved to help SOC teams meet these challenges with powerful investigative capabilities, including:
+Hundreds of out-of-the-box integrations and detection rules
+Advanced graph-based visualizations
+Native Security Orchestration, Automation, and Response (SOAR) workflows
+and case management
+Comprehensive MITRE ATT&CK® mapping
+Intelligent, context-aware risk scoring
+Bits Security Analyst, announced in Preview in June 2025, is now generally available. Bits AI has investigated tens of thousands of security alerts for Preview customers, saving hundreds of person-years of manual investigation time. It autonomously triages Datadog Cloud SIEM signals, conducts in-depth investigations of potential threats, and delivers clear, actionable recommendations without human prompting.
+This is one of three AI agents, each designed to support cross-functional roles across security,
+SRE
+, and
+development
+. Since its launch,
+Bits AI
+has expanded its capabilities to support DevOps by investigating alerts, managing incidents, resolving coding errors, and more. With Bits Security Analyst, we’re taking Cloud SIEM to the next level by fundamentally transforming how security teams investigate and resolve security signals.
+Let’s take a closer look at how Bits Security Analyst works.
+Autonomous Cloud SIEM triage
+Bits AI asynchronously investigates SIEM signals across the following attack surfaces and sources (additional surfaces and source coverage coming soon):
+Category
+Tools / Services
+Cloud Control Plane
+AWS CloudTrail, Azure, GCP, Kubernetes
+Identity
+Okta, Entra ID, Google Workspace
+SaaS and Collaboration
+MS365, Google Workspace
+Dev Tools
+GitHub, Snowflake
+Endpoint Detection and Response (EDR)
+SentinelOne
+Email
+User-reported phishing
+Each investigated signal is clearly marked with a dedicated facet, allowing you to filter the Cloud SIEM Signals list or trigger targeted notifications. To view a finding, just click the signal in the list or notification to open the Bits AI investigation side panel. In the following screenshot, Bits AI automatically investigated actions taken by an authorized Okta administrator, without human intervention.
+Close dialog
+In-depth, evidence-based investigations
+Bits Security Analyst draws on the expertise of Datadog’s internal Security and Security Research teams. Using the
+MITRE ATT&CK framework
+as a foundation, the agent methodically plans and executes each step of its investigation, adapting its approach based on observed evidence. It also expertly pivots between indicators of compromise (IOCs) and pulls in relevant data from across the Datadog platform by querying historical signals and logs, linking to those queries, and providing clear, contextual analysis.
+After completing its investigation, Bits AI provides one of the following verdict recommendations:
+Benign
+: No security concern detected
+Suspicious
+: Requires further investigation
+In the following screenshot, Bits Security Analyst investigated endpoint alerts, classified them as benign based on historical patterns of legitimate Kafka operations, and surfaced all of that context as part of its in-depth analysis.
+Close dialog
+Bits Security Analyst will provide the same detailed analysis for suspicious activity, such as user-reported phishing attempts. As seen in the example signal below, it confirmed that a reported email was worth investigating further based on activity consistent with common phishing tactics.
+Close dialog
+The agent’s reasoning at each step of its investigation and its final conclusions are thoroughly evaluated for reliability. Bits Security Analyst has been rigorously tested against historical datasets containing both benign and malicious signals to ensure its efficacy—and we’re continuously refining its accuracy over time.
+Take action to remediate suspicious signals immediately
+Once you review a security signal, you can archive it, declare an incident for further investigation, edit suppressions, or run a workflow. Each option gives you a different way to respond, from archiving benign activity to automatically remediating the issue. For example, you can suspend a user flagged as suspicious by Bits Security Analyst by running a workflow directly from within the security signal.
+Close dialog
+Automate investigations with Bits Security Analyst
+Bits Security Analyst is now generally available.
+Activate it in-app to get started
+or
+explore the documentation
+to learn more.
+New to Datadog? Start a
+free 14-day trial
+to take advantage of autonomous Cloud SIEM investigations.
+Automate Cloud SIEM investigations with Bits Security Analyst
+Autonomous Cloud SIEM triage
+In-depth, evidence-based investigations
+Take action to remediate suspicious signals immediately
+Automate investigations with Bits Security Analyst
+Close feedback prompt
+Did you find this article helpful?
+Article thumbs up
+Article thumbs down
+Further reading
+2026 Gartner® Magic Quadrant™
+Datadog has been named a leader in the 2026 Gartner® Magic Quadrant™ for Observability Platforms
+Read the full report
+Related jobs at Datadog
+We're always looking for talented people to collaborate with
+Featured positions
+We have
+positions
+View all
+Start monitoring your metrics in minutes
+find out how
+Product
+Observability
+Infrastructure
+Infrastructure Monitoring
+Custom Metrics
+Network Monitoring
+End User Device Monitoring
+Container Monitoring
+Kubernetes Autoscaling
+Serverless Monitoring
+Cloud Cost Management
+Storage Management
+GPU Monitoring
+Applications
+Application Performance Monitoring
+Universal Service Monitoring
+Continuous Profiler
+Dynamic Instrumentation
+Data
+Database Monitoring
+Data Observability
+Data Streams Monitoring
+Logs
+Log Management
+Audit Trail
+Observability Pipelines
+Error Tracking
+Bring Your Own Cloud Log Management
+Security
+Code Security
+Code Security
+Software Composition Analysis
+Static Code Analysis
+Runtime Code Analysis
+IaC Security
+Secret Scanning
+Cloud Security
+Cloud Security
+Cloud Security Posture Management
+Cloud Infrastructure Entitlement Management
+Vulnerability Management
+Compliance
+Cloud Workload Protection
+App & API Protection
+SIEM
+Cloud SIEM
+AI & Data Security
+AI Guard
+Sensitive Data Scanner
+Digital Experience
+Digital Experience
+Product Analytics
+Experiments
+Real User Monitoring
+Session Replay
+Synthetic Monitoring
+Mobile App Testing
+Software Delivery
+Software Delivery
+Continuous Testing
+Internal Developer Portal (IDP)
+CI Visibility
+Test Optimization
+Feature Flags
+Code Coverage
+DORA Metrics + AI Impact
+Service Management
+Incident Response
+Incident Management
+Work Management
+Actions
+Workflow Automation
+Datadog Apps
+Event Management
+Context Graph
+Software Catalog
+AI
+AI for Datadog
+Bits Investigation
+Bits AI
+Bits Chat
+Bits Agent Builder
+Bits Code
+Bits Security Analyst
+Datadog for AI
+Agent Observability
+AI Guard
+MCP Server
+Pup CLI
+Platform Capabilities
+Built-in Features
+Alerts
+Dashboards
+Notebooks
+Mobile App
+Fleet Automation
+Access Control
+Governance Console
+Teams
+Extensibility
+OpenTelemetry
+Integrations
+IDE Plugins
+Agent Directory
+API
+Marketplace
+Service Level Objectives
+Observability
+Infrastructure
+Infrastructure Monitoring
+Custom Metrics
+Network Monitoring
+End User Device Monitoring
+Container Monitoring
+Kubernetes Autoscaling
+Serverless Monitoring
+Cloud Cost Management
+Storage Management
+GPU Monitoring
+Applications
+Application Performance Monitoring
+Universal Service Monitoring
+Continuous Profiler
+Dynamic Instrumentation
+Data
+Database Monitoring
+Data Observability
+Data Streams Monitoring
+Logs
+Log Management
+Audit Trail
+Observability Pipelines
+Error Tracking
+Bring Your Own Cloud Log Management
+Digital Experience
+Digital Experience
+Product Analytics
+Experiments
+Real User Monitoring
+Session Replay
+Synthetic Monitoring
+Mobile App Testing
+Security
+Code Security
+Code Security
+Software Composition Analysis
+Static Code Analysis
+Runtime Code Analysis
+IaC Security
+Secret Scanning
+Cloud Security
+Cloud Security
+Cloud Security Posture Management
+Cloud Infrastructure Entitlement Management
+Vulnerability Management
+Compliance
+Cloud Workload Protection
+App & API Protection
+SIEM
+Cloud SIEM
+AI & Data Security
+AI Guard
+Sensitive Data Scanner
+Software Delivery
+Software Delivery
+Continuous Testing
+Internal Developer Portal (IDP)
+CI Visibility
+Test Optimization
+Feature Flags
+Code Coverage
+DORA Metrics + AI Impact
+Service Management
+Incident Response
+Incident Management
+Work Management
+Actions
+Workflow Automation
+Datadog Apps
+Event Management
+Context Graph
+Software Catalog
+AI
+AI for Datadog
+Bits Investigation
+Bits AI
+Bits Chat
+Bits Agent Builder
+Bits Code
+Bits Security Analyst
+Datadog for AI
+Agent Observability
+AI Guard
+MCP Server
+Pup CLI
+Platform Capabilities
+Built-in Features
+Alerts
+Dashboards
+Notebooks
+Mobile App
+Fleet Automation
+Access Control
+Governance Console
+Teams
+Extensibility
+OpenTelemetry
+Integrations
+IDE Plugins
+Agent Directory
+API
+Marketplace
+Service Level Objectives
+Resources
+Pricing
+Events and Webinars
+Product Preview Program
+Documentation
+Knowledge Center
+Learning Resources
+Support
+Services & Enablement
+Certification
+Open Source
+Architecture Center
+Blog
+The Monitor
+Engineering
+AI
+Security Labs
+About
+Contact Us
+Partners
+Press
+Leadership
+Careers
+Investor Relations
+Analyst Reports
+ESG Report
+Vendor Help
+Legal
+Privacy Center
+Trust Hub
+Download mobile app
+© Datadog 2026
+Terms
+|
+Privacy
+|
+Cookies
+English
+English
+English
+日本語
+Japanese
+한국어
+Korean

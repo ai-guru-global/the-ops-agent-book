@@ -89,7 +89,7 @@ PUB-04 仍需 3–5 名真实 SRE/平台工程师完成定位、理解、复用�
 ### 6.3 厂商证据仍不可支撑采购
 
 - v2 快照时，77 个显式“未核实”产品 ID 未纳入来源注册表，仅 3 个产品来源有永久快照。
-- 本轮后续补证后，来源注册表增至 108 条、正文快照 69 份；`sources/claim-gaps.json` 跟踪 94 个仍有至少一个未核实字段的 claim，其中 67 个已绑定 source_id。分数仍对应补证前快照。
+- 本轮后续补证后，来源注册表增至 134 条、正文快照 95 份；`sources/claim-gaps.json` 跟踪 110 个仍有至少一个未核实字段的 claim，其中 83 个已绑定 source_id。分数仍对应补证前快照。
 - 导出、退出、区域、许可与最低消费等字段仍有缺口；Azure SRE 抓取仍待重试。
 - v2 快照时缺填毕的 POC 报告。本轮已新增 [filled synthetic POC](../examples/poc/reference-agent-poc.md)：73/100、INCONCLUSIVE，干净目录导入/Shadow/rollback/制品哈希通过；真实厂商评分、TCO 与商业退出仍未完成。
 

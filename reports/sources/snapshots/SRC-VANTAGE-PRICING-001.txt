@@ -1,0 +1,393 @@
+Pricing | Vantage
+URL: https://www.vantage.sh/pricing
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+Vantage
+Features
+Reporting
+Cost Reports
+Canvas
+Virtual Tagging
+FinOps Agent
+Budgets
+Unit Costs
+LLM Token Allocation
+Tokenomics
+Kubernetes
+Network Cost Visibility
+Asset Inventory
+Optimization
+Automated Waste Detection
+Autopilot for AWS Savings Plans
+Platform
+Team Management
+MCP
+Data Exports
+Terraform
+Solutions
+By Persona
+For Developers
+For Finance
+For Management
+For MSPs
+By Use Case
+Cost Allocation
+Commitment Coverage
+Accountability
+AI Workflows
+Integrations
+Cloud
+AWS
+Azure
+Google Cloud
+Cloudflare
++4 more
+AI
+OpenAI
+Anthropic
+Cursor
+Anyscale
++9 more
+SaaS
+Datadog
+Grafana
+New Relic
+Twilio
++7 more
+Data & Infrastructure
+Kubernetes
+Snowflake
+MongoDB
+Databricks
++6 more
+Integrations Library (43)
+Docs
+Pricing
+Company
+About us
+Blog
+Customers
+Careers
+Partners
+Sign In
+Get started
+Book a demo
+Open menu
+Simple, Fixed Pricing
+Whether you're a startup or Enterprise, Vantage has simple, fixed-rate plans that don't contribute to your cost problems.
+Pricing plans
+Starter
+For starting something new to keep an eye on costs
+Free
+Sign up
+$2,500 of cloud spend
+40+ Supported Providers
+Email Support
+SAML Single Sign-on (SSO)
+3 Users
+Pro
+14 Day
+Free Trial
+For small startups starting to grow
+$
+3
+0
+/month
+$30 /month
+Sign up
+$7,500 of cloud spend
+Autopilot for AWS Savings Plans
+Email Support
+Virtual Tagging
+SAML Single Sign-on (SSO)
+5 Users
+Business
+14 Day
+Free Trial
+For growing companies beginning to scale up
+$
+2
+0
+0
+/month
+$200 /month
+Sign up
+$20,000 of cloud spend
+Autopilot for AWS Savings Plans
+Email Support
+Virtual Tagging
+SAML Single Sign-on (SSO)
+10 Users
+Enterprise
+Hands On
+Free Trial
+For Enterprises with more complex needs
+Custom
+Schedule a call
+Unlimited tracked cloud spend
+Automated FinOps Agent
+Autopilot for AWS Savings Plans
+Dedicated Account Rep
+Virtual Tagging
+SAML Single Sign-on (SSO)
+Unlimited Users
+Trusted by companies where cloud spend is mission-critical
+Feature Comparison
+Monthly Tracked Costs
+Data Retention
+Team Members
+Integrations
+Cloud
+AWS
+Azure
+Cloudflare
+CoreWeave
+DigitalOcean
+Google Cloud
+Linode
+Oracle Cloud
+AI
+Anthropic
+Anyscale
+Baseten
+Cartesia
+Cursor
+Deepgram
+ElevenLabs
+Fireworks AI
+Modal
+OpenAI
+OpenRouter
+SpaceXAI
+Together AI
+SaaS
+Coralogix
+Datadog
+Elastic
+Fastly
+Grafana
+Metronome
+New Relic
+Ramp
+Temporal
+Twilio
+Vercel
+Data & Infrastructure
+CircleCI
+ClickHouse
+Confluent
+Databricks
+GitHub
+Kubernetes
+MongoDB
+PlanetScale
+Redis
+Snowflake
+Custom
+Custom Providers
+Features
+Cost Reports
+Virtual Tagging
+Network Flow Reports
+Active Resource Reports
+Forecasting
+Budgets
+Unit Costs
+LLM Token Allocation
+Vantage Tokenomics
+Financial Commitment Reports
+Usage-Based Reporting
+Kubernetes Cost Reporting
+Optimization and Savings
+Autopilot for AWS Savings Plans
+Automated FinOps Agent
+Cost Recommendations
+Cost Anomaly Alerts
+Savings Planner
+Workflow Connections
+Jira
+Slack
+Microsoft Teams
+Savings Planner
+Developer
+API
+Terraform Provider
+MCP Server for AI
+Security
+Role-Based Access Control (RBAC)
+SAML Single Sign-on (SSO)
+SOC 1 Compliance
+SOC 2 Compliance
+Support
+Slack Community
+Monthly Bill Review
+Dedicated Account Rep
+Dedicated Slack Channel
+Dedicated MS Teams Channel
+Email Support
+Starter
+Free
+Sign up
+Up to $2,500
+6 Months
+3
+Contact Sales
+Contact Sales
+Best Effort
+Pro
+$
+3
+0
+/month
+$30 /month
+Sign up
+Up to $7,500
+6 Months
+5
+Contact Sales
+Contact Sales
+Same Day
+Business
+$
+2
+0
+0
+/month
+$200 /month
+Sign up
+Up to $20,000
+12 Months
+10
+Contact Sales
+Contact Sales
+Same Day
+Enterprise
+Custom
+Schedule a call
+Unlimited
+Unlimited
+Unlimited
+Contact Sales
+Contact Sales
+Same Day
+Show
+more
+Faster than Building. Better than Maintaining.
+Vantage has a turn-key, Enterprise-ready FinOps platform. Invest internal resources better and rely on a faster moving vendor.
+Modern UX.
+A full suite of graphs, charts and tables to present data in any format.
+Cost Allocation Engine.
+Virtual tagging gives you precise control over spend attribution.
+FinOps as Code.
+Automate everything the way you want to with our Terraform Provider.
+Constantly shipping.
+The roadmap only matters if it happens. Vantage ships the fastest of all FinOps vendors.
+And More Complete than Anything Else Out There...
+40+ Native Integrations
+Know that as you begin using new providers, they'll be covered by Vantage.
+Better allocation.
+Virtual tagging gives you precise control over spend attribution.
+Deeper visibility.
+Vantage has fine-grained granularity that no other FinOps vendor has.
+AI-Ready.
+Use AI to accelerate your organization via the Vantage MCP Server and APIs.
+Trusted by Thousands of Businesses Like Yours
+Learn how the best FinOps Teams use Vantage
+“
+The biggest thing we've solved [with Vantage] is being able to put data into the hands of the teams that are responsible for it.
+”
+Mike Norton
+VP of Cloud Services, PBS
+“
+Vantage as a tool across Block has been able to let folks know where they might improve, but also to just improve their general knowledge of the cloud.
+”
+Youssef Ibrahim
+Cloud Economics Lead, Block
+“
+We needed a solution that was cost-effective, flexible, and provided detailed visibility without unnecessary overhead.
+”
+Rami Leshem
+VP of Platform Engineering, Extend
+Frequently Asked Questions
+Do prices include sales tax?
+What payment methods are accepted?
+How does Enterprise tier pricing work?
+Do you offer a free trial?
+I am paying by credit card on a self-service tier - when will my card be charged?
+What cloud providers does Vantage support?
+How does Vantage enforce tier cost limits for self-service tiers?
+Will Vantage cause my AWS/Azure/GCP account to incur any charges?
+What happens if I upgrade from Pro to Business?
+What happens if my cloud costs exceed my current tier?
+What happens when I cancel my paid plan (downgrade to Starter)?
+Can I change my payment method from Stripe to AWS or Azure Marketplace?
+I have many (10+) AWS/Azure/GCP accounts, does Vantage support that?
+I represent a company with significantly higher costs than what is listed here publicly - can you support that?
+I'd like to start with a test account, then add others over time, is this possible?
+How does pricing for the FinOps Agent work?
+How does pricing for Autopilot for AWS Savings Plans work?
+Ready to get started with Vantage?
+Book a demo
+Book a call with one of our FinOps experts to see how Vantage can help optimize your cloud costs.
+Vantage
+Tools for developers to analyze, report on and reduce cloud costs.
+©
+2026
+VNTG, Inc.
+Follow us on Twitter
+Follow us on LinkedIn
+Follow us on GitHub
+Follow us on YouTube
+All systems operational
+©
+2026
+Vantage Inc.
+Solutions
+Cost Allocation
+Commitment Coverage
+Accountability
+AI Workflows
+For Developers
+For Finance
+For Management
+For MSPs
+Documentation
+API Docs
+Changelog
+Product Docs
+Vantage University
+Integrations Library
+Features Library
+Pricing
+Community
+Events
+Slack Community
+EC2Instances.info
+LLM Models
+cur.vantage.sh
+Cloud Cost Reports
+Cloud Cost Handbook
+Company
+About
+Blog
+Brand
+Careers
+Customers
+Partners
+Newsroom
+Podcasts and Talks
+Security
+Legal
+Privacy Policy
+Cookie Policy
+Website Terms of Use
+VNTG Service Agreement
+Autopilot Service Agreement
+Authorized Sub-Processors
+Trust Center
+All systems operational
+©
+2026
+Vantage Inc.
+Pricing | Vantage

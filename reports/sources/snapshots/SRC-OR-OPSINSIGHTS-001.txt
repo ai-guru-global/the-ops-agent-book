@@ -1,0 +1,165 @@
+About Oracle Cloud Infrastructure Ops Insights
+URL: https://docs.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html
+Captured: 2026-11-25
+Content-Type: text/html
+
+About Oracle Cloud Infrastructure Ops Insights
+Oracle Cloud Infrastructure Documentation
+All Pages
+Skip to main content
+About Oracle Cloud Infrastructure Ops Insights
+Oracle Cloud Infrastructure Ops Insights is an OCI native service that provides holistic insight into database and host resource utilization and capacity.
+Note
+Ops Insights for MySQL HeatWave is being deprecated and will remain available for existing enabled resources until January 29, 2027. For more information, see the
+Service Change Announcement
+.
+Ops Insights consists of integrated applications distributed in the following way:
+Overview: Provides a high-level view of Ops Insights resources and key service entry points.
+GenAI & Compute Insights: Contains insights into hosts, OCI compute and GPU clusters.
+Process Insights
+Capacity Planning
+: Contains all capacity insights at the host and database levels.
+Exadata Insights
+: Contains all Exadata-related information, access to Exadata Cost Management and Exadata Explorer.
+Database Insights: Contains all the different database performance insights.
+SQL Insights
+SQL Explorer
+DB Performance
+ADDM Spotlight in Ops Insights
+AWR Hub
+Dashboards: Allows you to curate custom views using out-of-the-box widgets or customer saved searches.
+Data Object Explorers
+Use AWR Explorer
+Administration: Manage your Ops Insights resources and customize the service.
+Working with Ops Insights Resources
+Create an EM Bridge
+Create a Private Endpoint
+AWR Hub
+News Reports
+Collection Issues
+Service Configurations
+These applications allow database administrators, DevOps, and IT executives to make critical decisions about their databases and hosts using historical and long term data.
+With Ops Insights you can:
+Analyze resource usage of databases/hosts across the enterprise
+Forecast future demand for resources based on historical trends
+Compare SQL Performance across databases and identify common patterns
+Identify SQL performance trends across enterprise-wide databases
+Analyze AWR statistics for database performance, diagnostics, and tuning across a fleet of databases
+Enable a cost allocation plan for Exadata systems to perform cost attribution and analyze database-level costs based on the selected plan
+Create and receive weekly News Reports giving you breakdowns of new utilization highs, big utilization changes and inventory changes across your fleet of databases, hosts, and Exadata systems.
+Demo Mode
+To explore Ops Insights functionality before setting up your own environment. See
+Explore Ops Insights Using Demo Mode
+.
+Related Services
+Ops Insights also provides direct access to the Oracle Cloud Infrastructure Database Management service, which lets you take advantage of its real-time database performance and management capability with a single click. For more information, see
+Accessing Related Services
+.
+Supported Targets
+For a complete list of Ops Insights supported targets and configurations see:
+Supported Configurations for Ops Insights
+.
+Before You Begin
+Data collected and analyzed by Ops Insights Service will only be stored for the last 25 months from the current date.
+Data collected and analyzed by Ops Insights Service will be purged after 30 days once the Ops Insights Service is disabled on a resource.
+Oracle Cloud Infrastructure applies throttling too many API requests to prevent accidental or abusive use of resources. If you make too many requests too quickly, you might see some succeed and others fail.
+Pricing does not depend on the actual amount of data stored.
+Stopping an Oracle Database or an MySQL Database System that has Ops Insights enabled has no effect on retention or visibility of historical data for that instance. The period during which the database resource was stopped will contain no data.
+If the data was not collected from the source databases or targets for some underlying reason then that period will contain no data for Ops Insights.
+Ops Insights Service also uses
+Oracle Cloud Infrastructure Monitoring Datapoints
+– Retrieval (Part# is B90926). You may get charged for it over and above the free limits offered by Oracle.
+Licensing for Ops Insights
+Generic Pricing
+The following features are applicable to the SKUs listed below:
+Capacity planning (database and host)
+Exadata Insights
+SQL Insights
+Data Object Explorer
+ADDM Spotlight
+Dashboard
+Configuration (SKU)
+Pricing
+Metric
+Details
+OCI Ops Insights for Oracle Cloud databases (B92889) **
+$0.015
+OCPU per hour
+Supports Oracle Base Database *, Exadata Database Service on Dedicated Infrastructure *, and Autonomous AI Database enabled for OPSI full feature support (configured for OCPU
+OCI Ops Insights for Oracle Cloud Databases (B97140) *
+$0.0075
+ECPU per hour
+N/A
+OCI Ops Insights for External and On Premise databases and hosts (B92890)
+$0.015
+Host CPU core per hour
+On premise databases with diagnostics and tuning pack
+OCI Ops Insights for Autonomous AI Database basic (B92888) *
+$0.00
+OCPU per hour
+N/A
+OCI Ops Insights for Autonomous AI Database basic (B96199) *
+$0.00
+ECPU per hour
+N/A
+OCI Ops Insights for MySQL HeatWave (B109358)
+$0.015
+OCPU per hour
+ADDM, Exadata are not applicable for MySQL.
+(Deprecated)
+OCI Ops Insights for MySQL HeatWave Systems (B109359)
+$0.0075
+ECPU per hour
+ADDM, Exadata are not applicable for MySQL.
+(Deprecated)
+OCI Ops Insights for External MySQL Database Systems
+$15.00 USD
+Host CPU core per month
+This is a non-metered SKU. For instructions to enable the subscription, see
+Database Management for HeatWave and External MySQL
+.
+* Applicable for capacity planning application only.
+**Applicable for SQL Explorer, SQL Insights, and ADDM Spotlight.
+Core Calculation
+Ops Insights calculates the Host CPU Core per Hour and per Month for the various SKU's using the following formulas:
+OCI Ops Insights for External and On Premise databases and hosts (B92890):
+Host CPU Core per Hour = Core(s) per socket * Number of Socket(s)
+For example: Linux Host X86_642 with 6 cores per socket, and 1 socket.
+The total number of Host CPU cores would be: 6 (cores) * 1 (socket) = 6 Host CPU cores.
+OCI Ops Insights for External MySQL Database Systems:
+This is a non-metered SKU, a $15.00 USD Host CPU core per month subscription is charged.
+OCI Ops Insights for Autonomous AI Database basic (B92889) and (B96199):
+The unit count billed is for the number OCPU or ECPU allocated to the Autonomous AI Database. Auto-scaling does not impact Ops Insights pricing.
+OCI Ops Insights for Oracle Cloud Databases (B97140) and (B92889):
+The unit count billed is for the number OCPU or ECPU allocated to the VM Cluster or the Database System (pending on the infrastructure type). Auto-scaling does not impact Ops Insights pricing.
+Cloud Exadata Databases:
+The billing incurred is equal to the number of OCPUs or ECPUs allocated to the VM Clusters enabled for Ops Insights. CPUs not allocated to VM Clusters are not billed.
+OCI Ops Insights for Oracle Autonomous AI Databases on Exadata Database Service :
+When enabling individual databases, price remains same as above. When enabling the Exadata (Dedicated or Cloud@Customer) system, Ops Insights will bill for the ECPUs/OCPUs allocated to the VM Clusters (SKU B97140 and B92889).
+Duplication of Charges
+For OCI databases (including Exadata Database Service on Dedicated Infrastructure, Exadata Database Machine, Exadata Database Service on Cloud@Customer, and Oracle Cloud Databases) with Hosts for Ops Insights enabled, an additional Host SKU payment is required.
+On-premise Oracle databases have a unified SKU for both the database and host, generating a single billing charge.
+Warehouse Pricing
+The following features are applicable to the AWR hub SKU:
+Configuration (SKU)
+Pricing
+Metric
+Details
+Ops Insights for Warehouse - Instance (B111087)
+$0.2688
+ECPU per hour
+AWR Hub
+Ops Insights for Warehouse - Instance (B93706)
+$0.5377
+OCPU per hour
+AWR Hub
+Ops Insights for Warehouse - Extract
+$2.00
+Gigabyte per month
+AWR Hub
+Copyright © 2026, Oracle and/or its affiliates.
+About Oracle
+Contact Us
+Legal Notices
+Terms of Use & Privacy
+Document Conventions

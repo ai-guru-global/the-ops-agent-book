@@ -161,6 +161,22 @@ for (const file of [...walk("docs/vendors"), "docs/appendix/alibaba-agent-landsc
 for (const ref of claimRefs) {
   if (!sourceIds.includes(ref)) errors.push(`unknown source reference ${ref}`);
 }
+const sourceById = new Map(sources.map((source) => [source.source_id, source]));
+const vendorFiles = [...walk("docs/vendors"), "docs/appendix/alibaba-agent-landscape.md"].filter((file) => file.endsWith(".md"));
+const claimPattern = /\b(?:(?:GC|CN)-[A-Z]{1,4}-\d{2}|(?:OBS|SEC|FIN|VERT|ALI|NET)-\d{2}|EMB-[A-Z]{1,4}-\d{2})\b/g;
+for (const file of vendorFiles) {
+  const productSection = fs.readFileSync(path.join(root, file), "utf8").split("## 商业字段证据卡")[0];
+  for (const line of productSection.split("\n")) {
+    if (!line.startsWith("|")) continue;
+    const claimIds = [...line.matchAll(claimPattern)].map((match) => match[0]);
+    const sourceRefs = [...line.matchAll(/SRC-[A-Z0-9-]+/g)].map((match) => match[0]);
+    if (claimIds.length === 1 && sourceRefs.length === 1) {
+      const [claimId] = claimIds;
+      const [sourceId] = sourceRefs;
+      if (!sourceById.get(sourceId)?.claims?.includes(claimId)) errors.push(`${file}: ${claimId} cites ${sourceId} but source registry claim mapping is missing`);
+    }
+  }
+}
 const unused = sourceIds.filter((id) => !claimRefs.has(id));
 if (unused.length) warnings.push(`unused registered sources: ${unused.join(", ")}`);
 
@@ -172,9 +188,7 @@ const gapsWithSources = gapClaims.filter((claim) => (claim.source_ids || []).len
 if (gapRegistry.summary?.total_claims !== gapClaims.length || gapRegistry.summary?.with_sources !== gapsWithSources || gapRegistry.summary?.without_sources !== gapClaims.length - gapsWithSources) {
   errors.push("claim gap registry summary totals are stale");
 }
-const vendorFiles = [...walk("docs/vendors"), "docs/appendix/alibaba-agent-landscape.md"].filter((file) => file.endsWith(".md"));
 const vendorText = vendorFiles.map((file) => fs.readFileSync(path.join(root, file), "utf8")).join("\n");
-const claimPattern = /\b(?:(?:GC|CN)-[A-Z]{1,4}-\d{2}|(?:OBS|SEC|FIN|VERT|ALI)-\d{2})\b/g;
 const explicitGapIds = new Set();
 for (const file of vendorFiles) {
   const productSection = fs.readFileSync(path.join(root, file), "utf8").split("## 商业字段证据卡")[0];

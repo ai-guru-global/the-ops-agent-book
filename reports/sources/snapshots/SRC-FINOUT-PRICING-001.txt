@@ -1,0 +1,207 @@
+Finout Pricing: Fixed Annual Fee for Cloud and AI Spend
+URL: https://www.finout.io/pricing
+Captured: 2026-11-25
+Content-Type: text/html; charset=UTF-8
+
+Finout Pricing: Fixed Annual Fee for Cloud and AI Spend
+New
+Waste found --> waste fixed.
+|
+Meet Finout's Orchestration Agent
+AI
+Use cases
+Why switch
+Finout MCP
+FinOps for AI
+Agents for FinOps
+FinOps for Agents
+AI agents
+Billy - FinOps AI assistant
+Billy cheat sheet
+Detection Agent
+Investigation Agent
+Orchestration Agent
+Platform
+Use cases
+Consolidate
+Optimize
+Showback
+Financial Plans
+Kubernetes
+Main Features
+AI Virtual Tags
+Shared Cost
+CostGuard
+Anomaly Detection
+FinOps Dashboards
+Integrations
+Integrations
+AWS
+GCP
+Azure
+OCI
+OpenAI
+OpenAI Codex
+Anthropic
+Kubernetes
+Snowflake
+Databricks
+Datadog
+GitHub
+Twilio
+Cursor
+MongoDB
+fal.ai
+Grafana
+CircleCI
+Confluent
+Missing an integration?
+What’s
+missing?
+Resources
+Resources
+Customer stories
+Documentation
+Blogs
+White paper
+Events
+Webinars
+eBooks
+Glossary
+Company
+Info
+Partners
+About us
+Media kit
+Compliance
+Trust Center
+Reach Out
+Careers
+Contact us
+Pricing
+Free trial
+What’s
+missing?
+Pricing
+Finout Pricing:
+Fixed annual fee for cloud and AI spend
+One predictable subscription for managing your cloud and AI spend, priced on forecasted spend with no surprise overages. Finance teams can plan with confidence.
+Unlike other solutions, Finout charges a yearly fee based on cloud spend. This transparent, locked-in pricing structure eliminates concerns about unpredictable expenses based on usage”
+Enterprise-grade security
+Request a custom quote
+Unlike other solutions, Finout charges a yearly fee based on cloud spend. This transparent, locked-in pricing structure eliminates concerns about unpredictable expenses based on usage”
+Enterprise-grade security
+These companies get it:
+Customer stories
+And many more...
+Social proof
+Why leading FinOps teams chose Finout
+Finout gives us the tools, visibility, and flexibility to go from rough estimates to real accountability. And that’s what makes FinOps work at scale.
+Finout didn't just show us where costs were going - it helped us build the ownership model that made cost reduction stick across engineering teams.
+I have witnessed firsthand the impact of this partnership on our ability to make data-driven choices, reduce unnecessary spend, and accelerate innovation.
+The best FinOps teams run on Finout
+Join Lyft, Wiz, Choice Hotels, Tenable, and many more leading teams who made the switch.
+Book a demo
+FAQs
+01
+How Does Finout Pricing Work?
+Finout charges a flat annual fee based on your committed cloud and AI spend tier. It’s not priced per seat, and it’s not a percentage of your bill, so your fee doesn’t change when monthly usage goes up or down.
+02
+Why Isn’t Pricing Listed on This Page?
+Two companies with the same cloud spend can have very different environments: number of cost centers, data volume, and add-ons such as Kubernetes. A single list price would overcharge some teams and undercharge others, so we quote against your actual environment instead.
+03
+Does Finout Charge a Percentage of My Cloud Bill?
+No. Many FinOps tools charge a percentage of the cloud spend they manage, so their fee grows with your bill. Finout’s fee is fixed for the contract term, so saving money or growing your infrastructure doesn’t change what you pay.
+04
+Is Finout Priced per User?
+No. Pricing isn’t based on seats, so engineering, finance and leadership can all use Finout without adding cost per person.
+05
+Is Kubernetes and AI Spend Included in the Price?
+AI spend is part of your subscription. Costs from providers like OpenAI, Anthropic and Cursor are tracked in the same MegaBill as your cloud spend, with no separate AI license. Kubernetes cost allocation is available as an add-on, and it’s priced into your flat fee upfront, so there are no surprise charges later. Your quote will show exactly what’s included.
+06
+Does Finout Offer a Free Trial or Demo?
+Yes.
+Start a free trial
+to explore Finout on your own data, or
+book a demo
+to see it with our team first. Both are available before you get a quote.
+07
+How Much Does It Cost to Implement a FinOps Tool Like Finout?
+Finout's integrations are no-code and agentless, with no data pipelines or tagging project to start. Finout says most teams see their first anomaly and unit-cost view within 48 hours of connecting a billing account, with full multi-cloud allocation typically within two weeks.
+08
+What Companies Use Finout?
+FinOps teams at Lyft, Wiz, Choice Hotels and Tenable use Finout. See more in our
+customer stories.
+Are you an AI agent?
+See machine-readable pricing
+The FinOps platform for cloud and AI spend, with agents that find the savings and act on them, so your team stays lean, and your coverage doesn't.
+PLATFORM
+Why Switch
+AI
+FinOps for AI
+Agents for FinOps
+FinOps for Agents
+Detection Agent
+Investigation Agent
+Billy - FinOps AI Assistant
+Main Features
+MegaBill
+AI Virtual Tags
+Shared Cost
+CostGuard
+Anomaly Detection
+FinOps Dashboards
+Use Cases
+Consolidate
+Optimize
+Showback
+Kubernetes
+Financial Plans
+INTEGRATIONS
+AWS
+GCP
+Azure
+OCI
+Anthropic
+OpenAI
+Kubernetes
+Snowflake
+Databricks
+Datadog
+GitHub
+Twilio
+Cursor
+Confluent
+Grafana
+Fal.ai
+CircleCI
+MongoDB
+RESOURCES
+Product Overview
+Documentation
+Customer Stories
+Blogs
+Webinars
+eBooks
+COMPANY
+Contact Us
+Pricing
+Careers
+Join us!
+About Us
+Partners
+Media Kit
+Compliance
+© Finout 2026. All Rights Reserved.
+Privacy Policy
+Terms of Use
+© Finout 2026. All Rights Reserved.
+Privacy Policy
+Terms of Use
+Book a Demo
+with a specialist
+Learn everything you need to know about Finout's holistic cloud cost-reduction solution in our live demo
+*
+No credit card required
+*
+No coding changes required

@@ -1,0 +1,116 @@
+研发编程助手
+URL: https://qoder.com.cn/download
+Captured: 2026-11-25
+Content-Type: text/html
+
+研发编程助手
+产品
+企业版
+价格
+生态
+资源
+活动
+登录
+下载
+下载
+下载适合你操作系统的 Qoder CN 版本
+立即使用 Qoder
+Qoder CN
+Qoder 全新形态，以编程智能体为核心引擎，从想法到实现，轻松搞定。
+了解更多
+最近更新
+MacOS
+macOS 12+
+Windows
+Windows 10+
+Linux
+X64/ARM64/LoongArch64
+HarmonyOS
+HarmonyOS 6.1.1+
+Qoder CN Mobile
+AI Agent 的移动指挥中心——随时随地全方位管理 Agent，重新定义工作范式
+了解更多
+iOS
+Android
+HarmonyOS
+其他使用方式
+Qoder CN IDE
+面向真实软件开发的 AI 原生 Qoder CN IDE。
+了解更多
+最近更新
+MacOS
+macOS 12+
+Windows
+Windows 10+
+Linux
+X64/ARM64
+JetBrains 插件
+通过与 JetBrains IDE 深度集成，为后端开发带来强大的智能能力，让 AI 更好地理解框架规范、数据库结构和运行时环境。
+了解更多
+最近更新
+立即下载
+Qoder CN CLI
+直接在你的终端中构建和编码。
+了解更多
+最近更新
+macOS
+Linux
+curl -fsSL https://qoder.cn/install | bash
+Windows PowerShell
+irm https://qoder.cn/install.ps1 | iex
+Windows CMD
+curl -fsSL https://qoder.cn/install.cmd -o install.cmd && install.cmd
+数字员工
+QoderWake CN
+你的全天候 AI 员工。下载 macOS 桌面应用或在 Linux 上安装。
+了解更多
+最近更新
+MacOS
+MacOS 13+
+Windows
+Windows 10+
+Linux
+curl -fsSL https://ide.qoder.com.cn/qoderwake-cn/install.sh | bash
+QoderWork CN 运营调整说明
+因产品升级调整，QoderWork CN 将于 2027 年 9 月 5 日正式停止运营。在此之前，您仍可正常下载和使用。此次调整不影响 Qoder CN 家族其他产品，您的 Qoder CN 账号及积分可继续用于其他 Qoder CN 产品。建议您提前迁移至 Qoder CN 桌面版，Qoder CN 桌面版已内置数据导入工具，可导入任务记录、技能与记忆。
+在此期间，QoderWork CN 仍可继续下载使用:
+Mac X64 (Intel)
+Mac ARM64 (Apple Silicon)
+Windows X64 (User)
+Windows X64 (System)
+不止编程，无限创造
+立即使用 Qoder
+Qoder
+移动端
+其他使用方式
+IDE
+JetBrains 插件
+CLI
+数字员工
+QoderWake
+立即获取
+企业版
+价格
+下载
+集成 Qoder Agent
+Agent SDK
+Cloud Agents
+资源
+能力市场
+活动
+文档
+常见问题
+更新日志
+法律
+服务条款
+隐私政策
+合作伙伴
+千问AI平台
+联系我们
+加入我们
+工单咨询
+企业方案咨询
+通义云启（杭州）信息技术有限公司
+浙ICP备2023034206号-81
+已获 ISO27001 | ISO42001 | ISO9001 | ISO22301 | ISO20000-1 认证
+返回顶部

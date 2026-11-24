@@ -116,7 +116,7 @@ flowchart TB
 | --- | --- | --- | --- |
 | Amazon Q Developer（GC-AWS-02） | 官方页面仍列 IDE/CLI 等入口；IDE 插件将于 2027-04-30 停止支持，其他形态未核实 | 云工程、排障 | SRC-AWS-QDEV-001 |
 | AWS Quick（GC-AWS-05；旧称 Quick Suite / Q Business） | 文档/表格/演示稿生成、研究、自然语言构建应用、工具连接 | 运维知识、工单、分析 | SRC-AWS-QUICK-001 |
-| CloudWatch investigations / Omni（GC-AWS-03） | 能力未核实 | 告警调查（场景建议） | 未核实 |
+| CloudWatch Omni / investigations（GC-AWS-03） | AI 可观测体验、事故调查与根因分析 | 告警调查/可观测 | SRC-AWS-CLOUDWATCH-OMNI-001 |
 | AWS DevOps Agent（GC-AWS-01） | 告警调查、根因与缓解步骤、可观测/代码/CI/CD 集成；Release Management 为 Preview | 事件响应/根因/可靠性；属于独立 Agent | SRC-AWS-DEVOPS-001 |
 
 ### 阿里云
@@ -135,7 +135,7 @@ flowchart TB
 | ServiceNow Now Assist / AI Agents（GC-SN-01） | 能力与状态未核实 | 工单、事件、变更、AIOps（场景建议） | 未核实 |
 | Salesforce Agentforce（GC-SF-01） | 业务 Agent、CRM/Data 360 grounding、人工升级、Agent Builder 与多 Agent 编排 | 服务运营；未证明 IT 运维能力 | SRC-SF-AGENTFORCE-001 |
 | SAP Joule（GC-SAP-01） | 能力与状态未核实 | 业务运营（场景建议） | 未核实 |
-| Oracle Fusion AI Agents（GC-OR-03） | 能力与状态未核实 | 业务运营（场景建议） | 未核实 |
+| Oracle Fusion AI Agents（GC-OR-03） | 25C 发布说明提供 AI Agents 页面与会话入口；统一 GA 未核实 | 业务运营 | SRC-OR-FUSION-AI-001 |
 | Workday Illuminate（EMB-ENT-01） | 能力与状态未核实 | 企业运营（场景建议） | 未核实 |
 | Atlassian Rovo（EMB-ENT-02） | 能力与状态未核实 | 研发/ITSM 协作（场景建议） | 未核实 |
 
@@ -166,7 +166,7 @@ flowchart TB
 | OBS-07 Grafana Assistant | 未核实 | 未核实 | 订阅与 AI Supplemental Terms；具体单位未核实 | 未核实 | 具体驻留未核实 | 未核实 |
 | OBS-08 Elastic AI Assistant | Cloud Serverless 与 Stack 明示 GA | 未核实 | Managed LLM 需订阅/feature tier 并额外收费 | 额外成本存在；最低消费/超额未核实 | 第三方 provider 会处理数据；位置未核实 | 未核实 |
 | GC-SF-01 Agentforce | 未核实 | 未核实 | Flex Credits、Resolutions、per-user licensing | 未核实 | 未核实 | 未核实 |
-| EMB-MS-01–02、EMB-GO-01、GC-GO-01/03–05、GC-AWS-03、ALI-01/15、EMB-ALI-01、GC-SN-01、GC-SAP-01、GC-OR-03、EMB-ENT-01–02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| EMB-MS-01–02、EMB-GO-01、GC-GO-01/03–05、ALI-01/15、EMB-ALI-01、GC-SN-01、GC-SAP-01、GC-OR-03、EMB-ENT-01–02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 
 ## 评估要点
 

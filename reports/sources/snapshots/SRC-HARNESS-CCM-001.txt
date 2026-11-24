@@ -1,0 +1,595 @@
+AI and Cloud Costs Tool | AI for FinOps | Harness
+URL: https://www.harness.io/products/cloud-ai-cost-management
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+AI and Cloud Costs Tool | AI for FinOps | Harness
+For the complete documentation index, see
+llms.txt
+. A Markdown version of this page is available by requesting this URL with the header "Accept: text/markdown".
+Cloud AI Cost Management
+®
+Platform
+Why Harness
+Pricing
+Customers
+Resources
+Company
+EN
+English (United States)
+Sign in
+See a Demo
+Start for Free
+Harness Autonomous SDLC Platform
+Deliver at machine speed.
+Explore the platform
+Explore
+Overview
+Documentation
+Knowledge Graph
+Trust Center
+Popular Use Cases
+AI DLC
+Agent DLC
+Mythos Readiness
+AI Cost Management
+Software Delivery Agent
+Get code and agents from commit to production in minutes.
+Deployments
+Builds
+Artifacts
++ more
+Security Testing Agent
+Discover bugs and resilience weaknesses before your users do.
+SAST
+SCA
+Supply Chain Security
++ more
+Runtime Protection Agent
+Catch vulnerabilities before they ship and protect your runtime.
+API Posture
+AI Posture
+API Adv. Protection
++ more
+Cost Management Agent
+Own production and manage costs without surprises.
+AI Costs
+Cloud Costs
+Engineering Efficiency
++ more
+Cosmos Software Factory Agent
+New
+Take engineering work from ticket to code.
+More products
+Incidents
+AI Evals
+Developer Portal
+Feature Flags
+Resilience Testing
+®
+Cost Management Agent
+Agent Overview
+AI & Cloud Costs
+Engineering Efficiency
+AI & Cloud Costs
+AI and Cloud Costs
+Cost management for every dollar and every model
+Harness Cost Management Agent gives you full visibility, optimization, and governance to every dollar of cloud and AI spend.
+Start for Free
+See a Demo
+Measure ROI from your AI and cloud spend
+Cost Management Agent
+Ask Cost Management Agent...
+Pipeline
+Spend Breakdown
+GPT-4
+61% of spend · $86,943
+Claude
+28% of spend · $39,844
+Gemini
+11% of spend · $15,653
+Team Budgets
+ML Platform
+$41,500 · 104% over budget
+Engineering
+$62,100 · 89% of budget
+Product
+$38,700 · 96% of budget
+Optimization
+Idle EC2 instances
+$16,200 · autostop eligible
+Underutilized RIs
+$8,400 · coverage gap
+Untagged workloads
+$3,800 · needs tagging
+Why teams switch
+See every dollar. Cut the waste. Govern the spend.
+Full visibility
+Map every dollar to the team, workload, model, and AI agent behind it — no manual tagging required.
+Automatic optimization
+Idle resources stop, workloads rightsize, and commitment coverage optimizes automatically.
+Built-in governance
+Budgets, anomaly detection, and policy enforce cost control across every cloud and AI provider.
+70%
+avg. cost reduction
+$1M+
+annual savings identified
+33%
+savings from governance alone
+Measure ROI from your AI and cloud spend
+Take Assessment
+Define Unit Metrics
+Add Unit Cost
+Define using AI
+1
+Cost per Developer
+Cost
+Production Costs
+Add filter
+÷
+Divided by
+Metric
+Developer count
+2
+Cost per patient record processed
+Cost
+Production Costs
+Add filter
+÷
+Divided by
+Metric
+Patient records processed
+Apply
+Cancel
+Attribute
+Understand what's driving cloud and AI spend
+Map every dollar to the team, workload, model, and AI agent behind it. Full attribution with no manual tagging required.
+AI-created cost perspectives.
+Describe what you need in plain language. AI resolves the accounts, tags, and services and builds the view automatically.
+Kubernetes cost attribution.
+Granular cost allocation down to individual pods and namespaces across every cluster.
+Chargeback and showback with FOCUS support.
+Accurate internal billing reports by team and business unit, aligned to the FinOps FOCUS specification.
+Optimize
+Automatically reduce infrastructure waste
+Harness detects idle resources, rightsizes workloads, and optimizes commitment coverage automatically. No manual intervention needed.
+AutoStopping for idle workloads.
+Idle VMs and containers stopped automatically and restarted on demand. Zero disruption, immediate savings.
+Automated RI and Savings Plan coverage.
+Full Reserved Instance and Savings Plan lifecycle automated across every cloud provider, including renewals.
+Kubernetes cluster rightsizing.
+Reduce Kubernetes costs with intelligent node autoscaling, spot orchestration, and bin packing.
+Specify the split between Savings Plans and RIs
+Compute Savings Plan
+25%
+Convertible RI
+75%
+0%
+50%
+100%
+Savings plan Term
+1 Year
+3 Years
+Savings plan Payment Strategy
+All upfront
+Partial upfront
+No upfront
+RI Term
+1 Year
+3 Years
+RI Payment Strategy
+All upfront
+Partial upfront
+No upfront
+81.7%
+Compute Coverage
+Savings Plans
+Reserved Instances
+On-demand Instances
+Commitment Utilization
+Savings Plans
+43.1%
+Reserved instances
+79.4%
+EBS
+Older than
+List
+EC2
+Unused
+Shut down
+S3
+Tagged
+Webhook
+1
+2
+3
+4
+5
+6
+7
+8
+metrics-filters:
+&metrics-filter
+type:
+metrics
+name:
+DatabaseConnections
+days:
+14
+value:
+0
+op:
+equal
+policies:
+- name:
+ec2-unused-instances-shutdown
+Govern
+Cost Management Agent: safely scale cloud and AI usage
+Budgets, approval workflows, and AI-authored policy guardrails that enforce spend controls before overruns happen.
+Budget alerts before limits are hit.
+Configurable thresholds at 50%, 75%, 90%, and 100% with AI-generated forecasts showing projected month-end spend.
+Natural language policy enforcement.
+Describe governance intent in plain English. Harness translates it into enforced cloud rules with automatic violation remediation.
+Approval workflows and audit trails.
+Route provisioning through approval gates and generate SOC 2-ready audit reports on demand.
+AI Cost Management
+Unit economics for every dollar of AI and token spend
+Connect directly to your AI providers and production agents. Capture spend at the individual token, request, and workflow level — and tie it to the agent, session, or business outcome that triggered it.
+Unified AI cost visibility.
+One place to see spend across every AI provider and managed service, from OpenAI and Anthropic to AWS Bedrock and GCP Vertex AI.
+Full spend attribution.
+Cost traced to the agent, session, workflow, team, and business unit driving it.
+Anomaly detection.
+Spend spikes flagged before they hit the invoice.
+Budget & governance.
+Budgets set at the agent, team, or business unit level, extending existing FinOps controls to AI spend.
+Tokenomics & token governance.
+Understand cost-per-token across models and providers. Set token budgets, track consumption by team or workflow, and optimize toward outcomes — not just usage.
+How to control AI spend down to the token
+Group by: AI Provider
+09/14 – 10/12/2025
+Daily
+Total Cost (30 d)
+$1,024,072
+net-amor.
+Cost per Token
+$47.83
+Daily avg.
+Cost per Inference
+$58.77
+Daily avg.
+Cost per Session
+$117.56
+Daily avg.
+Cost and Unit Cost Trend
+Anthropic
+OpenAI
+Amazon Bedrock
+Google Vertex
+Cost per Token
+Cost per Inference
+Cost per Session
+Full platform capabilities
+From visibility to governance, fully covered
+Every capability you need to understand, optimize, and govern cloud and AI cost in a single platform.
+AI Cost Management
+Cost Management Agent surfaces anomalies, answers spend questions in plain language, and generates forecasts across your cloud and AI workloads in real time.
+Tokenomics
+Track and optimize AI token consumption across models, providers, and teams. Understand unit economics, enforce governance, and turn token spend into measurable business outcomes.
+Cost allocation & visibility
+Map every dollar to teams, workloads, models, and products. Full attribution with chargeback and showback reporting across AWS, Azure, and GCP.
+Optimization & automation
+Detect idle resources, rightsize workloads, and close commitment coverage gaps automatically. Measurable savings without manual intervention.
+Commitment Orchestrator
+Automate Reserved Instance and Savings Plan purchases, renewals, and coverage optimization across every cloud provider. Maximize discounts, minimize risk.
+AutoStopping
+Intelligently stop idle non-production workloads and restart them on demand. Eliminate waste from dev, staging, and test environments around the clock.
+Cost governance
+Set budget guardrails, approval workflows, and spend policies across cloud and AI. Route requests through finance gates with full audit trails for compliance.
+Cluster Orchestrator
+Right-size Kubernetes clusters with intelligent node autoscaling and spot instance orchestration. Automatically bin-pack workloads and eliminate over-provisioned compute.
+Agent DLC Support
+Extend cost visibility to agents, see token and inference spend by agent, model, and team, and set limits.
+Agent Development Lifecycle
+NEW
+AI cost management for the Agent DLC
+As teams build, ship, and run AI agents, Harness extends the cost visibility, attribution, and governance you rely on for cloud spend to every agent, model, and provider, so you know what agents cost and keep that spend in control.
+Learn more about the Agent DLC
+Group by: Agent
+Apr – Jul 2026
+Monthly
+Total Cost
+$610K
+16.7% MoM
+Cost / M Tokens
+$9.74
+Daily avg.
+Active Agents
+12
+This month
+Agent cost trend, month over month
+genai-service
+docs-agent-v2
+oncall-triage-agent
+harness-chat
+support-agent-v2
+Other services
+Cost per million tokens
+Token & inference visibility.
+See token and inference spend by agent, model, and team across OpenAI, Anthropic, Bedrock, and Vertex AI.
+Full agent attribution.
+Trace every dollar to the agent, session, or workflow that drove it, up to teams and business units.
+Budgets & spend limits.
+Set budgets and hard limits by agent, team, or business unit, extending FinOps guardrails to agents.
+Optimize unit economics.
+Benchmark cost-per-outcome across models and providers to keep agents efficient at scale.
+Built for every role
+Every team has a cost problem we help solve
+FinOps Practitioner
+ML Engineer
+Platform Engineer
+Finance Director
+Product Manager
+FinOps Practitioner
+Turn cloud and AI cost data into action
+Get full visibility into cloud and AI spend, catch anomalies before they hit budgets, and drive optimization across every team, workload, and model.
+Anomaly detection across cloud, LLM, and GPU workloads
+Chargeback and showback by team, model, and product
+Savings recommendations with one-click actions
+Anomaly Feed
+3 new
+ml-inference-gpu
+Spike
++$12.4k/mo
+gpt-proxy-prod
+Threshold
++$3.1k/mo
+embedding-batch
+Trending
++$0.8k/mo
+Detected in real time
+$16.3k/mo at risk
+1-click investigate
+Competitive analysis
+See how AI and Cloud Costs stacks up
+Capability-by-capability analysis across the platforms your organization is most likely evaluating.
+Harness CACM only
+IaC cost estimation at plan time
+No other FinOps tool connects cost analysis directly to Terraform plan output. Cost visibility before infrastructure is provisioned, not after the bill arrives.
+1 of 22 competitors offer this (Infracost, estimation only, no runtime optimization)
+Harness CACM only
+Automated idle resource stopping
+AutoStopping detects idle VMs and Kubernetes workloads and stops them automatically, restarting on demand. No other enterprise FinOps platform does this natively across both VMs and K8s.
+0 of 22 competitors offer full VM + K8s automation (CloudFix partial, AWS idle only)
+Rare capability
+Automated RI / SP contract execution
+Most tools stop at recommendations. Harness executes the full Reserved Instance and Savings Plan lifecycle automatically, including renewals and coverage gap remediation.
+2 of 22 competitors offer this (FlexeraOne, Zesty)
+Differentiator
+Conversational AI FinOps
+While some competitors offer general-purpose AI assistants, Cost Management Agent is purpose-built for cloud cost, natural language queries, policy generation, and anomaly root cause in one interface.
+2 of 22 competitors offer this (IBM Apptio, CoreStack, neither cost-specific)
+Select a competitor to compare
+Apptio Cloudability
+VMware CloudHealth
+FlexeraOne
+ServiceNow
+CloudZero
+CoreStack
+CAST AI
+View all 23 competitors
+Select a competitor above to compare
+Customer Success
+Real companies. Real savings.
+70% avg. cost reduction
+“
+We connected our cloud accounts and within weeks saw exactly where we were overspending. The savings were immediate and measurable.
+”
+—
+Head of FinOps
+, VP of Engineering
+, Synopsys
+$1M+ annual savings
+“
+Right away $15K–$20K/month, then $100K/month in six months. Harness CACM found waste we didn't even know we had.
+”
+—
+Cloud Infrastructure Lead
+, Director of Cloud Engineering
+, Tyler Technologies
+33% governance savings
+“
+Cloud Asset Governance found savings in areas we thought were already optimized. The policy enforcement alone paid for itself.
+”
+—
+Platform Engineering Lead
+, VP of Platform
+, OneAdvanced
+Integrations
+Works with every major cloud and FinOps tool
+Native support for AWS, Azure, GCP, and Kubernetes, plus integrations with Jira, ServiceNow, Slack, Datadog, and the DevSecOps tools your team already uses.
+AWS
+Azure
+GCP
+Kubernetes
+Slack
+Jira
+ServiceNow
+Anthropic
+OpenAI
+AWS Bedrock
+Vertex AI
+Gemini
+FinOps FOCUS
+Terraform
+FAQ
+Frequently asked questions
+What is the difference between FinOps and AI and Cloud Costs?
+FinOps is a cultural practice and methodology that brings together finance, engineering, and business teams to collaborate on cloud financial management decisions. It's the “how” of managing cloud costs through people, processes, and technology. AI and Cloud Costs refers to the specific tools, platforms, and technologies used to monitor, analyze, and optimize cloud spending. It's the “what”: the actual tooling and capabilities.
+Harness CACM provides the platform and tools to enable your FinOps practice across three key phases:
+Inform
+:
+visibility and allocation
+Optimize
+:
+recommendations and automation
+Operate
+:
+governance and continuous improvement
+How does Harness CACM support FinOps practices across different teams?
+For Finance Teams:
+Cost categories, chargeback/showback capabilities
+Budgeting and forecasting
+Executive-level reporting dashboards
+For Engineering Teams:
+Native integration with CI/CD pipelines
+Real-time cost impact analysis
+Automated optimization recommendations
+Developer-friendly dashboards
+For Business Teams:
+Business mapping, cost perspectives by product/project
+Custom reporting aligned with business metrics
+Does Harness CACM support the FinOps FOCUS format?
+Yes, Harness CACM supports FOCUS (FinOps Open Cost and Usage Specification) for standardized cost reporting and external data ingestion.
+What makes Harness CACM different from other cloud & AI cost management tools?
+Connected to the rest of Harness
+Harness CACM runs alongside CI/CD, security, and feature flags on the same platform. Cost data lives where engineering decisions are made.
+AI intelligence
+Advanced ML algorithms for anomaly detection, intelligent recommendations, and a FinOps AI assistant that provides actionable insights.
+Proactive vs. reactive
+Built-in automation and policy enforcement prevent cost overruns rather than just reporting on them after the fact.
+How do I get started with FinOps using Harness CACM?
+Phase 1: Inform
+Set up cost visibility with Perspectives
+Implement Cost Categories for proper allocation
+Establish chargeback/showback processes
+Phase 2: Optimize
+Enable AutoStopping for idle resources
+Implement Commitment Orchestrator for RI/SP management
+Leverage intelligent recommendations
+Phase 3: Operate
+Establish governance policies
+Set up continuous monitoring and alerts
+Implement automated optimization workflows
+Start with our FinOps Maturity Assessment to understand where you are in your journey.
+Can Harness CACM handle multi-cloud environments?
+Yes, Harness CACM covers AWS, Azure, and Google Cloud Platform with:
+Cost visibility across all cloud providers in one view
+Cloud-specific optimization recommendations
+Cross-cloud resource management and governance
+Kubernetes-native support for container workloads across clouds
+How does Harness CACM help with Kubernetes cost management?
+Harness CACM offers advanced Kubernetes cost management through:
+Cluster Orchestrator:
+Intelligent node autoscaling with spot orchestration and bin packing
+Workload-level visibility:
+Granular cost allocation down to individual pods and namespaces
+Right-sizing recommendations:
+AI-driven suggestions for CPU and memory optimization
+Multi-cluster management:
+Centralized governance across multiple Kubernetes environments
+What is the typical ROI and time-to-value with Harness CACM?
+Most customers see significant cost savings within 30 days through:
+Immediate visibility into waste and optimization opportunities
+AutoStopping reducing costs by 70% or more on non-production workloads
+Automated commitment management improving coverage and utilization
+Policy-based governance preventing future cost overruns
+Running everything on one platform also removes the overhead of managing separate tools for each function.
+How does Harness CACM support compliance and governance?
+Harness CACM provides governance through:
+Policy-as-Code:
+Define and enforce cost policies using Open Policy Agent (OPA)
+Asset Governance:
+150+ out-of-the-box rules plus custom policy creation
+Role-Based Access Control:
+Granular permissions and multi-tenancy support
+Audit Trails:
+Complete visibility into who changed what and when
+Budget Controls:
+Automated alerts and enforcement actions
+Can I integrate Harness CACM with my existing tools and workflows?
+Yes, Harness CACM offers extensive integration capabilities:
+ITSM Integration:
+Slack, Jira, ServiceNow for automated workflow management
+Monitoring Tools:
+Integration with Datadog, New Relic, Prometheus for enhanced visibility
+CI/CD Pipelines:
+Native integration with deployment workflows for cost-aware releases
+APIs:
+REST APIs for custom integrations and data export
+FOCUS Adoption:
+Support for FinOps Open Cost and Usage Specification
+How does Harness support cost management across the Agent DLC?
+Harness extends the same cost visibility, attribution, and governance you rely on for cloud spend to AI agents at every stage of the agent development lifecycle, so agent costs are managed like the rest of your cloud spend:
+Track token and inference spend by agent, model, and provider across OpenAI, Anthropic, AWS Bedrock, and Google Cloud Vertex AI
+Attribute every dollar to the agent, session, and workflow that drove it, then roll it up to teams and business units
+Set budgets and hard spend limits by agent, team, or business unit using your existing FinOps guardrails
+Benchmark cost-per-outcome across models to keep agents efficient as they scale in production
+Which AI providers and models can Harness track agent spend for?
+Harness captures spend across major AI providers and managed services, including OpenAI, Anthropic, AWS Bedrock, and Google Cloud Vertex AI, down to the individual token, request, and workflow, so you can compare cost-per-outcome across models and teams.
+Get started with Harness Cloud Cost Management
+Connect your cloud accounts in minutes. See immediate savings opportunities. Most customers see first savings within 30 days.
+Start for Free
+See a Demo
+®
+The Autonomous SDLC Platform.
+Platform
+Overview
+Why Harness
+Knowledge Graph
+Pricing
+Trust Center
+Documentation
+Products
+Software Delivery Agent
+Deployments
+Builds
+Infrastructure
+Databases
+Artifacts
+Repositories
+Code Review
+Security Testing Agent
+AI SAST
+AI SCA
+Supply Chain Security
+Security Testing Orchestration
+Cosmos Software Factory Agent
+Runtime Protection Agent
+API Posture
+API Advanced Protection
+AI Posture
+AI Firewall
+Cost Management Agent
+AI & Cloud Costs
+Engineering Efficiency
+More Products
+Incidents
+Developer Portal
+Resilience Testing
+AI Evals
+Feature Flags
+Resources
+Blog
+Resources Hub
+Customer Stories
+Comparison Guide
+DevOps Academy
+Events
+Community
+API Reference
+Company
+About Us
+Careers
+Press & News
+Partners
+Government
+Contact Us
+Legal
+© 2026 Harness, Inc. All rights reserved.
+Subscription Terms
+Website Terms of Use
+Privacy Statement
+Cookies Notice
+Opt Out
+Cookie Settings

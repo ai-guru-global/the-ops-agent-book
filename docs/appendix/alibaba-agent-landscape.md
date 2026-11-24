@@ -45,7 +45,7 @@ content_status: "reviewed"
 | **STAROps**（ALI-16） | 运维平台 | 公开报道称其为全域智能运维平台；具体能力未核实 | 运维数据、流程、场景承载（候选方向） | public_report / PUB-ALI-SUMMIT-001 |
 | **Spring AI Alibaba**（ALI-08） | Java 框架 | 项目站点描述 Agent Framework、Graph、Studio、Admin | Java 生态的运维 Agent 集成 | community / COM-SPRING-AI-ALIBABA-001 |
 | **Qwen-Agent**（ALI-07） | Python 框架 | README 描述 instruction following、tool usage、planning、memory、Function Calling、MCP、RAG、Code Interpreter 等 | 快速构建 Qwen 生态 Agent；本地 Python executor 未沙箱化，仅限本地测试 | community / COM-QWEN-AGENT-001 |
-| **Qoder CN 家族**（ALI-18） | Agent 产品族 | 能力与状态未核实 | 研发/办公/数字员工类 Agent（导航） | 未核实 |
+| **Qoder CN 家族**（ALI-18） | Agent 产品族 | 官方页面描述编码、办公、IDE/JetBrains/CLI 等形态与国内部署；QoderWork CN 有停运/迁移说明 | 研发/办公 Agent；完整导出退出未核实 | official_doc / SRC-ALI-QODER-CN-001；SRC-ALI-QODER-CN-BILLING-001；SRC-ALI-QODERWORK-CN-001 |
 
 ## 关于 AgentScope 与 Agent Runtime
 

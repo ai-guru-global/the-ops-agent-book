@@ -249,7 +249,11 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-ALI-QODER-CN-001",
+        "SRC-ALI-QODER-CN-BILLING-001",
+        "SRC-ALI-QODERWORK-CN-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -719,7 +723,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-HW-CCAE-001",
+        "SRC-HW-SUANXIAOWEI-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -761,7 +768,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-VOLC-HIAGENT-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -825,7 +834,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-CMCC-OPSAGENT-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -983,6 +994,126 @@
       "last_evidence_update": "2026-11-25"
     },
     {
+      "claim_id": "EMB-ALI-01",
+      "product": "千问办公 / AgentOne",
+      "pages": [
+        "docs/vendors/embedded-assistants.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P2",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "EMB-ENT-01",
+      "product": "Workday Illuminate",
+      "pages": [
+        "docs/vendors/embedded-assistants.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P2",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "EMB-ENT-02",
+      "product": "Atlassian Rovo",
+      "pages": [
+        "docs/vendors/embedded-assistants.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P2",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "EMB-GO-01",
+      "product": "Google Workspace Gemini",
+      "pages": [
+        "docs/vendors/embedded-assistants.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P2",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "EMB-MS-01",
+      "product": "Microsoft 365 Copilot",
+      "pages": [
+        "docs/vendors/embedded-assistants.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P2",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "EMB-MS-02",
+      "product": "Dynamics 365 Copilot",
+      "pages": [
+        "docs/vendors/embedded-assistants.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P2",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
       "claim_id": "FIN-02",
       "product": "CloudHealth",
       "pages": [
@@ -1019,7 +1150,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-HARNESS-CCM-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1039,7 +1172,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-APPTIO-KUBECOST-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1060,6 +1195,51 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "FIN-07",
+      "product": "CloudZero",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [
+        "SRC-CLOUDZERO-PRICING-001",
+        "SRC-CLOUDZERO-API-001"
+      ],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "FIN-09",
+      "product": "Flexera Cloud Cost Optimization",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [
+        "SRC-FLEXERA-CCO-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1103,7 +1283,13 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-AWS-CLOUDWATCH-OMNI-001",
+        "SRC-AWS-OMNI-PRICING-001",
+        "SRC-AWS-OMNI-SECURITY-001",
+        "SRC-AWS-OMNI-RETENTION-001",
+        "SRC-AWS-OMNI-REGIONS-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1316,7 +1502,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-OR-OPSINSIGHTS-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1337,7 +1525,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-OR-FUSION-AI-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1411,6 +1601,148 @@
       "product": "AI Control Tower",
       "pages": [
         "docs/vendors/global-cloud.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [
+        "SRC-SN-CONTROLTOWER-001"
+      ],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-01",
+      "product": "AI Canvas / Cloud Control / Cisco IQ",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-02",
+      "product": "Marvis / Mist AI",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-03",
+      "product": "Aruba Central + Mist AI",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-04",
+      "product": "CloudVision",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-05",
+      "product": "AIOps/网络保障",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-06",
+      "product": "iMaster NCE",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-07",
+      "product": "网络 AIOps/管控",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
       ],
       "status": "needs_evidence",
       "owner": "Vendor Researcher",
@@ -1626,7 +1958,7 @@
     },
     {
       "claim_id": "OBS-15",
-      "product": "Zia / OpManager Nexus",
+      "product": "ManageEngine Zia / OpManager Nexus",
       "pages": [
         "docs/vendors/observability-aiops.md"
       ],
@@ -1641,7 +1973,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-ME-AIOPS-GUIDE-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1966,7 +2300,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-MS-SECCOPILOT-COMPLIANCE-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2068,26 +2404,51 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-DROPZONE-AISOC-001",
+        "SRC-DROPZONE-EU-001"
+      ],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "SEC-09",
+      "product": "Datadog Bits Security Analyst / Culminate",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [
+        "SRC-DD-BITS-SECURITY-001"
+      ],
       "last_evidence_update": "2026-11-25"
     }
   ],
   "source_registry": "sources/registry.yaml",
   "summary": {
-    "total_claims": 94,
-    "with_sources": 67,
+    "total_claims": 110,
+    "with_sources": 83,
     "without_sources": 27,
     "by_page": {
       "docs/appendix/alibaba-agent-landscape.md": 11,
       "docs/vendors/china-cloud.md": 38,
-      "docs/vendors/embedded-assistants.md": 15,
+      "docs/vendors/embedded-assistants.md": 21,
       "docs/vendors/global-cloud.md": 16,
       "docs/vendors/observability-aiops.md": 24,
-      "docs/vendors/security-network-finops.md": 10
+      "docs/vendors/security-network-finops.md": 20
     },
     "by_priority": {
-      "P1": 83,
-      "P2": 11
+      "P1": 93,
+      "P2": 17
     }
   }
 }

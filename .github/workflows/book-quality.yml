@@ -36,6 +36,9 @@ jobs:
       - name: Build VitePress
         run: npm run docs:build
 
+      - name: Verify vendor claim gap registry
+        run: npm run gaps:check
+
       - name: Validate schemas, sources, metrics and diagrams
         run: npm run validate:assets
 

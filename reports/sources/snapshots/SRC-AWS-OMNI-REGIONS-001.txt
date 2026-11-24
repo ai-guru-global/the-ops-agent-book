@@ -1,0 +1,222 @@
+Amazon CloudWatch Omni is now available in additional AWS Regions - AWS
+URL: https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-omni-8-regions/
+Captured: 2026-11-25
+Content-Type: text/html;charset=utf-8
+
+Amazon CloudWatch Omni is now available in additional AWS Regions - AWS
+Skip to main content
+Interested in cloud offerings specifically available in the China region? Please visit
+www.amazonaws.cn
+. Learn about the China region free tier at
+www.amazonaws.cn/free
+.
+Filter: All
+English
+Contact us
+AWS Marketplace
+Support
+My account
+re:Invent
+Discover AWS
+Products
+Solutions
+Pricing
+Resources
+Search
+Filter: All
+Sign in to console
+Create account
+Explore topics
+AWS re:Invent Livestream
+Go beyond watching with guided labs and live Q&A
+Build & Deploy AI Agents
+88% of agent pilots stall. Learn what the rest do differently
+Get started
+Sign up free, connect your coding agent, and start building
+Data for agentic AI
+The 7 essential data capabilities to scale agentic AI
+Analyst Report
+AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS
+AI for Small Businesses
+Solutions designed for your business. Delivered by AWS Partners
+News & announcements
+AWS blog
+About AWS
+AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+Why AWS
+Getting Started
+Security
+Compliance
+Trust Center
+Sustainability
+Our Impact
+Global Infrastructure
+Careers
+Featured Products
+Analytics
+Application Integration
+Artificial Intelligence
+Business Applications
+Compute
+Customer Experience
+Databases
+Developer Tools
+End User Computing
+Game Tech
+Management Tools
+Media Services
+Migration & Modernization
+Multicloud & Hybrid
+Networking & Content Delivery
+Operations
+Security & Identity
+Storage
+Supply Chain
+Browse all products
+Transformation Hubs
+Migrate to modernize → Modernize to unlock data → unlock data to run AI
+Migrate & Modernize
+Clear technical debt, modernize infrastructure, and move to the cloud
+Data & Analytics
+Future proof your data foundation for agentic AI
+Artificial Intelligence
+Get production-ready AI that automates, builds, creates, decides, and engages at scale
+Featured Products
+Get started with one of these featured services or browse all
+Browse all products
+AWS Quick
+The AI assistant built only for work
+Transform
+Eliminate tech debt with agentic AI to modernize legacy systems and code
+Aurora
+Serverless relational database service for PostgreSQL, MySQL, and DSQL
+Amazon Bedrock
+The trusted platform to run inference and build agents at scale
+Amazon Connect Customer
+AI-native solution for delivering exceptional experiences across customer interactions
+EC2
+Secure and resizable compute capacity for virtually any workload
+What’s new
+Explore new capabilities and the latest technologies
+Customer success stories
+Learn how customers around the world accelerate their cloud
+Featured
+By industry
+By organization type
+Solutions Library
+Solutions for any organization
+From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+Analytics Solutions
+Discover curated Solutions that address varied analytics use cases
+AI Solutions
+Discover curated Solutions that address varied artificial intelligence use cases
+Migration & Modernization Solutions
+Discover curated Solutions that address varied migration and modernization use cases
+What's new
+Explore new capabilities and the latest technologies
+Customer success stories
+Learn how customers around the world accelerate their cloud
+Pricing overview & tools
+AWS Pricing
+Learn about pricing and plans in one place
+AWS Pricing Calculator
+Estimate the cost for your architecture solution
+AWS Free Tier
+Get free, hands-on experience with AWS products and services
+AWS Offers
+Explore different offer programs to gain hands-on experience
+AWS Savings Plans
+Flexible pricing model offering lower prices
+Single-product pricing
+Amazon S3
+Amazon Bedrock
+Amazon RDS
+Amazon EC2
+Amazon SageMaker
+Browse all product pricing
+Learn
+Documentation
+Get detailed technical guides and references for all AWS services and tools
+Training & Certification
+Build and validate your AWS cloud skills and technical expertise
+Cloud term glossary
+Learn more about key cloud computing concepts
+Whitepapers
+Expand your knowledge of the cloud with expert guides and diagrams
+Cloud fundamentals
+Step-by-step instructions for common AWS tasks
+Tutorials
+Get started with step-by-step instructions
+Connect & Support
+Builder Center
+Learn, build, and connect with builders in the AWS community
+Events and webinars
+Connect, collaborate, and learn from AWS experts in the cloud computing community
+Partner Network
+Collaborate with AWS partners to grow your business
+Marketplace
+Find, test, buy, and deploy third-party software
+Support
+Access proactive guidance, issue resolution, and helpful tools
+Professional services
+Accelerate business transformation with expert guidance and packaged solutions
+Amazon CloudWatch Omni is now available in additional AWS Regions
+Posted on:
+Oct 19, 2026
+AWS announces that Amazon CloudWatch Omni is now available in eight additional AWS Regions. CloudWatch Omni is an AI-powered observability experience, organized around your teams and the applications they run, that helps you observe and troubleshoot your applications and agents in one place. It combines the interoperability of OpenTelemetry with the scale and reliability of CloudWatch, and meets you where you work — a standalone web experience with single sign-on (SSO), or a local IDE extension.
+With CloudWatch Omni, You create spaces in your central accounts to see telemetry across your AWS accounts, Regions, and other clouds, including Azure and GCP. Omni discovers services, maps dependencies, and surfaces golden metrics automatically and you can interact with telemetry through chat, point-and-click, or your own tool via Agent Toolkit for AWS to find signals, build dynamic views, and reach root cause powered by AWS DevOps Agent. A dedicated agent observability experience adds an evaluation-driven workflow for frameworks including LangGraph, CrewAI, OpenAI Agents SDK, Vercel AI SDK, and Strands.
+With this expansion, CloudWatch Omni is now available in Canada (Central), Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), Europe (London), and South America (São Paulo), in addition to US East (N. Virginia), US West (Oregon), and Europe (Ireland).
+To get started, create your Omni space from the CloudWatch console, configure SSO, and sign in. Agent developers can install the free
+CloudWatch Omni extension for VS Code
+, Cursor, and Kiro. To learn more, see the
+Amazon CloudWatch Omni product page
+and
+documentation
+. For pricing, see the
+CloudWatch Omni pricing page.
+Create an AWS account
+Learn
+What Is AWS?
+What Is Cloud Computing?
+What Is Agentic AI?
+Cloud Computing Concepts Hub
+AWS Cloud Security
+What's New
+Blogs
+Press Releases
+Careers
+Resources
+Getting Started
+Training
+AWS Trust Center
+AWS Solutions Library
+Architecture Center
+Product and Technical FAQs
+Analyst Reports
+AWS Partners
+Developers
+Builder Center
+SDKs & Tools
+.NET on AWS
+Python on AWS
+Java on AWS
+PHP on AWS
+JavaScript on AWS
+Help
+Contact Us
+File a Support Ticket
+AWS re:Post
+Knowledge Center
+AWS Support Overview
+AWS Accessibility
+Legal
+Event Code of Conduct
+Event Terms & Conditions
+English
+Back to top
+Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply.
+Privacy
+Site terms
+Your Privacy Choices
+Cookie Preferences
+© 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

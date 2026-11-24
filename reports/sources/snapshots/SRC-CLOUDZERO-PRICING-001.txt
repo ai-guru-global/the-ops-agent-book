@@ -1,0 +1,211 @@
+Request Pricing | CloudZero
+URL: https://www.cloudzero.com/pricing/
+Captured: 2026-11-25
+Content-Type: text/html; charset=UTF-8
+
+Request Pricing | CloudZero
+How well do you understand your AI spend compared with other CFOs?
+Find out right now
+Why CloudZero
+Solutions
+Finance
+Engineering
+Operations
+Minimize Waste
+Waste, found at the level it actually happens
+Reduce Risk
+Risk gets caught where it starts, not where it lands
+Drive Growth
+Every AI dollar tied to the outcome it produced
+Platform
+Platform
+Features
+Optimize
+Explorer
+Analytics
+AI Hub
+AI Signals
+Budgets & Forecasting
+Spend Monitoring
+Dimensions
+The AI Cost Optimization Playbook
+Read more
+Integrations
+Integrations
+Featured Connectors
+Anthropic
+OpenAI
+Azure
+AWS
+GCP
+Kubernetes
+Databricks
+Datadog
+New Relic
+GitLab
+GitHub
+Cursor
+All Connectors
+Resources
+Resources
+Learn
+Blog
+Guides
+Podcast
+Videos
+Explore
+Events & Webinars
+Customer Stories
+Documentation
+Engage
+Capitalizing AI Spend
+FY2027 AI Spend Report
+AI Allocation Benchmark Tool
+AI Era Report
+Why Finance Caps What It Can’t See
+Read more
+Customers
+Pricing
+Log In
+Schedule Demo
+pricing
+Financial control plane
+for AI economics
+CloudZero offers a single subscription with all capabilities included, aligned to the scale and complexity of your AI or cloud environment.
+Book a demo
+product tour
+Included with your CloudZero subscription:
+Unlimited cost sources
+Unlimited users
+Unlimited dimensions
+Unlimited dashboards
+Streaming telemetry
+Explorer
+Cost granularity (hourly)
+Optimization recommendations
+Anomaly detection
+Budgets & forecasts
+Notifications & workflow integrations
+Multi-year data retention
+MCP integration
+Role-based access control (RBAC)
+Organization management
+CZ Academy
+Request a custom price quote
+Within two weeks, we had already found enough savings to pay for a year’s worth of license.
+It was that good
+— that intuitive.
+Stuart Davidson
+Platform Engineering Lead, Skyscanner
+Decentralized
+cost accountability
+to engineers
+CloudZero truly gives us a heartbeat of our spend at
+all times
+.
+Adam Walker
+VP of Infrastructure and Security
+CloudZero has
+been a game changer
+for us in managing the rapidly growing costs of our AI initiatives.
+Pete Rubio
+SVP Platform Engineering at Rapid7
+Why Change
+Engineering
+Operations
+Finance
+Minimize Waste
+Reduce Risk
+Drive Growth
+Platform
+Optimize
+Explorer
+Analytics
+AI Hub
+Budgeting And Forecasting
+Anomaly Detection
+Dimensions
+Tour
+Demo
+Pricing
+Integrations
+Anthropic
+OpenAI
+Cursor
+Amazon Web Services
+Google Cloud Platform
+Microsoft Azure
+Snowflake
+Datadog
+Kubernetes
+Databricks
+MongoDB
+New Relic
+AnyCost
+All Integrations
+Resources
+Blog
+Newsroom
+Podcast
+Events
+Customer Stories
+AWS Service Comparison
+Academy
+Documentation
+FAQ
+State Of Cloud Cost 2024
+State Of AI Costs 2025
+All Resources
+Company
+Customers
+Careers
+Contact
+Cookie Policy
+linkedin
+/
+x
+/
+youtube
+/
+facebook
+/
+instagram
+Terms Of Use
+Privacy Policy
+Security
+Copyright © 2026
+Manage Consent
+To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data such as browsing behavior or unique IDs on this site. Not consenting or withdrawing consent, may adversely affect certain features and functions.
+Functional
+Functional
+Always active
+The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.
+Preferences
+Preferences
+The technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.
+Statistics
+Statistics
+The technical storage or access that is used exclusively for statistical purposes.
+The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.
+Marketing
+Marketing
+The technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.
+Manage options
+Manage services
+Manage {vendor_count} vendors
+Read more about these purposes
+Accept
+Deny
+View preferences
+Save preferences
+View preferences
+{title}
+{title}
+{title}
+Manage consent
+Search
+See All Results
+Popular Searches
+Cloud Cost Optimization
+AI Cost Optimization
+The State Of AI Costs

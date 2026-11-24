@@ -1,0 +1,196 @@
+What's new in Super Intelligence Control Tower for... - ServiceNow Community
+URL: https://www.servicenow.com:443/community/si-control-tower-articles/what-s-new-in-super-intelligence-control-tower-for-august-amp/ta-p/3597749
+Captured: 2026-11-25
+Content-Type: text/html;charset=UTF-8
+
+What's new in Super Intelligence Control Tower for... - ServiceNow Community
+Join the Community
+ServiceNow Community
+Products
+Platform
+SI Control Tower
+SI Control Tower articles
+What's new in Super Intelligence Control Tower for...
+Options
+Subscribe to RSS Feed
+Mark as New
+Mark as Read
+Bookmark
+Subscribe
+Printer Friendly Page
+Report Inappropriate Content
+What's new in Super Intelligence Control Tower for August & September 2026
+Eliza
+ServiceNow Employee
+Options
+Post History
+Subscribe to RSS Feed
+Mark as New
+Mark as Read
+Bookmark
+Subscribe
+Printer Friendly Page
+Report Inappropriate Content
+on
+‎09-14-2026
+01:12 PM
+- edited
+a week ago
+What's New in Control Tower
+August & September 2026
+What is Control Tower?
+Control Tower is the ServiceNow control plane for discovering, governing, securing, observing, and measuring AI across the enterprise. It gives AI Stewards, risk and compliance teams, and AI asset owners a single place to maintain visibility and oversight as AI deployments grow in scope and complexity.
+Release Highlights
+It’s here! The August & September release of Control Tower introduces a wealth of new features for AICT, many of which we know you have been anticipating ever since we showed them at Knowledge. We have a brand new UI, runtime monitoring, kill switch, and an integration with our brand new AI-powered assistant, Otto!
+FYI: The majority of new features are only accessible from the new UI.
+Foundations & Experience
+✓ AICT v2.0 AI Native experience
+The redesigned Control Tower interface provides an optimized user experience built on the AI Native architecture, delivering improved navigation, performance, and accessibility for managing AI governance at scale.
+✓ AI powered recommendations
+Intelligent recommendations enhance user decision-making by surfacing contextually relevant actions and insights across AICT workflows.
+✓ Product owner persona support
+A dedicated experience lets product owners manage AI assets without the complexity of Steward-level setup and configuration access, with simplified workflows and role-based access tailored to product ownership responsibilities.
+✓ Otto for AICT
+AI-powered assistant for contextual help and guidance. Otto surfaces intelligent task recommendations, generates AI-powered issue summaries, and provides control recommendations across risk and compliance workflows.
+✓ Guided Setup & Day 0 Onboarding
+A console-driven setup on Admin Home walks new customers through connecting hyperscalers, setting up traces, and applying value/cost templates, with role-based access per module.
+✓ UI Customization
+Tailor the interface to your organization's needs with flexible customization options for layouts, views, and user workflows.
+AI Asset Inventory
+✓ AI Model & System CIs with Lifecycle
+AI models and systems become first-class, CSDM-aligned Configuration Items in the CMDB, with lifecycle state synced automatically, including sub-production instances via the Multi-Instance Framework.
+✓ AI Inventory Deduplication
+Identifies and consolidates redundant AI agents through Steward-reviewed recommendations using Predictive Intelligence and LLM-powered detection, improving data quality and auditability without automated record changes.
+✓ Inventory Enrichment Agent
+An AI agent scans the inventory for metadata gaps across all five asset types (systems, models, datasets, prompts, MCP), scores completeness, and recommends enrichments — with Steward review before anything is applied.
+✓ Domain Separation
+AICT inventory and governance data can now be isolated by domain, letting MSPs and large enterprises segregate AI assets by business unit or tenant using standard platform domain-separation patterns.
+Discover & Inventory
+✓ New Service Graph Connector: Anthropic, OpenAI, Moveworks, and Microsoft Agent 365
+Expanded connector support enables integration with additional frontier AI providers. New service graph connectors extend discovery to Microsoft Agent 365, OpenAI, Moveworks, and Anthropic, plus enhanced AWS/Azure/GCP connectors supporting tenant-level discovery and certificate-based authentication.
+✓ Simplified connector setup
+Streamlined configuration workflows reduce complexity and accelerate time-to-value for new connector deployments.
+✓ Duplicated assets detection
+Automatic detection and flagging of duplicate AI assets improves asset inventory hygiene and reduces management overhead.
+✓ Microsoft Agent 365 Integration
+Bidirectional governance between ServiceNow and Agent 365: Stewards can publish/unpublish SN-managed agents to Agent 365, SN assets surface in Agent 365, Agent 365 assets are discovered in AICT, and control actions like blocking Agent 365 agents from AICT are available.
+Observe & Monitor
+✓ Trace Collectors
+Collects traces from external AI systems (AWS CloudWatch, Azure/Microsoft Foundry, Application Insights, GCP Vertex AI, or the Traceloop SDK for other providers) to power monitoring and performance-based action.
+✓ Enterprise Agents evaluation for Quality, Safety and Security metrics
+Comprehensive evaluation framework enables measurement and monitoring of agent performance across quality, safety, and security dimensions in enterprise environments.
+✓ Runtime AI Agent Evaluations
+Scores quality and safety across every agent execution in near-real-time using an LLM-as-a-judge, with detailed step/tool/output tracing for troubleshooting and configurable metric weightings for aggregated scoring.
+✓ Configurable sample rate per metric for metrics
+Fine-grained control over trace collection sampling allows optimization of monitoring overhead while maintaining observability fidelity.
+Govern
+✓ New AI Risk and Compliance Experience
+A conversational interface surfaces governance insights on demand, action-based navigation simplifies complex data views, and AI-driven prioritization surfaces high-priority follow-ups across impact assessments and compliance activities.
+✓ Continuous Control Monitoring for AICT Governance
+A template-based evaluator lets teams define quality/safety scoring by metric and weighting per AI system type, with continuous LLM-as-judge evaluation and full traceability and visualization of configurations and execution paths.
+✓ Unified Task Experience
+Streamlines navigation between playbook tasks, cutting clicks to complete impact and risk assessments across AICT Workspace and AICT 2.0. Eliminates context switching and accelerates remediation workflows.
+Lifecycle
+✓ Change & Offboarding Workflows
+Structured, governed workflows for changing or retiring AI assets, with required approvals and dependency reviews to prevent unmanaged updates.
+✓ Recommendations for AI Stewards
+Surfaces governance bottlenecks on the Home Page (across all assets) and the Asset Record (scoped to one asset) - for example, flagging lifecycle activities with no tasks assigned, or tasks completed but the activity left open.
+Secure
+✓ Agent maps and Agent access Intelligence
+Powered by Veza, visual mapping of agent relationships and detailed access intelligence including access risk assessment and human owner identification enable proactive security management. Surfaces agent risk, ownership, non-human identity profile, and privileged/dormant status.
+✓ Asset Inventory Security Tab
+Consolidates design-time, runtime, and post-runtime security data into one unified, per-asset view.
+✓ Design time model vulnerabilities
+Early detection and analysis of potential security vulnerabilities in AI models during design phase enables mitigation before deployment. Surfaces model vulnerability scanning and automated red-team results from SecOps vendors (HiddenLayer, Cisco Defense, Palo Alto Networks).
+✓ Top Action Items & Security Score
+AICT scores every asset's security posture, surfaces AI-generated Top Action Items (prompt injection, access anomalies, privileged agent issues), and lets critical items be escalated directly into a ServiceNow SIR case.
+✓ Detect & block threats at runtime via 3 inline guardrails through the AICT agent SDK
+Real-time threat detection and blocking at the SDK layer prevents malicious behavior during agent execution across the AICT platform.
+✓ Catch security violations not caught in runtime with post runtime evaluations
+Post-execution security analysis covering top 7 OWASP metrics captures violations that bypass runtime detection. A time-series view of threats that fell through guardrails is organized by OWASP LLM categories to spot trends and validate guardrail effectiveness.
+✓ Kill Switch - contain AI agents by revoking credential using Okta, and stopping them at agent runtime
+Verified, auditable containment for compromised or malicious agents, orchestrating credential revocation across ServiceNow agents, Okta, GCP, and AWS Bedrock — cutting mean time to contain from ~30 minutes to seconds, with the ability to reinstate access.
+Measure
+✓ Cost attribution
+Track and attribute AI consumption costs including ServiceNow AI Assist consumption and token consumption for non-ServiceNow AI providers. Integrates directly with AI vendors to aggregate consumption data and token costs in one place, viewable by provider or agent.
+✓ Attribute cost to asset, user and department for automated Value for AI Agent
+Granular consumption data tracking and cost allocation at the department and user level enables chargeback models and ROI analysis (available for Anthropic and ServiceNow AI agents)
+✓ AI Net Return Framework
+Quantifies the dollar productivity gains and net ROI of AI investment both at the portfolio level and by AI agent/system, persona, and vendor, determining the overall health of AI spend and helping pinpoint underperforming agents or use cases.
+AI Gateway
+(September 10th GA)
+✓ MCP Tool Catalog & Governance
+A unified capability for tool discovery, governance, and policy control at the individual tool level. Every MCP server, from AI Agent Studio, MCP Server Console, or the MCP catalog, flows into one governed inventory in Control Tower. Approval status flows directly into AI Agent Studio, unapproved servers are blocked at build time, and policies set at the tool level are inherited automatically across every agent that calls that tool.
+✓ Scan Tools for Malicious Behavior & Sensitive Data
+Automated pre-deployment scanning of MCP tool metadata for malicious instructions and runtime scanning for sensitive data (PII, credentials), configurable per tool, with flagged tools blocked until Steward review.
+✓ Authentication & Connectivity
+AI Gateway verifies agent identity and issues scoped, short-lived OAuth tokens on every connection. Server credentials are stored and rotated centrally and never exposed to the agent; there are no direct agent-to-server connections.
+✓ Runtime Pause Controls
+Any MCP server can be paused globally or individually from Control Tower with no code changes required. Configurations are preserved and restored with one click when the threat passes.
+✓ Operational Visibility
+Success rates, latency, and connection attempts recorded per server, tool, and client captured at the gateway boundary with no agent-side instrumentation required.
+✓ New Gateway Architecture
+AI Gateway has been rebased from a Spring Boot implementation to an Envoy-based data plane, providing a scalable foundation for future capabilities while preserving the existing Govern/Control/Observe model.
+Resources
+→ Control Tower Welcome Guide
+→ Control Tower Quickstart Guide
+→ Product Documentation
+→ Observe & Monitoring FAQ
+Control Tower Release Notes • August & September 2026
+2
+Helpfuls
+19,985 Views
+Comments
+Mathew Hillyard
+Tera Sage
+Mark as Read
+Mark as New
+Bookmark
+Permalink
+Print
+Report Inappropriate Content
+‎09-17-2026
+12:54 AM
+Hi
+@Eliza
+Do you have a plugin update version for the replaced AI Gateway feature - e.g. an AICT version where this feature is reintroduced?
+0
+Helpfuls
+Chris393
+Giga Guru
+Mark as Read
+Mark as New
+Bookmark
+Permalink
+Print
+Report Inappropriate Content
+‎10-13-2026
+11:55 AM
+Hello,
+I am ServiceNow partner product owner for AI Control Tower within my organization. I'm trying to stay on top of the latest and greatest as it relates to AICT. I have upgraded our demo instance but I do not see these new features available when I use the product. For instance, I'm looking for the AICT V2.0 interface but I currently have the old interface.
+Any help/advice to steer me in the right direction to make sure I have the latest updates and capabilities to demo would be a huge help.
+Thanks!
+0
+Helpfuls
+KevinKobilinski
+ServiceNow Employee
+Mark as Read
+Mark as New
+Bookmark
+Permalink
+Print
+Report Inappropriate Content
+‎10-23-2026
+10:36 AM
+@Mathew Hillyard
+the store plugin for AI Gateway is AWH for Super Intelligence Control Tower. See this community post for more information :
+https://www.servicenow.com/community/si-control-tower-articles/what-s-new-in-ai-gateway-v3-4-septemb...
+0
+Helpfuls
+Version history
+Last update:
+a week ago
+Updated by:
+Eliza
+Contributors
+Eliza
