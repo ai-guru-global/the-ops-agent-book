@@ -54,6 +54,11 @@ function artifactManifest() {
     path.join(ROOT, "examples/templates/eval-cases.yaml"),
     path.join(ROOT, "evidence/snapshot-registry.json"),
     path.join(ROOT, "evidence/synthetic-snapshots.jsonl"),
+    path.join(ROOT, "evidence/judge-candidate-registry.json"),
+    path.join(ROOT, "evidence/judge-candidates.jsonl"),
+    path.join(ROOT, "evidence/judge-answer-key.jsonl"),
+    path.join(ROOT, "evidence/judge-snapshot-registry.json"),
+    path.join(ROOT, "evidence/judge-snapshots.jsonl"),
   ];
   return files.map((file) => ({ path: path.relative(ROOT, file), sha256: sha256File(file) }));
 }
@@ -76,6 +81,11 @@ function cleanRoomImport() {
       "examples/templates/eval-cases.yaml",
       "evidence/snapshot-registry.json",
       "evidence/synthetic-snapshots.jsonl",
+      "evidence/judge-candidate-registry.json",
+      "evidence/judge-candidates.jsonl",
+      "evidence/judge-answer-key.jsonl",
+      "evidence/judge-snapshot-registry.json",
+      "evidence/judge-snapshots.jsonl",
     ]) {
       const dest = path.join(temp, file);
       fs.mkdirSync(path.dirname(dest), { recursive: true });

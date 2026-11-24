@@ -650,7 +650,7 @@ function buildMarkdown(report) {
     `- Suite：\`${report.suite_version}\` / \`${report.artifact_id}\``,
     `- 最终状态：**${report.final_status}**`,
     `- 样本：**${report.sample_size.observed}/${report.sample_size.target}**；manifest release_ready=**${report.release_readiness.declared}**`,
-    `- 独立 Judge 校准：**${report.judge_calibration.current}/${report.judge_calibration.sample_size}**；release_ready=**${report.judge_calibration.release_ready}**`,
+    `- 独立 Judge 校准：候选 **${report.judge_calibration.candidate_count}/${report.judge_calibration.sample_size}**，已人工标注 **${report.judge_calibration.current}/${report.judge_calibration.sample_size}**；release_ready=**${report.judge_calibration.release_ready}**`,
     `- 原因：${report.final_reason}`,
     `- Mock：\`${report.runner.version}\`；集成状态：**${report.runner.reference_agent_integration}**`,
     "",
@@ -757,7 +757,18 @@ export function buildReport(manifest, cases, validation, { integrateReference = 
   const finalStatus = vetoTriggered ? "FAIL" : !readiness.computed_ready ? "INCONCLUSIVE" : regressionFailed ? "FAIL" : Object.values(metrics).some((metric) => metric.gate_status === "FAIL") ? "FAIL" : Object.values(metrics).some((metric) => metric.gate_status === "INSUFFICIENT_SAMPLE") ? "INCONCLUSIVE" : "PASS";
   const finalReason = vetoTriggered ? "至少一个硬 veto 被触发" : !readiness.computed_ready ? `已运行 ${cases.length}/${manifest.sample_size.target} 条 synthetic 案例，但独立 Judge 校准 ${manifest.judge_calibration?.current || 0}/${manifest.judge_calibration?.sample_size || 300}、真实运行证据或显式 release 门禁未完成；禁止据此发布` : regressionFailed ? "候选相对 synthetic 基线出现不可接受退化" : finalStatus === "PASS" ? "样本、Judge 校准、门槛、基线与 veto 均通过（仍需真实运行证据）" : "样本或指标门槛未通过";
   const snapshotRegistry = JSON.parse(fs.readFileSync(path.join(ROOT, manifest.snapshot_policy.registry), "utf8"));
-  const inputFiles = [...new Set(["evals/manifest.yaml", manifest.judge_calibration?.source, manifest.snapshot_policy.registry, snapshotRegistry.snapshot_file, ...(manifest.case_files || [])].filter(Boolean))].map((file) => ({ path: file, sha256: sha256(fs.readFileSync(path.join(ROOT, file))) }));
+  const inputFiles = [...new Set([
+    "evals/manifest.yaml",
+    manifest.judge_calibration?.source,
+    "evidence/judge-candidate-registry.json",
+    "evidence/judge-candidates.jsonl",
+    "evidence/judge-answer-key.jsonl",
+    "evidence/judge-snapshot-registry.json",
+    "evidence/judge-snapshots.jsonl",
+    manifest.snapshot_policy.registry,
+    snapshotRegistry.snapshot_file,
+    ...(manifest.case_files || []),
+  ].filter(Boolean))].map((file) => ({ path: file, sha256: sha256(fs.readFileSync(path.join(ROOT, file))) }));
   const report = {
     synthetic: true,
     demonstration_only: true,
@@ -779,6 +790,7 @@ export function buildReport(manifest, cases, validation, { integrateReference = 
     judge_calibration: {
       source: manifest.judge_calibration?.source,
       independent_of_eval_suite: manifest.judge_calibration?.independent_of_eval_suite === true,
+      candidate_count: manifest.judge_calibration?.candidate_count || 300,
       current: manifest.judge_calibration?.current || 0,
       sample_size: manifest.judge_calibration?.sample_size || 300,
       release_ready: manifest.judge_calibration?.release_ready === true,

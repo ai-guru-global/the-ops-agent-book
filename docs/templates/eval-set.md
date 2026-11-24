@@ -84,7 +84,7 @@ flowchart TB
 | 留出集（holdout） | 只读终验，禁止调参后反复刷分 | 300 | 独立验收人；只在版本冻结后解锁 |
 
 - 总样本量是四个维度的并集：`场景 × 类型 × 环境 × 来源`；高危、边界、未知每格至少 5 条，安全类必须覆盖每个禁止动作。
-- **Judge 校准与上述 400 条 suite 分开**：至少 300 条人工双标注案例，不计入 golden/calibration/holdout，也不得与 suite 共享 source key、快照或答案键。当前 `evals/judge-calibration.yaml` 为 0/300 的 synthetic starter，未完成前不能做发布裁判。60 条 calibration 仅用于 Agent confidence/阈值校准，不能替代 Judge 验收校准。
+- **Judge 校准与上述 400 条 suite 分开**：至少 300 条人工双标注案例，不计入 golden/calibration/holdout，也不得与 suite 共享 source key、快照或答案键。仓库已准备 300 条独立 synthetic 候选、答案键、快照 registry 与双人标注工具；`npm run judge:generate` 重建候选，`npm run judge:status` 当前为 annotated=0、release_ready=false。真实标注、裁决与签署完成前不能做发布裁判。60 条 calibration 仅用于 Agent confidence/阈值校准，不能替代 Judge 验收校准。
 - 用 `source_case_key` 与内容哈希去重；同一 incident、Pod 或快照的变体不得跨划分，防止泄漏。
 - 任何案例只属于一个划分；新增生产案例先入校准集。再平衡需评测 Owner 与独立验收人签署，并永久保留旧 suite。
 - `manifest.yaml` 是划分、权重与否决规则的权威源；案例文件只放题目、上下文、期望证据与动作。
@@ -204,6 +204,8 @@ snapshot_id: snap-k8s-20261112-001
 - 评测运行：模型/Prompt/工具/知识/策略版本、运行 ID、报告与原始 Trace 证据。
 
 **Judge 校准验收**：校准集由至少两名标注者独立标注并裁决；κ 或加权一致性达到门槛；安全类召回与证据可复核率单独达标；模型、Prompt、Rubric 或阈值变化后重新校准。Judge 低置信、安全类、边界类与申诉样本 100% 人工复核；不得用留出集调 Judge。
+
+标注工具使用伪匿名 ID，原始标注写入被忽略的 `evidence/judge-annotations/`，不进入公开仓库。`next` 只返回候选问题、证据与候选答案，不加载答案键；`submit` 校验 0–2 分、veto 与重复标注；`adjudicate` 要求两名不同标注者先完成且裁决人独立；`report` 计算双人一致性、Cohen's κ、安全/证据召回与裁决数，但不会自动把 `release_ready` 改成 true。
 
 ## 5. Rubric、权重与否决规则
 

@@ -1,5 +1,5 @@
-# Synthetic starter metadata for independent Judge acceptance calibration.
-# This file contains no annotated cases and is not release evidence.
+# Independent Judge acceptance calibration metadata.
+# The 300-candidate synthetic pool is ready; no human annotations or release evidence exist yet.
 schema_version: "1.0"
 artifact_id: EVAL-JUDGE-CAL-2026-001
 suite_version: v1.0.0
@@ -14,8 +14,17 @@ purpose: >-
   This dataset is disjoint from EVAL-k8s-2026-001 golden/calibration/holdout cases.
 sample_size:
   target: 300
+  candidate_count: 300
   current: 0
   release_ready: false
+candidate_pool:
+  file: evidence/judge-candidates.jsonl
+  answer_key: evidence/judge-answer-key.jsonl
+  registry: evidence/judge-candidate-registry.json
+  generator: scripts/generate-judge-candidates.mjs
+  annotation_tool: scripts/annotate-judge.mjs
+  commands: [status, next, submit, adjudicate, report]
+  annotation_storage: evidence/judge-annotations/
 partition_constraints:
   mutually_exclusive_with_eval_suite: true
   dedup_keys: [source_case_key, content_sha256, snapshot_id]
@@ -31,16 +40,17 @@ annotation:
   minimum_evidence_recall: 0.98
   human_review_all_categories: [boundary, adversarial, safety, unknown]
 evidence:
-  registry: evidence/judge-calibration-registry.yaml
+  registry: evidence/judge-snapshot-registry.json
+  snapshots: evidence/judge-snapshots.jsonl
   required_fields: [case_id, snapshot_id, time, raw_ref, sha256, annotation_version]
   retention_days: 365
 open_items:
   - id: JC-OI-001
-    issue: Populate and independently adjudicate 300 unique synthetic or authorized real cases.
+    issue: Independently annotate and adjudicate the 300 ready candidates with two pseudonymous human annotators.
     owner: independent-quality
     due_date: "2026-12-15"
     blocks_gate: G3
     acceptance: >-
-      Target count, disjointness, hashes, agreement, kappa, safety recall and evidence recall
-      all pass; release_ready is signed by the independent quality reviewer.
+      All 300 candidates have two independent annotations plus adjudication; disjointness and hashes pass;
+      agreement, kappa, safety recall and evidence recall meet thresholds; release_ready is signed by the independent quality reviewer.
     status: open

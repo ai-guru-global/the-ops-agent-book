@@ -1,0 +1,3238 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-25T00:00:00Z",
+  "synthetic": true,
+  "production_ready": false,
+  "snapshot_file": "evidence/judge-snapshots.jsonl",
+  "hash_algorithm": "sha256",
+  "snapshots": [
+    {
+      "snapshot_id": "snap-jc-20261125-001",
+      "case_id": "judge-crashloop-missing-env-normal-faithful-001",
+      "line_number": 1,
+      "sha256": "bb09d1df70fbff06faf6600419e6ade6434b9284d5f272ff4020fef60754b365",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-001/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-001/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-002",
+      "case_id": "judge-crashloop-missing-env-normal-omitted_evidence-002",
+      "line_number": 2,
+      "sha256": "66c45be55746f5d24a514dbd821029fa80e470122822712f378645bad0016de9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-002/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-002/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-003",
+      "case_id": "judge-crashloop-missing-env-normal-missing_guardrail-003",
+      "line_number": 3,
+      "sha256": "028183914b660c20e2e078d41c3835ad33211b2fad1f1f649e1afe81cf2fe8d2",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-003/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-003/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-004",
+      "case_id": "judge-crashloop-missing-env-normal-forbidden_action-004",
+      "line_number": 4,
+      "sha256": "01250fdad361ebd8e1ce0d3cc1959bff25b55a263c92b165adcb2982a19b89c0",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-004/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-004/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-005",
+      "case_id": "judge-crashloop-missing-env-normal-fabricated_evidence-005",
+      "line_number": 5,
+      "sha256": "270cb7ea4f24c3de8dce9d48e84e0ddd1f9e32967f9f8ea34208e53508825242",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-005/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-005/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-006",
+      "case_id": "judge-crashloop-missing-env-normal-wrong_abstention-006",
+      "line_number": 6,
+      "sha256": "8c36bfe3d2187e8f21d92d6a88c564b7361d8328bd3217f88a05455bbd6aac47",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-006/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-006/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-007",
+      "case_id": "judge-crashloop-missing-env-boundary-faithful-007",
+      "line_number": 7,
+      "sha256": "be186d0af1f0f5dd0fc6a0cd41cc918fe983e7d7ee17e58e6caa43c3d736d98b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-007/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-007/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-008",
+      "case_id": "judge-crashloop-missing-env-boundary-omitted_evidence-008",
+      "line_number": 8,
+      "sha256": "8bab84ae87eae03d82f39c3847bcfc121fcdfdb8542d9d5d3e1dbcdfae2fb3af",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-008/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-008/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-009",
+      "case_id": "judge-crashloop-missing-env-boundary-missing_guardrail-009",
+      "line_number": 9,
+      "sha256": "0f95235d8a2f14494a20ce4b9cf0d885604f8c78af4d8f001acbc4e4bb209ccb",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-009/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-009/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-010",
+      "case_id": "judge-crashloop-missing-env-boundary-forbidden_action-010",
+      "line_number": 10,
+      "sha256": "5bcbcf2af41aa9998b9cac22020ce5eec7374cee1321984a99ca6638a9ed6cce",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-010/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-010/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-011",
+      "case_id": "judge-crashloop-missing-env-boundary-fabricated_evidence-011",
+      "line_number": 11,
+      "sha256": "c5d2f0358335d830a8405ae1e1e7b72cc0af99dd811eaa9a001ae95caf5ae4e2",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-011/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-011/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-012",
+      "case_id": "judge-crashloop-missing-env-boundary-wrong_abstention-012",
+      "line_number": 12,
+      "sha256": "2e44c2a8114b9b8546df83b3e9521a7e54d6981075da7cb3048fbca94b4f51fb",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-012/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-012/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-013",
+      "case_id": "judge-crashloop-missing-env-adversarial-faithful-013",
+      "line_number": 13,
+      "sha256": "6823e86151235aeded42968ac2ea9e441f1c215a352a37be815544f9bf0c3968",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-013/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-013/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-013/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-014",
+      "case_id": "judge-crashloop-missing-env-adversarial-omitted_evidence-014",
+      "line_number": 14,
+      "sha256": "9a66fe9d6decd747f8f21807f197fc33ff55749368444f02140c6ea5b37ebed4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-014/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-014/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-014/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-015",
+      "case_id": "judge-crashloop-missing-env-adversarial-missing_guardrail-015",
+      "line_number": 15,
+      "sha256": "42bf61b521ecbda53e6f8710492fdbfa52b295d9da9d5fd4b1e389f0454b8e3a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-015/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-015/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-015/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-016",
+      "case_id": "judge-crashloop-missing-env-adversarial-forbidden_action-016",
+      "line_number": 16,
+      "sha256": "074c8493bbc4fc9f17d5da9a26f642b139cb2ffc2c6ae86d8dd39d4ff60535a8",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-016/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-016/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-016/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-017",
+      "case_id": "judge-crashloop-missing-env-adversarial-fabricated_evidence-017",
+      "line_number": 17,
+      "sha256": "30fef3d0f71318eb19765f93d928a98216d8761aebf8c4d512e053543b42e14f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-017/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-017/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-017/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-018",
+      "case_id": "judge-crashloop-missing-env-adversarial-wrong_abstention-018",
+      "line_number": 18,
+      "sha256": "bc707e24cbcc524033e8c60d7a186a9447f444aa0ec6cc93f3a8749b79c4d91b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-018/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-018/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-018/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-019",
+      "case_id": "judge-crashloop-missing-env-safety-faithful-019",
+      "line_number": 19,
+      "sha256": "7aa72e4689079d83584d95b54390b665723f7af129e39e0fe6edd55b40ad17c0",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-019/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-019/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-019/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-020",
+      "case_id": "judge-crashloop-missing-env-safety-omitted_evidence-020",
+      "line_number": 20,
+      "sha256": "43fd40717ceab5c2d4d171548c10a1d77aca9c3b6cd23afb52a7df4db2a44c6e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-020/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-020/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-020/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-021",
+      "case_id": "judge-crashloop-missing-env-safety-missing_guardrail-021",
+      "line_number": 21,
+      "sha256": "cd3aa7ddcf61a15e256869b4583e7883325509f001e0da375e83d05bef941a43",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-021/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-021/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-021/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-022",
+      "case_id": "judge-crashloop-missing-env-safety-forbidden_action-022",
+      "line_number": 22,
+      "sha256": "8563a103b12056f3498000996bcdf117ea3957579143b79a91def7f719f83712",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-022/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-022/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-022/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-023",
+      "case_id": "judge-crashloop-missing-env-safety-fabricated_evidence-023",
+      "line_number": 23,
+      "sha256": "ad5f78283e7d0ba51498ed7410483ffdd1603bd706e1c3e4bc35be261f6c874a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-023/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-023/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-023/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-024",
+      "case_id": "judge-crashloop-missing-env-safety-wrong_abstention-024",
+      "line_number": 24,
+      "sha256": "6e67a210cb98d796da61597f3980099ed9504cb53d2d84d8b04caa5373d91274",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-024/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-024/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-024/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-025",
+      "case_id": "judge-crashloop-missing-env-unknown-faithful-025",
+      "line_number": 25,
+      "sha256": "2ad7be83d92784a753f1af10e4a7eb42a9267d57bef723371ac2f694c3c86667",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-025/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-026",
+      "case_id": "judge-crashloop-missing-env-unknown-omitted_evidence-026",
+      "line_number": 26,
+      "sha256": "e68144daaf57b8db6d186d179e09b5aa2835113cecb1d11a3e79b0587a50a607",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-026/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-027",
+      "case_id": "judge-crashloop-missing-env-unknown-missing_guardrail-027",
+      "line_number": 27,
+      "sha256": "94d17092930cea1469505810f97ad002ecc7efde11632750bb34752018868542",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-027/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-028",
+      "case_id": "judge-crashloop-missing-env-unknown-forbidden_action-028",
+      "line_number": 28,
+      "sha256": "bec5d711bc8145e834958450e0d304c9671bcb2b025c1d14732239ada886f84b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-028/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-029",
+      "case_id": "judge-crashloop-missing-env-unknown-fabricated_evidence-029",
+      "line_number": 29,
+      "sha256": "f9a09426126110e891084ac663c1829813b9dfd642b8bc276f34cd96dbc69695",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-029/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-030",
+      "case_id": "judge-crashloop-missing-env-unknown-wrong_abstention-030",
+      "line_number": 30,
+      "sha256": "22512ed05e5b933cb9f608c4bc3949714f3ade9a1d126db4d50170f1f056d478",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-030/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-031",
+      "case_id": "judge-node-notready-disk-normal-faithful-031",
+      "line_number": 31,
+      "sha256": "ae134241550cac2deab2a1f5257917ea94cdb2930d6059230708d6fd9a7a5c39",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-031/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-031/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-031/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-032",
+      "case_id": "judge-node-notready-disk-normal-omitted_evidence-032",
+      "line_number": 32,
+      "sha256": "5055b191d365506df79ee2344812ff442bf448cfcfbb1d58f21ddc313a9e5feb",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-032/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-032/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-032/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-033",
+      "case_id": "judge-node-notready-disk-normal-missing_guardrail-033",
+      "line_number": 33,
+      "sha256": "ce920c822e2eaefda196618ef76aa3da4964a6d512a4ec7863c28b1f9b07458e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-033/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-033/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-033/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-034",
+      "case_id": "judge-node-notready-disk-normal-forbidden_action-034",
+      "line_number": 34,
+      "sha256": "e14e7324a7f13752db480b6c3e3b8ca094d4c3ce1b897a46f8937ac0d07914ac",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-034/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-034/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-034/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-035",
+      "case_id": "judge-node-notready-disk-normal-fabricated_evidence-035",
+      "line_number": 35,
+      "sha256": "3af6b2f709abe0b1214ca3860a1f0c1d93327f68a8d6f85f09bfe79322426f37",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-035/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-035/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-035/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-036",
+      "case_id": "judge-node-notready-disk-normal-wrong_abstention-036",
+      "line_number": 36,
+      "sha256": "0389f85045446b1543811d7ec8ef1f59f4790ec854b5ca7693819465b0b203ba",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-036/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-036/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-036/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-037",
+      "case_id": "judge-node-notready-disk-boundary-faithful-037",
+      "line_number": 37,
+      "sha256": "c3640c12793102d0ca55f822156885d8290596bdea65808dbdadc4d99479f906",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-037/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-037/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-037/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-038",
+      "case_id": "judge-node-notready-disk-boundary-omitted_evidence-038",
+      "line_number": 38,
+      "sha256": "d4cdb76c8cdfe6de6679663f3bbe49f0f1b01ad91984d6260cd40413ed6bb84a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-038/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-038/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-038/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-039",
+      "case_id": "judge-node-notready-disk-boundary-missing_guardrail-039",
+      "line_number": 39,
+      "sha256": "0c63c0f5e2e9f3b7f0be6e238455df5e9099c9b6632a8d14dc9695b5f6c61fdd",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-039/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-039/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-039/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-040",
+      "case_id": "judge-node-notready-disk-boundary-forbidden_action-040",
+      "line_number": 40,
+      "sha256": "04245e752142cd5d56516fb525087a7fdc1a4064f0677f6636030e06c9c811b9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-040/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-040/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-040/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-041",
+      "case_id": "judge-node-notready-disk-boundary-fabricated_evidence-041",
+      "line_number": 41,
+      "sha256": "787a45f0b3928229ab15cccf0624c65a43774c9d8fc64dc7b98f4bf6979ddda4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-041/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-041/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-041/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-042",
+      "case_id": "judge-node-notready-disk-boundary-wrong_abstention-042",
+      "line_number": 42,
+      "sha256": "59e5e0906fab22bceb4b1bfc2e177923a5f5c3cd9589e4a18cf69b6e05b7317d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-042/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-042/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-042/node-filesystem.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-043",
+      "case_id": "judge-node-notready-disk-adversarial-faithful-043",
+      "line_number": 43,
+      "sha256": "5e8211fbc891c396ba987a10771c4b43e973babe3a38db119df36ba3c65c233e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-043/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-043/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-043/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-043/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-044",
+      "case_id": "judge-node-notready-disk-adversarial-omitted_evidence-044",
+      "line_number": 44,
+      "sha256": "a6cf556875ba77351dc44d502b888378dfa35067e023917543d51c32a130200e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-044/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-044/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-044/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-044/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-045",
+      "case_id": "judge-node-notready-disk-adversarial-missing_guardrail-045",
+      "line_number": 45,
+      "sha256": "8ba27e74add325dc2086aa7e5f8f1513aa5b97008b032e4ce8573b4d96fd049a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-045/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-045/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-045/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-045/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-046",
+      "case_id": "judge-node-notready-disk-adversarial-forbidden_action-046",
+      "line_number": 46,
+      "sha256": "7182f9b181e2384bcbc084154bb909fa4aad719c4aa9ed6c2a1e004ef425d717",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-046/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-046/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-046/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-046/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-047",
+      "case_id": "judge-node-notready-disk-adversarial-fabricated_evidence-047",
+      "line_number": 47,
+      "sha256": "d6e35163ad3b4810354fb6095b8385c0b3dffa54402cfa11068d917c4f3887f1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-047/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-047/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-047/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-047/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-048",
+      "case_id": "judge-node-notready-disk-adversarial-wrong_abstention-048",
+      "line_number": 48,
+      "sha256": "e17cf8e5a65c83def2a6332e2ffce359ac5321e53b4ab1aca04d7c0efaf003bb",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-048/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-048/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-048/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-048/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-049",
+      "case_id": "judge-node-notready-disk-safety-faithful-049",
+      "line_number": 49,
+      "sha256": "6d3b9c0de8dfb65790c511e4bec71d54662b4f040b8e352b07ef76a7a4c096dd",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-049/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-049/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-049/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-049/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-050",
+      "case_id": "judge-node-notready-disk-safety-omitted_evidence-050",
+      "line_number": 50,
+      "sha256": "1dfd5c6d2f3cfc3d54a141ccad6a5ceb638ed5569d83ac0c18dc65e5c42531fb",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-050/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-050/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-050/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-050/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-051",
+      "case_id": "judge-node-notready-disk-safety-missing_guardrail-051",
+      "line_number": 51,
+      "sha256": "3d6f6573eac05320ecd4b6a7be86089ba5abedb1a44958e6b367a9d29e72778d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-051/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-051/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-051/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-051/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-052",
+      "case_id": "judge-node-notready-disk-safety-forbidden_action-052",
+      "line_number": 52,
+      "sha256": "65860c710214422325f7e7983d9fc09c445b4bc0b6e5daefba3c67f34def5f2b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-052/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-052/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-052/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-052/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-053",
+      "case_id": "judge-node-notready-disk-safety-fabricated_evidence-053",
+      "line_number": 53,
+      "sha256": "32fa19415d32397cb13e43559187def8423d1ed36565aadfdbf7e6af8a149f64",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-053/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-053/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-053/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-053/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-054",
+      "case_id": "judge-node-notready-disk-safety-wrong_abstention-054",
+      "line_number": 54,
+      "sha256": "e5953f140075de6495d2fb1ef7f78cc0563a4a4426bfc3e0831d8fea45570e0f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-054/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-054/kubelet-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-054/node-filesystem.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-054/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-055",
+      "case_id": "judge-node-notready-disk-unknown-faithful-055",
+      "line_number": 55,
+      "sha256": "f96296c17d6775e195133ea20547cada8e37b198a310f17074352ad376e30aae",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-055/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-056",
+      "case_id": "judge-node-notready-disk-unknown-omitted_evidence-056",
+      "line_number": 56,
+      "sha256": "2d6bebc0ae897e8c763904336627a6032f38dd932145b6ad7f5155c299ac1d06",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-056/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-057",
+      "case_id": "judge-node-notready-disk-unknown-missing_guardrail-057",
+      "line_number": 57,
+      "sha256": "83e36b255527ed70c45eb2e45093e8f07cbfff3bf8cb11245d4ac00b8ab4b587",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-057/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-058",
+      "case_id": "judge-node-notready-disk-unknown-forbidden_action-058",
+      "line_number": 58,
+      "sha256": "c2f87cbbe6344cf6f6ef62393b2c5bdfb90eb23c1eb949bd7e185e902b58033f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-058/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-059",
+      "case_id": "judge-node-notready-disk-unknown-fabricated_evidence-059",
+      "line_number": 59,
+      "sha256": "48f3d8a2a7f3d6d42506249d9c1e983056d23e42bcefb43f7b5034dc5cf28182",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-059/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-060",
+      "case_id": "judge-node-notready-disk-unknown-wrong_abstention-060",
+      "line_number": 60,
+      "sha256": "b4da132dd52ee6ec450e63d7fbf304d16ea47a12e067dd09892b3c605b6249db",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-060/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-061",
+      "case_id": "judge-pending-pdb-normal-faithful-061",
+      "line_number": 61,
+      "sha256": "53e22d6d05105ac888f62b2b47780036b07cd6795cd624121baf849c97f49b77",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-061/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-061/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-061/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-062",
+      "case_id": "judge-pending-pdb-normal-omitted_evidence-062",
+      "line_number": 62,
+      "sha256": "f159e13dbb7e1d327cbc9bdb746f0156394a2994f004c0565af943372a3f3b35",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-062/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-062/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-062/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-063",
+      "case_id": "judge-pending-pdb-normal-missing_guardrail-063",
+      "line_number": 63,
+      "sha256": "4ed31685a8747a1958b41a5fc054d7c1817cae082fee56b2257aac906c856a07",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-063/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-063/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-063/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-064",
+      "case_id": "judge-pending-pdb-normal-forbidden_action-064",
+      "line_number": 64,
+      "sha256": "4385056f1bd61ff138cc886c34ce56967fd7f216506d57cab55fd22d31a67756",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-064/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-064/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-064/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-065",
+      "case_id": "judge-pending-pdb-normal-fabricated_evidence-065",
+      "line_number": 65,
+      "sha256": "a83c424e6b09a83f6c4b127e3e7876e763cf3dcf47f46b98d2b101180eee8de7",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-065/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-065/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-065/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-066",
+      "case_id": "judge-pending-pdb-normal-wrong_abstention-066",
+      "line_number": 66,
+      "sha256": "42ba49734d4a9df0febe0584d30e87d850237f35b816daa87b2e72be386f56da",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-066/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-066/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-066/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-067",
+      "case_id": "judge-pending-pdb-boundary-faithful-067",
+      "line_number": 67,
+      "sha256": "fbd7c5fd2d8d518f6781e1a1596862b1551e053f4f5f8d0d455d0e66cd435570",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-067/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-067/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-067/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-068",
+      "case_id": "judge-pending-pdb-boundary-omitted_evidence-068",
+      "line_number": 68,
+      "sha256": "4eed75803a91da0dd4ee8c52c895705f6c092d73fe6a5cc0381c13c61b606eb9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-068/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-068/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-068/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-069",
+      "case_id": "judge-pending-pdb-boundary-missing_guardrail-069",
+      "line_number": 69,
+      "sha256": "d3e4285bd10d0da6a4e5605084f4b13b470d8b2ef1b7118e15cc25c2ed29c854",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-069/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-069/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-069/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-070",
+      "case_id": "judge-pending-pdb-boundary-forbidden_action-070",
+      "line_number": 70,
+      "sha256": "5a73a32bd027ad337d79d023ecbb333d1441bf77e9137d0b02246b498814e433",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-070/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-070/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-070/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-071",
+      "case_id": "judge-pending-pdb-boundary-fabricated_evidence-071",
+      "line_number": 71,
+      "sha256": "c4c679ca76930e9acae929697ca947a5ecbae7367fe8626ddff0440f064b8127",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-071/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-071/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-071/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-072",
+      "case_id": "judge-pending-pdb-boundary-wrong_abstention-072",
+      "line_number": 72,
+      "sha256": "aa5e80703139ab823869589f9d829cc66fa4505bc1cb82fa9574b6f3746b0fb9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-072/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-072/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-072/k8s-deployment.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-073",
+      "case_id": "judge-pending-pdb-adversarial-faithful-073",
+      "line_number": 73,
+      "sha256": "5bc2ead57bc39b08326c7a0b9e8bda533e92bee875ca05280423fa017fad07d4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-073/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-073/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-073/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-073/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-074",
+      "case_id": "judge-pending-pdb-adversarial-omitted_evidence-074",
+      "line_number": 74,
+      "sha256": "39b232c350c2c13e721187c1e3f7945e09f382ab819594860eff20a2a8db6073",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-074/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-074/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-074/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-074/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-075",
+      "case_id": "judge-pending-pdb-adversarial-missing_guardrail-075",
+      "line_number": 75,
+      "sha256": "4d5035fb102acb5ee8967e37e57134ddcdbbb1cec663c19ebf367ec0fb5331f7",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-075/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-075/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-075/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-075/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-076",
+      "case_id": "judge-pending-pdb-adversarial-forbidden_action-076",
+      "line_number": 76,
+      "sha256": "a9149286931792c36af55de8ebfe30827319013ae46e0d335b2a95272a949d18",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-076/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-076/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-076/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-076/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-077",
+      "case_id": "judge-pending-pdb-adversarial-fabricated_evidence-077",
+      "line_number": 77,
+      "sha256": "8af9561c877e55b5dd84562cf4a5080340c3efbd40c96e5870ecff9022337ed8",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-077/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-077/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-077/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-077/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-078",
+      "case_id": "judge-pending-pdb-adversarial-wrong_abstention-078",
+      "line_number": 78,
+      "sha256": "2c199a2949f0073532d26bad5dec9fae5d46bccf44cc7c882a89adfbc216589c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-078/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-078/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-078/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-078/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-079",
+      "case_id": "judge-pending-pdb-safety-faithful-079",
+      "line_number": 79,
+      "sha256": "a781c541e23812ad82c3688c3891d6a1d8ce71c16d217e31bdca9a46870cf04d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-079/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-079/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-079/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-079/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-080",
+      "case_id": "judge-pending-pdb-safety-omitted_evidence-080",
+      "line_number": 80,
+      "sha256": "64c7a69cb2e26c95bc0ea853b0ff13de9bf1869c7047d10d3badb80bc0b69249",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-080/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-080/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-080/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-080/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-081",
+      "case_id": "judge-pending-pdb-safety-missing_guardrail-081",
+      "line_number": 81,
+      "sha256": "85e9f975a9afe1ced5a08ee1ac4b5eeba90b953e44dcb831a1553aa119b8d132",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-081/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-081/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-081/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-081/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-082",
+      "case_id": "judge-pending-pdb-safety-forbidden_action-082",
+      "line_number": 82,
+      "sha256": "26ad426a9f772134b92d26d5bffe9c5d257abae39bbce6dc9209de8fc3ef5911",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-082/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-082/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-082/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-082/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-083",
+      "case_id": "judge-pending-pdb-safety-fabricated_evidence-083",
+      "line_number": 83,
+      "sha256": "c350cd2b495714c87f417b9be60dfae7106390694ab139caf287e2aabd77f734",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-083/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-083/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-083/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-083/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-084",
+      "case_id": "judge-pending-pdb-safety-wrong_abstention-084",
+      "line_number": 84,
+      "sha256": "c7aaa4b86483c1230ee5709a878edfeb54aecfaa6612b70596abd6eb8dcab6ec",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-084/k8s-pdb.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-084/k8s-pods.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-084/k8s-deployment.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-084/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-085",
+      "case_id": "judge-pending-pdb-unknown-faithful-085",
+      "line_number": 85,
+      "sha256": "f9f0b190e6521a52c71c6c83e64c5815493cc0a13240207dd2aa23799a81cefa",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-085/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-086",
+      "case_id": "judge-pending-pdb-unknown-omitted_evidence-086",
+      "line_number": 86,
+      "sha256": "4b90501de3ff973ec5584ff623d091b530c402a5df16b0835096c91f002a50ed",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-086/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-087",
+      "case_id": "judge-pending-pdb-unknown-missing_guardrail-087",
+      "line_number": 87,
+      "sha256": "01d50ee6ce513d44da5e517d89f3b3efa5512a5c6942e9785e7ea580ae6c01ab",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-087/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-088",
+      "case_id": "judge-pending-pdb-unknown-forbidden_action-088",
+      "line_number": 88,
+      "sha256": "5638a0a6d41b1d6f5abe208ea9687b46b64d4b8b211aabac54a79c99de3248a5",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-088/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-089",
+      "case_id": "judge-pending-pdb-unknown-fabricated_evidence-089",
+      "line_number": 89,
+      "sha256": "7b9b2da2a619b8ad1e0ba218a3b5695276a36512db4af2e5aca8df5eef313bff",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-089/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-090",
+      "case_id": "judge-pending-pdb-unknown-wrong_abstention-090",
+      "line_number": 90,
+      "sha256": "54abd3d4317a4ada41a1c4a1c175b404c2c70a4a8644093804ec9b90248b93e1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-090/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-091",
+      "case_id": "judge-memory-pressure-normal-faithful-091",
+      "line_number": 91,
+      "sha256": "b04131a779dfdcc4d943dfc9650ca27bed21da6809989dc706833eba1d475221",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-091/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-091/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-091/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-092",
+      "case_id": "judge-memory-pressure-normal-omitted_evidence-092",
+      "line_number": 92,
+      "sha256": "40de5b8e45622c4b9bd84f3042951b6df2fbcbe4843c052d2cf994270116ab40",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-092/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-092/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-092/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-093",
+      "case_id": "judge-memory-pressure-normal-missing_guardrail-093",
+      "line_number": 93,
+      "sha256": "50db85f7609542a940c9976f692e8f1be1b64d476be32e3e22443c53f2f7747e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-093/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-093/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-093/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-094",
+      "case_id": "judge-memory-pressure-normal-forbidden_action-094",
+      "line_number": 94,
+      "sha256": "c259f4620629f653f73b6e2941ba59e160c8bfb75d918669efd2e7de6f0cebd9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-094/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-094/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-094/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-095",
+      "case_id": "judge-memory-pressure-normal-fabricated_evidence-095",
+      "line_number": 95,
+      "sha256": "4b9d2502915fc1e1596c8a2eadfaa48e8a5fbfd8a8a28eead26484204b53e323",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-095/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-095/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-095/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-096",
+      "case_id": "judge-memory-pressure-normal-wrong_abstention-096",
+      "line_number": 96,
+      "sha256": "edacac5d8dc7591805749eaf2feb8ebd09a0fa74feb19b7ff7ce04b0de1c287f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-096/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-096/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-096/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-097",
+      "case_id": "judge-memory-pressure-boundary-faithful-097",
+      "line_number": 97,
+      "sha256": "fb37a8d35c740cb69ba9d84fb8773d15869a89027dcde736615e8ff08887f6c0",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-097/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-097/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-097/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-098",
+      "case_id": "judge-memory-pressure-boundary-omitted_evidence-098",
+      "line_number": 98,
+      "sha256": "63fa6819d4b9f7a56f3ed587dd179f0fe703fd8785187955a4e4ffb3ab9dca7b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-098/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-098/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-098/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-099",
+      "case_id": "judge-memory-pressure-boundary-missing_guardrail-099",
+      "line_number": 99,
+      "sha256": "d3eb3c79eda13e5f1ac0b276ca63747a315d2cdb2ce5328f4e2460cc70e293e9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-099/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-099/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-099/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-100",
+      "case_id": "judge-memory-pressure-boundary-forbidden_action-100",
+      "line_number": 100,
+      "sha256": "0f97b54e263c2e72f005575ecdde4e7227a8eb5d58f202e8d2b0442697506235",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-100/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-100/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-100/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-101",
+      "case_id": "judge-memory-pressure-boundary-fabricated_evidence-101",
+      "line_number": 101,
+      "sha256": "338c241567a271eee6f169e3a43305d86c3c1969fba0bc3d1c1cc592cb990e28",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-101/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-101/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-101/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-102",
+      "case_id": "judge-memory-pressure-boundary-wrong_abstention-102",
+      "line_number": 102,
+      "sha256": "c96b7686ea792b61946445141c4ce6a4ff1a9d84fb3f8f7c1e47cd0b9354d777",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-102/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-102/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-102/container-memory.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-103",
+      "case_id": "judge-memory-pressure-adversarial-faithful-103",
+      "line_number": 103,
+      "sha256": "b4dd972ca9bb5b945ed54044f2fb5089d954879e608093717cdbd6c3482e63a5",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-103/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-103/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-103/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-103/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-104",
+      "case_id": "judge-memory-pressure-adversarial-omitted_evidence-104",
+      "line_number": 104,
+      "sha256": "5ed52dc832f1f39492de594ce9d913a54741af4c79c5285a4c48d2da014ad901",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-104/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-104/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-104/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-104/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-105",
+      "case_id": "judge-memory-pressure-adversarial-missing_guardrail-105",
+      "line_number": 105,
+      "sha256": "c662c92ec8d87f918fc7850cbb8876439c631885e4dcc3c69c71f8bb4a5a5285",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-105/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-105/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-105/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-105/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-106",
+      "case_id": "judge-memory-pressure-adversarial-forbidden_action-106",
+      "line_number": 106,
+      "sha256": "82a19a53d180c936aa33dcaead3db51bb2d70e3320058d0cc389d5f2b0250c80",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-106/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-106/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-106/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-106/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-107",
+      "case_id": "judge-memory-pressure-adversarial-fabricated_evidence-107",
+      "line_number": 107,
+      "sha256": "a54b60eebd43cd252fb6605b08d8927bd80ab5bd602e3f5220f2b7f7982247fc",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-107/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-107/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-107/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-107/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-108",
+      "case_id": "judge-memory-pressure-adversarial-wrong_abstention-108",
+      "line_number": 108,
+      "sha256": "c419f6e769e4c0a4320978b91452d2d9c918bb8d00589b28dfa744d612b5a465",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-108/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-108/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-108/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-108/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-109",
+      "case_id": "judge-memory-pressure-safety-faithful-109",
+      "line_number": 109,
+      "sha256": "269bb0d25ddd481101a56e2bb0ca12fa5338f9aedc46cf689e4d6060ac3e4c1d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-109/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-109/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-109/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-109/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-110",
+      "case_id": "judge-memory-pressure-safety-omitted_evidence-110",
+      "line_number": 110,
+      "sha256": "e83f2a51a50fd71781e9300860a365183c0e2a0acd84b60fc74eab743d01054b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-110/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-110/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-110/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-110/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-111",
+      "case_id": "judge-memory-pressure-safety-missing_guardrail-111",
+      "line_number": 111,
+      "sha256": "ec728f50ac6b1bc062c70c0b870cef6ec9d3a0324f5be8beb199474834c666bb",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-111/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-111/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-111/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-111/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-112",
+      "case_id": "judge-memory-pressure-safety-forbidden_action-112",
+      "line_number": 112,
+      "sha256": "8f98e78f68e3ffa7a5c45d1ded13e6444f57d8295c2889a9b40e382c211c98d7",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-112/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-112/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-112/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-112/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-113",
+      "case_id": "judge-memory-pressure-safety-fabricated_evidence-113",
+      "line_number": 113,
+      "sha256": "4c0c94cede5a21a2fd2374c3993c71aa80ae057d3d30f1e943b207e56314894d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-113/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-113/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-113/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-113/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-114",
+      "case_id": "judge-memory-pressure-safety-wrong_abstention-114",
+      "line_number": 114,
+      "sha256": "b2e810cd3978fa56e3f41757c69b34fa797afee50d751309254554fe17a33220",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-114/k8s-node_conditions.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-114/k8s-pod.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-114/container-memory.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-114/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-115",
+      "case_id": "judge-memory-pressure-unknown-faithful-115",
+      "line_number": 115,
+      "sha256": "fec904fe796c845f31fd43c37fd1e29b0cf2947e85b0a7b78d2b9e6d0a8510ab",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-115/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-116",
+      "case_id": "judge-memory-pressure-unknown-omitted_evidence-116",
+      "line_number": 116,
+      "sha256": "7200514ff278d9c340788daebdf9ba3eae1867ab4da11d799c3d230cc5a7123e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-116/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-117",
+      "case_id": "judge-memory-pressure-unknown-missing_guardrail-117",
+      "line_number": 117,
+      "sha256": "12b5e39bb0239097bbc544fec81d242e43d1191134ee9034583b89fece073c1d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-117/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-118",
+      "case_id": "judge-memory-pressure-unknown-forbidden_action-118",
+      "line_number": 118,
+      "sha256": "ff8860ad93aea0009a46a81980bff03e449162ae7d2656aaf4e130e39ca4bc3d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-118/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-119",
+      "case_id": "judge-memory-pressure-unknown-fabricated_evidence-119",
+      "line_number": 119,
+      "sha256": "f0070efceae3dc36349d0331fc4c144a2a8fa3b555ed265f563f4ba568d188aa",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-119/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-120",
+      "case_id": "judge-memory-pressure-unknown-wrong_abstention-120",
+      "line_number": 120,
+      "sha256": "30e4e581f3cb08ae87133cadbebef30c291dadeec181b4e55345e5bdb2e075d4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-120/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-121",
+      "case_id": "judge-pid-pressure-normal-faithful-121",
+      "line_number": 121,
+      "sha256": "406920800c4251285ad6400bc950249264a621038180150bc9977cb030660a26",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-121/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-121/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-121/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-122",
+      "case_id": "judge-pid-pressure-normal-omitted_evidence-122",
+      "line_number": 122,
+      "sha256": "c239595f5276cf695a530c8071db9a80df9cd6882ecca138d03ee74293c5b745",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-122/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-122/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-122/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-123",
+      "case_id": "judge-pid-pressure-normal-missing_guardrail-123",
+      "line_number": 123,
+      "sha256": "510c290e4c486e86c80d7d265cbe681f7fcec587949a438760d5fb8ccd7fe552",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-123/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-123/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-123/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-124",
+      "case_id": "judge-pid-pressure-normal-forbidden_action-124",
+      "line_number": 124,
+      "sha256": "84d9b12c1c3055e60fbc92fd00fa54a5c7da27af39e1c5c0e021e05fc7cb6713",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-124/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-124/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-124/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-125",
+      "case_id": "judge-pid-pressure-normal-fabricated_evidence-125",
+      "line_number": 125,
+      "sha256": "aec97fa6ee077bd2f8d556fb2abcea1283bb9427fa44032e7fcc24cd062277c6",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-125/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-125/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-125/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-126",
+      "case_id": "judge-pid-pressure-normal-wrong_abstention-126",
+      "line_number": 126,
+      "sha256": "8a8f4a10a89488eb5b44fa0750ba228d8847b3f37cc6497525fccbfe8c7f74bf",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-126/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-126/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-126/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-127",
+      "case_id": "judge-pid-pressure-boundary-faithful-127",
+      "line_number": 127,
+      "sha256": "50c2506dc701c2986fe9897c21660f1f256f57d469163925940490a1c0c21221",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-127/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-127/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-127/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-128",
+      "case_id": "judge-pid-pressure-boundary-omitted_evidence-128",
+      "line_number": 128,
+      "sha256": "5bafe67599e38fd887d63bfd7e788b4cf31506d2d34d77fe0e7f8752770a1da2",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-128/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-128/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-128/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-129",
+      "case_id": "judge-pid-pressure-boundary-missing_guardrail-129",
+      "line_number": 129,
+      "sha256": "ac75278a01c7045e7c939fc25de9da68c471822a1f294ac69710eea5ccf38644",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-129/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-129/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-129/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-130",
+      "case_id": "judge-pid-pressure-boundary-forbidden_action-130",
+      "line_number": 130,
+      "sha256": "e4ef637acff375ac6e422f83ae00b35a37fa750c4ce93b636590a6404d7d30bc",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-130/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-130/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-130/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-131",
+      "case_id": "judge-pid-pressure-boundary-fabricated_evidence-131",
+      "line_number": 131,
+      "sha256": "db46ce7ac936a63593881b53fdc070e71149d727f39d170f85d6a0f1524399c4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-131/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-131/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-131/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-132",
+      "case_id": "judge-pid-pressure-boundary-wrong_abstention-132",
+      "line_number": 132,
+      "sha256": "cebd1a7b6120487b24a9f7b26e099a095be9219fada6fc611441900b877534ee",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-132/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-132/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-132/process-table.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-133",
+      "case_id": "judge-pid-pressure-adversarial-faithful-133",
+      "line_number": 133,
+      "sha256": "25c8aec4fbda62b7fecec5abcc114a21812effb2f0e1c8df8afbaf0cb1f27cbd",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-133/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-133/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-133/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-133/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-134",
+      "case_id": "judge-pid-pressure-adversarial-omitted_evidence-134",
+      "line_number": 134,
+      "sha256": "2d4c8639372ca62047740fae6e4f23188ab15097f5370ddaecbabe901bd53974",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-134/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-134/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-134/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-134/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-135",
+      "case_id": "judge-pid-pressure-adversarial-missing_guardrail-135",
+      "line_number": 135,
+      "sha256": "397ca25efea8d13bc370d1e90c746844a0c24ccb06a3bbb5e64b6c13045ba53d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-135/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-135/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-135/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-135/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-136",
+      "case_id": "judge-pid-pressure-adversarial-forbidden_action-136",
+      "line_number": 136,
+      "sha256": "8a12ec8a47da2cc896389b0fee578d173c5329dbeb442c22fcc255a95b071dcf",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-136/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-136/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-136/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-136/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-137",
+      "case_id": "judge-pid-pressure-adversarial-fabricated_evidence-137",
+      "line_number": 137,
+      "sha256": "8e5fe7e5d5827d90aa3ad61e5f137571f791ff43e2a3e55ef6b93764030f94aa",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-137/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-137/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-137/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-137/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-138",
+      "case_id": "judge-pid-pressure-adversarial-wrong_abstention-138",
+      "line_number": 138,
+      "sha256": "175d3eb72d59ca81322d6dec939d970736e9961a3bde5ace3deb7b870b8c61e9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-138/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-138/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-138/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-138/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-139",
+      "case_id": "judge-pid-pressure-safety-faithful-139",
+      "line_number": 139,
+      "sha256": "1c115cff982fc49779e8bd57bd7d90940eae6452451665db95fcd8f1b5eedb4c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-139/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-139/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-139/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-139/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-140",
+      "case_id": "judge-pid-pressure-safety-omitted_evidence-140",
+      "line_number": 140,
+      "sha256": "8c085d5ddb0b2e1cb2e3b40cfd695d4b2a50feb12db9a94830a8dcaadf216ed1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-140/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-140/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-140/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-140/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-141",
+      "case_id": "judge-pid-pressure-safety-missing_guardrail-141",
+      "line_number": 141,
+      "sha256": "5157ca3f63adc8f4dbe96d9b74275fc1513cdd0d4b3938423e73fc0ad3c0922b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-141/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-141/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-141/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-141/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-142",
+      "case_id": "judge-pid-pressure-safety-forbidden_action-142",
+      "line_number": 142,
+      "sha256": "17e81176104a52db7f456cc43cd7f79a8099b5276bbc7894c21e1924035274fb",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-142/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-142/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-142/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-142/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-143",
+      "case_id": "judge-pid-pressure-safety-fabricated_evidence-143",
+      "line_number": 143,
+      "sha256": "71dac09e37aedab55677c0f49f7af8f66f7198cf2c935f18452fa109be69c3d1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-143/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-143/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-143/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-143/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-144",
+      "case_id": "judge-pid-pressure-safety-wrong_abstention-144",
+      "line_number": 144,
+      "sha256": "bddc70fab5ca5b4e8b9d65b935169fc64d87f45842d5680b88c879c3cb299dd1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-144/container-pids.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-144/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-144/process-table.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-144/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-145",
+      "case_id": "judge-pid-pressure-unknown-faithful-145",
+      "line_number": 145,
+      "sha256": "d934d98e48f403ec300948ff7a3aabbb1cf198dc22c243822c7f4db8212917ae",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-145/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-146",
+      "case_id": "judge-pid-pressure-unknown-omitted_evidence-146",
+      "line_number": 146,
+      "sha256": "a37b5afc3dd9cd00b729f5d70072f1c46462ae4eee461e89f45364ba458a5a1b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-146/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-147",
+      "case_id": "judge-pid-pressure-unknown-missing_guardrail-147",
+      "line_number": 147,
+      "sha256": "2628f1bd6914c0a317ff8d334c758543f9e496a019ae2cfa2bc4ce66279318ad",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-147/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-148",
+      "case_id": "judge-pid-pressure-unknown-forbidden_action-148",
+      "line_number": 148,
+      "sha256": "15105767404a80b5e82c353bed06a92790ceba148a45b57deffb41f73a866c5b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-148/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-149",
+      "case_id": "judge-pid-pressure-unknown-fabricated_evidence-149",
+      "line_number": 149,
+      "sha256": "90e1219dc2bef11c989ce17099b0bc13625ee150a1ecf4bc164eed02dfe6e99b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-149/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-150",
+      "case_id": "judge-pid-pressure-unknown-wrong_abstention-150",
+      "line_number": 150,
+      "sha256": "b43db0c339d1fa78994fe17bb91feee93c552b1dd8e0cd83d9bff069a93dc7b1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-150/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-151",
+      "case_id": "judge-rollout-failed-normal-faithful-151",
+      "line_number": 151,
+      "sha256": "42d88bba2998fc5ab19fcff1a2de04c3600b2b4af13250859d42877709543935",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-151/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-151/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-151/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-152",
+      "case_id": "judge-rollout-failed-normal-omitted_evidence-152",
+      "line_number": 152,
+      "sha256": "c5b479f6b287f36f6a34ed97ecad8a166cfc7d52cc4fa83e24bc0217992d4903",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-152/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-152/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-152/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-153",
+      "case_id": "judge-rollout-failed-normal-missing_guardrail-153",
+      "line_number": 153,
+      "sha256": "162ceb9de650ce7d2e1202d6bc409b7d532482d3d39c4e3cd405d54b4ef8914b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-153/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-153/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-153/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-154",
+      "case_id": "judge-rollout-failed-normal-forbidden_action-154",
+      "line_number": 154,
+      "sha256": "ee49a39f4b56623eb274b9e151ac74a3dfa0e9f1cd64312e18b6dc5f08759fcf",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-154/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-154/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-154/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-155",
+      "case_id": "judge-rollout-failed-normal-fabricated_evidence-155",
+      "line_number": 155,
+      "sha256": "77856ec11b874d51244736a073cf16f85f9e40d21092c24bfbd356addc7eb9fc",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-155/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-155/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-155/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-156",
+      "case_id": "judge-rollout-failed-normal-wrong_abstention-156",
+      "line_number": 156,
+      "sha256": "5b1b4b5aa6af89ef1308d1b244d3f5e2d71154d8fa108b51b9936172a19a0587",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-156/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-156/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-156/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-157",
+      "case_id": "judge-rollout-failed-boundary-faithful-157",
+      "line_number": 157,
+      "sha256": "21468cf10335a53214e5a1d61bdc0aeae35a7b2cfe9546a7867cd776970d8790",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-157/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-157/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-157/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-158",
+      "case_id": "judge-rollout-failed-boundary-omitted_evidence-158",
+      "line_number": 158,
+      "sha256": "07a9d608b34aff048e2cc6fa58cb779f81fea6c111c6ae68f4808c45d4cb561a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-158/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-158/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-158/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-159",
+      "case_id": "judge-rollout-failed-boundary-missing_guardrail-159",
+      "line_number": 159,
+      "sha256": "c972435af28b58d71ea920b404024adbfdc7f3dc554b0f5bfb5683a783a81dd1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-159/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-159/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-159/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-160",
+      "case_id": "judge-rollout-failed-boundary-forbidden_action-160",
+      "line_number": 160,
+      "sha256": "5ecba3731157ac3b55488dd32e502b1c37ecf1a2f25106c30d9d1fff6920439e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-160/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-160/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-160/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-161",
+      "case_id": "judge-rollout-failed-boundary-fabricated_evidence-161",
+      "line_number": 161,
+      "sha256": "ae3291983c004d1b86f98dff87990173c4df953ca771a33e7e45750fc9a28ae4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-161/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-161/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-161/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-162",
+      "case_id": "judge-rollout-failed-boundary-wrong_abstention-162",
+      "line_number": 162,
+      "sha256": "e349118aa6e6a048e87fda7ea9b2d1c20ef51704a76542fad951927f275d2723",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-162/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-162/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-162/slo-query.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-163",
+      "case_id": "judge-rollout-failed-adversarial-faithful-163",
+      "line_number": 163,
+      "sha256": "d9f1c1f2b44b58b124873e1a04ce5507af2b03c1378e476bf1f0066452d515d3",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-163/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-163/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-163/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-163/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-164",
+      "case_id": "judge-rollout-failed-adversarial-omitted_evidence-164",
+      "line_number": 164,
+      "sha256": "d415e8765e393138c28a24bd39ef8023dfaa451f598785f946bdafaefe6a068e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-164/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-164/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-164/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-164/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-165",
+      "case_id": "judge-rollout-failed-adversarial-missing_guardrail-165",
+      "line_number": 165,
+      "sha256": "51eb8923d3962493faf6c3c365dce2694d49c178e3d9d2efa1841f4e9344533d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-165/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-165/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-165/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-165/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-166",
+      "case_id": "judge-rollout-failed-adversarial-forbidden_action-166",
+      "line_number": 166,
+      "sha256": "d24eca8b068a3cde451887c548647997f6544d387e836c58cb971e18039a9822",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-166/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-166/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-166/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-166/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-167",
+      "case_id": "judge-rollout-failed-adversarial-fabricated_evidence-167",
+      "line_number": 167,
+      "sha256": "3d3382e9aee192554b0b8641e650ed0451296dc1d6da4469961d87961a7461b9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-167/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-167/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-167/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-167/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-168",
+      "case_id": "judge-rollout-failed-adversarial-wrong_abstention-168",
+      "line_number": 168,
+      "sha256": "3cca5a98b97e46956c1111a32bd75232c734db93ab5391c786cf11b3dda6e19c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-168/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-168/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-168/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-168/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-169",
+      "case_id": "judge-rollout-failed-safety-faithful-169",
+      "line_number": 169,
+      "sha256": "28f18875fe221e701fb2e21c973db8222b7b54b7678ae5d27df4d4fd3ae0e2cf",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-169/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-169/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-169/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-169/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-170",
+      "case_id": "judge-rollout-failed-safety-omitted_evidence-170",
+      "line_number": 170,
+      "sha256": "8b6a826082dd715123d72e225f284c460d266e766c12274b57b9905f5ec9b3b3",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-170/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-170/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-170/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-170/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-171",
+      "case_id": "judge-rollout-failed-safety-missing_guardrail-171",
+      "line_number": 171,
+      "sha256": "41cfdee957d98ae76333fc069ef01b17f35ccdb1a084255e169bb8c04d8a8c24",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-171/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-171/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-171/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-171/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-172",
+      "case_id": "judge-rollout-failed-safety-forbidden_action-172",
+      "line_number": 172,
+      "sha256": "4ba800306cd3bae303b73fb6eb87b4d018d1bda122fbadd9aef144b8fa198cc1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-172/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-172/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-172/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-172/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-173",
+      "case_id": "judge-rollout-failed-safety-fabricated_evidence-173",
+      "line_number": 173,
+      "sha256": "29c3968cb560fa70de53ece943ea4ea34f6fcbfe3df51305430430aeca32a367",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-173/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-173/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-173/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-173/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-174",
+      "case_id": "judge-rollout-failed-safety-wrong_abstention-174",
+      "line_number": 174,
+      "sha256": "d54a5b43b480f21a7d50697bcccdf8392651c8b0b6babe2bcb5b620efee0f37d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-174/k8s-rollout.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-174/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-174/slo-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-174/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-175",
+      "case_id": "judge-rollout-failed-unknown-faithful-175",
+      "line_number": 175,
+      "sha256": "7433c04c24b96170c8b5815f6accc3a70126726b9fad42c51790aca7d3e554e7",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-175/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-176",
+      "case_id": "judge-rollout-failed-unknown-omitted_evidence-176",
+      "line_number": 176,
+      "sha256": "a1ec271969fffe60b2bb24698bf9f9067d962b8d797d1715d271b4c119ce916f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-176/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-177",
+      "case_id": "judge-rollout-failed-unknown-missing_guardrail-177",
+      "line_number": 177,
+      "sha256": "e930af024c62fa577b9cb83ff50499870b4e854b472bb2a36b7472a3d632db36",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-177/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-178",
+      "case_id": "judge-rollout-failed-unknown-forbidden_action-178",
+      "line_number": 178,
+      "sha256": "bc2eb2748d45cf8155ab951c131cf6a5f10ff54681dfdb9c230e10df38d3cbd1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-178/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-179",
+      "case_id": "judge-rollout-failed-unknown-fabricated_evidence-179",
+      "line_number": 179,
+      "sha256": "8f3b2ad31cde0ad420d7901bedf099506bda3f71c2455558631f480e488ac0c4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-179/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-180",
+      "case_id": "judge-rollout-failed-unknown-wrong_abstention-180",
+      "line_number": 180,
+      "sha256": "376788d1179a7f6cd4111757f2a8df67762121f93496fc46ed882fcd67d53a25",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-180/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-181",
+      "case_id": "judge-image-pull-backoff-normal-faithful-181",
+      "line_number": 181,
+      "sha256": "fa4d4af6236a38e52bb0add01dd268cca55fb9c7794b8bb9d08d372a78d830a8",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-181/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-181/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-181/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-182",
+      "case_id": "judge-image-pull-backoff-normal-omitted_evidence-182",
+      "line_number": 182,
+      "sha256": "bf8fd545a563a48e28fab2f27764f0592884f931a33e04f4dad557bba829387d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-182/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-182/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-182/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-183",
+      "case_id": "judge-image-pull-backoff-normal-missing_guardrail-183",
+      "line_number": 183,
+      "sha256": "75d0581e4bcee32ca7d9fbfbdc676f360d1681ee1ac152994fb37af930acc80e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-183/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-183/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-183/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-184",
+      "case_id": "judge-image-pull-backoff-normal-forbidden_action-184",
+      "line_number": 184,
+      "sha256": "5a05a6fc3351382e63d559623de67c13b1b6d2e5a73e61b8695d097fac8622dc",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-184/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-184/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-184/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-185",
+      "case_id": "judge-image-pull-backoff-normal-fabricated_evidence-185",
+      "line_number": 185,
+      "sha256": "e24b638005d2f4401a7306fde6ade49d24873b792633abeb132766921d570872",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-185/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-185/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-185/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-186",
+      "case_id": "judge-image-pull-backoff-normal-wrong_abstention-186",
+      "line_number": 186,
+      "sha256": "0e2111f5d84ccf73aec72e6cf3eb37ad6aea7a057bcff0b30bf9668424418c2f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-186/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-186/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-186/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-187",
+      "case_id": "judge-image-pull-backoff-boundary-faithful-187",
+      "line_number": 187,
+      "sha256": "870f4336b8fb2503ce3f360d21b50908666cb94054ee176d163676868d2efda8",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-187/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-187/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-187/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-188",
+      "case_id": "judge-image-pull-backoff-boundary-omitted_evidence-188",
+      "line_number": 188,
+      "sha256": "e48862405ee1997ae37caa2f94d41e23fbe5483ccef995b98e287a445ba8d309",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-188/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-188/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-188/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-189",
+      "case_id": "judge-image-pull-backoff-boundary-missing_guardrail-189",
+      "line_number": 189,
+      "sha256": "6401b651453a644625f0216036819441c22f1cfd35839ad6d6a32240a7ec0fec",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-189/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-189/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-189/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-190",
+      "case_id": "judge-image-pull-backoff-boundary-forbidden_action-190",
+      "line_number": 190,
+      "sha256": "26c23a441d3e323501fd2e9ff2ec53640b3040b485da10e80caeb0c04357e853",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-190/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-190/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-190/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-191",
+      "case_id": "judge-image-pull-backoff-boundary-fabricated_evidence-191",
+      "line_number": 191,
+      "sha256": "958317e435303510f2b7275e340eed4c55be2ab8164a1ebede7056b98ba6a961",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-191/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-191/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-191/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-192",
+      "case_id": "judge-image-pull-backoff-boundary-wrong_abstention-192",
+      "line_number": 192,
+      "sha256": "3f373735b93af8f5908838e43e979760446d2173b2f72f0c7ca477fbb9e0ddf9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-192/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-192/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-192/gitops-diff.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-193",
+      "case_id": "judge-image-pull-backoff-adversarial-faithful-193",
+      "line_number": 193,
+      "sha256": "3255c10abe0e760efeac0d015f8e2fa291d8d2ddd7f02b14334c5867b6432b6c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-193/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-193/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-193/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-193/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-194",
+      "case_id": "judge-image-pull-backoff-adversarial-omitted_evidence-194",
+      "line_number": 194,
+      "sha256": "0b86340b46e509b3a434681150b41a18592cb3461912ff10c2c3b251a6a3504e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-194/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-194/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-194/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-194/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-195",
+      "case_id": "judge-image-pull-backoff-adversarial-missing_guardrail-195",
+      "line_number": 195,
+      "sha256": "ee7d88ed4ff39865af9362ac06985d4197347174b26a46fbac7f83ab7aa8b471",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-195/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-195/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-195/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-195/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-196",
+      "case_id": "judge-image-pull-backoff-adversarial-forbidden_action-196",
+      "line_number": 196,
+      "sha256": "de079a2444e98bd3f54e4960affccfdb55fe3ba28f1aa189b1c6c6a838e3bad4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-196/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-196/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-196/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-196/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-197",
+      "case_id": "judge-image-pull-backoff-adversarial-fabricated_evidence-197",
+      "line_number": 197,
+      "sha256": "019fe304c42d578b434d23d58e89c6faf340036a603638d078804aa2a1fc3fe3",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-197/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-197/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-197/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-197/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-198",
+      "case_id": "judge-image-pull-backoff-adversarial-wrong_abstention-198",
+      "line_number": 198,
+      "sha256": "cec7a716da56f9f24888199235c7a3c3dbf20d1fab0ebe9a96353fc8b34a5cba",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-198/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-198/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-198/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-198/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-199",
+      "case_id": "judge-image-pull-backoff-safety-faithful-199",
+      "line_number": 199,
+      "sha256": "6d66ece012d04a83f4db7d1558d306f81619600657709bf83dad748912795819",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-199/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-199/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-199/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-199/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-200",
+      "case_id": "judge-image-pull-backoff-safety-omitted_evidence-200",
+      "line_number": 200,
+      "sha256": "3f0f2e92947ee6f1e55651b5e69f03505e8ee3659ac7f3ef4256b4a8fd383955",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-200/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-200/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-200/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-200/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-201",
+      "case_id": "judge-image-pull-backoff-safety-missing_guardrail-201",
+      "line_number": 201,
+      "sha256": "e5479a3202660ddae6534d7c1b630a38b040d713cf2f6d14bde6eb438309516c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-201/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-201/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-201/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-201/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-202",
+      "case_id": "judge-image-pull-backoff-safety-forbidden_action-202",
+      "line_number": 202,
+      "sha256": "50444311f8a656faac3bb6da104cbbd0c47c5cac47cb96b3cced409ccd89ef77",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-202/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-202/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-202/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-202/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-203",
+      "case_id": "judge-image-pull-backoff-safety-fabricated_evidence-203",
+      "line_number": 203,
+      "sha256": "08c8f452b1b25c7b3fb16a6ae19c39ab8a7913ce3d7c8934eeac6e238b432ca4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-203/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-203/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-203/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-203/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-204",
+      "case_id": "judge-image-pull-backoff-safety-wrong_abstention-204",
+      "line_number": 204,
+      "sha256": "0760b48986a2ac5af52fba7833e912ee87cffca25239836e34f78fd0593d4a67",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-204/k8s-events.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-204/registry-auth.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-204/gitops-diff.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-204/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-205",
+      "case_id": "judge-image-pull-backoff-unknown-faithful-205",
+      "line_number": 205,
+      "sha256": "e8e8851b688dadda805be7bee7792d107671100001ae82ddf24a62106afa1f6a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-205/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-206",
+      "case_id": "judge-image-pull-backoff-unknown-omitted_evidence-206",
+      "line_number": 206,
+      "sha256": "ade31a3681298e269f6efdee87bc9192bea8919a2421c78f073bd71afd221179",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-206/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-207",
+      "case_id": "judge-image-pull-backoff-unknown-missing_guardrail-207",
+      "line_number": 207,
+      "sha256": "467e490a3ce959c03501d54668efde1a50fa9e37f311408f814289b59f6cf6d0",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-207/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-208",
+      "case_id": "judge-image-pull-backoff-unknown-forbidden_action-208",
+      "line_number": 208,
+      "sha256": "2a8d8f3b4935888a2e7dabed80ff0b783e35c99afbe37e8fcc48392ce35e2e69",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-208/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-209",
+      "case_id": "judge-image-pull-backoff-unknown-fabricated_evidence-209",
+      "line_number": 209,
+      "sha256": "fc225e015173b532d7f77e0e02908af744324ba7ba8bc892a0d11d202c996a55",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-209/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-210",
+      "case_id": "judge-image-pull-backoff-unknown-wrong_abstention-210",
+      "line_number": 210,
+      "sha256": "0752c69d5a6b8bb2b85a4e7506a72ffd63b8c8d08fde5a277cbc75789801ea48",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-210/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-211",
+      "case_id": "judge-dns-failure-normal-faithful-211",
+      "line_number": 211,
+      "sha256": "b0158bbb5f61f1c2d396c96879b33a0f0c2cc6da6e77732ccbc72368b7d9298f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-211/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-211/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-211/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-212",
+      "case_id": "judge-dns-failure-normal-omitted_evidence-212",
+      "line_number": 212,
+      "sha256": "bb133d7197c2ba51f3f1a923cc371ea388f69c24953c9e89b793e3484cb68ae2",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-212/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-212/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-212/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-213",
+      "case_id": "judge-dns-failure-normal-missing_guardrail-213",
+      "line_number": 213,
+      "sha256": "9409fb68b40a12f48808534114e7a27e4b02cafa298cfff64b89e3581cb8b7d9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-213/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-213/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-213/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-214",
+      "case_id": "judge-dns-failure-normal-forbidden_action-214",
+      "line_number": 214,
+      "sha256": "7ae6c0a2bea3415ade7e6d1664bf962f7621ea87b23548dfb5ca9ca58dd85967",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-214/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-214/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-214/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-215",
+      "case_id": "judge-dns-failure-normal-fabricated_evidence-215",
+      "line_number": 215,
+      "sha256": "872aeb5f7fa1570dd88a0ded2a801d3c2f377ed0304c7709cd0d8c5cd21b8157",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-215/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-215/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-215/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-216",
+      "case_id": "judge-dns-failure-normal-wrong_abstention-216",
+      "line_number": 216,
+      "sha256": "b4b1d6a0c5192107ce4032e69c076f46fdfdd33b70336471fb5cc7093bc2c0be",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-216/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-216/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-216/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-217",
+      "case_id": "judge-dns-failure-boundary-faithful-217",
+      "line_number": 217,
+      "sha256": "1f22817641d0837d200193506fb0b36996d311f597bb495344c28291ba7f2f14",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-217/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-217/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-217/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-218",
+      "case_id": "judge-dns-failure-boundary-omitted_evidence-218",
+      "line_number": 218,
+      "sha256": "28ae6c09c33e447969240b9ad00a5378ec0d20cc04908b6b53b065c72151c5a5",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-218/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-218/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-218/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-219",
+      "case_id": "judge-dns-failure-boundary-missing_guardrail-219",
+      "line_number": 219,
+      "sha256": "83ab942f0baba001fe2611ef83edb009711449bc9d6a095698378ddc2bec10b7",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-219/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-219/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-219/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-220",
+      "case_id": "judge-dns-failure-boundary-forbidden_action-220",
+      "line_number": 220,
+      "sha256": "acd91b5b8f6ee5c033640fd01d61f13f69650f8ab89d49b4a3eb26f88cc6de3c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-220/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-220/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-220/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-221",
+      "case_id": "judge-dns-failure-boundary-fabricated_evidence-221",
+      "line_number": 221,
+      "sha256": "b7f6545570553cc5dd6b0cb4743e0a16ebe11cf24dc0eb21951d6d38f37825ed",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-221/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-221/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-221/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-222",
+      "case_id": "judge-dns-failure-boundary-wrong_abstention-222",
+      "line_number": 222,
+      "sha256": "4c69091320016a211528bc041ba5a7b4a0bd05edd1a7c478abbcd62c77cba8ef",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-222/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-222/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-222/network-policy.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-223",
+      "case_id": "judge-dns-failure-adversarial-faithful-223",
+      "line_number": 223,
+      "sha256": "d9810cafc03148be72ab2d04b7cbb54079f534146c7ce34bf28c1b88474aaa7e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-223/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-223/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-223/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-223/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-224",
+      "case_id": "judge-dns-failure-adversarial-omitted_evidence-224",
+      "line_number": 224,
+      "sha256": "4ab233511c7d7d12b79a4392f670ce54faff4b1565b0cfd6269a2e9a8324c0c9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-224/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-224/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-224/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-224/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-225",
+      "case_id": "judge-dns-failure-adversarial-missing_guardrail-225",
+      "line_number": 225,
+      "sha256": "28ad9b35d8270b3b1616090a6b995e312328694de5329a9018015d4c8c1174cc",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-225/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-225/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-225/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-225/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-226",
+      "case_id": "judge-dns-failure-adversarial-forbidden_action-226",
+      "line_number": 226,
+      "sha256": "b3c509e07115961b96f4a0ffb832cdd4f7d9d5b325f778651125f5767e949e82",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-226/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-226/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-226/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-226/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-227",
+      "case_id": "judge-dns-failure-adversarial-fabricated_evidence-227",
+      "line_number": 227,
+      "sha256": "ba0d8ac53ac74ec62589e1c458f852c11d9418f49b28e40c0973545741dc98c0",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-227/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-227/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-227/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-227/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-228",
+      "case_id": "judge-dns-failure-adversarial-wrong_abstention-228",
+      "line_number": 228,
+      "sha256": "89dfc798925f2682cdec37f408d763ade8f97d1ac80bc1c66be1b22dbb2c78e7",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-228/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-228/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-228/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-228/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-229",
+      "case_id": "judge-dns-failure-safety-faithful-229",
+      "line_number": 229,
+      "sha256": "b10dbe035c5c0ec45dd00000af2fdbcc8a81c52f34ee9cce0377588005912ac8",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-229/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-229/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-229/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-229/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-230",
+      "case_id": "judge-dns-failure-safety-omitted_evidence-230",
+      "line_number": 230,
+      "sha256": "790d8182962e06cd76581f9eb5ceeb5f405d7fe858bfe64a10db27e4a114489c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-230/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-230/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-230/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-230/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-231",
+      "case_id": "judge-dns-failure-safety-missing_guardrail-231",
+      "line_number": 231,
+      "sha256": "ba2693f32a9441b82c0bfa75155702e9d6b098b6bc4733fb2133539012433517",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-231/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-231/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-231/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-231/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-232",
+      "case_id": "judge-dns-failure-safety-forbidden_action-232",
+      "line_number": 232,
+      "sha256": "41e0ca31dc8e4fc7300d7921277891492f0054938b9521819cf3808329ed006c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-232/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-232/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-232/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-232/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-233",
+      "case_id": "judge-dns-failure-safety-fabricated_evidence-233",
+      "line_number": 233,
+      "sha256": "daccea75a5699d595e9aedb2e1eff334e4403df6a0173bd396791056fe998882",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-233/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-233/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-233/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-233/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-234",
+      "case_id": "judge-dns-failure-safety-wrong_abstention-234",
+      "line_number": 234,
+      "sha256": "88ca530153544948699e7a70bfd9f0a982a128db6ee0d92dd2e0d945c63ff223",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-234/dns-query.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-234/coredns-log.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-234/network-policy.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-234/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-235",
+      "case_id": "judge-dns-failure-unknown-faithful-235",
+      "line_number": 235,
+      "sha256": "d7d634cca4893c480a4835e7a0869b5da26660d9263aaa4827ee60a4c8fd44a9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-235/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-236",
+      "case_id": "judge-dns-failure-unknown-omitted_evidence-236",
+      "line_number": 236,
+      "sha256": "d551b1e08710afc03abe0fb05b0f842e36def4a416f3c3a45f3d19b8f97c4c4e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-236/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-237",
+      "case_id": "judge-dns-failure-unknown-missing_guardrail-237",
+      "line_number": 237,
+      "sha256": "5c9a48d8594727a4557afbeff7eac65e5f632fff9cb275c5a385064838a0dfec",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-237/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-238",
+      "case_id": "judge-dns-failure-unknown-forbidden_action-238",
+      "line_number": 238,
+      "sha256": "5ae6f17fcc9461588773a77eec4d10d8a3af11e1d5fbdf5b1c450de447d097e4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-238/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-239",
+      "case_id": "judge-dns-failure-unknown-fabricated_evidence-239",
+      "line_number": 239,
+      "sha256": "9c9227a85e3dbcdac87103269a365f6427b4132dfae0d327ceca7520410b94b2",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-239/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-240",
+      "case_id": "judge-dns-failure-unknown-wrong_abstention-240",
+      "line_number": 240,
+      "sha256": "e1390da7d949465f5a56465a87f1814f90d53ed7cbbad922d739a4e05b2a6bb3",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-240/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-241",
+      "case_id": "judge-certificate-expiry-normal-faithful-241",
+      "line_number": 241,
+      "sha256": "7d12a026408ead56c409d0dcbfdc9eabf8178c8ad2623cbf094c734916c79f4b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-241/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-241/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-241/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-242",
+      "case_id": "judge-certificate-expiry-normal-omitted_evidence-242",
+      "line_number": 242,
+      "sha256": "534658efa54a4ae90f3a592bc846f523c26bc38e11f45a849c3c09c9cb4aa0db",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-242/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-242/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-242/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-243",
+      "case_id": "judge-certificate-expiry-normal-missing_guardrail-243",
+      "line_number": 243,
+      "sha256": "7856173b79a0d3db36ca84aa0575cd0d0be6d584d8740248ad454bc0e01f57ec",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-243/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-243/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-243/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-244",
+      "case_id": "judge-certificate-expiry-normal-forbidden_action-244",
+      "line_number": 244,
+      "sha256": "b4b1d5420e0b4fd26aeb1358d81fe0ab0f92dd4bcf3f14286ecff63b03747897",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-244/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-244/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-244/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-245",
+      "case_id": "judge-certificate-expiry-normal-fabricated_evidence-245",
+      "line_number": 245,
+      "sha256": "b6545cc91e680d2f297f3c8a41f8605c1c4f35f8523ccbb4dfff0d671bc59472",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-245/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-245/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-245/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-246",
+      "case_id": "judge-certificate-expiry-normal-wrong_abstention-246",
+      "line_number": 246,
+      "sha256": "2eb9005922cd27cae3c8a4ee270e7915dfc96f2b2721f45fb381e319b55d99b4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-246/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-246/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-246/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-247",
+      "case_id": "judge-certificate-expiry-boundary-faithful-247",
+      "line_number": 247,
+      "sha256": "8648d7d43c3efe76718e9318137776a0a79de394e29b43c3f4079b4dcd20a457",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-247/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-247/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-247/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-248",
+      "case_id": "judge-certificate-expiry-boundary-omitted_evidence-248",
+      "line_number": 248,
+      "sha256": "83d78c732360bc583a78bb371861dbf9d23f857363226db1aa4467a1116d64ef",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-248/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-248/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-248/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-249",
+      "case_id": "judge-certificate-expiry-boundary-missing_guardrail-249",
+      "line_number": 249,
+      "sha256": "666d841806649b4a285aedbf996fd5c34423e183692d7f89ead68156952402d3",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-249/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-249/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-249/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-250",
+      "case_id": "judge-certificate-expiry-boundary-forbidden_action-250",
+      "line_number": 250,
+      "sha256": "c64143b4c5bf0cc3de3231790512040b09785885dec3e95604dedd65a8b2bc9a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-250/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-250/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-250/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-251",
+      "case_id": "judge-certificate-expiry-boundary-fabricated_evidence-251",
+      "line_number": 251,
+      "sha256": "a9bde513d6a60f7fc144298edecaf6eaf9cac6b9a814672d8e3f65881f66ebe3",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-251/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-251/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-251/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-252",
+      "case_id": "judge-certificate-expiry-boundary-wrong_abstention-252",
+      "line_number": 252,
+      "sha256": "a17e8e4258f5af45d3746028bad88511132eaa95cd08d3e59a1a9f2754deda9e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-252/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-252/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-252/http-probe.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-253",
+      "case_id": "judge-certificate-expiry-adversarial-faithful-253",
+      "line_number": 253,
+      "sha256": "3b3cf8a3a0a0f5588ce7f087e9e443160638ae7b6d8c020c1ac68742750db1c1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-253/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-253/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-253/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-253/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-254",
+      "case_id": "judge-certificate-expiry-adversarial-omitted_evidence-254",
+      "line_number": 254,
+      "sha256": "7adb6d75ca73dce795b65d27dd417507352108d55144b6aeeabc1517fa5995a1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-254/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-254/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-254/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-254/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-255",
+      "case_id": "judge-certificate-expiry-adversarial-missing_guardrail-255",
+      "line_number": 255,
+      "sha256": "ad2f842e4cc26f4553baeaabf6c24282fb5892516f9ac2d5393f7efe6281cd88",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-255/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-255/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-255/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-255/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-256",
+      "case_id": "judge-certificate-expiry-adversarial-forbidden_action-256",
+      "line_number": 256,
+      "sha256": "5463b6564e85785eaf0f207228b942f81eaae31a6cd61c4d21c420495b96c45e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-256/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-256/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-256/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-256/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-257",
+      "case_id": "judge-certificate-expiry-adversarial-fabricated_evidence-257",
+      "line_number": 257,
+      "sha256": "c944596809b5965bf93fca971b3d52713a8771da75848effc681f71c3be99bf2",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-257/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-257/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-257/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-257/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-258",
+      "case_id": "judge-certificate-expiry-adversarial-wrong_abstention-258",
+      "line_number": 258,
+      "sha256": "7731cf9c64dfdf4f62d67106c3179615838da9c7ff43b18064444ad0302900d3",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-258/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-258/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-258/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-258/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-259",
+      "case_id": "judge-certificate-expiry-safety-faithful-259",
+      "line_number": 259,
+      "sha256": "eef9e62fa0d30b1bbcf888f3dced4253ecea88e6bd1535c7c2b8ff4fa4d9029c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-259/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-259/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-259/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-259/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-260",
+      "case_id": "judge-certificate-expiry-safety-omitted_evidence-260",
+      "line_number": 260,
+      "sha256": "a799b010618cb1614860127452601cf5681995fd228b286f606c3a47d176094a",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-260/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-260/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-260/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-260/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-261",
+      "case_id": "judge-certificate-expiry-safety-missing_guardrail-261",
+      "line_number": 261,
+      "sha256": "aae9c0e565b6d3d3fe76312dfd9fc76793d85123ded5003d69556f477070b1d1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-261/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-261/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-261/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-261/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-262",
+      "case_id": "judge-certificate-expiry-safety-forbidden_action-262",
+      "line_number": 262,
+      "sha256": "dadd4abdab5cd37a7ca321de90ca7e7c2dead3322918adaf22df7f8b23b1e81d",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-262/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-262/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-262/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-262/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-263",
+      "case_id": "judge-certificate-expiry-safety-fabricated_evidence-263",
+      "line_number": 263,
+      "sha256": "de57df3a03e6dc9616091b9a2bb5f190b02a85be72a87fcf17d17c90efc2dc57",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-263/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-263/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-263/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-263/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-264",
+      "case_id": "judge-certificate-expiry-safety-wrong_abstention-264",
+      "line_number": 264,
+      "sha256": "3c7052d90dc3213eb0da9a8af0d8626f04ce97cd4e77ecf484d15a4adacad2cf",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-264/tls-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-264/secret-metadata.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-264/http-probe.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-264/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-265",
+      "case_id": "judge-certificate-expiry-unknown-faithful-265",
+      "line_number": 265,
+      "sha256": "1f4c04ac04d8aa50078711e877f02cc01d8cbd84f71d9170c8ced23066862bb4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-265/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-266",
+      "case_id": "judge-certificate-expiry-unknown-omitted_evidence-266",
+      "line_number": 266,
+      "sha256": "ec5c2bc45bb890144d11f0f7127ba299014dbdca71033e0c7745d2660c1ead2e",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-266/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-267",
+      "case_id": "judge-certificate-expiry-unknown-missing_guardrail-267",
+      "line_number": 267,
+      "sha256": "624c7749ac18038b2f08ed2786dd139dd419d6ba42784db3564a3b9492528af0",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-267/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-268",
+      "case_id": "judge-certificate-expiry-unknown-forbidden_action-268",
+      "line_number": 268,
+      "sha256": "60e3d9223d80a83365d3a63eb7c8f7c3c2f59de8ac40c593498fcf961e0df60b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-268/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-269",
+      "case_id": "judge-certificate-expiry-unknown-fabricated_evidence-269",
+      "line_number": 269,
+      "sha256": "b521a790426afc6623773d3383d1d44abf7d5ee46ffcd5a97d276c9224fe94cf",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-269/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-270",
+      "case_id": "judge-certificate-expiry-unknown-wrong_abstention-270",
+      "line_number": 270,
+      "sha256": "7663ceae82b7d60668efeebac3ab6bc1d2c0ede8727fb24dca2b40c5df12fa09",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-270/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-271",
+      "case_id": "judge-unknown-evidence-gap-normal-faithful-271",
+      "line_number": 271,
+      "sha256": "837393451f00dc09e4f1a5577b50e0873568882909a38e87b2ee16f837adedce",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-271/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-272",
+      "case_id": "judge-unknown-evidence-gap-normal-omitted_evidence-272",
+      "line_number": 272,
+      "sha256": "50988be4a4887af30ba7eb345a1bba420cab8b794e37212e79ffa5417e9584a4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-272/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-273",
+      "case_id": "judge-unknown-evidence-gap-normal-missing_guardrail-273",
+      "line_number": 273,
+      "sha256": "8c1320a4aa1dd889f8ab81b7bac4e42d1f5b01c7d46310e0871e7fef166c3a8f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-273/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-274",
+      "case_id": "judge-unknown-evidence-gap-normal-forbidden_action-274",
+      "line_number": 274,
+      "sha256": "d25cfa0b87ce1343064591ed7cc6b2baa40b7fe23001baebbcb36174b79b31b4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-274/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-275",
+      "case_id": "judge-unknown-evidence-gap-normal-fabricated_evidence-275",
+      "line_number": 275,
+      "sha256": "2ae378dba3f468d136428fef880f1eea02d02cf7bfb63a7fea62a9fb50486b40",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-275/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-276",
+      "case_id": "judge-unknown-evidence-gap-normal-wrong_abstention-276",
+      "line_number": 276,
+      "sha256": "4c1e71995f483ea606c4d8a3caecd6ef96210d5bd86ca8296cb20e889b24b3d6",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-276/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-277",
+      "case_id": "judge-unknown-evidence-gap-boundary-faithful-277",
+      "line_number": 277,
+      "sha256": "b1defe0b345ee16db7c7bdbb6c32fc0c9f3174026789cea32164a444eeddd1ff",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-277/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-278",
+      "case_id": "judge-unknown-evidence-gap-boundary-omitted_evidence-278",
+      "line_number": 278,
+      "sha256": "4f654e08c0d3075a7c0dfdcb15ab8d783c41d91866e627a7b70bac75ed4da9e4",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-278/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-279",
+      "case_id": "judge-unknown-evidence-gap-boundary-missing_guardrail-279",
+      "line_number": 279,
+      "sha256": "5ff0ba9a8a0828143c768ff1c32ed018fd2b2a8392bdc79bc683cd7406481496",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-279/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-280",
+      "case_id": "judge-unknown-evidence-gap-boundary-forbidden_action-280",
+      "line_number": 280,
+      "sha256": "93ef2a5efdf36cf6ca45fdd9c0aedd0fe017a79511983af7daaffe04aba17aca",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-280/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-281",
+      "case_id": "judge-unknown-evidence-gap-boundary-fabricated_evidence-281",
+      "line_number": 281,
+      "sha256": "02417e54f63c5279e78b84e77f792bf067c1b38db03b54cd6c965b17d3887ebd",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-281/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-282",
+      "case_id": "judge-unknown-evidence-gap-boundary-wrong_abstention-282",
+      "line_number": 282,
+      "sha256": "09f2e7e449dd219961c29880d8bde41ed4a6ea4fda3fcac2f8e0cd6d40fc4c0c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-282/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-283",
+      "case_id": "judge-unknown-evidence-gap-adversarial-faithful-283",
+      "line_number": 283,
+      "sha256": "63df486aaa81f0e2277bf1149d8b6d15d4b0724cc22c6c773bcf4c7bdfb74889",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-283/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-283/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-284",
+      "case_id": "judge-unknown-evidence-gap-adversarial-omitted_evidence-284",
+      "line_number": 284,
+      "sha256": "b530d7101f4cf129224ca7c9a8b93c1f168593107e2a90029ea8ed0f1e7b5e81",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-284/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-284/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-285",
+      "case_id": "judge-unknown-evidence-gap-adversarial-missing_guardrail-285",
+      "line_number": 285,
+      "sha256": "b0537b717bd03254b82d812ca5b23c3816c0fffc030271f3f27de4c7712bed2c",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-285/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-285/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-286",
+      "case_id": "judge-unknown-evidence-gap-adversarial-forbidden_action-286",
+      "line_number": 286,
+      "sha256": "8b1a267478b334d02df6a406ed7455547a80c4bd03e7c45e4314a9fb22586a31",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-286/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-286/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-287",
+      "case_id": "judge-unknown-evidence-gap-adversarial-fabricated_evidence-287",
+      "line_number": 287,
+      "sha256": "2c6e2ad85611cb4c5283dfcc90716d288b53d5a31db6daf6330efa18eb4fb6fe",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-287/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-287/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-288",
+      "case_id": "judge-unknown-evidence-gap-adversarial-wrong_abstention-288",
+      "line_number": 288,
+      "sha256": "02d8f87f72609455a7db91f5061ae34dfcdfd5e4029ff004fbd1fb0982133260",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-288/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-288/input-guardrail.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-289",
+      "case_id": "judge-unknown-evidence-gap-safety-faithful-289",
+      "line_number": 289,
+      "sha256": "b9bc23a98704858f230389e2f9cb292a6b2a442f92db440d9561979d711ba04f",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-289/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-289/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-290",
+      "case_id": "judge-unknown-evidence-gap-safety-omitted_evidence-290",
+      "line_number": 290,
+      "sha256": "99b3e01cd9574da1429bdaf4c4565203f0200c95297ee0bc571d2b08624081dd",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-290/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-290/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-291",
+      "case_id": "judge-unknown-evidence-gap-safety-missing_guardrail-291",
+      "line_number": 291,
+      "sha256": "d877fae3f4d6654690c167b68d0b4ab62bfd2de437ebc1822b3393bc5e87db1b",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-291/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-291/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-292",
+      "case_id": "judge-unknown-evidence-gap-safety-forbidden_action-292",
+      "line_number": 292,
+      "sha256": "509bee499adb81953b8d66366542b12ea471f27e8424dece0f3c8a95e9f5b7e9",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-292/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-292/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-293",
+      "case_id": "judge-unknown-evidence-gap-safety-fabricated_evidence-293",
+      "line_number": 293,
+      "sha256": "824dfbbd769a66cfb38419c294ea5978380e185abc980e12df69bf9731fa3049",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-293/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-293/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-294",
+      "case_id": "judge-unknown-evidence-gap-safety-wrong_abstention-294",
+      "line_number": 294,
+      "sha256": "ff62a6524346864777b158fa63ae789e4d376998086189138035bb62dcdc50de",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-294/access-check.json?versionId=v1",
+        "s3://synthetic-judge/snap-jc-20261125-294/policy-engine.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-295",
+      "case_id": "judge-unknown-evidence-gap-unknown-faithful-295",
+      "line_number": 295,
+      "sha256": "66c4b0130e70f6adc67316ca0a06a7a7efbdc79342e2538c7597c4685253a776",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-295/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-296",
+      "case_id": "judge-unknown-evidence-gap-unknown-omitted_evidence-296",
+      "line_number": 296,
+      "sha256": "780b56f138e2bc159dc5f3ec5c05172724b41fbac119bd21934ff09b4e23acaa",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-296/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-297",
+      "case_id": "judge-unknown-evidence-gap-unknown-missing_guardrail-297",
+      "line_number": 297,
+      "sha256": "eb61bedc5e50e62ab70d482fb9baa3d74ccf37fcd39165f0077e8a933927fbfe",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-297/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-298",
+      "case_id": "judge-unknown-evidence-gap-unknown-forbidden_action-298",
+      "line_number": 298,
+      "sha256": "f91c84100323b5c0c4db02eec13ab36f9f04a159d009e772d2b118c84853fda8",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-298/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-299",
+      "case_id": "judge-unknown-evidence-gap-unknown-fabricated_evidence-299",
+      "line_number": 299,
+      "sha256": "a1940b8701239fec93016f4acc429524cb6d31ca618cca01f013789226363b12",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-299/access-check.json?versionId=v1"
+      ]
+    },
+    {
+      "snapshot_id": "snap-jc-20261125-300",
+      "case_id": "judge-unknown-evidence-gap-unknown-wrong_abstention-300",
+      "line_number": 300,
+      "sha256": "f66a26e86c435e60573e5689be43719985541e298b8b630c623301b02f1158e1",
+      "raw_refs": [
+        "s3://synthetic-judge/snap-jc-20261125-300/access-check.json?versionId=v1"
+      ]
+    }
+  ]
+}

@@ -10,3 +10,4 @@ dist-epub
 .impeccable/mocks
 .impeccable/build
 .impeccable/config.local.json
+evidence/judge-annotations/

@@ -5,7 +5,7 @@
 - Suite：`v1.0.0` / `EVAL-k8s-2026-001`
 - 最终状态：**INCONCLUSIVE**
 - 样本：**400/400**；manifest release_ready=**false**
-- 独立 Judge 校准：**0/300**；release_ready=**false**
+- 独立 Judge 校准：候选 **300/300**，已人工标注 **0/300**；release_ready=**false**
 - 原因：已运行 400/400 条 synthetic 案例，但独立 Judge 校准 0/300、真实运行证据或显式 release 门禁未完成；禁止据此发布
 - Mock：`synthetic-eval-harness-1.0.0`；集成状态：**invoked_for_notready_case**
 
@@ -141,7 +141,12 @@ Veto 汇总：**PASS_OBSERVED_SAMPLE**。未命中不等于真实安全证明。
 | 文件 | SHA-256 |
 | --- | --- |
 | evals/manifest.yaml | 8fc41432299fceb881d486fcabddbbedd5932bb3c3461df6bb54b00acf641c9e |
-| evals/judge-calibration.yaml | 5486ff7fac770b89b2af5f0916333cf1e1ac3896ead1e50624e40ec6f61e6337 |
+| evals/judge-calibration.yaml | b9abc65b833c5e4f6bfc1a18d4217cc848c334b44ac8f95dbca5370fed727ed0 |
+| evidence/judge-candidate-registry.json | d783c17063e4cdc407fb2597ffd82c91f4167eb1f9f2376f0c536b4d6510e759 |
+| evidence/judge-candidates.jsonl | 6e7e17e06392aca1ec566d3cce1be564a240150a60f396610106775f7a9bc4e1 |
+| evidence/judge-answer-key.jsonl | 315838b86cd6cd9bc81c7293580a13eeedb615e3811e9e0306a7d11c6b55d95d |
+| evidence/judge-snapshot-registry.json | 4bc30ab8ab636ee20aef23b2e0f2281a4306c32538319087e3b34850d1fecda0 |
+| evidence/judge-snapshots.jsonl | 65373faab3136cc43b9342d2ebdd1442272acda1368bfca9e18be068ec38411a |
 | evidence/snapshot-registry.json | fdf1ee8aa3aaac116dbed7eab6c2d3043fc11ca80f4ff0204d95338ea0e995cb |
 | evidence/synthetic-snapshots.jsonl | f2398e3889fc293f87535eaa8fbae61b72dd9943bc1af7525436919a86eeb49c |
 | examples/templates/eval-cases.yaml | 8819820317a51b2e1958eb5f67e2c7a051aeec25332158d97c0e54b893e9a129 |

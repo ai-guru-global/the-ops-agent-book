@@ -28,7 +28,8 @@
 5. **决策证据**：48 页 v2 评分、No-Go 报告、真实用户测试协议；本地 PDF 536 页、EPUB 48 章已重新生成并校验。
 6. **厂商补证**：来源注册表增至 108 条、正文快照 69 份；94 个证据缺口 claim 机器可读，67 个已绑定 source_id；未核实字段不默认通过。
 7. **评测资产**：400 条 synthetic K8s 案例（40/60/300，五类各 80）与 400 份本地快照 fixture；确定性生成、SHA-256、负向控制与 14 项 self-test 通过；报告仍为 INCONCLUSIVE。
-8. **POC 示例**：填写的 synthetic POC 73/100、INCONCLUSIVE；17/17 参考测试、400-case self-test、干净目录导入、Shadow/rollback 与 21 项制品哈希通过；真实 TCO/商务退出未完成。
+8. **POC 示例**：填写的 synthetic POC 73/100、INCONCLUSIVE；17/17 参考测试、400-case self-test、干净目录导入、Shadow/rollback 与 26 项制品哈希通过；真实 TCO/商务退出未完成。
+9. **Judge 校准工具**：300 条独立候选池、答案键、快照 registry、双人标注/独立裁决 CLI 与 κ/召回报告已就绪；真实标注 0/300，release_ready=false。
 
 ## 质量门禁
 
@@ -47,7 +48,7 @@
 | --- | --- | --- |
 | PUB-04 真实用户阅读测试 | in_progress | 3–5 名真实 SRE/平台工程师完成定位、理解、复用与窄屏/打印任务；critical/serious 问题关闭并留下脱敏结果 |
 | 400 条 suite | open | synthetic 案例与快照 fixture 已齐；仍需真实模型/工具运行、原始 Trace 与独立验收 |
-| 独立 Judge 校准 | open | 300/300 双标注与裁决，一致性、κ、安全/证据召回达标并签署 |
+| 独立 Judge 校准 | open | 300 条候选已就绪；仍需双人标注、裁决、一致性/κ/召回达标并签署 |
 | 厂商采购证据 | open | 关键商业字段有逐产品来源与快照；未核实项不得支持采购结论 |
 
 ## 发布状态

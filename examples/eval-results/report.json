@@ -2,7 +2,7 @@
   "synthetic": true,
   "demonstration_only": true,
   "disclaimer": "Synthetic demonstration: the NotReady case invokes the local reference-agent core; other cases use a deterministic oracle-seeded mock. Not a real model, production evaluation, vendor claim, or release evidence.",
-  "generated_at": "2026-11-24T18:58:44.752Z",
+  "generated_at": "2026-11-24T20:58:43.333Z",
   "run_id": "eval-run-k8s-20261124-001",
   "artifact_id": "EVAL-k8s-2026-001",
   "suite_version": "v1.0.0",
@@ -32,6 +32,7 @@
   "judge_calibration": {
     "source": "evals/judge-calibration.yaml",
     "independent_of_eval_suite": true,
+    "candidate_count": 300,
     "current": 0,
     "sample_size": 300,
     "release_ready": false
@@ -59673,7 +59674,27 @@
     },
     {
       "path": "evals/judge-calibration.yaml",
-      "sha256": "5486ff7fac770b89b2af5f0916333cf1e1ac3896ead1e50624e40ec6f61e6337"
+      "sha256": "b9abc65b833c5e4f6bfc1a18d4217cc848c334b44ac8f95dbca5370fed727ed0"
+    },
+    {
+      "path": "evidence/judge-candidate-registry.json",
+      "sha256": "d783c17063e4cdc407fb2597ffd82c91f4167eb1f9f2376f0c536b4d6510e759"
+    },
+    {
+      "path": "evidence/judge-candidates.jsonl",
+      "sha256": "6e7e17e06392aca1ec566d3cce1be564a240150a60f396610106775f7a9bc4e1"
+    },
+    {
+      "path": "evidence/judge-answer-key.jsonl",
+      "sha256": "315838b86cd6cd9bc81c7293580a13eeedb615e3811e9e0306a7d11c6b55d95d"
+    },
+    {
+      "path": "evidence/judge-snapshot-registry.json",
+      "sha256": "4bc30ab8ab636ee20aef23b2e0f2281a4306c32538319087e3b34850d1fecda0"
+    },
+    {
+      "path": "evidence/judge-snapshots.jsonl",
+      "sha256": "65373faab3136cc43b9342d2ebdd1442272acda1368bfca9e18be068ec38411a"
     },
     {
       "path": "evidence/snapshot-registry.json",

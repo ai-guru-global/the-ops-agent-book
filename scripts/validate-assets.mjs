@@ -7,6 +7,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { parse } from "yaml";
 import { loadInputs, validateCases, validateManifest } from "./run-evals.mjs";
+import { loadPool, status as judgeStatus } from "./annotate-judge.mjs";
 
 const root = process.cwd();
 const errors = [];
@@ -97,6 +98,21 @@ const judgeCalibration = readYaml(evalManifest.judge_calibration?.source || "eva
 if (evalManifest.judge_calibration?.independent_of_eval_suite !== true) errors.push("Judge calibration must be independent of the evaluation suite");
 if (judgeCalibration.sample_size?.target !== 300 || judgeCalibration.sample_size?.release_ready !== false) errors.push("Judge calibration starter must explicitly be 0/300 and not release-ready");
 if (judgeCalibration.sample_size?.current !== 0) errors.push("Judge calibration starter must not claim completed cases");
+const judgePool = loadPool();
+const judgeCurrent = judgeStatus();
+if (judgePool.registry.candidate_count !== 300 || judgePool.candidates.length !== 300) errors.push("Judge candidate pool must contain exactly 300 cases");
+if (judgePool.registry.annotated_count !== 0 || judgePool.registry.release_ready !== false) errors.push("Judge candidate registry must not claim human annotations or release readiness");
+if (judgeCalibration.sample_size?.candidate_count !== 300) errors.push("Judge calibration manifest candidate_count must be 300");
+if (judgeCurrent.candidate_count !== 300 || judgeCurrent.release_ready !== false) errors.push("Judge annotation tool status is inconsistent");
+const judgeSnapshotRegistry = readJson("evidence/judge-snapshot-registry.json");
+const judgeSnapshotLines = fs.readFileSync(path.join(root, "evidence/judge-snapshots.jsonl"), "utf8").trim().split("\n");
+if (judgeSnapshotRegistry.snapshots?.length !== 300 || judgeSnapshotLines.length !== 300) errors.push("Judge snapshot registry must contain 300 fixtures");
+for (const entry of judgeSnapshotRegistry.snapshots || []) {
+  const line = judgeSnapshotLines[entry.line_number - 1];
+  if (!line || createHash("sha256").update(line).digest("hex") !== entry.sha256) errors.push(`Judge snapshot hash mismatch: ${entry.snapshot_id}`);
+}
+const judgeKeyLines = fs.readFileSync(path.join(root, "evidence/judge-answer-key.jsonl"), "utf8").trim().split("\n").map((line) => JSON.parse(line));
+if (judgeKeyLines.length !== 300 || judgeKeyLines.some((key) => !judgePool.candidates.some((candidate) => candidate.id === key.case_id))) errors.push("Judge answer key must cover exactly the candidate pool");
 const evalReport = readJson("examples/eval-results/report.json");
 if (evalReport.runner?.reference_agent_integration !== "invoked_for_notready_case") errors.push("eval report does not show reference-agent integration");
 if (evalReport.judge_calibration?.sample_size !== 300 || evalReport.judge_calibration?.release_ready !== false) errors.push("eval report does not expose incomplete independent Judge calibration");

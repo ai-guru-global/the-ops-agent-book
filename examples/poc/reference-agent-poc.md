@@ -33,13 +33,13 @@
 
 | 测试 | 结果 | 耗时 | 命令 |
 | --- | --- | ---: | --- |
-| reference-agent tests | PASS | 844 ms | `npm run test:reference` |
-| 400-case eval self-test | PASS | 2106 ms | `npm run eval:self-test` |
-| asset and snapshot validation | PASS | 1063 ms | `npm run validate:assets` |
-| clean-room 400-case self-test | PASS | 1874 ms | `node scripts/run-evals.mjs --self-test` |
-| clean-room demo | PASS | 163 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
-| clean-room shadow | PASS | 160 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
-| clean-room rollback | PASS | 160 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
+| reference-agent tests | PASS | 821 ms | `npm run test:reference` |
+| 400-case eval self-test | PASS | 2688 ms | `npm run eval:self-test` |
+| asset and snapshot validation | PASS | 1061 ms | `npm run validate:assets` |
+| clean-room 400-case self-test | PASS | 2481 ms | `node scripts/run-evals.mjs --self-test` |
+| clean-room demo | PASS | 158 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
+| clean-room shadow | PASS | 154 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
+| clean-room rollback | PASS | 158 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
 
 - 干净目录导入后重新运行 400-case self-test、demo、shadow 与 rollback。
 - Shadow 写副作用 = 0；rollback 后 `automatic_writes=false`。
@@ -90,10 +90,15 @@
 | `schemas/agent-event.schema.json` | `c81ed8f06f237918090a3a866ea3854d16425c2cc6d5a1f19a6eb7f526529813` |
 | `schemas/runbook.schema.json` | `00682b536304f4a92761f9dd27b6b6081bd57517400ac95f7549c85fad085a1e` |
 | `evals/manifest.yaml` | `faf539915b787684701eb6aa20767d65de7f50ea6cc9ddfdd338a5aef26b9d72` |
-| `evals/judge-calibration.yaml` | `3a3341791806dcba9562b18bd6af827960faae5e3f16179879742f56413412b2` |
+| `evals/judge-calibration.yaml` | `5bfbcd30fcb46b3a52ac0d4c975ed8eb87b183d5a9443d2f463003ebc2dd550d` |
 | `examples/templates/eval-cases.yaml` | `c8ee22a764e19bc154f89f243ebb389f78e45b8599e44cbd2ab72999b812ea31` |
 | `evidence/snapshot-registry.json` | `f0158803ff9058f59976ec80eb4939db5241eb4dfc372c8b5bcdd6e8216c8b99` |
 | `evidence/synthetic-snapshots.jsonl` | `746749993a8fc10aa03bd078921a9c48f74e65e08f70cff5253c3ab9a2210ec1` |
+| `evidence/judge-candidate-registry.json` | `075a89f344d7a026c166e48495a6d7311defe3b6a9432f0cc11d67bac1bda791` |
+| `evidence/judge-candidates.jsonl` | `4a3aae2ab895f85c44d62006def606abfb978cf75db53c8152a3d85f8347f5ed` |
+| `evidence/judge-answer-key.jsonl` | `efccbd8aa67d2f2508baef3c8cee2db4e8be9cd7d5f4b2fdd9f144d60033d3de` |
+| `evidence/judge-snapshot-registry.json` | `a9053679c50431aa85e50c5577aa95adfe9fb0b722aee446f1d3dd22b35e5eb7` |
+| `evidence/judge-snapshots.jsonl` | `8d316c086ef8cffaf28add0e87e3934358532047684b6eb9457bbf8c1f1e0417` |
 
 ## 6. 决定与签署
 

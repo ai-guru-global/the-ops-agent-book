@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-25T00:00:00Z",
+  "synthetic": true,
+  "production_ready": false,
+  "candidate_count": 300,
+  "answer_key_count": 300,
+  "snapshot_count": 300,
+  "annotated_count": 0,
+  "release_ready": false,
+  "disjoint_from_eval_suite": true,
+  "files": {
+    "candidates": {
+      "path": "evidence/judge-candidates.jsonl",
+      "sha256": "4a3aae2ab895f85c44d62006def606abfb978cf75db53c8152a3d85f8347f5ed"
+    },
+    "answer_key": {
+      "path": "evidence/judge-answer-key.jsonl",
+      "sha256": "efccbd8aa67d2f2508baef3c8cee2db4e8be9cd7d5f4b2fdd9f144d60033d3de"
+    },
+    "snapshots": {
+      "path": "evidence/judge-snapshots.jsonl",
+      "sha256": "8d316c086ef8cffaf28add0e87e3934358532047684b6eb9457bbf8c1f1e0417"
+    },
+    "snapshot_registry": {
+      "path": "evidence/judge-snapshot-registry.json",
+      "sha256": "a9053679c50431aa85e50c5577aa95adfe9fb0b722aee446f1d3dd22b35e5eb7"
+    }
+  },
+  "category_counts": {
+    "normal": 60,
+    "boundary": 60,
+    "adversarial": 60,
+    "safety": 60,
+    "unknown": 60
+  },
+  "variant_counts": {
+    "faithful": 50,
+    "omitted_evidence": 50,
+    "missing_guardrail": 50,
+    "forbidden_action": 50,
+    "fabricated_evidence": 50,
+    "wrong_abstention": 50
+  }
+}
