@@ -803,6 +803,510 @@ sources:
     sha256: 1f5df2d62d9abfbb48006f8e9469bdad3f4540d73113b12e4c98cbde29e00c89
     captured_at: '2026-11-25'
     method: html-to-text
+- source_id: SRC-HW-MINDOPS-001
+  title: 华为正式发布 MindOps 智算运维解决方案
+  url: https://www.huawei.com/cn/news/2026/3/mwc-computing-om-solution
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方发布页支持 MindOps 已发布、七层数字孪生、EDNS2.0、风险预测与自动排障；可用率数字为厂商宣称，不是独立生产测量。
+  claims:
+    - CN-HW-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-MINDOPS-001.txt
+    sha256: 69f963c452eaf11e9d0a83bfbc11ba4366fa6bc90d9e960b436fd0edf2b4bbdb
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-HW-AEI-2026-001
+  title: 迈向智能世界白皮书2026：智能体@AEI
+  url: https://www-file.huawei.com/dam/asset/view/6f374c3a375948ecb039c072063bcbf8.pdf
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方白皮书支持 AEI 三 A 愿景与参考架构；不证明独立商业产品 GA、区域、许可或退出条款。
+  claims:
+    - CN-HW-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-AEI-2026-001.txt
+    sha256: a4e996f6e3f49b6ab0d7d748567d8ac478269fe20effc807f7c023f3ae7668b5
+    captured_at: 2026-11-25
+    method: pdftotext
+- source_id: SRC-HW-IMASTERCLOUD-001
+  title: 什么是 iMasterCloud
+  url: https://support.huaweicloud.com/productdesc-imastercloud/imastercloud_productdesc_0001.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品文档支持 iMasterCloud 产品定义与使用入口；商业条款需另核。
+  claims:
+    - CN-HW-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-IMASTERCLOUD-001.txt
+    sha256: 7aba4d84a33809b2ecbd6627b8e383f17725d012fe46741a9be8ac8580be61f5
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-HW-IMASTERCLOUD-DATA-001
+  title: iMasterCloud 产品功能与运维数据
+  url: https://support.huaweicloud.com/productdesc-imastercloud/imastercloud_productdesc_0004.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持运维数据上云、设备/告警/KPI 对接，以及 WORD/PPT 健康报告导出；不等于完整数据/Trace 可迁移。
+  claims:
+    - CN-HW-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-IMASTERCLOUD-DATA-001.txt
+    sha256: dd041fd317a6c5702b9738f405ae1f80e95693a0c2e00158baeafc48a4443da5
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-HW-IMASTERCLOUD-REGIONS-001
+  title: iMasterCloud 产业区域介绍
+  url: https://support.huaweicloud.com/prepare-imastercloud/imastercloud_prepare-account_100029.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档列出乾坤一/二与 CloudCampus 全国一/二/三、华东、华中、西南等产业区域；不是全球可用区清单。
+  claims:
+    - CN-HW-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-IMASTERCLOUD-REGIONS-001.txt
+    sha256: 0b184c15a24f77bde38d763a71e8252112e33e5dce8418a05b79d9965683f253
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-HW-IMASTERCLOUD-ACCOUNT-001
+  title: iMasterCloud 个人中心设置
+  url: https://support.huaweicloud.com/usermanual-imastercloud/imastercloud_usermanual-tenant_100027.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持个人信息导出/删除与注销后数据处理规则；不等于业务数据完整导出承诺。
+  claims:
+    - CN-HW-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-IMASTERCLOUD-ACCOUNT-001.txt
+    sha256: ec755e708ff36fffac9eb8782c5083a79a04d5c67334cb601a5c6b063b281007
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-HW-IMASTERNCE-001
+  title: iMaster NCE 网络管控与分析软件
+  url: https://e.huawei.com/cn/products/network-management-and-analysis-software/imaster-nce-ip
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持管控析 AI、开放网络 API 与全球 120+ 国家部署宣称；不是区域可用区、许可或驻留清单。
+  claims:
+    - CN-HW-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-IMASTERNCE-001.txt
+    sha256: 3bba1bfcab613d29642eeb1884663e2244eb75e87030c2f0e6faef15a623f9d3
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-QIANFAN-AGENTINFRA-001
+  title: 文心大模型5.0正式版与百度千帆 Agent Infra
+  url: https://home.baidu.com/home/index/news_detail/id/18049
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方发布说明支持模型、工具、Agent 开发、数据与 Agent 运行环境五层能力；Agent Cloud 独立产品页与商业条款未核实。
+  claims:
+    - CN-BD-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-QIANFAN-AGENTINFRA-001.txt
+    sha256: f03e133eb637383da8c25f3c488fac7412fdbcd005ace0d77668baf0b8977e0a
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-DATABUILDER-001
+  title: 百度胜算·数据智能平台
+  url: https://cloud.baidu.com/product/databuilder
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持业务本体、数据智能、Action/Data Agent、购买/试用与私有化入口；具体价格与导出未核实。
+  claims:
+    - CN-BD-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-DATABUILDER-001.txt
+    sha256: db936260a556d0125fdc03bb444bfcd4023048cce11424f6733b0ade9d30bf84
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-DATABUILDER-VERSIONS-001
+  title: 百度胜算版本购买说明
+  url: https://cloud.baidu.com/doc/DataBuilder/s/1mqat32hq
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持标准/专业/旗舰版、包年包月、区域不通用与到期数据保留 7 天后删除；不是完整导出承诺。
+  claims:
+    - CN-BD-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-DATABUILDER-VERSIONS-001.txt
+    sha256: 2bae0d6d45a1998fdad655bc16bd8d87448ff92ed0199a03bccf16a451d292b5
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-HOGEE-BILLING-001
+  title: Hogee 计费说明
+  url: https://cloud.baidu.com/doc/Hogee/s/bmowpxfa4
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持订阅套餐与积分扣减，并列个人/企业价格；价格具有时点性。
+  claims:
+    - CN-BD-07
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-HOGEE-BILLING-001.txt
+    sha256: 6a3179ac2045879f05de7098a4fa144af6c0c11da4dce9037dc81cb6ce6892bd
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-HOGEE-PRIVACY-001
+  title: Hogee 隐私政策
+  url: https://cloud.baidu.com/doc/Hogee/s/Jmoy6atzq
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方隐私政策支持境内处理原则、境外例外与注销后删除/匿名化规则；不证明完整数据可迁移。
+  claims:
+    - CN-BD-07
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-HOGEE-PRIVACY-001.txt
+    sha256: b69197f68c9908bbcabc6e0f52114593de63a648698567758fce89a03ebd13c3
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-COMATE-PRODUCT-001
+  title: 文心快码 COMATE 产品介绍
+  url: https://cloud.baidu.com/doc/COMATE/s/xlnvqe047
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持多智能体、代码补全、MCP、AI IDE 与 SaaS/混合云/私有化部署；私有化驻留细节另核。
+  claims:
+    - CN-BD-08
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-COMATE-PRODUCT-001.txt
+    sha256: fbaa86c18019cf150dd0c53c4bee7f8b07c43db2ad1ae5459c79ffdc1a46a68c
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-COMATE-PRICING-001
+  title: 文心快码 COMATE 产品定价
+  url: https://aca.bce.baidu.com/doc/COMATE/s/rlnvnio4a
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方定价页支持个人免费起、企业按人月与私有化询价；价格具有时点性。
+  claims:
+    - CN-BD-08
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-COMATE-PRICING-001.txt
+    sha256: 6501b2193ec5cc59301fd97b2544d19a8307f53e02b9ce38943fa3427b031154
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-COMATE-DATA-001
+  title: 文心快码 COMATE 数据安全
+  url: https://cloud.baidu.com/doc/COMATE/s/Lm839z700
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持私有化数据边界与注销后 30 天内删除规则；完整导出未核实。
+  claims:
+    - CN-BD-08
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-COMATE-DATA-001.txt
+    sha256: d36b4b77cc7f8d6fd8b5c567f4a08c3dbcc4b334ddfbfdd7c2fd964f60f4a1a9
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BD-YIJING-API-001
+  title: 百度一镜数字人 API
+  url: https://cloud.baidu.com/product/huiboxing-api.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持智能主播/展现/脚本/互动/场控五类能力与 SaaS/PaaS 购买入口；价格、区域、驻留与退出未核实。
+  claims:
+    - CN-BD-09
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-YIJING-API-001.txt
+    sha256: a5352e171f4a226af7dc0a92b9cf2f14a4cb89055c2d010ba402fd650d829e40
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-SW-OBS-2026-1-001
+  title: SolarWinds Observability Self-Hosted 2026.1 release notes
+  url: https://documentation.solarwinds.com/en/success_center/orionplatform/content/release_notes/hco_2026-1_release_notes.htm
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方发行说明支持 AI Agent Technical Preview、环境问答与文档搜索；不证明 GA 或自主修复。
+  claims:
+    - OBS-16
+  snapshot:
+    path: reports/sources/snapshots/SRC-SW-OBS-2026-1-001.txt
+    sha256: 86808de5ddf499456990eb5d25d5c04ff44b2e791afe3bc55ad58975bc8deaa0
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-HOLMESGPT-001
+  title: HolmesGPT official repository
+  url: https://github.com/HolmesGPT/holmesgpt
+  type: community
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 项目官方仓库自称 CNCF Sandbox SRE Agent，支持调查/RCA、只读与 RBAC；README 许可证为 Apache-2.0，需按 release/commit 复核。
+  claims:
+    - OBS-18
+  snapshot:
+    path: reports/sources/snapshots/SRC-HOLMESGPT-001.txt
+    sha256: 566268b19c055b593b3268eec1d6c31af1499059f1ff0a22bef262aab4fd4d9d
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-K8SGPT-001
+  title: K8sGPT official repository
+  url: https://github.com/k8sgpt-ai/k8sgpt
+  type: community
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 项目官方仓库支持 K8s 扫描、诊断与英文分诊，README 称 Apache-2.0 并支持本地模型；不等于生产自主修复。
+  claims:
+    - OBS-19
+  snapshot:
+    path: reports/sources/snapshots/SRC-K8SGPT-001.txt
+    sha256: db8b6a031297183fb521725c0f5634a25af557abe70cd2708428489a06c798d8
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-INCIDENTIO-AISRE-001
+  title: incident.io AI SRE
+  url: https://incident.io/ai-sre
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持调查/RCA 与人工 review/merge PR；AI SRE 作为 Pro/Enterprise 加购，区域、驻留与退出未核实。
+  claims:
+    - OBS-20
+  snapshot:
+    path: reports/sources/snapshots/SRC-INCIDENTIO-AISRE-001.txt
+    sha256: 28d34d0a1206698e5079a19f70526f323b1cbca96bf691549f166772c8413dad
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-ROOTLY-AISRE-001
+  title: Rootly AI SRE
+  url: https://rootly.com/ai-sre
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持调查/RCA、建议修复与显式人工签署；AI SRE 依赖 IR 套餐，Enterprise 包含，区域与退出未核实。
+  claims:
+    - OBS-23
+  snapshot:
+    path: reports/sources/snapshots/SRC-ROOTLY-AISRE-001.txt
+    sha256: a07c97f8731e14ef61f932fc6ebe6bddda4e713cc73916341a38e50ce56c3d31
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-RESOLVEAI-AISRE-001
+  title: Resolve.ai AI SRE platform
+  url: https://resolve.ai/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持持 pager、RCA 与自主缓解；生产使用为厂商自述，区域、许可与退出未核实。
+  claims:
+    - OBS-24
+  snapshot:
+    path: reports/sources/snapshots/SRC-RESOLVEAI-AISRE-001.txt
+    sha256: 8631a895ed171ce367402ed1e338fb42310de010db21a25ed2bce3e0df92227d
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-CLERIC-AISRE-001
+  title: Cleric AI SRE
+  url: https://www.cleric.ai/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持变更验证、告警调查与人工 review 修复 PR；审批试用，区域与驻留细节未核实。
+  claims:
+    - OBS-25
+  snapshot:
+    path: reports/sources/snapshots/SRC-CLERIC-AISRE-001.txt
+    sha256: 95b543a181e4f381309a262d72d0378254ba63239b006a4e09e376a44c38b9af
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-CLERIC-PRICING-001
+  title: Cleric pricing
+  url: https://cleric.ai/pricing.md
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方定价文本支持起步价、积分与 US/EU 部署选项；价格具有时点性，删除与数据驻留需合同复核。
+  claims:
+    - OBS-25
+  snapshot:
+    path: reports/sources/snapshots/SRC-CLERIC-PRICING-001.txt
+    sha256: 94201ea1b75bbd8ae69b3bb59d9196915b07c4f45bc2c6f400b25e49542ed273
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-OBSY-AGREEMENT-001
+  title: 观测云 Obsy AI 智能服务使用协议
+  url: https://docs.guance.com/agreements/obsy-agent-agreement/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方协议支持问答/分析/诊断/建板、积分计费、第三方模型调用与终止处理；完整导出未核实。
+  claims:
+    - OBS-21
+  snapshot:
+    path: reports/sources/snapshots/SRC-OBSY-AGREEMENT-001.txt
+    sha256: b9e5a71dba1ce6d38e6f178cc608dcf25b4652a9695016abcd235f68296e9390
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-CANWAY-AGENTICOPS-001
+  title: 嘉为蓝鲸智能体自治运维平台
+  url: https://www.canway.net/AgenticOps/2753.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持故障分析、自动巡检、IT 流程与标准操作数字人；区域、许可与退出未核实。
+  claims:
+    - OBS-22
+  snapshot:
+    path: reports/sources/snapshots/SRC-CANWAY-AGENTICOPS-001.txt
+    sha256: 86c6d5571377c7cd1db26c3f424d8dbb79cbf2d5ede33e0551cbb633d19f87e4
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-CLOUDWISE-CASTREL-001
+  title: 云智慧 Castrel AI SRE
+  url: https://www.cloudwise.com/cn/page/jx/castrel.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持告警/RCA/执行/巡检自愈、免费/专业/企业版与私有化/BYOM；效果为厂商自述。
+  claims:
+    - OBS-27
+  snapshot:
+    path: reports/sources/snapshots/SRC-CLOUDWISE-CASTREL-001.txt
+    sha256: 8dbfcbe318ffa698e53836d70c35580ae31f9e9bd3bbe52789c6e7373ba9e72a
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-EOITEK-DATA-001
+  title: 擎创运维数据中台与大模型能力集成
+  url: https://www.eoitek.com/product_page/131.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持私域数据构建运维知识库及日志/告警/事件理解；区域、许可与退出未核实。
+  claims:
+    - OBS-28
+  snapshot:
+    path: reports/sources/snapshots/SRC-EOITEK-DATA-001.txt
+    sha256: 6d93136c2b1dd5b0aecbcf07382c9cb808b28dd15814d8774bc78ef5c4b8cafe
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-YANLONG-PRIVATE-001
+  title: 炎龙智能企业版安全私有部署
+  url: https://www.yanlong-ai.com/docs/private-deployment-security.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方安全说明支持企业内网推理、数据零出网与本地闭环；不证明独立认证或生产效果。
+  claims:
+    - OBS-29
+  snapshot:
+    path: reports/sources/snapshots/SRC-YANLONG-PRIVATE-001.txt
+    sha256: 75e08bc547389f1e9e53172ff2b92cb5e3f64941fa0198b3517d47207cb31977
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-DD-CLOUDSRE-001
+  title: Dynatrace Cloud SRE Agents
+  url: https://www.dynatrace.com/hub/detail/community-cloudsreagents/
+  type: community
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: Dynatrace Hub 社区应用支持并行分派问题给匹配 Agent；页面明确不是 Dynatrace 官方支持，Davis CoPilot/Assist 对应关系未核实。
+  claims:
+    - OBS-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-CLOUDSRE-001.txt
+    sha256: 691ec87b879a18ebd170e460f765e73978d3d9d70a080684182c3084da1ef5af
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-SPLUNK-AIASSISTANT-001
+  title: Splunk AI Assistant
+  url: https://www.splunk.com/en_us/products/splunk-ai-assistant.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持自然语言转 SPL、代理模式调查，并称标准订阅外无额外费用；区域、驻留与退出未核实。
+  claims:
+    - OBS-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-SPLUNK-AIASSISTANT-001.txt
+    sha256: 46c0e8080a04141a5ab988199b571105b237a618ce62c54e3c5ad32015ddc72d
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-SPLUNK-ITSI-001
+  title: Splunk IT Service Intelligence
+  url: https://www.splunk.com/en_us/products/it-service-intelligence.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持 AI 生成 episode 摘要与基于置信度的根因指导；不证明自主修复。
+  claims:
+    - OBS-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-SPLUNK-ITSI-001.txt
+    sha256: d73854cc1c46a857e72352e42f59e12e19298ecad36011198322fe515b552dc3
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-PD-AIAGENTS-001
+  title: PagerDuty AI Agents
+  url: https://www.pagerduty.com/platform/ai-agents/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持 Paige SRE Agent 分诊/诊断/修复/协调，并称修复需用户批准；区域、驻留与退出未核实。
+  claims:
+    - OBS-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-PD-AIAGENTS-001.txt
+    sha256: 43ae78d2f5969dcdc76cc219fc964522942b4d9c9fdd4c609ba3e8434e9da474
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-SUMO-MOBOT-001
+  title: Sumo Logic Mobot
+  url: https://www.sumologic.com/help/docs/search/mobot/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持日志调查/内容创建、active credit-based subscription 无额外费用、区域内集群处理与管理员关闭；完整导出未核实。
+  claims:
+    - OBS-10
+  snapshot:
+    path: reports/sources/snapshots/SRC-SUMO-MOBOT-001.txt
+    sha256: 72e71a28857bb3430cb37e1fa087f05d149f44b16b04d1980a593d875c78fe2c
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-LM-EDWIN-001
+  title: LogicMonitor Edwin AI
+  url: https://www.logicmonitor.com/edwin-ai
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持专门 Agent 自动调查/分诊、根因与自动修复；GA、区域、许可与退出未核实。
+  claims:
+    - OBS-11
+  snapshot:
+    path: reports/sources/snapshots/SRC-LM-EDWIN-001.txt
+    sha256: 9ff18c27427b645a70327c9bcb658c8cc967f1c1bccf277eab799ce9fccba44e
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-BP-L1AGENT-001
+  title: BigPanda L1 Agent
+  url: https://docs.bigpanda.io/docs/l1-agent
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持事件分诊/路由/升级，修复动作需显式审批；部分能力 Coming soon，区域、许可与退出未核实。
+  claims:
+    - OBS-12
+  snapshot:
+    path: reports/sources/snapshots/SRC-BP-L1AGENT-001.txt
+    sha256: d2e6bc9a1de0412c84dcbb4cb3a586ffb153b72702dfc01d91f05f326ad4d9de
+    captured_at: 2026-11-25
+    method: html-to-text
 - source_id: SRC-MCP-001
   title: Model Context Protocol
   url: https://modelcontextprotocol.io/

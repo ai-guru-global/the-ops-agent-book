@@ -1,0 +1,138 @@
+AI SRE for root cause analysis | incident.io
+URL: https://incident.io/solution/ai-sre
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+AI SRE for root cause analysis | incident.io
+Headed to Vegas? Let’s meet up!
+incident.io
+Brand Assets
+Download .PNG logos
+Download .SVG logos
+Download Brand Guidelines
+Visit brand center
+Products
+Solutions
+Resources
+Customers
+Pricing
+Careers
+Open main menu
+Products
+Solutions
+Resources
+Customers
+Pricing
+Careers
+Get a demo
+Login
+incident.io
+Brand Assets
+Download .PNG logos
+Download .SVG logos
+Download Brand Guidelines
+Visit brand center
+Products
+Solutions
+Resources
+Customers
+Pricing
+Careers
+Get a demo
+Login
+Open main menu
+AI SRE
+AI SRE that investigates incidents like your most tenured engineer
+Investigations starts debugging the moment you declare an incident, connecting telemetry, code changes, and incident history to surface the root cause in minutes.
+Book a demo
+Meet Investigations, our always-on AI SRE product.
+It's like debugging with a teammate who has been in every incident your company has ever had, knows every service you run, and is already working the problem before you've joined the call. Humans and agents, working in lockstep.
+See Investigations
+Starts investigating the moment you declare
+No cold starts. The moment an incident is declared, Investigations is already correlating signals while your team is still joining the incident channel.
+Starts investigating the moment you declare
+No cold starts. The moment an incident is declared, Investigations is already correlating signals while your team is still joining the incident channel.
+Root cause in seconds, not minutes
+Investigations connects telemetry, code changes, and past incidents to name what broke and why, with a confidence score and sources behind every finding. Your team arrives with a hypothesis, not a blank page.
+Humans and agent, working in lockstep
+Collaborate with the AI SRE agent across the whole investigation. Ask it questions, have it run parallel analysis, and let it surface things you haven't thought to look for yet.
+Respond at a fundamentally different speed
+The time between alert and root cause is where incidents drag on and customer impact compounds. Investigations closes that gap so your engineers spend their time fixing, not searching.
+Built on the power of Nexus
+Investigations runs on Nexus, our production intelligence model. It reasons across your entire environment in real time, so at 3am it can make high-conviction hypotheses on a system it knows inside out.
+Learn more about Nexus
+Has access to every piece of relevant context your team has ever produced
+Reasons across telemetry, deployments, code, and incident history
+Uses an adversarial agent to challenge its own conclusions before sharing
+Gets smarter with every incident, the model learns which patterns repeat
+AI that is trusted when it matters most
+Built for your most critical moments, with the accuracy, transparency, and data isolation enterprise teams require.
+Measurably accurate
+We backtest against real historical incidents daily, and alert on any degradation before it reaches production.
+Evidence-backed audit trail
+Every hypothesis links back to its sources and an investigation timeline lets you follow the agent's reasoning.
+Your data stays yours
+Every customer gets their own instance of Nexus, our production intelligence model, never shared with another customer.
+SOC 2 compliant
+Code analysis runs in isolated, sandboxed containers torn down after use, and we redact sensitive data before it reaches model providers.
+Zero data retention with model providers
+We have agreements with our providers so they can't store customer data for logging or training.
+Never takes action without you
+The only change Investigations can make to your systems is a pull request you review and merge yourself.
+Reduce the cost of incidents
+The cost of an incident isn't just the downtime. It's the engineering hours, the customer impact, and the context-switching that follows. Investigations, the AI SRE agent, cuts all of it.
+Try our cost calculator
+Fewer people pulled in
+More time building
+Less customer impact
+Trusted when incidents can't wait
+“
+Investigations drilled down into what changed in that pull request, connected it across multiple repositories, and arrived at the conclusion. Tracing all of those dots as a human would have been nearly impossible.
+”
+James Bourne
+Senior Software Engineer, Contentful
+Read full story
+“
+On live incidents, it cuts out a huge amount of the initial toil in getting to the root cause. People have really got to the point where they can trust what the tool is telling them.
+”
+Russ Williams
+Head of Operational Resilience & Incident Management, GoCardless
+AI SRE FAQs
+What is AI SRE?
+What can an AI SRE do during an incident?
+How does AI SRE find the root cause of an incident?
+Can AI SRE fix incidents automatically?
+What are AI SRE tools, and how is Investigations different?
+What integrations does AI SRE need?
+So good, you’ll break things on purpose
+Ready to put AI to work on your incidents? Book a call with our team today.
+Book a demo
+incident.io
+BlueSky
+LinkedIn
+X
+Reddit
+Youtube
+Slack Community
+©
+2026
+Pineapple Technology Ltd.
+All rights reserved.
+Product
+On-call
+Investigations
+Incident Response
+Status Pages
+Changelog
+Learn
+Blog
+Customer Stories
+Documentation
+Alternatives
+Community
+Company
+Legal
+Privacy Choices
+Security and Compliance
+Careers
+Status

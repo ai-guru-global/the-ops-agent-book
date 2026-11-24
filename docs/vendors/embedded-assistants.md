@@ -144,10 +144,10 @@ flowchart TB
 | 产品 | 内嵌助手/Agent（claim） | 运维相关性 | source_id |
 | --- | --- | --- | --- |
 | Datadog Bits AI（OBS-01） | 当前页面展示 Chat、Investigation、Code、Security Analyst、Agent Builder | 可观测/事件 | SRC-DD-AI-001 |
-| Dynatrace Davis（OBS-02） | 能力与状态未核实 | 可观测/可靠性（场景建议） | 未核实 |
+| Dynatrace Cloud SRE Agents 社区应用（OBS-02） | 社区应用支持并行 Agent 分派；非 Dynatrace 官方支持 | 可观测/可靠性 | SRC-DD-CLOUDSRE-001 |
 | New Relic AI（OBS-03） | 自然语言查询、日志/堆栈、变更与仪表盘解释、代码级排障 | 可观测 | SRC-NR-AI-001 |
-| Splunk AI Assistant（OBS-04） | 能力与状态未核实 | 可观测/安全（场景建议） | 未核实 |
-| PagerDuty AI（OBS-05） | 能力与状态未核实 | 事件管理（场景建议） | 未核实 |
+| Splunk AI Assistant/ITSI（OBS-04） | 自然语言转 SPL、代理调查、episode 摘要与根因指导 | 可观测/安全 | SRC-SPLUNK-AIASSISTANT-001；SRC-SPLUNK-ITSI-001 |
+| PagerDuty Paige SRE Agent（OBS-05） | 分诊/诊断/修复/协调；修复需用户批准 | 事件管理 | SRC-PD-AIAGENTS-001 |
 | Grafana Assistant（OBS-07） | 引导式对话、troubleshooting、dashboard、querying、alerting、incident response | 可观测 | SRC-GRAFANA-ASSIST-001 |
 | Elastic AI Assistant（OBS-08） | ES\|QL、API、示例数据、可视化、排障、威胁研究与告警分诊 | 可观测/安全 | SRC-ELASTIC-AI-001 |
 
@@ -166,7 +166,7 @@ flowchart TB
 | OBS-07 Grafana Assistant | 未核实 | 未核实 | 订阅与 AI Supplemental Terms；具体单位未核实 | 未核实 | 具体驻留未核实 | 未核实 |
 | OBS-08 Elastic AI Assistant | Cloud Serverless 与 Stack 明示 GA | 未核实 | Managed LLM 需订阅/feature tier 并额外收费 | 额外成本存在；最低消费/超额未核实 | 第三方 provider 会处理数据；位置未核实 | 未核实 |
 | GC-SF-01 Agentforce | 未核实 | 未核实 | Flex Credits、Resolutions、per-user licensing | 未核实 | 未核实 | 未核实 |
-| EMB-MS-01–02、EMB-GO-01、GC-GO-01/03–05、GC-AWS-03、ALI-01/15、EMB-ALI-01、GC-SN-01、GC-SAP-01、GC-OR-03、EMB-ENT-01–02、OBS-02/04–05 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| EMB-MS-01–02、EMB-GO-01、GC-GO-01/03–05、GC-AWS-03、ALI-01/15、EMB-ALI-01、GC-SN-01、GC-SAP-01、GC-OR-03、EMB-ENT-01–02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 
 ## 评估要点
 

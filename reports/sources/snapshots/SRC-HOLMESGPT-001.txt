@@ -1,0 +1,579 @@
+GitHub - HolmesGPT/holmesgpt: SRE Agent - CNCF Sandbox Project · GitHub
+URL: https://github.com/HolmesGPT/holmesgpt
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+GitHub - HolmesGPT/holmesgpt: SRE Agent - CNCF Sandbox Project · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Products
+Platform
+GitHub
+Repository hosting, code review, and collaboration
+Copilot
+AI coding agent for tasks, projects, and automated work
+Build & Ship
+Actions
+CI/CD and automation
+Code Quality
+Quality analysis, fixes, and enforcement
+Codespaces
+Cloud development environments
+Secure
+Code Security
+Vulnerability detection and remediation
+Secret Protection
+Secret scanning and leak prevention
+All Features
+Developers
+Learn
+Documentation
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Developer articles
+Changelog
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
+Enterprises
+Team
+Startups
+Nonprofits
+By Industry
+Healthcare
+Financial services
+Manufacturing
+Government
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
+Business insights
+Trust Center
+Add-ons
+GitHub Advanced Security
+Enterprise-grade code security
+Copilot for business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+{{ message }}
+HolmesGPT
+holmesgpt
+Repository navigation
+Code
+Issues
+165
+(
+165
+)
+Pull requests
+334
+(
+334
+)
+Actions
+Projects
+Security and quality
+1
+(
+1
+)
+Insights
+More
+items
+holmesgpt
+Public
+Notifications
+You must be signed in to change notification settings
+Fork
+604
+(
+604
+)
+Star
+4k
+(
+4k
+)
+You must be signed in to star a repository
+About
+SRE Agent - CNCF Sandbox Project
+holmesgpt.dev/
+Topics
+aiops
+chatbot
+chatops
+devops
+devops-tools
+incident
+incident-management
+incident-response
+jira
+kubernetes
+llm
+llm-agent
+llm-framework
+llms
+monitoring
+observability
+prometheus
+site-reliability-engineering
+slack
+sre
+Resources
+Readme
+Apache-2.0 license
+Code of conduct
+Code of conduct
+Contributing
+Contributing
+Security policy
+Security policy
+Activity
+Custom properties
+Stars
+4.0k
+stars
+Watchers
+29
+watching
+Forks
+604
+forks
+Report repository
+master
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+1,685 Commits
+1,685 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.claude
+.claude
+.github
+.github
+bin/
+go-cve-rebuild
+bin/
+go-cve-rebuild
+docs
+docs
+examples
+examples
+experimental/
+ag-ui
+experimental/
+ag-ui
+helm
+helm
+holmes
+holmes
+holmes_operator
+holmes_operator
+images
+images
+loki
+loki
+scripts
+scripts
+specs
+specs
+tests
+tests
+.dockerignore
+.dockerignore
+.gitattributes
+.gitattributes
+.gitignore
+.gitignore
+.pre-commit-config.yaml
+.pre-commit-config.yaml
+ADOPTERS.md
+ADOPTERS.md
+AGENTS.md
+AGENTS.md
+CLAUDE.md
+CLAUDE.md
+CODE_OF_CONDUCT.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CONTRIBUTING.md
+Dockerfile
+Dockerfile
+Dockerfile.operator
+Dockerfile.operator
+FEATURES.md
+FEATURES.md
+GOVERNANCE.md
+GOVERNANCE.md
+LICENSE
+LICENSE
+MAINTAINERS.md
+MAINTAINERS.md
+Makefile
+Makefile
+README.md
+README.md
+SECURITY.md
+SECURITY.md
+build_with_arm.sh
+build_with_arm.sh
+config.example.yaml
+config.example.yaml
+conftest.py
+conftest.py
+datasource-catalog.json
+datasource-catalog.json
+docker-compose.yaml
+docker-compose.yaml
+holmes_cli.py
+holmes_cli.py
+mkdocs.yml
+mkdocs.yml
+poetry.lock
+poetry.lock
+pyproject.toml
+pyproject.toml
+run_benchmarks_local.py
+run_benchmarks_local.py
+server.py
+server.py
+tempo_cli.py
+tempo_cli.py
+tempo_cli_README.md
+tempo_cli_README.md
+View all files
+Repository files navigation
+README
+Code of conduct
+Contributing
+Apache-2.0 license
+Security
+More
+items
+HolmesGPT — The CNCF SRE Agent
+Installation
+|
+Docs
+|
+Open-source AI agent for investigating production incidents and finding root causes. Works with any stack — Kubernetes, VMs, cloud providers, databases, and SaaS platforms. We are a
+Cloud Native Computing Foundation
+sandbox project. Originally created by
+Robusta.Dev
+, with major contributions from
+Microsoft
+.
+New: Operator Mode — Find Problems 24/7 in the Background
+Most AI agents are great at troubleshooting problems, but still need a human to notice something is wrong and trigger an investigation.
+Operator mode
+fixes that — HolmesGPT runs in the background 24/7, spots problems before your customers notice, and messages you in Slack with the fix. Connect the
+GitHub integration
+and it can even open PRs to fix what it finds.
+While the operator itself runs in Kubernetes, health checks can query any data source Holmes is connected to — VMs, cloud services, databases, SaaS platforms, and more.
+Deployment verification
+— Deploy a health check alongside your app to verify the new version is healthy
+Scheduled health checks
+— Continuously monitor services and catch regressions automatically
+Features
+Petabyte-scale data
+: Server-side filtering, JSON tree traversal, and tool output transformers keep large payloads out of context windows
+Memory-safe execution
+: Per-tool memory limits, streaming large results to disk, and automatic output budgeting prevent OOM kills when querying large observability datasets
+Deep integrations
+: Prometheus, Grafana, Datadog, Kubernetes, and
+many more
+—plus any
+REST API
+Bidirectional alert integrations
+: Fetch alerts from AlertManager, PagerDuty, OpsGenie, or Jira—and write findings back
+Any LLM provider
+: OpenAI, Anthropic, Azure, Bedrock, Gemini, and more
+No Kubernetes required
+: Works with any infrastructure — VMs, bare metal, cloud services, or containers
+How it Works
+HolmesGPT uses an
+agentic loop
+to query live observability data from multiple sources and identify root causes.
+🔗 Data Sources
+HolmesGPT integrates with popular observability and cloud platforms. The following data sources ("toolsets") are built-in.
+Add your own
+.
+Data Source
+Notes
+AKS
+Azure Kubernetes Service cluster and node health diagnostics
+Atlassian Rovo
+Jira issues and Confluence pages via Atlassian's hosted server (MCP)
+ArgoCD
+Get status, history and manifests and more of apps, projects and clusters
+AWS
+Any AWS API via the hosted AWS MCP Server: RDS, EC2, CloudWatch, CloudTrail, Cost Explorer and more (MCP)
+Azure
+Azure resources and diagnostics (MCP)
+Confluence
+Private runbooks and documentation
+Confluence (MCP)
+Private runbooks and documentation (MCP)
+Coralogix
+Retrieve logs for any resource
+Crossplane
+Troubleshoot Crossplane providers, compositions, claims, and managed resources
+Datadog
+Query logs, metrics, and traces
+Docker
+Get images, logs, events, history and more
+Elasticsearch / OpenSearch
+Query logs, cluster health, shard and index diagnostics
+GCP
+Google Cloud Platform resources (MCP)
+GitHub
+Repositories, issues, and pull requests (MCP)
+GitLab
+Projects, merge requests, issues, and CI/CD pipelines (MCP)
+Jenkins (MCP)
+Build status, pipeline logs, and job history (MCP)
+Grafana
+Query and analyze dashboard configurations and panels
+Helm
+Release status, chart metadata, and values
+Internet
+Public runbooks, community docs, etc.
+Kafka
+Fetch metadata, list consumers and topics or find lagging consumer groups
+Kubernetes
+Pod logs, K8s events, and resource status (kubectl describe)
+Kubernetes Remediation (MCP)
+Apply fixes like scaling, rollbacks, and resource edits (MCP)
+Loki
+Query logs for Kubernetes resources or any query
+MariaDB
+MariaDB database queries and diagnostics
+MongoDB
+Query data, diagnose performance, inspect schemas, find slow operations
+MongoDB Atlas
+Cluster health, slow queries, and performance diagnostics
+NewRelic
+Investigate alerts, query tracing data
+OpenShift
+Projects, routes, builds, security context constraints, and deployment configs
+Prefect (MCP)
+Workflow orchestration monitoring, flow runs, and worker health (MCP)
+Prometheus
+Investigate alerts, query metrics and generate PromQL queries
+RabbitMQ
+Partitions, memory/disk alerts, troubleshoot split-brain scenarios and more
+Robusta
+Multi-cluster monitoring, historical change data, runbooks, PromQL graphs and more
+ServiceNow
+Query tables and incident records
+Sentry
+Error tracking, issues, and performance monitoring (MCP)
+Slab
+Team knowledge base and runbooks on demand
+Splunk
+Log search and analysis (MCP)
+SQL Databases
+PostgreSQL, MySQL, ClickHouse, MariaDB, SQL Server, Azure SQL, SQLite
+Tempo
+Fetch trace info, debug issues like high latency in application
+VictoriaLogs
+Query logs from VictoriaLogs using LogsQL
+VictoriaMetrics
+Query metrics from a Prometheus-compatible TSDB (
+vmsingle
+/
+vmcluster
+)
+Zabbix
+Monitor hosts, problems, events, triggers, and historical metrics
+See the
+full list of built-in toolsets
+for additional integrations including Cilium, KubeVela, Notion, and more.
+🚀 End-to-End Automation
+HolmesGPT can fetch alerts/tickets to investigate from external systems, then write the analysis back to the source or Slack.
+Integration
+Status
+Notes
+Slack
+✅
+Demo.
+Available via
+Robusta
+Microsoft Teams
+✅
+Available via
+Robusta
+Prometheus/AlertManager
+✅
+Robusta or HolmesGPT CLI
+PagerDuty
+✅
+HolmesGPT CLI only
+OpsGenie
+✅
+HolmesGPT CLI only
+Jira
+✅
+HolmesGPT CLI only
+GitHub
+✅
+HolmesGPT CLI only
+Installation
+Read the
+installation documentation
+to learn how to install HolmesGPT.
+Supported LLM Providers
+Read the
+LLM Providers documentation
+to learn how to set up your LLM API key.
+Using HolmesGPT
+See the
+walkthrough documentation
+for usage guides, including:
+Interactive mode
+for asking questions and follow-ups
+Investigating Prometheus alerts
+CI/CD troubleshooting
+🔐 Data Privacy
+By design, HolmesGPT has
+read-only access
+and respects RBAC permissions. It is safe to run in production environments.
+License
+Distributed under the Apache 2.0 License. See
+LICENSE
+for more information.
+Community
+Join our community to discuss the HolmesGPT roadmap and share feedback:
+Community Meetups
+Support
+If you have any questions, feel free to message us on
+HolmesGPT Slack Channel
+How to Contribute
+Please read our
+CONTRIBUTING.md
+for guidelines and instructions.
+For help, contact us on
+Slack
+or ask
+DeepWiki AI
+your questions.
+Please make sure to follow the CNCF code of conduct -
+details here
+.
+About
+SRE Agent - CNCF Sandbox Project
+holmesgpt.dev/
+Topics
+aiops
+chatbot
+chatops
+devops
+devops-tools
+incident
+incident-management
+incident-response
+jira
+kubernetes
+llm
+llm-agent
+llm-framework
+llms
+monitoring
+observability
+prometheus
+site-reliability-engineering
+slack
+sre
+Resources
+Readme
+Apache-2.0 license
+Code of conduct
+Code of conduct
+Contributing
+Contributing
+Security policy
+Security policy
+Activity
+Custom properties
+Stars
+4.0k
+stars
+Watchers
+29
+watching
+Forks
+604
+forks
+Report repository
+Releases
+Packages
+Used by
+Contributors
+Languages
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.

@@ -1,0 +1,1036 @@
+SolarWinds Observability Self-Hosted 2026.1 release notes
+URL: https://documentation.solarwinds.com/en/success_center/orionplatform/content/release_notes/hco_2026-1_release_notes.htm
+Captured: 2026-11-25
+Content-Type: text/html; charset=UTF-8
+
+SolarWinds Observability Self-Hosted 2026.1 release notes
+SolarWinds uses cookies on its websites to make your online experience easier and better. By using our website, you consent to our use of cookies. For more information on cookies, see our
+Cookie Policy
+.
+Continue
+Visit SolarWinds.com
+Documentation
+Contact Us
+Customer Portal
+Toggle navigation
+Academy
+SOLARWINDS ACADEMY
+CLASSES
+ELEARNING
+CERTIFICATION
+SOLARWINDS ACADEMY
+The SolarWinds Academy offers education resources to learn more about your product. The curriculum provides a comprehensive understanding of our portfolio of products through virtual classrooms, eLearning videos, and professional certification.
+See What's Offered
+AVAILABLE RESOURCES
+Virtual Classrooms Calendar
+View Product Trainers
+Quick Byte Videos
+eLearning Video Index
+SolarWinds Certified Professional Program
+VIRTUAL CLASSROOMS
+Attend virtual classes on your product and a wide array of topics with live instructor sessions or watch on-demand videos to help you get the most out of your purchase.
+View all Classes
+Open Sessions and Popular Classes
+View Product Trainers
+General Office Hours
+Quick Byte Videos
+Orion Platform
+Network Performance Monitor
+View the Calendar
+NetFlow Traffic Analyzer
+IP Address Manager
+Network Configuration Manager
+Server & Application Monitor
+Virtualization Manager
+ELEARNING VIDEOS
+On-demand videos on installation, optimization, and troubleshooting.
+See All Videos
+Popular Videos
+Upgrading Isn't as Daunting as You May Think
+Upgrading Your Orion Platform Deployment Using Microsoft Azure
+Upgrading From the Orion Platform 2016.1 to 2019.4
+Don't Let the Gotchas Get You
+How to Install NPM and Other Orion Platform Products
+Upgrading the Orion Platform
+See All Videos
+Navigating the Web Console
+Prepare a SAM Installation
+Installing Server & Application Monitor
+How to Install SEM on VMware
+Customer Success with the SolarWinds Support Community
+New job, New to SolarWinds?
+SOLARWINDS CERTIFIED PROFESSIONAL PROGRAM
+Become a SolarWinds Certified Professional to demonstrate you have the technical expertise to effectively set up, use, and maintain SolarWinds’ products.
+Learn More
+STUDY AIDS
+Database Management
+Database Performance Analyzer
+Observability SaaS Fundamentals
+Observability Self-Hosted Fundamentals
+Observability Self-Hosted Architecture and Design
+Observability Self-Hosted Diagnostics and Troubleshooting
+Observability Self-Hosted Network Management
+Observability Self-Hosted Network Monitoring
+Server & Application Monitor
+Service Desk
+ONBOARDING & UPGRADING
+NEW TO SOLARWINDS
+UPGRADE RESOURCE CENTER
+ONBOARDING
+NEW TO SOLARWINDS
+You just bought your first product. Now what? Find out more about how to get the most out of your purchase. From installation and configuration to training and support, we've got you covered.
+Learn More
+UPGRADE RESOURCE CENTER
+See helpful resources, answers to frequently asked questions, available assistance options, and product-specific details to make your upgrade go quickly and smoothly.
+Visit the Upgrade Resource Center
+ONBOARDING
+SolarWinds Onboarding programs are designed to help walk you through product installations, and more to deliver immediate value on your product experience. We offer self-led and assisted options, so you can choose the one that best fits your business needs and schedule.
+AVAILABLE DEPLOYMENT SERVICES PROGRAMS
+Self-Led Onboarding
+Deployment Services
+Support Offerings
+PREMIUM SUPPORT OFFERINGS
+FEDERAL SUPPORT OFFERINGS
+WORKING WITH SUPPORT
+PREMIUM SUPPORT OFFERINGS
+Our paid Customer Support plans provide assistance with Solarwinds product questions, troubleshooting, and product-related issues. Choose what best fits your environment and organization, and let us help you get the most out of your purchase. We support all of our products, 24/7/365.
+Learn More
+AVAILABLE PROGRAMS
+Professional Support
+Advanced Support
+Premium Support Level 1
+Premium Support Level 2
+Premium Support Level 3
+FEDERAL SUPPORT OFFERINGS
+Our Government support plans have been customized to provide specific assistance to install, upgrade, and troubleshoot your product. Choose what best fits your environment and organization, and let us help you get the most out of your purchase. We support all our products, 24/7/365.
+AVAILABLE PROGRAMS
+Federal Premium Support
+Federal Deployment Services
+WORKING WITH SUPPORT
+A glossary of support availability, tips, contact info, and customer success resources. We're here to help.
+Learn More
+PRODUCTS
+MONITORING & OBSERVABILITY
+NETWORK MANAGEMENT
+SYSTEMS MANAGEMENT
+DATABASE MANAGEMENT
+IT SECURITY
+IT SERVICE MANAGEMENT
+APPLICATION MANAGEMENT
+DOCUMENTATION
+MONITORING AND OBSERVABILITY
+SolarWinds Observability is a full-stack, AI-powered solution that offers two deployment options: Self-hosted and SaaS. With the continued expansion of network and infrastructure capabilities in the SaaS option and the continued expansion of cloud capabilities in the self-hosted option, both offerings can provide end-to-end hybrid visibility. They also include overlapping capabilities and interconnectivity, giving IT teams and the organizations they support the flexibility to observe complex environments however they want.
+Product Support Page
+USEFUL RESOURCES
+SolarWinds Observability (formerly known as Hybrid Cloud Observability) Technical Documentation
+SolarWinds Observability (formerly known as Hybrid Cloud Observability) Product Details
+SolarWinds Observability SaaS (formerly known as SolarWinds Observability) Technical Documentation
+SolarWinds Observability SaaS (formerly known as SolarWinds Observability) Product Details
+NETWORK MANAGEMENT
+Network Performance Monitor
+NetFlow Traffic Analyzer
+IP Address Manager
+Network Configuration Manager
+Engineer's Toolset
+Network Topology Mapper
+View All Network Management Products
+User Device Tracker
+VoIP Network Quality Manager
+Log Analyzer
+Enterprise Operations Console
+Kiwi CatTools
+Kiwi Syslog Server NG
+Your SolarWinds products come with a secret weapon.
+Award-winning, instructor-led classes, eLearning videos, and certifications.
+Find a Class
+SYSTEMS MANAGEMENT
+Server & Application Monitor
+Virtualization Manager
+Storage Resource Monitor
+Serv-U Managed File Transfer
+Serv-U Secured FTP
+View All Systems Management Products
+Server Configuration Monitor
+Log Analyzer
+Access Rights Manager
+Web Performance Monitor
+Your SolarWinds products come with a secret weapon.
+Award-winning, instructor-led classes, eLearning videos, and certifications.
+Find a Class
+DATABASE MANAGEMENT
+Database Performance Analyzer
+SQL Sentry
+View All Database Management Products
+Your SolarWinds products come with a secret weapon.
+Award-winning, instructor-led classes, eLearning videos, and certifications.
+Find a Class
+IT SECURITY
+Security Event Manager
+Access Rights Manager
+Serv-U Managed File Transfer Server
+Serv-U FTP Server
+Patch Manager
+View All IT Security Products
+Your SolarWinds products come with a secret weapon.
+Award-winning, instructor-led classes, eLearning videos, and certifications.
+Find a Class
+IT SERVICE MANAGEMENT
+Dameware Remote Everywhere
+Dameware Remote Support
+Dameware Mini Remote Control
+Service Desk
+Web Help Desk
+View All IT Service Management Products
+Your SolarWinds products come with a secret weapon.
+Award-winning, instructor-led classes, eLearning videos, and certifications.
+Find a Class
+APPLICATION MANAGEMENT
+Server & Application Monitor
+Loggly
+Log Analyzer
+View All Application Management Products
+Papertrail
+Pingdom
+Web Performance Monitor
+Your SolarWinds products come with a secret weapon.
+Award-winning, instructor-led classes, eLearning videos, and certifications.
+Find a Class
+COMMUNITY
+THWACK®
+SOLARWINDS BLOG
+TECHPOD
+THWACK®
+Over 200,000 users—get help, be heard, improve your product skills
+Visit THWACK
+AVAILABLE PROGRAMS
+SolarWinds User Groups
+THWACK Livecast
+THWACKcamp 2024 On-Demand
+Academy Newsroom
+SolarWinds Certified Professional (SCP) Forum
+Classroom Training Forum
+SolarWinds Blog
+Join us on the road to talk AI, observability, and IT management. We've got real-world insights you just won't hear about anywhere else.
+Visit Blog
+TECHPOD
+Join the brightest SolarWinds minds and IT industry influencers, as they cut through the jargon and give you the tools you need to grow and keep your tech knowledge razor-sharp. Come with questions—leave with actionable steps and practical insights.
+Episodes
+NEW TO SOLARWINDS
+SUBMIT A TICKET
+Academy
+SOLARWINDS ACADEMY
+See What's Offered
+Virtual Classrooms Calendar
+View Product Trainers
+Quick Byte Videos
+eLearning Video Index
+SolarWinds Certified Professional Program
+CLASSES
+View all Classes
+View Product Trainers
+General Office Hours
+Quick Byte Videos
+Orion Platform
+Network Performance Monitor
+View the Calendar
+NetFlow Traffic Analyzer
+IP Address Manager
+Network Configuration Manager
+Server & Application Monitor
+Virtualization Manager
+ELEARNING
+See All Videos
+Upgrading Isn't as Daunting as You May Think
+Upgrading Your Orion Platform Deployment Using Microsoft Azure
+Upgrading From the Orion Platform 2016.1 to 2019.4
+Don't Let the Gotchas Get You
+How to Install NPM and Other Orion Platform Products
+Upgrading the Orion Platform
+See All Videos
+Navigating the Web Console
+Prepare a SAM Installation
+Installing Server & Application Monitor
+How to Install SEM on VMware
+Customer Success with the SolarWinds Support Community
+New job, New to SolarWinds?
+CERTIFICATION
+Learn More
+Database Management
+Database Performance Analyzer
+Observability SaaS Fundamentals
+Observability Self-Hosted Fundamentals
+Observability Self-Hosted Architecture and Design
+Observability Self-Hosted Diagnostics and Troubleshooting
+Observability Self-Hosted Network Management
+Observability Self-Hosted Network Monitoring
+Server & Application Monitor
+Service Desk
+ONBOARDING & UPGRADING
+NEW TO SOLARWINDS
+Learn More
+UPGRADE RESOURCE CENTER
+Visit the Upgrade Resource Center
+ONBOARDING
+Self-Led Onboarding
+Deployment Services
+Support Offerings
+PREMIUM SUPPORT OFFERINGS
+Learn More
+Professional Support
+Advanced Support
+Premium Support Level 1
+Premium Support Level 2
+Premium Support Level 3
+FEDERAL SUPPORT OFFERINGS
+Federal Premium Support
+Federal Deployment Services
+WORKING WITH SUPPORT
+Learn More
+PRODUCTS
+MONITORING & OBSERVABILITY
+Product Support Page
+SolarWinds Observability Self-Hosted (formerly known as Hybrid Cloud Observability) Technical Documentation
+SolarWinds Observability Self-Hosted (formerly known as Hybrid Cloud Observability) Product Details
+SolarWinds Observability SaaS (formerly known as SolarWinds Observability) Technical Documentation
+SolarWinds Observability SaaS (formerly known as SolarWinds Observability) Product Details
+NETWORK MANAGEMENT
+Network Performance Monitor
+NetFlow Traffic Analyzer
+IP Address Manager
+Network Configuration Manager
+Engineer's Toolset
+Network Topology Mapper
+View All Network Management Products
+User Device Tracker
+VoIP Network Quality Manager
+Log Analyzer
+Enterprise Operations Console
+Kiwi CatTools
+Kiwi Syslog Server NG
+SYSTEMS MANAGEMENT
+Server & Application Monitor
+Virtualization Manager
+Storage Resource Monitor
+Serv-U Managed File Transfer
+Serv-U Secured FTP
+View All Systems Management Products
+Server Configuration Monitor
+Log Analyzer
+Access Rights Manager
+Web Performance Monitor
+DATABASE MANAGEMENT
+Database Performance Analyzer
+SQL Sentry
+View All Database Management Products
+IT SECURITY
+Security Event Manager
+Access Rights Manager
+Serv-U Managed File Transfer Server
+Serv-U FTP Server
+Patch Manager
+View All IT Security Products
+IT SERVICE MANAGEMENT
+Dameware Remote Everywhere
+Dameware Remote Support
+Dameware Mini Remote Control
+Service Desk
+Web Help Desk
+View All IT Service Management Products
+APPLICATION MANAGEMENT
+Server & Application Monitor
+Loggly
+Log Analyzer
+View All Application Management Products
+Papertrail
+Pingdom
+Web Performance Monitor
+DOCUMENTATION
+COMMUNITY
+THWACK®
+Visit THWACK
+SolarWinds User Groups
+THWACK Livecast
+THWACKcamp 2024 On-Demand
+Academy Newsroom
+SolarWinds Certified Professional (SCP) Forum
+Classroom Training Forum
+SolarWinds Blog
+Visit Blog
+TECHPOD
+Episodes
+NEW TO SOLARWINDS
+SUBMIT A TICKET
+Search SolarWinds Support
+Quick Links
+SolarWinds Platform Port Requirements
+SolarWinds/Orion Platform Documentation
+SolarWinds/Orion Platform Release Notes
+SolarWinds Observability Self-Hosted (formerly known as Hybrid Cloud Observability) Documentation
+SolarWinds Observability Self-Hosted (formerly known as Hybrid Cloud Observability) Release Notes
+News & Announcements
+Evolving towards Observability
+Secure by Design
+Meet our Product Trainers
+THWACKcamp
+Connect with Us
+Technical Documentation
+Customer Portal
+Submit a Ticket
+THWACK Community
+Orange Matter Blog
+TechPod Episodes
+Documentation for
+SolarWinds Platform Self-Hosted
+SolarWinds Observability Self-Hosted 2026.1 release notes
+Formatting and layout changes
+Tracks formatting/layout/content changes to the release notes builder template
+Release date: February 10, 2026
+Here's what's new in SolarWinds Observability Self-Hosted 2026.1. You can find the applicable system requirements
+here
+.
+Skipping a version?
+If you're upgrading from more than one version back, don't rely on this page alone — review the
+release notes aggregator
+to see everything that changed across the versions you’re skipping
+, and across your
+SolarWinds Platform
+products
+.
+To view release notes, system requirements, and product guide (formerly known as administrator guide) PDFs for supported versions of SolarWinds Observability Self-Hosted, see
+SolarWinds Observability Self-Hosted previous versions
+.
+SolarWinds Observability Self-Hosted runs on the
+SolarWinds Platform (self-hosted)
+. SolarWinds Observability Self-Hosted release notes include the updates from the SolarWinds Platform (self-hosted).
+Critical update advisories
+SolarWinds Observability Self-Hosted
+2026.1 includes changes to improve communication between services on polling engines. Because of these changes, you must
+open TCP port 17734
+on the main polling engine to allow inbound traffic from any servers that host additional polling engines, additional web servers, or high availability servers.
+If port 17734 is not open on the main polling engine, other servers in your
+SolarWinds Observability Self-Hosted
+deployment could become unavailable. See the Known issues below for more information.
+New features and improvements in SolarWinds Platform
+New All Active Alerts page
+All Active Alerts page has been updated to the new framework. You can customize columns or edit the query used to build the table with custom entries.
+Custom banners
+Users can define customized in-product banners shown at the top of each page in the web console. These banners can be used for the following purposes:
+Notification of scheduled upgrades
+Classification of government data
+Identification of deployments when multiple instances are deployed for a single customer
+Notification of a known issue or outage
+Maps
+This release introduces several enhancements to map editing and management, making it easier to customize and work with Intelligent Maps.
+Users can bulk edit multiple connections at once.
+Users can import Network Atlas maps with linked backgrounds into Intelligent Maps.
+Users must confirm that they want to remove a custom topology item before it is removed.
+Users can see an icon and color indicator for text that contains hyperlinks.
+Users can see hotkeys for actions in the More menu.
+Users can hide auto-generated topology connections on maps.
+Updated Maintenance Windows
+Maintenance Windows have been improved:
+Groups can now be assigned to maintenance windows, allowing you to mute alerts for all objects in specific groups.
+Added an option to end a recurring maintenance window after X occurrences.
+Admins can make reasons mandatory for both scheduled and ad-hoc maintenance windows.
+Feature Adoption
+The Feature Adoption section in My Deployment, which helps you enable and expand the use of key product features, now includes suggestions for:
+Gaining deeper insights into virtualization
+Monitoring virtual servers
+Monitoring storage arrays
+Identifying unknown traffic
+Monitoring configurations
+Monitoring DNS and DHCP servers
+Monitoring call quality
+Monitoring configuration policies
+Integrations
+ServiceNow integration now supports OAuth based authentication.
+SolarWinds Platform now integrates with SolarWinds Incident Response (earlier known as Squadcast). In this version, the integration is unidirectional - alerts from SolarWinds Platform are forwarded to SolarWinds Incident Response. Any acknowledgments on the incident response side are not reflected in SolarWinds Platform. Users can do additional correlation and suppress alerts using their Incident Response instance.
+PerfStack metrics format change
+PerfStack metrics now have a short, user-friendly unit format to simplify reading and understanding PerfStack charts. This helps with translating large numbers into more readable language, such as using kb, Mb, Gb instead of bytes.
+Node status indicates polling issues
+Node status now exposes any problem with failing WMI, WinRM, or SNMP polling when ICMP connection is working, including credential issues.
+After the upgrade, environments with existing polling issues may experience an increase in nodes reporting a
+Critical
+status with
+Polling is failing
+error messages. For details, see
+Node status Critical with “polling is failing” message after upgrade to SolarWinds Platform 2026.1
+.
+Updated MAC Organizationally Unique Identifier (OUI) data
+The MAC OUI data has been updated to provide more accurate vendor details when analyzing MAC addresses in the SolarWinds Platform.
+Support for online upgrades to the previous version
+Online upgrades now include the option to upgrade to the previous version. For example, if you're on 2025.4.1 or earlier and 2026.1 becomes available, the Updates page lists 2025.4.3 and 2026.1 as upgrade options.
+If the previous version is not displayed, click Update for the latest version, cancel the upgrade session, and then reload the Updates page.
+New features and improvements in SolarWinds Observability Self-Hosted Essentials
+The following features are exclusive to customers with a
+SolarWinds Observability Self-Hosted
+license.
+Support for Azure cloud entities
+Users can track execution times, failures, and resource consumption for
+Azure Functions
+to troubleshoot issues and optimize performance efficiently.
+Support for AWS cloud entities
+Users can monitor
+Amazon Elastic Kubernetes Service (Amazon EKS)
+to gain visibility into EKS cluster health, node performance, workloads, and resource usage.
+Users can monitor
+AWS Lambda
+to track invocation metrics, errors, and performance trends.
+Support for Google Cloud Platform cloud entities
+Users can monitor
+Google Cloud Load Balancing
+to track key metrics across Application Load Balancers (HTTP/HTTPS), Proxy Load Balancers (SSL/TCP Proxy, Internal TCP Proxy), and Pass‑Through Load Balancers (Network, TCP/UDP). The dashboard provides visibility into connection status, latency, network traffic, and traffic flow to help ensure reliable and efficient load distribution.
+Users can monitor
+Cloud SQL for MySQL
+and
+Cloud SQL for PostgreSQL
+, with support extended across PerfStack, Alerts, Reports, and Groups. The dashboard displays key performance indicators such as CPU and memory usage, deadlocks, alerts, network activity, replication lag, connections, query counts, pages read and written, and data and log syncs.
+Network Routing Insights
+Users can view routing paths across Layer 2 and Layer 3 by correlating metrics and integrating routing relationships such as next-hop, peer, interface, and VRF. Users can:
+See how routes are resolved and identify the interfaces carrying them and their associated VRFs.
+Analyze peer relationships by linking peer status to route and interface health to detect instability and flapping.
+View port-channel membership and understand its relationship to all child interfaces.
+Map VLANs and VRFs to routing and forwarding tables for better context and troubleshooting.
+Virtualization
+Added monitoring datastore performance metrics, VM disk and snapshot details for Proxmox VE environments.
+Credential management for Proxmox VE has been improved.
+AI Agent (Technical Preview)
+Users can use the new chat‑based AI Assistant to search SolarWinds documentation or get environment‑specific answers about nodes, interfaces, volumes, ports, and alerts. For setup instructions, see
+Set up Platform Connect
+. For how-to guidance, visit
+Meet the AI Agent...
+on THWACK.
+Additional updates
+Added new pollers for monitoring port channels.
+Added a new widget for switch stacks, Switch Stack Member Ports.
+Kea DHCP
+Added Kea DHCP reservation support.
+New widget
+All nodes with Log Analyzer enabled now feature a widget displaying recent log events from that node in the nodes dashboard. This data is filterable by log type and severity. See
+Last XX logs entries widget
+.
+Support for Juniper Virtual Chassis
+Users can monitor and detect stack membership changes, ring failures, and hardware faults on Juniper Virtual Chassis.
+Observability Templates
+The new Observability Templates are available for the Main Polling Engine and Additional Polling Engine.
+SolarWinds
+recommends replacing any previously-installed templates for polling
+SolarWinds
+Observability or
+SolarWinds Platform
+.
+CUCM support
+Added support for Cisco Unified Communications Manager CUCM v15.x.
+New features and improvements in SolarWinds Observability Self-Hosted Advanced
+Customers with a
+SolarWinds Observability Self-Hosted
+Advanced license receive all Essentials updates, plus the following features exclusive to Advanced customers.
+Risk Analysis now includes exploitability score
+Users can get more accurate risk scores for supported nodes with exploitability insights based on real-world likelihood.
+Users can assess vulnerability risk more effectively using EPSS (Exploit Prediction Scoring System) integration, which provides probability-based exploit estimates.
+SCM can now compare node configurations of two servers
+SCM can now display differences in configuration files between two SCM nodes and can check configuration drifts between the two servers. For example, it can check the settings of multiple nodes in the same cluster/HA or check differences between staging and production environments.
+Last updated: March 31, 2026
+Support for Nutanix AOS 7.3
+VMAN now supports Nutanix AOS 7.3.
+New features and improvements in SolarWinds Observability Self-Hosted Enterprise Scale
+The following features are exclusive to customers with a
+SolarWinds Observability Self-Hosted
+Enterprise license.
+New EOC summary page
+EOC now offers a new summary page.
+Fixed CVEs
+At SolarWinds, we prioritize the swift resolution of CVEs to ensure the security and integrity of our software. In this release, we have successfully addressed the following CVEs.
+Third-party CVEs
+CVE-ID
+Vulnerability title
+Description
+Severity
+CVE-2025-9232
+OpenSSL HTTP client API functions DoS Vulnerability
+An application using the OpenSSL HTTP client API functions may trigger an out-of-bounds read if the 'no_proxy' environment variable is set and the host portion of the authority component of the HTTP URL is an IPv6 address. Impact summary: An out-of-bounds read can trigger a crash which leads to Denial of Service for an application.
+5.9 Medium
+CVE-2025-9230
+OpenSSL CMS messages DoS Vulnerability
+An application trying to decrypt CMS messages encrypted using password based encryption can trigger an out-of-bounds read and write. Impact summary: This out-of-bounds read may trigger a crash which leads to Denial of Service for an application.
+7.5 High
+Fixed customer issues
+Case number
+Description
+Platform product
+02058597
+*The Npcap library has been upgraded to version 1.85, which fixes a known issue with Windows Server 2016.
+This fix is also included in the 2025.4.3 release.
+Platform
+02034183, 02036556, 02040214, 02042217, 02054959, 02063438, 02068465
+*This release fixes an issue that could cause multiple problems, including:
+Widgets and pages timing out
+Alerts not being processed
+Errors when viewing node details
+High CPU usage
+SAM applications with a status of Unknown or Down
+Errors when accessing SAM templates
+This fix is also included in the 2025.4.3 release.
+Options for specifying the Windows Connection Mode were affected as the result of this fix. See the Known issues section for details.
+SAM
+02047752
+*The node details page no longer shows an incorrect number of access points for Extreme Cloud IQ tenants.
+NPM
+02048859, 02058434
+*When you access the Manage Nodes page from an additional web server, select multiple nodes, and then select Unmanage Now or Mute Alerts Now, the action is applied to all selected nodes (not just some of them).
+Platform
+02028685
+*During an upgrade, a large number of items under the
+C:\ProgramData\SolarWinds
+and
+C:\Program Files (x86)\SolarWinds\Agent
+directories no longer results in agents failing to be updated.
+Platform
+02053878
+*A custom property with an underscore in the name no longer causes the All Groups widget to display errors in modern dashboards.
+Platform
+N/A
+*An issue that prevented all alert severities to be shown in the alerts widget on the new modern dashboard Home Summary has been fixed.
+Platform
+02029643, 02036473, 02038388, 02039047, 02039880, 02041535, 02070386
+*Monitoring DFS Replication State and DFS Volume State components in a Distributed File System (DFS) no longer fails with the following error:
+Invalid class Scope: 10.218.201.9\root\CIMV2[\10.218.201.9\Administrator] ErrorCode: 0x80041010
+SAM
+02021822, 02030129, 02035052, 02036906, 02038463
+Modern Dashboard KPI widgets automatically refresh data on the configured refresh interval.
+Platform
+02030578, 01961511, 01965096
+Customers with restricted access privileges no longer experience access denied errors due to
+Microsoft.Data.SqlClient.SNI.dll
+being loaded under the impersonated account instead of the system account.
+Platform
+02011517
+Hiding a custom edge in Intelligent Maps no longer hides both connections between nodes and interfaces.
+Platform
+02017061
+The typo on the Edit Interface page was fixed.
+NPM
+02021309
+*The error message displayed when a high available pool member is no longer available has been updated to be clearer.
+Platform
+00903841, 00584773, 00174609, 00328285, 00601814, 02011869
+When managing entities, changes in the Edit Properties dialog no longer cause the Polling Method property to be lost.
+Platform
+01816357, 01801645
+SolarWinds Administration service auto-update no longer fails.
+Platform
+01990774, 01995554, 02030109, 02035573
+*The Configuration Wizard reliably detects SQL Server Availability Groups.
+Platform
+02033184
+IP addresses are visible in the UI for Virtual Machines in a Proxmox Cluster.
+VMAN
+02009240, 02020678
+Creating new HA pools in systems other than EN-US works as expected.
+Platform
+01975077, 01909120
+Applying limitations in big environments no longer decreases the
+SolarWinds Platform Web Console
+performance.
+Platform
+01978446
+An issue has been fixed that caused database errors due to the stored procedure
+dbm_AggregateTimeSerie_part
+and its setting of
+ANSI_WARNINGS OFF
+.
+SAM
+01760628
+An issue has been fixed that caused the HTTP proxy settings to fail when Use Default OS Settings was configured as the source.
+Platform
+01978146
+Hidden links are no longer displayed in the Intelligent Maps entity explorer.
+Platform
+N/A
+Cloud dashboards are displaying the correct count of active alerts.
+Platform
+01979400, 01974410
+An issue that caused CPU WMI polling to stop working for Windows 2008 R2 and earlier was fixed.
+Platform
+01976725
+When you add an Azure cloud account with Blob Storage and then disable the Blob Storage service, Azure entities are no longer visible in the UI and the database.
+SAM
+01968672
+Updated polling logic ensures malformed
+PollingController.db
+files are always auto-recreated, improving reliability and reducing the risk of polling failures.
+Platform
+01893113, 01960987, 01980264, 01988371, 01992965
+Additional checks in Active Diagnostics were added to capture when the SolarWinds Platform Web Console SSL certificate is incorrectly configured.
+Platform
+01958055, 02007668
+The issue with website crashes caused by problematic custom queries and optimizing database performance was fixed.
+Platform
+01986456
+The included Microsoft .NET 8.0 runtimes were upgraded to the latest versions.
+Platform
+01981129, 01958577, 01995892
+An issue where the
+Reboot pending
+status is not cleared from agents, causing confusion and polling issues, was fixed.
+Platform
+01986010
+An issue was fixed that caused audit events to be generated only for changes to the
+IP_Address
+property of nodes via API, while other properties like
+IPAddress
+and
+IP
+did not trigger audit logs.
+Platform
+01945665
+The issue with the
+SqlServerProbeSettings
+configuration section not affecting code as intended was fixed.
+SAM
+01967942
+An issue was fixed that caused Windows Events retention to be incorrectly governed by the Detail statistics retention setting instead of the intended
+DataRetentionEventLog
+configuration.
+SAM
+01748999, 02010493
+The issue related to JobEngine jobs with future execution times caused by system time jumps, primarily in VMware environments, was fixed.
+Platform
+01948423
+The Active Diagnostics test
+CheckTimeZoneSQLServer
+no longer fails on AWS RDS DB instances.
+NPM
+01948423
+The issue with the Active Directory test for server time synchronization, specifically related to DST handling, was fixed.
+NPM
+01890893
+An issue has been fixed that caused VOIP UDP Jitter Operation to incorrectly display RTT values equal to latency.
+VNQM
+01890199
+The issue where users with insufficient permissions did not receive an error message when attempting to proceed in the Configuration Wizard was fixed.
+Platform
+01011052
+*Accounts can now be converted between individual and Windows when the account user names are the same.
+Platform
+01986006, 02002119
+The issue with the UDP Jitter Last Month report not generating correctly was fixed.
+VNQM
+01975311
+The Memory load is displayed correctly in the Top 5 VMs by memory widget, particularly for GCP-managed nodes.
+SAM
+01905629, 01927477
+Metric units in PerfStack have been updated for better clarity.
+SAM
+01961749
+Database stability issues, including recurring query timeouts, blocking, and orphaned volumes, were fixed.
+Platform
+00628826
+Issues with logging and auditing of alert action simulations were fixed to improve traceability and security.
+NPM
+01793874
+The accuracy of NCM baseline comparisons was improved. The logic for excluding configuration sections (such as 'groups') now functions reliably, preventing mismatched lines in baseline management.
+NCM
+01862339
+The detection and monitoring issues related to SQL Server 2022 in the SolarWinds environment were fixed.
+SAM
+01797614, 01912259
+The issue related to editing group accounts across multiple browser tabs was fixed.
+Platform
+01838422
+An issue with the CMAN component, where the reporter address sent via heartbeat was selected randomly, was fixed.
+SAM
+01814118
+The File Age Monitor no longer shows incorrect data for remote files.
+SAM
+01812913, 01551734, 01868172
+The issue where the JobStatisticsMaintainerPlugin failed to remove old data during database maintenance was fixed.
+NCM
+01764299, 01823713, 01918573, 01939263, 02018768, 02059217, 02027158, 02042611
+*After a SolarWinds Observability Self-Hosted license is applied in a deployment that uses ICMP monitoring, messages no longer incorrectly report that the license limit has been reached.
+This fix ensures free ICMP-only nodes and paid nodes are counted correctly after license conversion, eliminating false license saturation errors.
+Platform
+01788698
+*Support for authentication was added to the MongoDB 5.0+ Application Template.
+SAM
+00763611, 00765163, 01641392, 01741880, 01753713, 01899471, 01939288, 01945078, 01994080, 02014878
+An option was added to use an alternative calculation of memory volumes on Linux nodes that excludes buffered and cached memory from used space for SNMP-polled Linux nodes.
+Platform
+01767655
+The database inefficiency issue that previously led to high I/O and overhead when querying PolicyRules from the NCM_MultiLinePolicyRulePatterns table was fixed.
+NCM
+01961090, 01716764, 01692944
+The SD-WAN Discover Orchestrator devices feature no longer fails to link edges to the orchestrator when Run in background is selected
+NPM
+01551470
+Network interfaces with trailing spaces in their names are detected correctly by the system.
+SAM
+01720712, 01978974
+The NTA service no longer stops processing when the cache of unique IP addresses reaches approximately 20,000.
+NTA
+01616820, 01617205, 01796280, 01886117, 01959304
+Node details such as machine type, vendor, and description are no longer missing or shown as Unknown after changing the polling method from ICMP to Agent on Linux nodes.
+Platform
+01609189
+Filtering NetFlow data by large or overlapping IP groups no longer causes SQL errors due to excessive parameters.
+NTA
+01573310, 01654703, 01569218, 01687332
+The issue where the installer cannot verify the manifest's signature when the user's TEMP path contains a
+$
+symbol was fixed.
+Platform
+00239579, 01426132, 01975947
+Issues with the AD test related to SSL certificate validation were fixed.
+NPM
+01939802
+An issue was fixed that caused higher-tier evaluations to not start successfully after removing or hiding previous evaluation licenses, despite the user interface indicating success.
+Platform
+01827130, 01465209, 01570892, 01726949
+The issue causing errors on the DNS records page when a zone contains a WINS record was fixed.
+IPAM
+01191493, 01294081, 00282808, 01991303
+The issue with duplicate volumes being created when a device with multiple volumes sharing the same serial number is rediscovered and scheduled discovery is run was fixed.
+Platform
+01191634, 01799728, 01994080
+The issue with incorrect memory values displayed in the Average CPU Load & Memory Statistics widget was fixed.
+Platform
+N/A
+An issue was fixed that caused sensitive information to be displayed in logs.
+Platform
+01985545, 02006631, 02021537, 02021560, 02029828, 02030432, 02031615, 02038181. 02038542, 02051413, 02056974
+*The polling logic was updated to ensure consistent and accurate results when polling an Azure account.
+SAM
+02013061
+*Live updates to an intelligent map in the viewer no longer result in missing lines.
+Platform
+02060182
+*An issue was fixed that caused database maintenance to fail due to an arithmetic overflow.
+VNQM
+01908831, 01933029
+*When Juniper devices are being monitored, the Manage Network Service Assurance Operations discovery wizard no longer returns an empty operations list when RPM probes are configured and producing results on the device.
+This issue occurred when the Juniper RPM operation discovery job sent an oversized GetBulk request that Juniper devices could not process.
+In 2026.1 and later, the
+JuniperOperationPollingBatchSize
+setting in the
+VoipConfig
+table prevents oversized GetBulk requests. The default value is
+50
+, but you can change this value if necessary. For details and instructions, see the Support article
+Juniper RPM operations are not discovered in VNQM
+.
+VNQM
+02074599, 02080909, 02126941, 02127185, 02131027, 02132558
+*Recurring maintenance appears in the Planned Unmanage Window column in the Node Management view only after the maintenance schedule runs for the first time. To view all scheduled maintenance windows, see the Upcoming Maintenance Schedules for this Entity widget in the Node Details view.
+The product guide has been updated to describe this behavior.
+Platform
+*This fix was added after the RC release.
+Installation or upgrade
+For new
+SolarWinds Platform
+deployments, download the installation file from the product page on
+https://www.solarwinds.com
+or from the
+Customer Portal
+. For more information, see
+Get the installer
+.
+To activate your product in an existing
+SolarWinds Platform
+deployment,
+use the License Manager
+.
+For upgrades, go to Settings > My Deployment to initiate the upgrade. The SolarWinds Installer upgrades your entire deployment (all SolarWinds Platform products and any scalability engines). For details about upgrading from earlier versions, see
+Supported upgrade paths
+.
+For more information, see the
+SolarWinds Platform Product Installation and Upgrade Guide
+.
+For supported upgrade paths, see
+Upgrade an existing deployment
+.
+Known issues
+Last updated: March 6, 2026
+Additional web console and additional polling engines are unavailable, and the Orion Module Engine service repeatedly stops
+If port 17734 is not open on your main polling engine to allow inbound traffic from other servers in your
+SolarWinds Observability Self-Hosted
+deployment, you could experience issues such as:
+Scalability engines such as additional polling engines and additional web servers are unavailable.
+The Orion Service Module stops frequently and must be manually restarted.
+The Business Layer Log on a scalability engine includes messages such as:
+gRPC error calling Feature Service on port 17734: Error starting gRPC call.
+Resolution or workaround
+: Open TCP port 17734 on the main polling engine to allow inbound traffic from servers that host
+SolarWinds Observability Self-Hosted
+scalability engines. This includes additional polling engines, additional web servers, and high availability servers.
+For more information, see
+Additional Website and Additional Polling Engines are Down After Upgrade to 2026.1 due to gRPC Error Calling Feature Service on Port 17734
+.
+Upgrades fail when the Configuration Wizard attempts to create or update a configuration file
+In some environments, the Configuration Wizard fails when attempting to create or update the
+sw.web.compression.config
+file.
+Resolution or workaround
+: This issue will be fixed in a future release. Until then, complete these steps:
+Open the following file in a text editor:
+C:\ProgramData\SolarWinds\sw.web.compression.config
+Update the contents of this file to the following:
+<?xml version="1.0" encoding="utf-8"?> <configuration> <configSections> <section name="sw.web.compression" type="SolarWinds.Orion.Core.Common.Configuration.WebCompressionSection, SolarWinds.Orion.Configuration" /> </configSections> <sw.web.compression> <settings> <add name="" level="4" enable="True" install="True" /> <add name="static" level="9" /> <add name="dynamic" /> <add name="dynamic.IIS6" enable="False" /> </settings> </sw.web.compression> </configuration>
+Save the file and rerun the configuration wizard.
+URL-based filters in modern dashboards stopped working
+Modern dashboards no longer recognize URL-based filters unless a global filter is explicitly configured on the dashboard.
+Resolution or workaround
+: Use global filters. See
+Global filters on modern dashboards
+.
+THWACK integration is broken
+A new THWACK platform was introduced in 2025. This new platform does not support the API that SolarWinds Platform is using.
+Resolution or workaround
+: Not available. See
+Shared Templates on Thwack is unable to reach thwack.com in SolarWinds Platform
+.
+Polling engines unresponsive due to high UDP port usage
+When High Availability is used with a Virtual Hostname, the HA service continually opens new UDP ports until the server runs out of available ports, which requires a reboot.
+Resolution or workaround
+: Remove the Virtual Hostname from the HA pool. See
+Polling engines become unresponsive in 2026.1 due to high UDP port usage
+.
+SolarWinds Platform services fail to start after the upgrade to 2026.1 due to Core Business Layer plugin errors
+After upgrading to 2026.1, SolarWinds Platform services may fail to start. An error indicates that the Core Business Layer plugin could not be initialized. This issue occurs when a residual entry,
+CloudConnected.Settings.HideIconToAllUsers
+, is selected in the Advanced Global Configuration prior to the upgrade.
+Example error message:
+Plugin "Core Business Layer" failed to start on [Poller Name]. Please restart the Module Engine service on [Poller Name].
+Resolution or workaround
+: Follow the steps in the
+SolarWinds Platform service fails to start with "Plugin "Core Business Layer" failed to start ..."
+article.
+Cisco IPv6 reservation
+Due to vendor limitations, Cisco IPv6 does not support IP reservations or static bindings and has not been implemented into IPAM.
+Resolution or workaround
+: There is no workaround at the moment. SolarWinds is working to resolve this issue in a future release.
+SNMP polling is failing: Critical node status for Cisco Meraki MX
+After upgrading to 2026.1, some SNMP-monitored devices that don't respond to
+sysUpTime
+may show a Critical node status, with the message "SNMP polling is failing", even though SNMP credential tests succeed and other SNMP polling continues to work.
+Resolution or workaround
+: Disable the generic SNMP uptime poller for the devices. See
+“SNMP polling is failing” Critical node status for Cisco Meraki MX devices in SolarWinds Platform 2026.1
+.
+Specifying the Windows Connection Mode
+The Windows Connection Mode cannot be specified at the node level.
+Resolution or workaround
+: Specify the Windows Connection Mode at the global level. This issue will be addressed in a future release.
+Some Azure accounts fail to poll Azure VMs
+For some Azure accounts, attempts to poll Azure VMs fail, and errors such as the following are found in the logs:
+ERROR SolarWinds.VIM.CloudMonitoring.Pollers.Azure.AccountAutomonitoringPoller - Unable to get azure VMs.
+DEBUG SolarWinds.Orion.Pollers.Framework.PollersJob.PollersJobBase - Poller finished, Configuration- PollerType=N.Cloud.AccountAutomonitoring.Azure, NetObjectID=CVA:9, Result- PollResult:Failed
+WARN SolarWinds.Orion.Pollers.Framework.PollersJob.PollersJobBase - Poller failed - ResultError: ErrorCode=10000, ErrorMessage=Azure account automonitoring poller has failed with unexpected error. This may be a temporary issue. Please try again in a few seconds.
+Resolution or workaround
+: This issue will be fixed in a future release.
+Upgrades fail because the Configuration Wizard encounters a database configuration error
+During an upgrade, the Configuration Wizard might fail during the database configuration phase. The following error is displayed:
+Error while executing script - The index 'IX_NetFlowAddressToResolveLowPriority_Timestamp' is dependent on column 'Reason'. ALTER TABLE DROP COLUMN Reason failed because one or more objects access this column.
+Resolution or workaround
+: Follow the steps in the Support article
+Error during Configuration Wizard: “The index 'IX_NetFlowAddressToResolveLowPriority_Timestamp' is dependent on column 'Reason'”
+.
+This issue will be fixed in a future release.
+Manage Banners dashboard not found
+The Manage Banners dashboard is not imported during installation.
+Resolution or workaround
+: None. This issue will be corrected in a future release.
+End of life
+Version
+EoL announcement
+EoE effective date
+EoL effective date
+2024.1
+February 10, 2026
+: End-of-Life (EoL) announcement – Customers on SolarWinds Observability Self-Hosted version 2024.1 or earlier should begin transitioning to the latest version of SolarWinds Observability Self-Hosted.
+March 12, 2026
+: End-of-Engineering (EoE) – Service releases, bug fixes, workarounds, and service packs for SolarWinds Observability Self-Hosted version 2024.1 or earlier will no longer actively be supported by SolarWinds.
+March 12, 2027
+: End-of-Life (EoL) – SolarWinds will no longer provide technical support for SolarWinds Observability Self-Hosted version 2024.1.
+2023.4
+October 21, 2025
+: End-of-Life (EoL) announcement – Customers on SolarWinds Observability Self-Hosted version 2023.4 or earlier should begin transitioning to the latest version of SolarWinds Observability Self-Hosted.
+November 20, 2025
+: End-of-Engineering (EoE) – Service releases, bug fixes, workarounds, and service packs for SolarWinds Observability Self-Hosted version 2023.4 or earlier will no longer actively be supported by SolarWinds.
+November 20, 2026
+: End-of-Life (EoL) – SolarWinds will no longer provide technical support for SolarWinds Observability Self-Hosted version 2023.4.
+2023.3
+October 21, 2025
+: End-of-Life (EoL) announcement – Customers on SolarWinds Observability Self-Hosted version 2023.3 or earlier should begin transitioning to the latest version of SolarWinds Observability Self-Hosted.
+November 20, 2025
+: End-of-Engineering (EoE) – Service releases, bug fixes, workarounds, and service packs for SolarWinds Observability Self-Hosted version 2023.3 or earlier will no longer actively be supported by SolarWinds.
+November 20, 2026
+: End-of-Life (EoL) – SolarWinds will no longer provide technical support for SolarWinds Observability Self-Hosted version 2023.3.
+2023.2
+June 10, 2025
+: End-of-Life (EoL) announcement – Customers on SolarWinds Observability Self-Hosted version 2023.2 or earlier should begin transitioning to the latest version of SolarWinds Observability Self-Hosted.
+July 10, 2025
+: End-of-Engineering (EoE) – Service releases, bug fixes, workarounds, and service packs for SolarWinds Observability Self-Hosted version 2023.2 or earlier will no longer actively be supported by SolarWinds.
+July 10, 2026
+: End-of-Life (EoL) – SolarWinds will no longer provide technical support for SolarWinds Observability Self-Hosted version 2023.2.
+2023.1
+February 11, 2025
+: End-of-Life (EoL) announcement – Customers on SolarWinds Observability Self-Hosted version 2023.1 or earlier should begin transitioning to the latest version of SolarWinds Observability Self-Hosted.
+March 13, 2025
+: End-of-Engineering (EoE) – Service releases, bug fixes, workarounds, and service packs for SolarWinds Observability Self-Hosted version 2023.1 or earlier will no longer actively be supported by SolarWinds.
+March 13, 2026
+: End-of-Life (EoL) – SolarWinds will no longer provide technical support for SolarWinds Observability Self-Hosted version 2023.1.
+See the
+End of Life Policy
+for information about SolarWinds product life cycle phases. To see EoL dates for earlier SolarWinds Observability Self-Hosted versions, see
+SolarWinds Observability Self-Hosted release history
+.
+End of support
+This version of SolarWinds Observability Self-Hosted no longer supports the following platforms and features.
+Widgets that display a THWACK feed
+Widgets that display the most recent content from a THWACK page are no longer supported and are being removed from the web console. This includes widgets such as:
+Recent NPM Posts
+Latest Universal Device Pollers
+Recent NetFlow Posts
+Latest Application Templates
+Recent NCM posts
+Recent VNQM posts
+Recent IPAM posts
+Recent 10 Patch Manager Posts
+To exchange information and share content with other SolarWinds users, visit
+thwack.solarwinds.com
+.
+Deprecation notice
+The following platforms and features are still supported in the current release. However, they will be unsupported in a future release. Plan on upgrading deprecated platforms, and avoid using deprecated features.
+SolarWinds Platform Agent support for Windows Server 2008 R2, Windows 7
+Windows Server 2008 R2 and Windows 7 reached End of Life and are no longer supported by
+SolarWinds Platform Agent
+s. To continue monitoring them, consider switching the polling method to remote monitoring with WMI.
+SQLServer 2016
+SQL Server 2016 is deprecated as of 2025.2. It is still available and supported in the current release, but will be removed in a future release. Consider using SQL Server 2022 or later.
+Network Atlas
+Network Atlas is deprecated as of Orion Platform 2020.2. It is still available and supported in the current release, but will be removed in a future release. Deprecation is an indication that you should avoid expanded use of this feature and formulate a plan to discontinue using the feature. SolarWinds recommends that you start using Intelligent Maps in the SolarWinds Platform Web Console to display maps of physical and logical relationships between entities monitored by the SolarWinds Platform products you have installed.
+Starting with 2024.2, you can import Network Atlas maps to Intelligent Maps. See
+Import maps
+.
+Legal notices
+© 2026 SolarWinds Worldwide, LLC. All rights reserved.
+This document may not be reproduced by any means nor modified, decompiled, disassembled, published or distributed, in whole or in part, or translated to any electronic medium or other means without the prior written consent of SolarWinds. All right, title, and interest in and to the software, services, and documentation are and shall remain the exclusive property of SolarWinds, its affiliates, and/or its respective licensors.
+SOLARWINDS DISCLAIMS ALL WARRANTIES, CONDITIONS, OR OTHER TERMS, EXPRESS OR IMPLIED, STATUTORY OR OTHERWISE, ON THE DOCUMENTATION, INCLUDING WITHOUT LIMITATION NONINFRINGEMENT, ACCURACY, COMPLETENESS, OR USEFULNESS OF ANY INFORMATION CONTAINED HEREIN. IN NO EVENT SHALL SOLARWINDS, ITS SUPPLIERS, NOR ITS LICENSORS BE LIABLE FOR ANY DAMAGES, WHETHER ARISING IN TORT, CONTRACT OR ANY OTHER LEGAL THEORY, EVEN IF SOLARWINDS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+The SolarWinds, SolarWinds & Design, Orion, and THWACK trademarks are the exclusive property of SolarWinds Worldwide, LLC or its affiliates, are registered with the U.S. Patent and Trademark Office, and may be registered or pending registration in other countries. All other SolarWinds trademarks, service marks, and logos may be common law marks or are registered or pending registration. All other trademarks mentioned herein are used for identification purposes only and are trademarks of (and may be registered trademarks) of their respective companies.
+SolarWinds was founded by IT professionals solving complex problems in the simplest way, and we have carried that spirit forward since 1999. We take pride in relentlessly listening to our customers to develop a deeper understanding of the challenges they face. Our digital agility solutions are built to help companies of any size accelerate business transformation today and into the future.
+COMPANY
+INVESTORS
+CAREER CENTER
+RESOURCE CENTER
+EMAIL PREFERENCE CENTER
+FOR CUSTOMERS
+FOR GOVERNMENT
+GDPR RESOURCE CENTER
+SOLARWINDS TRUST CENTER
+Legal Documents
+Privacy
+California Privacy Rights
+Security Information
+Documentation & Uninstall Information
+Sitemap
+© 2026 SolarWinds Worldwide, LLC. All rights reserved.

@@ -137,6 +137,10 @@ const gapRegistry = readJson("sources/claim-gaps.json");
 const gapClaims = gapRegistry.claims || [];
 const gapIds = gapClaims.map((claim) => claim.claim_id);
 if (new Set(gapIds).size !== gapIds.length) errors.push("claim gap registry contains duplicate claim_id");
+const gapsWithSources = gapClaims.filter((claim) => (claim.source_ids || []).length > 0).length;
+if (gapRegistry.summary?.total_claims !== gapClaims.length || gapRegistry.summary?.with_sources !== gapsWithSources || gapRegistry.summary?.without_sources !== gapClaims.length - gapsWithSources) {
+  errors.push("claim gap registry summary totals are stale");
+}
 const vendorFiles = [...walk("docs/vendors"), "docs/appendix/alibaba-agent-landscape.md"].filter((file) => file.endsWith(".md"));
 const vendorText = vendorFiles.map((file) => fs.readFileSync(path.join(root, file), "utf8")).join("\n");
 const claimPattern = /\b(?:(?:GC|CN)-[A-Z]{1,4}-\d{2}|(?:OBS|SEC|FIN|VERT|ALI)-\d{2})\b/g;

@@ -1,0 +1,403 @@
+Splunk IT Service Intelligence | Splunk
+URL: https://www.splunk.com/en_us/products/it-service-intelligence.html
+Captured: 2026-11-25
+Content-Type: text/html;charset=utf-8
+
+Splunk IT Service Intelligence | Splunk
+Deutsch
+Francais
+日本語
+한국어
+中文
+繁體中文
+Search
+Search
+Platform
+Back
+Products
+Cloud Platform
+Data platform hosted in the cloud
+Enterprise
+Data platform deployed on-prem, in a private cloud, or hybrid
+Platform overview
+Capabilities
+Artificial Intelligence
+Activate agentic operations
+Data Management
+Optimize pipelines and control costs
+Federated Search
+Unify search across different sources
+Machine Data Lake​
+Retain full-fidelity data at low cost​
+Agent Launchpad​
+Build, test, and deploy custom AI​
+Use Cases
+Data Optimization
+Manage data, storage, and costs
+IT Modernization
+Maximize IT impact with AIOps
+IT Service Health
+Analyze service health from one view
+View all use cases
+See Splunk Cloud Platform in action
+Explore the product tour
+Security
+Back
+Products
+Enterprise Security
+Unify TDIR with the AI-powered SecOps platform
+Security overview
+Capabilities
+SIEM
+Detect and stop threats
+SOAR
+Accelerate and automate response
+UEBA
+Detect user and entity anomalies
+Detection Studio
+Develop and monitor detections
+Artificial Intelligence
+Scale with AI and AgenticOps
+View all capabilities
+Use Cases
+Advanced Threat Detection
+Uncover insider threats and attacks
+Automation and Orchestration
+Streamline incident response
+Compliance
+Access easy auditing and reporting
+Security Monitoring
+Centralize data for complete visibility
+View all use cases
+Power the
+agentic SOC
+Learn more
+Explore Splunk Enterprise Security
+Take the product tour
+Observability
+Back
+Products
+Observability Cloud
+Gain real-time visibility across any environment
+IT Service Intelligence
+Protect service performance with AIOps
+AppDynamics
+Optimize apps with full-stack insight
+Observability overview
+Capabilities
+Application Performance Monitoring
+Troubleshoot performance issues
+Infrastructure Monitoring
+Monitor clouds, containers, and on-prem
+Digital Experience Analytics
+Analyze user experiences
+Agent Observability
+Monitor agents, models, and costs
+AI SRE
+Troubleshoot with agentic AI
+Use Cases
+Alert Noise Reduction
+Correlate and prioritize alerts
+Cloud Monitoring Optimization
+Manage cloud performance and costs
+End-User Experiences
+Detect and prevent user issues
+Microservices Troubleshooting
+Debug problems in microservices
+View all use cases
+Build a leading observability practice with
+Splunk AI
+Learn more
+Explore Infrastructure Monitoring
+Take the product tour
+Industries
+Back
+Aerospace and Defense
+Communications and Media
+Energy and Utilities
+Financial Services
+Healthcare
+Higher Education
+Manufacturing
+Nonprofits
+Online Services
+Public Sector
+Retail
+Technology
+View all industries
+Reduce Financial Crime and Fraud in Financial Services
+Read the brief
+A Strategic Approach for AI Implementation in Discrete Manufacturing
+Download now
+See Across Every System to Maximize Network Resilience
+Read the e-book
+Resources
+Back
+Get Started
+Get Started with Splunk
+Splunkbase
+Splunk Lantern
+Community and User Groups
+Customer Success
+Resource Center
+Contact Sales
+Learn
+Training and Certification
+Documentation
+Product Tours
+Blogs
+Events
+.conf26
+Why Splunk
+Why Splunk
+What's New
+Awards and Recognition
+Customer Stories
+Splunk vs. the Competition
+Become a Partner
+Pricing
+Search
+Partners
+Support
+Back
+Support
+Customer Support
+Support Portal
+Contact Us
+Splunk Answers
+System Status
+Cisco Support
+AppDynamics Support
+Product Security Updates
+Log In
+Back
+Log In
+Log In
+Sign Up
+My Dashboard
+Instances
+My Training
+Logout
+Trials & Downloads
+Search
+Splunk IT Service Intelligence
+Splunk IT Service Intelligence
+Splunk ITSI
+Product Brief
+Features
+Resources
+Documentation
+Integrations
+Pricing
+More
+splunk observability
+Splunk IT Service Intelligence
+Turn alert noise into actionable event intelligence, connecting technical performance to the business impact of service health.
+Take a guided tour
+Got 5 minutes? See how it works.
+More customers
+Turn alert noise into insights and connect performance to business impact
+Correlate networks with apps and infrastructure in one operational view
+Bring network telemetry together with application and infrastructure data already in Splunk and across your monitoring stack. Teams get one cross-domain view to reduce blind spots, speed fault isolation, and spend less time switching between tools.
+Onboard alerts in minutes with zero-touch event analytics
+Zero-touch event analytics uses built-in integrations and AI-driven field discovery to onboard, map, and enrich alerts in minutes. Teams spend less time normalizing raw events and more time working from consistent, actionable data across their monitoring ecosystem.
+Turn related alerts into actionable episodes with AIOps event correlation
+Event iQ applies AIOps-driven event correlation, topology, and fuzzy matching to group related alerts into episodes. Instead of chasing dozens of disconnected notifications, operators can focus on a smaller set of incidents with stronger context, clearer priority, and faster paths to resolution.
+Speed root cause analysis with AI and change context
+Event iQ Diagnose adds AI-generated episode summaries, confidence-based root cause guidance, and change context from tools like ServiceNow and Jira. Teams can quickly understand what changed, where to investigate next, and how to move from triage to resolution with less guesswork.
+Prioritize response with service health and business impact insights
+ITSI connects service health, KPIs, and dependencies to business priorities so teams can see what matters most. Health scores and real-time dashboards help operators prioritize work by customer, revenue, and operational impact—not just by alert volume.
+Run service operations in a modern, AI-connected workspace
+A redesigned experience, Cisco AI Canvas integration, tag-based management, extended access controls, and flexible maintenance windows make daily operations easier to run. Teams can collaborate more efficiently, reduce false positives during planned work, and scale service ownership with more control.
+Unify operations. Reduce noise. Prioritize what matters.
+Works with your existing tools
+Simplified installation
+Faster time to value
+Service ownership at scale
+Executive-ready reporting
+Works with your existing tools
+Bring together data from the tools you already use
+ITSI works across Cisco and third-party monitoring tools, helping teams unify visibility and workflows without ripping and replacing existing investments. That means less disruption, faster adoption, and a clearer path to service and event intelligence.
+Simplified installation
+Install in minutes, not days
+Install and operationalize ITSI with relevant content packs in under 30 minutes through a self-service, intelligent installation experience that works seamlessly across Splunk Cloud and Enterprise environments.
+Faster time to value
+Start quickly with prebuilt content, integrations, and AI assistance
+Out-of-the-box integrations, service templates, and AI-assisted setup help teams get up and running faster, reduce manual work, and realize value sooner across modern, hybrid environments.
+Service ownership at scale
+Clarify ownership with tagging, sharing, and team-based access
+Use tags, shared service models, and team-based access controls to make ownership clearer across teams. Reduce handoff friction, improve collaboration, and keep service operations organized as environments grow.
+Executive-ready reporting
+Show service performance and business impact in real time
+Give operations leaders and executives real-time dashboards that connect service health to business priorities. ITSI makes it easier to report on risk, uptime, and what teams are doing to protect critical services.
+Jump-start incident resolution and digital resilience with the Splunk ITSI Accelerator
+Learn more
+We work with amazing customers.
+See why the world’s leading organizations rely on Splunk.
+View all customer stories
+CUSTOMER STORY
+TransUnion Invests in Splunk Solutions for Enterprise Monitoring, Machine Learning
+Read the story
+With Splunk ITSI, we have a way to visualize application flow and health from service to service. ITSI helps us speed root cause determination and resolve issues as fast as possible.
+Edward Bailey
+Senior Monitoring and Operations Architect, TransUnion
+CUSTOMER STORY
+Molina Healthcare Gains Healthy Advantage
+Read the story
+We went through a tools rationalization exercise and compared what the future state would look like versus where we were with our tools landscape, and the financial payout with Splunk® Enterprise and Splunk® ITSI was immediately apparent.
+Ben Gordon,
+VP of Enterprise Infrastructure Services, Molina Healthcare
+CUSTOMER STORY
+Splunk Ensures Performance of Key Trading Application at ENGIE Global Markets
+Read the story
+When there’s an issue, Splunk ITSI shows us where to look so we can solve the issue.
+Head of Infrastructure
+ENGIE Global Markets
+CUSTOMER STORY
+Specsavers Sees 10x Faster MTTR with Splunk
+Read the story
+Splunk has made every team's life easier.
+Andy Slater,
+Observability and Automation Lead, Specsavers
+INTEGRATIONS
+Instant insights, no SPL
+View all integrations
+RESOURCES
+Explore more from Splunk
+Splunk for AIOps
+Reduce unplanned downtime by 60% with Splunk ITSI.
+Watch the video
+Infrastructure Monitoring 101: The Power to Predict and Prevent
+Get the e-book
+Splunk IT Service Intelligence Product Brief
+Download the brief
+Join the ITSI community
+Join the conversation
+x
+Splunk IT Service Intelligence FAQs
+What is Splunk IT Service Intelligence (ITSI)?
+Splunk IT Service Intelligence is an AIOps and service intelligence solution for IT operations teams. It brings together data from applications, infrastructure, networks, and existing monitoring tools to help teams monitor service health, reduce alert noise, find likely root cause faster, and understand business impact in real time.
+Why do organizations add Splunk ITSI?
+Organizations add Splunk ITSI to turn operational data into faster action. It helps teams move beyond raw alerts and dashboards to unified service views, correlated incidents, and business-aware prioritization. For teams already using Splunk, ITSI helps extend the value of the data and workflows they already rely on.
+How is Splunk ITSI different from traditional monitoring and observability tools?
+Traditional tools often stop at domain-level monitoring and alerts. Splunk ITSI correlates signals across applications, infrastructure, networks, and services, then adds service context and business impact. That helps teams reduce silos, speed root cause analysis, and focus on the issues that matter most.
+Does Splunk ITSI work with Cisco and third-party monitoring tools?
+Yes. Splunk ITSI is designed to work across Cisco environments, third-party monitoring tools, and hybrid IT. It brings signals from across your environment into one operational view, helping teams reduce tool sprawl, improve cross-domain visibility, and respond more consistently across teams and domains.
+How does Splunk ITSI reduce alert noise and speed troubleshooting?
+Splunk ITSI uses AI-driven event analytics to onboard, normalize, and correlate alerts from multiple sources. Related alerts are grouped into actionable incidents, helping teams cut alert fatigue, reduce manual triage, and move faster from detection to resolution with stronger context and less guesswork.
+How does Splunk ITSI help teams prioritize incidents by business impact?
+Splunk ITSI connects service health, key performance indicators, and dependencies to the business services they support. That helps teams quickly see which issues are most likely to affect customers, revenue, and critical operations, so they can prioritize response based on impact—not just alert volume or technical severity.
+Who should use Splunk ITSI?
+Splunk ITSI is built for IT operations teams, network operations teams, site reliability teams, service owners, and IT leaders. Practitioners use it to reduce noise and speed troubleshooting, while leaders use it to gain real-time visibility into service health, operational risk, and business impact across complex environments.
+How quickly can teams get started with Splunk ITSI?
+Splunk ITSI helps teams get value faster with a self-service deployment wizard, prebuilt integrations, AI-assisted workflows, and streamlined setup. Organizations can build on existing data and operational processes, reducing manual work and accelerating onboarding so teams can improve visibility, triage, and reporting sooner.
+What capabilities does Splunk ITSI bring to modern IT operations?
+Splunk ITSI includes modern capabilities designed to help teams move faster from signal to action. These include zero-touch alert onboarding and normalization, AI-driven event correlation, AI-assisted incident summaries and root cause guidance, Cisco network observability integrations, and a modernized user experience built for faster, more efficient operations.
+How does Splunk ITSI make day-to-day service operations easier?
+Splunk ITSI simplifies service operations with tagging, flexible maintenance windows, team-based access controls, and modern visualizations. These capabilities help clarify ownership, improve collaboration, reduce false positives during planned work, and make service health monitoring easier to manage at scale.
+Related Links
+Documentation
+Service Intelligence for SAP Solutions
+Splunk App for Content Packs
+Splunk for Blockchain
+Related products
+Splunk Cloud
+Search, analyze, visualize, and act on your data with a flexible and cost-effective data platform service.
+Learn more
+x
+Model content data
+Splunk Enterprise
+Unify security and observability with a data platform.
+Learn more
+x
+Model content data
+Infrastructure Monitoring
+Get real-time infrastructure monitoring and troubleshooting for all environments.
+Learn more
+x
+Model content data
+Splunk Observability Cloud
+Unified visibility and real-time troubleshooting across any environment.
+Learn more
+x
+Model content data
+Splunk AppDynamics
+Correlate hybrid and on-prem app performance with business outcomes.
+Learn more
+x
+Model content data
+x
+Model content data
+Get started with Splunk
+Explore ITSI to unify visibility, reduce noise, and resolve issues faster.
+Contact sales
+See pricing
+COMPANY
+COMPANY
+About Splunk
+Careers
+How Splunk Compares
+Newsroom
+Partners
+Splunk Policy Positions
+Splunk Protects
+SURGe
+Why Splunk?
+What's New
+PRODUCTS
+PRODUCTS
+Free Trials & Downloads
+All Product Tours
+Pricing
+View All Products
+SPLUNK SITES
+SPLUNK SITES
+.conf
+Documentation
+Training & Certification
+Splunk Store
+Videos
+View All Resources
+LEARN
+LEARN
+What Is SIEM?
+Splunk Universal Forwarder
+LLMs vs SLMs: What’s The Difference?
+Data Normalization Explained
+Vulnerability vs. Threats vs. Risks
+Metrics for The SOC
+IT Systems Monitoring Explained
+Data Encryption Methods and Types
+An Introduction to Telemetry
+View All Articles
+CONTACT SPLUNK
+CONTACT SPLUNK
+Contact Sales
+Contact Us
+USER REVIEWS
+USER REVIEWS
+Gartner Peer Insights™
+PeerSpot
+TrustRadius
+LANGUAGES
+LANGUAGES
+Deutsch
+Français
+日本語
+한국어
+简体中文
+繁體中文
+Splunk Global Footer Logo
+X
+Facebook
+LinkedIn
+YouTube
+Instagram
+Legal
+Privacy
+Sitemap
+Cookies / Do not sell or share my personal data
+Website Terms of Use
+Modern Slavery
+© 2026 Cisco Systems, Inc. and its affiliates. All rights reserved.
+×

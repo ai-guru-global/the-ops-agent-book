@@ -1,0 +1,418 @@
+AI SRE: Automated Root Cause Analysis for Incidents
+URL: https://rootly.com/ai-sre
+Captured: 2026-11-25
+Content-Type: text/html
+
+AI SRE: Automated Root Cause Analysis for Incidents
+Skip to content
+Product
+Product
+On-Call
+Incident Response
+AI SRE
+Retrospectives
+Status Page
+Platform
+Catalog
+Insights
+Integrations
+On-Call Health
+Changelog
+Nov 19, 2026
+Investigate, coordinate, and respond to incidents in Google Chat with @Rootly.
+Incident Response and the Rootly AI Agent are now available for use right in the channels your team already uses: Google Chat.
+Solutions
+Size
+Enterprise
+Startup
+Teams
+Engineering
+Security
+Compare us
+PagerDuty
+Opsgenie
+JSM
+Datadog
+Resolve AI
+incident.io
+How Canary built incident management from scratch on Rootly while its engineering team quadrupled.
+Replit brings structure, speed, and better decision-making to incident response with Rootly.
+How Caribou saves 200+ engineering hours a year with Rootly.
+Why Capa replaced incident.io with Rootly.
+How Reactiv outgrew incident.io and moved to Rootly for real AI and on-call without the upsell.
+How SpotDraft replaced manual follow-ups with synced, measurable incident management on Rootly.
+How Cora cut time-to-acknowledge on critical alerts to <10 minutes with Rootly.
+Why CTSO Central chose Rootly over incident.io.
+Poll Everywhere switched from PagerDuty, cut on-call tooling costs and made response faster with Rootly.
+Why Momentum didn't choose FireHydrant, and how they minimize the number of engineers on-call with Rootly.
+KnowBe4 switched from PagerDuty and turned Incident Response into a repeatable, predictable system with Rootly.
+Achievers switched from PagerDuty and productized reliability on Microsoft Teams with Rootly.
+How Motive migrated from Opsgenie and achieved 99.99% reliability with Rootly.
+Clay switched off Opsgenie to use Rootly to streamline incident management.
+Webflow shutdown PagerDuty to use Rootly to build a proactive reliability culture.
+How Wealthsimple uses Rootly to create a culture of wellness and psychological safety for incident commanders.
+How Upstart uses Rootly to create an incident response system that grows with them.
+How ROLLER scales globally while keeping a lean SRE team.
+How Lucidworks uses Rootly to create bespoke incident management for their distinct product offering.
+Customers
+Resources
+Resources
+Documentation
+API Reference
+Changelog
+Guides
+Rootly AI Labs
+Rootly Academy
+Blog
+Humans
+Partners
+Featured report
+How to achieve great incident management
+An opinionated benchmark built on a sample of Rootly data, 350K+ incidents at 650+ companies: on-call, paging, mitigation, updates, retrospectives and AI.
+Pricing
+Book a demo
+D
+Log in
+L
+✕
+Dismiss this announcement
+Rootly at AWS re:Invent · Booth 1529 · Nov 30–Dec 4, Las Vegas
+→
+✕
+Dismiss this announcement
+Webinar: “Human in the loop” is the new “pay attention” · Dec 9, 2:00 PM ET
+→
+AI SRE
+Where AI SRE agents and fast-moving teams resolve incidents together.
+Rootly AI SRE analyzes your code changes, telemetry, and past incidents to quickly identify root causes and the fix, even if you don't know that code.
+Book a demo
+#
+#
+#
+#incident-customer-cannot-complete-purchase
+Rootly
+APP
+Today at 1:31 PM
+Investigating…
+What I've found so far
+Likely root cause
+A transient spike in message production is the primary trigger. The producer rate hit
+31 messages
+at 13:09 UTC, inside the alert's 5-minute window, causing a short backlog.
+Network latency may have contributed, with a spike to
+975.63 ms
+at 13:06 UTC.
+Recommendations
+Review the alert threshold. The current 5.0 looks sensitive next to the documented 250+ warning level.
+See details and follow along on
+Rootly AI SRE
+Resolve faster. Page less. Learn more.
+Resolve incidents 10x faster
+Rootly AI SRE starts investigating the moment an alert fires, before your team has finished reading the notification, surfacing root cause in minutes. Not hours.
+Reduce on-call burden
+Rootly AI handles triage, investigation, and stakeholder updates, so fewer engineers get pulled in, and the ones who do show up with context, not questions.
+Prevent repeat incidents
+Rootly AI generates retrospectives from the full incident timeline and tracks action items to completion, so every incident makes your org more reliable.
+Automated root cause analysis, complete with suggested fixes.
+All the relevant context surfaced based on alerts, code changes, and past incidents analyzed.
+Investigate
+Find root cause
+Suggestions
+Investigate →
+All the relevant context surfaced based on alerts, code changes, and past incidents analyzed.
+Find root cause →
+Quickly identified probable root causes with confidence scores you can trust.
+Suggestions →
+Suggested fixes and next steps, with complete visibility into how and why every decision is made.
+Stack traces
+2025-09-15 12:59 UTC ERROR
+payment-service
+Transaction failed Traceback (most recent call last): by
+File "/app/services/payment_servic…
+Recent deploys
+payment-service v2.3.7
+was deployed by
+Marcus Botosh
+on 2025-09-15 13:06 UTC.
+order-confirmation-service v1.9.2
+auto-redeployed due to dependency update at 2025-09-15 13:08 UTC.
+User impact
+PaymentAuthorizationError: Transac…
+First seen
+2025-09-15 13:26 UTC
+Last seen
+2025-09-15 13:58 UTC
+Total occurrences
+1,243
+Domains impacted
+checkout flows across 6 regions
+Feature flags
+Feature Flag feature.payment_v2
+was updated by
+Marcus Botosh
+from false to true on 2025-09-15 13:28 UTC.
+Service health
+Avg. requests last 30 min 820/min
+1,000
+750
+500
+250
+0
+13:30
+14:00
+Avg. errors last 30 min 310/min. The spike began at 13:28 UTC, coinciding with the deploy and the flag change.
+Root cause analysis
+Confidence
+High
+Payment authorization requests were missing the
+X-PAY-AUTH
+header.
+PR #842 introduced the bug by refactoring request-building logic.
+Staging tests didn't validate real provider headers.
+Here are the lines that cause it, introduced by PR #842 when payment_v2 was enabled.
+config/featureFlags.ts
+22
+"X-Request-ID": sessionId,
+23
+};
+25
+if (featureFlags.payment_v2) {
+26
+return {
+27
+...base,
+28
+Authorization: `Bearer ${process.env.PAYMENT_V2_TOKEN}`
+29
+// 'X-PAY-AUTH' header missing here
+30
+};
+Suggestions
+Roll back
+payment-service
+from v2.3.7 to v2.3.6
+Propose change
+✓ Draft PR #848 opened
+Disable
+feature.payment_v2
+globally
+Propose change
+Validate checkout in staging with real provider credentials
+Open staging
+Escalate to customer-facing support teams
+Escalate incident
+AI that shows its work.
+Rootly AI SRE correlates live telemetry, recent deploys, commits, and config changes, plus similar past incidents, to propose probable root causes with confidence scores, so you can act with certainty, not just trust the output. See exactly how
+deploy-and-telemetry correlation
+works.
+AI SRE
+Chain of thought
+First, I need to check Datadog and see if this purchase drop lines up with any errors or spikes in latency. A sudden dip could mean a deploy issue or an outage somewhere.
+Checking Datadog… A 45% drop in purchases starting at 3:30 PM UTC. A clear inflection point. Cross-checking with deployments.
+7000
+6000
+5000
+4000
+3000
+2000
+5:00
+8:00
+11:00
+14:00
+17:00
+20:00
+23:00
+2:00
+5:00
+View graph in Datadog ↗
+Integrated with your entire stack.
+Rootly AI SRE isn't a standalone tool bolted onto your workflow. It's built into On-Call, Incident Response; utilizes
+Catalog
+, integrates with your repos, so it already knows your services, their owners, recent changes, and past incidents before it starts investigating.
+#
+#
+#
+#incident-customer-cannot-complete-purchase
+Rootly
+APP
+Today at 1:30 PM
+customer cannot complete purchase
+Sharp drop in successful transactions, likely caused by recent changes in the payment authorization flow. Eng team investigating.
+Update
+Action Items
+Assign Roles
+Escalate
+Rootly
+APP
+Today at 1:31 PM
+Investigating…
+What I've found so far
+Likely root cause
+A transient spike in message production is the primary trigger. The producer rate hit
+31 messages
+at 13:09 UTC, inside the alert's 5-minute window, causing a short backlog.
+Network latency may have contributed, with a spike to
+975.63 ms
+at 13:06 UTC.
+See details and follow along on
+Rootly AI SRE
+Built on a commitment to enterprise trust.
+Rootly AI SRE is designed with enterprise compliance needs in mind. We enforce zero third-party model training—your incident data is used exclusively for your organization, never pooled with other customers, never used to train general models.
+Never used for training by model providers
+Automatically redacted PII data
+Private incident data is based on channel visibility
+Your data stays within your org
+Opt in or out at any time
+Bring your own AI key
+AI you can trust
+AI that works for you across the incident lifecycle.
+An agent at every stage, from the first alert to the retrospective.
+See an incident end to end
+Ellis
+1 minute ago
+@Rootly
+what's going on?
+Rootly
+APP
+1 minute ago
+We're seeing 503 errors above threshold in the payments service, likely from an integration error with a new ACME Payments service. Auth tokens are being regenerated to resolve it.
+Conversational AI assistant
+Tag
+@Rootly
+to get up to speed in seconds with personalized summaries—plus draft comms, assign tasks, set severities, and more, all in one place.
+Related incidents
+Payment Gateway Timeout
+Aug 22, 2025
+Checkout API Serialization Error
+Jul 14, 2025
+Feature Flag Rollout Regression
+May 9, 2025
+Header Injection Bug in Order-Service
+Mar 3, 2025
+Similar incident matching
+Enhance decision-making with quickly surfaced
+similar past incidents
+, reuse proven solutions, and bring in previous responders instantly.
+Recording in progress
+Rootly Scribe
+Live call transcription and scribing
+Rootly AI Meeting Bot
+joins your incident bridges to transcribe in real time and capture critical context—so nothing slips through the cracks.
+Draft
+Approved
+Send
+Email
+SMS
+Slack
+Some customers are unable to check out. We've identified the issue and are working on a fix. Next update in 30 min.
+Leadership
+Customers
+Automated status updates
+The right level of detail for the right audience
+, from technical responders to leadership and customers, without pulling anyone off the incident to write them.
+>_ MCP
+Claude Code
+Cursor
+Windsurf
+Connected to your IDE with MCP
+Resolve production incidents in seconds—right from your IDE—with the
+Rootly MCP
+server
+, built to plug into editors like Cursor, Windsurf, and Claude.
+Incidents › API Latency Degradation (INC-2034)
+API Latency Degradation (INC-2034)
+Summary
+Between 14:03 and 15:45 UTC on July 9, the public API saw elevated latency
+and intermittent 5xx errors across all regions.
+Retrospectives drafted for you
+Maximize insights without burnout with auto-
+generated retrospectives
+—complete with context and timelines.
+Wealthsimple drove a culture of psychological safety for incident commanders with Rootly.
+Chris Inch
+Achievers switched from PagerDuty and productized reliability on Microsoft Teams with Rootly.
+Stefan Kolesnikowicz
+Webflow shutdown PagerDuty to use Rootly to build a proactive reliability culture.
+Colin FitzGerald
+Clay switched off Opsgenie to use Rootly to streamline incident management.
+George Dilthey
+You and your teams deserve modern incident management.
+Book a Demo
+Frequently asked questions
+Everything you need to know about AI SRE.
+What is an AI SRE?
+An AI SRE is an AI system that performs the investigation, triage, and coordination tasks traditionally handled by a site reliability engineer during an incident. It monitors alerts, runs root cause analysis, surfaces findings, and assists with resolution—working alongside human engineers rather than replacing them. Much of this work also goes by
+AI incident management
+, which applies AI across every stage of the incident lifecycle. AIOps tools work earlier in the event stream, cutting noise and correlating alerts, and
+AI SRE vs AIOps
+explains how the two fit together.
+What is Rootly AI SRE?
+Rootly AI SRE is an AI-powered investigation and response engine built directly into Rootly's incident management platform. It activates the moment an alert fires, runs parallel hypothesis checks, surfaces root cause with confidence scores, and assists your team through resolution—without replacing human judgment.
+How does AI root cause analysis work?
+Rootly AI SRE runs parallel hypothesis checks across your alerts, telemetry, recent deployments, and past incidents—building a ranked, evidence-backed theory of what went wrong. Each finding comes with a confidence score and a visible reasoning chain so engineers can evaluate the output before acting on it.
+How is Rootly AI SRE different from incident.io's or Resolve AI's?
+Rootly AI SRE is built into a complete incident management platform, not layered on top of one. It has full context across your services, team ownership, on-call schedules, and incident history before it starts investigating. It also shows its reasoning at every step, enforces zero third-party training on your data, and never auto-remediates without human sign-off.
+Does Rootly train on my incident data?
+No. Rootly enforces zero third-party model training. Your incident data is used exclusively for your organization; never pooled with other customers, never used to train general models.
+What does “human in the loop” mean in practice?
+Rootly AI SRE investigates, surfaces findings, suggests remediation steps, drafts updates and fixes but every change requires explicit human sign-off before execution. Engineers stay in control at every decision point.
+How does Rootly AI SRE connect to the rest of the platform?
+Rootly AI SRE is natively integrated with Rootly On-Call, Incident Response, Catalog, and has read access your code repositories. It knows which services are affected, who owns them, what's changed recently, and what happened in similar past incidents, without any manual setup or context-switching.
+How long does it take to see value?
+Teams see Rootly AI SRE surface its first root cause finding within the first incident after setup. Because it's integrated with your existing Rootly platform there's no separate onboarding required.
+Does Rootly correlate deploys with incidents?
+Yes, Rootly's AI SRE correlates telemetry with recent deploys, commits, and feature-flag changes, plus past incidents, then shows an evidence chain with confidence scores before recommending a fix.
+See what your favorite AI says about Rootly.
+Product
+AI SRE
+On-Call
+Incident Response
+Status Page
+Mobile App
+Pricing
+Company
+About us
+Why Switch to Rootly
+Careers
+Security
+Rootly Supply
+Brand
+Resources
+Documentation
+API Reference
+Blog
+Great Incident Principles
+Changelog
+System Status
+Community
+Rootly AI Labs
+Humans of Reliability
+Reliability Top 50
+Events
+Customer Stories
+SRE Library
+Join our monthly newsletter
+Subscribe
+©Rootly 2026. All rights reserved.
+Privacy policy
+·
+Terms of use
+·
+Vulnerability disclosure policy
+·
+Your privacy choices
+Please accept all cookies or decline non-essential ones. Read Rootly's
+Privacy policy
+for more information.
+Decline
+Accept
+Your privacy choices
+Rootly uses cookies from advertising partners to measure our ads and to show ads for Rootly on other sites. Some US state laws call that selling or sharing personal information. You can opt out of it for this browser here.
+Advertising cookies
+Ad measurement and retargeting by partners such as Google, LinkedIn and Reddit.
+Your browser sent a Global Privacy Control signal, which your state's law treats as an opt-out, so advertising cookies are already off for this browser.
+Analytics we use to improve this site stay on. Read Rootly's
+Privacy policy
+for more information.
+Cancel
+Save

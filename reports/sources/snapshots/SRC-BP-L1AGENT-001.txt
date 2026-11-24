@@ -1,0 +1,207 @@
+L1 Agent
+URL: https://docs.bigpanda.io/en/l1-agent
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+L1 Agent
+Skip to main content
+Toggle navigation
+BigPanda Login
+Release Notes
+API Reference
+BigPanda Education
+Toggle navigation
+BigPanda Login
+Release Notes
+API Reference
+BigPanda Education
+print
+Toggle navigation
+Prev
+Next
+BigPanda Documentation
+Get Started
+BigPanda Platform
+L1 Agent
+L1 Agent
+BigPanda L1 Agent replaces manual L1 operations with an autonomous AI agent that triages, routes, and escalates incidents without human intervention. Each capability starts by suggesting, and you decide when it acts on its own. L1 Agent moves beyond the assisted decision-making of
+AI Detection and Response (ADR)
+into fully automated L1 workflows. With the speed and accuracy that only AI can bring, the L1 Agent helps your team reduce operational costs and accelerate incident response around the clock.
+The L1 Agent automates routine tasks such as ticket assignment and prioritization. For complex incidents that require human expertise, L1 Agent gathers context and prepares a structured escalation package so your L2 engineers can start working immediately.
+Use the L1 Agent in the tools your teams already use, including ServiceNow and Jira, to empower your team with AI-driven automation without changing existing workflows.
+Start in ADR mission control
+Set up the L1 Agent yourself from ADR mission control. Every capability starts manually triggered and suggests; nothing acts on its own until you change it. See
+Set up the L1 Agent
+.
+Key features
+End-to-end L1 automation
+- Route, prioritize, suppress, escalate, and resolve routine incidents without human intervention.
+Context-rich L2 escalation
+- For complex incidents, deliver structured escalation packages with summaries, root cause hints, and recommended next steps.
+ITSM integration
+- Push AI-enriched summaries, assignments, and escalation packages directly into ServiceNow and Jira.
+Runbook automation
+- Execute existing runbooks in your environment to collect context and, with your approval, take remediation actions.
+Continuous learning
+- Improve over time by ingesting data from your incidents, alerts, ITSM records, knowledge bases, and runbooks.
+Capabilities
+The L1 Agent groups its capabilities in two sets. You choose which ones run in each environment, and how, in ADR mission control.
+Capability
+Group
+What it does
+Can act on its own
+Assignment
+Autonomous L1
+Suggests the team that should own the incident.
+Yes
+Suppression
+Autonomous L1
+Flags incidents that look like known noise.
+Yes
+Runbooks
+Autonomous L1
+Suggests the runbook that fits the incident.
+Yes
+AI Incident Analysis
+Incident context
+Writes the incident summary, impact, and probable cause.
+No
+Incident Correlation
+Incident context
+Finds related incidents and groups them into clusters.
+No
+Historical Incidents
+Incident context
+Finds similar past incidents and what resolved them.
+No
+Service Desk Observability
+Incident context
+Links service desk tickets to the incident.
+No
+External Observability
+Incident context
+Checks external providers for events that could cause the incident.
+No
+Autonomous L1 capabilities start by suggesting. Once your team trusts the suggestions, set them to act on its own. Incident context capabilities add information to the incident and never act.
+Set up the L1 Agent
+Before you start, connect your ITSM incident tables through the
+Unified Data Connector
+. The agent reads incidents from those tables, and setup stays unavailable until they are connected.
+Set up the L1 Agent
+: Pick environments and capabilities in ADR mission control.
+Configure the L1 Agent
+: Change when each capability runs and whether it acts, per environment.
+Use cases
+L1 Agent addresses two primary scenarios: fully automating L1 operations and augmenting L2 engineers with context-rich escalation packages.
+Full L1 Automation
+L1 Agent can replace the L1 operator end-to-end for routine incidents:
+Ticket assignment
+- Route incidents to the correct resolution team based on incident data and historical patterns.
+Prioritization
+- Set priority based on business impact, affected services, and operational context.
+Suppression and noise reduction
+- Snooze noisy incidents and merge duplicates to reduce alert fatigue.
+Escalation
+- Escalate to L2 when deeper investigation is needed, with full context attached.
+Auto-resolution
+- Close incidents that match known resolution patterns from past learnings.
+L2 Augmentation
+For incidents that require human expertise, L1 Agent prepares your L2 engineers with everything they need:
+Gather context
+- Collect alerts, recent changes, and service dependencies relevant to the incident.
+Generate summary
+- Create a concise incident summary with root cause hints and recommended next steps.
+Deliver escalation package
+- Provide a structured package directly in ServiceNow or Jira so your L2 team can begin investigation immediately.
+Agentic context and action
+The L1 Agent operates across four pillars to deliver autonomous incident management.
+Learning
+L1 Agent ingests data from BigPanda incidents, alerts, and your IT Service Management (ITSM) tools such as ServiceNow and Jira. It leverages the BigPanda IT Knowledge Graph, which combines data from monitoring tools, ITSM records, knowledge base articles, runbooks, change history, and topology sources to build a comprehensive understanding of your environment.
+Decision-making
+L1 Agent evaluates each incident and decides what to recommend or do. Assignment, Suppression, and Runbooks can each run as suggestions that a person accepts, or act on their own once you allow it.
+Integrating
+L1 Agent integrates with the Incident Feed view, ServiceNow, and Jira. It delivers AI-enriched incident summaries, assignment decisions, and escalation packages directly into your ITSM environment.
+Taking action
+L1 Agent executes actions through two runbook automation modes:
+Context collection -
+The agent ingests your existing runbooks, breaks them into executable steps, runs them in your environment, and feeds the results back into its reasoning to make better decisions.
+Remediation actions -
+With your approval, the agent can take corrective actions such as restarting services, clearing queues, or applying known fixes. Remediation actions require explicit approval workflows.
+The L1 Agent and ADR Products
+The ADR and L1 Agent products build together to further accelerate first-response.
+ADR 's AI triage
+helps your L1 team work faster and more consistently by providing AI-driven detection and triage insights. The
+L1 Agent
+takes the next step by removing action items from L1 workloads entirely. Organizations that leverage both products will see impact multiply.
+ADR Product: AI Triage & context
+AI incident analysis (AIA)
+Incident correlation
+Service desk observability
+Historical and similar incidents
+Root cause changes
+L1 Agent Product: Automated actions
+Automatic ticket routing
+Runbook automation
+Suppression and noise reduction
+Runbook suggestions
+Coming soon:
+Automatic prioritization
+Escalation logic
+Auto-resolution
+Deep ServiceNow Partnership
+For organizations that operate primarily in ServiceNow, L1 Agent pushes results directly into ServiceNow:
+AI-enriched incident summaries on tickets
+Agent-driven assignment, prioritization, and escalation reflected in ServiceNow fields
+Structured escalation packages visible to L2 teams without leaving ServiceNow
+L1 Agent also supports incident correlation in ServiceNow by creating a parent case ticket for correlated incidents and linking related tickets as children. When the root cause is resolved, closing the case closes all child tickets, giving your team cross-team visibility without changing existing workflows.
+ServiceNow v2.x required
+The L1 agent is currently supported on integrations leveraging the v2.x app versions. Support for the ServiceNow v3.x store app is coming soon.
+Security
+L1 Agent follows the same security controls for data handling and protection as the BigPanda platform. BigPanda uses
+industry-standard security technologies and procedures
+to protect your data from unauthorized access, use, or disclosure at every stage.
+See the Generative AI Customer Trust document from the
+BigPanda Trust Center
+for more information.
+Next Steps
+Learn how
+AI Detection and Response (ADR)
+can enrich the detection and triage foundation for L1 Agent.
+See the
+AI BigPanda Incident Assistant
+and
+AI Incident Prevention
+capabilities to further accelerate AIOps.
+Introduction to BigPanda AI Incident Assistant
+AI Incident Prevention Analytics and Dashboards
+Set up the L1 Agent
+in ADR mission control.
+In this section
+:
+L1 Agent
+Key features
+Capabilities
+Set up the L1 Agent
+Use cases
+Full L1 Automation
+L2 Augmentation
+Agentic context and action
+Learning
+Decision-making
+Integrating
+Taking action
+The L1 Agent and ADR Products
+ADR Product: AI Triage & context
+L1 Agent Product: Automated actions
+Deep ServiceNow Partnership
+Security
+Next Steps
+Search results
+No results found
+Prev
+Next
+© 2026 BigPanda
+Last modified:
+November 4, 2026
+Publication date
+:

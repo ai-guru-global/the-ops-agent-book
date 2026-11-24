@@ -19,11 +19,10 @@ content_status: "reviewed"
 - “未核实”表示本轮没有取得足以支持该字段的证据，**不等于否定**。不得据此猜测 GA/预览、区域、价格、数据驻留或退出条款。
 - 动态目录数量只在明确快照日时使用。本轮删除“36 Agent / 328 Skills”的当前事实表述，且**未重新计数**。
 - `accessed_at` 是实际访问或沿用原书访问记录的日期；`review_by` 是下一次复核截止，不是来源失效日。
-- 快照列记录本地正文快照与 SHA-256。本轮已保存 33 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
+- 快照列记录本地正文快照与 SHA-256。本轮已保存 69 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
 - 所有至少有一个“未核实”字段的厂商 claim 同时登记在机器可读的 `sources/claim-gaps.json`；补证只关闭有来源的字段，不能把整条 claim 一键改成已核实。
 
 ## 来源清单
-
 | source_id | 类型 | 访问日 | review_by | 适用 claim | 快照说明 |
 | --- | --- | --- | --- | --- | --- |
 | SRC-ALI-CATALOG-001 | official_doc | 2026-11-12 | 2027-02-10 | ALI-01 | 目录入口；未重计数；待存目录快照 |
@@ -98,11 +97,47 @@ content_status: "reviewed"
 | SRC-YANLONG-SREAGENT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-04 | 已存 `reports/sources/snapshots/SRC-YANLONG-SREAGENT-001.txt` |
 | SRC-XJ-IT-AGENT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-05 | 已存 `reports/sources/snapshots/SRC-XJ-IT-AGENT-001.txt` |
 | SRC-ME-AIOPS-GUIDE-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-06、OBS-15 | 已存 `reports/sources/snapshots/SRC-ME-AIOPS-GUIDE-001.txt` |
+| SRC-HW-MINDOPS-001 | official_release | 2026-11-25 | 2027-02-22 | CN-HW-01 | 已存 `reports/sources/snapshots/SRC-HW-MINDOPS-001.txt` |
+| SRC-HW-AEI-2026-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-02 | 已存 `reports/sources/snapshots/SRC-HW-AEI-2026-001.txt` |
+| SRC-HW-IMASTERCLOUD-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-04 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERCLOUD-001.txt` |
+| SRC-HW-IMASTERCLOUD-DATA-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-04 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERCLOUD-DATA-001.txt` |
+| SRC-HW-IMASTERCLOUD-REGIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-04 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERCLOUD-REGIONS-001.txt` |
+| SRC-HW-IMASTERCLOUD-ACCOUNT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-04 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERCLOUD-ACCOUNT-001.txt` |
+| SRC-HW-IMASTERNCE-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-05 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERNCE-001.txt` |
+| SRC-BD-QIANFAN-AGENTINFRA-001 | official_release | 2026-11-25 | 2027-02-22 | CN-BD-02 | 已存 `reports/sources/snapshots/SRC-BD-QIANFAN-AGENTINFRA-001.txt` |
+| SRC-BD-DATABUILDER-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-05 | 已存 `reports/sources/snapshots/SRC-BD-DATABUILDER-001.txt` |
+| SRC-BD-DATABUILDER-VERSIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-05 | 已存 `reports/sources/snapshots/SRC-BD-DATABUILDER-VERSIONS-001.txt` |
+| SRC-BD-HOGEE-BILLING-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-07 | 已存 `reports/sources/snapshots/SRC-BD-HOGEE-BILLING-001.txt` |
+| SRC-BD-HOGEE-PRIVACY-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-07 | 已存 `reports/sources/snapshots/SRC-BD-HOGEE-PRIVACY-001.txt` |
+| SRC-BD-COMATE-PRODUCT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-08 | 已存 `reports/sources/snapshots/SRC-BD-COMATE-PRODUCT-001.txt` |
+| SRC-BD-COMATE-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-08 | 已存 `reports/sources/snapshots/SRC-BD-COMATE-PRICING-001.txt` |
+| SRC-BD-COMATE-DATA-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-08 | 已存 `reports/sources/snapshots/SRC-BD-COMATE-DATA-001.txt` |
+| SRC-BD-YIJING-API-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-09 | 已存 `reports/sources/snapshots/SRC-BD-YIJING-API-001.txt` |
+| SRC-SW-OBS-2026-1-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-16 | 已存 `reports/sources/snapshots/SRC-SW-OBS-2026-1-001.txt` |
+| SRC-HOLMESGPT-001 | community | 2026-11-25 | 2027-02-22 | OBS-18 | 已存 `reports/sources/snapshots/SRC-HOLMESGPT-001.txt` |
+| SRC-K8SGPT-001 | community | 2026-11-25 | 2027-02-22 | OBS-19 | 已存 `reports/sources/snapshots/SRC-K8SGPT-001.txt` |
+| SRC-INCIDENTIO-AISRE-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-20 | 已存 `reports/sources/snapshots/SRC-INCIDENTIO-AISRE-001.txt` |
+| SRC-ROOTLY-AISRE-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-23 | 已存 `reports/sources/snapshots/SRC-ROOTLY-AISRE-001.txt` |
+| SRC-RESOLVEAI-AISRE-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-24 | 已存 `reports/sources/snapshots/SRC-RESOLVEAI-AISRE-001.txt` |
+| SRC-CLERIC-AISRE-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-25 | 已存 `reports/sources/snapshots/SRC-CLERIC-AISRE-001.txt` |
+| SRC-CLERIC-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-25 | 已存 `reports/sources/snapshots/SRC-CLERIC-PRICING-001.txt` |
+| SRC-OBSY-AGREEMENT-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-21 | 已存 `reports/sources/snapshots/SRC-OBSY-AGREEMENT-001.txt` |
+| SRC-CANWAY-AGENTICOPS-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-22 | 已存 `reports/sources/snapshots/SRC-CANWAY-AGENTICOPS-001.txt` |
+| SRC-CLOUDWISE-CASTREL-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-27 | 已存 `reports/sources/snapshots/SRC-CLOUDWISE-CASTREL-001.txt` |
+| SRC-EOITEK-DATA-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-28 | 已存 `reports/sources/snapshots/SRC-EOITEK-DATA-001.txt` |
+| SRC-YANLONG-PRIVATE-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-29 | 已存 `reports/sources/snapshots/SRC-YANLONG-PRIVATE-001.txt` |
+| SRC-DD-CLOUDSRE-001 | community | 2026-11-25 | 2027-02-22 | OBS-02 | 已存 `reports/sources/snapshots/SRC-DD-CLOUDSRE-001.txt` |
+| SRC-SPLUNK-AIASSISTANT-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-04 | 已存 `reports/sources/snapshots/SRC-SPLUNK-AIASSISTANT-001.txt` |
+| SRC-SPLUNK-ITSI-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-04 | 已存 `reports/sources/snapshots/SRC-SPLUNK-ITSI-001.txt` |
+| SRC-PD-AIAGENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-05 | 已存 `reports/sources/snapshots/SRC-PD-AIAGENTS-001.txt` |
+| SRC-SUMO-MOBOT-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-10 | 已存 `reports/sources/snapshots/SRC-SUMO-MOBOT-001.txt` |
+| SRC-LM-EDWIN-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-11 | 已存 `reports/sources/snapshots/SRC-LM-EDWIN-001.txt` |
+| SRC-BP-L1AGENT-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-12 | 已存 `reports/sources/snapshots/SRC-BP-L1AGENT-001.txt` |
 
 ## 未覆盖与快照计划
 
-Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist，以及 Dynatrace、PagerDuty、Sumo Logic、LogicMonitor、BigPanda、OpsRamp、SolarWinds、Cisco、Juniper、SentinelOne、Kubecost 等条目仍缺足够可归档正文。Oracle、SAP、ServiceNow、华为/百度/阿里/腾讯/火山及部分国产 AIOps 厂商已有官方来源；Google Gemini agent、ADK 与 Microsoft Security Copilot 也已补证，但区域、许可、驻留与退出字段仍按 claim 逐项保留“未核实”。
+Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist，以及 HPE OpsRamp、BMC HelixGPT、Komodor、Metoro、Cisco、Juniper、SentinelOne、Kubecost 等条目仍缺足够可归档正文。Oracle、SAP、ServiceNow、华为/百度/阿里/腾讯/火山、Dynatrace、Splunk、PagerDuty、Sumo Logic、LogicMonitor、BigPanda、SolarWinds、HolmesGPT、K8sGPT、incident.io、Rootly、Resolve.ai、Cleric、观测云及部分国产 AIOps 厂商已有官方来源；Google Gemini agent、ADK 与 Microsoft Security Copilot 也已补证，但区域、许可、驻留与退出字段仍按 claim 逐项保留“未核实”。
 
-本轮已保存 AWS DevOps Agent、AgentRun、Datadog AI、OWASP、NIST AI RMF、EU AI Act、OTel GenAI、Google SRE Workbook、A2A，以及 AgentArts、百度搭子、百度伐谋、秒哒导出、OCI Enterprise AI Agents、SAP Joule Agents、ServiceNow AI Agents、Model Studio 价格、Qoder 计费、Agentic OS、腾讯 ADP/TCOP、火山智能运维助手/方舟计费、Gemini agent、ADK v2.0、Security Copilot 定价，以及京东云 AIOps、浪潮 InCloud Manager、云智慧 ITSM、擎创夏洛克、炎龙 SREAgent、新炬 IT 运维智能体、ManageEngine AIOps 指南正文快照。Azure SRE Agent 与 MCP 待重试；其余来源按采购/发布优先级补存。社区来源还需记录 commit SHA。
+本轮已保存 AWS DevOps Agent、AgentRun、Datadog AI、OWASP、NIST AI RMF、EU AI Act、OTel GenAI、Google SRE Workbook、A2A，以及 AgentArts、百度搭子、百度伐谋、秒哒导出、OCI Enterprise AI Agents、SAP Joule Agents、ServiceNow AI Agents、Model Studio 价格、Qoder 计费、Agentic OS、腾讯 ADP/TCOP、火山智能运维助手/方舟计费、Gemini agent、ADK v2.0、Security Copilot 定价，以及京东云 AIOps、浪潮 InCloud Manager、云智慧 ITSM、擎创夏洛克、炎龙 SREAgent、新炬 IT 运维智能体、ManageEngine AIOps 指南、MindOps、AEI 白皮书、iMasterCloud/NCE、百度胜算/Hogee/文心快码/一镜、SolarWinds、HolmesGPT、K8sGPT、incident.io/Rootly/Resolve.ai/Cleric、观测云、嘉为蓝鲸、云智慧 Castrel、擎创数据中台与炎龙私有化安全说明正文快照。Azure SRE Agent 与 MCP 待重试；其余来源按采购/发布优先级补存。社区来源还需记录 commit SHA。
 
 完整引用入口见[参考资料](./references)。

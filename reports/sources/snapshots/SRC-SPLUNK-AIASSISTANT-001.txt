@@ -1,0 +1,377 @@
+Splunk AI Assistant  Cloud Platform | Splunk
+URL: https://www.splunk.com/en_us/products/splunk-ai-assistant.html
+Captured: 2026-11-25
+Content-Type: text/html;charset=utf-8
+
+Splunk AI Assistant Cloud Platform | Splunk
+Deutsch
+Francais
+日本語
+한국어
+中文
+繁體中文
+Search
+Search
+Platform
+Back
+Products
+Cloud Platform
+Data platform hosted in the cloud
+Enterprise
+Data platform deployed on-prem, in a private cloud, or hybrid
+Platform overview
+Capabilities
+Artificial Intelligence
+Activate agentic operations
+Data Management
+Optimize pipelines and control costs
+Federated Search
+Unify search across different sources
+Machine Data Lake​
+Retain full-fidelity data at low cost​
+Agent Launchpad​
+Build, test, and deploy custom AI​
+Use Cases
+Data Optimization
+Manage data, storage, and costs
+IT Modernization
+Maximize IT impact with AIOps
+IT Service Health
+Analyze service health from one view
+View all use cases
+See Splunk Cloud Platform in action
+Explore the product tour
+Security
+Back
+Products
+Enterprise Security
+Unify TDIR with the AI-powered SecOps platform
+Security overview
+Capabilities
+SIEM
+Detect and stop threats
+SOAR
+Accelerate and automate response
+UEBA
+Detect user and entity anomalies
+Detection Studio
+Develop and monitor detections
+Artificial Intelligence
+Scale with AI and AgenticOps
+View all capabilities
+Use Cases
+Advanced Threat Detection
+Uncover insider threats and attacks
+Automation and Orchestration
+Streamline incident response
+Compliance
+Access easy auditing and reporting
+Security Monitoring
+Centralize data for complete visibility
+View all use cases
+Power the
+agentic SOC
+Learn more
+Explore Splunk Enterprise Security
+Take the product tour
+Observability
+Back
+Products
+Observability Cloud
+Gain real-time visibility across any environment
+IT Service Intelligence
+Protect service performance with AIOps
+AppDynamics
+Optimize apps with full-stack insight
+Observability overview
+Capabilities
+Application Performance Monitoring
+Troubleshoot performance issues
+Infrastructure Monitoring
+Monitor clouds, containers, and on-prem
+Digital Experience Analytics
+Analyze user experiences
+Agent Observability
+Monitor agents, models, and costs
+AI SRE
+Troubleshoot with agentic AI
+Use Cases
+Alert Noise Reduction
+Correlate and prioritize alerts
+Cloud Monitoring Optimization
+Manage cloud performance and costs
+End-User Experiences
+Detect and prevent user issues
+Microservices Troubleshooting
+Debug problems in microservices
+View all use cases
+Build a leading observability practice with
+Splunk AI
+Learn more
+Explore Infrastructure Monitoring
+Take the product tour
+Industries
+Back
+Aerospace and Defense
+Communications and Media
+Energy and Utilities
+Financial Services
+Healthcare
+Higher Education
+Manufacturing
+Nonprofits
+Online Services
+Public Sector
+Retail
+Technology
+View all industries
+Reduce Financial Crime and Fraud in Financial Services
+Read the brief
+A Strategic Approach for AI Implementation in Discrete Manufacturing
+Download now
+See Across Every System to Maximize Network Resilience
+Read the e-book
+Resources
+Back
+Get Started
+Get Started with Splunk
+Splunkbase
+Splunk Lantern
+Community and User Groups
+Customer Success
+Resource Center
+Contact Sales
+Learn
+Training and Certification
+Documentation
+Product Tours
+Blogs
+Events
+.conf26
+Why Splunk
+Why Splunk
+What's New
+Awards and Recognition
+Customer Stories
+Splunk vs. the Competition
+Become a Partner
+Pricing
+Search
+Partners
+Support
+Back
+Support
+Customer Support
+Support Portal
+Contact Us
+Splunk Answers
+System Status
+Cisco Support
+AppDynamics Support
+Product Security Updates
+Log In
+Back
+Log In
+Log In
+Sign Up
+My Dashboard
+Instances
+My Training
+Logout
+Trials & Downloads
+Search
+Now available for Splunk Enterprise
+Take advantage of Splunk AI Assistant, now available on-prem for Splunk Enterprise users.
+Get started
+Splunk Cloud Platform
+Splunk Cloud Platform
+Splunk Cloud Platform
+Product Brief
+Features
+AI Assistant
+Resources
+Documentation
+Pricing
+More
+ARTIFICAL INTELLIGENCE
+Splunk AI Assistant
+Transform data analysis from manual, multi-step processes into intelligent agentic workflows.
+Download the app
+Ready to get started? Install the app today.
+Take a guided tour
+Got 5 minutes? See how it works.
+HOW IT WORKS
+Bring advanced agent-based reasoning to the Splunk platform
+Splunk AI Assistant chains multiple tools together, validates analysis at each step, and delivers complete intelligence with transparent reasoning.
+Accelerate investigations using Agent Mode
+With Agent Mode enabled, users enter a prompt, and Splunk AI Assistant will decompose it into a list of parallel tools and skill calls. This includes running event scans, discovering existing content like dashboards, and executing searches within the assistant with summarized findings.
+Learn about Agent Mode
+See it in action
+Discover relevant context quickly
+Splunk AI Assistant uses semantic search to help users easily find knowledge objects like dashboards, reports, and datasets in natural language. It uses a vector database to store and retrieve relevant context, such as index metadata, sourcetypes, and user search history, to personalize query generation.
+Explore context options
+Route prompts to the best-fit model
+Model Runtime allows Splunk to determine the best model for each prompt, including models hosted outside of
+Splunk Cloud Platform
+. AI inferencing done via this method remains free. Users can limit the model to only use Splunk-hosted models, but doing so will disable Agent Mode.
+Learn more
+Gain more control of the data you collect
+Context settings and customization provide more control and visibility into the data that is collected from deployments and allows users to toggle certain collection options for index and sourcetype metadata, user search logs, and knowledge objects.
+USE CASES
+Your AI-powered companion for getting answers from your data
+A real-time agentic teammate
+With Agent Mode, the assistant reasons through your requests, takes action on your behalf, and leverages a rich set of tools and skills — all from a single chat window.
+x
+Model content data
+Results you can rely on
+The assistant decomposes complex questions into parallel steps, exposes its reasoning to build trust, and asks clarifying questions for ambiguous prompts.
+x
+Model content data
+Turn operational data into business excellence
+Accelerate insights by correlating business metrics and context with Splunk data and other data sources to control usage and costs.
+x
+Model content data
+Data discovery
+Don't know where your data lives? The assistant scans your environment and identifies the right data sources for your question.
+x
+Model content data
+Intelligent SPL generation, editing, and optimization
+Describe what you want to search in plain English, and the assistant translates it into accurate SPL. It can modify existing queries based on your instructions without rewriting them from scratch, leading to faster queries and insights!
+x
+Model content data
+Resources
+Explore more from Splunk
+Meet Your New Agentic Teammate with Splunk AI Assistant 2.0
+Read the blog
+Agent powered data intelligence. Turn data into doing.
+Learn more
+Agent Mode Threat Hunting Demo
+Watch the video
+Agent Mode Engaged! Enchaining Agentic Operations with Splunk AI Assistant 2.0
+Watch the Tech Talk
+x
+Splunk AI Assistant FAQs
+What is Splunk AI Assistant?
+Splunk AI Assistant is our agentic AI-powered user experience that is designed to enhance productivity, effectiveness, and overall digital resilience with the full power of the Splunk Platform.
+How does Splunk AI Assistant work?
+Splunk AI Assistant helps users with any level of Splunk proficiency find answers from their data in Splunk. The assistant offers bi-directional translation between natural language (NL) and Splunk Search Processing Language (SPL), and can help create searches, understand searches, learn SPL, learn more about Splunk platform products and features, and complete entire tasks.
+What data is collected by Splunk AI Assistant?
+Splunk AI Assistant collects different data depending on what specific personalization features that the customer has opted into. Opting into the context feature allows Splunk AI Assistant to generate responses that are better tailored to the customer’s specific environment. For full details on what is collected and how that data is stored, please see the
+AI service data in Splunk AI Assistant
+page.
+How can a customer share more about their experience using Splunk AI Assistant or request features and enhancements?
+If you want to share your thoughts on Splunk AI Assistant or suggest things you'd like to see in future updates to our team, please submit your ideas at
+ideas.splunk.com
+.
+How much does Splunk AI Assistant cost?
+Splunk AI Assistant is available at no additional fee to Splunk Cloud Platform and Splunk Enterprise customers, aside from standard subscription fees.
+Related Links
+Documentation
+Demo
+Splunkbase
+FAQ
+Related products
+Splunk AI everywhere
+Splunk MCP Server
+Deploy native agents that plan and execute triage or troubleshoot with human oversight.
+Learn more
+x
+Model content data
+AI Toolkit
+Build, train, and apply ML, AI, and foundation models quickly to your Splunk data.
+Learn more
+x
+Model content data
+Splunk AI Assistant in Observability Cloud
+Easily troubleshoot and optimize your applications — from monoliths to microservices.
+Learn more
+x
+Model content data
+Splunk Cloud Platform
+Get cloud-powered insights for petabyte-scale data analytics across the hybrid cloud.
+Learn more
+x
+Model content data
+Splunk Enterprise
+Gain actionable insights from all your data using search, analysis, and visualization.
+Learn more
+x
+Model content data
+Splunk Enterprise Security
+Deliver better, faster security outcomes and reduce risk with the AI-powered SecOps platform.
+Learn more
+x
+Model content data
+Get started
+Let Splunk AI Assistant help your team work smarter, not harder.
+Take a technical deep dive
+Explore an interactive tour
+COMPANY
+COMPANY
+About Splunk
+Careers
+How Splunk Compares
+Newsroom
+Partners
+Splunk Policy Positions
+Splunk Protects
+SURGe
+Why Splunk?
+What's New
+PRODUCTS
+PRODUCTS
+Free Trials & Downloads
+All Product Tours
+Pricing
+View All Products
+SPLUNK SITES
+SPLUNK SITES
+.conf
+Documentation
+Training & Certification
+Splunk Store
+Videos
+View All Resources
+LEARN
+LEARN
+What Is SIEM?
+Splunk Universal Forwarder
+LLMs vs SLMs: What’s The Difference?
+Data Normalization Explained
+Vulnerability vs. Threats vs. Risks
+Metrics for The SOC
+IT Systems Monitoring Explained
+Data Encryption Methods and Types
+An Introduction to Telemetry
+View All Articles
+CONTACT SPLUNK
+CONTACT SPLUNK
+Contact Sales
+Contact Us
+USER REVIEWS
+USER REVIEWS
+Gartner Peer Insights™
+PeerSpot
+TrustRadius
+LANGUAGES
+LANGUAGES
+Deutsch
+Français
+日本語
+한국어
+简体中文
+繁體中文
+Splunk Global Footer Logo
+X
+Facebook
+LinkedIn
+YouTube
+Instagram
+Legal
+Privacy
+Sitemap
+Cookies / Do not sell or share my personal data
+Website Terms of Use
+Modern Slavery
+© 2026 Cisco Systems, Inc. and its affiliates. All rights reserved.
+×

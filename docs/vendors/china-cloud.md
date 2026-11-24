@@ -68,10 +68,10 @@ flowchart TB
 | 产品 | 形态 | 运维域 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
 | **智果 AgentArts**（CN-HW-03） | 企业级 Agent 平台 | 行业 Agent | 官方文档描述 Managed Agents、运行时托管、观测评估、低代码编排与隔离沙箱；整体 GA 与商业条款未核实 | SRC-HW-AGENTARTS-001 |
-| **MindOps**（CN-HW-01） | 智能运维平台 | ICT 运维 | 公开报道涉及 Agentic AI 运维方向；具体能力、状态与生产效果未核实 | PUB-HUAWEI-MINDOPS-001 |
-| **iMasterCloud**（CN-HW-04） | 云管/运维平台 | 多云/ICT | 能力与状态未核实 | 未核实 |
-| **AEI**（CN-HW-02） | 架构/体系 | 企业 ICT 运维 | 公开报道提及企业 ICT 智能体架构与云边协同；具体能力与状态未核实 | PUB-HUAWEI-AEI-001 |
-| **iMaster NCE**（CN-HW-05） | 网络管控 | 网络运维 | 能力与状态未核实 | 未核实 |
+| **MindOps 智算运维解决方案**（CN-HW-01） | 智能运维平台 | 智算/ICT 运维 | 官方发布页描述七层数字孪生、EDNS2.0、风险预测与自动排障；可用率数字为厂商宣称 | SRC-HW-MINDOPS-001 |
+| **iMasterCloud**（CN-HW-04） | 云管/运维平台 | 多云/ICT | 官方文档支持运维数据上云、设备/告警/KPI 对接、WORD/PPT 报告导出及产业区域清单；许可与完整退出条款未核实 | SRC-HW-IMASTERCLOUD-001；SRC-HW-IMASTERCLOUD-DATA-001；SRC-HW-IMASTERCLOUD-REGIONS-001；SRC-HW-IMASTERCLOUD-ACCOUNT-001 |
+| **Agentic 企业 ICT 基础设施 AEI**（CN-HW-02） | 架构/体系 | 企业 ICT 运维 | 官方 2026 白皮书提出 Adaptive Multi-Agent、Autonomous O&M、AI Native Infrastructure 三 A 愿景；独立商业产品状态未核实 | SRC-HW-AEI-2026-001 |
+| **iMaster NCE**（CN-HW-05） | 网络管控 | 网络运维 | 官方产品页描述管理、控制、分析与 AI、开放网络 API，并称已在全球 120+ 国家部署；不是可用区或许可清单 | SRC-HW-IMASTERNCE-001 |
 | **计算集群运维智能体**（CN-HW-06） | 独立/平台能力 | 智算集群 | 能力与状态未核实 | 未核实 |
 
 华为产品仅保留两条公开报道线索：MindOps（CN-HW-01；PUB-HUAWEI-MINDOPS-001）与 AEI（CN-HW-02；PUB-HUAWEI-AEI-001）。本轮不把白皮书报道升级为生产能力证明。
@@ -94,14 +94,14 @@ flowchart TB
 | 产品 | 形态 | 运维域 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
 | **产业智能体操作系统**（CN-BD-01） | Agent 平台/体系 | 产业 | 公开报道称其连接通用/专业/定制智能体与知识数据流程；具体能力与状态未核实 | PUB-BAIDU-INDUSTRY-001 |
-| **Agent Cloud / Agent Infra**（CN-BD-02） | Agent 运行时/基础设施 | 通用 | 公开报道提及 Agent 基础设施；沙箱、身份、记录、路由等具体能力未核实 | PUB-BAIDU-INDUSTRY-001 |
+| **百度千帆 Agent Infra**（CN-BD-02） | Agent 运行时/基础设施 | 通用 | 官方发布说明列出模型、工具、Agent 开发、数据与 Agent 运行环境五层能力；Agent Cloud 独立产品页未核实 | SRC-BD-QIANFAN-AGENTINFRA-001 |
 | **百度搭子开发平台**（CN-BD-03） | Agent 开发/运行平台 | 通用 | 官方页面描述一站式 Agent 开发运行、Skills/MCP/Workflow、托管 Harness、审计与 OpenTelemetry；支持公有云和私有化 | SRC-BD-DUMATE-001 |
 | **百度伐谋**（CN-BD-04） | 专业 Agent | 工艺/优化 | 官方页面描述自我演化智能体与轻量/专业/混合云/私有化形态；不证明运维场景效果 | SRC-BD-FAMOU-001 |
-| **百度胜算**（CN-BD-05） | 专业 Agent | 经营/数据 | 能力与状态未核实 | 未核实 |
+| **百度胜算·数据智能平台**（CN-BD-05） | 数据智能/Agent 平台 | 经营/数据 | 官方产品页描述业务本体、Action/Data Agent、购买/试用与私有化；版本文档说明包年包月与到期数据删除 | SRC-BD-DATABUILDER-001；SRC-BD-DATABUILDER-VERSIONS-001 |
 | **百度秒哒 MIAODA**（CN-BD-06） | 专业 Agent | 应用构建 | 官方文档说明新应用多数可下载源码；旧应用不支持导出，复杂应用需二次开发；不等于完整数据/评测/Trace 可迁移 | SRC-BD-MIAODA-EXPORT-001 |
-| **百度智能云 Hogee**（CN-BD-07） | 专业 Agent/平台 | 智能云 | 能力与状态未核实 | 未核实 |
-| **文心快码**（CN-BD-08） | 内嵌编码 Agent | 研发 | 能力与状态未核实 | 未核实 |
-| **百度一镜**（CN-BD-09） | 专业 Agent | 内容/媒体 | 能力与状态未核实 | 未核实 |
+| **Hogee 企业一站式 AI 营销应用**（CN-BD-07） | 专业 Agent/平台 | 营销/数据 | 官方计费与隐私文档支持订阅+积分、数字员工/营销/分析场景、境内处理原则与注销处理规则 | SRC-BD-HOGEE-BILLING-001；SRC-BD-HOGEE-PRIVACY-001 |
+| **文心快码 COMATE**（CN-BD-08） | 内嵌编码 Agent | 研发 | 官方文档支持多智能体、代码补全、MCP、AI IDE 与 SaaS/混合云/私有化；定价按人月，私有化询价 | SRC-BD-COMATE-PRODUCT-001；SRC-BD-COMATE-PRICING-001；SRC-BD-COMATE-DATA-001 |
+| **百度一镜数字人 API**（CN-BD-09） | 专业 Agent | 内容/媒体 | 官方产品页描述智能主播/展现/脚本/互动/场控五类能力与 SaaS/PaaS 购买入口；商业细节未核实 | SRC-BD-YIJING-API-001 |
 
 百度仅保留两条公开报道线索：产业智能体操作系统（CN-BD-01）与 Agent Cloud / Agent Infra（CN-BD-02），均回指 PUB-BAIDU-INDUSTRY-001。
 
@@ -136,9 +136,18 @@ flowchart TB
 | ALI-03 Agent Sandbox | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | ALI-05 AgentBay | 未核实 | 产品页宣称部署于 Singapore；完整区域未核实 | 页面显示 Basic package 与积分试用；正式计费单位未核实 | 新用户 100 points coupon；最低消费/超额未核实 | 未核实 | 未核实 |
 | ALI-06 AgentScope |  Experimental 功能不视为 GA；项目整体商业状态未核实 | 不适用/未核实 | 项目 README 称 Apache-2.0；服务条款另核 | 不适用/未核实 | 不适用/未核实 | 代码许可与可迁移性须按仓库版本另核 |
+| CN-HW-01 MindOps | 官方发布页；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| CN-HW-02 AEI | 2026 官方白皮书；商业产品状态未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | CN-HW-03 AgentArts | 官方文档/控制台入口；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| CN-HW-04 iMasterCloud | 官方产品文档；整体 GA 未核实 | 乾坤一/二；CloudCampus 全国一/二/三、华东、华中、西南 | 未核实 | 未核实 | 官方文档称运维数据可上云；具体地域与隔离未核实 | WORD/PPT 报告与个人信息可导出；注销后数据处理见文档，完整业务导出未核实 |
+| CN-HW-05 iMaster NCE | 官方产品页；整体 GA 未核实 | 官方称 120+ 国家部署；非可用区清单 | 未核实 | 未核实 | 未核实 | 未核实 |
+| CN-BD-02 千帆 Agent Infra | 官方发布说明；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | CN-BD-03 百度搭子 | 官方页面提供体验入口；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 私有化页面宣称数据不出域；具体配置未核实 | 未核实 |
 | CN-BD-04 百度伐谋 | 官方页面提供多版本入口；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 私有化页面宣称数据、任务与结果内部流转 | 未核实 |
+| CN-BD-05 百度胜算 | 官方产品/版本文档；整体 GA 未核实 | 版本文档列保定/北京/成都/苏州/广州；区域不通用 | 标准/专业/旗舰版，包年包月 | 具体价格未核实 | 官方称私有化数据不出内网；公有云细节未核实 | 到期数据保留 7 天后删除；完整导出未核实 |
+| CN-BD-07 Hogee | 官方计费文档；整体 GA 未核实 | 未核实 | 订阅套餐+积分；文档列个人/企业价格 | 超额规则未核实 | 隐私政策以境内处理为原则，有境外例外 | 注销后删除或匿名化；完整导出未核实 |
+| CN-BD-08 文心快码 | 官方产品/定价文档；整体 GA 未核实 | 官方称中国境内 | 个人免费起；企业按人月；私有化询价 | 配额与超额未核实 | 官方称私有化数据不出边界 | 注销后 30 天内删除；完整导出未核实 |
+| CN-BD-09 百度一镜 | 官方 API 产品页；整体 GA 未核实 | 未核实 | SaaS/PaaS 购买入口；具体价格未核实 | 未核实 | 未核实 | 未核实 |
 | CN-BD-06 秒哒 | 公有云文档；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 多数新应用可导出源码；旧应用不支持，复杂应用需二次开发 |
 | ALI-14 Model Studio | 模型服务价格页；整体平台状态未核实 | 价格页列北京/新加坡/弗吉尼亚等；完整清单未核实 | 按量；北京有免费额度，其他地域无免费额度 | 具体额度与超额未核实 | 未核实 | 未核实 |
 | ALI-15 Qoder Cloud Agents | 商业计费文档；整体 GA 未核实 | 未核实 | 个人 Credits 预付；企业资源包；模型/沙箱按用量 | 具体套餐与最低消费未核实 | 未核实 | 未核实 |
@@ -154,7 +163,7 @@ flowchart TB
 | CN-DOM-04 炎龙 SREAgent | 官方企业版 V4.17.1；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 官方宣称私有部署数据不出域 | 未核实 |
 | CN-DOM-05 新炬 IT 运维智能体 | 官方新闻；独立产品名/GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | CN-DOM-06 ManageEngine | 厂商博客；整体 GA 未核实 | 未核实 | 官方称 AI 功能不另收费；基础许可未核实 | 30 天试用；最低消费未核实 | 官方称支持本地/国内云；具体配置未核实 | 未核实 |
-| ALI-16、CN-HW-01–02、CN-HW-04–06、CN-TX-01–04、CN-BD-01–02、CN-BD-05、CN-BD-07–09、CN-OT-02、CN-OT-05、CN-DOM-01 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| ALI-16、CN-HW-06、CN-TX-01–04、CN-BD-01、CN-OT-02、CN-OT-05、CN-DOM-01 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 
 ## 选型提示
 

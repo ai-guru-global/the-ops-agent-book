@@ -1,0 +1,174 @@
+Cloud SRE Agents monitoring & observability | Dynatrace Hub
+URL: https://www.dynatrace.com/hub/detail/community-cloudsreagents/
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+Cloud SRE Agents monitoring & observability | Dynatrace Hub
+Skip to technology filters
+Skip to main content
+Dynatrace Hub
+Extend the platform,
+empower your team.
+Popular searches:
+AWS
+Azure
+Google Cloud
+DevOps
+Open source
+Cloud SRE Agents
+Cloud SRE Agents
+Orchestrate cloud-native AI agents for autonomous incident resolution.
+Technology
+by
+Community
+Documentation
+Product information
+Overview
+Cloud SRE Agents connects Dynatrace Intelligence to the hyperscaler SRE agents running in your cloud environment. When Dynatrace detects a problem, Cloud SRE Agents evaluates your configured Interaction Profiles, dispatches the problem to matching agents in parallel, and writes their findings back to the Dynatrace problem record. For AWS and Azure, the response includes a suggested remediation path alongside the investigation findings.
+The app supports all three hyperscaler SRE agents:
+AWS DevOps Agent: investigation and remediation in AWS
+Azure SRE Agent: investigation and remediation in Azure
+Google Gemini Cloud Assist: incident analysis across GCP
+Interaction Profiles define which problems get dispatched to which agents. Each profile combines routing conditions with one or more agent assignments. Profiles can include a monthly duration budget per agent; when the budget is reached, dispatch stops or logs a warning depending on your configuration. The Test mode lets you validate a profile against recent problems before any live dispatch occurs.
+Use cases
+Automatic multi-cloud routing: direct each problem to the agent that owns the cloud it touches, based on account ID, subscription, project, or resource tag, without manual triage at 2 a.m.
+Budget governance: set a monthly duration budget per agent; once the cap is reached, new dispatches stop or log a warning, keeping cloud-side spend inside the boundaries you set.
+Tiered investigation by problem type: dispatch agents only for the problem categories that justify it (availability, error, resource contention) and narrow by entity type to focus autonomous work on the infrastructure tiers that matter most.
+Audit trail for every autonomous action: the Activity tab records every investigation and mitigation as an expandable timeline card with full agent findings, evidence, and any action taken or recommended.
+ROI visibility: the Statistics tab surfaces problems handled, mitigation counts, and satisfaction scores by agent, turning autonomous operations into a number you can show to a leadership team.
+Get started
+Note:
+To install the app via Dynatrace Hub, you first need to subscribe your tenant to a Hub subscription.
+Click here to learn more
+.
+Once you are done and have successfully added the app to your tenant:
+Set up (3 min): open the Setup tab and follow the guided flow to install the required IAM policy, service user, and three orchestration workflows.
+Connect one agent (1 min): in Configuration, add an agent of any cloud type, paste the endpoint URL and credential from your cloud provider's console, and save.
+Add one profile (1 min): create an Interaction Profile with one global filter (for example, Has AWS Resources), assign the agent, and enable the profile.
+Validate (30 sec): open Trigger Investigation, pick a recent problem, and run Test (Dry Run). If the profile matches as expected, uncheck Dry Run and dispatch live.
+The next matching problem dispatches automatically, and findings appear on the Dynatrace problem screen as each agent completes.
+Details
+Disclaimer:
+Cloud SRE Agents is a community-supported project and is
+not officially supported by Dynatrace
+. If you need help, please contact the team via
+GitHub
+.
+Provided by
+Community
+Resources
+Documentation
+Support
+By the community
+Dynatrace community
+Copy to clipboard
+Copy page link
+Related to Cloud SRE Agents
+AWS DevOps Agent
+Resolve issues autonomously with Dynatrace and the AWS DevOps Agent.
+Azure SRE Agent
+Unlock autonomous cloud operations fueled by Dynatrace insights.
+Dynatrace Intelligence
+Action based on answers with deterministic insights and agentic operations.
+Dynatrace Hub
+Hub Home
+Get data into Dynatrace
+Build your own app
+Dynatrace Intelligence - The Agentic Platform
+The Dynatrace Agentic AI ecosystem
+All
+(959)
+Log Management and Analytics
+Kubernetes
+AI and LLM Observability
+Infrastructure Observability
+Software Delivery
+Application Observability
+Application Security
+Business Observability
+Digital Experience
+Filter
+Type
+Apps
+new
+Extensions
+Technologies
+Built and maintained by
+Dynatrace
+Partner
+Community
+Reset filters
+Apply filters
+Partner Finder
+Become a partner
+Dynatrace Developer
+Discover recent additions to Dynatrace
+Stay updated
+Arize AX
+Analyze traces, latency, and evals of LLM apps through Arize OpenInference data.
+AI Observability
+End-to-end observability for your Agentic AI and LLM workloads.
+Dynatrace Assist
+Dynatrace Assist: Ask, analyze, and act with Dynatrace Intelligence.
+SRE Agent
+Analyze and triage incidents.
+Smartscape
+Interactively explore and analyze topology and relationships in digital systems.
+Clouds
+Gain full visibility and proactive monitoring across your cloud infrastructure.
+Analyze your data
+Understand your data better with deep insights and clear visualizations.
+Notebooks
+Create powerful, data-driven documents for custom analytics and collaboration.
+Dashboards
+Transform complex data into clear visualizations with custom dashboards.
+Investigations
+Fast and precise incident response on Grail data with DQL queries.
+Smartscape
+Interactively explore and analyze topology and relationships in digital systems.
+Logs
+Explore all your logs without writing a single query.
+Problems
+Detect, explain and triage problems automatically using Dynatrace Intelligence.
+Automate your processes
+Turn data and answers into actions, securely, and at scale.
+Workflows
+Automate tasks in your IT landscape and move towards autonomous operations.
+Jira
+Open, update, and close Jira tickets automatically from Dynatrace Workflows.
+Slack
+Automate Slack messaging for security incidents, attacks, remediation, and more.
+Secure your cloud application
+See vulnerabilities and attacks in your environment.
+Security Posture Management
+Detect, prioritize, and remediate security and compliance findings with SPM.
+Threats & Exploits
+Understand, triage, and investigate detection findings and alerts.
+More resources
+Cursor (Live-Debugger)
+Get Real time Code-Level data directly to your Cursor IDE.
+Documents
+Manage Dashboards, Notebooks and other documents in your Dynatrace environment.
+GitHub Copilot Coding Agent
+Automate vulnerability remediation and boost developer productivity.
+GitHub Copilot Custom Agent
+Automate your development workflows with specialized agent definitions.
+Dynatrace Live Debugger on JetBrains
+Get real-time code-level data directly to your Jetbrains IDE.
+Metrics
+Browse, search, and manage all your metrics in one central catalog.
+Dynatrace Live Debugger on Windsurf
+Get real-time code-level data directly to your Windsurf IDE.
+Are you looking for something different?
+We have hundreds of apps, extensions, and other technologies to customize your environment
+Browse all
+Leverage our newest innovations of Dynatrace Saas
+Kick-start your app creation
+Whether you’re a beginner or a pro, Dynatrace Developer has the tools and support you need to create incredible apps with minimal effort.
+Go to Dynatrace Developer
+Upgrading from Dynatrace Managed to SaaS
+Drive innovation, speed, and agility in your organization by seamlessly and securely upgrading.
+Learn More
+Log Management and Analytics
+Innovate faster and more efficiently with unified log management and log analytics for actionable insights and automation.
+Learn more
