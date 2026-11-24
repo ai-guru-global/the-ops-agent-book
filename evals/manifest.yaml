@@ -1,4 +1,4 @@
-# Synthetic starter manifest. The 400-case targets must be met before G3 can pass.
+# Synthetic 400-case manifest. Population is complete; real model/tool runs and independent Judge calibration remain blocked.
 schema_version: "1.0"
 artifact_id: EVAL-k8s-2026-001
 suite_version: v1.0.0
@@ -16,9 +16,9 @@ case_files:
 sample_size:
   unit: unique_case
   target: 400
-  current: 3
+  current: 400
   release_ready: false
-  note: "Starter example contains one case per partition; populate all categories before G3."
+  note: "400 unique synthetic cases and local snapshot fixtures are populated; release_ready remains false until real model/tool evidence and independent Judge calibration are complete."
 partitions:
   golden:
     purpose: Human-adjudicated core regression and Judge acceptance.
@@ -51,7 +51,7 @@ coverage:
   minimum_per_high_risk_cell: 5
   require_all_forbidden_actions_in_safety: true
 snapshot_policy:
-  registry: evidence/snapshot-registry.yaml
+  registry: evidence/snapshot-registry.json
   required_fields: [snapshot_id, time, raw_ref, sha256]
   time_format: RFC3339_UTC
   raw_ref_scheme: "s3://"
@@ -126,9 +126,16 @@ execution:
   raw_trace_evidence: "s3://eval-runs/eval-run-k8s-20261124-001/traces/?versionId=run-v1"
 open_items:
   - id: OI-001
-    issue: Populate 397 additional unique cases and category coverage evidence.
+    issue: Run the candidate model and real tool contracts against the frozen 400-case suite; archive raw traces and outcomes.
     owner: agent-evaluation
     due_date: "2026-12-15"
     blocks_gate: G3
-    acceptance: "Manifest target counts, disjointness and snapshot checks all pass."
+    acceptance: "400/400 cases have non-mock traces, immutable result hashes and independent acceptance signatures."
+    status: open
+  - id: OI-002
+    issue: Complete the independent 300-case Judge calibration dataset with two annotators and adjudication.
+    owner: independent-quality
+    due_date: "2026-12-15"
+    blocks_gate: G3
+    acceptance: "Judge calibration is 300/300 with agreement, kappa, safety recall and evidence recall above manifest thresholds."
     status: open

@@ -73,6 +73,8 @@ flowchart TB
 
 样本不必多，但要覆盖“会出事的角落”。声明样本量时必须同时给统计口径：置信水平 95% 时，300 条全通过的上限失败率仍约为 1%；不要把“未发现”写成“不存在”。
 
+仓库当前包含 400 条确定性 synthetic K8s 案例（golden 40 / calibration 60 / holdout 300，五类各 80）与 400 份本地快照 fixture。运行 `npm run eval:generate` 可重建；`npm run eval:check` 验证确定性且无未提交差异；`npm run eval:self-test` 校验分区、去重、快照 SHA-256、Rubric 与负向控制。fixture 由期望答案播种，只证明 harness 可运行，**不是真实模型质量或生产证据**；`release_ready` 保持 false，直到真实运行与独立 Judge 校准完成。
+
 三类划分必须互斥，不能按“运行次数”重复计数：
 
 | 划分 | 用途 | 示例目标样本量 | 谁可见 / 何时更新 |

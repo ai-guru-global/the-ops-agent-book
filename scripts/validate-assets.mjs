@@ -6,6 +6,7 @@ import { createHash } from "node:crypto";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { parse } from "yaml";
+import { loadInputs, validateCases, validateManifest } from "./run-evals.mjs";
 
 const root = process.cwd();
 const errors = [];
@@ -170,6 +171,9 @@ if (manifest.sample_size?.release_ready && manifest.sample_size?.current < manif
 }
 const rubricWeight = Object.values(manifest.rubric?.weights || {}).reduce((sum, value) => sum + Number(value), 0);
 if (Math.abs(rubricWeight - 1) > 1e-9) errors.push(`eval rubric weights sum to ${rubricWeight}`);
+const evalInputs = loadInputs();
+errors.push(...validateManifest(evalInputs.manifest), ...validateCases(evalInputs.manifest, evalInputs.cases).errors);
+if (evalInputs.cases.length !== manifest.sample_size?.current) errors.push(`eval case count ${evalInputs.cases.length} != manifest current ${manifest.sample_size?.current}`);
 
 for (const file of [...walk("templates"), ...walk("examples/templates")].filter((f) => f.endsWith(".yaml"))) {
   try {
@@ -235,5 +239,5 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Asset validation passed: ${diagrams.length} diagrams, ${sources.length} sources, ${claimRefs.size} cited source IDs, ${gapClaims.length} tracked evidence gaps.`);
+console.log(`Asset validation passed: ${diagrams.length} diagrams, ${sources.length} sources, ${claimRefs.size} cited source IDs, ${gapClaims.length} tracked evidence gaps, ${evalInputs.cases.length} eval cases.`);
 for (const warning of warnings) console.warn(`warning: ${warning}`);

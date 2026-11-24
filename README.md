@@ -102,6 +102,8 @@ npm run docs:preview  # 预览构建产物
 
 ```bash
 npm run test:reference
+npm run eval:generate
+npm run eval:check
 npm run eval:self-test
 npm run eval:demo
 npm run cost:demo
@@ -110,7 +112,7 @@ npm run export:epub
 npm run check:all
 ```
 
-核心说明见 [examples/reference-agent/README.md](examples/reference-agent/README.md)，需求到资产映射见 [需求地图](docs/appendix/requirement-map.md)。PDF 与 EPUB 分别输出到 `dist-pdf/` 和 `dist-epub/`。
+评测资产包含 400 条确定性 synthetic K8s 案例与 400 份本地快照 fixture；`eval:generate` 可重建，`eval:demo` 仍保持 `INCONCLUSIVE`，直到真实模型/工具运行和独立 300 条 Judge 校准完成。核心说明见 [examples/reference-agent/README.md](examples/reference-agent/README.md)，需求到资产映射见 [需求地图](docs/appendix/requirement-map.md)。PDF 与 EPUB 分别输出到 `dist-pdf/` 和 `dist-epub/`。
 
 ## 写作约定
 

@@ -55,6 +55,55 @@ function validRawRef(value) {
   }
 }
 
+function validateSyntheticSnapshots(manifest, cases) {
+  const errors = [];
+  const registryPath = manifest.snapshot_policy?.registry;
+  if (!registryPath) return ["manifest.snapshot_policy.registry is required"];
+  let registry;
+  try {
+    registry = JSON.parse(fs.readFileSync(path.join(ROOT, registryPath), "utf8"));
+  } catch (error) {
+    return [`${registryPath}: ${error.message}`];
+  }
+  if (registry.synthetic !== true || registry.production_ready !== false) errors.push("snapshot registry must be explicitly synthetic and non-production");
+  let lines;
+  try {
+    lines = fs.readFileSync(path.join(ROOT, registry.snapshot_file), "utf8").trim().split("\n");
+  } catch (error) {
+    return [`${registry.snapshot_file}: ${error.message}`];
+  }
+  const entries = new Map((registry.snapshots || []).map((entry) => [entry.snapshot_id, entry]));
+  if (entries.size !== cases.length) errors.push(`snapshot registry has ${entries.size} entries for ${cases.length} cases`);
+  for (const item of cases) {
+    const entry = entries.get(item.snapshot_id);
+    if (!entry) {
+      errors.push(`${item.id}: snapshot ${item.snapshot_id} missing from registry`);
+      continue;
+    }
+    if (entry.case_id !== item.id) errors.push(`${item.id}: snapshot registry case_id mismatch`);
+    if (!Number.isInteger(entry.line_number) || entry.line_number < 1 || entry.line_number > lines.length) {
+      errors.push(`${item.id}: invalid snapshot line_number`);
+      continue;
+    }
+    const line = lines[entry.line_number - 1];
+    if (sha256(line) !== entry.sha256) errors.push(`${item.id}: snapshot SHA-256 mismatch`);
+    let snapshot;
+    try {
+      snapshot = JSON.parse(line);
+    } catch (error) {
+      errors.push(`${item.id}: invalid snapshot JSON: ${error.message}`);
+      continue;
+    }
+    if (snapshot.snapshot_id !== item.snapshot_id || snapshot.case_id !== item.id) errors.push(`${item.id}: snapshot identity mismatch`);
+    if (snapshot.synthetic !== true || snapshot.production_ready !== false) errors.push(`${item.id}: snapshot is not explicitly synthetic/non-production`);
+    const expectedRefs = (item.expected_evidence || []).map((evidence) => evidence.raw_ref).sort();
+    const actualRefs = [...(entry.raw_refs || [])].sort();
+    if (JSON.stringify(expectedRefs) !== JSON.stringify(actualRefs)) errors.push(`${item.id}: snapshot raw_refs differ from case evidence`);
+    if (/SYNTHETIC_SECRET\s*=|BEGIN (?:RSA |EC )?PRIVATE KEY/.test(line)) errors.push(`${item.id}: potential plaintext secret in synthetic snapshot`);
+  }
+  return errors;
+}
+
 export function loadInputs() {
   const manifest = readYaml("evals/manifest.yaml");
   const caseFiles = manifest.case_files || [];
@@ -162,7 +211,7 @@ export function validateManifest(manifest) {
 }
 
 export function validateCases(manifest, cases) {
-  const errors = [];
+  const errors = validateSyntheticSnapshots(manifest, cases);
   const warnings = [];
   const weights = manifest.rubric?.weights || {};
   const categories = new Set(manifest.coverage?.categories || []);
@@ -626,7 +675,7 @@ function buildMarkdown(report) {
     "| --- | ---: | ---: | --- | --- | --- |",
     ...Object.values(report.metrics).map((metric) => `| ${metric.label} | ${metric.numerator} / ${metric.denominator} | ${metric.value === null ? "N/A" : metric.value.toFixed(4)} | ${metric.ci95 ? `[${metric.ci95[0].toFixed(4)}, ${metric.ci95[1].toFixed(4)}]` : "N/A"} | ${metric.threshold_direction} ${metric.threshold ?? "N/A"} | ${metric.gate_status} |`),
     "",
-    "CI 仅是 synthetic 样本的描述性 Wilson 区间；所有指标均标记最低样本不足，不能解释为通过。外部工具 I/O 与成本为零只表示 mock 没有真实调用。",
+    "CI 仅是 synthetic 样本的描述性 Wilson 区间；样本是否充分见各指标行。oracle-seeded mock 全通过不等于真实模型质量，外部工具 I/O 与成本为零只表示没有真实调用。",
     "",
     "## 各 Partition 指标",
     "",
@@ -645,12 +694,14 @@ function buildMarkdown(report) {
   }
   lines.push("", "## 负向控制与失败案例", "", "| 故障注入 | 期望 veto | 实际命中 | 结果 |", "| --- | --- | --- | --- |");
   for (const control of report.negative_controls) lines.push(`| ${control.fault} | ${control.expected_veto} | ${control.veto_rule_ids.join(", ") || "无"} | ${control.detected ? "PASS" : "FAIL"} |`);
-  lines.push("", "负向控制用于证明 harness 能捕获失败，不计入 3 条正常 starter case 的发布判定。", "", "## Veto 结果", "", "| 规则 | 命中计数 | 结果 |", "| --- | ---: | --- |");
+  lines.push("", `负向控制用于证明 harness 能捕获失败，不计入 ${report.sample_size.observed} 条正常 synthetic case 的发布判定。`, "", "## Veto 结果", "", "| 规则 | 命中计数 | 结果 |", "| --- | ---: | --- |");
   for (const rule of report.veto_result.rules) lines.push(`| ${rule.id} | ${rule.hit_count} | ${rule.triggered ? "TRIGGERED" : "未命中（仅观察样本）"} |`);
   lines.push("", `Veto 汇总：**${report.veto_result.status}**。未命中不等于真实安全证明。`, "", "## 失败案例", "");
-  if (!report.failed_cases.length) lines.push("无。3 条 starter case 在 oracle-seeded mock 中均通过；这不是真实质量结果。");
+  if (!report.failed_cases.length) lines.push(`无。${report.sample_size.observed} 条 synthetic case 在 oracle-seeded mock 中均通过；这不是真实质量结果。`);
   else for (const failure of report.failed_cases) lines.push(`- \`${failure.case_id}\`：${failure.failure_reasons.join("；")}`);
-  lines.push("", "## 覆盖与缺口", "", `- 分类计数：${JSON.stringify(report.coverage.category_counts)}`, `- 尚缺 ${report.sample_size.target - report.sample_size.observed} 条案例；Golden/Calibration/Holdout 均未达到目标。`, "- Judge 校准、人工双标与裁决、真实快照哈希校验、真实模型/工具运行均未执行。", "- `release_ready=false` 时，即使 mock 全通过也必须保持 INCONCLUSIVE。", "", "## 输入溯源", "", "| 文件 | SHA-256 |", "| --- | --- |", ...report.input_files.map((file) => `| ${file.path} | ${file.sha256} |`), "");
+  const missing = report.sample_size.target - report.sample_size.observed;
+  const partitionSummary = PARTITIONS.map((name) => `${name} ${report.partitions[name].observed_samples}/${report.partitions[name].target_samples}`).join("；");
+  lines.push("", "## 覆盖与缺口", "", `- 分类计数：${JSON.stringify(report.coverage.category_counts)}`, `- 案例：${report.sample_size.observed}/${report.sample_size.target}；${partitionSummary}。`, missing > 0 ? `- 尚缺 ${missing} 条案例。` : "- synthetic 案例与本地快照 fixture 已齐；真实运行证据仍缺失。", "- 独立 Judge 校准、人工双标与裁决、真实模型/工具运行均未执行；本地 synthetic 快照 SHA-256 已校验。", "- `release_ready=false` 时，即使 mock 全通过也必须保持 INCONCLUSIVE。", "", "## 输入溯源", "", "| 文件 | SHA-256 |", "| --- | --- |", ...report.input_files.map((file) => `| ${file.path} | ${file.sha256} |`), "");
   return lines.join("\n");
 }
 
@@ -704,8 +755,9 @@ export function buildReport(manifest, cases, validation, { integrateReference = 
   }));
   const regressionFailed = Object.values(baselineComparison).some((item) => item.status === "FAIL");
   const finalStatus = vetoTriggered ? "FAIL" : !readiness.computed_ready ? "INCONCLUSIVE" : regressionFailed ? "FAIL" : Object.values(metrics).some((metric) => metric.gate_status === "FAIL") ? "FAIL" : Object.values(metrics).some((metric) => metric.gate_status === "INSUFFICIENT_SAMPLE") ? "INCONCLUSIVE" : "PASS";
-  const finalReason = vetoTriggered ? "至少一个硬 veto 被触发" : !readiness.computed_ready ? `仅运行 ${cases.length}/${manifest.sample_size.target} 条 synthetic 案例，独立 Judge 校准 ${manifest.judge_calibration?.current || 0}/${manifest.judge_calibration?.sample_size || 300}，或覆盖/显式门禁未通过；禁止据此发布` : regressionFailed ? "候选相对 synthetic 基线出现不可接受退化" : finalStatus === "PASS" ? "样本、Judge 校准、门槛、基线与 veto 均通过（仍需真实运行证据）" : "样本或指标门槛未通过";
-  const inputFiles = [...new Set(["evals/manifest.yaml", manifest.judge_calibration?.source, ...(manifest.case_files || [])].filter(Boolean))].map((file) => ({ path: file, sha256: sha256(fs.readFileSync(path.join(ROOT, file))) }));
+  const finalReason = vetoTriggered ? "至少一个硬 veto 被触发" : !readiness.computed_ready ? `已运行 ${cases.length}/${manifest.sample_size.target} 条 synthetic 案例，但独立 Judge 校准 ${manifest.judge_calibration?.current || 0}/${manifest.judge_calibration?.sample_size || 300}、真实运行证据或显式 release 门禁未完成；禁止据此发布` : regressionFailed ? "候选相对 synthetic 基线出现不可接受退化" : finalStatus === "PASS" ? "样本、Judge 校准、门槛、基线与 veto 均通过（仍需真实运行证据）" : "样本或指标门槛未通过";
+  const snapshotRegistry = JSON.parse(fs.readFileSync(path.join(ROOT, manifest.snapshot_policy.registry), "utf8"));
+  const inputFiles = [...new Set(["evals/manifest.yaml", manifest.judge_calibration?.source, manifest.snapshot_policy.registry, snapshotRegistry.snapshot_file, ...(manifest.case_files || [])].filter(Boolean))].map((file) => ({ path: file, sha256: sha256(fs.readFileSync(path.join(ROOT, file))) }));
   const report = {
     synthetic: true,
     demonstration_only: true,
@@ -720,7 +772,7 @@ export function buildReport(manifest, cases, validation, { integrateReference = 
       deterministic: true,
       oracle_seeded: "partial: non-NotReady cases only",
       reference_agent_integration: integrateReference && fs.existsSync(path.join(ROOT, "examples/reference-agent/runner.mjs")) ? "invoked_for_notready_case" : "mock_only",
-      snapshot_verification: "not_performed",
+      snapshot_verification: validation.errors.length === 0 ? "synthetic_fixture_hashes_verified; real_snapshots_not_performed" : "failed",
       external_calls: 0,
     },
     sample_size: { observed: cases.length, target: manifest.sample_size.target, current: manifest.sample_size.current },
@@ -799,18 +851,19 @@ export function runSelfTest() {
     assert(Math.abs(sum - 1) < EPSILON, `weight sum ${sum} != 1`);
     assert(REQUIRED_VETOES.every((id) => manifest.veto_rules.some((rule) => rule.id === id && rule.action === "fail_suite")), "required veto missing");
   });
-  check("three starter cases load, validate, and run once per partition", () => {
+  check("400 generated cases load, validate snapshots, and run once", () => {
     assert(errors.length === 0, errors.join("; "));
     const validation = validateCases(manifest, cases);
     assert(validation.errors.length === 0, validation.errors.join("; "));
-    assert(cases.length === 3, `expected 3 cases, got ${cases.length}`);
-    assert(PARTITIONS.every((name) => cases.filter((item) => item.partition === name).length === 1), "starter partition distribution changed");
+    assert(cases.length === 400, `expected 400 cases, got ${cases.length}`);
+    assert(PARTITIONS.map((name) => cases.filter((item) => item.partition === name).length).join(",") === "40,60,300", "partition distribution changed");
+    assert(manifest.coverage.categories.every((category) => cases.filter((item) => item.category === category).length === 80), "category distribution changed");
     for (const item of cases) {
       const result = evaluateCase(manifest, item);
       assert(result.passed && !result.veto_triggered && Math.abs(result.weighted_score - 100) < EPSILON, `${item.id} did not produce the expected mock result`);
     }
   });
-  check("NotReady starter case invokes the reference-agent core", () => {
+  check("NotReady reference case invokes the reference-agent core", () => {
     const item = cases.find((candidate) => candidate.id === "k8s-node-notready-001");
     const output = runReferenceAgent(item);
     assert(output?.integration === "reference-agent-core", "reference core was not invoked");
@@ -830,17 +883,18 @@ export function runSelfTest() {
     assert(report.negative_controls.every((control) => control.detected), "a negative control was not detected");
     assert(report.final_status !== "FAIL", "negative controls must not fail the normal acceptance sample");
   });
-  check("baseline comparison stays inconclusive with undersized sample", () => {
+  check("baseline comparison is computable but remains synthetic", () => {
     const { report } = buildReport(manifest, cases, { errors: [], warnings: [] });
     assert(report.baseline.id === "synthetic-baseline-v0.9", "baseline id changed");
-    assert(Object.values(report.baseline_comparison).every((item) => item.status === "INCONCLUSIVE"), "undersized sample produced a baseline verdict");
+    assert(Object.values(report.baseline_comparison).every((item) => item.status !== "INCONCLUSIVE"), "400-case sample did not produce a baseline verdict");
+    assert(report.final_status === "INCONCLUSIVE", "synthetic population must not become release-ready");
   });
-  check("current 3/400 population cannot be release_ready", () => {
-    assert(manifest.sample_size.release_ready === false, "starter release_ready must be false");
-    assert(!isReleaseReady(manifest, cases), "undersized starter evaluated as release ready");
+  check("400/400 population remains blocked by Judge calibration and explicit gate", () => {
+    assert(manifest.sample_size.release_ready === false, "synthetic release_ready must be false");
+    assert(!isReleaseReady(manifest, cases), "synthetic population evaluated as release ready");
     const invalid = structuredClone(manifest);
     invalid.sample_size.release_ready = true;
-    assert(!isReleaseReady(invalid, cases), "release_ready=true bypassed sample gates");
+    assert(!isReleaseReady(invalid, cases), "release_ready=true bypassed incomplete Judge calibration");
   });
   for (const [fault, veto] of [
     ["forbidden_action", "forbidden_or_unauthorized_action"],

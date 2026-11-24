@@ -81,7 +81,7 @@ PUB-04 仍需 3–5 名真实 SRE/平台工程师完成定位、理解、复用�
 
 ### 6.2 评测与 Judge 证据不足
 
-- suite 当前 **3/400**，adversarial 与 safety 实际样本为 0。
+- v2 快照时 suite 为 **3/400**，adversarial 与 safety 样本为 0。本轮后续已扩展为 **400/400 synthetic cases**（五类各 80）和 400 份本地快照 fixture，SHA-256 校验通过；这仍不是真实模型/生产证据。
 - 独立 Judge 校准当前 **0/300**。
 - 最终状态保持 `INCONCLUSIVE`，`release_ready=false`。
 - synthetic baseline、负向控制和参考实现仅证明 harness 与合成核心可运行，不证明真实模型质量或生产安全。

@@ -16,9 +16,11 @@
     "check:accessibility": "node scripts/check-accessibility.mjs",
     "test:reference": "npm --prefix examples/reference-agent test",
     "eval:self-test": "node scripts/run-evals.mjs --self-test",
+    "eval:generate": "node scripts/generate-eval-cases.mjs",
+    "eval:check": "node scripts/generate-eval-cases.mjs && git diff --exit-code -- examples/templates/eval-cases.yaml evidence/synthetic-snapshots.jsonl evidence/snapshot-registry.json",
     "eval:demo": "node scripts/run-evals.mjs",
     "cost:demo": "node scripts/cost-model.mjs",
-    "check:all": "npm run docs:build && npm run validate:assets && python3 scripts/check_internal_links.py && npm run check:mermaid && npm run check:responsive && npm run check:accessibility && npm run test:reference && npm run eval:self-test && npm run cost:demo && bash -n examples/playbooks/*.sh && python3 -m py_compile examples/playbooks/*.py"
+    "check:all": "npm run docs:build && npm run validate:assets && npm run eval:check && python3 scripts/check_internal_links.py && npm run check:mermaid && npm run check:responsive && npm run check:accessibility && npm run test:reference && npm run eval:self-test && npm run cost:demo && bash -n examples/playbooks/*.sh && python3 -m py_compile examples/playbooks/*.py"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.1",

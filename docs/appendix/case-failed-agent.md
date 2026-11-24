@@ -104,7 +104,7 @@ content_status: "reviewed"
 | 否决 ID | 理由 | 证据链接 / 归档对象 | 拥有否决权的角色 |
 | --- | --- | --- | --- |
 | V-01 范围与责任 | 5 类故障同时覆盖诊断/建议/修复，无 non-goals；champion 离职后无 Owner、SLO 与值班责任 | [设计文档模板](../templates/agent-design-doc)第 1、9–10 节；归档 `scope-and-owner-review` | Agent Owner + 领域 Owner |
-| V-02 评测无效 | 只有 12 条团队精选正常案例；无基线、黄金/校准/留出划分、对抗/安全/未知案例与 Judge 校准 | [评测集模板](../templates/eval-set)、[manifest](../../evals/manifest.yaml)、[starter cases](../../examples/templates/eval-cases.yaml)；归档 `eval-coverage-review` | 评测 Owner |
+| V-02 评测无效 | 只有 12 条团队精选正常案例；无基线、黄金/校准/留出划分、对抗/安全/未知案例与 Judge 校准 | [评测集模板](../templates/eval-set)、[manifest](../../evals/manifest.yaml)、[synthetic cases](../../examples/templates/eval-cases.yaml)；归档 `eval-coverage-review` | 评测 Owner |
 | V-03 权限与审计 | 共享 `cluster-admin`；写工具 `approval: none`；无独立 NHI、计划哈希绑定、负向测试与权限回收 | [权限矩阵](../templates/permission-matrix)、[Policy Schema](../../schemas/permission-policy.schema.json)；归档 `permission-negative-tests` | 安全/合规 |
 | V-04 不可观测/不可停止 | Trace 只有 Prompt/Completion；无工具参数、审批、结果、成本与哈希链；未证明 kill switch | [Agent Event Schema](../../schemas/agent-event.schema.json)、[11 AgentOps](../guide/11-agentops-observability)；归档 `trace-completeness-review` | 平台 + 安全 |
 | V-05 不可发布/恢复 | 无单次成本口径、灰度阈值、LKG、回滚演练、接管与升级路径 | [发布与回滚清单](../templates/release-checklist)、[Release YAML](../../templates/release.yaml)；归档 `release-readiness-review` | 变更经理 |

@@ -39,6 +39,9 @@ jobs:
       - name: Validate schemas, sources, metrics and diagrams
         run: npm run validate:assets
 
+      - name: Verify deterministic eval fixtures
+        run: npm run eval:check
+
       - name: Check internal links
         run: python3 scripts/check_internal_links.py
 
