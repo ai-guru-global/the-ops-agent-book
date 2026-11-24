@@ -1,57 +1,51 @@
 # 改进执行状态
 
-更新时间：2026-11-24  
-当前版本：v0.2.0-rc1  
+更新时间：2026-11-25
+当前版本：v0.2.0-rc1
 执行清单：[improvement-backlog.csv](./improvement-backlog.csv)
 
 ## 当前进度
 
 - 总任务：57
-- 已完成：35
-- 进行中：6
-- 未开始：16
+- 已完成：55
+- 进行中：0
+- 未开始：2
 
-P0 的 19 项任务已全部完成；P1 已提前完成 14 项，另有 6 项进行中。当前尚未达到 v1.0-rc1，不标记总目标完成。
+P0、P1 与大部分 P2 已完成。剩余两项是真实用户阅读测试（PUB-04）和按同一量表复评 44 页并作出 v1.0-rc1 发布决策（PUB-05）。
 
 ## 已通过的质量门禁
 
 - `npm run docs:build`：通过。
-- `npm run validate:assets`：通过；35 张图、46 个来源、33 个被引用 source_id、Schema/JSON/YAML/ROI 重算均通过。
+- `npm run validate:assets`：通过；35 张图、48 个来源、9 个正文快照、Schema/JSON/YAML/ROI/Trace 均通过。
 - `python3 scripts/check_internal_links.py`：0 断链。
 - `npm run check:mermaid`：35/35 张 Mermaid 在 25 个页面实际渲染为 SVG。
-- `bash -n examples/playbooks/*.sh`：通过。
-- `python3 -m py_compile examples/playbooks/*.py`：通过。
+- `npm run check:responsive`：25 个页面/尺寸组合通过，生成 A4 打印样本。
+- `npm run check:accessibility`：8 个页面/尺寸组合无 serious/critical WCAG 2.1 AA 问题。
+- `npm run test:reference`：17/17 通过。
+- `npm run eval:self-test`：14/14 通过，含 5 类负向控制与 synthetic 基线回归。
+- `npm run cost:demo`：18 个 derived、14 个敏感性数值全部对账。
 - `npm run check:all`：完整通过。
+- 远端 Book quality workflow：成功（run 45443164237）。
 
-## 本轮完成的核心内容
+## 已落地的核心资产
 
-1. **安全与语义**：审批前置于工具调用；绑定不可变计划哈希/版本/有效期；重新校验；uncordon/drain/清理/复位的部分成功、补偿与安全恢复；只读快路径；异常状态机。
-2. **图示**：图示从 23 张扩展到 35 张，修正 9 张重点图，转换全部图状文本块与步骤序列；新增治理、单位经济、A2A、设计架构、场景准入门禁等图。
-3. **来源与厂商**：46 条来源注册、claim→source_id 回指、商业字段证据卡、review_by；不可核实断言显式标注。
+1. **安全与语义**：审批前置于工具调用；不可变计划哈希、版本、有效期与重校验；drain/uncordon/清理/复位的部分成功、补偿与安全恢复；只读快路径与异常状态机。
+2. **图示**：35 张统一 IBM 风格 Mermaid 图，全部有编号和图注；新增 aria 关联、减少动态效果支持与图示规范。
+3. **来源与维护**：48 条来源注册、claim→source_id 回指、商业字段证据卡、9 个正文快照与 SHA-256、47 个内容页维护元数据。
 4. **指标与财务**：metric/agent-event Schema、SLO/评测/发布门禁、Judge 校准、ROI 全成本与敏感性/盈亏平衡。
-5. **可执行模板**：工具契约、权限策略、Runbook、评测 manifest、发布与复盘 YAML；对应示例与 Schema。
-6. **场景手册**：五本手册均有端到端样例；K8s/RDMA/GPU/数据库/事故指挥补命令、SQL、计数器差分、显存账、Severity/RACI 与异常状态。
-7. **案例**：NotReady 案例补齐配置 diff、PDB 前置检查、双人审批、部分成功、补偿与整改后 6/6 回归；Trace/工具契约/权限策略 artifact 已落地。
+5. **可执行模板**：工具契约、权限策略、Runbook、评测 manifest、发布与复盘 YAML；对应 Schema 与示例。
+6. **参考实现**：纯 Node.js synthetic runtime，包含 PEP、审批、短时凭证、撤销、工具网关、Trace 哈希链、Shadow/Canary/Rollback。
+7. **评测与成本**：NotReady 案例集成 reference core；5 类故障注入负向控制；synthetic 基线与回归对比；可复算成本模型。
+8. **场景与案例**：五本手册均有端到端样例；NotReady 与失败 Agent 案例形成证据、整改、复评和再准入闭环。
+9. **出版**：全书 PDF 407 页、EPUB 48 章，均带图表与页码/目录；打印代码换行与重复表头已处理。
 
-## 进行中
+## 剩余工作
 
-| 任务 | 当前状态 | 剩余工作 |
+| 任务 | 状态 | 说明 |
 | --- | --- | --- |
-| DIAG-04 | 35 图已有编号、图注和 IBM 样式 | 补 alt text 与图示维护规范 |
-| DIAG-05 | 35 图桌面渲染通过 | 执行 320/390/768/1024/1440/print 全矩阵 |
-| SRC-04 | 快照计划已记录 | 下载并归档关键官方快照 |
-| SRC-05 | 厂商页已有 review_by | 为其余事实页补 Owner/review_by |
-| CON-03 | manifest 与 starter cases 已建立 | 实现 runner，补齐 400 条分层案例 |
-| CON-06 | 本地 `check:all` 与 CI workflow 已建立 | 推送后运行远端 CI |
-
-## 下一阶段优先顺序
-
-1. **WP-06 参考实现**：实现 MCP/OpenAPI 工具网关、PEP、不可变审批、短时凭证、撤销、影子/灰度/回滚脚本。
-2. **PLAY-07 失败案例闭环**：补正式否决记录、整改 Owner、复评与重新准入结论。
-3. **CON-03 评测 runner**：让 manifest、fixtures、报告可实际运行。
-4. **DIAG-04/05 与 SRC-04/05**：完成图示规范、六尺寸验证、快照和全书 review_by。
-5. **WP-08/09**：治理矩阵、术语注册表、需求地图、PDF/EPUB、无障碍、用户阅读测试与 44 页复评。
+| PUB-04 | planned | 需要邀请真实 SRE/平台工程师完成定位、理解、复用三类任务；自动化检查不能替代真实用户测试 |
+| PUB-05 | planned | 按同一七维度量表复评 44 页，形成 v1.0-rc1 Go/No-Go 决策 |
 
 ## 发布状态
 
-本轮未提交、未推送、未部署。当前改动仍在本地工作区，避免在 G1/G2 与远端 CI 未确认前自动发布。
+代码与文档已提交并推送：`c435fd8`。远端 Book quality 全部通过。GitHub Pages 尚未重新部署，等待 PUB-05 的发布决策；PDF/EPUB 已生成在本地 `dist-pdf/` 与 `dist-epub/`。
