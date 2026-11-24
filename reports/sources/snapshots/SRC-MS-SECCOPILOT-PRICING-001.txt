@@ -1,0 +1,262 @@
+Microsoft Security Copilot – Pricing | Microsoft Security
+URL: https://www.microsoft.com/en-us/security/pricing/microsoft-security-copilot/
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+Microsoft Security Copilot – Pricing | Microsoft Security
+This is the Trace Id: ef09a4ab3752083bfb6fc445c29a26a6
+Skip to main content
+Security
+Microsoft Defender
+Microsoft Entra
+Microsoft Intune
+Microsoft Perception
+Microsoft Purview
+Microsoft Sentinel
+View all products
+Agentic security
+Security for AI
+Cloud security
+Data security
+Small and medium business
+Integrated SecOps
+Zero Trust
+Identity & network access
+Pricing
+Services
+Partners
+Why Microsoft Security
+Customer stories
+Security 101
+Product trials
+Frontier Accelerate for Security
+How we protect Microsoft
+Industry recognition
+Microsoft Security Insider
+Microsoft Digital Defense Report
+Security Response Center
+Microsoft Security Blog
+Microsoft Security Events
+Microsoft Tech Community
+Documentation
+Technical Content Library
+Training & certifications
+Compliance Program for Microsoft Cloud
+Microsoft Trust Center
+Security Engineering Portal
+Service Trust Portal
+Microsoft Secure Future Initiative
+Business Solutions Hub
+Contact Sales
+Start free trial
+Microsoft Security
+Azure
+Dynamics 365
+Microsoft 365
+Microsoft Teams
+Windows 365
+Microsoft AI
+Azure Space
+Mixed reality
+Microsoft HoloLens
+Microsoft Viva
+Quantum computing
+Sustainability
+Education
+Automotive
+Financial services
+Government
+Healthcare
+Manufacturing
+Retail
+Find a partner
+Become a partner
+Partner Network
+Microsoft Marketplace
+Software companies
+Blog
+Microsoft Advertising
+Developer Center
+Documentation
+Events
+Licensing
+Microsoft Learn
+Microsoft Research
+View Sitemap
+Microsoft Security Copilot pricing
+Microsoft Security Copilot empowers security and IT teams to protect organizations at the speed and scale of AI.
+Contact Sales
+Featured news
+Overview
+Pricing table
+Get started
+Pricing calculator
+Resources
+FAQ
+Contact Sales
+Contact Sales
+OVERVIEW
+Protect your organization at the speed and scale of AI
+Enhance daily security and IT operations with Microsoft Security Copilot, a generative AI-powered assistant available as a standalone experience or embedded in Microsoft Security products.
+Explore flexible purchase options
+Provision capacity in security compute units (SCUs) to power Security Copilot workloads. Scale confidently with uninterrupted coverage during high-demand periods.
+Use provisioned SCUs for routine workloads
+Allocate provisioned SCUs for routine workloads (a minimum of 1 provisioned SCU is required).
+Scale easily with overage SCUs
+Scale easily to meet unexpected demand—only paying for what you use, up to your selected overage limit.
+Easily estimate your SCU usage
+Estimate SCU needs using the
+capacity calculator
+(Azure account required).
+Monitor your consumption with the usage dashboard
+Get granular usage insights with the in-product usage dashboard.
+ANNOUNCEMENT
+AI agents built into your workflow
+Use Security Copilot agents across Microsoft Defender, Entra, Intune, and Purview– at no added cost with Microsoft 365 E5.
+Read the announcement
+Learn more
+PRICING TABLE
+Explore pricing options
+Prices are estimates only and are not intended as actual price quotes. Actual pricing may vary depending on the type of agreement entered with Microsoft, date of purchase, the currency exchange rate and taxes which may be applicable.
+1
+Region:
+GET STARTED
+Protect everything
+Make your future more secure. Explore your security options today.
+Contact Sales
+PRICING CALCULATOR
+Azure Pricing calculator
+Calculate your estimated hourly or monthly costs for using Azure. Log in to save cost estimates and view your Azure agreement pricing.
+Try the pricing calculator
+RESOURCES
+Additional resources
+Microsoft Security Copilot
+Discover Microsoft Security Copilot features and capabilities.
+Learn more
+Download our service level agreement
+Get to know the latest service level agreement for Microsoft Online Services.
+Learn more
+Documentation
+Dive into technical tutorials, videos, and more resources.
+Get documentation
+FAQ
+Frequently asked questions
+Expand all
+Collapse all
+01/
+What is a security compute unit (SCU)?
+An SCU is a unit measure of the compute power to run Security Copilot workloads within the standalone and embedded experiences.
+02/
+Is Security Copilot included in Microsoft 365 E5 and E7?
+At Ignite 2025, Microsoft announced that Security Copilot agents will be directly built into the flow of work for security teams, available in Microsoft Defender, Entra, Intune and Purview.
+To make the agents easily accessible and help security teams get started faster, Security Copilot will be available to all Microsoft 365 E5 customers. Microsoft 365 E5 customers already using Security Copilot as of November 18, 2025, can access this benefit now. All other Microsoft 365 E5 and E7 customers will be activated through a phased roll-out in the upcoming months. Customers will receive advanced notice.
+03/
+What is included in the Security Copilot and Microsoft 365 E5 and E7 benefit?
+Eligible Microsoft 365 E5 and E7 customers will have 400 Security Compute Units (SCUs) per month for every 1000 user licenses, up to 10,000 SCUs per month. This included capacity is expected to support typical scenarios.
+Example 1: An organization with 400 seats gets 160 SCUs/month.
+Example 2: An organization with 4,000 seats gets 1,600 SCUs/month.
+Learn more
+04/
+How do I get started with Security Copilot?
+You can purchase your desired number of SCUs within the Security Copilot product or Azure portal, or you will be able to access Security Copilot as part of your Microsoft 365 E5 subscription in the upcoming months.
+Get started
+05/
+Which type of SCU should I choose?
+Use
+provisioned SCUs
+for expected, regular workloads. Flexible
+overage SCUs
+are available for unexpected or seasonal workload surges and are only charged for how many overage SCUs you use (up to your optional chosen overage limit).
+06/
+How many SCUs should I provision?
+Estimate your SCUs with the
+capacity calculator
+. A
+free Azure subscription
+is required to access the tool.
+07/
+How does SCU billing work?
+Security Copilot operates on a provisioned capacity and an overage capacity. Provisioned capacity is billed by the hour while the overage capacity is billed on usage.
+Provisioned capacity (minimum 1 provisioned SCU) is priced per hour and billed monthly.
+Overage capacity is billed for on-demand usage. To manage costs, customers can specify a maximum number of overage SCUs allowed in an hour to support occasional capacity spikes.
+Your monthly bill is calculated based on the number of SCUs provisioned every hour for the month and any additional overage capacity used.
+08/
+SCU billing example
+You have 4 provisioned SCUs with an overage limit of 6 SCUs.
+You execute a prompt that consumes 3 SCUs and uses incident summarization in Microsoft Defender, which consumes 0.5 SCU. Your total consumption for the hour is 3.5 SCUs, so you’ll be charged 4 SCUs at $4 per provisioned SCU, totaling $16 for that hour.
+You execute a promptbook that consumes an additional 3.2 SCUs during the same hour, for a total of 7.2 SCUs for that hour.
+You’ll be charged for 4 SCUs (at $4 per provisioned SCU) plus 3.2 SCUs (at $6 per overage SCU), totaling $35.20 for that hour.​
+09/
+Where can I learn more about Security Copilot?
+Visit the Security Copilot adoption hub
+for use cases and product demos, and when you're ready, learn how to get started. Find answers to
+frequently asked questions
+.
+[1]
+Prices are calculated based on US dollars. Prices are estimates only and are not intended as actual price quotes. Actual pricing may vary depending on the type of agreement entered with Microsoft, date of purchase, and the currency exchange rate. Sign in to the
+Azure pricing calculator
+to see pricing based on your current program/offer with Microsoft. Contact an
+Azure sales specialist
+for more information on pricing or to request a price quote. See
+frequently asked questions
+about Azure pricing.
+Follow Microsoft Security
+Surface Laptop Ultra
+Surface Pro
+Surface Laptop
+Surface RTX Spark Dev Box
+Explore Copilot
+Explore Microsoft products
+Windows 11 apps
+Account profile
+Download Center
+Microsoft Store support
+Returns
+Order tracking
+Certified Refurbished
+Why buy from Microsoft Store
+Flexible Payments
+Microsoft in education
+Devices for education
+Microsoft Teams for Education
+Microsoft 365 Education
+How to buy for your school
+Educator training and development
+Deals for students and parents
+AI for education
+Microsoft AI
+Microsoft Security
+Dynamics 365
+Microsoft 365
+Microsoft Power Platform
+Microsoft Teams
+Microsoft Copilot
+Small Business
+Azure
+Microsoft Developer
+Microsoft Learn
+Support for AI marketplace apps
+Microsoft Tech Community
+Microsoft Marketplace
+Software companies
+Visual Studio
+Careers
+About Microsoft
+Company news
+Privacy at Microsoft
+Investors
+Diversity and inclusion
+Accessibility
+Sustainability
+English (United States)
+Your Privacy Choices
+Consumer Health Privacy
+Sitemap
+Contact Microsoft
+Privacy
+Manage cookies
+Terms of use
+Trademarks
+Safety & eco
+Recycling
+About our ads

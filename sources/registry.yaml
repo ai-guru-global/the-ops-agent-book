@@ -467,6 +467,342 @@ sources:
     sha256: 3aeb78832db1b9797851d56955ba574eb82889fc3c2ac8430b70b428ff667235
     captured_at: '2026-11-25'
     method: html-to-text
+- source_id: SRC-HW-AGENTARTS-001
+  title: 什么是智果（AgentArts）智能体平台？
+  url: https://support.huaweicloud.com/productdesc-agentarts/agentarts_03_0002.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方文档支持企业级平台、Managed Agents、运行时托管、观测评估、低代码编排与沙箱；整体 GA、区域清单和商业条款未核实。
+  claims:
+  - CN-HW-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-HW-AGENTARTS-001.txt
+    sha256: 368799e215e7dd29b1cd86262531ef1d9f12ffeb6455f0bd624f8f085ab3b634
+    captured_at: '2026-11-25'
+    method: webfetch-markdown
+- source_id: SRC-BD-DUMATE-001
+  title: 百度搭子开发平台
+  url: https://cloud.baidu.com/product-s/dumate_developement_platform.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持一站式 Agent 开发运行、Skills/MCP/Workflow、托管 Harness、审计与 OpenTelemetry；私有化宣称数据不出域，具体价格与区域未核实。
+  claims:
+  - CN-BD-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-DUMATE-001.txt
+    sha256: d3698ef83a4909631538b42aafa8c20c16b3b9acb85239250f0e95d87a12f01e
+    captured_at: '2026-11-25'
+    method: webfetch-markdown
+- source_id: SRC-BD-FAMOU-001
+  title: 百度伐谋
+  url: https://cloud.baidu.com/product/famou.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页描述自我演化智能体、轻量/专业/混合云/私有化；私有化宣称数据、任务与结果内部流转，不证明运维场景效果。
+  claims:
+  - CN-BD-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-FAMOU-001.txt
+    sha256: 0f0863cd7efd85e473846460e59270a1a5b40b61893e346fb0bbd9af26e2fea5
+    captured_at: '2026-11-25'
+    method: webfetch-markdown
+- source_id: SRC-BD-MIAODA-EXPORT-001
+  title: 秒哒公有云 MIAODA - 源码导出与部署
+  url: https://cloud.baidu.com/doc/MIAODA/s/Xmewgmsq7
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方文档说明新应用多数可下载源码；导出功能上线前应用不支持，复杂应用需二次开发；不等于完整数据/评测/Trace 导出承诺。
+  claims:
+  - CN-BD-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-BD-MIAODA-EXPORT-001.txt
+    sha256: 28ae475c2f4ea0034f79c5399542f382c0b4af76705ac91657b8aec97fced6b9
+    captured_at: '2026-11-25'
+    method: webfetch-markdown
+- source_id: SRC-OR-ENTERPRISE-AGENTS-001
+  title: Enterprise AI Agents in OCI Generative AI
+  url: https://docs.oracle.com/en-us/iaas/Content/generative-ai/agents.htm
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方文档支持 Responses API、托管应用与混合架构，以及工具、记忆、NL2SQL 和沙箱；不是运维专用 Agent，商业字段未核实。
+  claims:
+  - GC-OR-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-ENTERPRISE-AGENTS-001.txt
+    sha256: b067135c9325248d68412134a720eb84e669fba5baf61af69412ae23629c1105
+    captured_at: '2026-11-25'
+    method: webfetch-markdown
+- source_id: SRC-SAP-JOULE-AGENTS-001
+  title: Joule Agents and Joule Assistants
+  url: https://www.sap.com/products/artificial-intelligence/ai-agents.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持跨 SAP/非 SAP 多步业务 Agent、人工监督、唯一身份、Agent 网关与沙箱；不证明 IT 运维能力，各 Agent GA 与商业条款未核实。
+  claims:
+  - GC-SAP-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-SAP-JOULE-AGENTS-001.txt
+    sha256: 4a61ee14d7903b0a6ecb87bb01c5ed4eecbb1369699d18b3450b8ee23684cf20
+    captured_at: '2026-11-25'
+    method: webfetch-markdown
+- source_id: SRC-SN-AI-AGENTS-001
+  title: ServiceNow Otto - AI Agents FAQ and Troubleshooting
+  url: https://www.servicenow.com/community/servicenow-otto-articles/ai-agents-faq-and-troubleshooting/tac-p/3207986/highlight/true
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方社区 FAQ 描述自主 AI Agents 与 ITSM/HRSD/CRM 场景；页面版本和 SKU 要求不等于整体 GA，区域、驻留与退出条款未核实。
+  claims:
+  - GC-SN-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-SN-AI-AGENTS-001.txt
+    sha256: 5f77b9e60099dc13d37f059903d8cffe22068d00cb3cdbbe70c5690acf39399d
+    captured_at: '2026-11-25'
+    method: webfetch-markdown
+- source_id: SRC-ALI-MODELSTUDIO-PRICING-001
+  title: 大模型服务平台百炼 Model Studio 模型价格
+  url: https://help.aliyun.com/zh/model-studio/model-pricing
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方价格页支持按量计费与北京/新加坡/弗吉尼亚等地域条目；仅证明价格页列出的地域与额度，不证明完整 Agent 平台能力或数据驻留承诺。
+  claims:
+  - ALI-14
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-MODELSTUDIO-PRICING-001.txt
+    sha256: 6b0fbc9d422a0ce4cb72066cee4377f80255ac9aa3f890bfee5eba7746c17760
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-QODER-CLOUDAGENTS-BILLING-001
+  title: Qoder Cloud Agents 计费
+  url: https://docs.qoder.com/zh/cloud-agents/billing
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方文档支持个人 Credits 预付费、企业资源包、模型与沙箱按用量扣减；当前部分存储不消耗 Credits，规则可能调整；导出/删除与驻留未核实。
+  claims:
+  - ALI-15
+  snapshot:
+    path: reports/sources/snapshots/SRC-QODER-CLOUDAGENTS-BILLING-001.txt
+    sha256: 695c845eb95f4aa85942bf6e84f216809ebc353682dc74bed3b07bb362dcab8f
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-ALI-AGENTICOS-001
+  title: Alibaba Cloud Linux 4 Agentic Edition 产品概览
+  url: https://help.aliyun.com/zh/alinux/agentic-os
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方文档称 Agentic OS 镜像免费，计算/存储/模型等资源另计；核心组件已开源，支持 x86 并建议至少 2GB 内存；商业 SLA 与退出未核实。
+  claims:
+  - ALI-17
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-AGENTICOS-001.txt
+    sha256: c2672a0b25876d6d7878951f9538889570c7256527aa5ab51683a60fc596b0e0
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-TX-ADP-001
+  title: 腾讯智能体开发平台 ADP
+  url: https://cloud.tencent.com/product/adp
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持 Agent 开发、多渠道接入、云部署与私有化 License；私有化部署在客户自有腾讯云 TKE；具体价格、区域与退出条款未核实。
+  claims:
+  - CN-TX-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-TX-ADP-001.txt
+    sha256: 1ae951359024ea08bcd87125dbe269d682abec61607378e4247b5b5c944a867b
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-TX-TCOP-001
+  title: 腾讯云可观测平台 TCOP
+  url: https://cloud.tencent.com/product/tcop/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页描述指标/链路/日志/事件一体化监控与 AI 工作台公测；不证明 Agent 自主调查或生产修复效果。
+  claims:
+  - CN-TX-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-TX-TCOP-001.txt
+    sha256: fa7d9b33ec2dc4690824b8b1797c102a09bae45198e598ce635d867658d23378
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-VOLC-OPSASSISTANT-001
+  title: 智能运维助手概述
+  url: https://docs.volcengine.com/docs/observability/Overview_of_Intelligent_Operations_Assistant
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方文档明确公测，支持自然语言智能运维任务、自动化任务与响应计划；不证明 GA 或无人监督生产效果。
+  claims:
+  - CN-OT-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-VOLC-OPSASSISTANT-001.txt
+    sha256: d8c8ec757f29b8043750faff29f079f0403aadbb75b50bae8f1f969835351e14
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-VOLC-ARK-PRICING-001
+  title: 火山方舟模型服务计费说明
+  url: https://docs.volcengine.com/docs/82379/1544681?lang=zh
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方文档支持实时/批量推理按 token 后付费、不调用不计费，文件输入可使用用户 TOS；整体 Agent 平台能力与数据驻留未核实。
+  claims:
+  - CN-OT-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-VOLC-ARK-PRICING-001.txt
+    sha256: b2799cf5c66e3a0817ee4e9aa0a92dcfe58a5bbb95aec7f0385085fc84ed3d81
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-GO-GEMINI-AGENT-001
+  title: Google Cloud launches Gemini agent
+  url: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/
+  type: official_release
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方公告支持 Gemini agent 已宣布及连接业务系统、交付成果的描述；GA、区域、许可与退出未核实。
+  claims:
+  - GC-GO-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-GO-GEMINI-AGENT-001.txt
+    sha256: 8fbde0eeee58d232088064471505fa0a2fafa5a9325dfae8f152921379646446
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-GO-ADK-V2-001
+  title: Google ADK Python v2.0.0 General Availability
+  url: https://github.com/google/adk-python/releases/tag/v2.0.0
+  type: official_release
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: Google 官方仓库发布说明支持 ADK 2.0 GA、多 Agent 工作流与动态协作；不等于托管 Runtime 的区域、SLA 或退出承诺。
+  claims:
+  - GC-GO-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-GO-ADK-V2-001.txt
+    sha256: f1b04b45b3611f31c275393784eeb9b89261387d205ce5fc205992c8ac820013
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-MS-SECCOPILOT-PRICING-001
+  title: Microsoft Security Copilot pricing
+  url: https://www.microsoft.com/en-us/security/pricing/microsoft-security-copilot/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方定价页支持独立/嵌入形态、SCU 计费、最低 1 provisioned SCU、$4/SCU-h 与 $6/overage SCU 示例；E5/E7 分阶段启用，政府云与数据驻留需另核。
+  claims:
+  - GC-MS-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SECCOPILOT-PRICING-001.txt
+    sha256: b18e7735765cbe10be406cd290b87f5c87fd92163faad31adb2f6f4dd1a037fc
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-JD-AIOPS-001
+  title: 京东云基于自然语言处理的运维日志异常检测 AIOps 实践
+  url: https://developer.jdcloud.com/article/2718
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 京东云开发者社区历史技术文章，支持日志异常检测 AIOps 方法；不证明当前产品 SKU、GA 或商业条款。
+  claims:
+  - CN-OT-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-JD-AIOPS-001.txt
+    sha256: 332f29fc2b3ccf5d8f3e3f97ac8cadbea06d29293d9c60a69670b0bdd58d9253
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-INSPUR-INCLOUD-MANAGER-001
+  title: 浪潮云海云数据中心管理平台 InCloud Manager
+  url: https://www.inspur.com/lcjtww/2593427/ygpt/2025021409574087926/index.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持私有云资源管理、监控/日志/智能运维与自动化体系；不证明独立 Agent 产品状态。
+  claims:
+  - CN-OT-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-INSPUR-INCLOUD-MANAGER-001.txt
+    sha256: 17dd1bf6ba19d08de30ba4162597874c03c3021c3cbef131cf07e69459aa4b03
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-CLOUDWISE-ITSM-001
+  title: 云智慧智能 IT 服务管理 ITSM 平台
+  url: https://www.cloudwise.com/cn/page/jx/dosm.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持生成式 AI 赋能工单、服务台、知识库与 AI 助理，以及 SaaS 订阅/私有化租赁；AgenticAI 独立产品状态未核实。
+  claims:
+  - CN-DOM-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-CLOUDWISE-ITSM-001.txt
+    sha256: ec5d3892a6e61ecc24fd11c95598193588805c4e1f9ca45f1f7b4b2275b5bc56
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-EOITEK-AIOPS-001
+  title: 擎创夏洛克 AIOps 一体化数智运维管理平台
+  url: https://www.eoitek.com/aiops.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方页面支持夏洛克 AIOps、统一数据/监控/告警/分析/决策与信创适配自述；不证明生产效果。
+  claims:
+  - CN-DOM-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-EOITEK-AIOPS-001.txt
+    sha256: 654c871b6f729331aa7a70da3be87886669f9d47f259b4f97abc7800c38b80b5
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-YANLONG-SREAGENT-001
+  title: 炎龙智能 SREAgent - Agentic AIOps 智能体 SRE 运维平台
+  url: https://www.yanlong-ai.com/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持企业版 V4.17.1、私有部署与数据不出域自述；安全认证与效果仍需独立验证。
+  claims:
+  - CN-DOM-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-YANLONG-SREAGENT-001.txt
+    sha256: 208683e995da7e242785c761971f732d30bb82da5c3024eae507d9cd5237b68f
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-XJ-IT-AGENT-001
+  title: 新炬网络 IT 运维 AI 智能体接入数据库云管平台
+  url: https://www.shsnc.com/show-10-1370-1.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方新闻支持 IT 运维 AI 智能体接入 ZnDBCloud、智能问答/运维助手/问题决策场景；独立产品名与 GA 未核实。
+  claims:
+  - CN-DOM-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-XJ-IT-AGENT-001.txt
+    sha256: 9be2217e6cee04d7dff951da75f141ba62ffb556856c1b2afb57675a17e503c4
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-ME-AIOPS-GUIDE-001
+  title: ManageEngine 2026 年智能运维 AIOps 软件推荐与选型指南
+  url: https://www.manageengine.cn/it-operations-management/articles/aiops-software-guide-2026.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 厂商官方博客支持 OpManager Nexus/Zia、本地模型与私有化、AI 不另收费自述；属于厂商营销材料，不是独立横评或生产证明。
+  claims:
+  - CN-DOM-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-ME-AIOPS-GUIDE-001.txt
+    sha256: 1f5df2d62d9abfbb48006f8e9469bdad3f4540d73113b12e4c98cbde29e00c89
+    captured_at: '2026-11-25'
+    method: html-to-text
 - source_id: SRC-MCP-001
   title: Model Context Protocol
   url: https://modelcontextprotocol.io/

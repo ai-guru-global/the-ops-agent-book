@@ -1,0 +1,260 @@
+百度搭子开发平台-百度智能云
+
+*   [最新活动](https://cloud.baidu.com/campaign/PromotionActivity/index.html)
+*   [产品](https://cloud.baidu.com/products/index.html)
+*   [解决方案](https://cloud.baidu.com/solution/index.html)
+*   [千帆社区](https://cloud.baidu.com/qianfandev)
+*   [AI原生应用商店](https://qianfanmarket.baidu.com/)
+*   [企业服务](https://qifu.baidu.com)
+*   [云市场](https://market.baidu.com)
+*   [合作与生态](https://cloud.baidu.com/partner/plan.html)
+*   [开发者](https://developer.baidu.com)
+*   [服务与支持](https://cloud.baidu.com/doc/support/index.html)
+*   [了解智能云](https://cloud.baidu.com/cloudai.html)
+*   [备案](https://cloud.baidu.com/beian/index.html)
+*   [文档](https://cloud.baidu.com/doc/index.html)
+*   [管理控制台](https://console.bce.baidu.com)
+
+百度搭子开发平台
+========
+
+面向开发者的一站式智能体开发和运行平台。提供多种 Agent 构建方式，融合 Skills、MCP、工作流与知识库，基于托管运行环境，覆盖智能体从构建、部署、运行到评测与扩展的全生命周期。
+
+[立即体验](https://console.bce.baidu.com/dumate/enterprise/console/develop/agent)[联系我们](https://cloud.baidu.com/survey/dumate_development.html)[API文档](https://cloud.baidu.com/doc/Dumate/s/Mmtv8sxf3)
+
+企业级Agent开发和运行
+-------------
+
+百度搭子 Agent API
+
+提供托管 Agent Harness 与生产级基础设施，沙箱、状态、记忆、权限、追踪开箱即用，免自建 Agent Loop 与运维。
+
+[立即体验](https://cloud.baidu.com/doc/Dumate/s/Mmtv8sxf3)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/baidudazi_3f9c779.png)
+
+工具开发
+----
+
+技能Skill组件Workflow连接器MCP专家套件Plugin
+
+![技能Skill](https://bce.bdstatic.com/p3m/common-service/uploads/jinengskill_7657d64.png)
+
+#### 技能Skill
+
+面向开发者的 Skill 全生命周期开发与管理平台，支持创建、调试、发布可复用的 Skill，并在智能体中一键调用。
+
+#### 我们能提供
+
+##### 可视化开发
+
+提供 Skill 创建、编辑、调试的一站式界面，降低开发门槛
+
+##### 全生命周期管理
+
+覆盖创建、版本迭代、发布、上下架完整流程，保障资产可控可追溯
+
+##### 一次开发,多处调用
+
+发布后的 Skill 可被多个智能体按需加载，组织级能力持续沉淀复用
+
+##### 提升执行效率
+
+通过 Skill 封装最佳实践，减少 Agent 上下文 Token 消耗，降低成本
+
+![组件Workflow](https://bce.bdstatic.com/p3m/common-service/uploads/zujianworkflow_5e4f8f5.png)
+
+#### 组件Workflow
+
+以可视化画布编排功能节点，低代码构建可复用的 Skill，发布后可被智能体直接调用。
+
+#### 我们能提供
+
+##### 零代码上手
+
+图形化画布拖拽编排，无需编码即可构建 Skill，大幅降低开发门槛。
+
+##### 节点即能力
+
+官方与自定义节点丰富，集成 AI 组件与第三方 API，组合即扩展能力。
+
+##### 所见即所得
+
+画布内实时调试运行，验证通过后一键发布为 Skill，缩短交付周期。
+
+![连接器MCP](https://bce.bdstatic.com/p3m/common-service/uploads/mcp_1a9af39.png)
+
+#### 连接器MCP
+
+面向开发者的连接器开发与管理平台，支持通过 MCP协议将第三方系统接入，统一纳管并在智能体中直接调用。
+
+#### 我们能提供
+
+##### 统一管理
+
+连接器全生命周期一站管控
+
+##### Agent 集成
+
+接入的第三方工具可直接在 Agent 应用中调用，扩展 Agent 能力边界
+
+##### 安全可控
+
+支持鉴权配置和 Headers 自定义，保障外部调用的安全性
+
+![专家套件Plugin](https://bce.bdstatic.com/p3m/common-service/uploads/taojianplugin_cf4b426.png)
+
+#### 专家套件Plugin
+
+套件是面向垂直场景的能力包，通常由入口智能体、多个技能和可选的连接应用依赖组成。
+
+#### 我们能提供
+
+##### 更专业的交付技巧
+
+精准匹配行业深层需求
+
+##### 覆盖完整业务链路
+
+选题到复盘全流程闭环
+
+##### 复用专家方法论
+
+沉淀判断路径为插件
+
+##### 提升复杂任务完成度
+
+结合智能路由与内置浏览器等能力，复杂任务完成率更高、返工更少
+
+独家优质 Skill
+----------
+
+百度搜索
+
+接入百度搜索与热搜，全网实时信息
+
+*   实时热点与趋势获取
+    
+*   结果可溯源，减少幻觉
+    
+
+深度研究
+
+多轮检索交叉验证，输出结构化报告
+
+*   行业趋势扫描与竞品洞察
+    
+*   报告分析全面有深度
+    
+
+浏览器操作
+
+复用登录态规避风控，真实网页交互
+
+*   浏览器智能路由，无头与有头自动切换
+    
+*   会话隔离，多 Tab 与云端 IP 代理池
+    
+
+PPT 生成
+
+文档大纲一键转可编辑演示文稿
+
+*   结构化排版与图表配套
+    
+*   支持汇报材料与方案宣讲
+    
+
+数据可视化助手
+
+取数、分析到看板一站产出
+
+*   图表可视化与结论归因
+    
+*   定时任务与数据追踪
+    
+
+短剧视频制作
+
+脚本、配音与字幕一体化交付
+
+*   脚本、配音与字幕一体化
+    
+*   适用于内容营销与品牌传播
+    
+
+企业扩展生态
+------
+
+办公协作
+
+打通企业协作工具，让智能体直接融入办公流。
+
+*   邮箱、IM、在线文档
+    
+*   会议与网盘等文件协作
+    
+
+研发工具
+
+代码与自动化能力，贯通研发交付流程。
+
+*   代码开发与编码规范
+    
+*   定时任务与自动化执行
+    
+
+行业应用
+
+连接 MCP 与行业系统，扩展场景化能力。
+
+*   医疗、财税、快消等业务系统
+    
+*   支持自定义企业内部系统接入
+    
+
+企业级高可用
+------
+
+### 安全合规
+
+通过扫描、防御、隔离与风险拦截，构建安全可控的企业 AI 运行环境。
+
+### 审计日志
+
+AI 调用、数据访问与操作全量留痕，结合委托链审计与 Trace 日志，实现行为可追溯、可问责。
+
+### 运维告警
+
+覆盖应用异常报警、用量超额告警等多种告警场景，保障高频业务场景下的持续稳定运行。
+
+### 身份权限
+
+集中安全管理应用访问凭证，支持授权范围与传递方式配置，为智能体提供按需调用凭证能力。
+
+### 可观测
+
+基于 OpenTelemetry 全链路 Trace 分析，还原请求到回复过程，支撑性能定位与故障归因。
+
+### 效果评测
+
+通过模型、人工与代码评测，围绕质量、幻觉、安全等多维评估，贯通上线准出与持续优化。
+
+多种服务模式
+------
+
+公有云
+
+无需自建基础设施，可调用百度搭子 Agent API 与官方技能，快速验证业务并扩容。
+
+[_立即体验_](https://cloud.baidu.com/doc/Dumate/s/Mmtv8sxf3)
+
+私有化
+
+支持企业自有部署，数据不出域，打通内部系统与身份体系，满足安全合规要求。
+
+[_联系我们_](https://cloud.baidu.com/survey/dumate_development.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/footer_7229fe8.png)
+
+{"props":{"pageProps":{"isLoadOrderDrawer":false,"hidePortalCommon":false,"modules":\[{"lang":"zh","blockId":"a4d7d69b-852d-4acb-89a6-2b27d77b51a6","type":"V6S002","data":{"render":{"title":"百度搭子开发平台","desc":"面向开发者的一站式智能体开发和运行平台。提供多种 Agent 构建方式，融合 Skills、MCP、工作流与知识库，基于托管运行环境，覆盖智能体从构建、部署、运行到评测与扩展的全生命周期。","activityLink":{"text":"活动链接活动链接活动链接","href":"","disabled":true,"setTimer":false},"bg":"https://bce.bdstatic.com/p3m/common-service/uploads/dumatepc1\_37c0313.png","bgM":"https://bce.bdstatic.com/p3m/common-service/uploads/wap\_a2c481e.png","layoutType":"none","image":"","surveyId":"","buttons":\[{"text":"立即体验","type":"primary","href":"https://console.bce.baidu.com/dumate/enterprise/console/develop/agent","\_version":"v2","id":"ef9y81ntw5"},{"text":"联系我们","type":"default","href":"https://cloud.baidu.com/survey/dumate\_development.html","\_version":"v2","id":"aui2dyyu9m"},{"id":"to9977oiovg","type":"default","color":"black","condition":false,"campaignId":"","text":"API文档","href":"https://cloud.baidu.com/doc/Dumate/s/Mmtv8sxf3","\_version":"v2"}\],"infos":\[{"label":"","desc":""},{"label":"","desc":""},{"label":"","desc":""}\],"serviceType":"DUMATE\_S","parentServiceType":""},"config":{"bgColor":"#F4FAFF"}},"category":"","title":"banner","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6S002\_f66d44e.jpg","description":"","essential":"","tag":"产品S,产品聚合页,产品,解决方案","displayName":"banner","createdAt":"2025-05-23T14:48:09Z","updatedAt":"2026-03-23T09:43:53Z","instanceId":"1789361154199\_1","id":0},{"lang":"zh","blockId":"abe24623-bd62-4f8a-be4b-9ae12f777866","type":"V6G014","data":{"render":{"title":"企业级Agent开发和运行","titleM":"","content":{"title":"百度搭子 Agent API","img":"https://bce.bdstatic.com/p3m/common-service/uploads/baidudazi\_3f9c779.png","bgImg":"https://bce.bdstatic.com/p3m/common-service/uploads/beijing1\_515ddcc.png","desc":"提供托管 Agent Harness 与生产级基础设施，沙箱、状态、记忆、权限、追踪开箱即用，免自建 Agent Loop 与运维。","stepsTitle":"","stepsList":\[\],"relatedProductsTitle":"","relatedProductsList":\[\],"button":{"text":"立即体验","href":"https://cloud.baidu.com/doc/Dumate/s/Mmtv8sxf3","disabled":false,"setTimer":false}}},"config":{"bgTheme":"default"}},"category":"卡片","title":"企业级agent","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G014\_7b361c3.png","description":"","essential":"","tag":"产品S,产品聚合页","displayName":"企业级agent","createdAt":"2025-05-30T14:10:27Z","updatedAt":"2025-06-30T11:13:53Z","instanceId":"1789442312230\_2","id":1},{"lang":"zh","blockId":"b74bb295-bcd6-492a-90ed-75d9b0f918db","type":"V6G031","data":{"render":{"title":"工具开发","tabs":\[{"tab":{"name":"技能Skill"},"items":\[{"mediaType":"image","image":"https://bce.bdstatic.com/p3m/common-service/uploads/jinengskill\_7657d64.png","sences":\[{"title":"技能Skill","desc":"面向开发者的 Skill 全生命周期开发与管理平台，支持创建、调试、发布可复用的 Skill，并在智能体中一键调用。","detail":{"text":"链接文案","href":"#","disabled":true,"setTimer":false}}\],"whatName":"我们能提供","whats":\[{"title":"可视化开发","descs":\["提供 Skill 创建、编辑、调试的一站式界面，降低开发门槛"\]},{"title":"全生命周期管理","descs":\["覆盖创建、版本迭代、发布、上下架完整流程，保障资产可控可追溯"\]},{"descs":\["发布后的 Skill 可被多个智能体按需加载，组织级能力持续沉淀复用"\],"title":"一次开发,多处调用"},{"title":"提升执行效率","descs":\["通过 Skill 封装最佳实践，减少 Agent 上下文 Token 消耗，降低成本"\]}\],"recommendName":"选型推荐","recommend":\[\],"relatedProductsName":"相关产品","relatedProducts":\[\]}\]},{"tab":{"name":"组件Workflow"},"items":\[{"mediaType":"image","image":"https://bce.bdstatic.com/p3m/common-service/uploads/zujianworkflow\_5e4f8f5.png","sences":\[{"title":"组件Workflow","desc":"以可视化画布编排功能节点，低代码构建可复用的 Skill，发布后可被智能体直接调用。","detail":{"text":"链接文案","href":"#","disabled":true,"setTimer":false}}\],"whatName":"我们能提供","whats":\[{"title":"零代码上手","descs":\["图形化画布拖拽编排，无需编码即可构建 Skill，大幅降低开发门槛。"\]},{"title":"节点即能力","descs":\["官方与自定义节点丰富，集成 AI 组件与第三方 API，组合即扩展能力。"\]},{"descs":\["画布内实时调试运行，验证通过后一键发布为 Skill，缩短交付周期。"\],"title":"所见即所得"}\],"recommendName":"选型推荐","recommend":\[\],"relatedProductsName":"相关产品","relatedProducts":\[\]}\]},{"tab":{"name":"连接器MCP"},"items":\[{"mediaType":"image","image":"https://bce.bdstatic.com/p3m/common-service/uploads/mcp\_1a9af39.png","sences":\[{"title":"连接器MCP","desc":"面向开发者的连接器开发与管理平台，支持通过 MCP协议将第三方系统接入，统一纳管并在智能体中直接调用。"}\],"whatName":"我们能提供","whats":\[{"title":"统一管理","descs":\["连接器全生命周期一站管控"\]},{"title":"Agent 集成","descs":\["接入的第三方工具可直接在 Agent 应用中调用，扩展 Agent 能力边界"\]},{"title":"安全可控","descs":\["支持鉴权配置和 Headers 自定义，保障外部调用的安全性"\]}\],"recommendName":"选型推荐","recommend":\[\],"relatedProductsName":"相关产品","relatedProducts":\[\]}\]},{"tab":{"name":"专家套件Plugin"},"items":\[{"mediaType":"image","image":"https://bce.bdstatic.com/p3m/common-service/uploads/taojianplugin\_cf4b426.png","sences":\[{"title":"专家套件Plugin","desc":"套件是面向垂直场景的能力包，通常由入口智能体、多个技能和可选的连接应用依赖组成。","detail":{"text":"链接文案","href":"#","disabled":true,"setTimer":false}}\],"whatName":"我们能提供","whats":\[{"title":"更专业的交付技巧","descs":\["精准匹配行业深层需求"\]},{"title":"覆盖完整业务链路","descs":\["选题到复盘全流程闭环"\]},{"title":"复用专家方法论","descs":\["沉淀判断路径为插件"\]},{"title":"提升复杂任务完成度","descs":\["结合智能路由与内置浏览器等能力，复杂任务完成率更高、返工更少"\]}\],"recommendName":"选型推荐","recommend":\[\],"relatedProductsName":"相关产品","relatedProducts":\[\]}\]}\]},"config":{"background":"white","tabs":4,"columns":\[1,1,1,1\]}},"category":"","title":"工具开发","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/aaaaaa\_0a29338\_0a29338.png","description":"","essential":"","tag":"产品聚合页,产品S","displayName":"工具开发","createdAt":"2026-03-05T08:19:28Z","updatedAt":"2026-06-03T11:15:51Z","instanceId":"1789354073442\_7","id":2},{"lang":"zh","blockId":"7298d55f-5791-4ffb-96ea-7482b2e27643","type":"V6G021","data":{"render":{"title":"独家优质 Skill","items":\[{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/baidusousuo3x\_ec79a71.png","title":"百度搜索","desc":"接入百度搜索与热搜，全网实时信息","detail":\["实时热点与趋势获取","结果可溯源，减少幻觉"\],"btns":\[\]},{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/shenduyanjiu3x\_bffd8e4.png","title":"深度研究","desc":"多轮检索交叉验证，输出结构化报告","detail":\["行业趋势扫描与竞品洞察","报告分析全面有深度"\],"btns":\[\]},{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/liulanqi3x\_efb7d02.png","title":"浏览器操作","desc":"复用登录态规避风控，真实网页交互","detail":\["浏览器智能路由，无头与有头自动切换","会话隔离，多 Tab 与云端 IP 代理池"\],"btns":\[\]},{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/ppt3x\_89853d3.png","title":"PPT 生成","desc":"文档大纲一键转可编辑演示文稿","detail":\["结构化排版与图表配套","支持汇报材料与方案宣讲"\],"btns":\[\]},{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/shujukeshi3x\_c7643a3.png","title":"数据可视化助手","desc":"取数、分析到看板一站产出","detail":\["图表可视化与结论归因","定时任务与数据追踪"\],"btns":\[\]},{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/duanjushipin3x\_b5d110d.png","title":"短剧视频制作","desc":"脚本、配音与字幕一体化交付","detail":\["脚本、配音与字幕一体化","适用于内容营销与品牌传播"\],"btns":\[\]}\]},"config":{"bgTheme":"default","cardCount":4}},"category":"","title":"独家skill","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G021\_da7e42a.png","description":"V6G021 - 部署方式","essential":"","tag":"产品聚合页,产品S,客户案例","displayName":"独家skill","createdAt":"2025-10-23T13:41:12Z","updatedAt":"2026-06-03T11:19:40Z","instanceId":"1789359263168\_11","id":3},{"lang":"zh","blockId":"7298d55f-5791-4ffb-96ea-7482b2e27643","type":"V6G021","data":{"render":{"title":"企业扩展生态","items":\[{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/bangongxiezuo3x\_45d4f51.png","title":"办公协作","desc":"打通企业协作工具，让智能体直接融入办公流。","detail":\["邮箱、IM、在线文档","会议与网盘等文件协作"\],"btns":\[\]},{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/yanfagongju3x\_d7f984c.png","title":"研发工具","desc":"代码与自动化能力，贯通研发交付流程。","detail":\["代码开发与编码规范","定时任务与自动化执行"\],"btns":\[\]},{"icon":"https://bce.bdstatic.com/p3m/common-service/uploads/hangyeyinyong3x\_e01d088.png","title":"行业应用","desc":"连接 MCP 与行业系统，扩展场景化能力。","detail":\["医疗、财税、快消等业务系统","支持自定义企业内部系统接入"\],"btns":\[\]}\]},"config":{"bgTheme":"default","cardCount":4}},"category":"","title":"企业扩展生态","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G021\_da7e42a.png","description":"V6G021 - 部署方式","essential":"","tag":"产品聚合页,产品S,客户案例","displayName":"企业扩展生态","createdAt":"2025-10-23T13:41:12Z","updatedAt":"2026-06-03T11:19:40Z","instanceId":"1789361476751\_2","id":4},{"lang":"zh","blockId":"651cc8fe-9ce2-4e75-a0f5-5c1d90fb1648","type":"V6G017","data":{"render":{"title":"企业级高可用","items":\[\[{"title":"安全合规","desc":"通过扫描、防御、隔离与风险拦截，构建安全可控的企业 AI 运行环境。","button":{"text":"立即购买","href":"#","disabled":true,"setTimer":false},"subButton":{"text":"立即购买","href":"#","disabled":true}},{"title":"审计日志","desc":"AI 调用、数据访问与操作全量留痕，结合委托链审计与 Trace 日志，实现行为可追溯、可问责。","button":{"text":"立即购买","href":"#","disabled":true,"setTimer":false},"subButton":{"text":"立即购买","href":"#","disabled":true}},{"title":"运维告警","desc":"覆盖应用异常报警、用量超额告警等多种告警场景，保障高频业务场景下的持续稳定运行。","button":{"text":"链接文案","href":"#","disabled":true,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}}\],\[{"title":"身份权限","desc":"集中安全管理应用访问凭证，支持授权范围与传递方式配置，为智能体提供按需调用凭证能力。","button":{"text":"立即购买","href":"#","disabled":true,"setTimer":false},"subButton":{"text":"立即购买","href":"#","disabled":true}},{"title":"可观测","desc":"基于 OpenTelemetry 全链路 Trace 分析，还原请求到回复过程，支撑性能定位与故障归因。","button":{"text":"立即购买","href":"#","disabled":true,"setTimer":false},"subButton":{"text":"立即购买","href":"#","disabled":true}},{"title":"效果评测","desc":"通过模型、人工与代码评测，围绕质量、幻觉、安全等多维评估，贯通上线准出与持续优化。","button":{"text":"立即购买","href":"#","disabled":true,"setTimer":false},"subButton":{"text":"立即购买","href":"#","disabled":true}}\]\]},"config":{"columnList":\[3,3\],"bgTheme":"default"}},"category":"相关产品","title":"企业级高可用","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G017\_4792661.png","description":"","essential":"","tag":"产品S,产品聚合页","displayName":"企业级高可用","createdAt":"2025-05-27T11:22:24Z","updatedAt":"2026-09-03T08:42:12Z","instanceId":"1789361913286\_4","id":5},{"lang":"zh","blockId":"144306db-6df3-4cf8-9273-e6d700908049","type":"V6G006","data":{"render":{"title":"多种服务模式","titleM":"","items":\[{"title":"公有云","desc":"无需自建基础设施，可调用百度搭子 Agent API 与官方技能，快速验证业务并扩容。","buttons":\[{"text":"立即体验","href":"https://cloud.baidu.com/doc/Dumate/s/Mmtv8sxf3","disabled":false,"setTimer":false}\]},{"title":"私有化","desc":"支持企业自有部署，数据不出域，打通内部系统与身份体系，满足安全合规要求。","buttons":\[{"text":"联系我们","href":"https://cloud.baidu.com/survey/dumate\_development.html","disabled":false,"setTimer":false}\]}\],"isBgVideo":false,"videoSrc":"","videoCover":"","bgSrc":"https://bce.bdstatic.com/p3m/common-service/uploads/footer\_7229fe8.png","button":{"text":"免费体验","href":"","disabled":true,"setTimer":false},"subTitle":{"content":"","link":{"text":"","href":"","disabled":false}}},"config":{"bgTheme":"none"}},"category":"","title":"footer","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/image\_38b8c70.png","description":"","essential":"","tag":"产品S,产品聚合页","displayName":"footer","createdAt":"2025-05-19T11:54:02Z","updatedAt":"2026-06-03T11:17:54Z","instanceId":"1789309994043\_13","id":6}\],"isPreview":false,"aiPreviewVersion":"","pageId":"1b504b7f-b193-4bc9-b5b0-4daec2f5fac5","createdAt":"2026-11-09T20:52:33.000Z","updatedAt":"2026-11-11T00:06:37.000Z","serviceType":"DUMATE\_S","parentServiceType":"","headOption":{"title":"百度搭子开发平台-百度智能云","keywords":"百度搭子开发平台,搭子开发平台,搭子,DuMate开发平台,百度搭子Agent API,搭子Agent API,搭子API,DuMate Agent API,智能体开发平台,Agent开发平台","description":"百度搭子开发平台提供托管Agent Harness与生产级基础设施，支持Skill开发、MCP连接器、工作流编排与专家套件，具备安全合规、审计日志、可观测与效果评测等企业级高可用能力。"},"portalCommonOption":{"isFlexFooter":true,"headerTransparent":true,"showSecondaryNav":true,"secondaryNavConfigId":"dad20d224c354dcc8ce760d9e397116e","headerFixed":false}},"\_\_N\_SSG":true},"page":"/product-s/\[type\]","query":{"type":"1b504b7f-b193-4bc9-b5b0-4daec2f5fac5"},"buildId":"av0M5ufLwDYZ3CdfvpWsK","assetPrefix":"https://bce.bdstatic.com/portal-cloud-server/online","isFallback":false,"dynamicIds":\[780,877,91035,13918,2204,72553\],"gsp":true,"customServer":true,"scriptLoader":\[\]}

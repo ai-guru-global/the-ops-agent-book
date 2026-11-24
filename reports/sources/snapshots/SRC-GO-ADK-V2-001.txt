@@ -1,0 +1,201 @@
+Release v2.0.0 · google/adk-python · GitHub
+URL: https://github.com/google/adk-python/releases/tag/v2.0.0
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+Release v2.0.0 · google/adk-python · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Products
+Platform
+GitHub
+Repository hosting, code review, and collaboration
+Copilot
+AI coding agent for tasks, projects, and automated work
+Build & Ship
+Actions
+CI/CD and automation
+Code Quality
+Quality analysis, fixes, and enforcement
+Codespaces
+Cloud development environments
+Secure
+Code Security
+Vulnerability detection and remediation
+Secret Protection
+Secret scanning and leak prevention
+All Features
+Developers
+Learn
+Documentation
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Developer articles
+Changelog
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
+Enterprises
+Team
+Startups
+Nonprofits
+By Industry
+Healthcare
+Financial services
+Manufacturing
+Government
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
+Business insights
+Trust Center
+Add-ons
+GitHub Advanced Security
+Enterprise-grade code security
+Copilot for business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+{{ message }}
+google
+adk-python
+Repository navigation
+Code
+Issues
+266
+(
+266
+)
+Pull requests
+312
+(
+312
+)
+Discussions
+Actions
+Projects
+Security and quality
+Insights
+More
+items
+Releases
+v2.0.0
+v2.0.0
+Compare
+Choose a tag to compare
+Sorry, something went wrong.
+Filter
+Loading
+Sorry, something went wrong.
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+No results found
+View all tags
+sasha-gitg
+released this
+19 May 16:24
+v2.0.0
+0a290d5
+2.0.0
+(2026-05-19)
+ADK 2.0 General Availability
+This release introduces v2.0.0 General Availability (GA) of the Google Agent Development Kit (ADK), establishing production-grade foundations for multi-agent workflows and advanced dynamic agent collaboration.
+Core Architecture Highlights
+Multi-Agent Workflow Engine
+Flexible Execution Graphs:
+Establishes a model-agnostic engine for orchestrating non-linear, conditional, and cyclical agent execution patterns.
+Intelligent Task Delegation:
+Introduces modular workflow abstractions enabling parallel sub-agent workers, nested hierarchical team structures, and resilient dynamic scheduling across complex task execution steps.
+Dynamic Agent Collaboration
+Native Inter-Agent Routing:
+Provides seamless orchestration for inter-agent messaging, control state handoffs, and context variable propagation across collaborative multi-agent flows.
+Assets
+2
+Loading
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+🎉
+41
+fancydirty, sjhatfield, eoinpaul, cloudflips32, nishidhshekhawat-techolution, jb-delafosse, bakuljajan, haiyuan-eng-google, morganroux, JoaoCampista, and 31 more reacted with hooray emoji
+❤️
+13
+nicornejo, haiyuan-eng-google, JoaoCampista, ahatem93, rainerdechet, Dustan-FullStory, OmixMinana, markns, m-stramel, jamber751, and 3 more reacted with heart emoji
+🚀
+6
+markns, rif-Tuging-Dreams, rafal-idzik, Baher-Elkobia, manuelcheong, and tarekabouzeid reacted with rocket emoji
+👀
+1
+chickenlj reacted with eyes emoji
+All reactions
+🎉
+41 reactions
+❤️
+13 reactions
+🚀
+6 reactions
+👀
+1 reaction
+50 people reacted
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.

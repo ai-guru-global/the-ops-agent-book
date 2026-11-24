@@ -12,7 +12,7 @@ content_status: "reviewed"
 
 > 全球云厂商的产品结构正在收敛为三层：一个“值班/运维 Agent” + 一组内嵌助手 + 一个 Agent 运行时/平台。选型时先分清层，再比较能力。
 >
-> 最后核实：**2026-11-24**；复核截止：**2027-02-22**。`claim_id → source_id` 的完整定义见[来源注册表](../appendix/source-registry)。
+> 最后核实：**2026-11-25**；复核截止：**2027-02-22**。`claim_id → source_id` 的完整定义见[来源注册表](../appendix/source-registry)。
 
 ::: diagram 图 37 · 全球云产品评估流 | synthetic/方法示意；按产品层级、逐产品证据、场景 POC 与治理/商业门禁评估，未核实不默认通过，拒绝、POC 失败和退出均有显式分支；本图不构成厂商能力证明。
 ```mermaid
@@ -68,7 +68,7 @@ AWS 的已核验共同点是“**Agent + 既有可观测/工单生态**”：Dev
 | --- | --- | --- | --- | --- |
 | **Azure SRE Agent**（GC-MS-01） | 独立/托管 SRE Agent | 可靠性、根因、缓解 | 官方页面描述多层根因调查、遥测关联、假设检验、事件知识复用、缓解执行、自定义子 Agent、外部 MCP 与 GitHub Copilot 协作；强调人工监督 | SRC-MS-SRE-001 |
 | **Azure Copilot**（GC-MS-02） | 内嵌助手 | Azure 云运维 | 官方页面列出 Design、Operate、Optimize、Troubleshoot、Migrate、Deploy；migration agent 明示 public preview，不能推广到整个产品；动作需用户确认 | SRC-MS-COPILOT-001；SRC-MS-COPILOT-DOC-001 |
-| **Microsoft Security Copilot**（GC-MS-03） | 安全运营 Agent 平台 | SecOps | 能力与状态未核实；本轮候选官方 URL 均未取得有效正文 | 未核实 |
+| **Microsoft Security Copilot**（GC-MS-03） | 安全运营 Agent 平台 | SecOps | 官方定价页描述独立或嵌入 Microsoft Security 产品的生成式 AI 助手，采用 SCU 计费；E5/E7 权益分阶段启用 | SRC-MS-SECCOPILOT-PRICING-001 |
 | **Microsoft Foundry**（GC-MS-04） | Agent 平台 | 通用 | 官方页面描述 Agent 生命周期、模型选择/微调/路由、Agent Service、权限感知 grounding、连接器/MCP、Entra/Purview/Defender 治理、OpenTelemetry tracing 与 evaluators | SRC-MS-FOUNDRY-001 |
 | **GitHub Copilot**（GC-MS-05） | 内嵌编码 Agent | 研发 | 官方页面描述从 issue/PR 开始工作、并行任务、跨 IDE/CLI/GitHub、代码审查、模型选择、自定义指令、连接器、MCP servers/skills/plugins | SRC-GH-COPILOT-001 |
 
@@ -79,11 +79,11 @@ Microsoft 的已核验路线是“**Azure Copilot + SRE Agent + Foundry + GitHub
 | 产品 | 形态 | 运维域 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
 | **Gemini Cloud Assist**（GC-GO-01） | 内嵌助手 | 云运维/可观测 | 能力与状态未核实；候选官方页面抓取失败 | 未核实 |
-| **Gemini Agent**（GC-GO-02） | 通用工作 Agent | 跨 Workspace/企业系统 | 能力与状态未核实；原状态判断缺乏本轮证据，已移除 | 未核实 |
+| **Gemini agent**（GC-GO-02） | 通用工作 Agent | 跨 Workspace/企业系统 | 官方公告称已发布 universal agent for work，可连接业务系统并交付成果；GA、区域与商业条款未核实 | SRC-GO-GEMINI-AGENT-001 |
 | **Gemini Enterprise / Workspace**（GC-GO-03） | 内嵌助手 | 办公/企业知识 | 能力与状态未核实 | 未核实 |
 | **Google Security Operations (Gemini)**（GC-GO-04） | 安全运营 | SecOps | 能力与状态未核实 | 未核实 |
 | **Gemini Code Assist**（GC-GO-05） | 内嵌编码助手 | 研发 | 能力与状态未核实 | 未核实 |
-| **Agent Development Kit / Agentspace**（GC-GO-06） | Agent 平台 | 通用 | 能力与状态未核实 | 未核实 |
+| **Agent Development Kit（ADK）**（GC-GO-06；Agentspace 已并入 Gemini Enterprise，状态未核实） | Agent 框架 | 通用 | Google 官方仓库发布 ADK 2.0 GA，支持多 Agent 工作流与动态协作；不等于托管 Runtime 的区域或 SLA | SRC-GO-ADK-V2-001 |
 
 Google 条目仅保留产品导航；本轮不把发布报道或历史记忆升级为官方能力结论。
 
@@ -103,12 +103,12 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 
 | 厂商 | 产品 | 形态 | 运维相关性（claim） | source_id |
 | --- | --- | --- | --- | --- |
-| Oracle | OCI Generative AI Agents（GC-OR-01） | Agent 平台 | 能力与状态未核实；候选文档 404、产品页 403 | 未核实 |
+| Oracle | OCI Generative AI — Enterprise AI Agents（GC-OR-01） | Agent 平台 | 官方文档描述 Responses API、托管应用与混合架构，支持工具调用、记忆、NL2SQL 和隔离沙箱；不是运维专用 Agent | SRC-OR-ENTERPRISE-AGENTS-001 |
 | Oracle | OCI Operations Insights（GC-OR-02） | AIOps | 能力与状态未核实 | 未核实 |
 | Oracle | Fusion AI Agents（GC-OR-03） | 内嵌业务 Agent | 能力与状态未核实 | 未核实 |
 | SAP | Joule（GC-SAP-01） | 内嵌助手 | 能力与状态未核实；帮助门户未返回实质正文 | 未核实 |
-| SAP | SAP Business AI Agents（GC-SAP-02） | Agent 平台/业务 Agent | 能力与状态未核实 | 未核实 |
-| ServiceNow | Now Assist / AI Agents（GC-SN-01） | 内嵌助手 + Agent 平台 | 能力与状态未核实；社区入口未取得正文 | 未核实 |
+| SAP | Joule Agents and Joule Assistants（GC-SAP-02） | Agent 平台/业务 Agent | 官方页面描述跨 SAP/非 SAP 多步业务 Agent、人工监督、唯一身份、Agent 网关与沙箱；不证明 IT 运维能力 | SRC-SAP-JOULE-AGENTS-001 |
+| ServiceNow | ServiceNow Otto / AI Agents（GC-SN-01） | 内嵌助手 + Agent 平台 | 官方社区 FAQ 描述自主 AI Agents 与 ITSM/HRSD/CRM 场景；具体 SKU 与版本要求需逐项核实 | SRC-SN-AI-AGENTS-001 |
 | ServiceNow | AI Control Tower（GC-SN-02） | Agent 治理 | 能力与状态未核实 | 未核实 |
 | Salesforce | Agentforce（GC-SF-01） | 内嵌业务 Agent | 官方页面描述员工/客服 Agent、CRM/Data 360 grounding、人工升级、Agent Builder、actions 与多 Agent 编排；未证明 IT 运维能力 | SRC-SF-AGENTFORCE-001 |
 
@@ -126,7 +126,13 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | GC-MS-05 GitHub Copilot | 未核实 | 未核实 | Free/Pro/Pro+/Max/Business/Enterprise；页面按 credits/user | 页面称超额 credits 为 $0.01/枚，可设预算；各计划额度/最低消费未核实 | 未核实 | 未核实 |
 | GC-IBM-01–05 IBM 产品 | 未核实 | 未核实 | Instana 页面列 PayPerUse/SaaS/Self-Hosted；Orchestrate 列版本；其余许可单位未核实 | 未核实；Instana/Orchestrate 的结构化最低价单位不明，未采用 | 未核实；厂商数据主权表述不等于具体驻留证明 | 未核实 |
 | GC-SF-01 Agentforce | 未核实 | 未核实 | 页面列 Flex Credits、Resolutions、per-user licensing | 未核实 | 未核实 | 未核实 |
-| GC-AWS-03、GC-MS-03、GC-GO-01–06、GC-OR-01–03、GC-SAP-01–02、GC-SN-01–02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-OR-01 OCI Enterprise AI Agents | 整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-SAP-02 Joule Agents | 各 Agent GA 不同；整体未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-SN-01 ServiceNow Otto AI Agents | FAQ 有版本要求；整体 GA 未核实 | 未核实 | FAQ 提及 Pro Plus/Enterprise Plus 或 AI SKU；具体合同未核实 | 未核实 | 未核实 | 未核实 |
+| GC-GO-02 Gemini agent | 官方已宣布；GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-GO-06 ADK | ADK 2.0 GA；托管 Runtime 未核实 | 部署无关；Runtime 区域未核实 | 未核实 | 未核实 | 框架层不适用/未核实 | 可自部署；平台退出未核实 |
+| GC-MS-03 Security Copilot | 商业云在售；E5/E7 分阶段启用；政府云不支持 | 未核实 | SCU；最低 1 provisioned SCU；示例 $4/SCU-h、$6/overage SCU | 可设 overage 上限；具体合同未核实 | 未核实 | 未核实 |
+| GC-AWS-03、GC-GO-01、GC-GO-03–05、GC-OR-02–03、GC-SAP-01、GC-SN-02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 
 ## 选型提示
 
@@ -137,6 +143,6 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 
 ## 来源与核实
 
-最后核实：**2026-11-24**；复核截止：**2027-02-22**。所有可核验能力均回指 `sources/registry.yaml`；公开报道不作为本页官方能力结论。完整清单见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。
+最后核实：**2026-11-25**；复核截止：**2027-02-22**。所有可核验能力均回指 `sources/registry.yaml`；公开报道不作为本页官方能力结论。完整清单见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。
 
 下一篇：[中国云厂商](./china-cloud)

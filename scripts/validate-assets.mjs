@@ -132,6 +132,36 @@ for (const ref of claimRefs) {
 const unused = sourceIds.filter((id) => !claimRefs.has(id));
 if (unused.length) warnings.push(`unused registered sources: ${unused.join(", ")}`);
 
+const gapRegistry = readJson("sources/claim-gaps.json");
+const gapClaims = gapRegistry.claims || [];
+const gapIds = gapClaims.map((claim) => claim.claim_id);
+if (new Set(gapIds).size !== gapIds.length) errors.push("claim gap registry contains duplicate claim_id");
+const vendorFiles = [...walk("docs/vendors"), "docs/appendix/alibaba-agent-landscape.md"].filter((file) => file.endsWith(".md"));
+const vendorText = vendorFiles.map((file) => fs.readFileSync(path.join(root, file), "utf8")).join("\n");
+const claimPattern = /\b(?:(?:GC|CN)-[A-Z]{1,4}-\d{2}|(?:OBS|SEC|FIN|VERT|ALI)-\d{2})\b/g;
+const explicitGapIds = new Set();
+for (const file of vendorFiles) {
+  const productSection = fs.readFileSync(path.join(root, file), "utf8").split("## 商业字段证据卡")[0];
+  for (const line of productSection.split("\n")) {
+    if (!line.startsWith("|") || !line.includes("未核实")) continue;
+    for (const match of line.matchAll(claimPattern)) explicitGapIds.add(match[0]);
+  }
+}
+for (const claimId of explicitGapIds) {
+  if (!gapIds.includes(claimId)) errors.push(`explicit unverified claim ${claimId} missing from sources/claim-gaps.json`);
+}
+for (const claim of gapClaims) {
+  if (!claimPattern.test(vendorText)) errors.push(`gap claim ${claim.claim_id} is not referenced by vendor pages`);
+  claimPattern.lastIndex = 0;
+  if (!["needs_evidence", "partially_verified", "closed"].includes(claim.status)) errors.push(`gap claim ${claim.claim_id} has invalid status`);
+  const expectedSources = sources.filter((source) => source.claims?.includes(claim.claim_id)).map((source) => source.source_id).sort();
+  const actualSources = [...(claim.source_ids || [])].sort();
+  if (JSON.stringify(expectedSources) !== JSON.stringify(actualSources)) errors.push(`gap claim ${claim.claim_id} source_ids differ from source registry`);
+  for (const sourceId of actualSources) {
+    if (!sourceIds.includes(sourceId)) errors.push(`gap claim ${claim.claim_id} references unknown source ${sourceId}`);
+  }
+}
+
 const manifest = readYaml("evals/manifest.yaml");
 const partitionTotal = Object.values(manifest.partitions || {}).reduce((sum, partition) => sum + Number(partition.target_sample_size || 0), 0);
 if (partitionTotal !== manifest.sample_size?.target) errors.push(`eval partition target ${partitionTotal} != suite target ${manifest.sample_size?.target}`);
@@ -205,5 +235,5 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Asset validation passed: ${diagrams.length} diagrams, ${sources.length} sources, ${claimRefs.size} cited source IDs.`);
+console.log(`Asset validation passed: ${diagrams.length} diagrams, ${sources.length} sources, ${claimRefs.size} cited source IDs, ${gapClaims.length} tracked evidence gaps.`);
 for (const warning of warnings) console.warn(`warning: ${warning}`);

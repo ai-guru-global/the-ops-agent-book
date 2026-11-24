@@ -11,7 +11,7 @@ content_status: "reviewed"
 
 > 运维 Agent 最密集的落点，不在云厂商，而在可观测与事件管理厂商：它们已经握着指标、日志、链路、拓扑、告警和值班流程。
 >
-> 最后核实：**2026-11-24**；复核截止：**2027-02-22**。产品组合以本轮取得的官方页面为准，旧名称不自动沿用。
+> 最后核实：**2026-11-25**；复核截止：**2027-02-22**。产品组合以本轮取得的官方页面为准，旧名称不自动沿用。
 
 ::: diagram 图 39 · 可观测信号到行动链 | synthetic/方法示意；多源信号并行汇入授权上下文，证据不足先补采，只读与写动作分路，审批拒绝、执行失败或恢复不安全均停止并留痕；本图不构成厂商能力证明。
 ```mermaid
@@ -88,7 +88,7 @@ flowchart TB
 | **BigPanda** | BigPanda AI（OBS-12） | AIOps | 能力与状态未核实；候选页面无实质正文 | 未核实 |
 | **OpsRamp (HPE)** | OpsRamp AI Agents（OBS-13） | AIOps + Agent | 能力与状态未核实；候选页面超时 | 未核实 |
 | **BMC** | BMC Helix / HelixGPT（OBS-14） | ITSM + AIOps | 能力与状态未核实 | 未核实 |
-| **ManageEngine** | Zia / OpManager Nexus（OBS-15） | 内嵌 Agent | 能力与状态未核实；原智能体数量与 Token 成本口径无有效来源，不采用 | 未核实 |
+| **ManageEngine** | Zia / OpManager Nexus（OBS-15） | 内嵌 Agent | 厂商官方博客描述 Zia、本地模型、私有化与 AI 不另收费；属于厂商营销材料，不是独立横评 | SRC-ME-AIOPS-GUIDE-001 |
 | **SolarWinds** | SolarWinds AI（OBS-16） | 平台 AI 能力 | 能力与状态未核实；候选 URL 404 | 未核实 |
 | **Komodor** | Komodor AI（OBS-17） | K8s Agent | 能力与状态未核实 | 未核实 |
 | **HolmesGPT** | HolmesGPT（OBS-18） | 开源 K8s Agent | 能力与状态未核实 | 未核实 |
@@ -123,6 +123,6 @@ flowchart TB
 
 ## 来源与核实
 
-最后核实：**2026-11-24**；复核截止：**2027-02-22**。第三方对比文章只保留为线索，不用于证明能力。完整清单见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。
+最后核实：**2026-11-25**；复核截止：**2027-02-22**。第三方对比文章只保留为线索，不用于证明能力。完整清单见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。
 
 下一篇：[安全、网络与 FinOps](./security-network-finops)

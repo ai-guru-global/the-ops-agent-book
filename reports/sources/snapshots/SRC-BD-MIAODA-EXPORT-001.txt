@@ -1,0 +1,1225 @@
+源码导出与部署 - 秒哒公有云MIAODA | 百度智能云文档 .anchor { float: left; padding-right: 4px; margin-left: -20px; } h1 .anchor svg, h2 .anchor svg, h3 .anchor svg, h4 .anchor svg, h5 .anchor svg, h6 .anchor svg { visibility: hidden; } h1:hover .anchor svg, h2:hover .anchor svg, h3:hover .anchor svg, h4:hover .anchor svg, h5:hover .anchor svg, h6:hover .anchor svg, h1 .anchor:focus svg, h2 .anchor:focus svg, h3 .anchor:focus svg, h4 .anchor:focus svg, h5 .anchor:focus svg, h6 .anchor:focus svg { visibility: visible; } document.addEventListener("DOMContentLoaded", function(event) { var hash = window.decodeURI(location.hash.replace('#', '')) if (hash !== '') { var element = document.getElementById(hash) if (element) { var offset = element.offsetTop // Wait for the browser to finish rendering before scrolling. setTimeout((function() { window.scrollTo(0, offset - -74) }), 0) } } }) 
+
+[
+
+百度智能云
+=====
+
+](https://cloud.baidu.com "百度智能云")
+
+*   ### [最新活动](https://cloud.baidu.com/campaign/PromotionActivity/index.html "最新活动")
+    
+*   ### [产品](https://cloud.baidu.com/products/index.html "产品")
+    
+*   ### [解决方案](https://cloud.baidu.com/solution/index.html "解决方案")
+    
+*   ### [企业服务](https://qifu.baidu.com "企业服务")
+    
+*   ### [云市场](https://market.baidu.com "云市场")
+    
+*   ### [合作与生态](https://cloud.baidu.com/partner/plan.html "合作与生态")
+    
+*   ### [开发者](https://developer.baidu.com "开发者")
+    
+*   ### [服务与支持](https://cloud.baidu.com/doc/support/index.html "服务与支持")
+    
+*   ### 了解智能云
+    
+
+*   [备案](https://cloud.baidu.com/beian/index.html "备案")
+*   [文档](https://cloud.baidu.com/doc/index.html "文档")
+*   [管理控制台](https://console.bce.baidu.com "管理控制台")
+
+This app works best with JavaScript enabled.
+
+[文档中心](https://cloud.baidu.com/doc/index.html)
+
+搜索本产品文档关键词
+
+[立即试用](https://cloud.baidu.com/)
+
+源码导出与部署
+
+秒哒公有云 MIAODA
+------------
+
+*   认识秒哒
+    *   [产品简介](/doc/MIAODA/s/Sm88db6er)
+    *   [秒哒团队版](/doc/MIAODA/s/emub7mck4)
+    *   [秒哒企业版](/doc/MIAODA/s/omnepp22a)
+    *   [计费模式及标准](/doc/MIAODA/s/ymmbrojwl)
+    *   [后端资源套餐](/doc/MIAODA/s/5mrmxjwkw)
+    *   [个人主页](/doc/MIAODA/s/Qmq62oyvb)
+    *   [常见问题](/doc/MIAODA/s/Imckai0xf)
+    *   更新日志
+        *   [26年更新日志](/doc/MIAODA/s/Zmm32qp8x)
+        *   [25年更新日志](/doc/MIAODA/s/Dm8iegtoh)
+    *   公告信息
+        *   [计费变更公告](/doc/MIAODA/s/qmw0f3ap6)
+        *   [模型备案信息公示](/doc/MIAODA/s/gmuln6uw5)
+        *   [秒哒会员体系升级公告](/doc/MIAODA/s/tmtihshqj)
+*   从想法到应用
+    *   [通用任务](/doc/MIAODA/s/ymp18ug2p)
+    *   应用创建
+        *   [快速入门](/doc/MIAODA/s/Dm8ecpgsg)
+        *   [创建应用](/doc/MIAODA/s/smf50gob5)
+        *   [提示词使用指南](/doc/MIAODA/s/smckawnys)
+        *   [设计智能体](/doc/MIAODA/s/Nmtaykpqo)
+        *   [生成APP](/doc/MIAODA/s/Amoy50baf)
+        *   [多应用共享后端](/doc/MIAODA/s/bmrkh5a58)
+        *   [如何做“可落地投产”的应用](/doc/MIAODA/s/Zmkytqytk)
+    *   应用编辑
+        *   [编辑应用指南](/doc/MIAODA/s/tmcit6fc7)
+        *   [LUI截图修改技巧分享](/doc/MIAODA/s/zmholzsak)
+    *   应用预览与测试
+        *   [应用预览](/doc/MIAODA/s/Fmcjvx6mk)
+        *   [AI 质检](/doc/MIAODA/s/Xmo6tpc20)
+    *   应用发布与部署
+        *   [源码导出与部署](/doc/MIAODA/s/Xmewgmsq7)
+        *   [宝塔部署秒哒应用教程](/doc/MIAODA/s/Kmmbvu339)
+        *   [应用本地化部署](/doc/MIAODA/s/qmttv1htt)
+*   应用发布
+    *   [开启高可用资源](/doc/MIAODA/s/qmpp4e74i)
+    *   基础发布流程
+        *   [网页类型应用发布流程](/doc/MIAODA/s/Lmcjwrtb2)
+        *   [应用广场](/doc/MIAODA/s/Pmck9hefk)
+        *   [应用更新&下线](/doc/MIAODA/s/tmcjx5q55)
+    *   小程序发布流程
+        *   [秒哒官方微信小程序](/doc/MIAODA/s/Dmdl4j0oj)
+        *   [微信小程序](/doc/MIAODA/s/pmfnccc1g)
+        *   [5分钟上线微信小程序](/doc/MIAODA/s/rmla9utp7)
+        *   [“向小程序提交代码失败”常见错误及修复方法](/doc/MIAODA/s/mmknf9ork)
+    *   [自定义域名发布](/doc/MIAODA/s/Im8ecuhvk)
+    *   APP打包
+        *   [iOS打包](/doc/MIAODA/s/2mrmynhd8)
+        *   [安卓打包](/doc/MIAODA/s/Kmrn6ucof)
+        *   [安卓调试包](/doc/MIAODA/s/Imw4antxi)
+    *   [发布到小红书](/doc/MIAODA/s/Xmtbfqr4u)
+*   后端服务
+    *   数据存储与管理
+        *   [后端存储使用技巧](/doc/MIAODA/s/Dmh2w3m8t)
+        *   [数据库维护页](/doc/MIAODA/s/kmhiia8g4)
+        *   [后端服务多环境](/doc/MIAODA/s/emrm8ossc)
+        *   [后端保活](/doc/MIAODA/s/smuzcqmd2)
+        *   [数据库备份能力](/doc/MIAODA/s/dmv8vk79d)
+    *   用户体系
+        *   [登录注册功能](/doc/MIAODA/s/kmhtyk1mn)
+        *   [微信登录](/doc/MIAODA/s/emj9eivnc)
+*   技能扩展
+    *   [技能](/doc/MIAODA/s/nmi5vs6cf)
+    *   [微信支付配置](/doc/MIAODA/s/Zmg4xp3fz)
+    *   [支付宝支付配置](/doc/MIAODA/s/Bms8adzta)
+    *   [自定义技能](/doc/MIAODA/s/wmhix5j02)
+*   [素材库](/doc/MIAODA/s/ymsmv19br)
+*   流量优化
+    *   [SEO 搜索引擎优化](/doc/MIAODA/s/tmtwp2ipd)
+    *   [广告流量投放功能](/doc/MIAODA/s/Smtuwy8k5)
+*   秒哒Skill
+    *   [秒哒Skill使用指南（如何在OpenClaw中调用秒哒Skill）](/doc/MIAODA/s/mmmnhtlx9)
+*   [商单平台](/doc/MIAODA/s/Xmtwqierg)
+*   案例与实践
+    *   行业方案
+        *   [会议系统搭建攻略](/doc/MIAODA/s/Nmh8xg6bg)
+        *   [微信电商小程序从搭建到上线全流程](/doc/MIAODA/s/hmjaskj9j)
+        *   [高颜值活动官网这样做](/doc/MIAODA/s/Xmi2v4tfk)
+        *   [茶叶销售线上转型实践：从千帆 Agent 构建到秒哒应用发布](/doc/MIAODA/s/hmlksj5a1)
+        *   [优秀实践｜面向商家的用户手册](/doc/MIAODA/s/Amhis02dj)
+        *   [无代码方式实现一个CRM](/doc/MIAODA/s/1mifnua7x)
+    *   创意玩法
+        *   [巧用插件的八大案例](/doc/MIAODA/s/4miff4mv7)
+        *   [如何利用插件开发好玩儿的应用工具](/doc/MIAODA/s/9mhlvjo8m)
+        *   [自定义API或插件接入应用](/doc/MIAODA/s/3mj9fhz2o)
+        *   [通过自定义插件接入扣子智能体](/doc/MIAODA/s/Mmkm1klpy)
+        *   [通过自定义插件接入文本生成大模型（MiniMax）](/doc/MIAODA/s/6mlmjycxh)
+        *   [复制广场应用，快速创建自己的应用](/doc/MIAODA/s/Immoindxo)
+        *   [剧情向小游戏搭建指南](/doc/MIAODA/s/Pmpz55jdh)
+        *   [APP接入微信支付教程](/doc/MIAODA/s/Imttyipha)
+*   法律条款
+    *   [秒哒用户协议](/doc/MIAODA/s/Vmb0jj48v)
+    *   [秒哒隐私政策](/doc/MIAODA/s/xmb0kke6f)
+    *   [秒哒付款协议](/doc/MIAODA/s/Mmi5trl2m)
+    *   [秒哒内容管理规范](/doc/MIAODA/s/Hmmei2l8a)
+    *   [SLA服务等级协议](/doc/MIAODA/s/Mmowbge2a)
+    *   [秒哒平台商单通用合同及履约须知](/doc/MIAODA/s/4mtgxzp67)
+    *   [秒哒平台创作者协议](/doc/MIAODA/s/Qmtgyalwt)
+    *   [秒哒平台需求方协议](/doc/MIAODA/s/fmtgyimwl)
+    *   [支付宝账户开通与结算服务声明](/doc/MIAODA/s/fmtgzok42)
+    *   [秒哒营销投流服务协议](/doc/MIAODA/s/4mtmgl4kf)
+
+所有文档
+
+![menu](https://bce.bdstatic.com/p3m/common-service/uploads/menu_b482226.svg)
+
+没有找到结果，请重新输入
+
+[秒哒公有云 MIAODA](/doc/MIAODA/index.html)
+--------------------------------------
+
+*   认识秒哒
+    *   [产品简介](/doc/MIAODA/s/Sm88db6er)
+    *   [秒哒团队版](/doc/MIAODA/s/emub7mck4)
+    *   [秒哒企业版](/doc/MIAODA/s/omnepp22a)
+    *   [计费模式及标准](/doc/MIAODA/s/ymmbrojwl)
+    *   [后端资源套餐](/doc/MIAODA/s/5mrmxjwkw)
+    *   [个人主页](/doc/MIAODA/s/Qmq62oyvb)
+    *   [常见问题](/doc/MIAODA/s/Imckai0xf)
+    *   更新日志
+        *   [26年更新日志](/doc/MIAODA/s/Zmm32qp8x)
+        *   [25年更新日志](/doc/MIAODA/s/Dm8iegtoh)
+    *   公告信息
+        *   [计费变更公告](/doc/MIAODA/s/qmw0f3ap6)
+        *   [模型备案信息公示](/doc/MIAODA/s/gmuln6uw5)
+        *   [秒哒会员体系升级公告](/doc/MIAODA/s/tmtihshqj)
+*   从想法到应用
+    *   [通用任务](/doc/MIAODA/s/ymp18ug2p)
+    *   应用创建
+        *   [快速入门](/doc/MIAODA/s/Dm8ecpgsg)
+        *   [创建应用](/doc/MIAODA/s/smf50gob5)
+        *   [提示词使用指南](/doc/MIAODA/s/smckawnys)
+        *   [设计智能体](/doc/MIAODA/s/Nmtaykpqo)
+        *   [生成APP](/doc/MIAODA/s/Amoy50baf)
+        *   [多应用共享后端](/doc/MIAODA/s/bmrkh5a58)
+        *   [如何做“可落地投产”的应用](/doc/MIAODA/s/Zmkytqytk)
+    *   应用编辑
+        *   [编辑应用指南](/doc/MIAODA/s/tmcit6fc7)
+        *   [LUI截图修改技巧分享](/doc/MIAODA/s/zmholzsak)
+    *   应用预览与测试
+        *   [应用预览](/doc/MIAODA/s/Fmcjvx6mk)
+        *   [AI 质检](/doc/MIAODA/s/Xmo6tpc20)
+    *   应用发布与部署
+        *   [源码导出与部署](/doc/MIAODA/s/Xmewgmsq7)
+        *   [宝塔部署秒哒应用教程](/doc/MIAODA/s/Kmmbvu339)
+        *   [应用本地化部署](/doc/MIAODA/s/qmttv1htt)
+*   应用发布
+    *   [开启高可用资源](/doc/MIAODA/s/qmpp4e74i)
+    *   基础发布流程
+        *   [网页类型应用发布流程](/doc/MIAODA/s/Lmcjwrtb2)
+        *   [应用广场](/doc/MIAODA/s/Pmck9hefk)
+        *   [应用更新&下线](/doc/MIAODA/s/tmcjx5q55)
+    *   小程序发布流程
+        *   [秒哒官方微信小程序](/doc/MIAODA/s/Dmdl4j0oj)
+        *   [微信小程序](/doc/MIAODA/s/pmfnccc1g)
+        *   [5分钟上线微信小程序](/doc/MIAODA/s/rmla9utp7)
+        *   [“向小程序提交代码失败”常见错误及修复方法](/doc/MIAODA/s/mmknf9ork)
+    *   [自定义域名发布](/doc/MIAODA/s/Im8ecuhvk)
+    *   APP打包
+        *   [iOS打包](/doc/MIAODA/s/2mrmynhd8)
+        *   [安卓打包](/doc/MIAODA/s/Kmrn6ucof)
+        *   [安卓调试包](/doc/MIAODA/s/Imw4antxi)
+    *   [发布到小红书](/doc/MIAODA/s/Xmtbfqr4u)
+*   后端服务
+    *   数据存储与管理
+        *   [后端存储使用技巧](/doc/MIAODA/s/Dmh2w3m8t)
+        *   [数据库维护页](/doc/MIAODA/s/kmhiia8g4)
+        *   [后端服务多环境](/doc/MIAODA/s/emrm8ossc)
+        *   [后端保活](/doc/MIAODA/s/smuzcqmd2)
+        *   [数据库备份能力](/doc/MIAODA/s/dmv8vk79d)
+    *   用户体系
+        *   [登录注册功能](/doc/MIAODA/s/kmhtyk1mn)
+        *   [微信登录](/doc/MIAODA/s/emj9eivnc)
+*   技能扩展
+    *   [技能](/doc/MIAODA/s/nmi5vs6cf)
+    *   [微信支付配置](/doc/MIAODA/s/Zmg4xp3fz)
+    *   [支付宝支付配置](/doc/MIAODA/s/Bms8adzta)
+    *   [自定义技能](/doc/MIAODA/s/wmhix5j02)
+*   [素材库](/doc/MIAODA/s/ymsmv19br)
+*   流量优化
+    *   [SEO 搜索引擎优化](/doc/MIAODA/s/tmtwp2ipd)
+    *   [广告流量投放功能](/doc/MIAODA/s/Smtuwy8k5)
+*   秒哒Skill
+    *   [秒哒Skill使用指南（如何在OpenClaw中调用秒哒Skill）](/doc/MIAODA/s/mmmnhtlx9)
+*   [商单平台](/doc/MIAODA/s/Xmtwqierg)
+*   案例与实践
+    *   行业方案
+        *   [会议系统搭建攻略](/doc/MIAODA/s/Nmh8xg6bg)
+        *   [微信电商小程序从搭建到上线全流程](/doc/MIAODA/s/hmjaskj9j)
+        *   [高颜值活动官网这样做](/doc/MIAODA/s/Xmi2v4tfk)
+        *   [茶叶销售线上转型实践：从千帆 Agent 构建到秒哒应用发布](/doc/MIAODA/s/hmlksj5a1)
+        *   [优秀实践｜面向商家的用户手册](/doc/MIAODA/s/Amhis02dj)
+        *   [无代码方式实现一个CRM](/doc/MIAODA/s/1mifnua7x)
+    *   创意玩法
+        *   [巧用插件的八大案例](/doc/MIAODA/s/4miff4mv7)
+        *   [如何利用插件开发好玩儿的应用工具](/doc/MIAODA/s/9mhlvjo8m)
+        *   [自定义API或插件接入应用](/doc/MIAODA/s/3mj9fhz2o)
+        *   [通过自定义插件接入扣子智能体](/doc/MIAODA/s/Mmkm1klpy)
+        *   [通过自定义插件接入文本生成大模型（MiniMax）](/doc/MIAODA/s/6mlmjycxh)
+        *   [复制广场应用，快速创建自己的应用](/doc/MIAODA/s/Immoindxo)
+        *   [剧情向小游戏搭建指南](/doc/MIAODA/s/Pmpz55jdh)
+        *   [APP接入微信支付教程](/doc/MIAODA/s/Imttyipha)
+*   法律条款
+    *   [秒哒用户协议](/doc/MIAODA/s/Vmb0jj48v)
+    *   [秒哒隐私政策](/doc/MIAODA/s/xmb0kke6f)
+    *   [秒哒付款协议](/doc/MIAODA/s/Mmi5trl2m)
+    *   [秒哒内容管理规范](/doc/MIAODA/s/Hmmei2l8a)
+    *   [SLA服务等级协议](/doc/MIAODA/s/Mmowbge2a)
+    *   [秒哒平台商单通用合同及履约须知](/doc/MIAODA/s/4mtgxzp67)
+    *   [秒哒平台创作者协议](/doc/MIAODA/s/Qmtgyalwt)
+    *   [秒哒平台需求方协议](/doc/MIAODA/s/fmtgyimwl)
+    *   [支付宝账户开通与结算服务声明](/doc/MIAODA/s/fmtgzok42)
+    *   [秒哒营销投流服务协议](/doc/MIAODA/s/4mtmgl4kf)
+
+*   [文档中心](/doc/index.html)
+*   ![arrow](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   [秒哒公有云MIAODA](/doc/MIAODA/index.html)
+*   ![arrow](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   从想法到应用
+*   ![arrow](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   应用发布与部署
+*   ![arrow](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   源码导出与部署
+
+*   文档中心
+*   ![](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   秒哒公有云MIAODA
+*   ![](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   从想法到应用
+*   ![](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   应用发布与部署
+*   ![](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   源码导出与部署
+*   ![](https://bce.bdstatic.com/p3m/common-service/uploads/arrow_18ae883.png)
+*   ...
+
+有问题
+
+[预约专家咨询](https://cloud.baidu.com/survey/expert-consulting-service.html)
+
+本页目录
+
+*   [概述](#概述)
+*   [如何下载应用代码？](#如何下载应用代码？)
+*   [如何在本地部署或编辑代码？](#如何在本地部署或编辑代码？)
+*   [环境准备](#环境准备)
+*   [在Windows上安装Node.js](#在windows上安装nodejs)
+*   [在macOS上安装Node.js](#在macos上安装nodejs)
+*   [准备好环境后的操作步骤](#准备好环境后的操作步骤)
+*   [非小程序应用](#非小程序应用)
+*   [小程序应用](#小程序应用)
+*   [如何开发后端服务？](#如何开发后端服务？)
+*   [supabase导入sql运行](#supabase导入sql运行)
+*   [源码包.env替换url和key](#源码包env替换url和key)
+*   [具体替换内容](#具体替换内容)
+*   [如何配置应用中的三方api？](#如何配置应用中的三方api？)
+*   [三方api服务清单](#三方api服务清单)
+*   [三方api二次开发示例](#三方api二次开发示例)
+*   [应用介绍](#应用介绍)
+*   [准备工作：获取官方接口资源](#准备工作：获取官方接口资源)
+*   [接口配置步骤](#接口配置步骤)
+*   [接口地址与跨域配置](#接口地址与跨域配置)
+*   [接口路径替换](#接口路径替换)
+*   [添加鉴权信息](#添加鉴权信息)
+*   [响应格式适配](#响应格式适配)
+*   [包装前后响应对比](#包装前后响应对比)
+*   [打开 App.tsx 文件，将响应处理逻辑修改如下：](#打开-apptsx-文件，将响应处理逻辑修改如下：)
+*   [验证与测试](#验证与测试)
+
+源码导出与部署
+=======
+
+更新时间：2026-07-16
+
+[](#%E6%A6%82%E8%BF%B0)概述
+-------------------------
+
+秒哒的源码导出功能，支持功能上线后新生成的绝大部分应用进行代码下载。
+
+支持源码导出的应用，会在应用初次生成后，在编辑态右上方出现一个可点击的下载按钮；若应用不支持源码导出，则不会在编辑态右上方出现可点击的下载按钮。
+
+**注意：**源码导出功能上线前创建的应用，不支持源码导出；若更新源码导出功能上线前创建的应用，也不支持源码导出。
+
+![1.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/1_6c51a8c.png)  
+
+场景和用途：
+
+1.  对于简单的纯前端应用，开发者下载代码包后，可直接在本地部署和运行。
+2.  对于涉及后端数据存储、三方api服务调用的复杂应用，开发者在下载代码包后，还需进行一定的二次开发，需要一定代码开发经验。
+
+[](#%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81%EF%BC%9F)如何下载应用代码？
+-----------------------------------------------------------------------------------------------
+
+应用生成之后，会在编辑状态上方出现一个“下载代码”的按钮，直接点击按钮，即可下载应用的代码包。应用生成过程中不可下载代码。  
+
+![1.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/1_6c51a8c.png)  
+
+下载的代码版本为此时开发者正在编辑的对应应用版本。  
+
+**注意：**若开发过程如有使用到编辑器进行GUI修改，例如，编辑字体、颜色等等，需要先进行应用预览或应用发布后，再下载代码，即可获得含有GUI修改部分的代码包。否则直接下载的代码将不包含GUI修改的部分。  
+
+![3.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/3_7732df5.png)  
+
+[](#%E5%A6%82%E4%BD%95%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%88%96%E7%BC%96%E8%BE%91%E4%BB%A3%E7%A0%81%EF%BC%9F)如何在本地部署或编辑代码？
+---------------------------------------------------------------------------------------------------------------------------------------
+
+下载完代码包后，您首先需要先按照下面要求准备好环境（安装Node.js和npm），再用IDE打开代码包进行应用的本地部署运行。  
+
+IDE：您可以选择VSCode：[https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)，或者IntelliJ IDEA IDE：[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)，或者选取您常用的IDE进行代码本地编辑。
+
+### [](#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87)环境准备
+
+Plain Text 复制
+
+    1  # Node.js ≥ 20
+    2  # npm ≥ 10
+    3例如：
+    4  # node -v   # v20.18.3
+    5  # npm -v    # 10.8.2
+
+#### [](#%E5%9C%A8windows%E4%B8%8A%E5%AE%89%E8%A3%85nodejs)在Windows上安装Node.js
+
+Plain Text 复制
+
+    1# Step 1: 访问Node.js官网：https://nodejs.org/,点击下载后，会根据你的系统自动选择合适的版本（32位或64位）。
+    2# Step 2: 运行安装程序：下载完成后，双击运行安装程序。
+    3# Step 3: 完成安装：按照安装向导完成安装过程。
+    4# Step 4: 验证安装：在命令提示符（cmd）或IDE终端（terminal）中输入node -v和npm -v来检查Node.js和npm是否正确安装。
+
+![4.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/4_bc361c2.png)
+
+#### [](#%E5%9C%A8macos%E4%B8%8A%E5%AE%89%E8%A3%85nodejs)在macOS上安装Node.js
+
+Plain Text 复制
+
+    1# Step 1:方法一（推荐使用，更简单）：使用官网安装程序：访问Node.js官网:https://nodejs.org/。下载macOS的.pkg安装包。打开下载的.pkg文件，按照提示完成安装。 
+    2         方法二：使用Homebrew安装（推荐方法）：
+    3          先安装Homebrew：打开终端，在终端中输入命令行：
+    4          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+    5          然后在终端中输入命令行：brew install node 并回车。
+    6# Step 2: 验证安装：在命令提示符（cmd）或IDE终端（terminal）中输入node -v和npm -v来检查Node.js和npm是否正确安装。
+
+方法一：  
+
+1.  打开Node.js官网  
+    ![5.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/5_5558bc0.png)  
+    2.找到对应Node.js的版本，点击下载按钮  
+    ![6.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/6_f3eecb1.png)  
+    3.安装Node.js  
+    ![7.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/7_966ff1e.png)  
+    4.在终端中检查node和npm是否安装成功  
+    ![8.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/8_de96ca9.png)  
+    方法二： 1.终端输入命令行：/bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"  
+      
+    ![9.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/9_155caaa.png)  
+      
+    2.在终端输入命令行：brew install node  
+      
+    ![10.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/10_436abcf.png)  
+      
+    3.终端中检查node和npm是否安装成功  
+      
+    ![11.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/11_de96ca9.png)  
+    
+
+### [](#%E5%87%86%E5%A4%87%E5%A5%BD%E7%8E%AF%E5%A2%83%E5%90%8E%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4)准备好环境后的操作步骤
+
+#### [](#%E9%9D%9E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8)非小程序应用
+
+准备与启动
+
+Plain Text 复制
+
+    1# Step 1: 下载代码包
+    2# Step 2: 解压代码包
+    3# Step 3: 用IDE打开代码包，进入代码目录
+    4# Step 4: IDE终端输入命令行，安装依赖：npm i
+    5# Step 5: IDE终端输入命令行，启动开发服务器：npm run dev -- --host 127.0.0.1
+    6# Step 6: 若step5执行失败，可尝试指令：npx vite --host 127.0.0.1
+
+Step 4、5示例：  
+![12.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/12_ef8603e.png)  
+本地部署成功，点击本地链接查看应用：  
+![13.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/13_7bacecc.png)
+
+#### [](#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8)小程序应用
+
+准备
+
+Plain Text 复制
+
+    1# Step 1: 下载代码包
+    2# Step 2: 解压代码包
+    3# Step 3: 用IDE打开代码包，进入代码目录
+    4# Step 4: IDE终端输入命令行，安装依赖：npm i
+
+启动h5模式
+
+Plain Text 复制
+
+    1# Step 5: IDE终端输入命令行，启动开发服务器：npx taro build --type h5 --watch
+    2# Step 6: 访问输出的链接，即可预览
+
+启动微信小程序模式（weapp模式）
+
+Plain Text 复制
+
+    1# Step 5: 前往微信开发者工具官网（https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html）下载并安装最新版本。
+    2# Step 6: 打开微信开发者工具，选择“导入项目”，将项目目录设置为 源码包的目录（即包含 package.json 的文件夹），AppID 填写为自己微信小程序的AppID（在微信公众平台获取）。
+    3# Step 7: 在终端执行npx taro build --type weapp --watch，在左侧即可预览
+
+微信开发者工具-导入项目示例：
+
+![w01.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/w01_3f978c0.png)
+
+新建终端-执行命令示例：
+
+![w02.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/w02_0d2739a.png)
+
+[](#%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%EF%BC%9F)如何开发后端服务？
+-----------------------------------------------------------------------------------------------
+
+含有后端数据存储功能的应用，开发者拿到源码后，还需自行接入supabase项目进行相应二次开发和管理。
+
+supabase官网地址：[https://supabase.com/](https://supabase.com/)
+
+### [](#supabase%E5%AF%BC%E5%85%A5sql%E8%BF%90%E8%A1%8C)supabase导入sql运行
+
+![14.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/14_e39dcf6.png) ![15.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/15_45c8f28.png)
+
+### [](#%E6%BA%90%E7%A0%81%E5%8C%85env%E6%9B%BF%E6%8D%A2url%E5%92%8Ckey)源码包.env替换url和key
+
+![16.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/16_138e2af.png) ![17.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/17_6802230.png)
+
+### [](#%E5%85%B7%E4%BD%93%E6%9B%BF%E6%8D%A2%E5%86%85%E5%AE%B9)具体替换内容
+
+对url和key进行替换
+
+注意：VITE\_SUPABASE\_PROXY=true需要改为false ![18.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/18_8d11ff8.png) ![19.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/19_41daf23.png)
+
+[](#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E4%B8%AD%E7%9A%84%E4%B8%89%E6%96%B9api%EF%BC%9F)如何配置应用中的三方api？
+-------------------------------------------------------------------------------------------------------------------------
+
+对于调用了三方api服务的应用，秒哒平台线上运行应用时，自动提供了免费的三方api服务供开发者和用户使用。
+
+若开发者下载应用代码包后，仍希望该类应用在本地部署运行，则需要自行购买相关三方api服务，并进行二次开发方能部署和运行，需要一定代码开发经验。
+
+### [](#%E4%B8%89%E6%96%B9api%E6%9C%8D%E5%8A%A1%E6%B8%85%E5%8D%95)三方api服务清单
+
+下表是应用中可能会调用到的三方api服务清单，其中大部分服务支持开发者自行购买后二次开发，仅appbuilder的智能问答以及appbuilder的网页内容总结不支持开发者二次开发：
+
+插件名称
+
+插件描述
+
+用户是否可自行购买
+
+购买链接
+
+购买路径
+
+短信验证码
+
+提供稳定、高效的短信验证码发送功能
+
+✅
+
+[https://console.bce.baidu.com/smsv3/#/smsv3/landing](https://console.bce.baidu.com/smsv3/#/smsv3/landing)
+
+/
+
+全国天气预报查询
+
+提供查询今日实时天气、未来24小时、未来7天、15天天气等数据的功能，并支持返回气象灾害预警、生活指数等信息
+
+✅
+
+[https://apis.baidu.com/store/detail/61019821-aab7-40e3-988f-0da9c1b49683](https://apis.baidu.com/store/detail/61019821-aab7-40e3-988f-0da9c1b49683)
+
+/
+
+股票实时行情查询
+
+提供全球各类金融数据查询功能，包括全球主要股市、汇市以及期货市场行情等，实时行情查询，即时更新
+
+✅
+
+[https://apis.baidu.com/store/detail/1c8deedc-1c14-4e28-8a57-22b519df41e7](https://apis.baidu.com/store/detail/1c8deedc-1c14-4e28-8a57-22b519df41e7)
+
+/
+
+地图定位
+
+提供地图定位功能，涵盖地理编码和逆地理编码，为应用提供实时的位置定位与检索能力
+
+✅
+
+地理编码：[https://lbsyun.baidu.com/faq/api?title=webapi/guide/webservice-geocoding地理逆编码：https://lbsyun.baidu.com/faq/api?title=webapi/guide/webservice-geocoding-abroad-base](https://lbsyun.baidu.com/faq/api?title=webapi/guide/webservice-geocoding%E5%9C%B0%E7%90%86%E9%80%86%E7%BC%96%E7%A0%81%EF%BC%9Ahttps://lbsyun.baidu.com/faq/api?title=webapi/guide/webservice-geocoding-abroad-base)
+
+/
+
+通用文字识别（高精度版）
+
+提供多场景、多语种、高精度的文字识别功能，可对图片全部文字内容进行检测识别，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/ocr/overview/index](https://console.bce.baidu.com/ai-engine/ocr/overview/index)
+
+概览-服务列表-通用场景OCR-通用文字识别（高精度版）
+
+身份证识别
+
+提供对二代居民身份证正反面信息进行结构化识别的功能，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/ocr/overview/index](https://console.bce.baidu.com/ai-engine/ocr/overview/index)
+
+概览-服务列表-卡证OCR-身份证识别
+
+火车票识别
+
+提供对红/蓝火车票、铁路电子客票进行结构化识别的功能，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/ocr/overview/index](https://console.bce.baidu.com/ai-engine/ocr/overview/index)
+
+概览-服务列表-财务票据OCR-火车票识别
+
+出租车票识别
+
+提供对全国各大城市出租车票进行识别的功能，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/ocr/overview/index](https://console.bce.baidu.com/ai-engine/ocr/overview/index)
+
+概览-服务列表-财务票据OCR-出租车票识别
+
+飞机行程单识别
+
+提供对飞机行程单进行结构化识别的功能，并能够对单张行程单上的多航班进行信息识别，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/ocr/overview/index](https://console.bce.baidu.com/ai-engine/ocr/overview/index)
+
+概览-服务列表-财务票据OCR-飞机行程单识别
+
+网约车行程单识别
+
+提供对各大主要服务商的网约车行程单进行结构化识别的功能，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/ocr/overview/index](https://console.bce.baidu.com/ai-engine/ocr/overview/index)
+
+概览-服务列表-财务票据OCR-网约车行程单识别
+
+汽车票识别
+
+提供对全国范围不同版式汽车票信息进行识别的功能，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/ocr/overview/index](https://console.bce.baidu.com/ai-engine/ocr/overview/index)
+
+概览-服务列表-财务票据OCR-汽车票识别
+
+人脸对比
+
+提供对两张图片中的人脸进行相似度对比的功能，满足认证合一验证、用户认证等场景需求，支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/face/overview/index](https://console.bce.baidu.com/ai-engine/face/overview/index)
+
+概览-服务列表-基础服务- V3版本-人脸对比
+
+人脸搜索
+
+提供在人脸库中搜索最相似的人脸的功能，需配合人脸库管理服务使用
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/face/overview/index](https://console.bce.baidu.com/ai-engine/face/overview/index)
+
+概览-服务列表-基础服务- V3版本-人脸搜索
+
+人脸库管理
+
+提供对上传的人脸进行管理的功能，包括人脸注册、用户信息查询、获取用户列表和删除用户
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/face/overview/index](https://console.bce.baidu.com/ai-engine/face/overview/index)
+
+概览-服务列表-基础服务- V3版本-人脸库管理
+
+通用物体和场景识别
+
+提供对通用物体和场景识别的功能，可识别超过10万类常见物体和场景，广泛适用于图像或视频内容分析、拍照识图等业务场景。支持上传jpg、jpeg、png、bmp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/imagerecognition/overview/index](https://console.bce.baidu.com/ai-engine/imagerecognition/overview/index)
+
+概览-服务列表-全部接口-通用物体和场景识别高级版
+
+图像内容理解
+
+提供对图像内容进行理解的功能，可多维度识别与理解图片内容，包括人、物、行为、场景、文字等，支持输出对图片内容的一句话描述，同时返回图片的分类标签、文字内容等信息。支持上传jpg、jpeg、png、bmp、webp格式图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/imagerecognition/overview/index](https://console.bce.baidu.com/ai-engine/imagerecognition/overview/index)
+
+概览-服务列表-全部接口-图像内容理解
+
+文本翻译-通用版
+
+提供多种语言互译的在线文本翻译功能，广泛应用于移动端、PC网站等不同产品形态中，满足多领域、多场景的翻译需求
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/machinetranslation/overview/index](https://console.bce.baidu.com/ai-engine/machinetranslation/overview/index)
+
+概览-服务列表-本文翻译-文本翻译-通用版
+
+智能问答
+
+使用千帆AppBuilder智能体为应用提供智能问答能力，需关联智能体后使用
+
+❌
+
+/
+
+/
+
+长文本语音合成
+
+提供长文本语音合成功能，能够将超长文本快速转换成稳定流畅、饱满真实的音频，可设置发音人、语速、语调等属性
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/speech/overview/index](https://console.bce.baidu.com/ai-engine/speech/overview/index)
+
+概览-服务列表-语音合成-长文本在线合成
+
+短语音识别
+
+提供短语音识别功能，能够将60秒以内的语音精准识别为文字，适用于语音输入、智能语音交互、语音指令、语音搜索等短语音交互场景
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/speech/overview/index](https://console.bce.baidu.com/ai-engine/speech/overview/index)
+
+概览-服务列表-语音识别-短语音识别
+
+图片生成
+
+提供图片生成功能，基于用户主动提供的文本、参考图像，生成各种无幻觉、超真实的图片。当前插件仅支持单次生成1张1024\*1024的图片
+
+✅
+
+[https://console.bce.baidu.com/ai-engine/intelligentwriting/overview/index](https://console.bce.baidu.com/ai-engine/intelligentwriting/overview/index)
+
+概览-服务列表-全部接口-AI作画-iRag版
+
+百度搜索
+
+提供百度搜索功能，满足多样的常规搜索需求
+
+✅
+
+[https://console.bce.baidu.com/ai\_apaas/resource](https://console.bce.baidu.com/ai_apaas/resource)
+
+资源额度-组件-百度搜索
+
+百度AI搜索
+
+提供百度AI搜索功能，支持常规搜索，并在搜索结果的基础上提供大模型内容总结，免于纷繁的信息筛选提炼
+
+✅
+
+[https://console.bce.baidu.com/ai\_apaas/resource](https://console.bce.baidu.com/ai_apaas/resource)
+
+资源额度-组件-百度AI搜索
+
+网页内容总结
+
+提供网页内容总结功能，可访问并阅读网页内容，满足网页总结、问答等诉求
+
+❌
+
+/
+
+/
+
+文本生成大模型
+
+使用文本生成大模型为应用构建AI功能。能够对文本内容进行理解，可用于文本生成与创作、AI聊天、语言润色与优化、文本摘要提炼、文本翻译、数据分析等场景。目前支持百度文心大模型ERNIE 4.5 Turbo
+
+✅
+
+[https://console.bce.baidu.com/qianfan/ais/console/presetService](https://console.bce.baidu.com/qianfan/ais/console/presetService)
+
+在线推理-预置推理服务-大语言模型-ERNIE-4.5-Turbo
+
+多模态理解大模型
+
+使用多模态理解大模型为应用构建AI功能。能够对文本、图片内容进行理解，可用于文本生成与创作、AI聊天、图片内容理解、多模态内容翻译、拍照解题、OCR识别等场景。目前支持百度文心大模型ERNIE 4.5 Turbo VL
+
+✅
+
+[https://console.bce.baidu.com/qianfan/ais/console/presetService](https://console.bce.baidu.com/qianfan/ais/console/presetService)
+
+在线推理-预置推理服务-大语言模型-ERNIE-4.5-Turbo-VL
+
+### [](#%E4%B8%89%E6%96%B9api%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%A4%BA%E4%BE%8B)三方api二次开发示例
+
+下面示例，基于【文本翻译小工具】（含【文本翻译 - 通用版】接口）展开，详细演示插件源码导出后的接口替换、配置适配等二次开发核心流程，助力开发者快速掌握源码二次开发方法。
+
+#### [](#%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D)应用介绍
+
+【文本翻译小工具】提供多种语言互译功能，基于【文本翻译-通用版】接口实现。
+
+![20.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/20_ceb5a98.png)
+
+#### [](#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3%E8%B5%84%E6%BA%90)准备工作：获取官方接口资源
+
+*   **购买链接**：[百度智能云 - 文本翻译服务](https://console.bce.baidu.com/ai-engine/machinetranslation/overview/index)
+*   **温馨提示**：新用户或首次开通该服务时，平台通常提供一定额度的**免费调用资源**（具体以百度智能云官方实时政策为准），可优先使用免费额度完成接口调试，降低开发成本。
+*   **购买路径**：概览 → 服务列表 → 文本翻译 → 文本翻译-通用版
+*   **需获取信息**：开通后请记录以下关键内容，后续配置需使用
+    
+    *   接口密钥（API Key/Secret Key，妥善保管，避免泄露）
+    *   官方接口文档：[百度翻译API文档](https://cloud.baidu.com/doc/MT/s/4kqryjku9)（可查阅接口参数及错误码说明）
+
+#### [](#%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4)接口配置步骤
+
+##### [](#%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80%E4%B8%8E%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE)接口地址与跨域配置
+
+服务地址：[https://aip.baidubce.com](https://aip.baidubce.com)
+
+浏览器基于 **同源策略**（协议、域名、端口三者需完全一致）会拦截跨域请求：当您从本地开发环境（如 `http://localhost:3000`）直接调用百度翻译官方接口（`https://aip.baidubce.com`）时，因域名与协议不同，浏览器会判定为跨域请求并阻止，导致接口调用失败。
+
+为解决该问题，需通过 Vite 配置本地代理：将本地开发环境中指向 `/baidu-api` 的请求，转发至百度翻译官方接口地址，相当于由 Vite 服务充当 “中间桥梁”，规避浏览器同源策略限制，确保接口正常通信。
+
+**步骤1：修改Vite配置文件**  
+打开 `vite.config.ts` 文件，添加以下代理配置
+
+![21.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/21_b25b66c.png)
+
+Plain Text 复制
+
+    1server: {
+    2    watch: {
+    3      ignored: ['**/{node_modules,.git,dist,logs,temp}/**'],
+    4      usePolling: true,
+    5      interval: 300,
+    6    },
+    7    port: 3000,
+    8    open: false,
+    9    // 添加代理配置解决跨域问题
+    10    proxy: {
+    11      '/baidu-api': {
+    12        target: 'https://aip.baidubce.com',// 百度翻译官方服务地址
+    13        changeOrigin: true,
+    14        secure: true,
+    15        rewrite: (path) => path.replace(/^\/baidu-api/, ''),
+    16        configure: (proxy, options) => {
+    17          proxy.on('error', (err, req, res) => {
+    18            console.log('代理错误:', err);
+    19          });
+    20          proxy.on('proxyReq', (proxyReq, req, res) => {
+    21            console.log('发送请求到目标服务器:', req.method, req.url);
+    22          });
+    23          proxy.on('proxyRes', (proxyRes, req, res) => {
+    24            console.log('从目标服务器收到响应:', proxyRes.statusCode, req.url);
+    25          });
+    26        },
+    27      }
+    28    }
+    29  }
+
+**步骤2：修改API基础地址**  
+打开 `utils/api.ts` 文件，将接口基础地址指向代理路径：const API\_BASE\_URL = "/baidu-api" // 使用Vite代理地址
+
+Plain Text 复制
+
+    1const API_BASE_URL = "/baidu-api"  // 使用Vite代理
+
+![22.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/22_12e0da3.png)
+
+##### [](#%E6%8E%A5%E5%8F%A3%E8%B7%AF%E5%BE%84%E6%9B%BF%E6%8D%A2)接口路径替换
+
+打开 `utils/api.ts` 文件，将接口路径替换为官方真实路径：
+
+// 修改前的接口调用 apiClient.post(`/原路径`, data),
+
+// 修改后的接口调用 apiClient.post(`/rpc/2.0/mt/texttrans/v1`, data),
+
+![23.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/23_87d6843.png)
+
+Plain Text 复制
+
+    1apiClient.post(`/rpc/2.0/mt/texttrans/v1`, data),
+
+##### [](#%E6%B7%BB%E5%8A%A0%E9%89%B4%E6%9D%83%E4%BF%A1%E6%81%AF)添加鉴权信息
+
+**此配置方法仅用于本地调试！  
+前端 `utils/api.ts` 中明文存储密钥，用户可通过浏览器 “开发者工具” 直接查看，一旦泄露会导致接口资源被恶意盗用，产生额外费用。 生产环境需要使用后端托管密钥。**
+
+打开 `utils/api.ts`，在请求头添加：
+
+Plain Text 复制
+
+    1headers: {
+    2// 其他已有配置...
+    3"Authorization": "Bearer {{您的密钥}}",  // 替换为实际获取的密钥
+    4}
+
+![24.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/24_8b07d6e.png)
+
+##### [](#%E5%93%8D%E5%BA%94%E6%A0%BC%E5%BC%8F%E9%80%82%E9%85%8D)响应格式适配
+
+平台对原始接口响应做了包装处理，需调整为官方原始响应格式的解析逻辑。
+
+###### [](#%E5%8C%85%E8%A3%85%E5%89%8D%E5%90%8E%E5%93%8D%E5%BA%94%E5%AF%B9%E6%AF%94)包装前后响应对比
+
+包装前原始接口响应  
+
+Plain Text 复制
+
+    1{
+    2    "result": {
+    3        "from": "en",
+    4        "trans_result": [
+    5            {
+    6                "dst": "你好",
+    7                "src": "hello"
+    8            }
+    9        ],
+    10        "to": "zh"
+    11    },
+    12    "log_id": 1958504271984380674
+    13}
+
+包装后接口响应  
+
+Plain Text 复制
+
+    1{
+    2    "data": {
+    3        "trans_result": [
+    4            {
+    5                "dst": "你好",
+    6                "src": "hello"
+    7            }
+    8        ],
+    9        "from": "en",
+    10        "to": "zh"
+    11    },
+    12    "status": 0,
+    13    "msg": ""
+    14}
+
+###### [](#%E6%89%93%E5%BC%80-apptsx-%E6%96%87%E4%BB%B6%EF%BC%8C%E5%B0%86%E5%93%8D%E5%BA%94%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91%E4%BF%AE%E6%94%B9%E5%A6%82%E4%B8%8B%EF%BC%9A)打开 `App.tsx` 文件，将响应处理逻辑修改如下：
+
+status字段在原始接口中不存在，一些使用status的判断可以删除。  
+**替换前：**  
+![111.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/111_a0b9294.png)
+
+Plain Text 复制
+
+    1try {
+    2      const response = await api.translate({
+    3        q: sourceText,
+    4        from: sourceLang,
+    5        to: targetLang,
+    6      });
+    7
+    8      if (response.status === 0 && response.data?.trans_result) {
+    9        const result = response.data.trans_result
+    10          .map((item: any) => item.dst)
+    11          .join('\n');
+    12        setTranslatedText(result);
+    13      } else if (response.status === 999) {
+    14        setError(response.msg || '翻译失败，请重试');
+    15      } else {
+    16        setError('翻译失败，请重试');
+    17      }
+    18    } catch (err: any) {
+    19      console.error('Translation error:', err);
+    20      if (err.response?.data?.status === 999) {
+    21        setError(err.response.data.msg || '翻译失败，请重试');
+    22      } else {
+    23        setError('网络错误，请检查网络连接后重试');
+    24      }
+    25    } finally {
+    26      setLoading(false);
+    27    }
+
+**替换后：**  
+![112.png](https://bce.bdstatic.com/doc/bce-doc/MIAODA/112_83e5b17.png)
+
+Plain Text 复制
+
+    1try {
+    2      const response = await api.translate({
+    3        q: sourceText,
+    4        from: sourceLang,
+    5        to: targetLang,
+    6      });
+    7
+    8      if (response.result?.trans_result) {
+    9        // 存在翻译结果时处理
+    10        const result = response.result.trans_result
+    11          .map((item: any) => item.dst)
+    12          .join('\n');
+    13        setTranslatedText(result);
+    14      } else {
+    15        // 没有翻译结果时显示错误
+    16        setError('翻译失败，请重试');
+    17      }
+    18    } catch (err: any) {
+    19      console.error('Translation error:', err);
+    20        setError('翻译失败，请重试');
+    21    } finally {
+    22      setLoading(false);
+    23    }
+
+##### [](#%E9%AA%8C%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95)验证与测试
+
+1.  确保所有配置文件已保存并重启开发服务器
+2.  输入测试文本进行翻译操作，验证是否能正常获取翻译结果
+3.  若出现错误，可通过浏览器控制台的Network面板查看请求详情，排查问题
+
+> 提示：如遇接口调用失败，可参考[百度翻译API错误码说明](https://cloud.baidu.com/doc/MT/s/4kqryjku9)排查问题原因
+
+评价此篇文章
+
+有帮助没帮助
+
+[
+
+上一篇
+
+应用预览与测试
+
+](/doc/MIAODA/s/Xmo6tpc20)[
+
+下一篇
+
+宝塔部署秒哒应用教程
+
+](/doc/MIAODA/s/Kmmbvu339)
+
+文档助手
+
+* * *
+
+文档反馈
+
+/\*<!\[CDATA\[\*/window.pagePath="/Xmewgmsq7";/\*\]\]>\*//\*<!\[CDATA\[\*/window.\_\_\_chunkMapping={"app":\["/app-f91c03b48a800e2edb75.js"\],"component---src-templates-acg-portal-new-template-tsx":\["/component---src-templates-acg-portal-new-template-tsx-6d67a403b893814c1350.js"\],"component---src-pages-index-js":\["/component---src-pages-index-js-e8810f5fe9f88bb5de67.js"\]};/\*\]\]>\*/
+
+*   ### 关于智能云
+    
+    *   [百度智能云2.0](https://cloud.baidu.com/cloudai.html "百度智能云2.0")
+    *   [云智技术论坛](https://cloud.baidu.com/techday/index.html "云智技术论坛")
+    *   [行业白皮书](https://cloud.baidu.com/solution/industry-report.html "行业白皮书")
+    *   [智能云公告](https://cloud.baidu.com/news/notice "智能云公告")
+    *   [最新资讯](https://cloud.baidu.com/news/news "最新资讯")
+    *   [客户案例](https://cloud.baidu.com/case/index.html "客户案例")
+    *   [服务案例](https://cloud.baidu.com/doc/support/index.html#case "服务案例")
+    *   [方案手册](https://doc.bce.baidu.com/bce-documentation/GUIDE/百度智能云总体业务手册.pdf "方案手册")
+    *   [产品手册](https://doc.bce.baidu.com/bce-documentation/GUIDE/百度智能云产品手册.pdf "产品手册")
+*   ### 热门产品
+    
+    *   [云服务器](https://cloud.baidu.com/product/bcc.html "云服务器")
+    *   [对象存储](https://cloud.baidu.com/product/bos.html "对象存储")
+    *   [数据可视化](https://cloud.baidu.com/product/sugar.html "数据可视化")
+    *   [文字识别](https://cloud.baidu.com/product/ocr "文字识别")
+    *   [语音识别](https://cloud.baidu.com/product/speech "语音识别")
+    *   [图像识别](https://cloud.baidu.com/product/imagerecognition "图像识别")
+    *   [域名服务](https://cloud.baidu.com/product/bcd.html "域名服务")
+    *   [BML全功能AI开发平台](https://cloud.baidu.com/product/bml "BML全功能AI开发平台")
+    *   [曦灵·数字人直播平台](https://cloud.baidu.com/product/baidudigitalhumanlivestream.html/ "曦灵·数字人直播平台")
+    *   [内容分发网络CDN](https://cloud.baidu.com/product/cdn.html "内容分发网络CDN")
+    *   [负载均衡](https://cloud.baidu.com/theme/F/331409-1 "负载均衡")
+*   ### 智能解决方案
+    
+    *   [智慧城市](https://cloud.baidu.com/solution/city/index.html "智慧城市")
+    *   [智能制造](https://cloud.baidu.com/solution/manufacture/index.html "智能制造")
+    *   [智慧能源](https://cloud.baidu.com/solution/energy/index.html "智慧能源")
+    *   [智慧水务](https://cloud.baidu.com/solution/water/index.html "智慧水务")
+    *   [智慧金融](https://cloud.baidu.com/solution/finance/fintech.html "智慧金融")
+    *   [智慧媒体](https://cloud.baidu.com/solution/media.html "智慧媒体")
+    *   [智慧电信](https://cloud.baidu.com/solution/dianxin.html "智慧电信")
+    *   [智慧教育](https://cloud.baidu.com/solution/education/index.html "智慧教育")
+    *   [企业上云](https://cloud.baidu.com/solution/cloud.html "企业上云")
+*   ### 快速入口
+    
+    *   [控制台](https://console.bce.baidu.com/#/index/overview_v3 "控制台")
+    *   [备案帮助](https://cloud.baidu.com/doc/BeiAn/index.html "备案帮助")
+    *   [产品促销](https://cloud.baidu.com/campaign/PromotionActivity/index.html "产品促销")
+    *   [企业服务](https://qifu.baidu.com "企业服务")
+    *   [云市场](https://market.baidu.com "云市场")
+    *   [合作伙伴中心](https://cloud.baidu.com/partner/plan.html "合作伙伴中心")
+    *   [支持计划](https://cloud.baidu.com/support/plan.html "支持计划")
+    *   [专家服务](https://cloud.baidu.com/doc/support/index.html "专家服务")
+    *   [帮助文档](https://cloud.baidu.com/doc/index.html "帮助文档")
+*   ### 售前服务咨询
+    
+    *   #### 支持热线（400-920-8999）
+        
+    *   [技术工单](https://ticket.bce.baidu.com/#/ticket/list "技术工单")
+    *   [建议反馈](https://console.bce.baidu.com/voc/#/voc "建议反馈")
+    *   [违规举报](http://help.baidu.com/newadd?prod_id=26&category=1 "违规举报")
+*   ### 关于百度智能云
+    
+    *   [云智一体2.0](https://cloud.baidu.com/cloudai.html "云智一体2.0")
+    *   [AI体验中心](https://cloud.baidu.com/experience "AI体验中心")
+    *   [最新资讯](https://cloud.baidu.com/news/news "最新资讯")
+    *   [产品动态](https://cloud.baidu.com/news/productNews "产品动态")
+    *   [市场活动](https://cloud.baidu.com/news/campaign "市场活动")
+    *   [客户案例](https://cloud.baidu.com/case/index.html "客户案例")
+    *   [行业解读](https://cloud.baidu.com/solution/industry-report.html "行业解读")
+    *   [公告通知](https://cloud.baidu.com/news/notice "公告通知")
+    *   [联系我们](https://cloud.baidu.com/survey/connect-us.html "联系我们")
+*   ### 服务与支持
+    
+    *   [文档中心](https://cloud.baidu.com/doc/index.html "文档中心")
+    *   [入门指南](https://cloud.baidu.com/doc/StartGuide/index.html "入门指南")
+    *   [视频中心](https://cloud.baidu.com/video-center/index.html "视频中心")
+    *   [健康看板](https://cloud.baidu.com/status.html "健康看板")
+    *   [企业支持计划](https://cloud.baidu.com/support/plan.html "企业支持计划")
+    *   [专家服务](https://cloud.baidu.com/doc/support/index.html#expert "专家服务")
+    *   [重大保障服务](https://cloud.baidu.com/doc/support/guarantee.html "重大保障服务")
+    *   [自助服务](https://cloud.baidu.com/doc/self-service/index.html "自助服务")
+    *   [智能助手](https://console.bce.baidu.com/znzs/ "智能助手")
+*   ### 账户管理
+    
+    *   [管理控制台](https://console.bce.baidu.com/ "管理控制台")
+    *   [实名认证](https://console.bce.baidu.com/qualify/#/qualify/index?isActivated=1 "实名认证")
+    *   [域名管理](https://console.bce.baidu.com/bcd/#/bcd/overview "域名管理")
+    *   [备案管理](https://beian.bce.baidu.com/user/dashboard "备案管理")
+    *   [个人中心](https://console.bce.baidu.com/iam/#/iam/baseinfo "个人中心")
+    *   [财务与订单](https://console.bce.baidu.com/billing/#/account/index "财务与订单")
+    *   [发票申请](https://console.bce.baidu.com/finance/#/invoice/list "发票申请")
+    *   [消息中心](https://console.bce.baidu.com/mc/#/mc/letterlist "消息中心")
+    *   [我的工单](https://ticket.bce.baidu.com/#/ticket/list "我的工单")
+*   ### 快速入口
+    
+    *   [成为合作伙伴](https://cloud.baidu.com/partner/plan.html "成为合作伙伴")
+    *   [云市场](https://market.baidu.com/ "云市场")
+    *   [最新活动](https://cloud.baidu.com/campaign/PromotionActivity/index.html "最新活动")
+    *   [企业服务](https://qifu.baidu.com/ "企业服务")
+    *   [开发者社区](https://developer.baidu.com/ "开发者社区")
+    *   [SDK中心](https://cloud.baidu.com/doc/Developer/index.html "SDK中心")
+    *   [API平台](https://cloud.baidu.com/doc/API/index.html "API平台")
+    *   [开发者沙龙](https://developer.baidu.com/activity.html "开发者沙龙")
+    *   [飞桨大赛](https://aistudio.baidu.com/aistudio/competition/1/1 "飞桨大赛")
+*   ### 实用工具
+    
+    *   [短网址](https://console.bce.baidu.com/dwz/?_=1582187668387#/dwz/overview "短网址")
+    *   [域名信息查询](https://cloud.baidu.com/product/bcd/toolPack.html?pageTitle=whois "域名信息查询")
+    *   [SSL证书](https://console.bce.baidu.com/cas/?_=1608000073370#/cas/apply/create "SSL证书")
+    *   [文字识别](https://console.bce.baidu.com/ai/?fromai=1#/ai/ocr/overview/index "文字识别")
+    *   [语音识别](https://console.bce.baidu.com/ai/?fromai=1#/ai/speech/overview/index "语音识别")
+    *   [图片识别](https://console.bce.baidu.com/ai/?_=&fromai=1#/ai/imagerecognition/overview/index "图片识别")
+    *   [卡证识别](https://console.bce.baidu.com/ai/?fromai=1#/ai/ocr/overview/index "卡证识别")
+    *   [文档翻译](https://console.bce.baidu.com/ai/?_=1626169856745#/ai/machinetranslation/overview/index "文档翻译")
+    *   [图片翻译](https://console.bce.baidu.com/ai/#/ai/machinetranslation/overview/index "图片翻译")
+*   ### 售前咨询热线
+    
+    *   #### 400-920-8999转1
+        
+    *   [售前在线咨询](https://cloud.baidu.com/znzs/pre-sale?source=https%3A%2F%2Fcloud.baidu.com%2Fsupport%2Fplan.html "售前在线咨询")
+    *   [售后智能助手](https://console.bce.baidu.com/znzs/ "售后智能助手")
+    *   [技术工单](https://ticket.bce.baidu.com/#/ "技术工单")
+    *   [违规举报](http://help.baidu.com/newadd?prod_id=26&category=1 "违规举报")
+*   ### 头部
+    
+    *   [7\*24小时服务](https://cloud.baidu.com/doc/support/index.html#base "7*24小时服务")
+    *   [企业支持计划](https://cloud.baidu.com/support/plan.html "企业支持计划")
+    *   [电子化备案](https://cloud.baidu.com/beian/index.html "电子化备案")
+    *   [建议反馈](https://console.bce.baidu.com/voc/#/voc "建议反馈")
+*   ### 热门推荐
+    
+    *   [云服务器](https://cloud.baidu.com/product/bcc.html "云服务器")
+    *   [云磁盘](https://cloud.baidu.com/product/cds.html "云磁盘")
+    *   [商标注册](https://cloud.baidu.com/product/tms "商标注册")
+    *   [文字识别](https://cloud.baidu.com/product/ocr "文字识别")
+    *   [弹性公网IP](https://cloud.baidu.com/product/eip.html "弹性公网IP")
+    *   [海外CDN](https://cloud.baidu.com/product/cdnabroad.html "海外CDN")
+    *   [数据传输服务](https://cloud.baidu.com/product/dts.html "数据传输服务")
+    *   [内容分发网络](https://cloud.baidu.com/product/cdn.html "内容分发网络")
+    *   [人脸与人体识别](https://cloud.baidu.com/product/face "人脸与人体识别")
+    *   [弹性裸金属服务器](https://cloud.baidu.com/product/bbc.html "弹性裸金属服务器")
+    *   [SSL证书](https://cloud.baidu.com/product/ssl.html "SSL证书")
+    *   [域名服务](https://cloud.baidu.com/product/bcd.html "域名服务")
+    *   [容器引擎](https://cloud.baidu.com/product/cce.html "容器引擎")
+    *   [专线接入](https://cloud.baidu.com/product/et.html "专线接入")
+    *   [音视频直播](https://cloud.baidu.com/product/lss.html "音视频直播")
+    *   [智能推荐引擎](https://cloud.baidu.com/product/ai-rec.html "智能推荐引擎")
+    *   [GPU云服务器](https://cloud.baidu.com/product/gpu.html "GPU云服务器")
+    *   [Elasticsearch](https://cloud.baidu.com/product/bes.html "Elasticsearch")
+    *   [云数据库HBase](https://cloud.baidu.com/product/hbase.html "云数据库HBase")
+    *   [爱速搭低代码平台](https://cloud.baidu.com/product/isuda.html "爱速搭低代码平台")
+    *   [智能边缘](https://cloud.baidu.com/product/bie.html "智能边缘")
+    *   [私有网络](https://cloud.baidu.com/product/vpc.html "私有网络")
+    *   [应用引擎](https://cloud.baidu.com/product/bae.html "应用引擎")
+    *   [文件存储](https://cloud.baidu.com/product/cfs.html "文件存储")
+    *   [智能云解析](https://cloud.baidu.com/product/dns.html "智能云解析")
+    *   [MapReduce](https://cloud.baidu.com/product/bmr.html "MapReduce")
+    *   [简单消息服务](https://cloud.baidu.com/product/sms.html "简单消息服务")
+    *   [轻量应用服务器](https://cloud.baidu.com/product/lightserver.html "轻量应用服务器")
+    *   [智能视联网平台](https://cloud.baidu.com/product/evs.html "智能视联网平台")
+    *   [云数据库GaiaDB-X](https://cloud.baidu.com/product/drds.html "云数据库GaiaDB-X")
+    *   [日志服务](https://cloud.baidu.com/product/bls.html "日志服务")
+    *   [消息服务](https://cloud.baidu.com/product/kafka.html "消息服务")
+    *   [负载均衡](https://cloud.baidu.com/product/blb.html "负载均衡")
+    *   [对象存储](https://cloud.baidu.com/product/bos.html "对象存储")
+    *   [云虚拟主机](https://cloud.baidu.com/product/bch.html "云虚拟主机")
+    *   [数据仓库Palo](https://cloud.baidu.com/product/palo.html "数据仓库Palo")
+    *   [容器镜像服务](https://cloud.baidu.com/product/ccr.html "容器镜像服务")
+    *   [云数据库DocDB](https://cloud.baidu.com/product/mongodb.html "云数据库DocDB")
+    *   [超级链BaaS平台](https://cloud.baidu.com/product/bbe.html "超级链BaaS平台")
+    *   [云原生微服务应用平台](https://cloud.baidu.com/product/cnap.html "云原生微服务应用平台")
+*   ### 解决方案
+    
+    *   [智慧城市](https://cloud.baidu.com/solution/city/index.html "智慧城市")
+    *   [智慧金融](https://cloud.baidu.com/solution/finance/fintech.html "智慧金融")
+    *   [智能制造](https://cloud.baidu.com/solution/manufacture/index.html "智能制造")
+    *   [智慧能源](https://cloud.baidu.com/solution/energy/index.html "智慧能源")
+    *   [智慧媒体](https://cloud.baidu.com/solution/media.html "智慧媒体")
+    *   [智慧水务](https://cloud.baidu.com/solution/water/index.html "智慧水务")
+    *   [智能图云](https://cloud.baidu.com/solution/metamap.html "智能图云")
+    *   [企业上云](https://cloud.baidu.com/solution/cloud.html "企业上云")
+    *   [区块链](https://cloud.baidu.com/solution/blockchain.html "区块链")
+    *   [物联网](https://cloud.baidu.com/solution/iot/index.html "物联网")
+*   ### 热门搜索
+    
+    *   [数字人](https://xiling.cloud.baidu.com/ "数字人")
+    *   [云手机](https://cloud.baidu.com/product/bac.html "云手机")
+    *   [智能创作](https://yinian.cloud.baidu.com/home "智能创作")
+    *   [数据分析](https://cloud.baidu.com/product/edap.html "数据分析")
+    *   [边缘计算](https://cloud.baidu.com/product/bec.html "边缘计算")
+    *   [域名解析](https://cloud.baidu.com/product/httpdns.html "域名解析")
+    *   [数据可视化](https://cloud.baidu.com/product/sugar.html "数据可视化")
+    *   [自然语言处理](https://cloud.baidu.com/product/nlp_private "自然语言处理")
+    *   [数据采集](https://cloud.baidu.com/product/dc.html "数据采集")
+    *   [虚拟主机](https://cloud.baidu.com/product/bch.html "虚拟主机")
+*   ### 快速链接
+    
+    *   [百度搜索](https://www.baidu.com/ "百度搜索")
+    *   [百度大脑](http://ai.baidu.com/index/ "百度大脑")
+    *   [百度VR](https://vr.baidu.com/ "百度VR")
+    *   [百度AI市场](https://aim.baidu.com/ "百度AI市场")
+    *   [百度统计](https://tongji.baidu.com/ "百度统计")
+    *   [百度指数](https://index.baidu.com/v2/index.html#/ "百度指数")
+    *   [百度云加速](http://su.baidu.com/ "百度云加速")
+    *   [百度阿波罗](https://www.apollo.auto/ "百度阿波罗")
+    *   [百度地图慧眼](https://huiyan.baidu.com/ "百度地图慧眼")
+    *   [百度翻译开放平台](https://api.fanyi.baidu.com/ "百度翻译开放平台")
+    *   [百度营销](http://e.baidu.com/ebaidu/lpapply/?refer=1246 "百度营销")
+    *   [百度如流](http://infoflow.baidu.com/#/ "百度如流")
+    *   [百度安全](http://anquan.baidu.com/ "百度安全")
+    *   [百度短网址](https://dwz.cn/ "百度短网址")
+    *   [百度有驾](https://www.yoojia.com/ "百度有驾")
+    *   [百度联盟](https://union.baidu.com/bqt/#/ "百度联盟")
+    *   [百度超级链](https://xuper.baidu.com/ "百度超级链")
+    *   [百度数据众包](http://zhongbao.baidu.com/ "百度数据众包")
+    *   [百度网盘企业版](https://pan.baidu.com/disk/cert/?from=cloud "百度网盘企业版")
+    *   [百度搜索资源平台](http://zhanzhang.baidu.com/ "百度搜索资源平台")

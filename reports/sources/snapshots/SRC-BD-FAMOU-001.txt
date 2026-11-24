@@ -1,0 +1,313 @@
+百度伐谋-百度智能云
+
+*   [最新活动](https://cloud.baidu.com/campaign/PromotionActivity/index.html)
+*   [产品](https://cloud.baidu.com/products/index.html)
+*   [解决方案](https://cloud.baidu.com/solution/index.html)
+*   [千帆社区](https://cloud.baidu.com/qianfandev)
+*   [AI原生应用商店](https://qianfanmarket.baidu.com/)
+*   [企业服务](https://qifu.baidu.com)
+*   [云市场](https://market.baidu.com)
+*   [合作与生态](https://cloud.baidu.com/partner/plan.html)
+*   [开发者](https://developer.baidu.com)
+*   [服务与支持](https://cloud.baidu.com/doc/support/index.html)
+*   [了解智能云](https://cloud.baidu.com/cloudai.html)
+*   [备案](https://cloud.baidu.com/beian/index.html)
+*   [文档](https://cloud.baidu.com/doc/index.html)
+*   [管理控制台](https://console.bce.baidu.com)
+
+![Banner Background](https://bce.bdstatic.com/p3m/common-service/uploads/pc_5d424b9.jpg)
+
+自我演化超级智能体：遇事不决问伐谋
+
+[开始使用](https://www.famou.com/?from=product)[立即咨询](https://cloud.baidu.com/survey/famou-from.html)
+
+百度伐谋 自我演化超级智能体
+--------------
+
+领先技术融合 打造亮点功能
+-------------
+
+全链路自动进化
+
+通过持续演化机制，在组合优化、机器学习等场景中自动挖掘高性能算法方案。针对产研高成本痛点，让算法研发从“静态调优”升级为“持续进化”
+
+![全链路自动进化](https://bce.bdstatic.com/p3m/common-service/uploads/zidonghua_817ab47.jpg)
+
+可视化协同
+
+提供实时演化看板与代际图谱，支持路径追踪与过程介入，实现全流程可观测、可干预
+
+![可视化协同](https://bce.bdstatic.com/p3m/common-service/uploads/nengli-2_406715f.jpg)
+
+人机协同体系
+
+共建专家知识库，快速生成优质种子算法，让演化从高质量起点开始
+
+![人机协同体系](https://bce.bdstatic.com/p3m/common-service/uploads/renji_ffb1b4b.jpg)
+
+智能洞察白盒化
+
+支持关键节点演化可视化与多指标分析，让优化过程从“黑箱”走向“透明决策”
+
+![智能洞察白盒化](https://bce.bdstatic.com/p3m/common-service/uploads/nengli_69426aa.jpg)
+
+自适应求解
+
+同时内置自适应求解引擎，简单任务秒级响应，复杂问题自动调用进化计算框架求取性能上限，效率与效果兼顾
+
+![自适应求解](https://bce.bdstatic.com/p3m/common-service/uploads/nengli-5_926df58.jpg)
+
+长期记忆
+
+具备会话级长短期记忆，在多轮交互中持续优化方案，并自动沉淀用户偏好与业务经验，将隐性知识转化为可复用的企业资产
+
+![长期记忆](https://bce.bdstatic.com/p3m/common-service/uploads/nengli-6_8ea4663.jpg)
+
+一体化解决方案
+-------
+
+轻量版专业版混合云私有化
+
+![轻量版](https://bce.bdstatic.com/p3m/common-service/uploads/qingliang_f3bdba1.png)
+
+#### 无需配置，直接开始
+
+伐谋面向业务人员与企业用户。用户只需自然语言描述问题，即可完成方案推演与结果生成，无需算法背景或复杂配置[立即体验](https://agent.famou.com/)
+
+#### 核心特点
+
+##### 对话式提需
+
+通过自然语言描述目标、约束与业务背景
+
+##### 自动任务拆解
+
+系统自动理解问题，拆解关键变量与优化目标
+
+##### 持续推演优化
+
+围绕业务目标持续生成、评估并优化结果
+
+##### 可视化面板
+
+通过图表与指标直观呈现优化结果
+
+#### 使用场景
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/A_DBlue_47a17e7.svg)快速业务探索![](https://bce.bdstatic.com/p3m/common-service/uploads/A_DBlue_47a17e7.svg)方案验证![](https://bce.bdstatic.com/p3m/common-service/uploads/A_DBlue_47a17e7.svg)预测与决策任务![](https://bce.bdstatic.com/p3m/common-service/uploads/A_DBlue_47a17e7.svg)轻量优化需求
+
+![专业版](https://bce.bdstatic.com/p3m/common-service/uploads/zhuanye_858c13b.png)
+
+#### 深度演化，持续求优
+
+探索更多求解路径，进一步优化复杂问题[立即体验](https://workspace.famou.com/)
+
+#### 核心特点
+
+##### 深度演化
+
+持续探索更多算法与求解方向
+
+##### 演化分析
+
+查看关键节点、路径与指标变化
+
+##### 专家干预
+
+调整目标、约束与探索方向
+
+##### 专业交付
+
+输出多方案对比与分析报告
+
+#### 适用场景
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/A_DBlue_47a17e7.svg)复杂优化![](https://bce.bdstatic.com/p3m/common-service/uploads/A_DBlue_47a17e7.svg)深度分析![](https://bce.bdstatic.com/p3m/common-service/uploads/A_DBlue_47a17e7.svg)正式交付
+
+![混合云](https://bce.bdstatic.com/p3m/common-service/uploads/hunheyun_66796d4.png)
+
+#### 数据本地，云端演化
+
+数据与执行留在本地，通过云端使用伐谋的生成与演化能力
+
+#### 核心特点
+
+##### 数据本地
+
+业务数据保留在企业环境
+
+##### 云端演化
+
+云端完成算法生成与持续优化
+
+##### 外部系统接入
+
+支持接入仿真系统、科学计算平台、科研沙箱等外部系统
+
+##### 本地执行
+
+优化结果返回本地完成执行
+
+#### 使用场景
+
+敏感数据现有 Agent开发环境企业工作流
+
+![私有化](https://bce.bdstatic.com/p3m/common-service/uploads/siyouyun_f30205a.png)
+
+#### 私有部署，自主可控
+
+将伐谋部署至企业自有环境，满足数据安全、合规与系统管控要求
+
+#### 核心特点
+
+##### 私有部署
+
+核心能力部署于企业指定环境
+
+##### 数据不出域
+
+数据、任务与结果内部流转
+
+##### 系统集成
+
+接入现有数据与业务系统
+
+##### 专属支持
+
+提供场景适配与技术服务
+
+#### 使用场景
+
+数据合规大型企业核心系统专属部署
+
+产业应用实践
+------
+
+### 交通信控
+
+协同优化多路口信号配时，实现区域交通高效通行，减少拥堵与延误，提升城市运行效率
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/famoutraffic.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/jiaotongxinkong_1e0de5a.png)
+
+### 港口调度
+
+综合优化泊位与岸桥调度，在多重约束下平衡作业效率与设备利用率，助力港口实现精益高效运营
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/famou-port.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/gangkoudiaodu_660f266.png)
+
+### 三维空间路径规划
+
+中高压桥架布置，验证了在复杂约束的三维空间里给出最优路径的能力，助力施工成本大幅降低
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/haishang.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/sanweikongjian_1744a33.png)
+
+### 能源需求预测
+
+精准预测能源需求趋势，实现资源调度与科学供能，助力能源体系高效运行
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/famou-energy.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/nengyuan_844bdda.png)
+
+### 金融风控
+
+智能分析多维金融数据，精准识别与预测风险，助力机构实现高效授信决策与安全稳健运营
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/famou-finance.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/jinrongfengkong_ea3d43e.png)
+
+科研创新
+----
+
+### 磁芯动态特性建模
+
+在权威竞赛 MagNet Challenge 中取得全球前列成绩
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/texin.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/cixin_fe2de66.png)
+
+### 航天级设备优化
+
+助力北京工业大学将科研迭代周期从周级压缩至小时级
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/hangtian.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/hangtianji_7e28d1c.png)
+
+### 地质灾害预警
+
+天津大学利用伐谋快速生成滑坡预测方案，缩短预警时间
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/dizhi.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/dizhizaihai_9c05a7a.png)
+
+### ﻿运筹优化新边界
+
+与南开大学深度合作实现算法创新与产业实践双向落地
+
+[
+
+_查看详情_
+
+](https://cloud.baidu.com/customer/case/yunchou.html)
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/yunchouyouhua_4487e24.png)
+
+合作客户
+----
+
+伐谋已深入多个业务场景，与企业伙伴共同拆解业务难题。期待与您并肩携手！
+
+![](https://bce.bdstatic.com/p3m/common-service/uploads/m-1_ae80d91.png)
+
+让复杂问题
+
+开始自我进化
+
+
+-----------------
+
+[立即体验](https://agent.famou.com/) [预约咨询](https://cloud.baidu.com/survey/famou-from.html)
+
+{"props":{"pageProps":{"isLoadOrderDrawer":false,"hidePortalCommon":false,"modules":\[{"lang":"zh","blockId":"1bf7778a-5fa0-4c59-b92f-6bead398c5ad","type":"V6S004","data":{"render":{"title":"百度伐谋，智能原生新范式","highlight":"","desc":"自我演化超级智能体：遇事不决问伐谋","buttons":\[{"text":"开始使用","href":"https://www.famou.com/?from=product","type":"primary","color":"blue","isDownLoad":false,"image":"https://bce.bdstatic.com/p3m/common-service/uploads/anniu\_0b43432.png","mobileImage":"https://bce.bdstatic.com/p3m/common-service/uploads/anniu\_0b43432.png"},{"text":"立即咨询","href":"https://cloud.baidu.com/survey/famou-from.html","type":"default","color":"blue","isDownLoad":false,"image":"https://bce.bdstatic.com/p3m/common-service/uploads/lijizi\_74609b2.png","mobileImage":"https://bce.bdstatic.com/p3m/common-service/uploads/lijizi\_74609b2.png"}\],"serviceType":"FAMOU","parentServiceType":""},"config":{"isDarkMode":false,"inInitialVideo":"","loopVideo":"","bg":"https://bce.bdstatic.com/p3m/common-service/uploads/pad\_181642d.jpg","mobileBg":"https://bce.bdstatic.com/p3m/common-service/uploads/wap\_57b0fb7.jpg","pcBgImage":"https://bce.bdstatic.com/p3m/common-service/uploads/pc\_5d424b9.jpg","bgColor":"#F8F9FD"}},"category":"","title":"banner","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/banner1\_a8fef41\_a8fef41.png","description":"","essential":"","tag":"客户案例,产品S,产品,产品聚合页,解决方案","displayName":"banner","createdAt":"2025-10-23T13:43:18Z","updatedAt":"2026-05-07T12:10:32Z","instanceId":"1778747150278\_1","id":0,"serviceName":"百度伐谋公有云"},{"lang":"en,zh","blockId":"a8ff1426-9ba2-4335-b19f-8b4cd6182d04","type":"V6G019","data":{"render":{"title":"百度伐谋 自我演化超级智能体","image":"","video":"https://bce.bdstatic.com/p3m/common-service/uploads/baidufamoushipin\_6444749.mp4","bg":"","bgColor":"","content":"","videoImage":"","bgScheme":"light","type":"video"},"config":{}},"category":"","title":"视频演示","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/tuwennew\_d8bd1eb.png","description":"","essential":"","tag":"产品,产品S,产品聚合页","displayName":"视频演示","createdAt":"2025-09-25T09:13:15Z","updatedAt":"2025-09-25T09:13:34Z","instanceId":"1761272390542\_2","id":1,"serviceName":"百度伐谋公有云"},{"lang":"zh","blockId":"e7b37679-048f-42eb-89aa-d7515c76af72","type":"V6G020","data":{"render":{"isZigzag":true,"items":\[{"title":"全链路自动进化","tag":\[\],"intro":"通过持续演化机制，在组合优化、机器学习等场景中自动挖掘高性能算法方案。针对产研高成本痛点，让算法研发从“静态调优”升级为“持续进化”","type":"video","id":"1778035273871\_2","img":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-1\_12054a5.png","video":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-1\_c04fa96.mp4","videoCoverImage":"https://bce.bdstatic.com/p3m/common-service/uploads/zidonghua\_817ab47.jpg"},{"title":"可视化协同","tag":\[\],"intro":"提供实时演化看板与代际图谱，支持路径追踪与过程介入，实现全流程可观测、可干预","type":"video","id":"1778035273874\_3","img":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-2\_70bb15a.png","video":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-2\_d24c8fd.mp4","videoCoverImage":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-2\_406715f.jpg"},{"title":"人机协同体系","tag":\[\],"intro":"共建专家知识库，快速生成优质种子算法，让演化从高质量起点开始","type":"video","id":"1778035273876\_4","img":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli\_ef37568.png","video":"https://bce.bdstatic.com/p3m/common-service/uploads/nnegli-3\_19e8ca8.mp4","videoCoverImage":"https://bce.bdstatic.com/p3m/common-service/uploads/renji\_ffb1b4b.jpg"},{"title":"智能洞察白盒化","tag":\[\],"intro":"支持关键节点演化可视化与多指标分析，让优化过程从“黑箱”走向“透明决策”","type":"video","id":"1778035273877\_5","img":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-4\_eca8afa.png","video":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-4\_b87da68.mp4","videoCoverImage":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli\_69426aa.jpg"},{"title":"自适应求解","tag":\[\],"intro":"同时内置自适应求解引擎，简单任务秒级响应，复杂问题自动调用进化计算框架求取性能上限，效率与效果兼顾","type":"video","id":"1778035273879\_6","img":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-5\_cc2491a.png","video":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-5\_6707354.mp4","videoCoverImage":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-5\_926df58.jpg"},{"title":"长期记忆","tag":\[\],"intro":"具备会话级长短期记忆，在多轮交互中持续优化方案，并自动沉淀用户偏好与业务经验，将隐性知识转化为可复用的企业资产","type":"video","id":"1778035273882\_7","img":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-6\_1001b3b.png","video":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-6\_20f20d6.mp4","videoCoverImage":"https://bce.bdstatic.com/p3m/common-service/uploads/nengli-6\_8ea4663.jpg"}\],"title":"领先技术融合 打造亮点功能"},"config":{"bgTheme":"default","cardCount":6}},"category":"卡片","title":"核心功能","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G020\_9b434eb.png","description":"V6G020 - 应用场景组件","essential":"","tag":"产品,产品聚合页,产品S","displayName":"核心功能","createdAt":"2025-10-23T13:40:12Z","updatedAt":"2025-11-24T07:49:46Z","instanceId":"1778035273830\_1","id":2,"serviceName":"百度伐谋公有云"},{"lang":"zh","blockId":"b74bb295-bcd6-492a-90ed-75d9b0f918db","type":"V6G031","data":{"render":{"title":"一体化解决方案","tabs":\[{"tab":{"name":"轻量版"},"items":\[{"mediaType":"image","sences":\[{"title":"无需配置，直接开始","desc":"伐谋面向业务人员与企业用户。用户只需自然语言描述问题，即可完成方案推演与结果生成，无需算法背景或复杂配置","detail":{"text":"立即体验","href":"https://agent.famou.com/","disabled":false,"setTimer":false}}\],"whatName":"核心特点","whats":\[{"title":"对话式提需","descs":\["通过自然语言描述目标、约束与业务背景"\]},{"title":"自动任务拆解","descs":\["系统自动理解问题，拆解关键变量与优化目标"\]},{"descs":\["围绕业务目标持续生成、评估并优化结果"\],"title":"持续推演优化"},{"title":"可视化面板","descs":\["通过图表与指标直观呈现优化结果"\]}\],"recommendName":"使用场景","recommend":\[\],"relatedProductsName":"使用场景","relatedProducts":\[{"title":"快速业务探索","icon":"","href":""},{"title":"方案验证","icon":"","href":""},{"title":"预测与决策任务"},{"title":"轻量优化需求"}\],"image":"https://bce.bdstatic.com/p3m/common-service/uploads/qingliang\_f3bdba1.png"}\]},{"tab":{"name":"专业版"},"items":\[{"mediaType":"image","sences":\[{"title":"深度演化，持续求优","desc":"探索更多求解路径，进一步优化复杂问题","detail":{"text":"立即体验","href":"https://workspace.famou.com/","disabled":false,"setTimer":false}}\],"whatName":"核心特点","whats":\[{"title":"深度演化","descs":\["持续探索更多算法与求解方向"\]},{"title":"演化分析","descs":\["查看关键节点、路径与指标变化"\]},{"title":"专家干预","descs":\["调整目标、约束与探索方向"\]},{"title":"专业交付","descs":\["输出多方案对比与分析报告"\]}\],"recommendName":"选型推荐","recommend":\[\],"relatedProductsName":"适用场景","relatedProducts":\[{"title":"复杂优化","icon":"","href":""},{"title":"深度分析","icon":"","href":""},{"title":"正式交付"}\],"image":"https://bce.bdstatic.com/p3m/common-service/uploads/zhuanye\_858c13b.png"}\]},{"tab":{"name":"混合云"},"items":\[{"mediaType":"image","image":"https://bce.bdstatic.com/p3m/common-service/uploads/hunheyun\_66796d4.png","sences":\[{"title":"数据本地，云端演化","desc":"数据与执行留在本地，通过云端使用伐谋的生成与演化能力"}\],"whatName":"核心特点","whats":\[{"descs":\["业务数据保留在企业环境"\],"title":" 数据本地"},{"title":" 云端演化","descs":\["云端完成算法生成与持续优化"\]},{"title":" 外部系统接入","descs":\["支持接入仿真系统、科学计算平台、科研沙箱等外部系统"\]},{"title":" 本地执行","descs":\["优化结果返回本地完成执行"\]}\],"recommendName":"","recommend":\[\],"relatedProductsName":"使用场景","relatedProducts":\[{"title":"敏感数据","clickable":false},{"title":"现有 Agent","clickable":false},{"title":"开发环境","clickable":false},{"title":"企业工作流","clickable":false}\]}\]},{"tab":{"name":"私有化"},"items":\[{"mediaType":"image","image":"https://bce.bdstatic.com/p3m/common-service/uploads/siyouyun\_f30205a.png","sences":\[{"title":"私有部署，自主可控","desc":"将伐谋部署至企业自有环境，满足数据安全、合规与系统管控要求"}\],"whatName":"核心特点","whats":\[{"descs":\["核心能力部署于企业指定环境"\],"title":"私有部署"},{"title":"数据不出域","descs":\["数据、任务与结果内部流转"\]},{"title":"系统集成","descs":\["接入现有数据与业务系统"\]},{"title":" 专属支持","descs":\["提供场景适配与技术服务"\]}\],"recommendName":"","recommend":\[\],"relatedProductsName":"使用场景","relatedProducts":\[{"title":"数据合规","clickable":false},{"title":"大型企业","clickable":false},{"title":"核心系统","clickable":false},{"title":"专属部署","clickable":false}\]}\]}\]},"config":{"background":"white","tabs":4,"columns":\[1,1,1,1\]}},"category":"","title":"平台解决方案","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/aaaaaa\_0a29338\_0a29338.png","description":"","essential":"","tag":"产品聚合页,产品S,产品","displayName":"平台解决方案","createdAt":"2026-03-05T08:19:28Z","updatedAt":"2026-03-17T02:12:58Z","instanceId":"1778033923830\_1","id":3,"serviceName":"百度伐谋公有云"},{"lang":"zh","blockId":"651cc8fe-9ce2-4e75-a0f5-5c1d90fb1648","type":"V6G017","data":{"render":{"title":"产业应用实践","items":\[\[{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/jiaotongxinkong\_1e0de5a.png","title":"交通信控","desc":"协同优化多路口信号配时，实现区域交通高效通行，减少拥堵与延误，提升城市运行效率","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/famoutraffic.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}},{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/gangkoudiaodu\_660f266.png","title":"港口调度","desc":"综合优化泊位与岸桥调度，在多重约束下平衡作业效率与设备利用率，助力港口实现精益高效运营","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/famou-port.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}}\],\[{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/sanweikongjian\_1744a33.png","title":"三维空间路径规划","desc":"中高压桥架布置，验证了在复杂约束的三维空间里给出最优路径的能力，助力施工成本大幅降低","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/haishang.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}},{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/nengyuan\_844bdda.png","title":"能源需求预测","desc":"精准预测能源需求趋势，实现资源调度与科学供能，助力能源体系高效运行","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/famou-energy.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}},{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/jinrongfengkong\_ea3d43e.png","title":"金融风控","desc":"智能分析多维金融数据，精准识别与预测风险，助力机构实现高效授信决策与安全稳健运营","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/famou-finance.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}}\]\]},"config":{"columnList":\[2,3\],"bgTheme":"default"}},"category":"相关产品","title":"行业解决方案","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G017\_4792661.png","description":"","essential":"","tag":"产品S,产品聚合页,产品,解决方案","displayName":"行业解决方案","createdAt":"2025-05-27T11:22:24Z","updatedAt":"2025-10-17T09:13:13Z","instanceId":"1778049374320\_15","id":4,"serviceName":"百度伐谋公有云"},{"lang":"zh","blockId":"651cc8fe-9ce2-4e75-a0f5-5c1d90fb1648","type":"V6G017","data":{"render":{"title":"科研创新","items":\[\[{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/cixin\_fe2de66.png","title":"磁芯动态特性建模","desc":"在权威竞赛 MagNet Challenge 中取得全球前列成绩","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/texin.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}},{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/hangtianji\_7e28d1c.png","title":"航天级设备优化","desc":"助力北京工业大学将科研迭代周期从周级压缩至小时级","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/hangtian.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}},{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/dizhizaihai\_9c05a7a.png","title":"地质灾害预警","desc":"天津大学利用伐谋快速生成滑坡预测方案，缩短预警时间","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/dizhi.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}},{"image":"https://bce.bdstatic.com/p3m/common-service/uploads/yunchouyouhua\_4487e24.png","title":" ﻿运筹优化新边界","desc":"与南开大学深度合作实现算法创新与产业实践双向落地","button":{"text":"查看详情","href":"https://cloud.baidu.com/customer/case/yunchou.html","disabled":false,"setTimer":false},"subButton":{"text":"","href":"","disabled":true}}\]\]},"config":{"columnList":\[4\],"bgTheme":"default"}},"category":"相关产品","title":"科研解决方案","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G017\_4792661.png","description":"","essential":"","tag":"产品S,产品聚合页,产品,解决方案","displayName":"科研解决方案","createdAt":"2025-05-27T11:22:24Z","updatedAt":"2025-10-17T09:13:13Z","instanceId":"1778049545021\_16","id":5,"serviceName":"百度伐谋公有云"},{"lang":"en,zh","blockId":"a8ff1426-9ba2-4335-b19f-8b4cd6182d04","type":"V6G019","data":{"render":{"title":"合作客户","subTitle":{"content":"伐谋已深入多个业务场景，与企业伙伴共同拆解业务难题。期待与您并肩携手！","link":{"text":"","href":"","disabled":false}},"image":"https://bce.bdstatic.com/p3m/common-service/uploads/m-1\_ae80d91.png","bg":"","bgColor":"","content":"","bgScheme":"light","type":"image"},"config":{}},"category":"","title":"客户案例","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/tuwennew\_d8bd1eb.png","description":"","essential":"","tag":"产品S,产品聚合页","displayName":"客户案例","createdAt":"2025-09-25T09:13:15Z","updatedAt":"2026-06-03T11:18:49Z","instanceId":"1794293141362\_1","id":6,"serviceName":"百度伐谋公有云"},{"lang":"zh","blockId":"d463b88f-00bb-426e-9f47-5caf567fdb67","type":"V6G016","data":{"render":{"titleList":\["让复杂问题","开始自我进化"\],"btnList":\[{"text":"立即体验","href":"https://agent.famou.com/","disabled":false,"setTimer":false,"type":"primary","buttonColor":"black","\_version":"v2","color":"bluePurpleGradient","image":""},{"text":" 预约咨询","href":"https://cloud.baidu.com/survey/famou-from.html","type":"default","color":"bluePurpleGradient","jumpTarget":"\_blank","\_version":"v2"}\],"bg":"https://bce.bdstatic.com/p3m/common-service/uploads/footer\_7\_7229fe8.png"},"config":{"bgTheme":""}},"category":"","title":"底部咨询","thumbnail":"https://bce.bdstatic.com/p3m/common-service/uploads/V6G016\_8f8e209.jpg","description":"","essential":"","tag":"产品S,产品聚合页","displayName":"底部咨询","createdAt":"2025-05-30T14:53:21Z","updatedAt":"2025-06-30T11:13:59Z","instanceId":"1761272845674\_18","id":7,"serviceName":"百度伐谋公有云"}\],"isPreview":false,"aiPreviewVersion":"","isProducts":true,"pageId":"8c98e088-7fb3-409c-bd29-5f896122c22b","createdAt":"2026-11-10T00:41:29.000Z","updatedAt":"2026-11-10T03:17:33.000Z","headOption":{"title":"百度伐谋-百度智能云","keywords":"百度伐谋,伐谋，智能原生","description":"面向生产研发环节的AI自主优化引擎，帮助用户解高难问题，高效解问题，在特点场景下实现专家级别收益"},"portalCommonOption":{"isFlexFooter":true,"headerTransparent":true,"showSecondaryNav":true,"secondaryNavConfigId":"bbd6b12b65c145e892d27adf55a9edb8","headerFixed":false}},"\_\_N\_SSG":true},"page":"/product/\[type\]","query":{"type":"8c98e088-7fb3-409c-bd29-5f896122c22b\_products"},"buildId":"av0M5ufLwDYZ3CdfvpWsK","assetPrefix":"https://bce.bdstatic.com/portal-cloud-server/online","isFallback":false,"dynamicIds":\[87585,88600,16517,66446,91035,2204,10101\],"gsp":true,"customServer":true,"scriptLoader":\[\]}

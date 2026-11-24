@@ -1,0 +1,350 @@
+计费 - Qoder
+URL: https://docs.qoder.com/zh/cloud-agents/billing
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+计费 - Qoder
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Qoder
+home page
+简体中文
+搜索
+⌘K
+下载
+下载
+Qoder 系列
+Qoder
+IDE
+JetBrains 插件
+CLI
+Agent SDK
+Cloud Agents
+移动端&网页版
+QoderWake
+企业版
+开发者文档
+Cloud Agents
+计费
+网站
+论坛
+博客
+更新日志
+快速入门
+概览
+使用指引
+快速入门
+构建 Agent
+定义 Agent
+Agent 工具配置
+Agent Skills
+权限策略
+配置 Agent 环境
+云端环境
+挂载自有 OSS Bucket（Beta）
+容器参考
+IP 地址
+委派任务给 Agent
+启动 Session
+SSE 事件流
+Outcome 验收判定
+使用 Vaults 认证
+Multiagent 编排
+集成 Agent
+使用自然语言管理 Schedule
+消息渠道接入
+A2A 协议接入
+Webhook
+管理 Agent 上下文
+访问 GitHub
+文件上传与挂载
+持久化记忆
+记忆整理
+账户
+计费
+个人空间与企业空间
+业务空间
+最佳实践
+Cloud Use（用云）
+Outcome 最佳实践
+公告
+关于 Cloud Agents SSE 初始连接行为调整的公告
+API 参考
+通用约定
+Forward 模式
+Managed 模式
+SDK
+SDK 总览
+Python SDK
+TypeScript SDK
+Go SDK
+Java SDK
+首页
+Cloud Agents
+账户
+计费
+计费
+了解 Qoder Cloud Agents 的 Credits 消耗项、扣减规则、结算方式，以及个人空间和企业空间的计费方式。
+Qoder Cloud Agents 支持采用 Credits 预付费的个人空间，以及采用服务账号专用资源包的企业空间。
+​
+Credits 消耗项
+使用 Qoder Cloud Agents 时，以下项目会消耗 Credits：
+计费项
+计费方式
+说明
+模型调用
+按 Token 消耗折算
+按实际任务执行，不同模型、不同任务复杂度的消耗不同
+沙箱运行（云资源）
+按 Session 活跃运行时长按需计费
+仅 Session 处于
+running
+状态时计费，暂停或等待时不计费
+​
+模型调用
+模型调用按实际任务执行折算 Credits，不同模型、不同任务复杂度的消耗不同。
+​
+典型消耗参考
+场景
+预估消耗
+简单问答
+约 1–3 Credits
+日常文档或文案生成
+约 10–15 Credits
+复杂任务（多轮对话 + 工具调用）
+约 20–50 Credits
+以上数据为典型场景下的估算，仅供参考，不作为计费依据。实际消耗会因模型、任务复杂度、上下文长度和工具调用情况而变化，请以 Credits 消耗明细为准。更多信息，请参阅
+Qoder Credits 消耗参考表
+。
+​
+沙箱计费（2026 年 8 月 10 日起正式收费）
+任务执行过程中使用的云资源沙箱按 Session
+活跃运行时长
+按需计费，并按秒计量：
+running
+状态
+：计费
+pause
+/
+idle
+/
+terminated
+状态
+：不计费
+在典型场景下，单次 Session 中沙箱运行产生的 Credits 消耗通常约占该 Session 总 Credits 消耗的 5%–10%。该比例仅供参考，不作为计费依据；实际占比会因任务类型、运行时长、模型调用量和工具使用情况而变化，请以 Credits 消耗明细为准。
+​
+存储说明
+当前阶段，以下存储资源
+限时免费
+，不消耗 Credits：
+对话历史与任务记录
+任务生成数据，例如报告、代码、文件等输出成果
+上传的附件与文件
+空间私有 Skill 仓库存储
+持久化个人用户数据存储
+存储计费规则后续可能调整，具体以届时正式发布的产品公告和页面说明为准。
+​
+扣减规则
+所有费用从 Credits 余额中统一扣减。
+某次模型调用失败时，不扣减该次模型调用的 Credits；已成功完成的模型调用按实际消耗计费。
+​
+出账方式
+沙箱运行时长按秒计量，相关费用按小时结算；模型调用按实际消耗折算 Credits。
+费用从 Credits 余额中统一扣减。
+​
+个人模式（Credits 预付费）
+个人模式不建议使用个人 PAT 进行正式生产调度，建议仅用于测试或 POC 验证。
+​
+计费模式
+个人模式采用
+Credits 预付费
+。更多信息，请参阅
+Credits
+。
+先购后用
+：购买 Credits 资源包并完成分配后即可使用。
+统一扣减
+：所有费用从 Credits 余额中统一扣减。
+按实际计量
+：模型调用和沙箱运行费用按实际用量从 Credits 余额中扣减。
+​
+购买及分配
+可通过以下国际渠道购买 Credits 资源包，多个资源包可叠加：
+阿里云国际官网：资源包购买
+阿里云国际云市场：资源包购买
+当前个人模式通过 Qoder Teams 共享资源包完成购买和分配。你需要已有 Qoder 账号及一个 Teams 席位；购买后，将资源分配给当前 Qoder Cloud Agents PAT 用户。
+购买前，请确认资源包的适用站点、所属组织、有效期和分配对象。具体购买与分配规则以购买页面和 Qoder 后台提示为准。
+​
+资源包规则
+Credits 资源包购买并完成分配后可使用，具体生效状态以 Qoder 后台显示为准。
+多个资源包可叠加；Credits 余额、资源包有效期和扣减顺序以 Qoder 后台显示为准。
+Credits 余额不足时，任务可能无法发起或继续执行；Credits 到账后可重新发起任务。
+​
+企业空间（服务账号模式）
+将 Qoder Cloud Agents 集成到对外服务或企业工作流时，建议使用企业空间。
+Qoder 的
+管理员
+和
+配置管理员
+可进入同一企业空间，共同管理组织资源。企业空间需绑定服务账号（Service Account，SA），使用量从组织的服务账号专用资源包中扣减，不使用组织席位或共享资源包的 Credits。
+使用企业空间前，请确认：
+当前组织为 Teams 或 Enterprise 组织，使用服务账号无需申请加入白名单。
+当前组织通过云市场兑换码创建。直接在官网购买支付创建的组织暂不支持服务账号模式。
+已购买并兑换服务账号专用资源包，并创建服务账号及其 Key。
+购买与兑换入口、适用条件、有效期和额度设置统一维护在
+服务账号专用资源包
+中，请直接按该页面操作，确保文档指引与实际购买链路一致。
+完成上述准备后，在 Cloud Agents 控制台切换至企业空间，并在
+企业凭证
+中绑定服务账号。空间的访问权限、数据归属与认证方式差异，请参阅
+个人空间与企业空间
+。
+​
+设置服务账号 Credits 限额
+在 Qoder 组织管理后台进入
+成员 > 服务账号
+，可以为每个服务账号单独设置、查看和修改 Credits 限额。
+1
+创建服务账号时设置限额
+点击
+创建服务账号
+，在
+Credits 上限
+中填写限额，然后完成创建。
+2
+查看用量和限额
+在服务账号列表的
+用量 / 限额
+列中，查看每个服务账号当前的 Credits 用量及限额。未设置限额时，页面显示
+不限额
+。
+3
+修改限额
+点击服务账号所在行末尾的
+…
+菜单，选择
+编辑
+。在
+编辑服务账号
+窗口中修改
+Credits 上限
+，然后点击
+保存
+。
+​
+Qoder 后台快捷入口
+成员配置
+共享资源包分配
+服务账号专用资源包
+个人空间与企业空间
+上一页
+个人空间与企业空间
+了解 Qoder Cloud Agents 个人空间和企业空间的数据归属、访问权限、认证方式与费用归属。
+下一页
+本页目录
+Credits 消耗项
+模型调用
+沙箱计费（2026 年 8 月 10 日起正式收费）
+存储说明
+扣减规则
+出账方式
+个人模式（Credits 预付费）
+计费模式
+购买及分配
+资源包规则
+企业空间（服务账号模式）
+设置服务账号 Credits 限额
+Qoder 后台快捷入口
+Qoder
+立即体验 Qoder
+Qoder
+移动端
+集成 Qoder Agent
+Agent SDK
+Cloud Agents
+AI 员工
+QoderWake
+条款
+服务条款
+隐私政策
+其他使用方式
+IDE
+JetBrains 插件
+CLI
+立即获取
+企业版
+价格
+全部产品下载
+资源
+能力市场
+活动
+文档
+博客
+常见问题
+更新日志
+联系我们
+意见反馈
+联系销售
+论坛
+关于我们
+© 2026 BRIGHT ZENITH PRIVATE LIMITED. · Powered by Real Knowledge Buddy
+Qoder
+home page
+zh
+Cloud Agents
+网站
+论坛
+博客
+更新日志
+快速入门
+概览
+使用指引
+快速入门
+构建 Agent
+定义 Agent
+Agent 工具配置
+Agent Skills
+权限策略
+配置 Agent 环境
+云端环境
+挂载自有 OSS Bucket（Beta）
+容器参考
+IP 地址
+委派任务给 Agent
+启动 Session
+SSE 事件流
+Outcome 验收判定
+使用 Vaults 认证
+Multiagent 编排
+集成 Agent
+使用自然语言管理 Schedule
+消息渠道接入
+A2A 协议接入
+Webhook
+管理 Agent 上下文
+访问 GitHub
+文件上传与挂载
+持久化记忆
+记忆整理
+账户
+计费
+个人空间与企业空间
+业务空间
+最佳实践
+Cloud Use（用云）
+Outcome 最佳实践
+公告
+关于 Cloud Agents SSE 初始连接行为调整的公告
+API 参考
+通用约定
+Forward 模式
+Managed 模式
+SDK
+SDK 总览
+Python SDK
+TypeScript SDK
+Go SDK
+Java SDK

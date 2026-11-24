@@ -1,0 +1,592 @@
+智能运维助手概述--全栈可观测平台-火山引擎
+URL: https://docs.volcengine.com/docs/observability/overview-of-intelligent-operations-assistant?lang=zh
+Captured: 2026-11-25
+Content-Type: text/html; charset=UTF-8
+
+智能运维助手概述--全栈可观测平台-火山引擎
+文档中心
+登录
+注册
+全栈可观测平台
+文档指南
+全栈可观测平台
+全栈可观测平台
+文档指南
+请输入
+产品动态
+新功能发布记录
+产品简介
+什么是全栈可观测平台
+产品优势
+应用场景
+开服地域
+产品计费
+观测产品计费
+全景观测
+通用 AI 应用监控
+AI 应用监控概述
+LLM 埋点字段与指标说明
+Agent 轨迹
+Agent 轨迹
+LLM Trace 分析
+LLM 会话分析
+LLM 监控看板
+数据回流
+Playground
+观测诊断
+AI 应用洞察
+洞察概述
+洞察规则
+洞察任务
+AgentKit 应用监控
+AgentKit 埋点字段与指标说明
+运行时总览
+记忆库分析
+知识库分析
+沙箱模板分析
+会话分析
+Trace 分析
+模型监控
+日志分析
+洞察大盘
+观测诊断
+告警管理
+ArkClaw 应用监控
+ArkClaw 企业版指标说明
+查询 ArkClaw 企业版指标
+应用性能监控
+托管 Prometheus
+云监控
+客户端监控
+云拨测
+智能运维
+智能运维助手概述
+发起任务
+使用智能运维助手
+深度调查故障根因
+自动化
+创建自动化任务
+管理自动化任务
+响应计划
+创建响应计划
+管理响应计划
+专家 Agent
+创建专家 Agent
+删除专家 Agent
+技能
+配置技能
+VeOps CLI 可观测排障助手
+告警中心
+告警中心概述
+告警历史
+告警概览
+告警事件
+通知历史
+告警配置
+云监控告警配置
+云监控告警配置概述
+创建云监控告警规则
+管理云监控告警规则
+创建对象分组
+管理对象分组
+创建云监控告警模板
+管理云监控告警模板
+应用告警模板到对象分组
+查看云监控预置告警模板
+启用云监控预置告警模板
+管理云监控预置告警模板
+云产品事件告警配置
+云产品事件规则概述
+创建云产品事件规则
+管理云产品事件规则
+托管 Prometheus 告警配置
+托管 Prometheus 告警配置概述
+创建托管 Prometheus 告警规则
+管理托管 Prometheus 告警规则
+查看预置告警模板
+创建托管 Prometheus 告警模板
+管理托管 Prometheus 告警模板
+创建托管 Prometheus 告警规则组
+管理托管 Prometheus 告警规则组
+应用性能监控告警配置
+应用性能监控告警配置概述
+创建应用性能监控告警规则
+管理应用性能监控告警规则
+查看应用性能监控预置告警模板
+创建应用性能监控告警模板
+管理应用性能监控告警模板
+通知配置
+创建通知策略
+管理通知策略
+导入 VMP 通知配置数据
+通知方式
+配置飞书机器人
+配置飞书应用机器人
+配置钉钉机器人
+配置企业微信机器人
+通知对象
+联系人
+联系组
+回调地址
+飞书用户认证与授权
+通知模板
+通知模板语法
+创建通知模板
+管理通知模板
+云监控扩展函数与变量
+云产品事件扩展函数与变量
+托管 Prometheus 扩展函数与变量
+应用性能监控扩展函数与变量
+值班计划
+创建值班计划
+管理值班计划
+聚合策略
+创建聚合策略
+管理聚合策略
+屏蔽策略
+创建屏蔽策略
+自动生成策略
+管理屏蔽策略
+集成中心
+集成中心概述
+集成市场
+AI 应用
+集成 AI 应用
+服务端应用
+集成 VKE 中的服务端应用
+集成三方云中的服务端应用
+Prometheus 应用组件
+自定义监控
+容器自定义采集接入
+Prometheus Federation 接入
+健康巡检接入
+云服务器自定义采集接入
+GPU/RDMA毫秒级监控
+中间件
+Nacos 接入
+Kafka 接入
+数据库
+ETCD 接入
+存储
+容器存储指标接入
+基础设施
+配额中心服务接入
+AI
+SGLang 接入
+Rag 接入
+vLLM 接入
+Dynamo 接入
+容器
+容器基础观测
+Prometheus 云产品
+云监控接入
+自定义
+交互式流水线接入
+交互式流水线配置说明
+集成管理
+探针管理
+指标中心
+指标管理
+自定义看板
+快速使用自定义看板
+预置看板
+数据源管理
+全局变量
+图表分组
+图表设置
+数据查询
+数据转换
+链接配置
+版本管理
+JSON Model
+管理图表
+管理看板
+管理文件夹
+自定义看板内嵌
+实践与教程
+AI 应用监控实践
+VeADK 智能体链路监控
+MaaS 高代码链路监控
+vLLM 推理引擎链路监控
+Eino-Assistant 应用上报观测数据
+AI Agent 观测实践
+OpenClaw 指标说明
+OpenClaw 链路监控
+Hermes Agent 链路监控
+Claude Code 链路监控
+解决方案
+重新定义 AI 时代的全景全栈观测
+API 参考
+API 接口索引
+文档首页
+全栈可观测平台
+智能运维
+智能运维助手概述
+智能运维
+智能运维助手概述
+安装
+火山引擎技能包
+用你的 Agent 查文档、问用法
+智能运维助手概述
+复制全文
+下载 pdf
+我的收藏
+文档反馈
+问问助手
+智能运维助手是针对 AI 运维提供的全栈监控数据智能运维中枢，主要面向可观测场景，拥有深度领域知识，具备数据查询、基础分析和跨服务综合排查能力。愿景是将顶尖专家智慧沉淀为平台能力，打造一个持续进化的“AI SRE 队友”，最终实现 7x24 小时的自主事件响应与根因分析。
+​
+智能运维助手主要承担 AI 原生的智能编排与决策层，通过构建 “连接-诊断-行动-扩展-治理” (Connect -> Diagnose -> Act -> Extend -> Govern) 的完整闭环，系统性解决大规模分布式系统运维的根本痛点。将与企业现有的可观测性平台、事件中心、发布系统和 ChatOps 工具无缝协同，成为驱动整个技术体系可靠性持续提升的核心引擎。
+​
+说明
+​
+【公测】该功能目前处于公测状态。
+​
+功能概述
+​
+​
+功能
+​
+说明
+​
+功能
+​
+说明
+​
+发起任务
+​
+直接使用自然语言对话方式，描述问题、告警现象和排查目标，调用 Agent 发起一次智能运维任务。
+​
+自动化
+​
+根据自定义提示词、Agent 和执行时间，定期执行的智能运维任务，适用于日常巡检、资源健康状况检查等周期性场景。
+​
+响应计划
+​
+基于告警进行条件触发的自动分析流程，告警触发后即可根据 Runbook 定义的流程自动进行故障检查，最终输出修复建议，供人工确认和修复参考。
+​
+专家 Agent
+​
+将观测经验中沉淀的 Agent 配置到智能运维助手，进行能力扩充，满足按需定制 Agent 的需求。
+​
+技能
+​
+技能（Skill）是面向特定业务场景封装的标准化能力包，为 Agent 配置技能，能够赋予 Agent 完整作业规范，使其自主识别意图、按流程完成专业任务，具备落地执行能力。
+​
+​
+适用范围
+​
+目前，
+AI 应用监控
+、
+应用性能监控
+、
+托管 Prometheus
+、
+云监控
+4 款可观测产品已经成功对接智能运维助手，
+客户端监控
+、
+云拨测
+暂不支持使用智能运维助手。
+​
+核心能力
+​
+智能运维助手定位为 AI 原生智能编排与决策中枢，不替代存量监控、日志系统，而是作为上层运维大脑，依托连接全域数据（Connect Everything）、理解业务上下文（Understand Context）、自主执行处置（Act Autonomously）动作三大核心能力，
+覆盖可观测和运维的全流程。
+​
+目前提供的工具清单和能力说明如下：
+​
+​
+产品
+​
+工具
+​
+说明
+​
+产品
+​
+工具
+​
+说明
+​
+云监控
+​
+cloudmonitor__get_metric_data
+​
+查询指定指标的时序数据。
+​
+​
+cloudmonitor__list_o11y_agent_vpc_endpoints
+​
+查询采集插件的终端节点。
+​
+​
+cloudmonitor__list_o11y_agent_ecs_process_configs
+​
+查询 ECS 进程监控配置。
+​
+​
+cloudmonitor__get_o11y_agent_ecs_auto_install
+​
+获取 ECS 采集插件自动安装配置。
+​
+​
+cloudmonitor__list_o11y_agent_ecs_instances
+​
+查询 ECS 采集插件状态。
+​
+​
+cloudmonitor__list_o11y_agent_ecs_instance_metadata
+​
+查询 ECS 采集插件元信息。
+​
+​
+cloudmonitor__cloudmonitor_list_rules
+​
+列出告警规则。
+​
+​
+cloudmonitor__cloudmonitor_list_rules_by_ids
+​
+根据 ID 查询告警规则。
+​
+​
+cloudmonitor__cloudmonitor_list_alert_group
+​
+查询告警历史。
+​
+​
+cloudmonitor__cloudmonitor_list_resource
+​
+查询实例元信息。
+​
+​
+cloudmonitor__cloudmonitor_list_metric_docs
+​
+获取指标文档。
+​
+​
+cloudmonitor__cloudmonitor_list_namespaces
+​
+获取产品的命名空间列表。
+​
+应用性能监控
+​
+apmplus__apmplus_server_list_alert_rule
+​
+列出告警规则。
+​
+​
+apmplus__apmplus_server_list_notify_group
+​
+列出通知组。
+​
+​
+apmplus__apmplus_server_list_logs
+​
+查询服务日志。
+​
+​
+apmplus__apmplus_server_query_metrics
+​
+PromQL 查询指标。
+​
+​
+apmplus__apmplus_server_get_trace_detail
+​
+获取 Trace 详情。
+​
+​
+apmplus__apmplus_server_list_span
+​
+列出 Span。
+​
+​
+apmplus__apmplus_server_get_service_topo
+​
+查询服务拓扑。
+​
+​
+apmplus__apm_server_list_alert_history
+​
+列出告警历史。
+​
+​
+apmplus__apm_server_list_aggregated_alert_history
+​
+聚合告警历史概览。
+​
+​
+apmplus__apmplus_server_list_metrics
+​
+列出可用指标。
+​
+​
+apmplus__apmplus_server_list_genai_sessions
+​
+列出 GenAI 会话。
+​
+托管 Prometheus
+​
+vmp__list_workspaces
+​
+列出工作区。
+​
+​
+vmp__list_workspace_instance_types
+​
+列出实例类型。
+​
+​
+vmp__query_metrics
+​
+即时查询 PromQL。
+​
+​
+vmp__query_range_metrics
+​
+范围查询 PromQL。
+​
+​
+vmp__query_metric_names
+​
+列出指标名称。
+​
+​
+vmp__query_metric_labels
+​
+列出指标标签。
+​
+​
+vmp__query_series
+​
+查询时间序列。
+​
+容器服务
+​
+vke__guide
+​
+查看 VKE 使用指南。
+​
+​
+vke__get_note
+​
+获取参数说明。
+​
+​
+vke__list_clusters
+​
+列出集群。
+​
+​
+vke__list_supported_resource_types
+​
+列出支持的资源类型。
+​
+​
+vke__list_supported_addons
+​
+列出支持的组件。
+​
+​
+vke__list_addons
+​
+列出已安装组件。
+​
+​
+vke__list_node_pools
+​
+列出节点池。
+​
+​
+vke__list_nodes
+​
+列出节点。
+​
+​
+vke__list_virtual_nodes
+​
+列出虚拟节点。
+​
+​
+常用示例
+​
+智能运维助支持提供可观测数据查询、产品基础分析和跨服务综合排查等 DevOps 服务，常用示例和执行动作如下：
+​
+​
+场景
+​
+Prompt 示例
+​
+场景
+​
+Prompt 示例
+​
+观测数据查询
+​
+​
+过去 1 小时 CPU 使用率最高的 5 个实例。
+​
+展示 order-service 的 P99 延迟趋势。
+​
+帮我查询昨天 23:00 左右的错误日志。
+​
+告警排障分析
+​
+分析当前告警：order-service 延迟突增。
+​
+帮我排查 payment-api 的错误率飙升。
+​
+当前告警可能是什么原因？
+​
+拓扑分析诊断
+​
+order-service 依赖哪些下游服务？哪个服务响应最慢？
+​
+分析 order-service 服务的调用链路瓶颈。
+​
+当前超时问题发生在哪一层？
+​
+​
+使用流程
+​
+预置 Agent 使用场景
+​
+无需进行任务额外配置，直接使用系统预置的 VeOps Agent 进行任务处理。
+​
+对话方式相关详细说明参见：
+使用智能运维助手
+。
+​
+自定义任务配置相关详细说明参见：
+配置自动化任务
+。
+​
+自定义 Agent 使用场景
+​
+配置技能
+：将历史观测经验中沉淀的 Skill 上传到智能运维助手。
+​
+配置专家 Agent
+：自定义 Agent 提示词并添加 Skill。
+​
+使用自定义 Agent
+：选择自定义配置的专家 Agent 进行任务处理。
+​
+对话方式相关详细说明参见：
+使用智能运维助手
+。
+​
+自定义任务配置相关详细说明参见：
+配置自动化任务
+。
+​
+​
+​
+最近更新时间：
+2026.10.16 17:35:37
+这个页面对您有帮助吗？
+有用
+有用
+无用
+无用

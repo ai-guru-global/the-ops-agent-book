@@ -1,0 +1,265 @@
+Google Cloud launches Gemini agent
+URL: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/
+Captured: 2026-11-25
+Content-Type: text/html; charset=utf-8
+
+Google Cloud launches Gemini agent
+Skip to main content
+Innovation & AI
+Products & platforms
+Company news
+Feed
+Newsletter
+Back
+Innovation & AI
+See all in Innovation & AI
+Models & Research
+Google DeepMind
+Google Research
+Google Labs
+Gemini models
+Quantum computing
+See all
+Products
+Developer tools
+Gemini app
+Gemini Notebook
+See all
+Infrastructure & cloud
+Global network
+Google Cloud
+See all
+Technology
+Safety & Security
+Health
+See all
+Learn more:
+Google DeepMind blog
+Google Research blog
+Google Developers blog
+Google Cloud blog
+Back
+Products & platforms
+See all in Products & platforms
+Products
+Search
+Maps
+Chrome
+Google Health
+Google Workspace
+Learning & Education
+Shopping
+See all
+Platforms
+Android
+Google Play
+Wear OS
+See all
+Devices
+Pixel
+Google Nest
+Fitbit
+Chromebook
+Googlebook
+See all
+Learn more:
+Google Ads & Commerce blog
+Waze blog
+Back
+Company news
+See all in Company news
+Outreach & initiatives
+Creating opportunity
+Safety & security
+Google.org
+Public policy
+Sustainability
+Health
+See all
+Leadership
+Sundar Pichai, CEO
+More authors
+See all
+Inside Google
+Around the globe
+Life at Google
+See all
+Learn more:
+Google Security blog
+Innovation & AI
+Innovation & AI
+See all in Innovation & AI
+Models & Research
+Google DeepMind
+Google Research
+Google Labs
+Gemini models
+Quantum computing
+See all
+Products
+Developer tools
+Gemini app
+Gemini Notebook
+See all
+Infrastructure & cloud
+Global network
+Google Cloud
+See all
+Technology
+Safety & Security
+Health
+See all
+Learn more:
+Google DeepMind blog
+Google Research blog
+Google Developers blog
+Google Cloud blog
+Products & platforms
+Products & platforms
+See all in Products & platforms
+Products
+Search
+Maps
+Chrome
+Google Health
+Google Workspace
+Learning & Education
+Shopping
+See all
+Platforms
+Android
+Google Play
+Wear OS
+See all
+Devices
+Pixel
+Google Nest
+Fitbit
+Chromebook
+Googlebook
+See all
+Learn more:
+Google Ads & Commerce blog
+Waze blog
+Company news
+Company news
+See all in Company news
+Outreach & initiatives
+Creating opportunity
+Safety & security
+Google.org
+Public policy
+Sustainability
+Health
+See all
+Leadership
+Sundar Pichai, CEO
+More authors
+See all
+Inside Google
+Around the globe
+Life at Google
+See all
+Learn more:
+Google Security blog
+Feed
+[]
+Preferences
+Global (English)
+Africa (English)
+Australia (English)
+Brasil (Português)
+Canada (English)
+Canada (Français)
+Česko (Čeština)
+Deutschland (Deutsch)
+España (Español)
+France (Français)
+Greece (Ελληνικά)
+India (English)
+Indonesia (Bahasa Indonesia)
+Ireland (English)
+Italia (Italiano)
+日本 (日本語)
+대한민국 (한국어)
+Latinoamérica (Español)
+Malaysia (English)
+الشرق الأوسط وشمال أفريقيا (اللغة العربية)
+MENA (English)
+Nederlands (Nederland)
+New Zealand (English)
+Polska (Polski)
+Portugal (Português)
+România (Română)
+Sverige (Svenska)
+ประเทศไทย (ไทย)
+Türkiye (Türkçe)
+台灣 (中文)
+Links
+Images
+RSS feed
+Newsletter
+Breadcrumb
+Home
+Innovation & AI
+Infrastructure & Cloud
+Google Cloud
+Google Cloud introduces the Gemini agent.
+Oct 08, 2026
+Today at Gemini at Work 2026, Google Cloud announced the Gemini agent, a universal agent for work.
+With Gemini, work now starts in the prompt window:
+Gemini has all of an organization’s business context and can be used for everything from knowledge work to answering questions, and content creation to coding, all from a single prompt box.
+It plans the work, uses skills and tools, connects to Cloud customers’ business systems, and brings back something finished — inside the documents, the inbox, and the developer environments they already work in.
+It chooses the best model for the job, has built-in cost controls, and most importantly, has the security, administration, and governance required by enterprise customers.
+Check out the
+Google Cloud blog
+to learn more.
+Posted in:
+Google Cloud
+Related stories
+Google Cloud
+Outpace automated cyber threats with security built for nonstop defense.
+By Google Threat Intelligence Group (GTIG)
+Google Cloud
+New AI training performance benchmarks for Google TPUs and NVIDIA GPUs on Google Cloud
+Google Cloud
+Google Cloud leaders share what to expect in cybersecurity for 2027.
+Google Cloud
+Get certified as a Google Cloud Professional Agentic Architect.
+By Gary Eimerman
+Privacy
+Terms
+Help
+More of Google
+Google Products
+About the Blog
+Global (English)
+Africa (English)
+Australia (English)
+Brasil (Português)
+Canada (English)
+Canada (Français)
+Česko (Čeština)
+Deutschland (Deutsch)
+España (Español)
+France (Français)
+Greece (Ελληνικά)
+India (English)
+Indonesia (Bahasa Indonesia)
+Ireland (English)
+Italia (Italiano)
+日本 (日本語)
+대한민국 (한국어)
+Latinoamérica (Español)
+Malaysia (English)
+الشرق الأوسط وشمال أفريقيا (اللغة العربية)
+MENA (English)
+Nederlands (Nederland)
+New Zealand (English)
+Polska (Polski)
+Portugal (Português)
+România (Română)
+Sverige (Svenska)
+ประเทศไทย (ไทย)
+Türkiye (Türkçe)
+台灣 (中文)

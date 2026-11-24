@@ -19,7 +19,8 @@ content_status: "reviewed"
 - “未核实”表示本轮没有取得足以支持该字段的证据，**不等于否定**。不得据此猜测 GA/预览、区域、价格、数据驻留或退出条款。
 - 动态目录数量只在明确快照日时使用。本轮删除“36 Agent / 328 Skills”的当前事实表述，且**未重新计数**。
 - `accessed_at` 是实际访问或沿用原书访问记录的日期；`review_by` 是下一次复核截止，不是来源失效日。
-- 快照列记录本地正文快照与 SHA-256。本轮已保存 9 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
+- 快照列记录本地正文快照与 SHA-256。本轮已保存 33 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
+- 所有至少有一个“未核实”字段的厂商 claim 同时登记在机器可读的 `sources/claim-gaps.json`；补证只关闭有来源的字段，不能把整条 claim 一键改成已核实。
 
 ## 来源清单
 
@@ -73,11 +74,35 @@ content_status: "reviewed"
 | SRC-EU-AIACT-001 | official_doc | 2026-11-25 | 2027-02-10 | METH-04 | 已存 `reports/sources/snapshots/SRC-EU-AIACT-001.txt` |
 | SRC-OTEL-GENAI-001 | official_doc | 2026-11-25 | 2027-02-10 | METH-05 | 已存 `reports/sources/snapshots/SRC-OTEL-GENAI-001.txt` |
 | SRC-GOOGLE-SRE-001 | official_doc | 2026-11-25 | 2027-02-10 | METH-06 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SRE-001.txt` |
+| SRC-HW-AGENTARTS-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-03 | 已存 `reports/sources/snapshots/SRC-HW-AGENTARTS-001.txt` |
+| SRC-BD-DUMATE-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-03 | 已存 `reports/sources/snapshots/SRC-BD-DUMATE-001.txt` |
+| SRC-BD-FAMOU-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-04 | 已存 `reports/sources/snapshots/SRC-BD-FAMOU-001.txt` |
+| SRC-BD-MIAODA-EXPORT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-06 | 已存 `reports/sources/snapshots/SRC-BD-MIAODA-EXPORT-001.txt` |
+| SRC-OR-ENTERPRISE-AGENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-OR-01 | 已存 `reports/sources/snapshots/SRC-OR-ENTERPRISE-AGENTS-001.txt` |
+| SRC-SAP-JOULE-AGENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-SAP-02 | 已存 `reports/sources/snapshots/SRC-SAP-JOULE-AGENTS-001.txt` |
+| SRC-SN-AI-AGENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-SN-01 | 已存 `reports/sources/snapshots/SRC-SN-AI-AGENTS-001.txt` |
+| SRC-ALI-MODELSTUDIO-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | ALI-14 | 已存 `reports/sources/snapshots/SRC-ALI-MODELSTUDIO-PRICING-001.txt` |
+| SRC-QODER-CLOUDAGENTS-BILLING-001 | official_doc | 2026-11-25 | 2027-02-22 | ALI-15 | 已存 `reports/sources/snapshots/SRC-QODER-CLOUDAGENTS-BILLING-001.txt` |
+| SRC-ALI-AGENTICOS-001 | official_doc | 2026-11-25 | 2027-02-22 | ALI-17 | 已存 `reports/sources/snapshots/SRC-ALI-AGENTICOS-001.txt` |
+| SRC-TX-ADP-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-TX-05 | 已存 `reports/sources/snapshots/SRC-TX-ADP-001.txt` |
+| SRC-TX-TCOP-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-TX-06 | 已存 `reports/sources/snapshots/SRC-TX-TCOP-001.txt` |
+| SRC-VOLC-OPSASSISTANT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-OT-01 | 已存 `reports/sources/snapshots/SRC-VOLC-OPSASSISTANT-001.txt` |
+| SRC-VOLC-ARK-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-OT-03 | 已存 `reports/sources/snapshots/SRC-VOLC-ARK-PRICING-001.txt` |
+| SRC-GO-GEMINI-AGENT-001 | official_release | 2026-11-25 | 2027-02-22 | GC-GO-02 | 已存 `reports/sources/snapshots/SRC-GO-GEMINI-AGENT-001.txt` |
+| SRC-GO-ADK-V2-001 | official_release | 2026-11-25 | 2027-02-22 | GC-GO-06 | 已存 `reports/sources/snapshots/SRC-GO-ADK-V2-001.txt` |
+| SRC-MS-SECCOPILOT-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-MS-03 | 已存 `reports/sources/snapshots/SRC-MS-SECCOPILOT-PRICING-001.txt` |
+| SRC-JD-AIOPS-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-OT-04 | 已存 `reports/sources/snapshots/SRC-JD-AIOPS-001.txt` |
+| SRC-INSPUR-INCLOUD-MANAGER-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-OT-06 | 已存 `reports/sources/snapshots/SRC-INSPUR-INCLOUD-MANAGER-001.txt` |
+| SRC-CLOUDWISE-ITSM-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-02 | 已存 `reports/sources/snapshots/SRC-CLOUDWISE-ITSM-001.txt` |
+| SRC-EOITEK-AIOPS-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-03 | 已存 `reports/sources/snapshots/SRC-EOITEK-AIOPS-001.txt` |
+| SRC-YANLONG-SREAGENT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-04 | 已存 `reports/sources/snapshots/SRC-YANLONG-SREAGENT-001.txt` |
+| SRC-XJ-IT-AGENT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-05 | 已存 `reports/sources/snapshots/SRC-XJ-IT-AGENT-001.txt` |
+| SRC-ME-AIOPS-GUIDE-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-DOM-06、OBS-15 | 已存 `reports/sources/snapshots/SRC-ME-AIOPS-GUIDE-001.txt` |
 
 ## 未覆盖与快照计划
 
-Google Cloud、Oracle、SAP、ServiceNow 产品正文，以及 Microsoft Security Copilot、Dynatrace、PagerDuty、Sumo Logic、LogicMonitor、BigPanda、OpsRamp、ManageEngine、SolarWinds、Cisco、Juniper、SentinelOne、Kubecost 等条目，本轮未取得足以核验的官方正文，相关能力与商业字段统一记为“未核实”。
+Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist，以及 Dynatrace、PagerDuty、Sumo Logic、LogicMonitor、BigPanda、OpsRamp、SolarWinds、Cisco、Juniper、SentinelOne、Kubecost 等条目仍缺足够可归档正文。Oracle、SAP、ServiceNow、华为/百度/阿里/腾讯/火山及部分国产 AIOps 厂商已有官方来源；Google Gemini agent、ADK 与 Microsoft Security Copilot 也已补证，但区域、许可、驻留与退出字段仍按 claim 逐项保留“未核实”。
 
-本轮已保存 AWS DevOps Agent、AgentRun、Datadog AI、OWASP、NIST AI RMF、EU AI Act、OTel GenAI、Google SRE Workbook 与 A2A 正文快照。Azure SRE Agent 与 MCP 待重试；其余来源按采购/发布优先级补存。社区来源还需记录 commit SHA。
+本轮已保存 AWS DevOps Agent、AgentRun、Datadog AI、OWASP、NIST AI RMF、EU AI Act、OTel GenAI、Google SRE Workbook、A2A，以及 AgentArts、百度搭子、百度伐谋、秒哒导出、OCI Enterprise AI Agents、SAP Joule Agents、ServiceNow AI Agents、Model Studio 价格、Qoder 计费、Agentic OS、腾讯 ADP/TCOP、火山智能运维助手/方舟计费、Gemini agent、ADK v2.0、Security Copilot 定价，以及京东云 AIOps、浪潮 InCloud Manager、云智慧 ITSM、擎创夏洛克、炎龙 SREAgent、新炬 IT 运维智能体、ManageEngine AIOps 指南正文快照。Azure SRE Agent 与 MCP 待重试；其余来源按采购/发布优先级补存。社区来源还需记录 commit SHA。
 
 完整引用入口见[参考资料](./references)。

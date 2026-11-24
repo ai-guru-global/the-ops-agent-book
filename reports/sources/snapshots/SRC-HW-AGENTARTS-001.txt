@@ -1,0 +1,500 @@
+    什么是智果（AgentArts）智能体平台？\_产品介绍\_智果（AgentArts）智能体平台-华为云                  @media(max-width:768px) { #header { display: none; } } #footer .footer-nav { display: none; } #footer .footer-copyright-container { display: none; } .footer-service .footer-wrapper { display: none; }            window.dataLayer = window.dataLayer || \[\]; window.$closeBiReport2018 = true window.$siteInfo = window.$siteInfo || {}; window.$siteInfo.site = "china"; window.$siteInfo.lang = "zh-cn".replace("\_", "-"); window.$cssList = \[\];window.$aioList = \[\];window.$aioCdnPrefix = 'https://res.hc-cdn.com/'; { "imports": { "svelte": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/index.js", "svelte/store": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/store.js", "svelte/motion": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/motion.js", "svelte/transition": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/transition.js", "svelte/animate": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/animate.js", "svelte/easing": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/easing.js", "svelte/events": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/events.js", "svelte/internal/client": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/internal-client.js", "svelte/legacy": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/legacy.js", "svelte/reactivity": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/reactivity.js", "svelte/reactivity/window": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/reactivity-window.js", "svelte/attachments": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/attachments.js", "svelte/internal/disclose-version": "https://res.hc-cdn.com/pep-components-svelte/5.38.10/svelte-cdn/internal-disclose-version.js" } } window.gConfig = window.gConfig || {}; window.gConfig.isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent); var hClassName ; if(window.gConfig.isMobile) { hClassName = ' phone'; } else { hClassName = ' pc'; } if(window.$cssList) { for(var i=0; i<window.$cssList.length; i++) { document.write('<link rel="stylesheet" href="'+window.$cssList\[i\]+'/'+(window.gConfig.isMobile?'m':'pc')+'/index.css" />'); } } var root = document.documentElement; root.className += hClassName ; window.gConfig = window.gConfig || {}; window.gConfig.isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent); var hClassName; if(window.gConfig.isMobile){ hClassName = ' phone'; }else{ hClassName = ' pc'; } if(window.$aioList) { for(var i=0; i<window.$aioList.length; i++) { if(window.$aioCdnPrefix){ if(window.$aioList\[i\].length>0) { document.write('<link rel="stylesheet" href="'+window.$aioCdnPrefix+window.$aioList\[i\]+'/'+(window.gConfig.isMobile?'m':'pc')+'/index.css" />'); } } else { if(window.$aioList\[i\].length>0) { document.write('<link rel="stylesheet" href="https://res.hc-cdn.com/'+window.$aioList\[i\]+'/'+(window.gConfig.isMobile?'m':'pc')+'/index.css" />'); } } } } var root = document.documentElement; root.className += hClassName ; window.gConfig.seed = window.gConfig.seed || \[\]; window.gConfig.seed.push({ name: '@cloud/link-to', data: { "packages": { "@cloud/link-to": { "path": "//portal.hc-cdn.com/cnpm-link-to/3.1.12/", "version": "3.1.12" } } } });   // 规避资料不规范出现这些未定义的方法 function image\_size() { } function highlightSearch() { } function initImageViewer(Selector) { }
+
+检测到您已登录华为云国际站账号，为了您更好的体验，建议您访问国际站服务网站 [https://www.huaweicloud.com/intl/zh-cn](https://www.huaweicloud.com/intl/zh-cn)
+
+不再显示此消息
+
+*   中国站
+    
+    中国站
+    
+    *   [简体中文](//www.huaweicloud.com/)
+    
+    International
+    
+    *   [English](https://www.huaweicloud.com/intl/en-us/)
+    *   [Bahasa Indonesia](https://www.huaweicloud.com/intl/id-id/)
+    *   [Español](https://www.huaweicloud.com/intl/es-us/)
+    *   [Português](https://www.huaweicloud.com/intl/pt-br/)
+    *   [Türkçe](https://www.huaweicloud.com/intl/tr-tr/)
+    *   [عربي](https://www.huaweicloud.com/intl/ar-mena/)
+    *   [ไทย](https://www.huaweicloud.com/intl/th-th/)
+    *   [简体中文](https://www.huaweicloud.com/intl/zh-cn/)
+    *   [日本語](https://www.huaweicloud.com/intl/ja-jp/)
+    
+    Europe
+    
+    *   [English](//www.huaweicloud.com/eu/)
+    *   [Deutsch](//www.huaweicloud.com/eu/de-de/)
+    *   [Español](//www.huaweicloud.com/eu/es-es/)
+    *   [Français](//www.huaweicloud.com/eu/fr-fr/)
+    *   [Nederlands](//www.huaweicloud.com/eu/nl-nl/)
+    
+*   [华为云App](https://www.huaweicloud.com/mobile_app/hwapp.html?channel=navigation_right)
+
+[![](https://res-static.hc-cdn.cn/cloudbu-site/china/zh-cn/wangxue/header/logo.svg)](https://www.huaweicloud.com)
+
+*   智果园
+*   活动
+*   产品
+*   解决方案
+*   定价
+*   云商店
+*   伙伴
+*   开发者
+*   服务
+*   了解华为云
+
+清空最近搜索
+
+快速链接
+
+*   云耀云服务器L实例
+*   免费试用
+*   云服务器
+*   域名
+*   云速建站
+
+使用云宝助手，探索更多专业内容
+
+*   [](https://www.huaweicloud.com/service/contact.html "联系我们")
+    
+    *   售前咨询
+        
+        950808 转 1
+        
+    *   [预约咨询](https://www.huaweicloud.com/consultation/)
+        
+    *   售后服务
+        
+        [工单提交](https://console.huaweicloud.com/ticket/?locale=zh-cn#/ticketindex/createIndex)
+        
+    *   建议反馈
+        
+        [我有建议](https://bbs.huaweicloud.com/suggestion)
+        
+    
+*   [文档](https://support.huaweicloud.com)
+*   [备案](https://beian.huaweicloud.com)
+*   [控制台](https://console.huaweicloud.com?locale=zh-cn)
+*   *   [账号中心](//account.huaweicloud.com/usercenter/?locale=zh-cn&region=cn-north-4#/accountindex/accountInfo)
+    *   [费用与成本](//account.huaweicloud.com/usercenter/?locale=zh-cn#/userindex/allview)
+    
+    *   [待支付订单](//account.huaweicloud.com/usercenter/?locale=zh-cn#/ordercenter/userindex/unpaidOrder)
+    *   [待续费产品](//account.huaweicloud.com/usercenter/?locale=zh-cn#/userindex/renewalManagement)
+    *   [未读消息](//console.huaweicloud.com/mc/?locale=zh-cn)
+    
+    *   [工单管理](//console.huaweicloud.com/ticket/?region=cn-north-1&locale=zh-cn#/ticketindex/createIndex)
+    *   [管理控制台](//www.huaweicloud.com/mobile_app/api_page/appv2/app_download.html?channel=mobile_console)
+    
+    *   [注册](https://reg.huaweicloud.com/registerui/public/custom/register.html?locale=zh-cn&service=https%3A%2F%2Faccount.huaweicloud.com%2Fusercenter%2F%3Flocale%3Dzh-cn%26cloud_route_state%3D%2Fuserindex%2FaccountInfo#/register) [登录](//auth.huaweicloud.com/authui/login?locale=zh-cn&service=)
+    
+*   [登录](//auth.huaweicloud.com/authui/login?locale=zh-cn&service=)
+*   [注册](https://reg.huaweicloud.com/registerui/public/custom/register.html?locale=zh-cn#/register)
+*    [![](https://res-static.hc-cdn.cn/cloudbu-site/china/zh-cn/header-and-footer/shopping-cart.png)](//auth.huaweicloud.com/authui/login?locale=zh-cn&service=https://account.huaweicloud.com/usercenter/%23%2Fordercenter/cart)[购物车](//auth.huaweicloud.com/authui/login?locale=zh-cn&service=https://account.huaweicloud.com/usercenter/%23%2Fordercenter/cart)
+*   admin
+    
+    *   [账号中心](//account.huaweicloud.com/usercenter/#/accountindex/accountInfo)[
+        
+        未实名认证
+        
+        已实名认证
+        
+        ](//account.huaweicloud.com/usercenter/?locale=zh-cn#/accountindex/realNameAuth)
+    *   [费用与成本](//account.huaweicloud.com/usercenter/?locale=zh-cn#/userindex/allview)
+    
+    *   [待支付订单0](//account.huaweicloud.com/usercenter/?locale=zh-cn#/ordercenter/userindex/unpaidOrder)
+    *   [待续费产品0](//account.huaweicloud.com/usercenter/?locale=zh-cn#/userindex/renewalManagement)
+    *   [未读消息0](//console.huaweicloud.com/mc/?locale=zh-cn)
+    
+    *   [伙伴中心](https://partner.huaweicloud.com/partnercenter)
+    *   [云商店买家中心](//console.huaweicloud.com/marketplace/tenant/#/market/order/purchasedProductsCN)
+    *   [云商店卖家中心](//console.huaweicloud.com/marketplace/isv/#/console/overview)
+    
+    *   [实时客服](https://console.huaweicloud.com/ticket/?locale=zh-cn#/ticketindex/customerService)
+    
+    *   [工单管理](https://console.huaweicloud.com/ticket/#/ticketindex/createIndex)
+    
+    *   [开发者空间](https://devstation.developer.huaweicloud.com/aidevspace)
+    
+    *   [个性化推荐管理](https://www.huaweicloud.com/declaration/labels_config.html)
+    *   [管理控制台](//www.huaweicloud.com/mobile_app/api_page/appv2/app_download.html?channel=mobile_console)
+    
+    *   [admin](#) [退出登录](//portal.huaweicloud.com/index/logout)
+    
+
+取消
+
+清空最近搜索
+
+快速链接
+
+*   云耀云服务器L实例
+*   免费试用
+*   云服务器
+*   域名
+*   云速建站
+
+[](/agentarts/v3_support_leftmenu_fragment.html)[](/support_all_doc_fragment.html)
+
+!(function (win, $) { !(function initAllDoc() { const origin = window.location.origin; const url = \`${origin}/support\_all\_doc\_fragment.html\`; $.ajax({ type: 'get', url: url, timeout: 10000, success: function (data) { initBase(data); }, }); })(); function initBase(allDoc) { let url = ''; let code = 'agentarts' || ''; const origin = window.location.origin; if (code === 'pcre' && queryString('product')) { code = queryString('product'); } if (code) { url = \`${origin}/${code}/v3\_support\_leftmenu\_fragment.html\`; } $.ajax({ type: 'get', url: url, timeout: 10000, success: function (data) { initCommon(data, allDoc, code); }, }); } function queryString(key) { var url = window.location.href; var val = url.match(new RegExp('\[?&\]' + key + '=(\[^&#\]\*)(&?)', 'i')); return val ? val\[1\] : val; } function initCommon(data, allDoc, code) { var peplang = $('html').attr('lang').toLowerCase(); var scripts = \[ "https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/commons/support/resource/framework/js/common\_revision.min.js?20240716&sttl=3.0.87", "https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/commons/support/resource/framework/js/maintainable\_revision.min.js?20240716&sttl=3.0.87" \]; $(data).find('ul.help-tsr li.nav-item').eq(1).find('a').attr('target', '\_blank').removeClass('ajax-nav'); $('#support-nav').html($(data)); $('#support-nav').find('.side-nav-menu .side-menu-box').html($(allDoc)); if (peplang === 'es-us' || peplang === 'pt-br' || peplang === 'ja-jp') { $('#support-nav .side-nav').find('.nav-item.level1').each((\_index, item) => { if ($(item).attr('data-append') === 'false' && $(item).next().attr('data-append') === 'true') { $(item).after(\`<li class="nav-item level1 append-tip"><a style="padding: 0;font-size: 12px;overflow: visible;max-height: initial;-webkit-line-clamp: initial;">以下内容暂无该语言版本，请查阅英文版本。</a></li>\`); } if ($(item).attr('data-append') === 'true') { $(item).find('a').attr('target', '\_blank'); } }) }; for(var i = 0; i < scripts.length; i++) { var script = document.createElement('script'); script.type = 'text/javaScript'; script.setAttribute('crossorigin','anonymous'); script.src = scripts\[i\]; document.getElementsByTagName('body')\[0\].appendChild(script); }; } !(function () { var sWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth; if (sWidth >= 768) { $('.side-menu-box .item.item-search-mb').remove(); } else { $('.side-menu-box .item.item-search-pc').remove(); } })(); })(window, jQuery);
+
+[文档首页](/index.html)/ [智果（AgentArts）智能体平台](https://support.huaweicloud.com/agentarts/index.html)/ [产品介绍](https://support.huaweicloud.com/productdesc-agentarts/agentarts_03_0002.html)/ 什么是智果（AgentArts）智能体平台？
+
+更新时间：2026-09-16 GMT+08:00
+
+[查看PDF](https://support.huaweicloud.com/productdesc-agentarts/AgentArts-产品介绍_hc-pdf.pdf)
+
+[分享](javascript:void\(0\);)
+
+*   [微博](javascript:void\(0\);)
+    
+    分享文档到微博
+    
+*   [微信](javascript:void\(0\);)
+    
+*   [复制链接](javascript:void\(0\);)
+    
+    复制链接到剪贴板
+    
+
+链接复制成功！
+
+什么是智果（AgentArts）智能体平台？
+======================
+
+随着AI Agent从“原型试验”走向“企业核心生产场景”，如何让智能体在复杂业务环境下稳定运行、安全调用工具、持久记住上下文，运行链路被观测、效果被评估，已成为企业规模化落地的关键挑战。AgentArts正是为此而生的企业级智能体平台。
+
+#### 什么是智果（AgentArts）智能体平台？
+
+智果（AgentArts）智能体平台是面向企业核心业务场景打造的智能体平台，支持多种框架（LangChain/LangGraph或自研框架等）和模型，为Agent提供从运行时托管、记忆、网关到观测评估的一站式智能体基础设施服务。
+
+AgentArts提供多种使用方式：
+
+*   **Managed Agents**（全托管式智能体）：只需配置模型、提示词和工具，平台托管运行环境、会话状态和工具执行。自带Harness工程框架，兼具效率、可控性与高性能，适合快速验证和标准场景。
+*   **运行时托管**：将用户自带的Agent代码部署到平台的运行时环境中运行。兼容主流框架，也支持用户自研智能体部署托管，适合深度定制和复杂场景。
+*   **智能体观测与评估**：为任意来源的智能体提供全链路可观测和自动化评估能力。平台内创建的智能体自动上报数据，第三方智能体可通过OpenAPI或SDK接入，实现统一的观测与评估。
+
+此外，平台还提供**低代码智能体编排**能力（单智能体、工作流、多智能体），适合非技术开发人员快速搭建标准场景应用。
+
+#### 为什么选择智果（AgentArts）智能体平台？
+
+企业级智能体的真正价值不仅在于“被开发出来”，更在于在生产环境中“稳定运行”与“持续演进”。
+
+*   **企业级****安全可靠的运行底座**
+    *   **安全可靠运行沙箱：**针对智能体调用工具及执行代码的场景，提供完全隔离的生产级安全沙箱，严防命令注入与数据外泄，确保企业核心资产安全。
+    *   **弹性高可用调度：**承载高并发的业务请求，底层资源支持亚秒级极速冷启动，从容应对从0到万级并发的流量洪峰，关键业务响应延迟低至500ms，保障企业级智能体在峰值业务场景下的长程稳定运行。
+*   **多层记忆与长程任务**
+    
+    **多层级记忆网络：**独创结合短期会话、中层业务上下文与企业全局长期知识库的记忆架构。智能体不仅能“记住”当前的对话，更能理解企业复杂的历史业务背景。
+    
+*   **全链路观测与自动化评估**
+    *   **端到端观测：**提供覆盖全局的调用链追踪、运行指标与日志分析，摆脱Agent“黑盒”运行，出现异常精准定位至具体节点。
+    *   **量化自动评估：**预置专业评估器，基于企业真实数据集自动打分，直观验证智能体水平与稳定性，驱动业务持续演进。
+
+#### 产品架构
+
+智果（AgentArts）以“让Agent从开发到生产一站式落地”为设计理念，构建覆盖开发、托管、治理、数据底座的企业级智能体平台，帮助企业快速构建、安全托管、持续优化AI Agent应用。
+
+**图1** 产品架构  
+![](https://support.huaweicloud.com/productdesc-agentarts/zh-cn_image_0000002761786855.png "点击放大")
+
+如[图1](#agentarts_03_0002__fig10482210735)所示，其核心由以下几个部分组成：
+
+*   **一站式Agent开发**
+    *   海量工具资产沉淀：平台内置300+高质量开发工具与复用资产，开箱即用，大幅降低智能体搭建成本。
+    *   全链路多模态能力：支持多模态输入理解与跨模态智能编排，适配复杂业务场景的多样化交互需求。
+    *   多模式Agent开发：提供低代码、高代码与自然语言融合开发能力，支持单智能体、工作流、多智能体等多种构建模式，兼顾灵活快速搭建与深度定制开发双重诉求。
+*   **Agent托管与治理**
+    *   Agent/MCP托管：面向企业生产环境，提供安全、高可用的托管运行能力。支持自研和三方Agent、MCP Server的统一托管，让开发者无需关心底层基础设施的运维。
+    *   Agent网关：支持多种网关Target集成，灵活适配不同场景需求。打通Agent与存量业务的数据通路，具备多种身份认证与公私网管控双保障，外部调用安全合规。
+    *   Agent工具：为Agent提供安全隔离的代码执行环境，支持代码执行、命令执行等复杂任务，赋予智能体安全可控的自动化执行能力，所有工具均运行在受控沙箱中确保高效与安全。
+    *   精准自动评估：预置专业评估器覆盖正确性、幻觉检测、工具调用质量等多维度，支持自然语言定义评估规则，降低智能体评估门槛。
+    *   安全治理：贯穿整个智能体开发周期，提供认证鉴权、行为检测、隔离运行、运营审计等安全能力，支持多种身份认证方式（IAM、OAuth 2.0、API Key），保障Agent安全运行。
+*   **Agentic Data**智能体数据底座
+    *   **企业上下文**：整合企业数据源，形成结构化的业务知识，赋能企业数据应用，让Agent理解复杂的业务背景。
+    *   RAG知识库：为Agent提供专属知识检索与问答能力，支持企业文档、行业知识的结构化沉淀与高效检索，让Agent的回答有据可依。
+    *   全链路轨迹可观测：以Trace承载应用全链路交互节点，覆盖调用链追踪、运行指标、日志管理，让Agent运行不再是“黑盒”。支持第三方智能体接入统一观测。
+    *   Memory记忆：支持短期+长期分层记忆架构，内置总结、语义记忆、用户偏好等多种记忆策略，兼顾企业数据安全与个性化服务能力。
+
+#### 访问方式
+
+公有云提供了Web化的服务管理平台，即管理控制台和基于HTTPS请求的API（Application programming interface）管理方式。
+
+*   控制台方式
+    
+    如果用户已注册华为云，可直接登录管理控制台，从主页选择“AgentArts”。如果未注册，请参见[注册华为云并实名认证](https://support.huaweicloud.com/usermanual-account/account_id_001.html)。
+    
+*   API方式
+    
+    如果用户需要将华为云平台上的AgentArts集成到第三方系统，用于二次开发，请使用API方式访问AgentArts，具体操作请参见[《智能体平台API参考》](https://support.huaweicloud.com/api-agentarts/agentarts_07_0001.html)。
+    
+
+<!-- image\_size('.imgResize'); var msg\_imageMax = "查看原图"; var msg\_imageClose = "关闭"; //-->
+
+(function ($) { $.fn.bigrender = function (opts) { var winHeight = document.documentElement.clientHeight; var sum = 0; var count = 0; var flash = new Array(); // 'class' 是textarea父节点的类；'textarea' 是textarea标签的类；'threshold'是距离进入屏幕还有150像素就开始渲染；'remove'是否删除textarea标签 options = $.extend({ 'class': '.br-warp', 'textarea': '.br-rendered', 'threshold': 150, 'remove': true, }, opts); $brenders = $(options.class); // 渲染首屏的内容 initBigrender(); // 绑定滚动条事件 scrollDisplay(); // 函数定义 function initBigrender() { $brenders.each(function (n, object) { sum++; if (isRender($(this))) { display($(this)); count++; flash\[n\] = true; } else { flash\[n\] = false; } }); } // 判断时候需要渲染 function isRender(object) { offsetTop = object.offset().top; ojh = object.outerHeight(true); st = Math.max(document.body.scrollTop || document.documentElement.scrollTop); if (offsetTop + ojh + options.threshold >= st && offsetTop - options.threshold < (st + winHeight)) { return true; } else return false; } // 渲染textarea内的html代码 function display(object) { $display = object.find(options.textarea).eq(0); object.append($display.val()); if (options.remove) { $display.remove(); } } // 屏幕绑定滚动条事件，当待渲染的内容进入可视屏幕就触发isRender函数 function scrollDisplay() { $(window).scroll(function () { if (count < sum) { $brenders.each(function (n, object) { if (!flash\[n\]) { if (isRender($(this))) { display($(this)); count++; flash\[n\] = true; } } }); } }); } }; })(jQuery); window.addEventListener('DOMContentLoaded', function (event) { $.fn.bigrender({ 'threshold': 100 }); }); $(document).data('ajaxNav') && $(document).data('ajaxNav').addEvent('load', function () { $.fn.bigrender({ 'threshold': 100 }); });
+
+[下一篇：订阅套餐](https://support.huaweicloud.com/productdesc-agentarts/agentarts_03_0003.html)
+
+#### 相关文档
+
+### 您对此文档页面的整体评价？
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+非常不满意非常满意
+
+提供反馈
+
+提交成功！非常感谢您的反馈，我们会继续努力做到更好！您可在[我的云声建议](https://bbs.huaweicloud.com/mysuggestion)查看反馈及问题处理状态。
+
+系统繁忙，请稍后重试
+
+您遇到了哪些问题？（最多选三项）
+
+内容不易理解
+
+内容不正确
+
+内容不完整
+
+阅读体验不佳
+
+产品问题
+
+其他
+
+您感到满意的原因是？（最多选三项）
+
+内容易理解
+
+内容正确
+
+内容丰富
+
+阅读体验友好
+
+产品功能完备
+
+其他
+
+意见反馈
+
+0/500
+
+请至少选择一项反馈信息并填写问题反馈
+
+字符长度不能超过500
+
+[直接提交](javascript:void\(0\)) [取消](javascript:void\(0\))
+
+如您有其它疑问，您也可以通过华为云社区问答频道来与我们联系探讨
+
+[云宝助手提问](https://www.huaweicloud.com/ai-assistant/index.html) [云社区提问](https://bbs.huaweicloud.com/forum/)
+
+var furionAppCode = ''; var $currentUrl = location.href; const $path = location.pathname; if($currentUrl.indexOf("/pricing/calculator.html") !== -1 || $currentUrl.indexOf("/pricing/index.html") !== -1){ furionAppCode = 'D00903385CF649FCA048B5DE1C1E6D4E'; }else if($currentUrl.indexOf("https://activity.huaweicloud.com") === 0) { furionAppCode = '51D7385A7D2B4937BB45DC755E82C48C'; } else if ($currentUrl.indexOf("https://support.huaweicloud.com") === 0) { furionAppCode = '1C04D12EB0F8479A9DA9A24639FCA81C'; }else{ furionAppCode = '7D9AB7C5E01D4698B7B918065C762796'; } if(!window.\_\_fr && furionAppCode){ !function(x, n) { window\[n\] = window\[n\] || {}; window\[n\].config = { appId: furionAppCode,setting: "api,jsTrack,uba,longtask,rtti",hashMode: true,closeReportFMP: true, }; var o = document.createElement('script'); o.src = x, o.async = !0; var d = document.body.firstChild; document.body.insertBefore(o, d); }('https://portal.hc-cdn.com/FurionSdkStatic/3.6.55/furion-cdn.min.js', '\_\_fr'); } if (window.NodeList && !NodeList.prototype.forEach) { NodeList.prototype.forEach = function (callback, thisArg) { thisArg = thisArg || window; for (var i = 0; i < this.length; i++) { callback.call(thisArg, this\[i\], i, this); } }; }
+
+window.sttlVersion = $('.hide-sttl').attr('data-sttl') || '2020'; if( !/pcloudApp/i.test(navigator.userAgent) ){ $("#header").css("display","block"); } // edit--china--en-us--declaration var $ts\_site = "china"; var $ts\_lang = "zh-cn".replace("\_", "-"); var $ts\_domain = window.location.host.split('.')\[1\] ? window.location.host.split('.')\[0\] : 'localhost'; var channel = "support"; var $uri = channel?"/detail.html":"detail.html"; var $pepchannel = (channel+$uri).split("/").join("\_").replace(".html",""); window.matedataDomain = $ts\_domain; // if open in app, should change ts\_domain in to "app" if( /pcloudApp/i.test(navigator.userAgent) ) { window.matedataDomain = "app"; }else{ var str = window.location.search; var suband = "type=android"; var subios = "type=ios"; if( str.indexOf(subios)!=-1 || str.indexOf(suband)!=-1 ){ window.matedataDomain = "app"; } } // 新系统中生成的方式需要改下 window.pageMatedataPrefix = window.matedataDomain + "\_" + $ts\_site + "\_" + $ts\_lang + "\_" + $pepchannel + ".click."; window.headerMatedataPrefix = window.matedataDomain + "\_" + $ts\_site + "\_" + $ts\_lang + "\_" + $pepchannel + "\_navigation.click."; window.footerMatedataPrefix = window.matedataDomain + "\_" + $ts\_site + "\_" + $ts\_lang + "\_" + $pepchannel + "\_footer.click."; window.registerMatedataPrefix = window.matedataDomain + "\_" + $ts\_site + "\_" + $ts\_lang + "\_" + $pepchannel + "\_register.click."; window.serviceMatedataPrefix = window.matedataDomain + "\_" + $ts\_site + "\_" + $ts\_lang + "\_" + $pepchannel + "\_service.click."; window.pep\_uaid = ($ts\_site=="china") ? "UA-55836286-1" : "UA-55836286-39"; window.mate\_data\_ts\_pageType = $pepchannel; function showFooter(){ if(window.matedataDomain != "app") { $("#footer .footer-nav").css('display','block'); $("#footer .footer-copyright-container").css('display','block'); $(".footer-service .footer-wrapper").css('display','block'); $("#footer #videoDiv").css('display','none'); } } if (window.feloader) { feloader.onLoad(function(){ feloader.getScript('https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/static/v2\_resources/css/product-icons.css'); feloader.getScript('https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/static/v2\_resources/css/iconFont-solution.css'); showFooter() }) } else{ document.write("<link rel='stylesheet' href='https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/static/v2\_resources/css/product-icons.css'>"); document.write("<link rel='stylesheet' href='https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/static/v2\_resources/css/iconFont-solution.css'>"); showFooter(); } // 处理一下a标签href是tel的场景 var telsEle = $("a\[href^='tel:'\]\[target\]"); telsEle .removeAttr("target"); if (window.$aioList && window.$aioList.length > 0) { for (var i = 0; i < window.$aioList.length; i++) { var tmpComponent = window.$aioList\[i\]; if (tmpComponent) { var tmpComponentInfo = tmpComponent.split("/"); if (tmpComponentInfo.length == 2) { var name = tmpComponentInfo\[0\]; var version = tmpComponentInfo\[1\]; var tmpComponentWrapperEle = $('\[data-mod-name="' + name + '"\]'); var eleVersionAttr = tmpComponentWrapperEle.attr("data-mod-version"); if (eleVersionAttr && eleVersionAttr != version) { var linkEle = $('head link\[href\*="' + name + '/' + version + '"\]'); linkEle.attr("href", linkEle.attr("href").replace(version, eleVersionAttr)); } } } } } // document.referrer可以获取浏览器上一次地址，如果document.referrer是空字符串，则不为语言切换场景 window.refLan = ""; window.$PEP = true; function getSiteFromURL() { url = window.location.host; urlArr = url.split("."); if (urlArr\[0\] == "www") { reg = "CN"; } else { reg = "HK" } return reg; } var siteStr = $('html').attr("site") if (siteStr) { window.reg = siteStr == "china" ? "CN" : siteStr.toUpperCase(); } else { window.reg = getSiteFromURL(); } window.promptLan = $('html').attr("lang"); if (document.referrer != "") { if (document.referrer.indexOf("/authui/login") == -1) { if (document.referrer.indexOf(".com/intl") != -1) { window.refLan = (document.referrer.indexOf(".com/intl/zh-cn") != -1) ? "zh-CN" : ((document.referrer.indexOf(".com/intl/en-us") != -1) ? "en-US" : "es-US"); } else { window.refLan = (document.referrer.indexOf(".com/en-us") != -1) ? "en-US" : "zh-CN"; } } else { //window.refLan = (document.referrer.indexOf("locale=zh-cn") != -1) ? "zh-CN" : "en-US"; if (document.referrer.indexOf("locale=") != -1) { window.refLan = (document.referrer.indexOf("locale=zh-cn") != -1) ? "zh-CN" : ((document.referrer.indexOf("locale=en-us") != -1) ? "en-US" : "es-US"); } else { window.refLan = window.promptLan; } } } else { window.refLan = window.promptLan; } !function ($) { if (window.dataLayer && window.dataLayer.push) { if (window.location.pathname == "/consultation/") { $("#submitBtn").click(function (e) { window.dataLayer.push({ "event": "consultSubmit", "productName": $("#applicationscene").val() }); }) } $("#header .header-login").click(function (e) { window.dataLayer.push({ "event": "loginIntention" }) }); $("#header .header-register").click(function (e) { window.dataLayer.push({ "event": "creationIntention", "pageType": window.mate\_data\_ts\_pageType, "pagePosition": "Header" }) }); } }(jQuery); $("a\[href\*='/pep-dialog/'\]").each(function () { var ele = $(this); var href = ele.attr("href"); var path = href.replace(/.html/g, ""); var ajaxPath = path.indexOf("activity/") == -1 ? path : path.split("activity/")\[1\]; var arr = path.split("/"); var dialogName = arr\[arr.length - 1\]; var location\_lang = $('html').attr('lang').toLowerCase(); var site = $('html').attr('site').toLowerCase() == 'china' ? 'china' : 'hk'; // 站点判断，国内：china；国际站：hk var dialogUrl = (window.location.host.indexOf(".com") != -1 && window.location.host.indexOf("pep.huaweicloud.com") == -1) ? "https://" + window.location.host + "/" + ajaxPath + "/jcr:content/dialog.html?wcmmode=disabled" : "/content/cloudbu-site/" + site + "/" + location\_lang + "/activity/" + ajaxPath + "/jcr:content/dialog.html?wcmmode=disabled"; ele.css('pointer-events', 'auto'); ele.on("click", function (e) { e.stopPropagation(); e.preventDefault(); if ($("body \[data-pep-path\*='" + dialogName + "'\]").length !== 0) { $("body \[data-pep-path\*='" + dialogName + "'\]").remove(); } // dialog for activity $.ajax({ url: dialogUrl, success: function (data) { if (data) { data = data.replace('block', 'none'); $("body").append(data); $("#modal-rule").html($("body \[data-pep-path\*='" + dialogName + "'\]").html()); window.activityModal.show('#modal-rule', true); } } }) }); }); 2025-09-24
+
+*   [
+    
+    7\*24
+    
+    多渠道服务支持
+    
+    ](https://www.huaweicloud.com/service/protection.html#section-0)
+*   [
+    
+    备案
+    
+    提供免费备案服务
+    
+    ](https://beian.huaweicloud.com)
+*   [
+    
+    专业服务
+    
+    云业务全流程支持
+    
+    ](https://www.huaweicloud.com/service/professionalservices.html)
+*   [
+    
+    退订
+    
+    享无忧退订服务
+    
+    ](https://www.huaweicloud.com/service/protection.html#section-2)
+*   [
+    
+    建议反馈
+    
+    优化改进建议
+    
+    ](https://bbs.huaweicloud.com/suggestion)
+
+热门产品
+
+*   [弹性云服务器](https://www.huaweicloud.com/product/ecs.html)
+*   [对象存储服务](https://www.huaweicloud.com/product/obs.html)
+*   [云数据库 GaussDB](https://www.huaweicloud.com/product/gaussdb.html)
+
+[华为云App](https://www.huaweicloud.com/mobile_app/hwapp.html?channel=navigation_right)
+
+售前咨询热线
+
+[950808转1](https://www.huaweicloud.com/service/contact.html)
+
+*   [技术服务咨询](https://console.huaweicloud.com/ticket/?locale=zh-cn#/ticketindex/createIndex)
+    
+*   [备案服务](mailto:beian@huaweicloud.com)
+    
+    [beian@huaweicloud.com](mailto:beian@huaweicloud.com)
+    
+*   [云商店咨询](mailto:partner@huaweicloud.com)
+    
+    [partner@huaweicloud.com](mailto:partner@huaweicloud.com)
+    
+
+[下载华为云App](https://www.huaweicloud.com/mobile_app/api_page/appv2/app_download.html?channel=official)
+
+关注我们
+
+关注华为云
+
+[
+
+4000 955 988
+
+950808
+
+](tel:4000955988)
+
+华为云微信
+
+扫描二维码
+
+华为云微信小程序
+
+华为云微信小程序
+
+[
+
+华为云微博
+
+扫描二维码
+
+
+
+](https://weibo.com/p/1006061930559805)
+
+[
+
+华为云App
+
+扫描下载华为云App
+
+
+
+](https://www.huaweicloud.com/mobile_app/api_page/appv2/app_download.html?channel=official)
+
+[售前咨询：_950808转1_](tel:950808,1)
+
+*   [法律条文](https://www.huaweicloud.com/declaration/statement.html)
+*   [隐私政策](https://www.huaweicloud.com/declaration/sa_prp.html)
+
+关于华为云
+
+[了解华为云](https://www.huaweicloud.com/about/index.html)
+
+[云计算概念](https://support.huaweicloud.com/what-is.html)
+
+[客户案例](https://www.huaweicloud.com/cases.html)
+
+[信任中心](https://www.huaweicloud.com/securecenter/overallsafety.html)
+
+[新闻报道](https://www.huaweicloud.com/news.html)
+
+[视频中心](https://www.huaweicloud.com/about/live.html)
+
+热门产品
+
+[华为云码道代码智能体](https://codearts.huaweicloud.com)
+
+[华为云魔坊（ModelArts）](https://www.huaweicloud.com/product/modelarts.html)
+
+[MaaS模型即服务](https://www.huaweicloud.com/product/modelarts/studio.html)
+
+[智果AgentArts智能体平台](https://www.huaweicloud.com/product/agentarts.html)
+
+[弹性云服务器 ECS](https://www.huaweicloud.com/product/ecs.html)
+
+[云数据库 RDS for MySQL](https://www.huaweicloud.com/product/mysql.html)
+
+支持与服务
+
+[自助服务](https://support.huaweicloud.com/help-tools.html)
+
+[服务公告](https://www.huaweicloud.com/notice.html)
+
+[支持计划](https://www.huaweicloud.com/service/supportplans.html)
+
+[联系我们](https://www.huaweicloud.com/service/contact.html)
+
+[举报中心](https://www.huaweicloud.com/report/index.html)
+
+实用工具
+
+[开发工具](https://developer.huaweicloud.com/tool.html)
+
+[云宝助手](https://www.huaweicloud.com/service/aiassistant.html)
+
+[云服务健康看板](https://status.service.huaweicloud.com/#/home)
+
+友情链接
+
+[华为官网](https://www.huawei.com/cn/?ic_medium=direct&ic_source=surlent)
+
+[华为消费者业务](https://consumer.huawei.com/cn/?utm_source=huaweicloud&utm_medium=footer)
+
+[华为开发者联盟](https://developer.huawei.com/consumer/cn/)
+
+[华为企业业务](https://e.huawei.com/cn/)
+
+[华为商城](https://www.vmall.com/index_new.html#cid=92120)
+
+*   [法律条文](https://www.huaweicloud.com/declaration/statement.html)
+*   [隐私政策](https://www.huaweicloud.com/declaration/sa_prp.html)
+
+©2026 Huaweicloud.com 版权所有 [黔ICP备20004760号-14](https://beian.miit.gov.cn/) 苏B2-20130048号 A2.B1.B2-20070312
+
+增值电信业务经营许可证：B1.B2-20200593 | 代理域名注册服务机构：新网、西数
+
+_[](https://res-static.hc-cdn.cn/cloudbu-site/china/zh-cn/wangxue/header/yingyezhizhao02.jpg)_[电子营业执照](https://res-static.hc-cdn.cn/cloudbu-site/china/zh-cn/wangxue/header/yingyezhizhao02.jpg) _[](https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52990002000093)_[贵公网安备 52990002000093号](https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52990002000093)
+
+if (window.screen.width < 1024) { $('#footer-nav-app').attr('href', $('#footer-nav-app').attr("src-href")); }
+
+var originsWhiteList = \['https://www.huaweicloud.com','https://activity.huaweicloud.com','https://support.huaweicloud.com','https://beian.huaweicloud.com'\]; var currentOrigin = originsWhiteList.includes(window.location.origin)?window.location.origin:'https://www.huaweicloud.com'; var customHeader = ""; var url = (currentOrigin+"/common/header-footer-china-zh-2023.html"); if(customHeader){ url = "https://"+customHeader+".html"; } var $tmpForPEP = document.createElement("div"); $.ajax({ url: url, async: true, timeout: 10000, success: function(response) { $tmpForPEP.innerHTML = response; // 下拉部分 $("#footer").append($tmpForPEP.querySelector("#edit-header-drop").innerHTML); var scripts = \[ "https://portal.hc-cdn.com/cpage-pep-header-and-footer-china/2.0.61/header-and-footer-china.umd.js?sttl=3.0.87&ttr=1.2.21", "https://portal.hc-cdn.com/cnpm-global-resources/1.2.21/js/portalLogin.min.js?sttl=3.0.87&ttr=1.2.21" \]; for(var i = 0; i < scripts.length; i++) { var script = document.createElement('script'); script.type = 'text/javaScript'; script.setAttribute('crossorigin','anonymous'); script.src = scripts\[i\]; document.getElementsByTagName('body')\[0\].appendChild(script); } }, error: function(response) { var scripts = \[ "https://portal.hc-cdn.com/cpage-pep-header-and-footer-china/2.0.61/header-and-footer-china.umd.js?sttl=3.0.87&ttr=1.2.21", "https://portal.hc-cdn.com/cnpm-global-resources/1.2.21/js/portalLogin.min.js?sttl=3.0.87&ttr=1.2.21" \] for(var i = 0; i < scripts.length; i++) { var script = document.createElement('script'); script.type = 'text/javaScript'; script.setAttribute('crossorigin','anonymous'); script.src = scripts\[i\]; document.getElementsByTagName('body')\[0\].appendChild(script); } } }); if (!window.gConfig) { window.gConfig = {} } window.gConfig.isApp = /galaxy/i.test(navigator.userAgent) && window.galaxy; // 初始化全局变量 var jsonParamInit = {} var jsonParamView = {} var jsonParamEvent = {} jsonParamInit\['UserAccount'\] = 'host' jsonParamEvent\['rec\_account'\] = getUaCookie('ua') jsonParamView\['rec\_account'\] = getUaCookie('ua') var portalDomain = 'https://portal.huaweicloud.com', ssoDomain = 'https://auth.huaweicloud.com' var isVerified = false var isLogin = false var totalMsg = 0; function getUaCookie(c\_name) { if (document.cookie.length > 0) { var c\_start = document.cookie.indexOf(c\_name + '=') if (c\_start != -1) { c\_start = c\_start + c\_name.length + 1 var c\_end = document.cookie.indexOf(';', c\_start) if (c\_end == -1) c\_end = document.cookie.length return decodeURI(document.cookie.substring(c\_start, c\_end)) } } return '' }
+
+![](https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/static/close_grey_1.svg?sttl=3.0.87)
+
+var videoDomain = '//bbs-video.huaweicloud.com'; var \_videoProtocol = 'https:' == document.location.protocol ? 'https:' : 'http:'; var tag2urlMap = \[\]; var loading = false; var isLogin = false; function play(video\_url, video\_desc, domain) { if (/(\\.mp4|\\.mu38)/.test(video\_url)) { \_play(video\_url, video\_desc, domain); } else { if (tag2urlMap\[video\_url\]) \_play(tag2urlMap\[video\_url\], video\_desc, domain); else { if (loading) return; loading = true; $.ajax({ type: 'GET', url: 'https://bbs.huaweicloud.com/api/video/out-play?tag=' + video\_url, dataType: 'text', success: function (result) { loading = false; tag2urlMap\[video\_url\] = result; \_play(tag2urlMap\[video\_url\], video\_desc, domain); }, error: function () { loading = false; }, }); } } } function \_play(video\_url, video\_desc, domain) { var reg = RegExp(/bbs/); var tmp = video\_url; var contentAsset = '/content/dam/'; var bbsAsset = '/FileServer/getFile/'; if (!video\_url.match(reg)) { if (video\_url.match(contentAsset) || video\_url.match(bbsAsset)) { tmp = video\_url; } else if (domain) { var tmp = \_videoProtocol + domain + video\_url; } else { var tmp = \_videoProtocol + videoDomain + video\_url; } } tmp = tmp.replace(/m3u8/, 'mp4'); tmp = tmp.replace(/bbs\\.huaweicloud\\.com/, 'bbs-video.huaweicloud.com'); var ua = navigator && navigator.userAgent; var win\_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth; var obj = '#videoplayer'; if (win\_width < 700) { $('#videoContainer') .width(win\_width) .height((win\_width \* 3) / 4); $(obj) .width(win\_width) .height((win\_width \* 3) / 4); } var h = $(obj).height(); var w = $(obj).width(); $(obj).append( '<video src="' + tmp + '" height="' + h + '" width="' + w + '" autoplay="autoplay" controls="controls" controlslist="nodownload"></video>', ); if($.fn.videoPointEvent) { //videoPointEvent和empujarPointEvent为新增埋点事件 var el = $('#videoplayer').find('video')\[0\]; $.fn.videoPointEvent(el); } var userAgent = navigator.userAgent; var isOpera = userAgent.indexOf('Opera') > -1; var height = document.body.offsetHeight; $('#videobg').css('width', $(window).width()); $('#videobg').css('height', height); $('#videobg').css('top', -height); $('#videobg').css('left', '0px'); $('#videoplayerDiv').css('left', ($(window).width() - $('#videoplayer').width()) / 2); $('#videoplayerDiv').css( 'top', ($(window).height() - $('#videoplayer').height()) / 2 + $(window).scrollTop() - height, ); $('#videoDiv').show(); } function closeVideo() { if($.fn.empujarPointEvent) { $.fn.empujarPointEvent(); } if (!!window.ActiveXObject || 'ActiveXObject' in window) { $('#videoplayer').remove(); $('#closeBtn').append('<div id="videoplayer" style="height:500px;width:700px;">'); } else { $('#videoplayer').html(''); } $('#videoDiv').hide(); } ![](https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/zh-cn/support/resource/framework/v3/images/support-doc-revision-note.svg) ![](https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/zh-cn/support/resource/framework/v3/images/support-doc-revision-warning.svg) ![](https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/zh-cn/support/resource/framework/v3/images/support-doc-revision-danger.svg) ![](https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/zh-cn/support/resource/framework/v3/images/support-doc-revision-notice.svg) ![](https://res-static.hc-cdn.cn/aem/content/dam/cloudbu-site/archive/china/zh-cn/support/resource/framework/v3/images/support-doc-revision-caution.svg)
