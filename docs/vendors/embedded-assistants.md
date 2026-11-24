@@ -11,7 +11,7 @@ content_status: "reviewed"
 
 > 大多数企业第一次用到的“运维 Agent”，不是独立产品，而是既有产品里的助手：Azure Copilot、Grafana Assistant、Datadog Bits。其他条目只有导航，不能据此认定已具备运维能力。
 >
-> 最后核实：**2026-11-24**；复核截止：**2027-02-22**。同一 claim 在多个页面复用时保持相同 `claim_id` 与 `source_id`。
+> 最后核实：**2026-11-25**；复核截止：**2027-02-22**。同一 claim 在多个页面复用时保持相同 `claim_id` 与 `source_id`。
 
 ::: diagram 图 41 · 内嵌助手与独立 Agent 边界 | synthetic/方法示意；两条路径并列而非演进，内嵌助手不借用原产品之外的权限，跨域需求显式转交；未核实、拒绝、失败与退出均不静默降级，本图不构成厂商能力证明。
 ```mermaid
