@@ -1,0 +1,36 @@
+FAQ - Cisco IQ Documentation
+URL: https://iq.cisco.com/docs/faq.html
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text, including collapsed answer text
+Content-Type: text/html
+
+Cisco IQ Documentation
+FAQ
+
+Frequently Asked Questions
+
+Cisco IQ™ provides customers with features and enhancements designed to improve asset visibility, deliver smarter insights across their environments, and streamline case management. In addition, AI features such as the Cisco IQ Assistant optimize operational outcomes and the Cisco IQ user experience by providing contextual understanding that empowers users to make proactive, informed decisions and streamlines processes for customer engagement and success.
+
+Cisco IQ is a new suite of modules (formerly called applications) that deliver the outcomes defined in the Support and Professional Services offers through a digital experience for our customers, partners, and internal teams. Cisco IQ brings AI-powered services and insights to all parties in a new interactive and industry-forward setting. It provides new apps, and insights to customers where they need them, such as SaaS, On-Prem (Air-Gapped and Tethered), or APIs.
+
+Embedded in Cisco Support and Services offers, Cisco IQ is a single, unified, AI-powered interface that revolutionizes the entire customer journey — from planning and design to implementation, onboarding, ongoing optimization, and transformation.
+
+Is regional data residency (for example, selectable data centers for sensitive data) planned for collector deployments?
+Please refer to the Offer Disclosure for details.
+
+When will Cisco IQ be available for air-gapped networks?
+The On-Prem Air-Gapped modality will be available starting in July 2026.
+
+Can a customer export all their assets at once (covered and uncovered together) from the Cisco IQ Inventory?
+Yes — navigate to Assets > Inventory. The default filter is “Equipment Type = CHASSIS”. Clear all filters, then click Export to download the full asset list.
+
+How does Cisco IQ handle asset management?
+Cisco IQ provides personalized, up-to-date asset views filtered by “signals” from device interactions. It provides intelligent device criticality analysis, an AI Assistant for summarizing exposure, and generates smart reports. Cisco IQ will start showing many asset management capabilities digitally to customers in FY27. Some of these include asset and contract reconciliation, Move, Add, Change, Delete (MACD) operations, location-based insights, and so on.
+
+Does Cisco IQ require a GPU for On-Prem deployments?
+No. For Cisco IQ SaaS experience, the On-Prem Cisco IQ Link does not require a GPU; AI processing is handled in the cloud.
+
+How are Security Advisories updated in an air-gapped environment?
+When Cisco IQ Virtual Appliance is available in the air-gapped mode, customers will have to manually download an update “patch” from a SaaS portal and install it on the air-gapped VM.
+
+© 2026 Cisco Systems, Inc.

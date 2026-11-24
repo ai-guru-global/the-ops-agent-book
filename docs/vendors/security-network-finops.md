@@ -72,13 +72,14 @@ flowchart TB
 
 | 厂商 | 产品 | 形态 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
-| **Cisco** | AI Canvas / Cloud Control / Cisco IQ（NET-01） | 网络 AI 工作空间 + Agent | 能力与状态未核实；候选 AI Canvas URL 404 | 未核实 |
-| **Juniper (HPE)** | Marvis / Mist AI（NET-02） | 网络 AI 助手 + Agent | 能力与状态未核实；候选 URL 404 | 未核实 |
-| **HPE Aruba** | Aruba Central + Mist AI（NET-03） | 网络 AI 平台 | 能力与状态未核实 | 未核实 |
-| **Arista** | CloudVision（NET-04） | 网络管理平台 | 能力与状态未核实 | 未核实 |
-| **Nokia** | AIOps/网络保障（NET-05） | 网络 AIOps | 能力与状态未核实 | 未核实 |
-| **华为** | iMaster NCE（NET-06） | 网络管控 | 能力与状态未核实 | 未核实 |
-| **中兴 / H3C** | 网络 AIOps/管控（NET-07） | 网络 AIOps | 能力与状态未核实 | 未核实 |
+| **Cisco** | Cloud Control / AI Canvas / Cisco IQ（NET-01） | 网络 Agent 工作空间 + AI 服务 | 官方支持人机协同工作空间、SaaS/本地/API 形态与资产导出；部分功能仍在开发，商业细节未核实 | SRC-CISCO-CLOUDCONTROL-001；SRC-CISCO-IQ-FAQ-001 |
+| **Juniper (HPE)** | HPE Mist / Marvis VNA（NET-02） | 网络 AI 助手 + Agent | 官方文档支持 AI 洞察、Marvis 根因分析与动作建议；按 Base/Assurance/Marvis VNA 分权 | SRC-HPE-MIST-REQUIREMENTS-001 |
+| **HPE Aruba** | Aruba Central + Mist AI（NET-03） | 网络 AI 平台 | 官方页面支持多智能体编排与 Copilot；agentic mesh 正在部署，Copilot 需 Advanced | SRC-ARUBA-CENTRAL-001；SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001 |
+| **Arista** | CloudVision（NET-04） | 网络管理平台 | 官方页面支持 NetDL、AI/ML 分析、SaaS/本地部署、自动化与回滚；月订阅，具体条款未核实 | SRC-ARISTA-CLOUDVISION-001；SRC-ARISTA-EOS-LICENSING-001 |
+| **Nokia** | Assurance Center（NET-05） | 网络 AIOps | 官方页面支持 AIOps 检测/关联、Agentic AI 推理、闭环、RCA 与预测；GA 与商业细节未核实 | SRC-NOKIA-ASSURANCE-001 |
+| **华为** | iMaster NCE（NET-06） | 网络管控 | 官方产品页描述管理、控制、分析与 AI、开放网络 API，并称已在全球 120+ 国家部署；不是可用区或许可清单 | SRC-HW-IMASTERNCE-001 |
+| **中兴** | UniSeer 智能运维（NET-07） | 网络 AIOps | 官方页面支持潜在故障识别与告警根因关系；GA 与商业细节未核实 | SRC-ZTE-UNISEER-001 |
+| **H3C** | U-Center 统一运维平台（NET-08） | 网络 AIOps | 官方页面支持知识图谱、运维智能大脑、根因定位与故障预判；GA 与商业细节未核实 | SRC-H3C-UCENTER-001 |
 
 网络 Agent 的关键不是“会聊天”，而是**拓扑、遥测、变更安全**：它必须知道改一条 PFC/ACL/路由会影响谁，并且能预演、回滚、双人审批。
 
@@ -114,7 +115,15 @@ FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格�
 | FIN-07 CloudZero | 官方定价页 | 未核实 | 商业订阅；询价 | 未核实 | 未核实 | 成本 API 60 次/日；完整退出未核实 |
 | FIN-08 Finout | 官方定价页 | 未核实 | 固定年费；K8s 加购 | 未核实 | 未核实 | API V2；完整退出未核实 |
 | FIN-09 Flexera | 官方产品页；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
-| SEC-02、SEC-05–06、NET-01–07、FIN-02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| NET-01 Cisco Cloud Control / IQ | Cloud Control 部分功能仍在开发；IQ FAQ 列 Air-Gapped 自 2026-07 起 | IQ 支持 SaaS/On-Prem；区域驻留指向 Offer Disclosure | 未核实 | 未核实 | 未核实 | IQ 支持资产导出；完整退出未核实 |
+| NET-02 HPE Mist / Marvis | 2026-10-30 官方文档在列 | 未核实 | Base/Assurance/Marvis VNA 分权 | 未核实 | 未核实 | 集成 Teams/Zoom；完整退出未核实 |
+| NET-03 HPE Aruba Central | 官方称 agentic mesh 正在部署 | 云/本地/aaS/VPC 形态；区域清单未核实 | Foundation/Advanced；Copilot 需全设备 Advanced | 未核实 | 未核实 | 支持第三方遥测；完整退出未核实 |
+| NET-04 Arista CloudVision | 官方产品页；整体 GA 未核实 | SaaS/本地部署；区域清单未核实 | 官方称按月订阅、约定期限 | 未核实 | 未核实 | API 与网络快照；完整退出未核实 |
+| NET-05 Nokia Assurance Center | 官方产品页；整体 GA 未核实 | 官方称面向全球电信与关键任务企业；区域清单未核实 | 未核实 | 未核实 | 未核实 | 开放 API；完整退出未核实 |
+| NET-06 iMaster NCE | 官方产品页；整体 GA 未核实 | 官方称 120+ 国家部署；非可用区清单 | 未核实 | 未核实 | 未核实 | 未核实 |
+| NET-07 中兴 UniSeer | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| NET-08 H3C U-Center | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| SEC-02、SEC-05–06、FIN-02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 
 ## 选型提示
 

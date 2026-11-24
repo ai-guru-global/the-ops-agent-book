@@ -1,0 +1,67 @@
+HPE Aruba Central | HPE
+URL: https://www.hpe.com/us/en/products/networking/aruba-central.html
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+HPE Aruba Central
+
+Elevate your network with AI-native agentic intelligence, self-driving automation, and fortified security—delivering results across branch, campus, data center, and IoT environments.
+
+AI for networks. Cloud-scale management designed for today and tomorrow.
+
+Experience how HPE Aruba Central uplevels the operator experience with advanced automation and analytics to diagnose and optimize your HPE Networking devices and scale effortlessly to meet your most demanding use cases.
+
+Stay ahead of issues with agentic AI
+
+Accelerate time to resolution with GreenLake copilot. Experience faster troubleshooting and smarter automation with distributed AI models that reason together and autonomously orchestrate network actions.
+
+Deploy your way
+
+Choose from multiple deployment options designed to support different environments, operational models, and scale requirements—making it easy to order, deploy, and grow with confidence.
+
+Reduce risk at every connection
+
+Enforce zero trust at the network level with automated access control, identity-aware segmentation, and continuous posture checks, for delivering security that's seamless, scalable, and built into every connection.
+
+Modernize your network with our latest HPE Aruba Networking Wireless Operating System
+
+Modernize from OS-8 to OS-10 and simplify operations with a unified cloud-native architecture. Manage WLAN, gateways, and SD-Branch through HPE Aruba Central with AI-driven insights and scalable automation.
+
+AI-native networking super-charged with agentic mesh technology
+
+Agentic mesh technology is being actively deployed into HPE Aruba Central, featuring a multi-agent orchestrator that enables AI models to reason and collaborate in real time. This distributed system of AI capabilities drives autonomous actions and adaptive responses through a new GreenLake copilot interface.
+
+Monitoring, reporting and troubleshooting designed for the AI, IoT and mobility era
+
+Identify and resolve issues in minutes versus hours by enhancing visibility and monitoring with full-stack correlation of network devices, connectivity links, and applications. Take advantage of responsive alerts to ensure your network keeps the business running at peak performance.
+
+Enable third-party network observability
+
+Ensure clear visibility and manage diverse network infrastructure with third-party device telemetry collection via HPE OpsRamp Software.
+
+Flexible deployment options
+
+Enhance security, confidentiality, and compliance with your choice of cloud-delivered, on-prem, as-a-service, or virtual private cloud deployment.
+
+Plan your on-prem deployment
+
+Choose the right HPE Aruba Central on-premises platform options for your environment with an easy ordering guide—covering all versions, including the latest version and associated services.
+
+HPE Aruba Central | On-premises
+
+Learn how to troubleshoot and proactively identify issues within the network using AI and automation, all without compromising data sovereignty.
+
+HPE Aruba Central | Cloud
+
+Learn how to identify and resolve client-to-cloud application performance issues by leveraging real-time telemetry and AI-powered analytics.
+
+What's new in HPE Aruba Central
+
+Engage with your peers, product experts, and industry leaders through our Airheads global community of 200K+ members from more than 200 countries.
+
+HPE Products
+Networking Products and Services
+HPE Aruba Central
+
+© Copyright 2026 Hewlett Packard Enterprise Development LP

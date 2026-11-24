@@ -1,0 +1,47 @@
+Requirements | Mist | Hewlett Packard Enterprise
+URL: https://networkingdocs.hpe.com/documentation/us/en/software/mist/mist-aiops/topics/concept/aiops-requirements.html
+Captured: 2026-11-25
+Document date shown: 30-Oct-26
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+HPE Juniper Networking Documentation
+Juniper
+Mist AI
+Operations
+HPE Mist AI-Native Operations Guide
+Get Started with AI Ops
+Requirements
+
+Your access depends on your role in the HPE Mist™ management portal and the subscriptions that you've activated for your organization.
+
+User Role
+The following user roles can access monitoring information in the management portal:
+Super User
+Network Admin
+Observer
+Helpdesk
+Super Observer
+
+Subscriptions
+Your subscriptions determine the features that are available to you in the management portal.
+
+Base Subscription—With the base subscription, you can:
+View AI-native insights and easy-to-interpret graphs for site events, client events, AP events, and more.
+Configure alerts to get notified when events happen in your HPE Mist organization.
+
+With a subscription for Wireless Assurance, Wired Assurance, or WAN Assurance, you can monitor service levels and investigate issues impacting user experiences.
+
+HPE Marvis Virtual Network Assistant Subscription—With an HPE Marvis Virtual Network Assistant subscription, you can:
+Chat with your conversational network assistant to ask questions and troubleshoot issues.
+Submit structured queries using HPE Marvis Query Language.
+View the HPE Marvis Actions page, which identifies issues, presents a root cause analysis, and recommends actions.
+Use the HPE Marvis Windows and Android client.
+Integrate HPE Mist with apps such as Microsoft Teams, Zoom, and more.
+
+RELATED DOCUMENTATION
+Requirements
+PREVIOUS Explainable AI
+NEXT AIOps in Action
+
+© Copyright 2026 Hewlett Packard Enterprise Development LP

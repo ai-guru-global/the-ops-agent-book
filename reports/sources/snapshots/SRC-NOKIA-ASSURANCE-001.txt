@@ -1,0 +1,131 @@
+Nokia Assurance Center | Nokia.com
+URL: https://www.nokia.com/autonomous-networks/assurance-center/
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+Nokia Assurance Center
+Assurance Center
+
+AI-driven network and service assurance for multi-vendor telecom networks
+
+What is Nokia Assurance Center?
+
+Nokia Assurance Center is an AI-driven network and service assurance solution for multi-vendor, multi-domain and multi-technology networks.
+
+It ingests and correlates multiple types of data including network, service, subscriber and security data to trigger autonomous operations processes. Its AIOps-based detection and correlation capabilities are augmented by agentic AI for complex reasoning and closed-loop operation.
+
+By predicting and preventing issues before they affect customers and by accelerating problem resolution, Assurance Center significantly improves service quality, operational efficiency and customer experience.
+
+As part of Nokia’s Autonomous Networks portfolio, Assurance Center helps telcos and mission-critical enterprises around the world to evolve faster towards highly autonomous networks (AN Level 4) and beyond.
+
+What benefits have customers achieved with Assurance Center?
+
+Nokia’s network and service assurance solutions are used by telcos around the world to achieve significant results.
+
+98% reduction in the number of events
+56% of incidents resolved without human intervention
+25% of incidents addressed with automated RCA
+
+What are key features of Assurance Center?
+
+360º observability
+
+A single pane of glass enables end-to-end monitoring and management of multi-vendor, multi-technology networks, including 5G, fixed and cloud domains.
+
+AIOps and Agentic Ops
+
+AIOps detects and correlates at scale while agentic AI handles complexity on demand to enable L4+ autonomy.
+
+Scalability and Openness
+
+Designed for deployments of any size, Assurance Center offers open, standards-based APIs for faster and simplified integration.
+
+Service impact analysis (SIA)
+
+Assurance Center determines the impact of network issues on customer services, enabling prioritized responses.
+
+Root cause analysis (RCA)
+
+Leveraging AI/ML capabilities, Assurance Center performs advanced RCA to quickly identify the underlying cause of issues.
+
+Predictive analytics
+
+Assurance Center uses machine learning to predict potential issues before they affect services, enabling proactive maintenance and prevention.
+
+Fault management
+
+Automated detection, correlation and resolution of faults reduce manual effort and accelerate problem-solving.
+
+Performance monitoring
+
+Continuous monitoring of network and service performance provides real-time insights into key performance indicators (KPIs) and service level agreements (SLAs).
+
+Closed-loop automation
+
+Assurance Center leverages assurance insights to close the loop with network operations for automated remediation and optimization.
+
+What use cases does Assurance Center support?
+
+Network Assurance
+Radio and fixed access networks
+Transport networks
+Mobile core networks
+Telco cloud
+
+Service assurance
+Voice and data consumer services
+Enterprise and mission-critical services
+IP and optical services (e.g., data center interconnect)
+5G slicing (end-to-end and domain slicing)
+
+Automation, AIOps, Agentic AI
+Closed-loop automation
+Performance and fault management
+Service impact analysis & root cause analysis
+
+Related solutions and products
+Autonomous Networks Suite
+Core Slice Controller
+Digital Operations Center
+Orchestration Center
+RAN Slice Controller
+Unified Inventory
+
+How does Nokia Assurance Center compare to the competition?
+
+Industry analyst firm GlobalData ranks Nokia's Assurance Center as the leader in the service assurance market in a recent competitive landscape assessment.
+Source: Product class scorecard - Service Assurance - Competitive Landscape Assessment, Global Data (January 2026)
+
+Assurance Center customer success stories
+Co-creating the future: TPG and Nokia transform operations and customer experience
+Driving Reliable 5G with Secure AI and Cloud-Native Automation
+How can openness, AI, and cloud-native architectures solve telecom’s biggest challenges?
+
+Frequently asked questions
+What is network assurance for telecom networks?
+What is service assurance for telecom networks?
+What is the role of network assurance and service assurance in Autonomous Networks?
+What measurable impact does Nokia Assurance Center deliver in autonomous networks?
+How does Nokia Assurance Center leverage AI, AIOps, Agentic AI and Agentic Ops in network and service assurance?
+Does Nokia Assurance Center leverage AI agents for network and service assurance?
+How do Digital Twins improve network and service assurance processes?
+What is the role of Nokia Assurance Center for 5G network slicing?
+Does Nokia Assurance Center support multi-vendor networks or only networks from Nokia?
+Can Nokia Assurance Center run on any cloud?
+
+Learn more
+How do optical networks move beyond cruise control to agentic operations?
+From automation to decisions: Autonomous Networks in the AI supercycle
+Nokia advances autonomous network strategy with focus on trusted AI and scale
+TPG and Nokia transform operations and customer experience
+AT&T's Network CTO Yigal Elbaz on open, AI/cloud-ready networks
+Nokia's AgenticOps approach for reliable Autonomous Networks
+Agentic AI: Powering the next frontier of autonomous operations
+
+©2026 Nokia all rights reserved
+Cookies
+Privacy notice
+Terms of use
+Inclusive terminology
+Modern slavery statement

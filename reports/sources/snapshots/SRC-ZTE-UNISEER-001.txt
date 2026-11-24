@@ -1,0 +1,335 @@
+Intelligent Operation and Maintenance-SAutonomous Networks|ZTE
+URL: https://www.zte.com.cn/global/solutions_latest/service_and_dgital_patform_01/transworkone02.html
+Captured: 2026-11-25
+Content-Type: text/html;charset=utf-8
+
+Intelligent Operation and Maintenance-SAutonomous Networks|ZTE
+The browser version you are accessing is too low. To provide better experience, it is recommended that you upgrade the browser to
+EdgeBrowser
+Or, it is recommended.
+GoogleBrowser
+。
+Information About Our Use Of Cookies
+Information About Our Use Of Cookies
+Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site.
+For more information, see our
+Cookie Policy
+.
+Accept only essential cookies
+Accept all cookies
+Corporation
+Consumer
+Carrier
+Home and Enterprise
+Language
+Language
+中国大陆
+简体中文
+Global
+English
+Japan
+日本語
+Mexico
+Español
+Indonesia
+Bahasa Indonesia
+Vietnam
+Tiếng Việt
+Middle East
+اللغة العربية
+Brazil
+Portuguese
+News & Events
+Solutions & Products
+Support
+About Us
+NEWS
+ZTE Unveils Customized TDD Dual-Band AAU Deployed in TRUE's Network in Thailand
+2026-11-23
+ZTE Attends Vietnam–China Greater Bay Area Technology Connectivity Forum to Deepen Digital Talent Cooperation
+2026-11-20
+Events
+ZTE Global Summit & User Congress 2026
+2026 MWC ShangHai
+Corporate Gallery
+ZTE WIFI 7 Series
+ZTE MWCS 2024
+Video Highlight
+Fusion for the Future
+Toward a Shared Future
+Carrier
+Home and Enterprise
+Consumer
+Services
+Hot Topics
+Wireless Access
+5G
+5G-A
+5G New Services
+5G Messaging
+5G High-precision Positioning
+5G New Calling
+Optical Network
+HI-OTN
+Full-Band OTN
+IP Network
+HI-IPNet
+HI-DCN
+Intelligent Energy
+Power
+Data Center
+New Energy
+Telecom Energy
+Video Conference
+Service and Digital Platform
+Intelligent O & M
+Digital Operation
+Intelligent Data Mid-End Platform
+5G Services
+End-to-End Network Services
+Video Services
+Home Media Center
+AI-Powered Video Platform
+Core Network
+Common Core
+IMS
+Convergent SDM
+Convergent PCC
+Convergent Signaling
+Full Convergent Management
+Intelligent Operation and Maintenance
+One-Stop Integration
+Server and Storage
+Server
+Storage
+Fixed Access
+Fiber Access
+Copper Access
+Campus Ethernet Switch
+Light ODN
+Smart Home
+FTTR-H
+Mesh Wi-Fi
+Home Media Center
+Home Security
+Smart Cloud Platform
+Wi-Fi 7
+Campus Network
+Large Enterprise Campus
+Medium Enterprise Campus
+Small Enterprise Campus
+Micro and Small Enterprise Network
+Hotels/Apartments
+Shops
+Small Offices
+Smartphone
+Mobile Internet
+Smart Home
+3D Pad II
+Digital Network Deployment
+Digital Operation
+5G Services
+Superb Network Construction
+Carbon Neutrality
+Zero-Carbon Energy Network
+Green Site
+Smart Li
+Green Data Center
+Green Park
+Green Product Management System
+Green Supply Chain
+Green Cooperation
+Green Public Welfare
+Private 5G Network
+i5GC Private Core Network
+5G iCube AIO Cloud-Network
+Distributed Precision Cloud
+Distributed Precise Cloud
+All Optical World
+Fiber Access
+Light ODN Solution
+HI-OTN Solution
+Full-Band OTN Solution
+AIR DNA
+HI-NET
+Carrier
+Products
+Support
+Order Visibility
+Consumers
+Store
+Support
+ZTE Certification
+Company Overview
+Introduction
+Management
+Corporate Culture
+Global Sales Outlets
+Contact US
+Sustainability
+Environmental Protection
+Social Contribution
+Corporate Governance
+Trust Center
+Cyber Security
+Ethics & Compliance
+Investor Relations
+Corporate Reports
+Announcements
+Corporate Governance
+Shareholder Communication
+Publications
+ZTE Communications
+ZTE Technologies
+Find More
+News Information
+Brand Activities
+Hot Topics
+Technical Publications
+Find More
+News Information
+Brand Activities
+Hot Topics
+Technical Publications
+News & Events
+Solutions & Products
+Support
+About Us
+Language
+News
+Events
+Enterprise Graph
+Video Highlight
+Carrier
+Wireless Access
+5G New Services
+Optical Network
+IP Network
+Intelligent Energy
+Video Conference
+Service and Digital Platform
+Video Services
+Core Network
+Server and Storage
+Fixed Access
+Learn More
+Home and Enterprise
+Smart Home
+Campus Network
+Micro and Small Enterprise Network
+Learn More
+Consumer
+Smartphone
+Mobile Internet
+Smart Home
+3D Pad II
+Learn More
+Services
+Digital Network Deployment
+Digital Operation
+5G Services
+Superb Network Construction
+Learn More
+Hot Topics
+Carbon Neutrality
+Private 5G Network
+Distributed Precision Cloud
+All Optical World
+AIR DNA
+HI-NET
+Learn More
+Carrier
+Products
+Support
+Order Visibility
+Consumers
+Store
+Support
+Company Overview
+Introduction
+Management
+Corporate Culture
+Global Sales Outlets
+Contact US
+Sustainability
+Environmental Protection
+Social Contribution
+Corporate Governance
+Trust Center
+Cyber Security
+Ethics & Compliance
+Investor Relations
+Corporate Reports
+Announcements
+Corporate Governance
+Shareholder Communication
+Publications
+ZTE Communications
+ZTE Technologies
+Intelligent Operation and Maintenance
+Service and Digital Platform
+Intelligent O&M
+Intelligent O&M
+Digital Operation
+Intelligent Data Mid-End Platform
+5G Services
+End-to-End Network Services
+Solution Overview
+UniSeer Intelligent O&M Solution
+ZTE UniSeer intelligent O&M solution provides integrated O&M services oriented to networks, services and user experience. By big data and AI technology, reconstructing the original organization, processes, and tools, and integrating the process of O&M center,Customer Service Center and Marketing Center, realize the transformation from network-centric O&M to customer Customer experience-centered O&M.
+Scenario
+Intelligent Network Operation
+Using AI algorithms, to identify potential faults and discover the root cause relationship between different alarms through learning the historical data，and automatic diagnosis and recovery through automatic scripts. As a result, reduce the number of invalid work orders, improve O&M efficiency and reduce the waste of resources.
+Service Quality Assurance
+Monitors the indexes of 5 types of services (web/video/game/OTT voice/OTT video). When the indexes degrade beyond the set threshold, it sends alarm to the FMS, automatically triggers the quality analysis and optimization of the original services, and then outputs the analysis report.
+End-to-end User Complaint Handling
+Perform end-to-end automatic analysis and demarcation of the services during the complaint period. The entire process from data preparation to problem delimitation output can be completed within 30 minutes.
+Precise Planning
+Based on AI algorithm, it can make the network planning more in line with the actual business development needs, make the investment more accurate and maximize the benefits. It can significantly improve 5G planning efficiency and effectively realize 4G / 5G collaboration.
+Operation Support
+ZTE creatively proposes a cost model based on site asset information and O&M data, which can calculate the costs to per service/user/GB, helping operators identify high-value services/sites, and providing a reference for network investment and market decision-making.
+Advantages and Highlights
+Prediction and Prevention System
+A comprehensive prediction and prevention system is established from the NE layer, network layer, to the service layer, transform the O&M from passive response to active maintenance
+Intelligent RCA
+Alarm rules are generated automatically to effectively reduce the number of invalid work orders and improve O&M efficiency
+Automatic Diagnosis and Recovery
+Quickly locate and restore faults through automatic diagnosis and recovery scripts
+Fast Demarcation
+The indicator system covers the mainstream services in the entire domain, and delimits users' complaints within 30 minutes
+Intelligent Optimization
+Automation, intelligence and closed-loop network performance analysis and optimization
+Customer Value
+Improve the Efficiency of Operation and Maintenance
+Promoting Digital Transformation for Operators Based on Big Data and AI Technologies
+Reduce Failure Rate
+Establish prediction and prevention system to deal with hidden troubles in advance
+Leading NOC+SOC Delivery Solution
+The first integrated NOC+SOC intelligent O&M delivery solution in the industry, realizing automatic and intelligent network/service/perception management for the operator
+Improve ROI
+Improve the input-output ratio through Precise planning，cost modeling，precision marketing etc
+Document Download
+UniSeer Intelligent Network Operation White Paper
+Preview
+Download
+By Visitor
+Consumer
+Carrier
+Query & Report
+ECCN Query
+Whistleblowing
+Privacy Center
+For Investors
+Announcements
+Reports
+Links
+Wireless Access
+SSP Site
+About ZTE
+Contact Us
+Whistleblowing
+Legal Statement
+Cookies Policy
+Privacy Policy
+Global Sales Outlets
+©1998-2026 ZTE Corporation. All rights reserved

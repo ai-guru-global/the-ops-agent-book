@@ -1,0 +1,61 @@
+Cisco Cloud Control: Unified Operations for Agentic IT | Cisco - Cisco
+URL: https://www.cisco.com/site/us/en/solutions/artificial-intelligence/agentic-ops/cisco-cloud-control/index.html
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+Cisco Cloud Control
+The unified platform for AgenticOps
+
+Every Cisco product. One operational environment. Built for the way IT works in the agentic era.
+
+Cisco Cloud Control unifies Cisco solutions into one platform for agentic operations.
+
+One login. One inventory. One topology.
+
+Manage the Cisco portfolio from a single operational surface.
+
+A single log-in
+A single credential unlocks your portfolio with no reauthentication or context switching.
+
+One inventory
+Assets, health signals, and risks combined into one live unified table.
+
+One topology
+A live map of your global estate. See every site, branch, and device and how they connect.
+
+Cross-domain intelligence
+Find cause, not symptoms.
+Correlated events across products surface what is actually happening.
+See across boundaries
+Trace dependencies across domains that siloed tools cannot connect.
+Act with context
+Every asset across every domain with live reachability, compliance signals, and vulnerability tracking.
+
+From alert to action to resolution
+Triage in seconds. Investigate with AI. Resolve together. Context follows you across every step.
+
+Alert surfaces
+Actions correlates and prioritizes alerts so your team knows what to address first.
+
+Operators investigate
+Ask the AI Assistant anything about an alert, device, or domain in plain language.
+
+Agents resolve
+Operators and agents close the issue together in AI Canvas with full context intact.
+
+Powering AgenticOps
+Cisco Cloud Control is the foundation that three agentic experiences are built on
+
+AI Canvas
+A multiplayer workspace where teams and agents resolve issues together.
+
+AI Assistant
+Instant natural language answers across domains.
+
+Cloud Control Studio
+Connect third-party tools and build custom agents grounded in your context.
+
+Many of the products and features mentioned are still in development and will be made available as they are finalized, subject to ongoing evolution in development and innovation. The timeline for their release is subject to change.
+
+© 2026 Cisco Systems, Inc.

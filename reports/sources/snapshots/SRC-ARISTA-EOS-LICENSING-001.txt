@@ -1,0 +1,32 @@
+EOS Licensing - Arista
+URL: https://www.arista.com/en/support/product-documentation/eos-feature-licensing
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+Toggle Navigation
+EOS Licensing
+
+The Arista software platforms, EOS and CloudVision, are designed to provide flexibility both in the choice of the appropriate feature functionality and in the software consumption model. The base feature set of Arista EOS comes bundled with the Arista products and systems. A set of feature licenses are available to enable additional functionality in advanced feature sets.
+
+The traditional licensing procurement model employs a perpetual term for the right to use the feature, set at a fixed price. For Arista CloudVision and CloudEOS, the functionality is available as a monthly subscription, for an agreed upon term.
+
+The following diagrams depict the two primary groupings for the advanced feature sets:
+
+Figure 1: EOS, CloudVision and CloudEOS Router Software Licensing summary
+
+Routing: General Routing functionality (BGP, Multicast, etc) is available in the E license. The FLX Lite license expands that to include key features like BGP-EVPN for VXLAN. The FLX license is the superset that also includes larger routing tables and MPLS features. See the EOS Platform Licensing tab for specifics.
+Device Automation & telemetry: This feature grouping includes the device level automation and visibility features in the Z license, including eAPI, State Streaming, LANZ, DANZ, and the Tracers. Integration with 3rd party solutions, such as Splunk, Firewall and Media control service are part of the V2 license
+Network-wide Automation & Telemetry: CloudVision delivers modern automation and telemetry framework based on cloud principles, by abstracting the physical network and providing a network-wide perspective to automate and leverage real time state streaming for network monitoring.
+Multi Cloud / Cloud Native: CloudEOS is Arista’s multi cloud and cloud native networking solution enabling a highly secure and reliable networking experience with consistent segmentation, telemetry, provisioning and troubleshooting for the entire enterprise. See the CloudEOS tab for specifics.
+
+For an overview reference of Arista’s software licenses, please see this software license framework document.
+
+Get In Touch Today
+Contact Us
+© 2026 Arista Networks, Inc. All rights reserved.
+Terms of Use
+Privacy Policy
+Fraud Alert
+Trust Center
+Sitemap

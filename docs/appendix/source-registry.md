@@ -19,7 +19,7 @@ content_status: "reviewed"
 - “未核实”表示本轮没有取得足以支持该字段的证据，**不等于否定**。不得据此猜测 GA/预览、区域、价格、数据驻留或退出条款。
 - 动态目录数量只在明确快照日时使用。本轮删除“36 Agent / 328 Skills”的当前事实表述，且**未重新计数**。
 - `accessed_at` 是实际访问或沿用原书访问记录的日期；`review_by` 是下一次复核截止，不是来源失效日。
-- 快照列记录本地正文快照与 SHA-256。本轮已保存 95 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
+- 快照列记录本地正文快照与 SHA-256。本轮已保存 105 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
 - 所有至少有一个“未核实”字段的厂商 claim 同时登记在机器可读的 `sources/claim-gaps.json`；补证只关闭有来源的字段，不能把整条 claim 一键改成已核实。
 
 ## 来源清单
@@ -103,7 +103,7 @@ content_status: "reviewed"
 | SRC-HW-IMASTERCLOUD-DATA-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-04 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERCLOUD-DATA-001.txt` |
 | SRC-HW-IMASTERCLOUD-REGIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-04 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERCLOUD-REGIONS-001.txt` |
 | SRC-HW-IMASTERCLOUD-ACCOUNT-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-04 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERCLOUD-ACCOUNT-001.txt` |
-| SRC-HW-IMASTERNCE-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-05 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERNCE-001.txt` |
+| SRC-HW-IMASTERNCE-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-HW-05、NET-06 | 已存 `reports/sources/snapshots/SRC-HW-IMASTERNCE-001.txt` |
 | SRC-BD-QIANFAN-AGENTINFRA-001 | official_release | 2026-11-25 | 2027-02-22 | CN-BD-02 | 已存 `reports/sources/snapshots/SRC-BD-QIANFAN-AGENTINFRA-001.txt` |
 | SRC-BD-DATABUILDER-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-05 | 已存 `reports/sources/snapshots/SRC-BD-DATABUILDER-001.txt` |
 | SRC-BD-DATABUILDER-VERSIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | CN-BD-05 | 已存 `reports/sources/snapshots/SRC-BD-DATABUILDER-VERSIONS-001.txt` |
@@ -159,10 +159,20 @@ content_status: "reviewed"
 | SRC-CLOUDZERO-API-001 | official_doc | 2026-11-25 | 2027-02-22 | FIN-07 | 已存 `reports/sources/snapshots/SRC-CLOUDZERO-API-001.txt` |
 | SRC-FINOUT-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | FIN-08 | 已存 `reports/sources/snapshots/SRC-FINOUT-PRICING-001.txt` |
 | SRC-FLEXERA-CCO-001 | official_doc | 2026-11-25 | 2027-02-22 | FIN-09 | 已存 `reports/sources/snapshots/SRC-FLEXERA-CCO-001.txt` |
+| SRC-ZTE-UNISEER-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-07 | 已存 `reports/sources/snapshots/SRC-ZTE-UNISEER-001.txt` |
+| SRC-H3C-UCENTER-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-08 | 已存 `reports/sources/snapshots/SRC-H3C-UCENTER-001.txt` |
+| SRC-ARISTA-CLOUDVISION-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-04 | 已存 `reports/sources/snapshots/SRC-ARISTA-CLOUDVISION-001.txt` |
+| SRC-ARISTA-EOS-LICENSING-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-04 | 已存 `reports/sources/snapshots/SRC-ARISTA-EOS-LICENSING-001.txt` |
+| SRC-NOKIA-ASSURANCE-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-05 | 已存 `reports/sources/snapshots/SRC-NOKIA-ASSURANCE-001.txt` |
+| SRC-CISCO-CLOUDCONTROL-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-01 | 已存 `reports/sources/snapshots/SRC-CISCO-CLOUDCONTROL-001.txt` |
+| SRC-CISCO-IQ-FAQ-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-01 | 已存 `reports/sources/snapshots/SRC-CISCO-IQ-FAQ-001.txt` |
+| SRC-HPE-MIST-REQUIREMENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-02 | 已存 `reports/sources/snapshots/SRC-HPE-MIST-REQUIREMENTS-001.txt` |
+| SRC-ARUBA-CENTRAL-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-03 | 已存 `reports/sources/snapshots/SRC-ARUBA-CENTRAL-001.txt` |
+| SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-03 | 已存 `reports/sources/snapshots/SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001.txt` |
 
 ## 未覆盖与快照计划
 
-Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist、SAP Joule Work、HPE OpsRamp、BMC HelixGPT、Komodor、Metoro、SentinelOne Purple AI、Splunk Security AI、Broadcom CloudHealth，以及 Cisco、Juniper 等条目仍缺足够可归档正文。Oracle、SAP、ServiceNow、华为/百度/阿里/腾讯/火山、Dynatrace、Splunk、PagerDuty、Sumo Logic、LogicMonitor、BigPanda、SolarWinds、HolmesGPT、K8sGPT、incident.io、Rootly、Resolve.ai、Cleric、观测云及部分国产 AIOps 厂商已有官方来源；Google Gemini agent、ADK 与 Microsoft Security Copilot 也已补证，但区域、许可、驻留与退出字段仍按 claim 逐项保留“未核实”。
+Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist、SAP Joule Work、HPE OpsRamp、BMC HelixGPT、Komodor、Metoro、SentinelOne Purple AI、Splunk Security AI、Broadcom CloudHealth 等条目仍缺足够可归档正文。Oracle、SAP、ServiceNow、华为/百度/阿里/腾讯/火山、Dynatrace、Splunk、PagerDuty、Sumo Logic、LogicMonitor、BigPanda、SolarWinds、HolmesGPT、K8sGPT、incident.io、Rootly、Resolve.ai、Cleric、观测云及部分国产 AIOps 厂商已有官方来源；Cisco、Juniper/HPE Mist、HPE Aruba、Arista、Nokia、中兴/H3C 网络运维条目也已补证，但区域、许可、驻留与退出字段仍按 claim 逐项保留“未核实”。
 
 本轮已保存 AWS DevOps Agent、AgentRun、Datadog AI、OWASP、NIST AI RMF、EU AI Act、OTel GenAI、Google SRE Workbook、A2A，以及 AgentArts、百度搭子、百度伐谋、秒哒导出、OCI Enterprise AI Agents、SAP Joule Agents、ServiceNow AI Agents、Model Studio 价格、Qoder 计费、Agentic OS、腾讯 ADP/TCOP、火山智能运维助手/方舟计费、Gemini agent、ADK v2.0、Security Copilot 定价，以及京东云 AIOps、浪潮 InCloud Manager、云智慧 ITSM、擎创夏洛克、炎龙 SREAgent、新炬 IT 运维智能体、ManageEngine AIOps 指南、MindOps、AEI 白皮书、iMasterCloud/NCE、百度胜算/Hogee/文心快码/一镜、SolarWinds、HolmesGPT、K8sGPT、incident.io/Rootly/Resolve.ai/Cleric、观测云、嘉为蓝鲸、云智慧 Castrel、擎创数据中台与炎龙私有化安全说明，以及 CloudWatch Omni、OCI Ops Insights/Fusion AI、ServiceNow Control Tower、Qoder CN、算小维、HiAgent、移动云运维智能体、Security Copilot、DropZone、Datadog Bits Security、Harness CCM、Kubecost、Vantage、CloudZero、Finout、Flexera 正文快照。Azure SRE Agent 与 MCP 待重试；其余来源按采购/发布优先级补存。社区来源还需记录 commit SHA。
 

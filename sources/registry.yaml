@@ -897,6 +897,7 @@ sources:
   notes: 官方产品页支持管控析 AI、开放网络 API 与全球 120+ 国家部署宣称；不是区域可用区、许可或驻留清单。
   claims:
     - CN-HW-05
+    - NET-06
   snapshot:
     path: reports/sources/snapshots/SRC-HW-IMASTERNCE-001.txt
     sha256: 3bba1bfcab613d29642eeb1884663e2244eb75e87030c2f0e6faef15a623f9d3
@@ -1672,6 +1673,146 @@ sources:
     sha256: bbc674530f070140d4cf4db7c46e9efcf4d32cd647194e522c1dbafbd5ca65b2
     captured_at: 2026-11-25
     method: html-to-text
+- source_id: SRC-ZTE-UNISEER-001
+  title: ZTE UniSeer Intelligent Operation and Maintenance
+  url: https://www.zte.com.cn/global/solutions_latest/service_and_dgital_patform_01/transworkone02.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持潜在故障识别与告警根因关系；GA、区域、许可、驻留和退出未核实。
+  claims:
+    - NET-07
+  snapshot:
+    path: reports/sources/snapshots/SRC-ZTE-UNISEER-001.txt
+    sha256: 71a78686596cc079f760538cbdced911ab754569eed147fec4b9e360d4e1d11d
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-H3C-UCENTER-001
+  title: H3C U-Center 统一运维平台
+  url: https://www.h3c.com/cn/Products_And_Solution/Operation/Service/U_Center_Intelligence/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持知识图谱、运维智能大脑、根因定位与故障预判；GA、区域、许可、驻留和退出未核实。
+  claims:
+    - NET-08
+  snapshot:
+    path: reports/sources/snapshots/SRC-H3C-UCENTER-001.txt
+    sha256: 385c127cea81a53c4faeead3fa8ad6b25a852dff0c8ecdeb9596a4668108e465
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-ARISTA-CLOUDVISION-001
+  title: Arista CloudVision
+  url: https://www.arista.com/en/products/eos/eos-cloudvision
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持 NetDL、AI/ML 分析、SaaS/本地部署、自动化与回滚；GA、区域、驻留和完整退出未核实。
+  claims:
+    - NET-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-ARISTA-CLOUDVISION-001.txt
+    sha256: c8cb6d9464815785bc8d43dc3af75d9d6e94f315244d9819bc2ce094a9276834
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ARISTA-EOS-LICENSING-001
+  title: Arista EOS Licensing
+  url: https://www.arista.com/en/support/product-documentation/eos-feature-licensing
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方许可页说明 CloudVision/CloudEOS 按月订阅、约定期限；具体价格、区域、驻留和退出未核实。
+  claims:
+    - NET-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-ARISTA-EOS-LICENSING-001.txt
+    sha256: a6c3f78a3ed287c11c3e10d21c636d64479a152cc0bc2eb9ca7ad81b8f1659f7
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
+- source_id: SRC-NOKIA-ASSURANCE-001
+  title: Nokia Assurance Center
+  url: https://www.nokia.com/autonomous-networks/assurance-center/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持 AIOps 检测/关联、Agentic AI 推理、闭环、RCA 与预测；GA、区域、许可、驻留和退出未核实。
+  claims:
+    - NET-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-NOKIA-ASSURANCE-001.txt
+    sha256: 3b16ab1593db7e8e83a041b41d2547409ae940dfb57c742d889b1ead004cd752
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
+- source_id: SRC-CISCO-CLOUDCONTROL-001
+  title: Cisco Cloud Control - The unified platform for AgenticOps
+  url: https://www.cisco.com/site/us/en/solutions/artificial-intelligence/agentic-ops/cisco-cloud-control/index.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持统一资产/拓扑、AI Canvas 人机协同与 Cloud Control Studio；页面明示部分功能仍在开发，GA 与商业细节未核实。
+  claims:
+    - NET-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-CISCO-CLOUDCONTROL-001.txt
+    sha256: ab09f4927c73a8ebd6473f9b92192fe4253014dda452176069a2b37188a2f25f
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
+- source_id: SRC-CISCO-IQ-FAQ-001
+  title: FAQ - Cisco IQ Documentation
+  url: https://iq.cisco.com/docs/faq.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方 FAQ 支持 SaaS/On-Prem Air-Gapped/Tethered/API 形态、资产导出与 2026-07 起 Air-Gapped 表述；区域驻留指向 Offer Disclosure，许可与退出未核实。
+  claims:
+    - NET-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-CISCO-IQ-FAQ-001.txt
+    sha256: 2eb26ff952b75cc8410b0a1b72fda06418d33354961ebd48e8952f6636c99af4
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
+- source_id: SRC-HPE-MIST-REQUIREMENTS-001
+  title: HPE Mist AI-Native Operations Guide - Requirements
+  url: https://networkingdocs.hpe.com/documentation/us/en/software/mist/mist-aiops/topics/concept/aiops-requirements.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 2026-10-30 官方文档支持 Base/Assurance/Marvis VNA 分权及 Marvis Actions 根因与动作建议；区域、价格、驻留和退出未核实。
+  claims:
+    - NET-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-HPE-MIST-REQUIREMENTS-001.txt
+    sha256: 5bc6285523729a55cff4e60ece0269cf796083031fe4ca659a8ab5c2e8eaa08d
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ARUBA-CENTRAL-001
+  title: HPE Aruba Central
+  url: https://www.hpe.com/us/en/products/networking/aruba-central.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方产品页支持 agentic mesh 多智能体编排、GreenLake Copilot 与多种部署形态；页面称正在部署，区域、许可、驻留和退出未核实。
+  claims:
+    - NET-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-ARUBA-CENTRAL-001.txt
+    sha256: 83b18a4f695b3dbd8f6f2ef62772ddfc95d6bb303d0c936d06b82f657ad86713
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001
+  title: HPE Aruba Networking Central Subscriptions FAQ
+  url: https://arubanetworking.hpe.com/techdocs/hpe-central/content/frequently-asked-questions-faq/subscriptions-faq.html
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方 FAQ 支持 Foundation/Advanced 分层，Copilot 需 Advanced 且账号所有设备均为 Advanced；具体价格、区域、驻留和退出未核实。
+  claims:
+    - NET-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001.txt
+    sha256: d1313ae0d83920e1ba858f3d0ed02940804778b71f6a4eb89a6fa30a37476d41
+    captured_at: '2026-11-25'
+    method: html-to-text-or-rendered-text
 - source_id: SRC-MCP-001
   title: Model Context Protocol
   url: https://modelcontextprotocol.io/

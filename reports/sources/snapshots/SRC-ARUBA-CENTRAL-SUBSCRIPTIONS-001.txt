@@ -1,0 +1,71 @@
+Subscriptions FAQ
+URL: https://arubanetworking.hpe.com/techdocs/hpe-central/content/frequently-asked-questions-faq/subscriptions-faq.html
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+HPE Aruba Networking Central
+Subscriptions FAQ
+
+What types of subscriptions are available in HPE Aruba Networking Central?
+
+HPE Aruba Networking Central provides two primary subscription tiers: Foundation and Advanced. Additionally, there are subscriptions available for gateways, which include WLAN, SD-Branch, and SD Microbranch options. Bandwidth-based subscriptions can be obtained for third-party devices and are specifically available for federal use (U.S. only). For more details, refer to Aruba Central Ordering Guide https://www.hpe.com/psnow/doc/a00125615enw.
+
+Do I need a Foundation or Advanced subscription in HPE Aruba Networking Central if I have a subscription in HPE Classic Central?
+
+No, the existing Foundation or Advanced subscription in HPE Classic Central is applicable to HPE Aruba Networking Central.
+
+Which type of subscription is required for Copilot and other AI features?
+
+HPE Aruba Networking Central Advanced subscription is required to enable AI features such as Copilot.
+
+To activate Copilot, 100% of all devices in the account must be on an Advanced subscription.
+
+AI Search is available with the Foundation subscription. For a complete breakdown of subscription tiers and features, refer to the Ordering Guide.
+
+Which type of subscription is required for User Experience Insight (UXI)?
+
+For UXI and Central integration, a Foundation subscription is required. UXI hardware requires one, three, or five years subscription.
+
+How can I define Foundation and Advanced subscription features and their dependencies for APs, switches, and gateways added to HPE Aruba Networking Central?
+
+Please refer to our Ordering Guide.
+
+Can you provide the list of insights covered in Foundation vs Advanced subscriptions?
+
+Please refer to the following table for a comparison of insights available in the Foundation and Advanced subscriptions.
+
+NOTE
+To access the insights included in Advanced subscription, you must maintain at least 90% of your device subscriptions at the Advanced level.
+
+Table 1. Insights in Foundation vs Advanced Subscriptions
+
+Foundation
+Access Point Firmware Recommendation
+Switch Firmware Recommendation
+Gateway Firmware Recommendation
+Enable WPA3 for Better Security
+Power Save Recommendation for Access Points
+
+Advanced
+Enable 6 GHz Radio with Optimal Bandwidth to improve WLAN performance
+Gateway WAN uplinks have Higher Latency than Comparable Peers
+Client Insights (Network Detection – New Country Upload, Network Detection – Abnormal Data Upload/Download, Network Detection – Suspicious Protocols, Network Detection – New/Excessive Host Access)
+Enable Wi-Fi 6 to improve WLAN performance
+Roaming Recommender
+Association Max Clients Threshold Configuration
+Wireless Client Onboarding Experience
+Wired Client Connectivity Experience
+AP Health - 2.4GHz Radio Issues
+AP Health - Country Code Mismatch
+Switch Health Insights
+Access Point Placement Insight
+Access Point Coverage Resiliency
+Application Performance Analytics
+Optimize Bandwidth on 5 GHz Radio to improve WLAN performance
+Coverage Holes have been detected
+STP Anomaly Recommender
+Improve RF resiliency by swapping APs between switches in the stack
+Optimize WLAN DFS Configuration to improve WLAN performance
+
+© Copyright – Hewlett Packard Enterprise Development LP

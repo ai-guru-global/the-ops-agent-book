@@ -1635,7 +1635,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-CISCO-CLOUDCONTROL-001",
+        "SRC-CISCO-IQ-FAQ-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1655,7 +1658,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-HPE-MIST-REQUIREMENTS-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1675,7 +1680,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-ARUBA-CENTRAL-001",
+        "SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1695,7 +1703,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-ARISTA-CLOUDVISION-001",
+        "SRC-ARISTA-EOS-LICENSING-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1715,7 +1726,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-NOKIA-ASSURANCE-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1735,7 +1748,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-HW-IMASTERNCE-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1755,7 +1770,31 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-ZTE-UNISEER-001"
+      ],
+      "last_evidence_update": "2026-11-25"
+    },
+    {
+      "claim_id": "NET-08",
+      "product": "U-Center 统一运维平台",
+      "pages": [
+        "docs/vendors/security-network-finops.md"
+      ],
+      "status": "needs_evidence",
+      "owner": "Vendor Researcher",
+      "priority": "P1",
+      "last_checked": "2026-11-25",
+      "required_evidence": [
+        "official_product_or_documentation",
+        "pricing_or_licensing",
+        "region_and_data_residency",
+        "export_and_exit_terms"
+      ],
+      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
+      "source_ids": [
+        "SRC-H3C-UCENTER-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2435,19 +2474,19 @@
   ],
   "source_registry": "sources/registry.yaml",
   "summary": {
-    "total_claims": 110,
-    "with_sources": 83,
-    "without_sources": 27,
+    "total_claims": 111,
+    "with_sources": 91,
+    "without_sources": 20,
     "by_page": {
       "docs/appendix/alibaba-agent-landscape.md": 11,
       "docs/vendors/china-cloud.md": 38,
       "docs/vendors/embedded-assistants.md": 21,
       "docs/vendors/global-cloud.md": 16,
       "docs/vendors/observability-aiops.md": 24,
-      "docs/vendors/security-network-finops.md": 20
+      "docs/vendors/security-network-finops.md": 21
     },
     "by_priority": {
-      "P1": 93,
+      "P1": 94,
       "P2": 17
     }
   }
