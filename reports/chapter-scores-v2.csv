@@ -1,0 +1,49 @@
+file,title,depth,breadth,agent_best_practices,readability,usability,ease_of_reading,diagram_completeness,overall_5,baseline_overall_5,delta_5
+docs/index.md,首页,4,5,4,5,4,5,4,4.429,4.57,-0.141
+docs/guide/index.md,导读,4,5,4,5,5,5,4,4.571,3.71,+0.861
+docs/guide/01-why-ops-agents.md,01 为什么运维 Agent 不一样,4,4,5,4,4,4,3,4.000,3.14,+0.860
+docs/guide/02-lifecycle.md,02 全生命周期,4,5,5,4,5,5,4,4.571,3.86,+0.711
+docs/guide/03-scenario-selection.md,03 场景选择,4,4,5,5,5,4,4,4.429,3.43,+0.999
+docs/guide/04-architecture.md,04 架构与运行模式,4,5,5,5,4,4,4,4.429,3.57,+0.859
+docs/guide/05-tools-permissions.md,05 工具、权限与安全护栏,4,4,5,4,5,4,5,4.429,4.00,+0.429
+docs/guide/06-context-knowledge.md,06 上下文与知识工程,4,4,4,4,4,5,4,4.143,3.57,+0.573
+docs/guide/07-evaluation-release.md,07 评测、验收与发布,4,5,5,4,4,4,4,4.286,3.86,+0.426
+docs/guide/08-operate-improve.md,08 运营、观测与持续改进,4,4,4,5,5,5,4,4.429,3.57,+0.859
+docs/guide/09-organization-governance.md,09 组织、流程与治理,4,4,5,4,5,4,4,4.286,3.00,+1.286
+docs/guide/10-build-vs-buy.md,10 Build vs Buy 与平台选型,4,4,4,4,5,4,5,4.286,2.86,+1.426
+docs/guide/11-agentops-observability.md,11 AgentOps 与可观测性,5,4,5,4,5,4,5,4.571,3.71,+0.861
+docs/guide/12-identity-security.md,12 身份、权限与安全,4,4,5,4,4,4,4,4.143,3.29,+0.853
+docs/guide/13-cost-roi-portfolio.md,13 成本、ROI 与组合管理,4,4,4,4,5,4,4,4.143,3.14,+1.003
+docs/guide/14-future-roadmap.md,14 2027+ 路线图,4,5,4,4,4,4,5,4.286,2.86,+1.426
+docs/playbooks/index.md,场景手册导读,3,4,4,5,4,5,4,4.143,3.14,+1.003
+docs/playbooks/k8s.md,K8s 集群运维,4,4,4,4,4,4,4,4.000,3.57,+0.430
+docs/playbooks/rdma.md,RDMA 高网运维,4,4,4,4,3,4,4,3.857,3.43,+0.427
+docs/playbooks/gpu-inference.md,GPU 推理运维,4,4,4,4,4,4,4,4.000,3.57,+0.430
+docs/playbooks/database.md,数据库运维,4,4,4,4,4,4,4,4.000,3.14,+0.860
+docs/playbooks/incident-commander.md,事故指挥,4,4,4,5,4,4,4,4.143,3.71,+0.433
+docs/vendors/index.md,厂商地图导读,3,5,4,4,4,4,2,3.714,3.43,+0.284
+docs/vendors/global-cloud.md,全球云厂商,3,5,4,4,3,3,1,3.286,3.14,+0.146
+docs/vendors/china-cloud.md,中国云厂商,2,5,3,4,3,3,1,3.000,2.86,+0.140
+docs/vendors/observability-aiops.md,可观测与 AIOps,3,5,4,4,3,3,1,3.286,3.14,+0.146
+docs/vendors/security-network-finops.md,安全、网络与 FinOps,3,4,4,4,3,3,1,3.143,3.14,+0.003
+docs/vendors/embedded-assistants.md,内嵌 Agent 助手,2,4,4,4,3,3,1,3.000,2.86,+0.140
+docs/vendors/vertical-ops.md,垂直行业运维 Agent,3,4,4,4,4,4,1,3.429,2.86,+0.569
+docs/vendors/methodology.md,厂商评估方法,4,4,4,4,4,4,1,3.571,3.57,+0.001
+docs/templates/index.md,模板导读,4,4,4,5,5,5,3,4.286,3.57,+0.716
+docs/templates/agent-design-doc.md,Agent 设计文档,4,5,4,4,5,5,4,4.429,3.57,+0.859
+docs/templates/tool-contract.md,工具契约,5,5,5,4,5,4,3,4.429,4.14,+0.289
+docs/templates/eval-set.md,评测集,4,5,5,4,4,5,3,4.286,3.71,+0.576
+docs/templates/permission-matrix.md,权限矩阵,5,5,5,5,5,5,3,4.714,3.71,+1.004
+docs/templates/runbook-tool-map.md,Runbook → Tool 映射,4,5,4,4,4,4,3,4.000,3.86,+0.140
+docs/templates/release-checklist.md,发布与回滚清单,4,5,4,5,4,5,2,4.143,3.43,+0.713
+docs/templates/incident-review.md,事故复盘,4,5,5,5,4,5,3,4.429,3.71,+0.719
+docs/appendix/case-notready.md,案例：K8s NotReady,4,5,5,5,4,5,5,4.714,4.29,+0.424
+docs/appendix/case-failed-agent.md,案例：失败复盘,4,5,5,5,4,5,4,4.571,4.43,+0.141
+docs/appendix/alibaba-agent-landscape.md,阿里 Agent 产品全景,3,5,3,4,4,4,2,3.571,3.29,+0.281
+docs/appendix/metrics.md,指标与 SLO 库,4,5,5,4,4,5,3,4.286,3.86,+0.426
+docs/appendix/glossary.md,术语表,4,4,4,5,5,5,3,4.286,3.86,+0.426
+docs/appendix/references.md,参考资料,4,5,4,5,5,5,3,4.429,3.71,+0.719
+docs/appendix/requirement-map.md,需求地图,4,5,4,4,5,4,3,4.143,,
+docs/appendix/diagram-guide.md,图示规范,4,5,4,5,4,5,3,4.286,,
+docs/appendix/source-registry.md,来源注册表,4,5,4,4,4,4,3,4.000,,
+docs/appendix/maintenance-registry.md,维护注册表,3,5,3,4,4,5,3,3.857,,

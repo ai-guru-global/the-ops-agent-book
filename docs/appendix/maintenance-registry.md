@@ -60,3 +60,4 @@ content_status: "reviewed"
 | [可观测与 AIOps](../vendors/observability-aiops.md) | 可观测与 AIOps | Vendor Researcher | 2026-11-25 | 2027-02-25 | reviewed |
 | [安全、网络与 FinOps](../vendors/security-network-finops.md) | 安全、网络与 FinOps | Vendor Researcher | 2026-11-25 | 2027-02-25 | reviewed |
 | [垂直行业运维 Agent](../vendors/vertical-ops.md) | 垂直行业运维 Agent | Vendor Researcher | 2026-11-25 | 2027-02-25 | reviewed |
+| [维护注册表](../appendix/maintenance-registry.md) | 维护注册表 | Maintainer | 2026-11-25 | 2027-02-25 | reviewed |

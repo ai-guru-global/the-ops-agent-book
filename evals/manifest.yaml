@@ -27,7 +27,7 @@ partitions:
     freeze: immutable_per_suite_version
     tuning_allowed: false
   calibration:
-    purpose: Judge calibration, weighting and threshold selection.
+    purpose: Agent confidence, weighting and threshold calibration; not independent Judge acceptance.
     target_sample_size: 60
     access: [agent-evaluation]
     freeze: immutable_after_judge_approval
@@ -62,10 +62,13 @@ snapshot_policy:
   retention_days: 365
   hash_algorithm: sha256
 judge_calibration:
+  source: evals/judge-calibration.yaml
+  independent_of_eval_suite: true
   judge_model_version: judge-synthetic-v1.0.0
   judge_prompt_version: rubric-zh-v1.0.0
-  partition: calibration
-  sample_size: 60
+  sample_size: 300
+  current: 0
+  release_ready: false
   annotation: two_independent_humans_with_adjudication
   minimum_agreement: 0.9
   minimum_cohens_kappa: 0.8

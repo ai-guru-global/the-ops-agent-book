@@ -345,6 +345,23 @@ body {
   background: var(--book-blue-10);
 }
 
+.vp-doc__table-scroll {
+  max-width: 100%;
+  margin: 1.6rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vp-doc__table-scroll:focus-visible {
+  outline: 2px solid var(--book-blue);
+  outline-offset: 2px;
+}
+
+.vp-doc__table-scroll table {
+  min-width: max-content;
+  margin: 0;
+}
+
 .vendor-cloud .vp-doc table {
   table-layout: fixed;
 }
@@ -1206,6 +1223,23 @@ body {
   .vp-doc h2,
   .vp-doc h3 {
     break-after: avoid;
+  }
+
+  .vp-doc__table-scroll {
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  .vp-doc__table-scroll table {
+    min-width: 0 !important;
+    width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .vp-doc__table-scroll th,
+  .vp-doc__table-scroll td {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
   }
 
   .vp-doc table,

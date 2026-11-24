@@ -11,6 +11,47 @@ content_status: "reviewed"
 
 > 权限矩阵是“Agent 能做什么”的权威答案。它应该独立于 Prompt，能被策略引擎执行，也能被审计。矩阵是人类可读视图；运行时必须执行对应的机器可读策略。
 
+::: diagram 图 47 · 权限决策与 break-glass | 权限决策流程示意：显式 deny 先于一切授权且不可被 break-glass 覆盖；撤销、恢复失败和未知结果都有显式拒绝或升级出口。
+```mermaid
+flowchart TB
+  R["调用请求<br/>身份 / 委托 / 工具 / 计划"] --> I{"身份与凭证有效?"}
+  I -->|"否：过期 / 撤销"| X["拒绝并记录规则 ID<br/>不产生副作用"]
+  I -->|"是"| D{"命中显式 deny?"}
+  D -->|"是"| X
+  D -->|"否"| B{"工具、角色、环境与 scope 合法?"}
+  B -->|"否"| X
+  B -->|"是"| BG{"请求 break-glass?"}
+  BG -->|"否"| N{"窗口 / freeze / blast radius 满足?"}
+  N -->|"否"| X
+  N -->|"是"| AP
+  BG -->|"是"| E{"事故 ID + 双人授权<br/>范围与时限有效?"}
+  E -->|"否"| X
+  E -->|"是"| TMP["短时授权，默认 ≤15 min<br/>更严限流 / 预算 / 范围<br/>不可覆盖 deny"]
+  TMP --> AP{"审批 / 应急授权<br/>绑定当前计划且有效?"}
+  AP -->|"拒绝 / 过期 / 漂移"| X
+  AP -->|"是"| PRE{"PDB / 版本 / 依赖 / 容量<br/>执行前重校验通过?"}
+  PRE -->|"否：撤销 / 不满足"| X
+  PRE -->|"是"| CALL["仅本次调用 allow<br/>网关执行"]
+  CALL --> OUT{"调用结果"}
+  OUT -->|"成功"| DONE["完成并释放授权"]
+  OUT -->|"失败 / 部分成功"| SAFE{"结果明确且恢复安全?"}
+  OUT -->|"未知"| REC["停止重试 / 结果对账"]
+  REC -->|"结果明确"| SAFE
+  REC -->|"超时 / 不可判定"| ESC["升级 On-call / 事故指挥"]
+  SAFE -->|"是"| RB["回滚 / 补偿并验证"]
+  SAFE -->|"否"| ESC
+  RB -->|"恢复验证失败"| ESC
+  RB -->|"恢复验证通过"| DONE
+  TMP -.->|"到期 / 事件关闭 / 人工撤销"| REV["撤销事件<br/>传播 PEP / 审批 / 网关"]
+  REV -.->|"等待中的请求"| X
+  REV -.->|"已发出的请求"| REC
+  X --> LOG["append-only 审计"]
+  DONE --> LOG
+  ESC --> LOG
+  TMP -->|"通知安全 / Owner；24h 复核"| LOG
+```
+:::
+
 ## 正式 Schema 与示例
 
 - 规范：[`schemas/permission-policy.schema.json`](../../schemas/permission-policy.schema.json)，JSON Schema Draft 2020-12。

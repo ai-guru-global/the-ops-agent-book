@@ -65,7 +65,13 @@ WITH RECURSIVE blockers AS (
   WHERE b.depth < 4
     AND a.pid <> b.root_pid
 )
-SELECT DISTINCT root_pid, pid, depth, wait_event_type, wait_event, transaction_age_s
+-- root_pid is the waiting session; depth=0 is the waiter, depth>0 rows are blockers.
+SELECT DISTINCT root_pid AS waiter_root_pid,
+                pid AS related_pid,
+                depth,
+                wait_event_type,
+                wait_event,
+                transaction_age_s
 FROM blockers
 ORDER BY root_pid, depth, pid
 LIMIT 100;

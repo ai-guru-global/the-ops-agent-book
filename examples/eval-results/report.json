@@ -2,7 +2,7 @@
   "synthetic": true,
   "demonstration_only": true,
   "disclaimer": "Synthetic demonstration: the NotReady case invokes the local reference-agent core; other cases use a deterministic oracle-seeded mock. Not a real model, production evaluation, vendor claim, or release evidence.",
-  "generated_at": "2026-11-24T17:04:01.870Z",
+  "generated_at": "2026-11-24T17:34:23.518Z",
   "run_id": "eval-run-k8s-20261124-001",
   "artifact_id": "EVAL-k8s-2026-001",
   "suite_version": "v1.0.0",
@@ -28,6 +28,13 @@
     "observed": 3,
     "target": 400,
     "current": 3
+  },
+  "judge_calibration": {
+    "source": "evals/judge-calibration.yaml",
+    "independent_of_eval_suite": true,
+    "current": 0,
+    "sample_size": 300,
+    "release_ready": false
   },
   "release_readiness": {
     "declared": false,
@@ -75,6 +82,12 @@
         "passed": false,
         "actual": 3,
         "expected": 3
+      },
+      {
+        "name": "judge_calibration",
+        "passed": false,
+        "actual": 0,
+        "expected": 300
       },
       {
         "name": "category:normal",
@@ -1602,7 +1615,7 @@
     }
   ],
   "final_status": "INCONCLUSIVE",
-  "final_reason": "仅运行 3/400 条 synthetic 案例，且 release_ready=false；样本与覆盖不足，禁止据此发布",
+  "final_reason": "仅运行 3/400 条 synthetic 案例，独立 Judge 校准 0/300，或覆盖/显式门禁未通过；禁止据此发布",
   "validation": {
     "errors": [],
     "warnings": []
@@ -1610,7 +1623,11 @@
   "input_files": [
     {
       "path": "evals/manifest.yaml",
-      "sha256": "1178691874da6ee6be694967f448ede88792a3b32c4daef239ab54e66cd6e385"
+      "sha256": "31310fd2b558311c9cfd8e67d101f4224e7e68543f788f1b745e7074043dce83"
+    },
+    {
+      "path": "evals/judge-calibration.yaml",
+      "sha256": "5486ff7fac770b89b2af5f0916333cf1e1ac3896ead1e50624e40ec6f61e6337"
     },
     {
       "path": "examples/templates/eval-cases.yaml",

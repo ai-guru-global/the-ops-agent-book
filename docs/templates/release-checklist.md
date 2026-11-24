@@ -11,6 +11,38 @@ content_status: "reviewed"
 
 > 发布不是“部署成功”，而是“在可观察、可回滚、可接管的前提下，把能力交给真实用户”。
 
+::: diagram 图 49 · 发布、验证与回滚状态 | 发布与恢复流程示意：任一门禁失败都拒绝发布或进入回滚；六类制品作为同一 bundle 恢复，超过 RTO 或恢复验证失败必须升级。
+```mermaid
+stateDiagram-v2
+  [*] --> DRAFT
+  DRAFT --> PRE_RELEASE_GATE: 六类制品锁定到不可变版本
+  PRE_RELEASE_GATE --> NO_GO: 证据缺失 / 评测失败 / veto
+  NO_GO --> DRAFT: 修复并生成新 bundle
+  PRE_RELEASE_GATE --> SHADOW: 全部 Go 且签署齐全
+  SHADOW --> CANARY: 影子验证通过
+  SHADOW --> NO_GO: 影子验证失败
+  CANARY --> PRODUCTION: 门槛通过且重新评估
+  CANARY --> PAUSED: 验证通过率下降
+  CANARY --> ROLLING_BACK: 禁止动作 / 错误 / SLO / 成本阈值
+  PAUSED --> CANARY: 窗口内恢复达标
+  PAUSED --> ROLLING_BACK: 持续失败
+  PRODUCTION --> MONITORING
+  MONITORING --> RELEASED: 观察窗口与全部门槛通过
+  MONITORING --> PAUSED: 验证通过率下降
+  MONITORING --> ROLLING_BACK: 禁止 / 不安全 / 错误 / SLO / 成本 / 接管阈值
+  ROLLING_BACK --> DISABLE_WRITES: 禁用写工具 / 转人工
+  DISABLE_WRITES --> RESTORE_BUNDLE: 恢复旧六类版本 / 作废旧计划
+  RESTORE_BUNDLE --> ROLLBACK_VERIFY: 旧 bundle 部署完成
+  RESTORE_BUNDLE --> ESCALATED: 恢复失败
+  ROLLBACK_VERIFY --> ROLLED_BACK: 旧 golden / 契约 / SLO 通过
+  ROLLBACK_VERIFY --> ESCALATED: 验证失败 / 超过 RTO
+  ESCALATED --> ROLLED_BACK: 人工恢复并独立验证
+  RELEASED --> OPERATE: 值班与证据交接
+  OPERATE --> IMPROVE: 反馈 / 事故 / 退化
+  IMPROVE --> DRAFT: 新发布 bundle
+```
+:::
+
 ## 0. 元信息与门禁
 
 | 字段 | 格式约束 | 内容 |

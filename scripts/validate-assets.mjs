@@ -91,8 +91,14 @@ for (const mode of ["demo", "shadow", "canary", "rollback"]) {
   if (mode === "canary" && summary.counts.write_side_effects !== 1) errors.push("canary did not limit writes to one synthetic node");
   if (mode === "rollback" && summary.final_state.automatic_writes !== false) errors.push("rollback did not restore read-only state");
 }
+const evalManifest = readYaml("evals/manifest.yaml");
+const judgeCalibration = readYaml(evalManifest.judge_calibration?.source || "evals/judge-calibration.yaml");
+if (evalManifest.judge_calibration?.independent_of_eval_suite !== true) errors.push("Judge calibration must be independent of the evaluation suite");
+if (judgeCalibration.sample_size?.target !== 300 || judgeCalibration.sample_size?.release_ready !== false) errors.push("Judge calibration starter must explicitly be 0/300 and not release-ready");
+if (judgeCalibration.sample_size?.current !== 0) errors.push("Judge calibration starter must not claim completed cases");
 const evalReport = readJson("examples/eval-results/report.json");
 if (evalReport.runner?.reference_agent_integration !== "invoked_for_notready_case") errors.push("eval report does not show reference-agent integration");
+if (evalReport.judge_calibration?.sample_size !== 300 || evalReport.judge_calibration?.release_ready !== false) errors.push("eval report does not expose incomplete independent Judge calibration");
 validate("examples/templates/runbook.yaml", "runbook.schema.json", readYaml("examples/templates/runbook.yaml"));
 
 const registry = readYaml("sources/registry.yaml");
@@ -166,7 +172,7 @@ for (const file of walk("docs").filter((f) => f.endsWith(".md") && !f.includes("
 }
 const diagramNumbers = diagrams.map((diagram) => diagram.number);
 if (new Set(diagramNumbers).size !== diagramNumbers.length) errors.push("duplicate diagram numbers");
-const expected = Array.from({ length: 35 }, (_, index) => index + 1);
+const expected = Array.from({ length: 50 }, (_, index) => index + 1);
 for (const number of expected) {
   if (!diagramNumbers.includes(number)) errors.push(`missing diagram ${number}`);
 }

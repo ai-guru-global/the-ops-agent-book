@@ -48,6 +48,10 @@ content_status: "reviewed"
           <dt>案例</dt>
           <dd>2 个合成/脱敏走查</dd>
         </div>
+        <div>
+          <dt>发布判定</dt>
+          <dd>v1.0-rc1 No-Go · 真实证据待补</dd>
+        </div>
       </dl>
       <ol class="book-stages" aria-label="生命周期阶段">
         <li>Plan</li>
@@ -354,6 +358,21 @@ content_status: "reviewed"
     <li><a href="./guide/09-organization-governance.html"><span>图 33</span>治理决策流</a><em>09</em></li>
     <li><a href="./guide/13-cost-roi-portfolio.html"><span>图 34</span>单位经济与 ROI 结构</a><em>13</em></li>
     <li><a href="./guide/14-future-roadmap.html"><span>图 35</span>A2A 与保障契约</a><em>14</em></li>
+    <li><a href="./vendors/"><span>图 36</span>厂商证据链与采购门禁</a><em>厂商</em></li>
+    <li><a href="./vendors/global-cloud.html"><span>图 37</span>全球云产品评估流</a><em>厂商</em></li>
+    <li><a href="./vendors/china-cloud.html"><span>图 38</span>中国云事实核验流</a><em>厂商</em></li>
+    <li><a href="./vendors/observability-aiops.html"><span>图 39</span>可观测信号到行动链</a><em>厂商</em></li>
+    <li><a href="./vendors/security-network-finops.html"><span>图 40</span>安全动作审批与审计链</a><em>厂商</em></li>
+    <li><a href="./vendors/embedded-assistants.html"><span>图 41</span>内嵌助手与独立 Agent 边界</a><em>厂商</em></li>
+    <li><a href="./vendors/vertical-ops.html"><span>图 42</span>垂直行业 PoC 与退出门禁</a><em>厂商</em></li>
+    <li><a href="./vendors/methodology.html"><span>图 43</span>POC 评分与退出决策</a><em>厂商</em></li>
+    <li><a href="./templates/"><span>图 44</span>设计到退役的制品链</a><em>模板</em></li>
+    <li><a href="./templates/tool-contract.html"><span>图 45</span>工具契约与调用时序</a><em>模板</em></li>
+    <li><a href="./templates/eval-set.html"><span>图 46</span>评测分区与防泄漏</a><em>模板</em></li>
+    <li><a href="./templates/permission-matrix.html"><span>图 47</span>权限决策与 break-glass</a><em>模板</em></li>
+    <li><a href="./templates/runbook-tool-map.html"><span>图 48</span>Runbook 执行与恢复状态</a><em>模板</em></li>
+    <li><a href="./templates/release-checklist.html"><span>图 49</span>发布、验证与回滚状态</a><em>模板</em></li>
+    <li><a href="./templates/incident-review.html"><span>图 50</span>复盘行动项关闭闭环</a><em>模板</em></li>
   </ol>
 </section>
 
@@ -383,6 +402,39 @@ content_status: "reviewed"
         <p>04 架构 → 05 工具与权限 → 09 组织治理 → 10 Build vs Buy → 附录阿里 Agent 产品全景。</p>
       </div>
       <a class="book-index__link" href="./guide/04-architecture.html">开始 →</a>
+    </li>
+  </ol>
+</section>
+
+<section class="book-section">
+  <h2>导出与复现</h2>
+  <p class="book-section__lead">
+    PDF 与 EPUB 由同一套 48 页路由生成，包含 Mermaid 图、图注、页码与目录；产物在本地 `dist-pdf/` 与 `dist-epub/`，不作为线上发布资产。
+  </p>
+  <ol class="book-index book-index--compact">
+    <li>
+      <span class="book-index__num">PDF</span>
+      <div class="book-index__body">
+        <h3>407 页 A4 全书</h3>
+        <p><code>npm run export:pdf</code> · 脚本 <code>scripts/export-book-pdf.mjs</code></p>
+      </div>
+      <a class="book-index__link" href="https://github.com/ai-guru-global/the-ops-agent-book/blob/main/scripts/export-book-pdf.mjs">查看脚本 →</a>
+    </li>
+    <li>
+      <span class="book-index__num">EPUB</span>
+      <div class="book-index__body">
+        <h3>48 章可重排电子书</h3>
+        <p><code>npm run export:epub</code> · 脚本 <code>scripts/export-book-epub.mjs</code></p>
+      </div>
+      <a class="book-index__link" href="https://github.com/ai-guru-global/the-ops-agent-book/blob/main/scripts/export-book-epub.mjs">查看脚本 →</a>
+    </li>
+    <li>
+      <span class="book-index__num">QA</span>
+      <div class="book-index__body">
+        <h3>构建、链接、图示、响应式与无障碍</h3>
+        <p><code>npm run check:all</code> · 本地与远端 Book quality 使用同一套门禁。</p>
+      </div>
+      <a class="book-index__link" href="./appendix/requirement-map.html">查看验证地图 →</a>
     </li>
   </ol>
 </section>

@@ -11,6 +11,37 @@ content_status: "reviewed"
 
 > 复盘的目标不是追责，而是让系统、流程、评测集和 Runbook 变得更好。
 
+::: diagram 图 50 · 复盘行动项关闭闭环 | 复盘流程示意：Resolved 仅表示服务恢复；行动项须经独立验收和资产回写，全部关闭条件满足后才能签署 Closed，安全 veto 始终阻止关闭。
+```mermaid
+flowchart TB
+  A["事故触发 / 服务异常"] --> B["遏制、恢复与固定 Trace"]
+  B --> C{"恢复证据齐全?"}
+  C -->|"否"| U["继续处置 / 升级事故指挥"]
+  U --> B
+  C -->|"是"| D["Resolved<br/>服务恢复，不等于关闭"]
+  D --> E["时间线与行为审计<br/>直接原因 / 系统性根因"]
+  E --> F["行动项<br/>Owner / 截止 / 独立验收人"]
+  F --> G["open → in_progress"]
+  G --> H{"阻塞?"}
+  H -->|"是"| I["blocked<br/>记录原因并升级"]
+  I --> G
+  H -->|"否"| J["ready_for_acceptance"]
+  J --> K{"验收标准与关闭条件<br/>证据有效?"}
+  K -->|"否：验收失败"| G
+  K -->|"是"| L["closed<br/>accepted_by / accepted_at"]
+  F --> M["accepted_exception<br/>仅非安全 / 有到期日"]
+  M -->|"到期"| G
+  M -->|"未到期且已验收"| N
+  L --> N["回写 EVAL / RB / TC / PMX / ADD<br/>新 REL bundle 与回归"]
+  N --> O{"全部 CC satisfied<br/>无安全 veto / 阻塞未决项?"}
+  O -->|"否：补行动项 / 证据"| F
+  O -->|"是"| P["事故负责人 + 独立验收人<br/>签署 Closed"]
+  P --> Q["永久归档原始证据"]
+  D -->|"安全 veto / 写动作未验证"| R["禁止关闭并升级"]
+  R --> F
+```
+:::
+
 ## 0. 元信息与可追溯基线
 
 | 字段 | 格式约束 | 内容 |

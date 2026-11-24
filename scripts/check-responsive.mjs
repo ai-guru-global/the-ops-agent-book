@@ -21,7 +21,8 @@ const PAGES = [
   { route: "/", name: "home", diagrams: 0 },
   { route: "/guide/05-tools-permissions", name: "tools", diagrams: 2 },
   { route: "/playbooks/k8s", name: "k8s", diagrams: 1 },
-  { route: "/vendors/observability-aiops", name: "vendors", diagrams: 0 },
+  { route: "/vendors/observability-aiops", name: "vendors", diagrams: 1 },
+  { route: "/templates/permission-matrix", name: "template", diagrams: 1 },
   { route: "/appendix/case-notready", name: "case", diagrams: 1 },
 ];
 

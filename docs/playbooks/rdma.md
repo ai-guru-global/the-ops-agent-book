@@ -155,7 +155,7 @@ NCCL_DEBUG=INFO NCCL_IB_HCA=mlx5_0 timeout 60s \
   mpirun -np 2 -H node-a:1,node-b:1 all_reduce_perf -b 8M -e 1G -f 2 -g 1
 ```
 
-只读 flap 采样脚本：`examples/playbooks/02-rdma-flap-audit.sh`（PLAY-02）。脚本不会执行 perftest/NCCL。
+只读 flap 采样脚本：`examples/playbooks/02-rdma-flap-audit.sh`（PLAY-02）。脚本默认 `WINDOWS=5`，逐窗口输出增量/速率；TX 与优先级计数器为可选证据，缺失时输出 `NA` 并标记 `evidence_gap`，IB 的 VL 分解需要交换机遥测，不能用端口聚合值代替。脚本不会执行 perftest/NCCL。
 
 ## 6. 权限与护栏
 

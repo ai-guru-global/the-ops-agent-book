@@ -190,7 +190,7 @@ Square geometry throughout: 0 radius on buttons, tables, callouts, code blocks, 
 
 ### Tables
 - Full-width, 1px Gray 20 borders, Gray 10 header, Ink body text, 13px type.
-- Even rows use `#fafafa`; hover uses Blue 10. On screens ≤640px tables become horizontally scrollable blocks.
+- Even rows use `#fafafa`; hover uses Blue 10. Wide tables use a keyboard-focusable horizontal scroll container at every viewport; print removes scrolling and uses fixed, wrapping columns.
 
 ### Diagram Figure
 - Markdown pattern: `::: diagram 图 XX · Title | Note` wrapping a ` ```mermaid ` block.

@@ -11,6 +11,43 @@ content_status: "reviewed"
 
 > 评测集不是“测试用例集合”，而是你对“什么叫对、什么叫安全、什么叫可接受”的正式定义。
 
+::: diagram 图 46 · 评测分区与防泄漏 | 评测流程示意：三类 suite 互斥，独立 Judge 校准集不计入其中；来源、快照或答案键交叉即拒绝，留出集失败只触发修复与新版本，不得反复刷分。
+```mermaid
+flowchart TB
+  S["生产 / 历史 / synthetic 案例"] --> V{"脱敏、来源与<br/>不可变快照有效?"}
+  V -->|"否"| X["隔离 / 拒绝入库<br/>记录证据缺口"]
+  V -->|"是"| L{"source_case_key / 内容哈希<br/>重复或同源?"}
+  L -->|"是"| X
+  L -->|"否"| POOL["合规案例池"]
+  POOL --> P{"按用途选择唯一划分"}
+  P -->|"核心回归"| G["golden<br/>人工答案 / suite 冻结"]
+  P -->|"新案例与调参"| C["calibration<br/>confidence / 权重 / 阈值"]
+  POOL --> J["独立 Judge 校准集<br/>双标注 / κ / 召回<br/>不共享 source key、快照、答案键"]
+  J --> JK{"Judge 校准通过?"}
+  JK -->|"否：拒绝作为发布裁判"| JR["重新标注 / 修 Rubric"]
+  JR --> J
+  G --> READY{"suite 样本与 Judge 校准就绪?"}
+  C --> READY
+  JK -->|"是"| READY
+  READY -->|"否"| FIX["冻结失败 / 拒绝运行"]
+  FIX --> POOL
+  READY -->|"是"| F["冻结 suite 版本与 manifest"]
+  C --> AB{"Owner + 独立验收人<br/>签署再平衡?"}
+  AB -->|"否：留在 calibration"| C
+  AB -->|"是"| H["holdout<br/>冻结后解锁 / 只读终验"]
+  F --> D{"三划分 ID、来源与快照<br/>全部无交叉?"}
+  H --> D
+  D -->|"否：检测到泄漏"| X
+  D -->|"是"| RUN["锁定六类版本运行<br/>golden + calibration 全量"]
+  RUN --> GATE{"veto / 退化 / 门槛失败?"}
+  H --> GATE
+  GATE -->|"是：No-Go / 拒绝发布"| NEW["修复并升 suite 版本<br/>不得在 holdout 反复试错"]
+  NEW --> S
+  GATE -->|"否"| GO["Go + 不可变报告"]
+  GO --> ARCHIVE["旧 suite 永久归档"]
+```
+:::
+
 ## 0. 元信息与门禁
 
 | 字段 | 格式约束 | 内容 |
@@ -41,10 +78,11 @@ content_status: "reviewed"
 | 划分 | 用途 | 示例目标样本量 | 谁可见 / 何时更新 |
 | --- | --- | --- | --- |
 | 黄金集（golden） | 人工确定答案、验收 Judge 与核心回归 | 40 | 评测 Owner；每个 suite 版本冻结 |
-| 校准集（calibration） | 校准 Judge、权重和阈值 | 60 | 评测 Owner；新案例先进入此集 |
+| 校准集（calibration） | 校准 Agent confidence、权重和阈值；不用于 Judge 验收 | 60 | 评测 Owner；新案例先进入此集 |
 | 留出集（holdout） | 只读终验，禁止调参后反复刷分 | 300 | 独立验收人；只在版本冻结后解锁 |
 
 - 总样本量是四个维度的并集：`场景 × 类型 × 环境 × 来源`；高危、边界、未知每格至少 5 条，安全类必须覆盖每个禁止动作。
+- **Judge 校准与上述 400 条 suite 分开**：至少 300 条人工双标注案例，不计入 golden/calibration/holdout，也不得与 suite 共享 source key、快照或答案键。当前 `evals/judge-calibration.yaml` 为 0/300 的 synthetic starter，未完成前不能做发布裁判。60 条 calibration 仅用于 Agent confidence/阈值校准，不能替代 Judge 验收校准。
 - 用 `source_case_key` 与内容哈希去重；同一 incident、Pod 或快照的变体不得跨划分，防止泄漏。
 - 任何案例只属于一个划分；新增生产案例先入校准集。再平衡需评测 Owner 与独立验收人签署，并永久保留旧 suite。
 - `manifest.yaml` 是划分、权重与否决规则的权威源；案例文件只放题目、上下文、期望证据与动作。

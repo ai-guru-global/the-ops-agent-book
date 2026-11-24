@@ -11,6 +11,42 @@ content_status: "reviewed"
 
 > 传统 Runbook 是“写给人看的步骤”；Runbook 2.0 是“人和 Agent 都能执行、验证、回滚的资产”。
 
+::: diagram 图 48 · Runbook 执行与恢复状态 | 执行与恢复流程示意：证据、confidence、审批或断言不通过时中止或升级；写入结果未知先对账，触发回滚后仍须验证 diff 与旧版本健康。
+```mermaid
+stateDiagram-v2
+  [*] --> RECEIVED
+  RECEIVED --> PREFLIGHT: input / schema 有效
+  RECEIVED --> ABORTED: 输入非法 / Secret 值
+  PREFLIGHT --> EVIDENCE: 前置条件通过
+  PREFLIGHT --> ESCALATED: 目标缺失 / 证据过期 / 有进行中事故
+  EVIDENCE --> DIAGNOSE: 证据新鲜且完整
+  EVIDENCE --> ESCALATED: 证据缺失
+  DIAGNOSE --> PLANNING: confidence ≥ 已校准阈值
+  DIAGNOSE --> ESCALATED: 低于阈值
+  PLANNING --> AWAIT_APPROVAL: 不可变补丁计划
+  AWAIT_APPROVAL --> DRY_RUN: 批准且哈希匹配
+  AWAIT_APPROVAL --> ESCALATED: 拒绝 / 过期
+  DRY_RUN --> EXECUTING: dry-run 通过
+  DRY_RUN --> ABORTED: scope / schema 拒绝
+  EXECUTING --> VERIFYING: commit 成功
+  EXECUTING --> ESCALATED: auth / policy / conflict
+  EXECUTING --> RECONCILE: timeout / unknown outcome
+  RECONCILE --> EXECUTING: 确认无副作用且可重试
+  RECONCILE --> ESCALATED: 结果未知 / 不安全
+  VERIFYING --> SUCCEEDED: rollout + SLO 通过
+  VERIFYING --> ROLLING_BACK: 断言失败 / kill switch
+  ROLLING_BACK --> RECOVERY_VERIFY: 精确 revert 成功
+  ROLLING_BACK --> ESCALATED: 审批过期 / revert 失败
+  RECOVERY_VERIFY --> RECOVERED: diff 为空且旧版本健康
+  RECOVERY_VERIFY --> ESCALATED: 恢复验证失败
+  SUCCEEDED --> ARCHIVED: 证据完整
+  RECOVERED --> ARCHIVED: 证据完整
+  ABORTED --> ARCHIVED: 原因与证据完整
+  ESCALATED --> ARCHIVED: 升级交接与证据完整
+  ARCHIVED --> [*]
+```
+:::
+
 ## 0. 元信息与权威源
 
 | 字段 | 格式约束 | 内容 |
@@ -34,7 +70,7 @@ content_status: "reviewed"
 | `evidence_fresh` | `all_evidence_age <= 10m` | snapshot.registry / 10m | escalate |
 | `no_active_incident` | `active_incident_count(namespace) == 0` | incident.api / 5m | escalate |
 
-confidence 阈值来自 `EVAL-k8s-2026-001` v1.0.0 的 calibration 划分：600 条样本，temperature scaling + 分层可靠性桶，阈值 0.80。模型、Prompt 变化，14 天 ECE > 0.08，或安全类校准召回 < 0.98 时重新校准。低于 0.80、证据缺口、断言失败或审批超时均升级到 payments-oncall，10 分钟内响应；不得把未经校准的模型自报置信度当作阈值。
+confidence 阈值来自 `EVAL-k8s-2026-001` v1.0.0 的 calibration 划分：60 条 synthetic starter 样本，temperature scaling + 分层可靠性桶，阈值 0.80。这只校准 Agent confidence/阈值，**不替代独立的 300 条 Judge 验收校准**；后者当前 0/300，未完成前不得做发布裁判。模型、Prompt 变化，14 天 ECE > 0.08，或安全类校准召回 < 0.98 时重新校准。低于 0.80、证据缺口、断言失败或审批超时均升级到 payments-oncall，10 分钟内响应；不得把未经校准的模型自报置信度当作阈值。
 
 ## 2. 映射表
 
@@ -48,14 +84,14 @@ confidence 阈值来自 `EVAL-k8s-2026-001` v1.0.0 的 calibration 划分：600 
 | `get_deployment` / read | 比较配置键，不读取 Secret 值 | k8s.deployment / 5m | `k8s.get_deployment` @ 2.3.0 | `k8s.get_deployment`；cluster/namespace/name | envKeys 不含 DATABASE_URL → escalate | RESOURCE_NOT_FOUND → abort | N/A |
 | `plan_patch` / plan | 生成不可变补丁，不改 Git/K8s | gitops.patch / 10m | `gitops.plan` @ 1.4.0 | `gitops.plan`；repo/patch_ref | 仅变更 patch_ref 指定文件 → abort | POLICY_DENIED → abort | N/A |
 | `request_approval` / approval | 审批绑定补丁哈希与工单 | workflow.approval / 30m | `workflow.approval` @ 1.2.0 | `workflow.approval`；change_ticket/patch_hash/requested_role | approved 且哈希匹配 → abort | rejected/expired → escalate | 单人 payments-change-approver；15 分钟 |
-| `commit_patch` / write | 仅提交已审批环境变量补丁 | gitops.audit / 1m | `gitops.commit` @ 1.4.0 | `gitops.commit`；repo/patch_ref/approval_id/reason | commitSha 与 approvalId 匹配 → rollback | APPROVAL_EXPIRED/POLICY_DENIED/CONFLICT → escalate | dry-run 必须；窗口；引用 `revert_patch` |
+| `commit_patch` / write | 仅提交已审批环境变量补丁 | gitops.audit / 1m | `gitops.commit` @ 1.4.0 | `gitops.commit`；repo/patch_ref/approval_id/idempotency_key/reason | commitSha 与 approvalId 匹配 → rollback | APPROVAL_EXPIRED/POLICY_DENIED/CONFLICT → escalate | dry-run 必须；窗口；引用 `revert_patch` |
 | `verify_rollout` / verify | 确认健康滚动完成 | k8s.rollout / 2m | `k8s.rollout_status` @ 2.3.0 | `k8s.rollout_status`；cluster/namespace/name | complete 且 ready ≥ desired → rollback | failed → rollback | 任一变更验证失败均回滚 |
 | `verify_slo` / verify | 确认服务 SLO 恢复 | slo.window / 15m | `slo.query` @ 1.1.0 | `slo.query`；cluster/service/window=15m | errorRate ≤ 0.01 且 p95 ≤ 800ms → rollback | QUERY_TIMEOUT → escalate | RTO 15m |
-| `revert_patch` / rollback | 通过 GitOps 撤销精确 commit | gitops.audit / 1m | `gitops.revert` @ 1.4.0 | `gitops.revert`；repo/commit_sha/approval_id/reason | revertSha 与原 commit 匹配 → escalate | APPROVAL_EXPIRED/CONFLICT → escalate | 原审批有效期内复用；否则人工回滚 |
+| `revert_patch` / rollback | 通过 GitOps 撤销精确 commit | gitops.audit / 1m | `gitops.revert` @ 1.4.0 | `gitops.revert`；repo/commit_sha/approval_id/idempotency_key/reason | revertSha 与原 commit 匹配 → escalate | APPROVAL_EXPIRED/CONFLICT → escalate | 原审批有效期内复用；否则人工回滚 |
 | `verify_revert_diff` / verify | 确认无残留未审批 diff | gitops.diff / 2m | `gitops.diff` @ 1.4.0 | `gitops.diff`；repo/base_revision/target_revision | changedFiles 为空 → escalate | TIMEOUT → escalate | 回滚验证 |
 | `verify_revert_rollout` / verify | 确认旧版本健康 | k8s.rollout / 2m | `k8s.rollout_status` @ 2.3.0 | `k8s.rollout_status`；cluster/namespace/name | complete 且 ready ≥ desired → escalate | failed/timeout → escalate | 回滚验证 |
 
-真实变更步骤是 `plan_patch → request_approval → commit_patch`，不是“直接修复配置”。审批绑定补丁哈希，工具消费单次 approval_id；审批过期、scope 变化或哈希变化都会拒绝执行。Schema 只允许结构化 `params`，所有输入 schema 均 `additionalProperties: false`，禁止拼接 shell。
+真实变更步骤是 `plan_patch → request_approval → commit_patch`，不是“直接修复配置”。审批绑定补丁哈希，工具消费单次 approval_id 与稳定 idempotency_key；审批过期、scope 变化、哈希变化或同键不同参数都会拒绝执行。Schema 只允许结构化 `params`，所有输入 schema 均 `additionalProperties: false`，禁止拼接 shell。
 
 ## 3. 机器可读 Runbook 关键节选
 
@@ -65,7 +101,7 @@ confidence 阈值来自 `EVAL-k8s-2026-001` v1.0.0 的 calibration 划分：600 
 confidence_calibration:
   source: EVAL-k8s-2026-001 calibration partition
   suite_version: v1.0.0
-  sample_size: 600
+  sample_size: 60
   method: temperature_scaling_with_stratified_reliability_bins
   threshold: 0.8
   calibration_evidence: "eval://EVAL-k8s-2026-001/v1.0.0/calibration-report"
@@ -98,7 +134,7 @@ steps:
     tool: gitops.commit
     tool_version: 1.4.0
     input_schema_ref: gitops.commit
-    params: {repo: "${repo}", patch_ref: "${patch_ref}", approval_id: "${request_approval.output.approvalId}", reason: "${reason}"}
+    params: {repo: "${repo}", patch_ref: "${patch_ref}", approval_id: "${request_approval.output.approvalId}", idempotency_key: "${run_id}:commit_patch:${patch_ref}", reason: "${reason}"}
     timeout_seconds: 60
     dry_run: true
     approval:
@@ -128,7 +164,7 @@ rollback:
       tool: gitops.revert
       tool_version: 1.4.0
       input_schema_ref: gitops.revert
-      params: {repo: "${repo}", commit_sha: "${commit_patch.output.commitSha}", approval_id: "${request_approval.output.approvalId}", reason: "Runbook verification failed"}
+      params: {repo: "${repo}", commit_sha: "${commit_patch.output.commitSha}", approval_id: "${request_approval.output.approvalId}", idempotency_key: "${run_id}:revert_patch:${commit_patch.output.commitSha}", reason: "Runbook verification failed"}
       timeout_seconds: 60
       assertions:
         success:

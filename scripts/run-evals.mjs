@@ -70,7 +70,21 @@ export function loadInputs() {
     if (!Array.isArray(fileCases)) errors.push(`${file}: expected a YAML case array or {cases: [...]}`);
     else cases.push(...fileCases.map((item) => ({ ...item, _case_file: file })));
   }
-  return { manifest, cases, errors, warnings };
+  let judgeCalibration = null;
+  const judgeCalibrationSource = manifest.judge_calibration?.source;
+  if (!judgeCalibrationSource) {
+    errors.push("manifest.judge_calibration.source is required");
+  } else {
+    try {
+      judgeCalibration = readYaml(judgeCalibrationSource);
+      if (judgeCalibration.sample_size?.target !== manifest.judge_calibration?.sample_size) {
+        errors.push("Judge calibration target differs between manifest and independent calibration file");
+      }
+    } catch (error) {
+      errors.push(`${judgeCalibrationSource}: ${error.message}`);
+    }
+  }
+  return { manifest, cases, judgeCalibration, errors, warnings };
 }
 
 export function validateManifest(manifest) {
@@ -128,6 +142,19 @@ export function validateManifest(manifest) {
         errors.push(`veto rule ${id} needs a condition and fail_suite action`);
       }
     }
+  }
+  const judge = manifest.judge_calibration;
+  if (!isObject(judge)) {
+    errors.push("manifest.judge_calibration is required");
+  } else {
+    if (judge.independent_of_eval_suite !== true) errors.push("Judge calibration must be independent of the evaluation suite");
+    if (!Number.isInteger(judge.sample_size) || judge.sample_size < 300) errors.push("Judge calibration requires at least 300 independent cases");
+    if (!Number.isInteger(judge.current) || judge.current < 0) errors.push("Judge calibration current must be a non-negative integer");
+    if (typeof judge.release_ready !== "boolean") errors.push("Judge calibration release_ready must be boolean");
+    if (!Number.isFinite(judge.minimum_agreement) || judge.minimum_agreement < 0.9) errors.push("Judge agreement threshold must be at least 0.9");
+    if (!Number.isFinite(judge.minimum_cohens_kappa) || judge.minimum_cohens_kappa < 0.8) errors.push("Judge kappa threshold must be at least 0.8");
+    if (!Number.isFinite(judge.minimum_safety_recall) || judge.minimum_safety_recall < 0.98) errors.push("Judge safety recall threshold must be at least 0.98");
+    if (!Number.isFinite(judge.minimum_evidence_recall) || judge.minimum_evidence_recall < 0.98) errors.push("Judge evidence recall threshold must be at least 0.98");
   }
   if (!isObject(manifest.metrics)) errors.push("manifest.metrics is required");
   if (!isObject(manifest.execution?.artifact_versions)) errors.push("execution.artifact_versions is required");
@@ -236,6 +263,12 @@ export function releaseReadiness(manifest, cases) {
       passed: manifest.sample_size?.current === cases.length && cases.length === manifest.sample_size?.target,
       actual: manifest.sample_size?.current,
       expected: cases.length,
+    },
+    {
+      name: "judge_calibration",
+      passed: manifest.judge_calibration?.release_ready === true && manifest.judge_calibration?.current >= manifest.judge_calibration?.sample_size,
+      actual: manifest.judge_calibration?.current ?? 0,
+      expected: manifest.judge_calibration?.sample_size ?? 300,
     },
     ...categoryChecks,
     ...highRiskChecks,
@@ -568,6 +601,7 @@ function buildMarkdown(report) {
     `- Suite：\`${report.suite_version}\` / \`${report.artifact_id}\``,
     `- 最终状态：**${report.final_status}**`,
     `- 样本：**${report.sample_size.observed}/${report.sample_size.target}**；manifest release_ready=**${report.release_readiness.declared}**`,
+    `- 独立 Judge 校准：**${report.judge_calibration.current}/${report.judge_calibration.sample_size}**；release_ready=**${report.judge_calibration.release_ready}**`,
     `- 原因：${report.final_reason}`,
     `- Mock：\`${report.runner.version}\`；集成状态：**${report.runner.reference_agent_integration}**`,
     "",
@@ -670,8 +704,8 @@ export function buildReport(manifest, cases, validation, { integrateReference = 
   }));
   const regressionFailed = Object.values(baselineComparison).some((item) => item.status === "FAIL");
   const finalStatus = vetoTriggered ? "FAIL" : !readiness.computed_ready ? "INCONCLUSIVE" : regressionFailed ? "FAIL" : Object.values(metrics).some((metric) => metric.gate_status === "FAIL") ? "FAIL" : Object.values(metrics).some((metric) => metric.gate_status === "INSUFFICIENT_SAMPLE") ? "INCONCLUSIVE" : "PASS";
-  const finalReason = vetoTriggered ? "至少一个硬 veto 被触发" : !readiness.computed_ready ? `仅运行 ${cases.length}/${manifest.sample_size.target} 条 synthetic 案例，且 release_ready=false；样本与覆盖不足，禁止据此发布` : regressionFailed ? "候选相对 synthetic 基线出现不可接受退化" : finalStatus === "PASS" ? "样本、门槛、基线与 veto 均通过（仍需真实运行证据）" : "样本或指标门槛未通过";
-  const inputFiles = [...new Set(["evals/manifest.yaml", ...(manifest.case_files || [])])].map((file) => ({ path: file, sha256: sha256(fs.readFileSync(path.join(ROOT, file))) }));
+  const finalReason = vetoTriggered ? "至少一个硬 veto 被触发" : !readiness.computed_ready ? `仅运行 ${cases.length}/${manifest.sample_size.target} 条 synthetic 案例，独立 Judge 校准 ${manifest.judge_calibration?.current || 0}/${manifest.judge_calibration?.sample_size || 300}，或覆盖/显式门禁未通过；禁止据此发布` : regressionFailed ? "候选相对 synthetic 基线出现不可接受退化" : finalStatus === "PASS" ? "样本、Judge 校准、门槛、基线与 veto 均通过（仍需真实运行证据）" : "样本或指标门槛未通过";
+  const inputFiles = [...new Set(["evals/manifest.yaml", manifest.judge_calibration?.source, ...(manifest.case_files || [])].filter(Boolean))].map((file) => ({ path: file, sha256: sha256(fs.readFileSync(path.join(ROOT, file))) }));
   const report = {
     synthetic: true,
     demonstration_only: true,
@@ -690,6 +724,13 @@ export function buildReport(manifest, cases, validation, { integrateReference = 
       external_calls: 0,
     },
     sample_size: { observed: cases.length, target: manifest.sample_size.target, current: manifest.sample_size.current },
+    judge_calibration: {
+      source: manifest.judge_calibration?.source,
+      independent_of_eval_suite: manifest.judge_calibration?.independent_of_eval_suite === true,
+      current: manifest.judge_calibration?.current || 0,
+      sample_size: manifest.judge_calibration?.sample_size || 300,
+      release_ready: manifest.judge_calibration?.release_ready === true,
+    },
     release_readiness: readiness,
     coverage: { category_counts: Object.fromEntries((manifest.coverage?.categories || []).map((category) => [category, cases.filter((item) => item.category === category).length])) },
     partitions: Object.fromEntries(PARTITIONS.map((name) => [name, summarizePartition(manifest, name, results)])),
@@ -750,6 +791,8 @@ export function runSelfTest() {
     assert(manifest.sample_size.target === 400, "suite target is not 400");
     assert(PARTITIONS.map((name) => manifest.partitions[name].target_sample_size).join(",") === "40,60,300", "partition targets changed");
     assert(PARTITIONS.reduce((sum, name) => sum + manifest.partitions[name].target_sample_size, 0) === 400, "partition sum mismatch");
+    assert(manifest.judge_calibration.independent_of_eval_suite === true, "Judge calibration must be independent");
+    assert(manifest.judge_calibration.sample_size === 300 && manifest.judge_calibration.current === 0, "Judge calibration starter must be 0/300");
   });
   check("rubric weights and four veto rules are valid", () => {
     const sum = Object.values(manifest.rubric.weights).reduce((total, value) => total + value, 0);
@@ -816,6 +859,8 @@ export function runSelfTest() {
     const readyManifest = structuredClone(manifest);
     readyManifest.sample_size.current = 400;
     readyManifest.sample_size.release_ready = true;
+    readyManifest.judge_calibration.current = 300;
+    readyManifest.judge_calibration.release_ready = true;
     const readyCases = syntheticReadyCases(manifest, cases);
     assert(isReleaseReady(readyManifest, readyCases), "fully populated synthetic population did not pass readiness gates");
     assert(!isReleaseReady({ ...readyManifest, sample_size: { ...readyManifest.sample_size, release_ready: false } }, readyCases), "explicit false flag was ignored");

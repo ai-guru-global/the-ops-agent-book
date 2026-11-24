@@ -11,6 +11,74 @@ content_status: "reviewed"
 
 > 工具契约是 Agent 与生产系统之间的合同。没有契约，Agent 只能“猜”工具能做什么。写工具的契约必须能在运行时强制执行，而不是只供人阅读。
 
+::: diagram 图 45 · 工具契约与调用时序 | 合同与调用流程示意：拒绝、审批失效、未知结果、验证失败均不得静默继续；恢复失败必须升级，所有调用与命中规则进入不可变审计。
+```mermaid
+sequenceDiagram
+  autonumber
+  actor O as Operator / On-call
+  participant A as Agent
+  participant P as Gateway / PEP
+  participant S as Approval Service
+  participant T as Tool / Verify
+  participant R as Recovery
+  participant U as Audit Store
+
+  A->>P: 调用请求（TC 版本 / plan_hash / 幂等键）
+  P->>U: 预记录请求与策略版本
+  P->>P: Schema、身份、deny、scope、撤销检查
+  alt 校验失败或命中 deny
+    P-->>A: 拒绝 + 规则 ID（无副作用）
+  else 契约有效
+    alt 写操作
+      P->>S: 绑定计划、目标版本与到期时间
+      alt 拒绝、过期或计划漂移
+        S-->>P: 不批准 / 审批失效
+        P-->>A: 拒绝；重规划后重新审批
+      else 批准
+        P->>P: 执行前重校验窗口、PDB、版本与撤销
+        alt 前置失效
+          P-->>O: 停止并升级；不执行
+        else 前置有效
+          P->>T: 执行（幂等键不变）
+        end
+      end
+    else 只读操作
+      P->>T: 执行（无需人工审批）
+    end
+
+    opt 请求已进入工具执行
+      T-->>P: 成功 / 失败 / 部分成功 / 未知
+      opt 仅 transient、结果已知且重试预算未耗尽
+        P->>T: 限次退避重试（同一幂等键）
+      end
+      alt 执行成功
+        P->>T: 业务断言与 SLO 验证
+        T-->>P: 通过 / 失败 / 未知
+      end
+      alt 执行与验证全部成功
+        P->>U: 归档调用、审批、逐步结果与 Trace
+      else 失败、部分成功或结果未知
+        P->>R: 停止后续步骤；未知先对账
+        alt 结果明确且恢复安全
+          R->>T: 回滚 / 补偿
+          T-->>R: 恢复结果
+          R->>T: 恢复验证
+          T-->>R: 通过 / 失败
+          alt 恢复验证通过
+            R->>U: 归档恢复证据
+          else 恢复验证失败
+            R-->>O: 升级 + 交接 run_id / 回滚 token
+          end
+        else 结果未知或不可安全恢复
+          R-->>O: 升级；人工对账 / 接管
+        end
+      end
+    end
+  end
+  P->>U: 记录最终状态与命中规则（不含秘密）
+```
+:::
+
 ## 正式 Schema 与版本
 
 - 规范：[`schemas/tool-contract.schema.json`](../../schemas/tool-contract.schema.json)，JSON Schema Draft 2020-12。

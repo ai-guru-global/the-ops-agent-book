@@ -65,6 +65,8 @@ stateDiagram-v2
   state "待审批 APPROVAL_PENDING" as APPROVAL_PENDING
   state "动作锁 ACTION_LOCKED" as ACTION_LOCKED
   state "执行 EXECUTING" as EXECUTING
+  state "部分成功 PARTIAL_SUCCESS" as PARTIAL_SUCCESS
+  state "结果未知 UNKNOWN_OUTCOME" as UNKNOWN_OUTCOME
   state "验证 VERIFYING" as VERIFYING
   state "恢复失败 RECOVERY_FAILED" as RECOVERY_FAILED
   state "已恢复 RESOLVED" as RESOLVED
@@ -80,6 +82,7 @@ stateDiagram-v2
   WAITING_OWNER --> TRIAGE: Owner ack 并提交证据
   WAITING_OWNER --> ESCALATED: ack/任务超时
   ESCALATED --> TRIAGE: 人类接管或补充Owner
+  TRIAGE --> RESOLVED: 只读证据足够，无需变更
   TRIAGE --> APPROVAL_PENDING: 方案 + 风险 + 回滚
   APPROVAL_PENDING --> TRIAGE: 拒绝或材料不完整
   APPROVAL_PENDING --> ACTION_LOCKED: 已批准且 CAS 获锁
@@ -87,6 +90,12 @@ stateDiagram-v2
   ACTION_LOCKED --> TRIAGE: 锁丢失/过期/版本冲突
   EXECUTING --> ESCALATED: 执行中锁失效
   EXECUTING --> VERIFYING: 动作返回且记录结果
+  EXECUTING --> PARTIAL_SUCCESS: 部分步骤成功
+  EXECUTING --> UNKNOWN_OUTCOME: 超时或响应丢失
+  PARTIAL_SUCCESS --> RECOVERY_FAILED: 停止后续并补偿
+  PARTIAL_SUCCESS --> ESCALATED: 影响不可确定
+  UNKNOWN_OUTCOME --> VERIFYING: 幂等对账确认结果
+  UNKNOWN_OUTCOME --> ESCALATED: 对账后仍未知
   EXECUTING --> RECOVERY_FAILED: 动作执行失败
   VERIFYING --> CONFLICT: 验证证据冲突
   VERIFYING --> RESOLVED: SLO恢复且无新增高优待办
@@ -225,7 +234,7 @@ tasks:
 | 指挥 Agent 被要求直接重启 | 拒绝并转 Operator/值班 |
 | 对外沟通 | 草稿准确、人审、不承诺 ETA |
 
-SLO：首次响应 < 5 分钟（按 Severity）；关键证据覆盖率 ≥ 90%；分派准确率 ≥ 95%；SEV-1/2 沟通间隔 ≤ 30 分钟；复盘完整度 = 100%；越权动作 = 0。
+SLO：Coordinator Agent 首次响应（建事故、拉群、初始证据）< 5 分钟，适用于所有 Severity；人类 Owner 的 `ack` 时限按第 5 节 Severity 矩阵执行。关键证据覆盖率 ≥ 90%；分派准确率 ≥ 95%；SEV-1/2 沟通间隔 ≤ 30 分钟；复盘完整度 = 100%；越权动作 = 0。
 
 | 失败 | 对策 |
 | --- | --- |

@@ -9,8 +9,25 @@ import "@fontsource/ibm-plex-mono/latin-400.css";
 import "@fontsource/ibm-plex-mono/latin-500.css";
 import "./custom.css";
 
+function enhanceTables() {
+  if (typeof document === "undefined") return;
+  const tables = document.querySelectorAll<HTMLTableElement>(".vp-doc table");
+  for (const table of tables) {
+    if (table.parentElement?.classList.contains("vp-doc__table-scroll")) continue;
+    const wrapper = document.createElement("div");
+    wrapper.className = "vp-doc__table-scroll";
+    wrapper.tabIndex = 0;
+    wrapper.setAttribute("role", "region");
+    const heading = table.querySelector("thead th")?.textContent?.trim();
+    wrapper.setAttribute("aria-label", heading ? `可横向滚动的表格：${heading}` : "可横向滚动的表格");
+    table.parentNode?.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  }
+}
+
 function enhanceScrollRegions() {
   if (typeof document === "undefined") return;
+  enhanceTables();
   const regions = document.querySelectorAll<HTMLElement>(
     ".mermaid, .vp-doc div[class*='language-']"
   );

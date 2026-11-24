@@ -130,8 +130,9 @@ node_filesystem_size_bytes{instance="10.42.7.19:9100",fstype=~"ext4|xfs"}
 # inode 可用比例
 node_filesystem_files_free{instance="10.42.7.19:9100",fstype=~"ext4|xfs"} /
 node_filesystem_files{instance="10.42.7.19:9100",fstype=~"ext4|xfs"}
-# cgroup PID 使用比例； exporter 必须先确认计量单位
-container_spec_memory_limit / container_memory_working_set_bytes
+# cgroup PID 使用比例；exporter 必须先确认 container_pids_current / container_pids_max 可用
+container_pids_current / container_pids_max
+# 若 exporter 不提供 PID 指标，记录 evidence_gap；不能用内存或进程总数代替容器 PID
 kube_pod_container_status_restarts_total{namespace="ops-test"}[5m]
 ```
 

@@ -125,7 +125,7 @@ content_status: "reviewed"
 | --- | --- | --- | --- | --- | --- |
 | FA-01 | 收缩为单集群、单 namespace 的 `CrashLoopBackOff` 只读诊断；补 non-goals、SLO、预算与 Backup | Agent Owner + K8s 领域专家 | Sponsor | 11-27 / 11-27 | `ADD v1.0.0` 获批；明确不做自动修复；[设计文档](../templates/agent-design-doc)字段完整 |
 | FA-02 | 撤销共享账号；建立独立 NHI、短时凭证、PEP、显式 deny、审批绑定与撤销传播 | 平台 + 安全 | 安全 Backup | 12-01 / 12-01 | 18/18 越权/过期/撤销/计划变更用例拒绝；写工具未挂载；[权限矩阵](../templates/permission-matrix) |
-| FA-03 | 重建 400 条 synthetic/脱敏 suite，按 golden/calibration/holdout 互斥划分，完成双人标注与 Judge 校准 | 评测 Owner | 独立质量评审 | 12-05 / 12-05 | 400 条去重通过；κ=0.86；安全/证据召回均 ≥0.98；[评测模板](../templates/eval-set)与 manifest 规则一致 |
+| FA-03 | 重建 400 条 synthetic/脱敏 suite（golden 40 / calibration 60 / holdout 300），另建与 suite 完全分离的 300 条 Judge 双标注校准集 | 评测 Owner | 独立质量评审 | 12-05 / 12-05 | suite 400 条去重通过；Judge 集 300/300；κ=0.86；安全/证据召回均 ≥0.98；[评测模板](../templates/eval-set)、manifest 与 `evals/judge-calibration.yaml` 规则一致 |
 | FA-04 | 统一 Canonical Event，补工具、审批、版本、成本、结果与 SHA-256 哈希链 | Agent 工程师 | 平台可观测性 Owner | 12-03 / 12-03 | 关键路径 Trace 100%；日验链无缺口；[Schema](../../schemas/agent-event.schema.json)与[11 章](../guide/11-agentops-observability) |
 | FA-05 | 准备只读降级、人工接管、kill switch 与恢复 LKG 的演练 | 值班 SRE + 平台 | 变更经理 | 12-07 / 12-07 | kill switch 38 秒；接管 12 分钟；回滚演练 RTO 12 分钟；[发布清单](../templates/release-checklist) |
 | FA-06 | 建立值班、缺席代理、升级与来源 `review_by` | Agent Owner | Maintainer | 12-08 / 12-08 | Primary/Backup 可解析；升级时限与证据齐全；[09 治理](../guide/09-organization-governance)与 [GOVERNANCE.md](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/GOVERNANCE.md) |
@@ -142,7 +142,7 @@ content_status: "reviewed"
 | 工具参数正确率 | ≥95% | 390/400，97.5% | Pass |
 | 证据引用准确率 | ≥95% | 384/400，96.0% | Pass |
 | 不安全/禁止/越权动作 | 0 | 0 / 0 / 0 | Pass |
-| Judge 校准 | 一致性 ≥90%，κ ≥0.80，安全/证据召回 ≥0.98 | 93.0%；κ=0.86；0.99 / 0.99 | Pass |
+| 独立 Judge 校准 | 300 条；与 suite 无共享 key/快照/答案键；一致性 ≥90%，κ ≥0.80，安全/证据召回 ≥0.98 | 300/300；93.0%；κ=0.86；0.99 / 0.99 | Pass |
 | Trace / 成本 | 关键路径 100%；平均成本 ≤0.50 USD/run | 100%；0.18 USD/run | Pass |
 | 权限负向测试 | 100% 拒绝 | 18/18 拒绝；拒绝原因与规则 ID 完整 | Pass |
 | 停止与恢复 | kill switch ≤60s；接管/回滚 RTO ≤15m | 38s；12m；12m | Pass |
@@ -194,7 +194,7 @@ flowchart TD
 | --- | --- | --- |
 | 第 1 周 | 只读诊断 `CrashLoopBackOff`，单 namespace | Charter、non-goals、Owner 明确 |
 | 第 2 周 | 证据包、工具契约、权限矩阵 | 只读工具可回放，审计字段完整 |
-| 第 3 周 | 400 条 synthetic/脱敏评测：golden 40 / calibration 60 / holdout 300，覆盖五类 | 去重、划分、快照、双人标注与 Judge 校准完成 |
+| 第 3 周 | 400 条 synthetic/脱敏 suite：golden 40 / calibration 60 / holdout 300；另建 300 条独立 Judge 校准集 | 去重、划分、快照、双人标注与 Judge 校准完成；两数据集无交叉 |
 | 第 4 周 | G3 复评与 Shadow 准入 | 指标/veto 全通过；只读权限负向测试 100% |
 | 第 5 周 | Shadow 与人工配对，持续累计观察窗 | 不压缩 500 Run/7 天要求；未达标就继续 Shadow |
 | 第 6 周 | 建议模式或 G4 评审，不承诺生产上线 | 不安全动作率为 0、可回滚；否则保持只读 |

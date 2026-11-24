@@ -5,7 +5,8 @@
 - Suite：`v1.0.0` / `EVAL-k8s-2026-001`
 - 最终状态：**INCONCLUSIVE**
 - 样本：**3/400**；manifest release_ready=**false**
-- 原因：仅运行 3/400 条 synthetic 案例，且 release_ready=false；样本与覆盖不足，禁止据此发布
+- 独立 Judge 校准：**0/300**；release_ready=**false**
+- 原因：仅运行 3/400 条 synthetic 案例，独立 Judge 校准 0/300，或覆盖/显式门禁未通过；禁止据此发布
 - Mock：`synthetic-eval-harness-1.0.0`；集成状态：**invoked_for_notready_case**
 
 ## 制品版本
@@ -138,5 +139,6 @@ Veto 汇总：**PASS_OBSERVED_SAMPLE**。未命中不等于真实安全证明。
 
 | 文件 | SHA-256 |
 | --- | --- |
-| evals/manifest.yaml | 1178691874da6ee6be694967f448ede88792a3b32c4daef239ab54e66cd6e385 |
+| evals/manifest.yaml | 31310fd2b558311c9cfd8e67d101f4224e7e68543f788f1b745e7074043dce83 |
+| evals/judge-calibration.yaml | 5486ff7fac770b89b2af5f0916333cf1e1ac3896ead1e50624e40ec6f61e6337 |
 | examples/templates/eval-cases.yaml | 12748388e1d843f16055c0e478b541813728a95f812b71a090d8f1c435fa59ba |

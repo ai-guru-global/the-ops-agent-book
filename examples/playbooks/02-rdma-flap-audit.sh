@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SYNTHETIC / 脱敏示例（PLAY-02）：单端口只读 flap/pause 采样。
+# SYNTHETIC / 脱敏示例（PLAY-02）：单端口只读 flap/pause 多窗口采样。
 # 不执行 perftest/NCCL，不隔离端口，不修改 QoS；主动施压必须另行审批。
 set -euo pipefail
 
@@ -7,6 +7,7 @@ readonly IFACE="${IFACE:-eth10}"
 readonly IB_DEVICE="${IB_DEVICE:-mlx5_0}"
 readonly IB_PORT="${IB_PORT:-1}"
 readonly SAMPLE_SECONDS="${SAMPLE_SECONDS:-60}"
+readonly WINDOWS="${WINDOWS:-5}"
 readonly PAUSE_DURATION_UNIT="${PAUSE_DURATION_UNIT:-unknown}"
 
 if [[ "${TEST_TARGET_CONFIRMED:-no}" != "yes" ]]; then
@@ -19,6 +20,10 @@ if [[ ! "$IFACE" =~ ^[a-zA-Z0-9_.:-]+$ || ! "$IB_DEVICE" =~ ^[a-zA-Z0-9_.:-]+$ |
 fi
 if [[ ! "$SAMPLE_SECONDS" =~ ^[0-9]+$ ]] || (( SAMPLE_SECONDS < 5 || SAMPLE_SECONDS > 300 )); then
   printf 'REFUSED: SAMPLE_SECONDS must be 5..300.\n' >&2
+  exit 2
+fi
+if [[ ! "$WINDOWS" =~ ^[0-9]+$ ]] || (( WINDOWS < 1 || WINDOWS > 20 )); then
+  printf 'REFUSED: WINDOWS must be 1..20.\n' >&2
   exit 2
 fi
 for tool in ethtool python3; do
@@ -35,8 +40,8 @@ ethtool_counter() {
   local name="$1"
   ethtool -S "$IFACE" 2>/dev/null | awk -v wanted="$name" '
     $1 == wanted { print $2; found=1; exit }
-    END { if (!found) exit 3 }
-  ' || true
+    END { if (!found) print "NA" }
+  '
 }
 
 ib_counter() {
@@ -56,24 +61,32 @@ snapshot() {
   printf 'symbol_error=%s\n' "$(ib_counter symbol_error)"
   printf 'port_rcv_errors=%s\n' "$(ib_counter port_rcv_errors)"
   printf 'rx_pause=%s\n' "$(ethtool_counter rx_pause)"
+  printf 'tx_pause=%s\n' "$(ethtool_counter tx_pause)"
   printf 'rx_pause_duration=%s\n' "$(ethtool_counter rx_pause_duration)"
   printf 'pause_duration_unit=%s\n' "$PAUSE_DURATION_UNIT"
+  for priority in {0..7}; do
+    printf 'rx_pause_prio%s=%s\n' "$priority" "$(ethtool_counter "rx_pause_prio$priority")"
+  done
+  # InfiniBand port counters do not expose VL breakdown here; switch telemetry is required.
+  printf 'vl_breakdown=NA\n'
 }
 
 printf 'data_classification: synthetic/脱敏\nmode: readonly\n'
-printf 'iface=%s ib_device=%s ib_port=%s sample_seconds=%s\n' \
-  "$IFACE" "$IB_DEVICE" "$IB_PORT" "$SAMPLE_SECONDS"
+printf 'iface=%s ib_device=%s ib_port=%s sample_seconds=%s windows=%s\n' \
+  "$IFACE" "$IB_DEVICE" "$IB_PORT" "$SAMPLE_SECONDS" "$WINDOWS"
 printf '# Counter names/units are driver-specific. NA is missing evidence, not zero.\n'
-snapshot > "$workdir/t0.txt"
-printf '# t0 snapshot\n'
-# Output is already synthetic/redacted; no credentials or customer data are queried.
-while IFS= read -r line; do printf '%s\n' "$line"; done < "$workdir/t0.txt"
-sleep "$SAMPLE_SECONDS"
-snapshot > "$workdir/t1.txt"
-printf '# t1 snapshot\n'
-while IFS= read -r line; do printf '%s\n' "$line"; done < "$workdir/t1.txt"
 
-python3 - "$workdir/t0.txt" "$workdir/t1.txt" <<'PY'
+for ((window = 1; window <= WINDOWS; window++)); do
+  snapshot > "$workdir/t0.txt"
+  sleep "$SAMPLE_SECONDS"
+  snapshot > "$workdir/t1.txt"
+
+  printf '# window=%s t0 snapshot\n' "$window"
+  while IFS= read -r line; do printf '%s\n' "$line"; done < "$workdir/t0.txt"
+  printf '# window=%s t1 snapshot\n' "$window"
+  while IFS= read -r line; do printf '%s\n' "$line"; done < "$workdir/t1.txt"
+
+  python3 - "$window" "$workdir/t0.txt" "$workdir/t1.txt" <<'PY'
 from __future__ import annotations
 
 import sys
@@ -89,30 +102,37 @@ def load(path: str) -> dict[str, str]:
     return values
 
 
-t0, t1 = map(load, sys.argv[1:])
+window, t0_path, t1_path = sys.argv[1:]
+t0, t1 = map(load, [t0_path, t1_path])
 dt = (int(t1["monotonic_ns"]) - int(t0["monotonic_ns"])) / 1_000_000_000
 print("# delta/rate report")
+print(f"window={window}")
 print(f"elapsed_seconds={dt:.6f}")
 print("metric,t0,t1,delta,rate_per_s,unit")
-metrics = (
+required = (
     ("link_downed", "events"),
     ("symbol_error", "events"),
     ("port_rcv_errors", "events"),
     ("rx_pause", "packets"),
     ("rx_pause_duration", t0.get("pause_duration_unit", "unknown")),
 )
+optional = (("tx_pause", "packets"),) + tuple(
+    (f"rx_pause_prio{priority}", "packets") for priority in range(8)
+)
 invalid = False
+missing: list[str] = []
 rates: dict[str, float] = {}
-for name, unit in metrics:
+for name, unit in required + optional:
     try:
         before, after = int(t0[name]), int(t1[name])
     except (KeyError, ValueError):
+        if name in dict(required):
+            missing.append(name)
         print(f"{name},{t0.get(name, 'NA')},{t1.get(name, 'NA')},NA,NA,{unit}")
         continue
     delta = after - before
     if delta < 0:
         invalid = True
-        rate = float("nan")
         print(f"{name},{before},{after},RESET,INVALID,{unit}")
     else:
         rate = delta / dt if dt > 0 else float("nan")
@@ -120,15 +140,26 @@ for name, unit in metrics:
         print(f"{name},{before},{after},{delta},{rate:.6f},{unit}")
 
 pause_ratio = None
-if t0.get("pause_duration_unit") == "ns" and not invalid and dt > 0:
+if t0.get("pause_duration_unit") == "ns" and not invalid and dt > 0 and "rx_pause_duration" in rates:
     try:
         pause_ratio = (int(t1["rx_pause_duration"]) - int(t0["rx_pause_duration"])) / (dt * 1_000_000_000)
     except (KeyError, ValueError):
         pause_ratio = None
-print(f"pause_time_ratio={pause_ratio if pause_ratio is not None else 'NA'}")
-print(f"counter_sample_valid={str(not invalid).lower()}")
-print(f"link_flap_observed={str(rates.get('link_downed', 0) > 0).lower()} (inspect full 5m decision window)")
-print(f"synthetic_pause_rate_trigger={str(rates.get('rx_pause', 0) > 1000).lower()}")
-print(f"synthetic_pause_ratio_trigger={str(pause_ratio is not None and pause_ratio > 0.05).lower()}")
+
+
+def tri(value: float | None) -> str:
+    return "NA" if value is None else str(value)
+
+
+print(f"pause_time_ratio={tri(pause_ratio)}")
+print(f"counter_sample_valid={str(not invalid and not missing).lower()}")
+print(f"evidence_gap={','.join(missing) if missing else 'none'}")
+print(f"tx_direction_evidence={tri(rates.get('tx_pause'))}")
+print(f"priority_breakdown_evidence={tri(sum(rates.get(f'rx_pause_prio{p}', 0) for p in range(8)))}")
+print(f"vl_breakdown_evidence={t0.get('vl_breakdown', 'NA')}")
+print(f"link_flap_observed={tri(None if 'link_downed' not in rates else rates['link_downed'] > 0)}")
+print(f"synthetic_pause_rate_trigger={tri(None if 'rx_pause' not in rates else rates['rx_pause'] > 1000)}")
+print(f"synthetic_pause_ratio_trigger={tri(None if pause_ratio is None else pause_ratio > 0.05)}")
 print("decision=manual_review_required; no_port_action_taken")
 PY
+done

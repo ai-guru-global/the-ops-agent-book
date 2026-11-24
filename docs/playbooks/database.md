@@ -94,7 +94,7 @@ MySQL 包：`examples/playbooks/04-mysql-readonly.sql`；PostgreSQL 包：`examp
 | P01 | PostgreSQL 实例/恢复状态 | version、current_db、`pg_is_in_recovery()` | 1 行 |
 | P02 | PostgreSQL 活动会话 | pid、state、wait_event、xact age、queryid、SQL 哈希 | 200 行；默认不输出 query/user |
 | P03 | PostgreSQL Top statements | queryid、calls、mean/max/total exec time、rows | 20 行；需 `pg_stat_statements` |
-| P04 | PostgreSQL 阻塞链 | blocker/waiters、wait event、xact age | 深度 ≤ 4、100 行，避免递归爆炸 |
+| P04 | PostgreSQL 阻塞链 | `waiter_root_pid` / `related_pid`（depth=0 为等待方，depth>0 为阻塞方）、wait event、xact age | 深度 ≤ 4、100 行，避免递归爆炸 |
 | P05 | PostgreSQL 主库复制 | state、sync_state、write/flush/replay lag、字节差 | 100 行；不输出 client_addr/application_name |
 | P06 | PostgreSQL 备库复制 | recovery、receive/replay LSN、replay timestamp、估算延迟 | 1 行；空值不得当作 0 |
 

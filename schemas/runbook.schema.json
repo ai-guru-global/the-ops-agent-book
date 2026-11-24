@@ -103,7 +103,7 @@
       "properties": {
         "source": {"type": "string", "minLength": 1},
         "suite_version": {"type": "string", "minLength": 1},
-        "sample_size": {"type": "integer", "minimum": 100},
+        "sample_size": {"type": "integer", "minimum": 60, "description": "Agent confidence/threshold calibration minimum for the synthetic starter. Independent Judge acceptance calibration is defined separately and requires at least 300 cases."},
         "method": {"type": "string", "minLength": 1},
         "threshold": {"type": "number", "minimum": 0, "maximum": 1},
         "calibration_evidence": {"type": "string", "minLength": 1},

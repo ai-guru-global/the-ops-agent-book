@@ -1,51 +1,52 @@
 # 改进执行状态
 
-更新时间：2026-11-25
-当前版本：v0.2.0-rc1
-执行清单：[improvement-backlog.csv](./improvement-backlog.csv)
+更新时间：2026-11-25当前版本：v0.2.0-rc1执行清单：[improvement-backlog.csv](./improvement-backlog.csv)复评与决策：[re-evaluation.md](./re-evaluation.md)
 
 ## 当前进度
 
 - 总任务：57
-- 已完成：55
-- 进行中：0
-- 未开始：2
+- 已完成：56
+- 进行中：1
+- 未开始：0
 
-P0、P1 与大部分 P2 已完成。剩余两项是真实用户阅读测试（PUB-04）和按同一量表复评 44 页并作出 v1.0-rc1 发布决策（PUB-05）。
+唯一未完成项是 PUB-04 真实用户阅读测试。测试协议已准备，但必须由 3–5 名真实 SRE/平台工程师执行；自动化检查、合成 reviewer 与参考实现测试不能替代。
 
-## 已通过的质量门禁
+## 复评与发布决策
 
-- `npm run docs:build`：通过。
-- `npm run validate:assets`：通过；35 张图、48 个来源、9 个正文快照、Schema/JSON/YAML/ROI/Trace 均通过。
-- `python3 scripts/check_internal_links.py`：0 断链。
-- `npm run check:mermaid`：35/35 张 Mermaid 在 25 个页面实际渲染为 SVG。
-- `npm run check:responsive`：25 个页面/尺寸组合通过，生成 A4 打印样本。
-- `npm run check:accessibility`：8 个页面/尺寸组合无 serious/critical WCAG 2.1 AA 问题。
-- `npm run test:reference`：17/17 通过。
-- `npm run eval:self-test`：14/14 通过，含 5 类负向控制与 synthetic 基线回归。
-- `npm run cost:demo`：18 个 derived、14 个敏感性数值全部对账。
-- `npm run check:all`：完整通过。
-- 远端 Book quality workflow：成功（run 45443164237）。
+- 原 44 页可比均分：3.52 → **4.10**。
+- 新增 4 页均分：**4.07**。
+- 现行 48 页均分：**4.10/5**；v1.0-rc1 目标为 4.36。
+- **v1.0-rc1 No-Go**，继续保留 v0.2.0-rc1。
+- 主要短板：厂商逐产品证据、图示覆盖、真实用户测试、400 条 suite 与独立 300 条 Judge 校准。
 
-## 已落地的核心资产
+## 本轮补齐
 
-1. **安全与语义**：审批前置于工具调用；不可变计划哈希、版本、有效期与重校验；drain/uncordon/清理/复位的部分成功、补偿与安全恢复；只读快路径与异常状态机。
-2. **图示**：35 张统一 IBM 风格 Mermaid 图，全部有编号和图注；新增 aria 关联、减少动态效果支持与图示规范。
-3. **来源与维护**：48 条来源注册、claim→source_id 回指、商业字段证据卡、9 个正文快照与 SHA-256、47 个内容页维护元数据。
-4. **指标与财务**：metric/agent-event Schema、SLO/评测/发布门禁、Judge 校准、ROI 全成本与敏感性/盈亏平衡。
-5. **可执行模板**：工具契约、权限策略、Runbook、评测 manifest、发布与复盘 YAML；对应 Schema 与示例。
-6. **参考实现**：纯 Node.js synthetic runtime，包含 PEP、审批、短时凭证、撤销、工具网关、Trace 哈希链、Shadow/Canary/Rollback。
-7. **评测与成本**：NotReady 案例集成 reference core；5 类故障注入负向控制；synthetic 基线与回归对比；可复算成本模型。
-8. **场景与案例**：五本手册均有端到端样例；NotReady 与失败 Agent 案例形成证据、整改、复评和再准入闭环。
-9. **出版**：全书 PDF 407 页、EPUB 48 章，均带图表与页码/目录；打印代码换行与重复表头已处理。
+1. **P1 实现修正**：K8s PID 指标、PostgreSQL 阻塞链语义、事故部分成功/未知结果、RDMA 五窗口采样、Runbook 幂等键、评测 Rubric 一致性。
+2. **校准门禁**：60 条 Agent confidence 校准与 300 条独立 Judge 验收校准分离；Judge starter 明确为 0/300，未完成不得 release-ready。
+3. **图示覆盖**：在 35 张图基础上补齐 8 张厂商页图和 7 张关键模板页图，总计 50 张；旧图号不重排。
+4. **维护与导出**：来源日期同步、维护注册表自登记、首页 PDF/EPUB 与复现入口；宽表增加键盘可访问滚动容器，打印时完整展开。
+5. **决策证据**：48 页 v2 评分、No-Go 报告、真实用户测试协议；本地 PDF 502 页、EPUB 48 章已重新生成并校验。
+
+## 质量门禁
+
+最终结果以本轮 `npm run check:all` 与远端 Book quality 为准。已覆盖：
+
+- VitePress 构建、Schema/JSON/YAML/资产校验、内部链接。
+- 50 张 Mermaid 实际渲染、编号、图注与图状文本残留检查。
+- 320/390/768/1024/1440 与 A4 打印、WCAG 2.1 AA。
+- 参考实现 17/17、eval self-test 14/14、5 类负向控制与 synthetic 基线回归。
+- 成本模型 18 个 derived 与 14 个敏感性数值对账。
+- Shell/Python 语法、Runbook Schema、Trace 哈希链、来源快照 SHA-256。
 
 ## 剩余工作
 
-| 任务 | 状态 | 说明 |
+| 任务 | 状态 | 关闭条件 |
 | --- | --- | --- |
-| PUB-04 | planned | 需要邀请真实 SRE/平台工程师完成定位、理解、复用三类任务；自动化检查不能替代真实用户测试 |
-| PUB-05 | planned | 按同一七维度量表复评 44 页，形成 v1.0-rc1 Go/No-Go 决策 |
+| PUB-04 真实用户阅读测试 | in_progress | 3–5 名真实 SRE/平台工程师完成定位、理解、复用与窄屏/打印任务；critical/serious 问题关闭并留下脱敏结果 |
+| 400 条 suite | open | 达到 golden 40 / calibration 60 / holdout 300 与分类覆盖，真实运行证据可复核 |
+| 独立 Judge 校准 | open | 300/300 双标注与裁决，一致性、κ、安全/证据召回达标并签署 |
+| 厂商采购证据 | open | 关键商业字段有逐产品来源与快照；未核实项不得支持采购结论 |
 
 ## 发布状态
 
-代码与文档已提交并推送：`c435fd8`。远端 Book quality 全部通过。GitHub Pages 尚未重新部署，等待 PUB-05 的发布决策；PDF/EPUB 已生成在本地 `dist-pdf/` 与 `dist-epub/`。
+代码、文档、合成资产与报告可发布为 v0.2.0-rc1。PDF/EPUB 为本地生成产物，不是 GitHub Pages 发布资产。真实用户测试与生产/采购证据未完成前，不声明 v1.0-rc1 或生产就绪。

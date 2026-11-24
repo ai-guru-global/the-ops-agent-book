@@ -80,11 +80,12 @@ input_schemas:
   gitops.commit:
     type: object
     additionalProperties: false
-    required: [repo, patch_ref, approval_id, reason]
+    required: [repo, patch_ref, approval_id, idempotency_key, reason]
     properties:
       repo: {type: string, minLength: 1}
       patch_ref: {type: string, minLength: 1}
       approval_id: {type: string, minLength: 1}
+      idempotency_key: {type: string, minLength: 8}
       reason: {type: string, minLength: 1}
   k8s.rollout_status:
     type: object
@@ -105,11 +106,12 @@ input_schemas:
   gitops.revert:
     type: object
     additionalProperties: false
-    required: [repo, commit_sha, approval_id, reason]
+    required: [repo, commit_sha, approval_id, idempotency_key, reason]
     properties:
       repo: {type: string, minLength: 1}
       commit_sha: {type: string, minLength: 40}
       approval_id: {type: string, minLength: 1}
+      idempotency_key: {type: string, minLength: 8}
       reason: {type: string, minLength: 1}
   gitops.diff:
     type: object
@@ -122,7 +124,7 @@ input_schemas:
 confidence_calibration:
   source: EVAL-k8s-2026-001 calibration partition
   suite_version: v1.0.0
-  sample_size: 600
+  sample_size: 60
   method: temperature_scaling_with_stratified_reliability_bins
   threshold: 0.8
   calibration_evidence: "eval://EVAL-k8s-2026-001/v1.0.0/calibration-report"
@@ -294,7 +296,7 @@ steps:
     tool: gitops.commit
     tool_version: 1.4.0
     input_schema_ref: gitops.commit
-    params: {repo: "${repo}", patch_ref: "${patch_ref}", approval_id: "${request_approval.output.approvalId}", reason: "${reason}"}
+    params: {repo: "${repo}", patch_ref: "${patch_ref}", approval_id: "${request_approval.output.approvalId}", idempotency_key: "${run_id}:commit_patch:${patch_ref}", reason: "${reason}"}
     timeout_seconds: 60
     dry_run: true
     approval:
@@ -379,7 +381,7 @@ rollback:
       tool: gitops.revert
       tool_version: 1.4.0
       input_schema_ref: gitops.revert
-      params: {repo: "${repo}", commit_sha: "${commit_patch.output.commitSha}", approval_id: "${request_approval.output.approvalId}", reason: "Runbook verification failed"}
+      params: {repo: "${repo}", commit_sha: "${commit_patch.output.commitSha}", approval_id: "${request_approval.output.approvalId}", idempotency_key: "${run_id}:revert_patch:${commit_patch.output.commitSha}", reason: "Runbook verification failed"}
       timeout_seconds: 60
       assertions:
         success:
