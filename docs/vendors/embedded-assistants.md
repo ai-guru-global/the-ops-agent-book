@@ -189,6 +189,6 @@ flowchart TB
 
 ## 来源与核实
 
-最后核实：**2026-11-24**；复核截止：**2027-02-22**。场景建议不是厂商能力证据；产品能力必须回指 `source_id`。完整清单见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。
+最后核实：**2026-11-25**；复核截止：**2027-02-22**。场景建议不是厂商能力证据；产品能力必须回指 `source_id`。完整清单见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。
 
 下一篇：[垂直行业运维 Agent](./vertical-ops)
