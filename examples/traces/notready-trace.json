@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "event_id": "evt_tool_20261124_0007",
+  "event_type": "tool.requested",
+  "event_time": "2026-11-24T14:45:07Z",
+  "tenant_id": "tenant_synthetic_payments",
+  "session_id": "ses_7f2c",
+  "trace_id": "tr_91ab",
+  "run_id": "run_42d1",
+  "sequence": 7,
+  "span_id": "span_tool_3",
+  "parent_event_id": "evt_model_20261124_0006",
+  "causation_event_id": "evt_approval_20261124_0005",
+  "actor": {
+    "type": "agent",
+    "id": "agent-k8s-remediation-synthetic",
+    "delegated_from": null
+  },
+  "subject": {
+    "resource_type": "deployment",
+    "resource_id": "payments-api-synthetic",
+    "environment": "production",
+    "action_class": "write",
+    "risk_level": "high"
+  },
+  "versions": {
+    "agent_version": "4.2.0",
+    "deployment_version": "deploy-2026-11-24.3",
+    "prompt_version": "prompt-18",
+    "model_version": "model-pinned-20261101",
+    "tool_contract_version": "k8s.restart/2.3.0",
+    "knowledge_version": "kb-31",
+    "policy_version": "policy-12",
+    "eval_set_version": "eval-2026.11"
+  },
+  "payload": {
+    "tool_id": "k8s.restart",
+    "tool_name": "restart_deployment",
+    "contract_version": "2.3.0",
+    "input_schema_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "output_schema_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "idempotency_key": "run_42d1:restart:1",
+    "arguments_redacted": {
+      "namespace": "payments",
+      "deployment": "payments-api-synthetic",
+      "reason_code": "verified_oom"
+    },
+    "dry_run": false,
+    "write_operation": true
+  },
+  "privacy": {
+    "classification": "restricted",
+    "contains_personal_data": false,
+    "pii_fields_detected": [],
+    "redaction": {
+      "status": "applied",
+      "method": "allowlist",
+      "fields": [
+        "payload.arguments_redacted"
+      ]
+    },
+    "retention": {
+      "class": "audit_1y",
+      "days": 365
+    },
+    "reasoning_policy": "not_applicable"
+  },
+  "sampling": {
+    "decision": "keep",
+    "rate": 1,
+    "reason": "synthetic production write and approval audit event"
+  },
+  "integrity": {
+    "hash_algorithm": "sha256",
+    "event_hash": "b8c61c5189fec78ca73c8156f84f36b7ddbe6ac328039a3431846c2f668afe26",
+    "prev_event_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  }
+}

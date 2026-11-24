@@ -1,0 +1,219 @@
+{
+  "synthetic": true,
+  "demonstration_only": true,
+  "disclaimer": "Synthetic financial demonstration, not a vendor quote, invoice, realized saving, or procurement approval.",
+  "source": {
+    "path": "examples/cost/roi-example.json",
+    "sha256": "98bbb33e2fa3f49173a93724ac7ffab200b00d7afcb43f3207bb7e75f5cdff0b"
+  },
+  "example_id": "ops-agent-event-triage-v1",
+  "currency": "USD",
+  "period": "year",
+  "input_status": "synthetic demonstration, not a vendor claim",
+  "volume_events_per_year": 600,
+  "inputs": {
+    "unit_inputs": {
+      "model": {
+        "input_tokens_per_event": 20000,
+        "input_usd_per_million_tokens": 0.5,
+        "output_tokens_per_event": 4000,
+        "output_usd_per_million_tokens": 2
+      },
+      "tool_observability_sandbox_egress_usd_per_event": 0.1,
+      "human_review": {
+        "review_rate": 0.25,
+        "minutes_per_reviewed_event": 10,
+        "loaded_usd_per_hour": 80
+      },
+      "risk_reserve": {
+        "incident_probability_per_event": 0.05,
+        "expected_loss_usd_per_incident": 40
+      },
+      "fixed_costs_usd_per_year": {
+        "platform_and_license": 12000,
+        "operations_evaluation_and_security": 6000,
+        "implementation_migration_and_ramp_amortized_first_year": 10000
+      }
+    },
+    "value_inputs": {
+      "manual_baseline": {
+        "hours_per_event": 1,
+        "loaded_usd_per_hour": 80
+      },
+      "agent": {
+        "verified_resolution_rate": 0.8,
+        "hours_avoided_per_resolved_event": 1
+      },
+      "mttr_and_incident_benefits_usd_per_year": 0,
+      "toil_benefit_usd_per_year": 0
+    }
+  },
+  "formula_contract": {
+    "model_per_event": "(input_tokens × input_price + output_tokens × output_price) / 1,000,000",
+    "review_per_event": "review_rate × minutes / 60 × loaded_hourly",
+    "risk_per_event": "incident_probability × expected_loss",
+    "annual_cost": "events × (model + tools + review + risk) + fixed",
+    "recovered_capacity": "events × verified_resolution_rate × hours_avoided × manual_loaded_hourly",
+    "roi": "(capacity + non-overlapping other benefits − annual_cost) / annual_cost",
+    "residual_manual": "events × (1 − verified_resolution_rate) × manual_hours × manual_loaded_hourly",
+    "break_even_resolution": "(annual_cost − other_annual_benefits) / (events × hours_avoided × manual_loaded_hourly)",
+    "break_even_hourly": "(fixed + events × non_review_variable − other_annual_benefits) / (events × (resolution_rate × hours_avoided − review_rate × review_minutes / 60))",
+    "break_even_review_minutes": "(events × resolution_rate × hours_avoided × review_loaded_hourly + other_annual_benefits − fixed − events × non_review_variable) × 60 / (events × review_rate × review_loaded_hourly)",
+    "break_even_events": "(fixed − other_annual_benefits) / (resolution_rate × hours_avoided × manual_loaded_hourly − variable_per_event)"
+  },
+  "derived": {
+    "model_cost_usd_per_event": 0.018,
+    "tool_observability_sandbox_egress_usd_per_event": 0.1,
+    "human_review_cost_usd_per_event": 3.3333333333,
+    "risk_reserve_usd_per_event": 2,
+    "variable_cost_usd_per_event": 5.4513333333,
+    "annual_variable_cost_usd": 3270.8,
+    "annual_fixed_cost_usd": 28000,
+    "annual_agent_cost_usd": 31270.8,
+    "resolved_events_per_year": 480,
+    "unresolved_events_per_year": 120,
+    "annual_recovered_capacity_value_usd": 38400,
+    "annual_other_benefits_usd": 0,
+    "annual_gross_benefits_usd": 38400,
+    "annual_net_benefit_usd": 7129.2,
+    "roi_fraction": 0.2279826547,
+    "all_in_cost_usd_per_event": 52.118,
+    "all_in_cost_usd_per_successful_event": 65.1475,
+    "manual_baseline_cost_usd_per_year": 48000,
+    "residual_manual_cost_for_unresolved_events_usd_per_year": 9600,
+    "agent_plus_residual_manual_cost_usd_per_year": 40870.8,
+    "baseline_minus_agent_plus_residual_usd_per_year": 7129.2,
+    "break_even_resolution_rate": 0.651475,
+    "break_even_loaded_usd_per_hour": 64.3314285714,
+    "break_even_review_minutes": 45.646,
+    "break_even_events_per_year": 478.2346310192,
+    "payback_months_first_year_implementation": 16.8321831342
+  },
+  "annual_cost_breakdown": {
+    "model": 10.8,
+    "tool_observability_sandbox_egress": 60,
+    "human_review": 2000,
+    "risk_reserve": 1200,
+    "fixed": 28000,
+    "fixed_detail": {
+      "platform_and_license": 12000,
+      "operations_evaluation_and_security": 6000,
+      "implementation_migration_and_ramp_amortized_first_year": 10000
+    },
+    "total": 31270.8
+  },
+  "benefit_breakdown": {
+    "recovered_capacity": 38400,
+    "mttr_and_incident": 0,
+    "toil": 0,
+    "total": 38400,
+    "accounting_basis": "Capacity value is not automatically cash savings; do not double-count the same hours as toil or MTTR labor benefit."
+  },
+  "sensitivity": [
+    {
+      "case": "resolution_rate_60pct",
+      "overrides": {
+        "resolution_rate": 0.6
+      },
+      "annual_cost_usd": 31270.8,
+      "annual_benefits_usd": 28800,
+      "annual_net_benefit_usd": -2470.8,
+      "roi_fraction": -0.0790130089,
+      "all_in_cost_usd_per_successful_event": 86.8633333333,
+      "residual_manual_cost_usd_per_year": 19200,
+      "baseline_minus_agent_plus_residual_usd_per_year": -2470.8
+    },
+    {
+      "case": "resolution_rate_80pct_base",
+      "overrides": {
+        "resolution_rate": 0.8
+      },
+      "annual_cost_usd": 31270.8,
+      "annual_benefits_usd": 38400,
+      "annual_net_benefit_usd": 7129.2,
+      "roi_fraction": 0.2279826547,
+      "all_in_cost_usd_per_successful_event": 65.1475,
+      "residual_manual_cost_usd_per_year": 9600,
+      "baseline_minus_agent_plus_residual_usd_per_year": 7129.2
+    },
+    {
+      "case": "resolution_rate_90pct",
+      "overrides": {
+        "resolution_rate": 0.9
+      },
+      "annual_cost_usd": 31270.8,
+      "annual_benefits_usd": 43200,
+      "annual_net_benefit_usd": 11929.2,
+      "roi_fraction": 0.3814804866,
+      "all_in_cost_usd_per_successful_event": 57.9088888889,
+      "residual_manual_cost_usd_per_year": 4800,
+      "baseline_minus_agent_plus_residual_usd_per_year": 11929.2
+    },
+    {
+      "case": "review_minutes_5",
+      "overrides": {
+        "review_minutes": 5
+      },
+      "annual_cost_usd": 30270.8,
+      "annual_benefits_usd": 38400,
+      "annual_net_benefit_usd": 8129.2,
+      "roi_fraction": 0.268549229,
+      "all_in_cost_usd_per_successful_event": 63.0641666667,
+      "residual_manual_cost_usd_per_year": 9600,
+      "baseline_minus_agent_plus_residual_usd_per_year": 8129.2
+    },
+    {
+      "case": "review_minutes_20",
+      "overrides": {
+        "review_minutes": 20
+      },
+      "annual_cost_usd": 33270.8,
+      "annual_benefits_usd": 38400,
+      "annual_net_benefit_usd": 5129.2,
+      "roi_fraction": 0.1541652139,
+      "all_in_cost_usd_per_successful_event": 69.3141666667,
+      "residual_manual_cost_usd_per_year": 9600,
+      "baseline_minus_agent_plus_residual_usd_per_year": 5129.2
+    },
+    {
+      "case": "loaded_hourly_usd_60",
+      "overrides": {
+        "loaded_hourly_usd": 60
+      },
+      "annual_cost_usd": 30770.8,
+      "annual_benefits_usd": 28800,
+      "annual_net_benefit_usd": -1970.8,
+      "roi_fraction": -0.0640477336,
+      "all_in_cost_usd_per_successful_event": 64.1058333333,
+      "residual_manual_cost_usd_per_year": 7200,
+      "baseline_minus_agent_plus_residual_usd_per_year": -1970.8
+    },
+    {
+      "case": "loaded_hourly_usd_100",
+      "overrides": {
+        "loaded_hourly_usd": 100
+      },
+      "annual_cost_usd": 31770.8,
+      "annual_benefits_usd": 48000,
+      "annual_net_benefit_usd": 16229.2,
+      "roi_fraction": 0.5108212573,
+      "all_in_cost_usd_per_successful_event": 66.1891666667,
+      "residual_manual_cost_usd_per_year": 12000,
+      "baseline_minus_agent_plus_residual_usd_per_year": 16229.2
+    }
+  ],
+  "reconciliation": {
+    "derived_fields_checked": 18,
+    "sensitivity_fields_checked": 14,
+    "all_match": true,
+    "mismatches": []
+  },
+  "limitations": [
+    "All inputs are synthetic; no vendor billing or production telemetry was used.",
+    "Recovered capacity is not cash unless staffing, overtime, or avoided spend is actually realized.",
+    "The same labor hour must not be counted again as toil or MTTR benefit.",
+    "Risk reserve is charged once on the cost side; do not deduct the same expected loss again from benefits.",
+    "Fixed costs are already annual values; implementation/migration/ramp is amortized in year one.",
+    "Sensitivity changes one assumption at a time; loaded_hourly_usd changes both review and manual-baseline hourly rates."
+  ]
+}

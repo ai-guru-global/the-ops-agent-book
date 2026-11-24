@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-ops-agent-book.example/schemas/permission-policy.schema.json",
+  "title": "Ops Agent Permission Policy",
+  "description": "运维 Agent 权限策略；显式 deny 优先，写操作审批绑定不可变计划并支持撤销传播。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "version", "owner", "description", "decision_order", "principals", "tools", "rules", "break_glass", "revocation", "audit"],
+  "properties": {
+    "$schema": { "const": "https://json-schema.org/draft/2020-12/schema" },
+    "data_classification": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$" },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team", "contact"],
+      "properties": {
+        "team": { "type": "string", "minLength": 1 },
+        "contact": { "type": "string", "minLength": 3 }
+      }
+    },
+    "description": { "type": "string", "minLength": 10 },
+    "decision_order": {
+      "const": [
+        "identity_and_delegation_valid",
+        "explicit_deny",
+        "credential_and_revocation",
+        "tool_contract_allowlist",
+        "role_environment_resource_scope",
+        "window_freeze_blast_radius",
+        "approval_plan_binding",
+        "preconditions",
+        "revalidate_before_write",
+        "allow_invocation"
+      ]
+    },
+    "principals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "roles", "delegation"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "type": { "enum": ["human", "agent", "service"] },
+          "roles": { "$ref": "#/$defs/nonEmptyStrings" },
+          "delegation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["non_transferable", "max_depth", "requires_active_delegator"],
+            "properties": {
+              "non_transferable": { "const": true },
+              "max_depth": { "type": "integer", "minimum": 0 },
+              "requires_active_delegator": { "const": true }
+            }
+          }
+        }
+      }
+    },
+    "tools": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "contract", "contract_version", "effect"],
+        "properties": {
+          "name": { "$ref": "#/$defs/toolName" },
+          "contract": { "type": "string", "minLength": 1 },
+          "contract_version": { "$ref": "#/$defs/semver" },
+          "effect": { "enum": ["read", "write"] }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/rule" }
+    },
+    "break_glass": { "$ref": "#/$defs/breakGlass" },
+    "revocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_stream", "max_propagation_seconds", "check_before_every_write", "on_revoked"],
+      "properties": {
+        "event_stream": { "type": "string", "minLength": 1 },
+        "max_propagation_seconds": { "type": "integer", "minimum": 0, "maximum": 60 },
+        "check_before_every_write": { "const": true },
+        "on_revoked": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["waiting_task", "inflight_request", "credential_ttl_seconds"],
+          "properties": {
+            "waiting_task": { "const": "reject_immediately" },
+            "inflight_request": { "const": "record_and_reconcile" },
+            "credential_ttl_seconds": { "type": "integer", "minimum": 60, "maximum": 3600 }
+          }
+        }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["append_only", "record_rule_id", "record_deny_reason", "fields"],
+      "properties": {
+        "append_only": { "const": true },
+        "record_rule_id": { "const": true },
+        "record_deny_reason": { "const": true },
+        "fields": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    }
+  },
+  "$defs": {
+    "toolName": { "type": "string", "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$" },
+    "semver": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$" },
+    "nonEmptyStrings": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "stringList": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "change_window", "binding_required", "revalidate_before_execute"],
+      "properties": {
+        "type": { "enum": ["none", "single", "dual", "cab"] },
+        "change_window": { "enum": ["required", "optional", "never"] },
+        "binding_required": { "type": "boolean" },
+        "revalidate_before_execute": { "const": true }
+      }
+    },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "selector"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "selector": { "type": "string", "minLength": 1 }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "priority", "effect", "principals", "roles", "tools", "actions", "environments", "resources", "max_blast_radius", "approval", "conditions"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+        "priority": { "type": "integer", "minimum": 0 },
+        "effect": { "enum": ["allow", "deny"] },
+        "principals": { "$ref": "#/$defs/stringList" },
+        "roles": { "$ref": "#/$defs/stringList" },
+        "tools": { "$ref": "#/$defs/stringList" },
+        "actions": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["read", "write", "*"] } },
+        "environments": { "$ref": "#/$defs/stringList" },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "const": "*" },
+              { "$ref": "#/$defs/resource" }
+            ]
+          }
+        },
+        "max_blast_radius": { "type": "integer", "minimum": 0 },
+        "approval": { "$ref": "#/$defs/approval" },
+        "conditions": { "type": "object", "additionalProperties": true }
+      },
+      "allOf": [
+        {
+          "if": { "type": "object", "properties": { "effect": { "const": "allow" }, "actions": { "type": "array", "contains": { "const": "write" } } }, "required": ["effect", "actions"] },
+          "then": {
+            "properties": {
+              "approval": {
+                "type": "object",
+                "properties": {
+                  "type": { "enum": ["single", "dual", "cab"] },
+                  "binding_required": { "const": true }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": { "type": "object", "properties": { "effect": { "const": "deny" } }, "required": ["effect"] },
+          "then": { "properties": { "priority": { "type": "number", "maximum": 99 } } }
+        },
+        {
+          "if": { "type": "object", "properties": { "effect": { "const": "allow" } }, "required": ["effect"] },
+          "then": { "properties": { "priority": { "type": "number", "minimum": 100 } } }
+        }
+      ]
+    },
+    "breakGlass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "incident_id_required", "requires_dual_approval", "max_duration_minutes", "can_override_explicit_deny", "approval_binding_required", "resource_scope_required", "allowed_tools", "auto_revoke_on", "review_within_hours"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "incident_id_required": { "const": true },
+        "requires_dual_approval": { "const": true },
+        "max_duration_minutes": { "type": "integer", "minimum": 1, "maximum": 60 },
+        "can_override_explicit_deny": { "const": false },
+        "approval_binding_required": { "const": true },
+        "resource_scope_required": { "const": true },
+        "allowed_tools": { "$ref": "#/$defs/stringList" },
+        "auto_revoke_on": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "allOf": [
+            { "contains": { "const": "incident_closed" } },
+            { "contains": { "const": "expiry" } }
+          ],
+          "items": { "enum": ["incident_closed", "expiry", "manual"] }
+        },
+        "review_within_hours": { "type": "integer", "minimum": 1, "maximum": 72 }
+      }
+    }
+  }
+}

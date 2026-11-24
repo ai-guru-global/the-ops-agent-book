@@ -1,0 +1,42 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/guide/05-tools-permissions",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "route": "/guide/05-tools-permissions",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/playbooks/k8s",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "route": "/playbooks/k8s",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/vendors/observability-aiops",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "route": "/vendors/observability-aiops",
+    "width": 390,
+    "violations": []
+  }
+]

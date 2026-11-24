@@ -1,0 +1,66 @@
+name: Book quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    env:
+      CHROME_BIN: google-chrome
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build VitePress
+        run: npm run docs:build
+
+      - name: Validate schemas, sources, metrics and diagrams
+        run: npm run validate:assets
+
+      - name: Check internal links
+        run: python3 scripts/check_internal_links.py
+
+      - name: Render all Mermaid diagrams
+        run: npm run check:mermaid
+
+      - name: Check responsive layouts and print sample
+        run: npm run check:responsive
+
+      - name: Run accessibility audit
+        run: npm run check:accessibility
+
+      - name: Test reference agent
+        run: npm run test:reference
+
+      - name: Run evaluation harness self-test
+        run: npm run eval:self-test
+
+      - name: Reconcile synthetic cost model
+        run: npm run cost:demo
+
+      - name: Check example scripts
+        run: |
+          bash -n examples/playbooks/*.sh
+          python3 -m py_compile examples/playbooks/*.py

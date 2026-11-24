@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "data_classification": "synthetic/desensitized",
+  "name": "k8s.drain_node",
+  "version": "1.1.0",
+  "owner": {
+    "team": "synthetic-platform-runtime",
+    "contact": "platform-oncall@example.invalid",
+    "runbook": "https://runbook.example.invalid/synthetic/notready"
+  },
+  "description": "PDB 与审批通过后 cordon 并 drain 单节点；不强制忽略 PDB，不删除 Pod；Pod 迁移不可自动撤销。",
+  "side_effects": true,
+  "idempotent": true,
+  "dry_run": true,
+  "reversible": false,
+  "scope": {
+    "resource_types": ["node"],
+    "environments": ["prod"],
+    "max_blast_radius": 1,
+    "required_labels": ["managed-by=platform"]
+  },
+  "permissions": {
+    "role": "synthetic-senior-operator",
+    "approval": "dual",
+    "change_window": "required",
+    "break_glass": false
+  },
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["cluster", "node", "reason", "idempotency_key", "expected_resource_version"],
+    "properties": {
+      "cluster": { "type": "string", "minLength": 1 },
+      "node": { "type": "string", "minLength": 1 },
+      "reason": { "type": "string", "minLength": 1 },
+      "idempotency_key": { "type": "string", "minLength": 8 },
+      "expected_resource_version": { "type": "string", "minLength": 1 },
+      "ignore_daemonsets": { "type": "boolean", "default": true }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["status", "partial_success", "steps", "error"],
+    "properties": {
+      "status": { "enum": ["succeeded", "failed", "unknown"] },
+      "partial_success": { "type": "boolean" },
+      "steps": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["step_id", "status"],
+          "properties": {
+            "step_id": { "type": "string", "minLength": 1 },
+            "status": { "enum": ["succeeded", "failed", "skipped", "unknown"] },
+            "resource_version": { "type": "string" },
+            "error_code": { "type": "string" }
+          }
+        }
+      },
+      "evicted_pods": { "type": "integer", "minimum": 0 },
+      "pdb_violations": { "type": "integer", "minimum": 0 },
+      "cordoned": { "type": "boolean" },
+      "error": {
+        "type": ["object", "null"],
+        "required": ["code", "category", "retryable", "outcome_known"],
+        "properties": {
+          "code": { "type": "string", "minLength": 1 },
+          "category": {
+            "enum": ["validation", "auth", "conflict", "pdb_blocked", "not_found", "throttled", "transient", "unknown_outcome", "policy_denied", "unknown"]
+          },
+          "retryable": { "type": "boolean" },
+          "outcome_known": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "execution": {
+    "timeout_seconds": 900,
+    "rate_limit": "2/hour",
+    "concurrency_limit": 1,
+    "retry": {
+      "max_attempts": 1,
+      "backoff": "none",
+      "retry_on": [],
+      "respect_retry_after": true,
+      "jitter": true
+    },
+    "idempotency": {
+      "required": true,
+      "key_source": "run_id+plan_version+step_id+target_resource_version",
+      "scope": "run_plan_step_target",
+      "retention_minutes": 1440
+    },
+    "error_taxonomy": {
+      "unknown_default": "stop_and_reconcile",
+      "classes": [
+        {
+          "code": "validation",
+          "category": "validation",
+          "retryable": false,
+          "outcome_known": true,
+          "meaning": "参数、范围或节点状态非法",
+          "agent_action": "reject"
+        },
+        {
+          "code": "pdb_blocked",
+          "category": "pdb_blocked",
+          "retryable": false,
+          "outcome_known": true,
+          "meaning": "drain 会破坏 PDB；不得强制忽略",
+          "agent_action": "stop"
+        },
+        {
+          "code": "conflict",
+          "category": "conflict",
+          "retryable": false,
+          "outcome_known": true,
+          "meaning": "目标资源版本变化或存在变更锁",
+          "agent_action": "reconcile_and_replan"
+        },
+        {
+          "code": "unknown_outcome",
+          "category": "unknown_outcome",
+          "retryable": false,
+          "outcome_known": false,
+          "meaning": "请求已发出但结果未知；先对账再决定",
+          "agent_action": "reconcile_then_escalate"
+        }
+      ]
+    }
+  },
+  "approval_binding": {
+    "required": true,
+    "fields": ["plan_version", "plan_hash", "target_resource_versions", "expires_at"],
+    "plan_hash_algorithm": "sha256",
+    "plan_version_required": true,
+    "target_resource_version_required": true,
+    "expires_at_required": true,
+    "revalidate_before_execute": true,
+    "invalidate_on_plan_change": true
+  },
+  "preconditions": [
+    "node_exists",
+    "node_not_ready",
+    "pdb_check_passed",
+    "capacity_available",
+    "no_active_change_in_scope"
+  ],
+  "rollback": null,
+  "recovery": {
+    "mode": "compensate",
+    "steps": [
+      "k8s.uncordon_node",
+      "k8s.verify_node_ready",
+      "k8s.verify_pdb",
+      "slo.query"
+    ],
+    "safe_conditions": [
+      "node_ready",
+      "capacity_available",
+      "pdb_satisfied",
+      "approval_valid",
+      "target_version_matches"
+    ],
+    "stop_conditions": [
+      "pdb_violation",
+      "capacity_below_threshold",
+      "approval_revoked",
+      "resource_version_changed",
+      "slo_regression"
+    ],
+    "notes": "uncordon 仅解除 Unschedulable，不是完整回滚；Pod 迁移由控制器重建，已删日志不可恢复。"
+  },
+  "security": {
+    "credentials": "short_lived",
+    "secret_handling": "never_log",
+    "input_validation": "strict",
+    "injection_protection": true
+  },
+  "audit": {
+    "fields": [
+      "caller",
+      "on_behalf_of",
+      "agent_run_id",
+      "approval_id",
+      "plan_version",
+      "plan_hash",
+      "target_resource_version",
+      "idempotency_key",
+      "outcome"
+    ],
+    "retention_days": 365,
+    "immutable": true
+  },
+  "observability": {
+    "trace": true,
+    "metrics": ["latency", "error_rate", "calls", "partial_success"],
+    "log_fields": ["input_hash", "output_hash", "approval_id"]
+  }
+}

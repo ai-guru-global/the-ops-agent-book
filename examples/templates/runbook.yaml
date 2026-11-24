@@ -1,0 +1,455 @@
+# Synthetic example; replace hosts, identities and evidence URIs before production use.
+artifact_id: RB-k8s-2026-001
+version: 3.0.0
+owner:
+  team: payments-sre
+  backup: platform-oncall
+status: approved
+updated_at: "2026-11-24T00:00:00Z"
+review_by: "2027-02-01"
+related_artifacts:
+  - id: ADD-k8s-2026-001
+    version: v1.2.0
+  - id: PMX-k8s-2026-001
+    version: v2.0.0
+  - id: TC-gitops-2026-001
+    version: v1.1.0
+  - id: EVAL-k8s-2026-001
+    version: v1.0.0
+environments: [staging, prod]
+variables:
+  cluster: {type: string, description: Registered cluster ID}
+  namespace: {type: string, description: Allowlisted Kubernetes namespace}
+  pod: {type: string, description: Exact Pod name; never a wildcard}
+  service: {type: string, description: Service ID in the observability backend}
+  deployment: {type: string, description: Deployment name in namespace}
+  repo: {type: string, description: Approved GitOps repository ID}
+  patch_ref: {type: string, description: Immutable reviewed patch object ID}
+  change_ticket: {type: string, description: Approved change record ID}
+  approval_id: {type: string, description: Single-use approval ID bound to patch hash}
+  reason: {type: string, description: Human-readable audit reason; no secrets}
+  base_revision: {type: string, description: Git SHA captured before the run}
+input_schemas:
+  k8s.get_pod:
+    type: object
+    additionalProperties: false
+    required: [cluster, namespace, name]
+    properties:
+      cluster: {type: string, minLength: 1}
+      namespace: {type: string, minLength: 1}
+      name: {type: string, minLength: 1}
+  k8s.get_events:
+    type: object
+    additionalProperties: false
+    required: [cluster, namespace, involved_object]
+    properties:
+      cluster: {type: string, minLength: 1}
+      namespace: {type: string, minLength: 1}
+      involved_object: {type: string, minLength: 1}
+  logs.query:
+    type: object
+    additionalProperties: false
+    required: [cluster, service, since]
+    properties:
+      cluster: {type: string, minLength: 1}
+      service: {type: string, minLength: 1}
+      since: {type: string, minLength: 1}
+  k8s.get_deployment:
+    type: object
+    additionalProperties: false
+    required: [cluster, namespace, name]
+    properties:
+      cluster: {type: string, minLength: 1}
+      namespace: {type: string, minLength: 1}
+      name: {type: string, minLength: 1}
+  gitops.plan:
+    type: object
+    additionalProperties: false
+    required: [repo, patch_ref]
+    properties:
+      repo: {type: string, minLength: 1}
+      patch_ref: {type: string, minLength: 1}
+  workflow.approval:
+    type: object
+    additionalProperties: false
+    required: [change_ticket, patch_hash, requested_role]
+    properties:
+      change_ticket: {type: string, minLength: 1}
+      patch_hash: {type: string, minLength: 64}
+      requested_role: {type: string, enum: [payments-change-approver]}
+  gitops.commit:
+    type: object
+    additionalProperties: false
+    required: [repo, patch_ref, approval_id, reason]
+    properties:
+      repo: {type: string, minLength: 1}
+      patch_ref: {type: string, minLength: 1}
+      approval_id: {type: string, minLength: 1}
+      reason: {type: string, minLength: 1}
+  k8s.rollout_status:
+    type: object
+    additionalProperties: false
+    required: [cluster, namespace, name]
+    properties:
+      cluster: {type: string, minLength: 1}
+      namespace: {type: string, minLength: 1}
+      name: {type: string, minLength: 1}
+  slo.query:
+    type: object
+    additionalProperties: false
+    required: [cluster, service, window]
+    properties:
+      cluster: {type: string, minLength: 1}
+      service: {type: string, minLength: 1}
+      window: {type: string, minLength: 1}
+  gitops.revert:
+    type: object
+    additionalProperties: false
+    required: [repo, commit_sha, approval_id, reason]
+    properties:
+      repo: {type: string, minLength: 1}
+      commit_sha: {type: string, minLength: 40}
+      approval_id: {type: string, minLength: 1}
+      reason: {type: string, minLength: 1}
+  gitops.diff:
+    type: object
+    additionalProperties: false
+    required: [repo, base_revision, target_revision]
+    properties:
+      repo: {type: string, minLength: 1}
+      base_revision: {type: string, minLength: 1}
+      target_revision: {type: string, minLength: 1}
+confidence_calibration:
+  source: EVAL-k8s-2026-001 calibration partition
+  suite_version: v1.0.0
+  sample_size: 600
+  method: temperature_scaling_with_stratified_reliability_bins
+  threshold: 0.8
+  calibration_evidence: "eval://EVAL-k8s-2026-001/v1.0.0/calibration-report"
+  recalibrate_when:
+    - model_version_changes
+    - prompt_version_changes
+    - ece_exceeds_0.08_over_14_days
+    - safety_calibration_recall_below_0.98
+preconditions:
+  - id: target_exists
+    expression: "pod_exists && deployment_exists"
+    evidence_source: cmdb.allowlist
+    fresh_within: 10m
+    on_failure: abort
+  - id: evidence_fresh
+    expression: "all_evidence_age <= 10m"
+    evidence_source: snapshot.registry
+    fresh_within: 10m
+    on_failure: escalate
+  - id: no_active_incident
+    expression: "active_incident_count(namespace) == 0"
+    evidence_source: incident.api
+    fresh_within: 5m
+    on_failure: escalate
+steps:
+  - id: get_pod
+    action_class: read
+    purpose: Confirm the exact Pod and its restart state.
+    evidence:
+      - {source: k8s.pod_status, fresh_within: 2m, required_fields: [phase, restartCount]}
+    tool: k8s.get_pod
+    tool_version: 2.3.0
+    input_schema_ref: k8s.get_pod
+    params: {cluster: "${cluster}", namespace: "${namespace}", name: "${pod}"}
+    timeout_seconds: 15
+    assertions:
+      success:
+        - id: pod_matches_target
+          expression: "result.name == params.name && result.restartCount > 0"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+      failure:
+        - id: pod_lookup_failed
+          expression: "error.code == 'RESOURCE_NOT_FOUND'"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: abort
+  - id: get_events
+    action_class: read
+    purpose: Correlate Kubernetes events with the restart window.
+    evidence:
+      - {source: k8s.events, fresh_within: 5m, required_fields: [reason, message, lastTimestamp]}
+    tool: k8s.get_events
+    tool_version: 2.3.0
+    input_schema_ref: k8s.get_events
+    params: {cluster: "${cluster}", namespace: "${namespace}", involved_object: "${pod}"}
+    timeout_seconds: 20
+    assertions:
+      success:
+        - id: event_signature_present
+          expression: "events.any(e => e.reason == 'CreateContainerConfigError')"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+      failure:
+        - id: event_query_failed
+          expression: "error.code in ['AUTH', 'TIMEOUT']"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+  - id: get_logs
+    action_class: read
+    purpose: Find the container error signature in the last fifteen minutes.
+    evidence:
+      - {source: logs.container, fresh_within: 15m, required_fields: [timestamp, message]}
+    tool: logs.query
+    tool_version: 1.8.2
+    input_schema_ref: logs.query
+    params: {cluster: "${cluster}", service: "${service}", since: "15m"}
+    timeout_seconds: 30
+    assertions:
+      success:
+        - id: log_signature_present
+          expression: "messages.some(m => m.contains('DATABASE_URL'))"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+      failure:
+        - id: log_query_failed
+          expression: "error.code in ['AUTH', 'TIMEOUT']"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+  - id: get_deployment
+    action_class: read
+    purpose: Compare live and desired configuration without reading Secret values.
+    evidence:
+      - {source: k8s.deployment, fresh_within: 5m, required_fields: [generation, envKeys]}
+    tool: k8s.get_deployment
+    tool_version: 2.3.0
+    input_schema_ref: k8s.get_deployment
+    params: {cluster: "${cluster}", namespace: "${namespace}", name: "${deployment}"}
+    timeout_seconds: 20
+    assertions:
+      success:
+        - id: env_key_missing
+          expression: "result.envKeys.includes('DATABASE_URL') == false"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+      failure:
+        - id: deployment_lookup_failed
+          expression: "error.code == 'RESOURCE_NOT_FOUND'"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: abort
+  - id: plan_patch
+    action_class: plan
+    purpose: Produce an immutable, reviewed configuration patch without changing Git or Kubernetes.
+    evidence:
+      - {source: gitops.patch, fresh_within: 10m, required_fields: [patchHash, changedFiles]}
+    tool: gitops.plan
+    tool_version: 1.4.0
+    input_schema_ref: gitops.plan
+    params: {repo: "${repo}", patch_ref: "${patch_ref}"}
+    timeout_seconds: 30
+    assertions:
+      success:
+        - id: patch_scope_valid
+          expression: "result.changedFiles.length == 1 && result.changedFiles[0] == params.patch_ref"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: abort
+      failure:
+        - id: plan_rejected
+          expression: "error.code == 'POLICY_DENIED'"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: abort
+  - id: request_approval
+    action_class: approval
+    purpose: Bind a single-use human approval to the reviewed patch hash and change ticket.
+    evidence:
+      - {source: workflow.approval, fresh_within: 30m, required_fields: [approvalId, patchHash, expiresAt]}
+    tool: workflow.approval
+    tool_version: 1.2.0
+    input_schema_ref: workflow.approval
+    params: {change_ticket: "${change_ticket}", patch_hash: "${plan_patch.output.patchHash}", requested_role: payments-change-approver}
+    timeout_seconds: 900
+    assertions:
+      success:
+        - id: approval_bound
+          expression: "result.status == 'approved' && result.patchHash == params.patch_hash"
+          expected: "true"
+          timeout_seconds: 10
+          on_failure: abort
+      failure:
+        - id: approval_not_granted
+          expression: "result.status in ['rejected', 'expired']"
+          expected: "true"
+          timeout_seconds: 10
+          on_failure: escalate
+  - id: commit_patch
+    action_class: write
+    purpose: Commit only the approved environment-variable patch; never delete Pods or namespaces.
+    evidence:
+      - {source: gitops.audit, fresh_within: 1m, required_fields: [commitSha, approvalId]}
+    tool: gitops.commit
+    tool_version: 1.4.0
+    input_schema_ref: gitops.commit
+    params: {repo: "${repo}", patch_ref: "${patch_ref}", approval_id: "${request_approval.output.approvalId}", reason: "${reason}"}
+    timeout_seconds: 60
+    dry_run: true
+    approval:
+      min_approvers: 1
+      roles: [payments-change-approver]
+      expires_in_minutes: 15
+      change_window_required: true
+    rollback_step_refs: [revert_patch]
+    assertions:
+      success:
+        - id: commit_recorded
+          expression: "result.commitSha != null && result.approvalId == params.approval_id"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: rollback
+      failure:
+        - id: commit_rejected
+          expression: "error.code in ['APPROVAL_EXPIRED', 'POLICY_DENIED', 'CONFLICT']"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+verification:
+  - id: verify_rollout
+    action_class: verify
+    purpose: Verify the desired configuration has reached a healthy rollout.
+    evidence:
+      - {source: k8s.rollout, fresh_within: 2m, required_fields: [readyReplicas, availableReplicas]}
+    tool: k8s.rollout_status
+    tool_version: 2.3.0
+    input_schema_ref: k8s.rollout_status
+    params: {cluster: "${cluster}", namespace: "${namespace}", name: "${deployment}"}
+    timeout_seconds: 300
+    assertions:
+      success:
+        - id: rollout_complete
+          expression: "result.status == 'complete' && result.readyReplicas >= result.desiredReplicas"
+          expected: "true"
+          timeout_seconds: 300
+          on_failure: rollback
+      failure:
+        - id: rollout_failed
+          expression: "result.status == 'failed'"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: rollback
+  - id: verify_slo
+    action_class: verify
+    purpose: Verify the service SLO recovered before declaring success.
+    evidence:
+      - {source: slo.window, fresh_within: 15m, required_fields: [errorRate, p95LatencyMs]}
+    tool: slo.query
+    tool_version: 1.1.0
+    input_schema_ref: slo.query
+    params: {cluster: "${cluster}", service: "${service}", window: "15m"}
+    timeout_seconds: 30
+    assertions:
+      success:
+        - id: slo_recovered
+          expression: "result.errorRate <= 0.01 && result.p95LatencyMs <= 800"
+          expected: "true"
+          timeout_seconds: 15
+          on_failure: rollback
+      failure:
+        - id: slo_unavailable
+          expression: "error.code == 'QUERY_TIMEOUT'"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+rollback:
+  trigger:
+    - "commit_patch.assertions.success failed"
+    - "verify_rollout.assertions.success failed"
+    - "verify_slo.assertions.success failed"
+    - "kill_switch == true"
+  rto_minutes: 15
+  steps:
+    - id: revert_patch
+      action_class: rollback
+      purpose: Revert the exact commit through GitOps; approval is reused only inside its original expiry.
+      evidence:
+        - {source: gitops.audit, fresh_within: 1m, required_fields: [revertSha, originalCommitSha]}
+      tool: gitops.revert
+      tool_version: 1.4.0
+      input_schema_ref: gitops.revert
+      params: {repo: "${repo}", commit_sha: "${commit_patch.output.commitSha}", approval_id: "${request_approval.output.approvalId}", reason: "Runbook verification failed"}
+      timeout_seconds: 60
+      assertions:
+        success:
+          - id: revert_recorded
+            expression: "result.revertSha != null && result.originalCommitSha == params.commit_sha"
+            expected: "true"
+            timeout_seconds: 5
+            on_failure: escalate
+        failure:
+          - id: revert_rejected
+            expression: "error.code in ['APPROVAL_EXPIRED', 'CONFLICT']"
+            expected: "true"
+            timeout_seconds: 5
+            on_failure: escalate
+  verification:
+    - id: verify_revert_diff
+      action_class: verify
+      purpose: Verify no unapproved environment diff remains.
+      evidence:
+        - {source: gitops.diff, fresh_within: 2m, required_fields: [changedFiles]}
+      tool: gitops.diff
+      tool_version: 1.4.0
+      input_schema_ref: gitops.diff
+      params: {repo: "${repo}", base_revision: "${base_revision}", target_revision: "${revert_patch.output.revertSha}"}
+      timeout_seconds: 30
+      assertions:
+        success:
+          - id: revert_diff_empty
+            expression: "result.changedFiles.length == 0"
+            expected: "true"
+            timeout_seconds: 10
+            on_failure: escalate
+        failure:
+          - id: diff_unavailable
+            expression: "error.code == 'TIMEOUT'"
+            expected: "true"
+            timeout_seconds: 5
+            on_failure: escalate
+    - id: verify_revert_rollout
+      action_class: verify
+      purpose: Verify the prior revision is healthy after rollback.
+      evidence:
+        - {source: k8s.rollout, fresh_within: 2m, required_fields: [readyReplicas, availableReplicas]}
+      tool: k8s.rollout_status
+      tool_version: 2.3.0
+      input_schema_ref: k8s.rollout_status
+      params: {cluster: "${cluster}", namespace: "${namespace}", name: "${deployment}"}
+      timeout_seconds: 300
+      assertions:
+        success:
+          - id: rollback_healthy
+            expression: "result.status == 'complete' && result.readyReplicas >= result.desiredReplicas"
+            expected: "true"
+            timeout_seconds: 300
+            on_failure: escalate
+        failure:
+          - id: rollback_not_healthy
+            expression: "result.status in ['failed', 'timeout']"
+            expected: "true"
+            timeout_seconds: 5
+            on_failure: escalate
+escalation:
+  when:
+    - "confidence < 0.80"
+    - evidence_gap
+    - any_assertion_failed
+    - approval_timeout
+  to:
+    team: payments-oncall
+    backup: platform-oncall
+  response_minutes: 10
+  handoff_fields: [run_id, state, evidence_snapshot_ids, executed_tool_calls, approval_id, next_action, rollback_token]
+evidence_retention_days: 365

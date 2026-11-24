@@ -1,0 +1,17 @@
+{
+  "name": "the-ops-agent-book-reference-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Synthetic, dependency-free NotReady agent reference implementation. Not for production use.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "demo": "node runner.mjs demo --output sample-output/demo",
+    "shadow": "node runner.mjs shadow --output sample-output/shadow",
+    "canary": "node runner.mjs canary --output sample-output/canary",
+    "rollback": "node runner.mjs rollback --output sample-output/rollback"
+  }
+}

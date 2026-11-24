@@ -1,6 +1,10 @@
 ---
 title: 身份、权限与安全
 description: Agent 身份/NHI、委托、最小权限、MCP 信任、OWASP Agentic Top 10 与供应链安全。
+owner: "Content Lead + Domain Reviewer"
+last_verified: "2026-11-25"
+review_by: "2027-02-25"
+content_status: "reviewed"
 ---
 
 # 12 身份、权限与安全
@@ -18,15 +22,62 @@ Agent 是一个非人类身份（Non-Human Identity, NHI），必须有：
 - **短时凭证**：按任务签发，任务结束即失效。
 - **可审计**：每次调用记录身份、委托、审批、动作。
 
-::: diagram 图 14 · 身份、委托与审计链 | 人类/系统委托给 Agent 身份，再按 scope 调用工具、审批与审计。
+::: diagram 图 14 · 身份、委托与审计链 | 不可传递委托签发短时 Claims；策略执行先于工具调用，写操作还必须审批，拒绝与撤销均有显式路径。
 ```mermaid
 flowchart LR
-  H[Human / System] --> A[Agent Identity<br/>短期 / 受限]
-  A --> T[Tool call<br/>按 scope 授权]
-  T --> P[Approval<br/>高风险动作]
-  P --> U[Audit<br/>who / what / why / outcome]
+  H["人类 / 系统委托者<br/>明确 scope 与期限"] --> D{"身份与委托有效?<br/>Claims / 撤销列表"}
+  D -- 否 --> X["拒绝<br/>不调用工具"]
+  D -- 是 --> A["Agent NHI<br/>短时 / 受限 / 不可传递"]
+  A --> P["策略执行点 PEP<br/>RBAC/ABAC · 资源版本 · 窗口"]
+  P -- deny --> X
+  P -- allow --> R{"需要写操作?"}
+  R -- 否：只读 --> T["工具调用<br/>绑定身份与短时凭证"]
+  R -- 是 --> AP["审批 PEP<br/>绑定计划哈希 / 版本 / 有效期"]
+  AP -- deny / expired --> X
+  AP -- allow --> V{"调用前重新校验"}
+  V -- 失败 --> X
+  V -- 通过 --> T
+  T --> O["记录结果 / 部分成功 / 错误"]
+  O --> U["审计<br/>who / on_behalf_of / what / why / outcome"]
+  RV["撤销事件<br/>委托 / 角色 / 凭证 / 审批"] -. 同步传播 .-> D
+  RV -. 阻断待执行与后续调用 .-> V
+
+  classDef diagram fill:#f4f4f4,stroke:#0f62fe,stroke-width:1.5px,color:#161616;
+  class H,D,A,P,R,AP,V,T,O,U,X,RV diagram;
 ```
 :::
+
+策略执行与审批都是**工具调用前的强制控制点**，不能画成工具调用之后补记。只读调用可跳过人工审批，但不能跳过 PEP；所有写调用必须先审批再重新校验。委托链不可传递：Agent 不得把权限再授予子 Agent、外部 Skill 或另一个工具身份；子任务需要新委托时由原始委托者重新签发。
+
+### Claims 示例（synthetic / 脱敏）
+
+以下仅展示 Claims 结构，不含真实身份或凭证。示例凭证应使用短有效期（如 10 分钟），并通过 TLS 传输；`aud` 限定执行网关，`scope` 限定工具和资源，`act` 保留原始委托者：
+
+```json
+{
+  "iss": "https://identity.example.invalid/synthetic",
+  "sub": "nhai:agent:ops-notready:7f3a",
+  "aud": ["ops-execution-gateway"],
+  "exp": 1794400260,
+  "nbf": 1794399660,
+  "jti": "delegation-synthetic-001",
+  "tenant": "tenant-synthetic-a",
+  "purpose": "k8s-notready-diagnosis",
+  "act": { "sub": "delegator-synthetic-sre" },
+  "delegation": {
+    "chain": ["delegator-synthetic-sre", "nhai:agent:ops-notready:7f3a"],
+    "non_transferable": true,
+    "max_depth": 1
+  },
+  "scope": {
+    "tools": ["k8s.get_node", "k8s.get_pod", "logs.query"],
+    "resources": ["cluster/synthetic-a/node/node-07"],
+    "environment": "prod"
+  }
+}
+```
+
+Claims 不是长期权限缓存。执行网关还要检查发行方、签名、`aud/exp/nbf`、租户、用途、资源范围及服务端撤销版本；发现委托撤销、角色回收或异常使用时立即拒绝。撤销传播到 PEP、审批服务和工具网关的最大延迟必须设 SLO（例如 5 秒），等待中的任务收到撤销后不得执行。
 
 ::: warning 不要给 Agent 一个“超级账号”
 共享高权限账号会让事故无法归因、权限无法回收、审计无法通过。Agent 身份要像服务账号一样被治理，而不是像人的账号一样被借用。
@@ -112,6 +163,9 @@ flowchart LR
 ## 本章检查清单
 
 - [ ] Agent 有唯一 NHI、归属、委托、短时凭证吗？
+- [ ] 委托是否不可传递，Claims 是否限定 audience、用途、租户与 scope？
+- [ ] 策略执行与写操作审批是否都在工具调用前，拒绝路径是否经过测试？
+- [ ] 委托/角色/凭证撤销是否传播到 PEP、审批服务与工具网关？
 - [ ] 权限按工具/资源/环境/时间/blast radius 收紧了吗？
 - [ ] 高危动作有双人审批、dry-run、回滚、审计吗？
 - [ ] 外部内容被视为不可信数据吗？

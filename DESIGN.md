@@ -193,9 +193,12 @@ Square geometry throughout: 0 radius on buttons, tables, callouts, code blocks, 
 - Even rows use `#fafafa`; hover uses Blue 10. On screens ≤640px tables become horizontally scrollable blocks.
 
 ### Diagram Figure
-- Markdown pattern: `::: diagram 图 XX · Title` wrapping a ` ```mermaid ` block.
-- The caption is a Gray 10 strip with 1px bottom rule and 11px muted text; the diagram body is white with 24px 16px padding and horizontal scroll on narrow screens.
-- Mermaid uses IBM Blue 60 strokes, Blue 10 node fills, Gray 50 lines, and Plex Sans labels. Figures are numbered continuously across the book.
+- Markdown pattern: `::: diagram 图 XX · Title | Note` wrapping a ` ```mermaid ` block.
+- The container is a `<figure role="group">` with `aria-labelledby` and `aria-describedby`; title and note form a Gray 10 header strip with 1px bottom rule.
+- The diagram body is white with 24px 16px padding and horizontal scroll on narrow screens; SVG has a 640px minimum intrinsic width so labels are not compressed.
+- Mermaid uses IBM Blue 60 strokes, Gray 10 node fills, Gray 70 lines, and Plex Sans labels. Figures are numbered continuously across the book.
+- Architecture diagrams separate the data plane from cross-cutting policy/observability/audit; state machines include read-only fast paths, denial, failure, replan, rollback/recovery and escalation.
+- Full rules: [图示规范](docs/appendix/diagram-guide.md).
 
 ### Callouts
 - Square, 1px border, Gray 10 ground. Tip uses Blue 10 ground with Blue 60 border and Blue 70 title; warning uses amber border and a pale amber ground; danger uses red border and pale red ground. No colored left border.

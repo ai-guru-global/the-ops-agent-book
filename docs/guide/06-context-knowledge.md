@@ -1,6 +1,10 @@
 ---
 title: 上下文与知识工程
 description: 运维 Agent 的证据包、Runbook 2.0、拓扑/CMDB、新鲜度、检索与反模式。
+owner: "Content Lead + Domain Reviewer"
+last_verified: "2026-11-25"
+review_by: "2027-02-25"
+content_status: "reviewed"
 ---
 
 # 06 上下文与知识工程
@@ -24,44 +28,87 @@ description: 运维 Agent 的证据包、Runbook 2.0、拓扑/CMDB、新鲜度�
 - 只有知识没有事实：给出“通用正确、现场错误”的建议。
 - 没有约束：方案在技术上可行，在流程上不可执行。
 
-::: diagram 图 08 · 五层上下文 | 事实、结构、历史、知识与约束五层上下文；缺一层判断就会变形。
+::: diagram 图 08 · 五层上下文并行取证 | 五层是多源并行输入，不是串行加工；授权、时效与冲突检查在形成证据包前完成。
 ```mermaid
 flowchart LR
-  F[事实<br/>指标 / 日志 / 链路 / 事件 / 配置] --> S[结构<br/>服务目录 / 拓扑 / 依赖 / 负责人]
-  S --> H[历史<br/>变更 / 事故 / 工单 / 发布]
-  H --> K[知识<br/>Runbook / SOP / 厂商文档]
-  K --> C[约束<br/>变更窗口 / 合规 / 维护模式 / 策略]
+  F[事实<br/>指标 / 日志 / 链路 / 事件 / 配置]
+  S[结构<br/>服务目录 / 拓扑 / 依赖 / 负责人]
+  H[历史<br/>变更 / 事故 / 工单 / 发布]
+  K[知识<br/>Runbook / SOP / 厂商文档]
+  C[约束<br/>变更窗口 / 合规 / 维护模式 / 策略]
+  F --> A[授权过滤<br/>身份 / 租户 / 环境 / 用途]
+  S --> A
+  H --> A
+  K --> A
+  C --> A
+  A --> Q[时效与质量检查<br/>来源 / 时间 / 完整性]
+  Q --> B[冲突检测与证据包<br/>保留分歧 / 标注未知]
 ```
 :::
 
 ## 证据包
 
-每次诊断都应该产出结构化证据包，而不是一段自然语言总结。
+每次诊断都应该产出结构化证据包，而不是一段自然语言总结。下例中的每个 `support` / `contradict` 都只能引用 `observations` 中**实际返回**的记录；未查询、未返回或结果不完整的内容放入 `gaps`，不能伪装成反证。
 
 ```json
 {
   "run_id": "run-2026-11-10-001",
   "environment": "prod-us-east",
   "scope": {"cluster": "prod-us-east-1", "namespace": "payments"},
+  "authorization": {"principal": "copilot-payments-r", "tenant": "payments", "purpose": "incident-triage"},
   "observations": [
     {
+      "id": "OBS-001",
       "source": "k8s.events",
-      "query": "namespace=payments reason=BackOff",
+      "query": "namespace=payments involvedObject.name=payments-api-7d9f",
       "time_range": "2026-11-10T10:00:00Z/2026-11-10T10:15:00Z",
-      "summary": "pod payments-api-7d9f CrashLoopBackOff, restart count 14",
-      "confidence": 0.95,
-      "provenance": "https://.../query/..."
+      "collected_at": "2026-11-10T10:15:30Z",
+      "summary": "同对象出现 14 次 BackOff 与 1 次 CreateContainerConfigError",
+      "result_ref": "replay://CASE-2026-11-10-001/query/Q-001",
+      "result_hash": "sha256:6f2b…",
+      "completeness": "complete_for_requested_window"
+    },
+    {
+      "id": "OBS-002",
+      "source": "k8s.events",
+      "query": "namespace=payments involvedObject.name=payments-api-7d9f reason=CreateContainerConfigError",
+      "time_range": "2026-11-10T10:13:00Z/2026-11-10T10:15:00Z",
+      "collected_at": "2026-11-10T10:15:31Z",
+      "summary": "事件消息：secret payments-api-env not found",
+      "result_ref": "replay://CASE-2026-11-10-001/query/Q-002",
+      "result_hash": "sha256:91ac…",
+      "completeness": "complete_for_requested_window"
+    },
+    {
+      "id": "OBS-003",
+      "source": "k8s.pod_status",
+      "query": "namespace=payments name=payments-api-7d9f",
+      "time_range": "2026-11-10T10:15:25Z/2026-11-10T10:15:25Z",
+      "collected_at": "2026-11-10T10:15:32Z",
+      "summary": "容器 waiting.reason=CreateContainerConfigError，未进入 Running",
+      "result_ref": "replay://CASE-2026-11-10-001/query/Q-003",
+      "result_hash": "sha256:c47e…",
+      "completeness": "complete_for_requested_window"
     }
   ],
   "hypotheses": [
-    {"cause": "missing DATABASE_URL", "support": ["event:CreateContainerConfigError"], "confidence": 0.8},
-    {"cause": "OOMKilled", "support": [], "contradict": ["lastState.terminated.reason=Error"], "confidence": 0.1}
+    {
+      "id": "H-001",
+      "cause": "Deployment 引用的 Secret payments-api-env 不存在",
+      "support": ["OBS-002", "OBS-003"],
+      "contradict": [],
+      "confidence": 0.95,
+      "falsify": "查询该 Secret 与 Deployment envFrom；若对象存在且引用匹配，则推翻"
+    }
   ],
-  "gaps": ["no recent deployment diff for this namespace"]
+  "unassessed": [
+    {"cause": "OOMKilled", "reason": "尚未查询 lastState 与节点内存；无支持或反证"}
+  ],
+  "gaps": ["no recent deployment diff for this namespace", "Secret 对象与引用关系尚未查询"]
 }
 ```
 
-证据包的价值：
+`result_ref` 指向可重放的原始结果，`result_hash` 防止结果被替换。事实不填主观概率；置信度只用于假设，并说明校准方法。证据包的价值：
 
 - 可复核：人和另一个 Agent 都能重放查询。
 - 可评测：评测不只看答案，还看证据是否支持结论。
@@ -72,39 +119,86 @@ flowchart LR
 
 传统 Runbook 是写给人看的散文；运维 Agent 需要**可执行、可验证、可回滚**的 Runbook。
 
+下面是一个**已确认由错误发布引起、需要回滚到已知良好版本**的可执行片段。参数必须来自审批包，不能由模型凭空填写。
+
 ```yaml
-id: k8s-crashloop-triage
-version: 3
-scope:
-  resource: deployment
-  environment: prod
+id: k8s-rollback-known-good
+version: 4
+scope: {resource: deployment, environment: prod, max_resources: 1}
+risk: high
 preconditions:
   - target_exists
   - evidence_fresh_within: 10m
+  - change_window_open
+  - no_concurrent_change
+  - old_replica_set_retained
+  - pdb_has_headroom
 steps:
-  - id: check_events
-    tool: k8s.get_events
-    params: {namespace: "${namespace}", involved_object: "${pod}"}
-    expect: "event reason in [BackOff, Failed, Unhealthy]"
-  - id: check_logs
-    tool: logs.query
-    params: {service: "${service}", since: "15m", level: "error"}
-  - id: check_resources
-    tool: k8s.get_pod
-    params: {namespace: "${namespace}", name: "${pod}"}
-    expect: "resources.requests and limits present"
+  - id: collect_evidence
+    tool: evidence.collect_parallel
+    params:
+      namespace: "${namespace}"
+      deployment: "${deployment}"
+      sources: [pod_status, events, logs, revision_history, metrics]
+      window: "15m"
+    expect: "all_required_sources_complete"
+  - id: select_revision
+    tool: k8s.get_revision
+    params: {namespace: "${namespace}", deployment: "${deployment}"}
+    expect: "known_good_revision != current_revision and known_good_revision.available_replicas > 0"
+  - id: dry_run
+    tool: k8s.rollout_to_revision
+    params: {namespace: "${namespace}", deployment: "${deployment}", revision: "${known_good_revision}", dry_run: true}
+    expect: "diff_matches_approved_plan"
+  - id: approve
+    type: approval
+    required_approvers: ["payments-oncall", "change-manager"]
+    evidence: [collect_evidence, select_revision, dry_run]
+    ttl_seconds: 900
+  - id: execute_rollback
+    tool: k8s.rollout_to_revision
+    params: {namespace: "${namespace}", deployment: "${deployment}", revision: "${known_good_revision}"}
+    preconditions: [approval.approved, dry_run.passed]
+    idempotency_key: "${run_id}:${change_id}:${known_good_revision}"
+    timeout_seconds: 120
+    on_timeout: stop_new_actions_and_escalate
 verification:
-  - tool: k8s.rollout_status
-    params: {namespace: "${namespace}", name: "${deployment}"}
+  - id: rollout_complete
+    tool: k8s.rollout_status
+    params: {namespace: "${namespace}", deployment: "${deployment}", timeout_seconds: 300}
+    expect: "available_replicas == desired_replicas and updated_replicas == desired_replicas"
+  - id: error_rate
+    tool: metrics.query
+    params: {query_ref: "payments-api-5xx-rate", window: "5m"}
+    expect: "value <= 0.01 and value <= 2 x pre_change_baseline"
+  - id: availability_guard
+    tool: k8s.get_pdb
+    params: {namespace: "${namespace}", deployment: "${deployment}"}
+    expect: "disruptionsAllowed >= 0 and currentHealthy >= desiredHealthy - 1"
+  - id: new_events
+    tool: k8s.get_events
+    params: {namespace: "${namespace}", involved_object: "${deployment}", since: "10m"}
+    expect: "no_new_CrashLoopBackOff_or_ConfigError"
+rollback_triggers:
+  - "rollout_complete not passed within 300s"
+  - "5xx > 1% for 5m or > 2 x baseline"
+  - "Ready replicas < 90% for 2m"
+  - "PDB violation or new OOMKilled"
 rollback:
-  - tool: k8s.rollout_undo
-    params: {namespace: "${namespace}", name: "${deployment}"}
+  meaning: "撤销本次回滚，恢复到执行前版本；不得盲目再次 undo"
+  preauthorized_by: "${change_id}:emergency-compensation-clause"
+  action:
+    tool: k8s.rollout_to_revision
+    params: {namespace: "${namespace}", deployment: "${deployment}", revision: "${original_revision}"}
+    idempotency_key: "${run_id}:${change_id}:compensation:${original_revision}"
+  verify: [rollout_complete, error_rate, availability_guard]
 escalation:
-  - when: "evidence_gap or confidence < 0.6"
+  - when: "evidence_gap or any verification_failed or rollback_failed"
     to: "payments-oncall"
+    mode: "page_and_freeze_agent"
 ```
 
-Runbook 2.0 的关键不是格式，而是把**前置条件、证据、验证、回滚、升级**写进同一份可执行资产。
+Runbook 2.0 的关键不是格式，而是把**前置条件、证据、真实变更步骤、通过标准、回滚触发、补偿动作、升级**写进同一份可执行资产。工具不可用时必须拒绝，不能把审批工具换成 Prompt 中的“请等待批准”。
 
 ## 拓扑与 CMDB
 
@@ -134,21 +228,25 @@ Runbook 2.0 的关键不是格式，而是把**前置条件、证据、验证、
 
 ## 检索设计
 
-- 先结构化查询，再语义检索；能精确查的不要用向量搜。
-- 检索结果带来源、时间、版本、权限标签。
-- 对长文档做分层摘要，但保留可展开的原文引用。
+- **先授权，再检索**：由身份服务解析 principal、租户、环境、用途与数据等级，生成强制查询过滤器；向量库、全文索引、摘要和重排都使用同一过滤器。身份或策略服务不可用时 fail closed，不得先取回再在 Prompt 中过滤。
+- **检索后复核**：返回原文前再次校验 ACL、有效期与用途，记录过滤器哈希、候选/过滤数量与拒绝原因；越权结果不得进入模型上下文、缓存或 Trace 正文。
+- 先结构化查询，再语义检索；能精确查的不要用向量搜。约束层（如变更窗口、数据驻留）优先使用策略 API，不作为普通文档检索。
+- 检索结果带来源、时间、版本、权限标签；对长文档做分层摘要，但保留可展开的原文引用。
 - 对日志/事件做聚合与去重，不要把几万行原始日志塞进上下文。
 - 多源证据冲突时，明确列出冲突，不要强行统一。
 
 ## 检索评测
 
-| 指标 | 问题 |
-| --- | --- |
-| Recall | 该找到的 Runbook/事故/文档找到了吗？ |
-| Precision | 找到的内容有多少是相关的？ |
-| Citation accuracy | 引用是否真的支持结论？ |
-| Freshness | 是否使用了过期文档/拓扑？ |
-| Coverage | 关键场景是否有可检索的知识？ |
+| 指标 | 默认门槛 | 未达标处置 |
+| --- | --- | --- |
+| Recall@10 | 关键 Runbook/事故 ≥ 90% | 补索引、切分或同义词；关键场景不得发布 |
+| Precision@10 | ≥ 80% | 调整过滤器与重排，减少噪声上下文 |
+| Citation accuracy | ≥ 95%，且不存在伪造引用 | 引用失败即判该案例失败，回到 G3 |
+| Freshness | 约束与关键拓扑 100% 在有效期内 | 过期即拒绝动作并刷新 |
+| Coverage | Charter 关键场景 100% 有知识入口 | 缺知识则转人工，不以通用回答填补 |
+| Authorization leakage | 越权返回 = 0 | 立即熔断检索、封禁缓存并启动安全事件流程 |
+
+门槛按场景在 G0 固化；可以收紧，不得由开发团队在评测后放宽。检索质量与安全指标分开报告，避免高召回掩盖越权。
 
 ## 六个反模式
 
@@ -161,8 +259,9 @@ Runbook 2.0 的关键不是格式，而是把**前置条件、证据、验证、
 
 ## 本章检查清单
 
-- [ ] 是否有事实、结构、历史、知识、约束五层上下文？
-- [ ] 每次诊断是否产出结构化证据包？
+- [ ] 五层上下文是否并行采集，并经授权、时效与冲突检查？
+- [ ] 每次诊断是否产出结构化证据包，且 support/contradict 只引用已观测记录？
+- [ ] 检索是否在模型前执行强制授权过滤，并满足指标门槛？
 - [ ] 关键 Runbook 是否可执行、可验证、可回滚？
 - [ ] 拓扑/CMDB 是否有 TTL、owner 和变更历史？
 - [ ] 证据是否带来源、时间、环境和置信度？

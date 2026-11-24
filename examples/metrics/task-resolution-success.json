@@ -1,0 +1,41 @@
+{
+  "id": "task_resolution_success",
+  "name": "Task resolution success rate",
+  "definition": "Share of eligible production runs resolved and independently verified without human takeover within the task SLA.",
+  "formula": "count(distinct run_id where verified_success = true and human_takeover = false) / count(distinct eligible run_id)",
+  "unit": "ratio",
+  "numerator": {
+    "definition": "Distinct eligible runs with verification_passed=true and human_takeover=false before task SLA expiry.",
+    "population": "events.run_completed joined to events.run_verified"
+  },
+  "denominator": {
+    "definition": "All distinct eligible production runs started in the window, including failed, timed-out and escalated runs.",
+    "population": "events.run_started where environment=production and eligibility_status=eligible"
+  },
+  "window": {"duration": "7d", "cadence": "daily", "timezone": "UTC"},
+  "exclusions": [
+    "synthetic_load=true (benchmark only)",
+    "eligibility_status=out_of_scope (unsupported tenant or scenario)",
+    "duplicate event_id after idempotent ingestion"
+  ],
+  "data_source": {
+    "system": "AgentOps event lake",
+    "dataset": "canonical_agent_events",
+    "event_time_field": "event_time",
+    "query": "SELECT run_id, max(verified_success) AS verified_success, max(human_takeover) AS human_takeover FROM canonical_agent_events WHERE event_type IN ('run.completed','run.verified') GROUP BY run_id"
+  },
+  "owner": {"team": "SRE Agent Platform", "role": "Service Owner", "on_call": "sre-agent-primary"},
+  "target": {"comparator": ">=", "value": 0.8},
+  "alert": {
+    "condition": "7d ratio < 0.75 OR 95% Wilson upper bound < 0.80 after minimum_sample",
+    "severity": "SEV2",
+    "actions": ["freeze rollout", "open quality regression incident", "compare with frozen baseline by scenario stratum"]
+  },
+  "minimum_sample": 200,
+  "confidence": {
+    "level": 0.95,
+    "method": "wilson",
+    "decision_rule": "PASS only when denominator >= 200 and lower confidence bound >= target; report INCONCLUSIVE otherwise."
+  },
+  "severity": "SEV2"
+}

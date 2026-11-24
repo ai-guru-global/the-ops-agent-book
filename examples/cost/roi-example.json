@@ -1,0 +1,71 @@
+{
+  "example_id": "ops-agent-event-triage-v1",
+  "currency": "USD",
+  "period": "year",
+  "status": "synthetic demonstration, not a vendor claim",
+  "volume_events_per_year": 600,
+  "unit_inputs": {
+    "model": {
+      "input_tokens_per_event": 20000,
+      "input_usd_per_million_tokens": 0.5,
+      "output_tokens_per_event": 4000,
+      "output_usd_per_million_tokens": 2.0
+    },
+    "tool_observability_sandbox_egress_usd_per_event": 0.1,
+    "human_review": {
+      "review_rate": 0.25,
+      "minutes_per_reviewed_event": 10,
+      "loaded_usd_per_hour": 80
+    },
+    "risk_reserve": {
+      "incident_probability_per_event": 0.05,
+      "expected_loss_usd_per_incident": 40
+    },
+    "fixed_costs_usd_per_year": {
+      "platform_and_license": 12000,
+      "operations_evaluation_and_security": 6000,
+      "implementation_migration_and_ramp_amortized_first_year": 10000
+    }
+  },
+  "value_inputs": {
+    "manual_baseline": {
+      "hours_per_event": 1,
+      "loaded_usd_per_hour": 80
+    },
+    "agent": {
+      "verified_resolution_rate": 0.8,
+      "hours_avoided_per_resolved_event": 1
+    },
+    "mttr_and_incident_benefits_usd_per_year": 0,
+    "toil_benefit_usd_per_year": 0
+  },
+  "derived": {
+    "model_cost_usd_per_event": 0.018,
+    "human_review_cost_usd_per_event": 3.3333333333,
+    "risk_reserve_usd_per_event": 2,
+    "variable_cost_usd_per_event": 5.4513333333,
+    "annual_variable_cost_usd": 3270.8,
+    "annual_fixed_cost_usd": 28000,
+    "annual_agent_cost_usd": 31270.8,
+    "annual_recovered_capacity_value_usd": 38400,
+    "annual_net_benefit_usd": 7129.2,
+    "roi_fraction": 0.2279826547,
+    "all_in_cost_usd_per_event": 52.118,
+    "all_in_cost_usd_per_successful_event": 65.1475,
+    "manual_baseline_cost_usd_per_year": 48000,
+    "residual_manual_cost_for_unresolved_events_usd_per_year": 9600,
+    "agent_plus_residual_manual_cost_usd_per_year": 40870.8,
+    "break_even_resolution_rate": 0.651475,
+    "break_even_loaded_usd_per_hour": 64.3314285714,
+    "break_even_review_minutes": 45.646
+  },
+  "sensitivity": [
+    {"case": "resolution_rate_60pct", "resolution_rate": 0.6, "annual_cost_usd": 31270.8, "roi_fraction": -0.0790130089},
+    {"case": "resolution_rate_80pct_base", "resolution_rate": 0.8, "annual_cost_usd": 31270.8, "roi_fraction": 0.2279826547},
+    {"case": "resolution_rate_90pct", "resolution_rate": 0.9, "annual_cost_usd": 31270.8, "roi_fraction": 0.3814804866},
+    {"case": "review_minutes_5", "review_minutes": 5, "annual_cost_usd": 30270.8, "roi_fraction": 0.2685492290},
+    {"case": "review_minutes_20", "review_minutes": 20, "annual_cost_usd": 33270.8, "roi_fraction": 0.1541652139},
+    {"case": "loaded_hourly_usd_60", "loaded_hourly_usd": 60, "annual_cost_usd": 30770.8, "roi_fraction": -0.0640477336},
+    {"case": "loaded_hourly_usd_100", "loaded_hourly_usd": 100, "annual_cost_usd": 31770.8, "roi_fraction": 0.5108212573}
+  ]
+}

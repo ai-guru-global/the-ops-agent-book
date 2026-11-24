@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-ops-agent-book:metric:1.0.0",
+  "title": "Ops Agent Metric Contract",
+  "description": "A versioned, computable metric contract. Ratios are emitted as fractions from 0 to 1; currency is normalized to USD.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "definition",
+    "formula",
+    "unit",
+    "numerator",
+    "denominator",
+    "window",
+    "exclusions",
+    "data_source",
+    "owner",
+    "target",
+    "alert",
+    "minimum_sample",
+    "confidence",
+    "severity"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Stable metric identifier; changing its meaning requires a new id and version."
+    },
+    "name": {"type": "string", "minLength": 1},
+    "definition": {"type": "string", "minLength": 1},
+    "formula": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Explicit aggregation using numerator and denominator names; not a dashboard label."
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "ratio",
+        "count",
+        "seconds",
+        "milliseconds",
+        "hours",
+        "USD/run",
+        "USD/event",
+        "USD/successful_event",
+        "USD/year"
+      ]
+    },
+    "numerator": {"$ref": "#/$defs/measure"},
+    "denominator": {"$ref": "#/$defs/measure"},
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["duration", "cadence", "timezone"],
+      "properties": {
+        "duration": {"type": "string", "pattern": "^[1-9][0-9]*(s|m|h|d)$"},
+        "cadence": {"type": "string", "enum": ["realtime", "hourly", "daily", "per_release"]},
+        "timezone": {"const": "UTC"}
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "description": "Machine-testable exclusion rules and the reason for each. Empty means no exclusions."
+    },
+    "data_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "dataset", "event_time_field", "query"],
+      "properties": {
+        "system": {"type": "string", "minLength": 1},
+        "dataset": {"type": "string", "minLength": 1},
+        "event_time_field": {"type": "string", "minLength": 1},
+        "query": {"type": "string", "minLength": 1}
+      }
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team", "role", "on_call"],
+      "properties": {
+        "team": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1},
+        "on_call": {"type": "string", "minLength": 1}
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["comparator", "value"],
+      "properties": {
+        "comparator": {"type": "string", "enum": [">=", "<=", "=="]},
+        "value": {"type": "number", "minimum": 0}
+      }
+    },
+    "alert": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition", "severity", "actions"],
+      "properties": {
+        "condition": {"type": "string", "minLength": 1},
+        "severity": {"type": "string", "enum": ["SEV1", "SEV2", "SEV3"]},
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "minimum_sample": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Minimum denominator count before a pass/fail decision; insufficient data is INCONCLUSIVE."
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "method", "decision_rule"],
+      "properties": {
+        "level": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "method": {
+          "type": "string",
+          "enum": ["wilson", "cluster_bootstrap", "one_sided_exact", "not_applicable"]
+        },
+        "decision_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["SEV1", "SEV2", "SEV3"],
+      "description": "Business severity if the SLO is breached, not the alert severity."
+    }
+  },
+  "$defs": {
+    "measure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["definition", "population"],
+      "properties": {
+        "definition": {"type": "string", "minLength": 1},
+        "population": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

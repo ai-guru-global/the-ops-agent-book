@@ -1,0 +1,488 @@
+schema_version: 1
+review_cycle_days: 90
+last_reviewed: '2026-11-25'
+sources:
+- source_id: SRC-ALI-CATALOG-001
+  title: 阿里云 Agent 服务目录
+  url: https://agentcatalog.aliyun.com/
+  type: official_doc
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 官方目录入口；本轮未重新计数，不支持把历史数量写成当前事实。
+  claims:
+  - ALI-01
+- source_id: SRC-ALI-AGENTRUN-001
+  title: AgentRun 是什么
+  url: https://help.aliyun.com/zh/agentrun/what-is-agentrun
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 支持运行时、模型治理、Sandbox、工具、凭证与观测；Computer/Mobile Use 明示为规划方向。
+  claims:
+  - ALI-02
+  - ALI-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-AGENTRUN-001.txt
+    sha256: 29359709e336d47bcff1564212409732c66dfa06156edc2598d00c5495f7caf5
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-ALI-SANDBOX-001
+  title: 智能体沙箱 Agent Sandbox
+  url: https://help.aliyun.com/zh/agent-sandbox/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 帮助中心入口；仅核验隔离执行环境定义与版本入口，商业条款未核实。
+  claims:
+  - ALI-03
+- source_id: SRC-ALI-AGENTBAY-001
+  title: 无影 AgentBay
+  url: https://www.alibabacloud.com/en/product/agentbay
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方产品页；能力与 Singapore 部署为厂商页面声明，不是独立生产验证。
+  claims:
+  - ALI-05
+- source_id: COM-AGENTSCOPE-001
+  title: AgentScope GitHub repository
+  url: https://github.com/agentscope-ai/agentscope
+  type: community
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 项目 README 自称 Apache-2.0；production-ready 为项目自述，voice/SOP Experimental 不得写成
+    GA。
+  claims:
+  - ALI-06
+- source_id: COM-QWEN-AGENT-001
+  title: Qwen-Agent GitHub repository
+  url: https://github.com/QwenLM/Qwen-Agent
+  type: community
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: README 示例能力；本地 Python executor 未沙箱化且仅限本地测试，许可证未核实。
+  claims:
+  - ALI-07
+- source_id: COM-SPRING-AI-ALIBABA-001
+  title: Spring AI Alibaba project documentation
+  url: https://spring-ai-alibaba.github.io
+  type: community
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 项目站点说明 Agent Framework、Graph、Studio、Admin；许可证与商业状态未核实。
+  claims:
+  - ALI-08
+- source_id: PUB-ALI-SUMMIT-001
+  title: 2026 阿里云峰会 Agent Native 产品报道
+  url: https://culture.ifeng.com/c/8tPjCX8bdEh
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 沿用原书公开报道入口；仅支持报道口径，状态与商业字段须另查官方文档。
+  claims:
+  - ALI-09
+  - ALI-10
+  - ALI-11
+  - ALI-16
+- source_id: SRC-AWS-DEVOPS-001
+  title: AWS DevOps Agent
+  url: https://aws.amazon.com/devops-agent/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方营销页；Release Management 明示 Preview，不能推广为整个产品状态；客户效果数字不采用。
+  claims:
+  - GC-AWS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-DEVOPS-001.txt
+    sha256: 29400d0fe99ddfb024efa0696e68f2c8a66bdf538b3a6649747bcd3e24e5cf93
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-AWS-QDEV-001
+  title: Amazon Q Developer
+  url: https://aws.amazon.com/q/developer/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方提示 IDE 插件于 2027-04-30 停止支持；该提示不适用于整个 Amazon Q Developer。
+  claims:
+  - GC-AWS-02
+- source_id: SRC-AWS-AGENTCORE-001
+  title: What is Amazon Bedrock AgentCore?
+  url: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方文档；支持运行时、身份、记忆、工具、观测等模块及无预付/最低费用的按量定价表述。
+  claims:
+  - GC-AWS-04
+- source_id: SRC-AWS-QUICK-001
+  title: AWS Quick
+  url: https://aws.amazon.com/quick/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 当前官方名称 AWS Quick；价格与 Agent hours 为页面时点值，区域、驻留、退出未核实。
+  claims:
+  - GC-AWS-05
+- source_id: SRC-MS-SRE-001
+  title: Azure SRE Agent
+  url: https://azure.microsoft.com/en-us/products/sre-agent
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方产品页；AAU 计费与试用量可核验，GA 与完整区域未核实。
+  claims:
+  - GC-MS-01
+- source_id: SRC-MS-COPILOT-001
+  title: Azure Copilot
+  url: https://azure.microsoft.com/en-us/products/copilot
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: migration agent public preview 仅适用于该子能力；页面称当前 chat/agentic capabilities 无额外费用。
+  claims:
+  - GC-MS-02
+- source_id: SRC-MS-COPILOT-DOC-001
+  title: Azure Copilot overview
+  url: https://learn.microsoft.com/en-us/azure/copilot/overview
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方文档；Observability Agent 另计 usage-based charges，national clouds 不适用，动作需用户确认。
+  claims:
+  - GC-MS-02
+- source_id: SRC-MS-FOUNDRY-001
+  title: Microsoft Foundry
+  url: https://azure.microsoft.com/en-us/products/ai-foundry
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；按所用服务分别计费，不证明 Copilot Studio 的独立能力。
+  claims:
+  - GC-MS-04
+- source_id: SRC-GH-COPILOT-001
+  title: GitHub Copilot
+  url: https://github.com/features/copilot
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方产品页；Business/Enterprise 页面出现 1,900 credits/user，超额规则须按计划复核。
+  claims:
+  - GC-MS-05
+- source_id: SRC-IBM-CONCERT-001
+  title: IBM Concert
+  url: https://www.ibm.com/products/concert
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；结构化价格单位不一致，未采用具体价格。
+  claims:
+  - GC-IBM-01
+- source_id: SRC-IBM-INSTANA-001
+  title: IBM Instana
+  url: https://www.ibm.com/products/instana
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；自动发现、插桩、全栈可观测；最低价单位与版本不清，未采用。
+  claims:
+  - GC-IBM-02
+- source_id: SRC-IBM-ORCH-001
+  title: IBM watsonx Orchestrate
+  url: https://www.ibm.com/products/watsonx-orchestrate
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；控制平面、编排、治理、评估；metadata 许可单位与地区不明，未采用价格。
+  claims:
+  - GC-IBM-03
+- source_id: SRC-IBM-TURBO-001
+  title: IBM Turbonomic
+  url: https://www.ibm.com/products/turbonomic
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；资源流、right-sizing、容量与策略驱动自动化；商业字段未核实。
+  claims:
+  - GC-IBM-04
+- source_id: SRC-IBM-QRADAR-001
+  title: IBM QRadar
+  url: https://www.ibm.com/products/qradar
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；QRadar SIEM/SOAR/EDR 套件与 AI 分析；商业字段未核实。
+  claims:
+  - GC-IBM-05
+  - SEC-07
+- source_id: SRC-DD-AI-001
+  title: Datadog Bits AI
+  url: https://www.datadoghq.com/product/ai/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 当前页面展示 Bits Chat/Investigation/Code/Security Analyst/Agent Builder；具体 Credits
+    额度未核实。
+  claims:
+  - OBS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-AI-001.txt
+    sha256: 7695b0cad1eb25e3d322eec7be602a2e9d21cf803115cd6a59d5c2a0c9c91afd
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-NR-AI-001
+  title: New Relic AI
+  url: https://newrelic.com/platform/new-relic-ai/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；自然语言查询、日志/堆栈、变更与仪表盘解释；FedRAMP/HIPAA 客户不适用。
+  claims:
+  - OBS-03
+- source_id: SRC-GRAFANA-ASSIST-001
+  title: Grafana Assistant
+  url: https://grafana.com/docs/grafana-cloud/machine-learning/assistant/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方文档；RBAC、遥测、AI Supplemental Terms；完整功能需 full Grafana Cloud feature set。
+  claims:
+  - OBS-07
+- source_id: SRC-ELASTIC-AI-001
+  title: Elastic AI Assistant
+  url: https://www.elastic.co/docs/explore-analyze/ai-assistant
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 文档明示 Cloud Serverless 与 Stack GA；Managed LLM 需订阅层级并额外收费，第三方 provider 另核。
+  claims:
+  - OBS-08
+- source_id: SRC-SCIENCELOGIC-SKYLAR-001
+  title: Skylar AI
+  url: https://sciencelogic.com/platform/skylar-ai
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: canonical 页面；Skylar Advisor/Analytics 与 Topic Specialists；on-prem/SaaS 为厂商声明。
+  claims:
+  - OBS-09
+- source_id: SRC-SF-AGENTFORCE-001
+  title: Salesforce Agentforce
+  url: https://www.salesforce.com/agentforce/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；业务 Agent、人工升级与编排；Flex Credits/Resolutions/per-user 为许可选项，非完整价格。
+  claims:
+  - GC-SF-01
+- source_id: SRC-CS-CHARLOTTE-001
+  title: CrowdStrike Charlotte AI
+  url: https://www.crowdstrike.com/en-us/platform/charlotte-ai/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方页面；默认不执行改变环境动作，需显式配置与授权审批；符合条件客户每月 50 AI credits。
+  claims:
+  - SEC-04
+- source_id: SRC-PAN-CORTEX-001
+  title: Palo Alto Networks Cortex
+  url: https://www.paloaltonetworks.com/cortex/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；仅确认 Cortex 平台与 AgentiX 入口，未核验 Prisma AIRS 3.0 或具体自治能力。
+  claims:
+  - SEC-03
+- source_id: SRC-IBM-CLOUDABILITY-001
+  title: IBM Cloudability
+  url: https://www.apptio.com/products/cloudability/
+  type: official_doc
+  accessed_at: '2026-11-24'
+  review_by: '2027-02-22'
+  notes: 官方营销页；成本分配、预算、rightsizing、K8s 与 AI 成本；30%+ 为 typical outcomes，不作保证。
+  claims:
+  - FIN-01
+- source_id: PUB-AWS-DEVOPS-INFOQ-001
+  title: AWS DevOps Agent (InfoQ)
+  url: https://www.infoq.cn/article/GJED7TYiFFUYb87re523
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 公开报道线索；不替代官方文档，不用于证明状态或商业条款。
+  claims: []
+- source_id: PUB-HUAWEI-MINDOPS-001
+  title: 华为 Agentic AI 重塑行业运维
+  url: https://news.sina.cn/sx/2026-09-22/detail-inissitm5623944.d.html
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 公开报道；只支持报道所称 MindOps 方向，状态、区域与商业字段未核实。
+  claims:
+  - CN-HW-01
+  - VERT-01
+- source_id: PUB-HUAWEI-AEI-001
+  title: 华为智能体@AEI 白皮书报道
+  url: https://culture.ifeng.com/c/8wZOlujO5vw
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 公开报道；AEI/iMasterCloud 仅作路线线索，不证明生产可用性。
+  claims:
+  - CN-HW-02
+- source_id: PUB-TENCENT-CLOUDQ-001
+  title: 腾讯云 CloudQ 与 AI 可观测
+  url: https://www.bjnews.com.cn/detail/1793772689129886.html
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 公开报道；CloudQ/MigraQ/AndonQ/WorkBuddy 能力以报道口径呈现，商业字段未核实。
+  claims:
+  - CN-TX-01
+  - CN-TX-02
+  - CN-TX-03
+  - CN-TX-04
+  - VERT-02
+- source_id: PUB-BAIDU-INDUSTRY-001
+  title: 百度智能云产业智能体操作系统
+  url: https://m.tmtpost.com/nictation/8141994.html
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 公开报道；仅支持产业智能体与 Agent Infra 报道口径，状态与商业字段未核实。
+  claims:
+  - CN-BD-01
+  - CN-BD-02
+  - VERT-03
+- source_id: PUB-CHINA-TOP10-001
+  title: 2026 国产运维智能体 TOP10 横评
+  url: https://baijiahao.baidu.com/s?id=1877001265169160727
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 第三方公开横评，仅作产品导航，不能证明能力、排名或生产效果。
+  claims:
+  - CN-DOM-01
+- source_id: PUB-OPS-WHITEPAPER-001
+  title: 2026 运维智能体定义、架构与落地实践白皮书
+  url: https://m.sohu.com/a/1099405014_468661/
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 公开白皮书转载；用于行业路径线索，不证明具体厂商生产能力。
+  claims:
+  - VERT-04
+- source_id: COM-SERVICENOW-AGENTS-001
+  title: ServiceNow Now Assist / AI Agents FAQ
+  url: https://www.servicenow.com/community/now-assist-articles/ai-agents-faq-and-troubleshooting/tac-p/3207986/highlight/true
+  type: community
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 官方社区文章入口；本轮未取得正文，仅保留导航，不承载确定性能力。
+  claims: []
+- source_id: PUB-DD-DYNATRACE-COMPARE-001
+  title: Datadog / Dynatrace AIOps 对比
+  url: https://bbs.huaweicloud.com/blogs/489129
+  type: public_report
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 第三方比较文章；仅作线索，不用于证明任一厂商能力或计费。
+  claims: []
+- source_id: SRC-OWASP-GENAI-001
+  title: OWASP GenAI Security Project
+  url: https://genai.owasp.org/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-10'
+  notes: 安全项目入口；具体控制措施应引用对应版本文档。
+  claims:
+  - METH-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-OWASP-GENAI-001.txt
+    sha256: d8c4a14bb8d52d166e9a2ab15adc40a52564e71fc5eda395c2f2225a011c91e9
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-NIST-AIRMF-001
+  title: NIST AI Risk Management Framework
+  url: https://www.nist.gov/itl/ai-risk-management-framework
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-10'
+  notes: 风险管理框架入口。
+  claims:
+  - METH-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-NIST-AIRMF-001.txt
+    sha256: b7e7e530f2bf20c750e9f1ccbb6f4a8bd3901ba8838025d8d295c6fb82ef6c7a
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-ISO42001-001
+  title: ISO/IEC 42001
+  url: https://www.iso.org/standard/81230.html
+  type: official_doc
+  accessed_at: '2026-11-12'
+  review_by: '2027-02-10'
+  notes: 标准目录页；不据此宣称任何产品已认证。
+  claims:
+  - METH-03
+- source_id: SRC-EU-AIACT-001
+  title: EU AI Act regulatory framework
+  url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-10'
+  notes: 监管框架入口；具体适用范围需法律复核。
+  claims:
+  - METH-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-EU-AIACT-001.txt
+    sha256: 76f83419cd274473df0d924a55e99ded85128d1222bea5e6d63790187fd03972
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-OTEL-GENAI-001
+  title: OpenTelemetry GenAI Semantic Conventions
+  url: https://opentelemetry.io/docs/specs/semconv/gen-ai/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-10'
+  notes: GenAI 语义约定；稳定性状态以对应版本文档为准。
+  claims:
+  - METH-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-OTEL-GENAI-001.txt
+    sha256: 812aabd2acb3a0dfb95574e45cd708af2f665b56e5ef64f75af458f3264b0afa
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-GOOGLE-SRE-001
+  title: Google SRE Workbook
+  url: https://sre.google/workbook/table-of-contents/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-10'
+  notes: SRE 实践参考，不是产品能力证据。
+  claims:
+  - METH-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-SRE-001.txt
+    sha256: 3aeb78832db1b9797851d56955ba574eb82889fc3c2ac8430b70b428ff667235
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-MCP-001
+  title: Model Context Protocol
+  url: https://modelcontextprotocol.io/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-25'
+  notes: MCP 官方规范入口。
+- source_id: SRC-A2A-001
+  title: A2A Protocol Specification
+  url: https://a2a-protocol.org/latest/specification/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-25'
+  notes: A2A 官方规范入口。
+  snapshot:
+    path: reports/sources/snapshots/SRC-A2A-001.txt
+    sha256: 60107020c1771106ee6bb1fb0c4080f00b7f29d3f98259652d5b7ba5d407bb6b
+    captured_at: '2026-11-25'
+    method: html-to-text

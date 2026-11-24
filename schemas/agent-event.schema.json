@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-ops-agent-book:agent-event:1.0.0",
+  "title": "Canonical Agent Event",
+  "description": "Version 1.0.0 audit envelope for Session, Run, Model, Reasoning, Tool, Approval, Verification and Rollback events.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_type",
+    "event_time",
+    "tenant_id",
+    "session_id",
+    "trace_id",
+    "run_id",
+    "sequence",
+    "span_id",
+    "parent_event_id",
+    "causation_event_id",
+    "actor",
+    "subject",
+    "versions",
+    "payload",
+    "privacy",
+    "sampling",
+    "integrity"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "event_id": {"type": "string", "pattern": "^evt_[A-Za-z0-9_-]+$"},
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "run.started",
+        "model.completed",
+        "reasoning.recorded",
+        "tool.requested",
+        "approval.decided",
+        "verification.completed",
+        "rollback.initiated",
+        "run.completed"
+      ]
+    },
+    "event_time": {"type": "string", "format": "date-time"},
+    "tenant_id": {"type": "string", "minLength": 1},
+    "session_id": {"type": "string", "minLength": 1},
+    "trace_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "sequence": {"type": "integer", "minimum": 1},
+    "span_id": {"type": "string", "minLength": 1},
+    "parent_event_id": {"type": ["string", "null"]},
+    "causation_event_id": {"type": ["string", "null"]},
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": {"type": "string", "enum": ["agent", "human", "service", "system"]},
+        "id": {"type": "string", "minLength": 1},
+        "delegated_from": {"type": ["string", "null"]}
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource_type", "resource_id", "environment", "action_class", "risk_level"],
+      "properties": {
+        "resource_type": {"type": "string", "minLength": 1},
+        "resource_id": {"type": "string", "minLength": 1},
+        "environment": {"type": "string", "enum": ["test", "staging", "shadow", "canary", "production"]},
+        "action_class": {"type": "string", "enum": ["none", "read", "write"]},
+        "risk_level": {"type": "string", "enum": ["low", "medium", "high", "critical"]}
+      }
+    },
+    "versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agent_version", "deployment_version", "prompt_version", "model_version", "tool_contract_version", "knowledge_version", "policy_version", "eval_set_version"],
+      "properties": {
+        "agent_version": {"type": "string", "minLength": 1},
+        "deployment_version": {"type": "string", "minLength": 1},
+        "prompt_version": {"type": "string", "minLength": 1},
+        "model_version": {"type": "string", "minLength": 1},
+        "tool_contract_version": {"type": "string", "minLength": 1},
+        "knowledge_version": {"type": "string", "minLength": 1},
+        "policy_version": {"type": "string", "minLength": 1},
+        "eval_set_version": {"type": "string", "minLength": 1}
+      }
+    },
+    "payload": {"type": "object"},
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "contains_personal_data", "pii_fields_detected", "redaction", "retention", "reasoning_policy"],
+      "properties": {
+        "classification": {"type": "string", "enum": ["public", "internal", "confidential", "restricted"]},
+        "contains_personal_data": {"type": "boolean"},
+        "pii_fields_detected": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "redaction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "method", "fields"],
+          "properties": {
+            "status": {"type": "string", "enum": ["not_required", "applied", "rejected"]},
+            "method": {"type": "string", "enum": ["none", "allowlist", "tokenize", "hash"]},
+            "fields": {"type": "array", "items": {"type": "string", "minLength": 1}}
+          }
+        },
+        "retention": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["class", "days"],
+          "properties": {
+            "class": {"type": "string", "enum": ["operational_30d", "audit_1y", "legal_hold"]},
+            "days": {"type": "integer", "minimum": 1, "maximum": 2555}
+          }
+        },
+        "reasoning_policy": {"type": "string", "enum": ["decision_summary_only", "not_applicable"]}
+      }
+    },
+    "sampling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "rate", "reason"],
+      "properties": {
+        "decision": {"type": "string", "enum": ["keep", "drop"]},
+        "rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hash_algorithm", "event_hash", "prev_event_hash"],
+      "properties": {
+        "hash_algorithm": {"const": "sha256"},
+        "event_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "prev_event_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"event_type": {"const": "run.started"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/runStarted"}}}
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "model.completed"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/modelCompleted"}}}
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "reasoning.recorded"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/reasoningRecorded"}}}
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "tool.requested"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/toolRequested"}}}
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "approval.decided"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/approvalDecided"}}}
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "verification.completed"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/verificationCompleted"}}}
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "rollback.initiated"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/rollbackInitiated"}}}
+    },
+    {
+      "if": {"properties": {"event_type": {"const": "run.completed"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/runCompleted"}}}
+    }
+  ],
+  "$defs": {
+    "runStarted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_ref", "intent", "scenario_id", "slo_class"],
+      "properties": {
+        "input_ref": {"type": "string", "minLength": 1},
+        "intent": {"type": "string", "minLength": 1},
+        "scenario_id": {"type": "string", "minLength": 1},
+        "slo_class": {"type": "string", "enum": ["SEV1", "SEV2", "SEV3"]}
+      }
+    },
+    "modelCompleted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model", "input_tokens", "output_tokens", "cost_usd", "latency_ms"],
+      "properties": {
+        "provider": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "input_tokens": {"type": "integer", "minimum": 0},
+        "output_tokens": {"type": "integer", "minimum": 0},
+        "cost_usd": {"type": "number", "minimum": 0},
+        "latency_ms": {"type": "integer", "minimum": 0}
+      }
+    },
+    "reasoningRecorded": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "evidence_refs", "hypotheses", "selected_hypothesis", "confidence"],
+      "properties": {
+        "summary": {"type": "string", "minLength": 1, "maxLength": 2000},
+        "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "hypotheses": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 500}},
+        "selected_hypothesis": {"type": "string", "minLength": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "toolRequested": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tool_id", "tool_name", "contract_version", "input_schema_hash", "output_schema_hash", "idempotency_key", "arguments_redacted", "dry_run", "write_operation"],
+      "properties": {
+        "tool_id": {"type": "string", "minLength": 1},
+        "tool_name": {"type": "string", "minLength": 1},
+        "contract_version": {"type": "string", "minLength": 1},
+        "input_schema_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "output_schema_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "idempotency_key": {"type": "string", "minLength": 1},
+        "arguments_redacted": {"type": "object"},
+        "dry_run": {"type": "boolean"},
+        "write_operation": {"type": "boolean"}
+      }
+    },
+    "approvalDecided": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["approval_id", "decision", "approver_ids", "reason_code", "policy_version", "decided_at"],
+      "properties": {
+        "approval_id": {"type": "string", "minLength": 1},
+        "decision": {"type": "string", "enum": ["approved", "rejected", "timed_out"]},
+        "approver_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "reason_code": {"type": "string", "minLength": 1},
+        "policy_version": {"type": "string", "minLength": 1},
+        "decided_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "verificationCompleted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verification_id", "checks", "passed", "evidence_refs"],
+      "properties": {
+        "verification_id": {"type": "string", "minLength": 1},
+        "checks": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "passed": {"type": "boolean"},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "rollbackInitiated": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["change_id", "trigger", "rto_seconds", "compensation_plan_ref", "status"],
+      "properties": {
+        "change_id": {"type": "string", "minLength": 1},
+        "trigger": {"type": "string", "enum": ["actual_change_failure", "drill", "security_stop"]},
+        "rto_seconds": {"type": "integer", "minimum": 1},
+        "compensation_plan_ref": {"type": "string", "minLength": 1},
+        "status": {"type": "string", "enum": ["initiated", "canceled", "completed", "failed"]}
+      }
+    },
+    "runCompleted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome", "error_code", "verified", "human_takeover"],
+      "properties": {
+        "outcome": {"type": "string", "enum": ["success", "failure", "escalated", "rolled_back"]},
+        "error_code": {"type": ["string", "null"]},
+        "verified": {"type": "boolean"},
+        "human_takeover": {"type": "boolean"}
+      }
+    }
+  }
+}

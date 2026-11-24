@@ -54,7 +54,7 @@
   --vp-nav-height: 64px;
   --vp-sidebar-width: 288px;
   --vp-layout-max-width: 1440px;
-  --vp-code-block-bg: var(--book-gray-100);
+  --vp-code-block-bg: var(--book-white);
   --vp-code-line-highlight-color: rgba(120, 169, 255, 0.16);
   --vp-code-copy-code-bg: var(--book-gray-90);
   --vp-code-copy-code-hover-bg: #333333;
@@ -390,17 +390,35 @@ body {
 }
 
 .vp-doc div[class*="language-"] {
-  border: 1px solid var(--book-gray-100);
+  border: 1px solid var(--book-line);
   border-radius: 0;
-  background: var(--book-gray-100);
+  background: var(--book-white);
 }
 
 .vp-doc div[class*="language-"]::before {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--book-muted);
 }
 
 .vp-doc div[class*="language-"] code {
-  color: #f4f4f4;
+  color: var(--book-ink);
+}
+
+.vp-doc .shiki {
+  background: var(--book-white) !important;
+  color: var(--book-ink) !important;
+}
+
+.vp-doc .shiki span {
+  color: var(--shiki-light) !important;
+}
+
+.vp-doc div[class*="language-"] .copy {
+  color: var(--book-muted);
+}
+
+.vp-doc div[class*="language-"] .copy:hover,
+.vp-doc div[class*="language-"] .copy.copied {
+  color: var(--book-blue);
 }
 
 /* ---------- Callouts ---------- */
@@ -452,6 +470,7 @@ body {
 /* ---------- Diagrams ---------- */
 
 .custom-block.diagram {
+  margin: 1.6rem 0;
   padding: 0;
   border: 1px solid var(--book-line);
   background: var(--book-white);
@@ -960,7 +979,7 @@ body {
 .book-cta p {
   max-width: 70ch;
   margin: 14px 0 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--book-white);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -995,6 +1014,20 @@ body {
 }
 
 /* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+  .VPNavBarMenu {
+    display: none !important;
+  }
+
+  .VPNavBarHamburger {
+    display: flex !important;
+  }
+
+  .VPNavBarExtra {
+    margin-left: auto;
+  }
+}
 
 @media (max-width: 960px) {
   .book-hero__inner {
@@ -1110,6 +1143,16 @@ body {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 /* ---------- Print ---------- */
 
 @media print {
@@ -1170,6 +1213,20 @@ body {
   .custom-block,
   .custom-block.diagram {
     break-inside: avoid;
+  }
+
+  .vp-doc thead {
+    display: table-header-group;
+  }
+
+  .vp-doc tr {
+    break-inside: avoid;
+  }
+
+  .vp-doc pre,
+  .vp-doc pre code {
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere;
   }
 
   a {

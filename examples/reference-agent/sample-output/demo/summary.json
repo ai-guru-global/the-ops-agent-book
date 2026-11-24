@@ -1,0 +1,271 @@
+{
+  "scenario_id": "notready-synthetic",
+  "mode": "demo",
+  "run_id": "run_demo_synthetic",
+  "synthetic": true,
+  "data_classification": "synthetic/desensitized",
+  "production_ready": false,
+  "outcome": "success",
+  "error_code": null,
+  "verified": true,
+  "human_takeover": false,
+  "plan_versions": [
+    1,
+    2,
+    3
+  ],
+  "approvals": [
+    {
+      "approval_id": "apr_1",
+      "plan_version": 1,
+      "plan_hash": "c76460ecffa4d9ebbd91c198c5452f9af1af0cca3abffc9486889d4d74cfa9f5",
+      "target_resource_versions": {
+        "node/synthetic-node-07": "node-v1",
+        "logs/synthetic-node-07": "logs-v1"
+      },
+      "approval_type": "dual",
+      "status": "approved",
+      "approver_ids": [
+        "human:synthetic-reviewer-a",
+        "human:synthetic-reviewer-b"
+      ],
+      "expires_at": "2026-11-24T00:15:05.000Z"
+    },
+    {
+      "approval_id": "apr_2",
+      "plan_version": 2,
+      "plan_hash": "a7555b93beb12f1b23deb75b5ac55d992555f9da1cffcce1f0de8240a5f67fa2",
+      "target_resource_versions": {
+        "logs/synthetic-node-07": "logs-v2"
+      },
+      "approval_type": "dual",
+      "status": "approved",
+      "approver_ids": [
+        "human:synthetic-reviewer-a",
+        "human:synthetic-reviewer-b"
+      ],
+      "expires_at": "2026-11-24T00:15:10.000Z"
+    },
+    {
+      "approval_id": "apr_3",
+      "plan_version": 3,
+      "plan_hash": "e52597f0f0cf18d478395c717722ab5a7755c6c91e80b43fe1c74a23a23cb5ad",
+      "target_resource_versions": {
+        "synthetic-node-07": "node-v3"
+      },
+      "approval_type": "single",
+      "status": "approved",
+      "approver_ids": [
+        "human:synthetic-release-manager"
+      ],
+      "expires_at": "2026-11-24T00:15:17.000Z"
+    }
+  ],
+  "steps": [
+    {
+      "step_id": "drain-notready-node",
+      "tool": "k8s.drain_node",
+      "plan_version": 1,
+      "status": "succeeded",
+      "partial_success": false,
+      "replayed": false
+    },
+    {
+      "step_id": "cleanup-old-logs",
+      "tool": "node.cleanup_logs",
+      "plan_version": 1,
+      "status": "partial_success",
+      "partial_success": true,
+      "succeeded": 2,
+      "requested": 3
+    },
+    {
+      "step_id": "finish-cleanup",
+      "tool": "node.cleanup_logs",
+      "plan_version": 2,
+      "status": "succeeded",
+      "partial_success": false,
+      "succeeded": 1,
+      "requested": 1
+    },
+    {
+      "step_id": "uncordon-recovered-node",
+      "tool": "k8s.uncordon",
+      "plan_version": 3,
+      "status": "succeeded",
+      "partial_success": false
+    }
+  ],
+  "checks": [
+    {
+      "name": "operator_revalidation_before_drain",
+      "passed": true,
+      "evidence": "evt_6"
+    },
+    {
+      "name": "partial_success_2_of_3_stops_next_step",
+      "passed": true,
+      "evidence": "evt_11"
+    },
+    {
+      "name": "replanned_cleanup_complete",
+      "passed": true,
+      "evidence": "evt_12"
+    },
+    {
+      "name": "node_ready",
+      "passed": true,
+      "evidence": "evt_13"
+    },
+    {
+      "name": "pdb_satisfied",
+      "passed": true,
+      "evidence": "evt_14"
+    },
+    {
+      "name": "capacity_available",
+      "passed": true,
+      "evidence": "evt_14"
+    },
+    {
+      "name": "slo_within_budget",
+      "passed": true,
+      "evidence": "evt_14"
+    },
+    {
+      "name": "cleanup_complete",
+      "passed": true,
+      "evidence": "evt_9"
+    },
+    {
+      "name": "approved_uncordon_after_verification",
+      "passed": true,
+      "evidence": "evt_17"
+    }
+  ],
+  "initial_state": {
+    "node": {
+      "id": "synthetic-node-07",
+      "cluster": "synthetic-prod-a",
+      "pool": "synthetic-gpu-a",
+      "ready": false,
+      "unschedulable": false,
+      "resource_version": "node-v1",
+      "disk_pressure": true,
+      "memory_pressure": false,
+      "pid_pressure": false,
+      "labels": {
+        "managed-by": "platform",
+        "cluster": "synthetic-prod-a",
+        "pool": "synthetic-gpu-a"
+      }
+    },
+    "filesystem": {
+      "usage": 0.97,
+      "imagefs_available": false
+    },
+    "pdb": {
+      "name": "synthetic-gpu-pdb",
+      "desired_healthy": 3,
+      "current_healthy": 3,
+      "min_available": 2,
+      "satisfied": true
+    },
+    "capacity": {
+      "available": true,
+      "schedulable_gpus": 8,
+      "required_gpus": 4
+    },
+    "slo": {
+      "error_rate": 0.001,
+      "budget": 0.005,
+      "within_budget": true
+    },
+    "logs": [
+      {
+        "id": "logs-a",
+        "path": "/var/log/synthetic/kernel.log",
+        "age_hours": 48,
+        "size_gib": 2,
+        "cleaned": false
+      },
+      {
+        "id": "logs-b",
+        "path": "/var/log/synthetic/device.log",
+        "age_hours": 30,
+        "size_gib": 1,
+        "cleaned": false
+      },
+      {
+        "id": "logs-c",
+        "path": "/var/log/synthetic/audit.log",
+        "age_hours": 25,
+        "size_gib": 61,
+        "cleaned": false
+      }
+    ],
+    "log_resource_version": "logs-v1",
+    "active_change": false
+  },
+  "final_state": {
+    "node": {
+      "id": "synthetic-node-07",
+      "cluster": "synthetic-prod-a",
+      "pool": "synthetic-gpu-a",
+      "ready": true,
+      "unschedulable": false,
+      "resource_version": "node-v4",
+      "disk_pressure": false,
+      "memory_pressure": false,
+      "pid_pressure": false,
+      "labels": {
+        "managed-by": "platform",
+        "cluster": "synthetic-prod-a",
+        "pool": "synthetic-gpu-a"
+      }
+    },
+    "filesystem": {
+      "usage": 0.62,
+      "imagefs_available": true
+    },
+    "pdb": {
+      "name": "synthetic-gpu-pdb",
+      "desired_healthy": 3,
+      "current_healthy": 3,
+      "min_available": 2,
+      "satisfied": true
+    },
+    "capacity": {
+      "available": true,
+      "schedulable_gpus": 8,
+      "required_gpus": 4
+    },
+    "slo": {
+      "error_rate": 0.001,
+      "budget": 0.005,
+      "within_budget": true
+    },
+    "logs_remaining": [],
+    "automatic_writes": true
+  },
+  "counts": {
+    "read_calls": 4,
+    "write_calls": 5,
+    "write_side_effects": 4,
+    "would_do": 0,
+    "denied_calls": 1
+  },
+  "trace": {
+    "event_count": 19,
+    "head_hash": "e436c577342fb7f2c1f1eba95779b7b9077932f473ee9ababd5dba89dda361c1",
+    "verified": true
+  },
+  "cost": {
+    "model_cost_usd": 0,
+    "tool_cost_usd": 0,
+    "human_cost_usd": 0,
+    "currency": "USD",
+    "synthetic": true
+  },
+  "partial_success_stops_next_step": true
+}

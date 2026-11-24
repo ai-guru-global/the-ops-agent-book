@@ -2,9 +2,9 @@
 
 > 面向运维场景的智能体工程手册。规划、设计、建设、维护、优化、迭代。
 
-运维 Agent 的难点不在模型，而在证据、权限、变更与可验证性。这本书给出一套从想法到退役的工程方法，K8s、RDMA、GPU 推理、数据库与事故指挥五本可落地的场景手册，覆盖全球与中国主要厂商的运维 Agent 产品地图，以及 2026 工程域：AgentOps、身份与安全、成本/ROI、2027+ 路线图。站点采用 IBM 白底蓝企业风格，全书 23 张概念图使用统一的 Mermaid 图表系统。
+运维 Agent 的难点不在模型，而在证据、权限、变更与可验证性。这本书给出一套从想法到退役的工程方法，K8s、RDMA、GPU 推理、数据库与事故指挥五本可落地的场景手册，覆盖全球与中国主要厂商的运维 Agent 产品地图，以及 2026 工程域：AgentOps、身份与安全、成本/ROI、2027+ 路线图。站点采用 IBM 白底蓝企业风格，全书 35 张概念图使用统一的 Mermaid 图表系统。
 
-当前版本：**v0.1.1**（2026-11）。适合 SRE、平台工程师、AI 工程师、运维产品经理与架构师。
+当前版本：**v0.2.0-rc1**（2026-11）。适合 SRE、平台工程师、AI 工程师、运维产品经理与架构师。
 
 ![The Ops Agent Book 首页](assets/preview.png)
 
@@ -74,6 +74,10 @@
 
 - [端到端案例：K8s 节点 NotReady](docs/appendix/case-notready.md)
 - [失败复盘：一个没有上线的 Agent](docs/appendix/case-failed-agent.md)
+- [需求地图](docs/appendix/requirement-map.md)
+- [图示规范](docs/appendix/diagram-guide.md)
+- [来源注册表](docs/appendix/source-registry.md)
+- [维护注册表](docs/appendix/maintenance-registry.md)
 - [阿里 Agent 产品全景](docs/appendix/alibaba-agent-landscape.md)
 - [指标与 SLO 库](docs/appendix/metrics.md)
 - [术语表](docs/appendix/glossary.md)
@@ -91,6 +95,22 @@ npm run docs:preview  # 预览构建产物
 ```
 
 站点使用 VitePress。内容在 `docs/`，主题在 `docs/.vitepress/theme/`。视觉系统为 IBM 白底蓝企业风格，强制浅色主题；Mermaid 图使用 `docs/.vitepress/config.mts` 中的 IBM 主题变量，并在正文中用 `::: diagram 图 XX · 标题 | 图注` 包裹。完整视觉规范见 [DESIGN.md](DESIGN.md)，产品背景见 [PRODUCT.md](PRODUCT.md)。
+
+## 参考实现与可执行资产
+
+仓库包含纯 Node.js 的 synthetic 参考实现，用于验证策略执行、不可变审批、短时凭证、撤销、Trace 哈希链、影子/灰度/回滚与评测流程；不连接真实 K8s，不用于生产。
+
+```bash
+npm run test:reference
+npm run eval:self-test
+npm run eval:demo
+npm run cost:demo
+npm run export:pdf
+npm run export:epub
+npm run check:all
+```
+
+核心说明见 [examples/reference-agent/README.md](examples/reference-agent/README.md)，需求到资产映射见 [需求地图](docs/appendix/requirement-map.md)。PDF 与 EPUB 分别输出到 `dist-pdf/` 和 `dist-epub/`。
 
 ## 写作约定
 
@@ -130,6 +150,7 @@ npm run docs:preview  # 预览构建产物
 
 | 版本 | 日期 | 主要变化 |
 | --- | --- | --- |
+| v0.2.0-rc1 | 2026-11-24 | 完成 P0 安全与语义修订；图示扩展至 35 张并转换全部图状文本；建立来源/claim/商业字段矩阵、指标与事件 Schema、工具/权限/Runbook Schema、评测与发布模板、可执行场景样例 |
 | v0.1.1 | 2026-11-12 | 统一五本场景手册口径；补齐 K8s NotReady 贯穿案例；新增端到端案例与失败复盘；补齐厂商来源与核实日期；IBM 白底蓝主题重构；23 张 Mermaid 图解；新增内链检查 |
 | v0.1 | 2026-11-11 | 初版：方法、5 本场景手册、厂商地图、2026 工程域、模板与附录 |
 

@@ -1,0 +1,41 @@
+{
+  "id": "cost_per_successful_event",
+  "name": "All-in cost per successfully resolved event",
+  "definition": "USD allocated to all eligible events divided by independently verified successful resolutions, including failed-run and human-review costs.",
+  "formula": "sum(allocated_cost_usd for all eligible events) / count(distinct run_id with verified_success=true)",
+  "unit": "USD/successful_event",
+  "numerator": {
+    "definition": "Model, tool, sandbox, data egress, observability, human review, allocated fixed operations and risk-reserve cost in USD for every eligible event in the window.",
+    "population": "finance_event_cost_allocations joined to run_started"
+  },
+  "denominator": {
+    "definition": "Distinct eligible events with verified_success=true; failed and escalated events are excluded only from this denominator, never from cost.",
+    "population": "events.run_verified where verified_success=true"
+  },
+  "window": {"duration": "30d", "cadence": "daily", "timezone": "UTC"},
+  "exclusions": [
+    "non-production synthetic benchmarks",
+    "taxes recoverable by the organization and currency conversion fees already embedded in normalized USD rates",
+    "duplicate vendor invoice lines matched by invoice_id and line_id"
+  ],
+  "data_source": {
+    "system": "FinOps ledger joined to AgentOps event lake",
+    "dataset": "event_cost_allocations and canonical_agent_events",
+    "event_time_field": "event_time",
+    "query": "SUM(allocated_cost_usd) / COUNT(DISTINCT CASE WHEN verified_success THEN run_id END), grouped by tenant_id, scenario_id and agent_version"
+  },
+  "owner": {"team": "FinOps", "role": "Metric Owner", "on_call": "finops-primary"},
+  "target": {"comparator": "<=", "value": 65.15},
+  "alert": {
+    "condition": "30d all-in cost per successful event > 65.15 after minimum_sample OR daily spend > 120% of budget",
+    "severity": "SEV2",
+    "actions": ["page FinOps and service Owner", "cap expensive model routes", "inspect review and failure rates", "pause scale-out until budget review"]
+  },
+  "minimum_sample": 200,
+  "confidence": {
+    "level": 0.95,
+    "method": "cluster_bootstrap",
+    "decision_rule": "Resample events by incident_id with 2000 replicates; PASS when denominator >= 200 and upper bound <= target."
+  },
+  "severity": "SEV2"
+}

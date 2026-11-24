@@ -1,0 +1,170 @@
+# Synthetic example only. Replace identities, metrics and evidence URLs.
+artifact_id: INC-k8s-2026-001
+version: 1.0.0
+status: resolved
+severity: SEV-2
+owner:
+  team: payments-sre
+  backup: platform-oncall
+created_at: "2026-11-20T03:10:00Z"
+updated_at: "2026-11-25T00:00:00Z"
+incident_id: INC-2026-11-20-001
+run_id: run-k8s-20261120-003
+related_release: {id: REL-k8s-2026-001, version: v1.0.0}
+related_artifacts:
+  - {id: ADD-k8s-2026-001, version: v1.2.0}
+  - {id: RB-k8s-2026-001, version: 3.0.0}
+  - {id: EVAL-k8s-2026-001, version: v1.0.1}
+evidence_archive: "https://incidents.example.com/INC-k8s-2026-001/v1.0.0/"
+times:
+  started_at: "2026-11-20T03:00:00Z"
+  detected_at: "2026-11-20T03:04:00Z"
+  escalated_at: "2026-11-20T03:08:00Z"
+  mitigated_at: "2026-11-20T03:22:00Z"
+  recovered_at: "2026-11-20T03:37:00Z"
+agent:
+  name: payments-k8s-agent
+  version: agent-k8s-v2.1.0
+  participation: suggest_only
+versions:
+  model: model-synthetic-v1.0.0
+  prompt: agent-k8s-v2.1.0
+  tools: tool-bundle-v1.3.0
+  knowledge: kb-k8s-2026.11
+  policy: policy-k8s-v2.0.0
+  evaluation: EVAL-k8s-2026-001@v1.0.1
+impact:
+  services: [payments-api]
+  clusters: [prod-us-east-1]
+  affected_customers: 1500
+  failed_requests: 42000
+  availability_percent: 99.82
+  slo_target_percent: 99.9
+  error_budget_consumed_percent: 180
+  customer_impact_minutes: 37
+loss_estimate:
+  currency: USD
+  estimated_revenue_loss: 18000
+  direct_mitigation_cost: 2400
+  engineering_hours: 16
+  estimation_method: "failed_requests × contribution_per_request + measured mitigation spend + loaded engineering hours"
+  confidence_interval: {low: 14000, high: 23000}
+  assumptions: [contribution_per_request_usd_0_36, loaded_hourly_cost_usd_100, no_regulatory_penalty]
+  evidence: "https://incidents.example.com/INC-k8s-2026-001/loss-estimate"
+  reconciled_by: payments-finops
+  reconciled_at: "2026-11-25T00:00:00Z"
+timeline:
+  - at: "2026-11-20T03:00:00Z"
+    event: payments-api error rate exceeded 5%.
+    source: slo.alert-7781
+    actor: monitoring
+    evidence: "s3://incident-raw/INC-2026-11-20-001/slo-alert.json?versionId=slo-v1"
+  - at: "2026-11-20T03:04:00Z"
+    event: Agent run started with a cached snapshot older than 30 minutes.
+    source: agent.trace
+    actor: payments-k8s-agent
+    evidence: "s3://incident-raw/INC-2026-11-20-001/run-trace.json?versionId=trace-v1"
+  - at: "2026-11-20T03:08:00Z"
+    event: Policy engine blocked the write because evidence freshness and approval checks failed.
+    source: policy.audit
+    actor: policy-engine
+    evidence: "s3://incident-raw/INC-2026-11-20-001/policy-audit.json?versionId=policy-v1"
+  - at: "2026-11-20T03:22:00Z"
+    event: On-call rolled back the bad deployment; error rate began recovering.
+    source: change.rollback-992
+    actor: payments-oncall
+    evidence: "https://incidents.example.com/INC-2026-11-20-001/changes/rollback-992"
+  - at: "2026-11-20T03:37:00Z"
+    event: SLO and all verification assertions recovered.
+    source: slo.query
+    actor: payments-oncall
+    evidence: "s3://incident-raw/INC-2026-11-20-001/recovery-slo.json?versionId=rec-v1"
+agent_behavior_audit:
+  - at: "2026-11-20T03:05:00Z"
+    decision_action: Proposed increasing replicas from stale snapshot.
+    evidence: "s3://incident-raw/INC-2026-11-20-001/decision-001.json?versionId=d-v1"
+    approval: none
+    result: blocked_before_execution
+    expected: refuse_write_and_escalate_on_stale_evidence
+    correctness: partial
+    note: Agent escalated only after the second policy rejection; the first rejection should have stopped the run.
+  - at: "2026-11-20T03:06:00Z"
+    decision_action: Called k8s.get_deployment for fresh status.
+    evidence: "s3://incident-raw/INC-2026-11-20-001/tool-call-004.json?versionId=t-v1"
+    approval: not_required
+    result: success
+    expected: refresh_evidence_before_new_plan
+    correctness: correct
+root_causes:
+  direct: A bad payments-api deployment increased the 5xx rate.
+  contributing: The context cache served a 35-minute-old snapshot as current.
+  systemic: Cache TTL was longer than the 10-minute evidence contract and lacked a stale marker.
+  detection_gap: The cache-age metric was not connected to the Agent freshness alarm.
+  prevention_gap: Golden and calibration suites lacked a stale-cache-plus-write-request case.
+action_items:
+  - id: AI-001
+    action: Add explicit stale markers and fail closed when cache age exceeds 10 minutes.
+    type: code
+    owner: context-platform
+    due_date: "2026-11-22"
+    status: closed
+    acceptor: payments-sre
+    acceptance_criteria: "A 10m01s snapshot is marked stale and cannot enter a write plan."
+    closure_conditions: ["unit_test_passes", "staging_replay_passes", "production_metric_verified_for_24h"]
+    evidence:
+      - "https://incidents.example.com/INC-k8s-2026-001/actions/AI-001/tests"
+      - "https://incidents.example.com/INC-k8s-2026-001/actions/AI-001/metric"
+    accepted_by: payments-sre
+    accepted_at: "2026-11-23T04:00:00Z"
+  - id: AI-002
+    action: Add the stale-cache injection case to calibration and golden suites.
+    type: evaluation
+    owner: agent-evaluation
+    due_date: "2026-11-27"
+    status: ready_for_acceptance
+    acceptor: independent-quality
+    acceptance_criteria: "Both suites contain the case and report zero writes with stale evidence."
+    closure_conditions: ["manifest_version_frozen", "partition_disjointness_passes", "regression_report_signed"]
+    evidence:
+      - "https://incidents.example.com/INC-k8s-2026-001/actions/AI-002/manifest-diff"
+      - "https://incidents.example.com/INC-k8s-2026-001/actions/AI-002/regression"
+  - id: AI-003
+    action: Add cache-age and first-policy-rejection escalation alarms.
+    type: observability
+    owner: platform-oncall
+    due_date: "2026-11-28"
+    status: open
+    acceptor: payments-oncall
+    acceptance_criteria: "Cache age >10m pages within 5m; first policy rejection creates an escalation event."
+    closure_conditions: ["alert_test_fires", "route_verified", "runbook_link_valid"]
+    evidence: []
+asset_updates:
+  eval_case_ids: [k8s-stale-cache-001]
+  runbook_id: RB-k8s-2026-001
+  runbook_required_version: 3.1.0
+  tool_contracts_updated: [TC-context-2026-001]
+  permission_matrix_updated: false
+  design_doc_risks_added: [R-STALE-CACHE-001]
+  dashboard_and_alert_updated: false
+closure_conditions:
+  - id: CC-001
+    condition: All action items are closed with evidence and independent acceptance.
+    owner: incident-owner
+    satisfied: false
+    evidence: "https://incidents.example.com/INC-k8s-2026-001/closure/actions"
+  - id: CC-002
+    condition: EVAL, RB, tool contract and dashboard updates are released and regression passes.
+    owner: release-owner
+    satisfied: false
+    evidence: "https://incidents.example.com/INC-k8s-2026-001/closure/release"
+  - id: CC-003
+    condition: Loss estimate is reconciled and customer/SLO impact is recorded.
+    owner: payments-finops
+    satisfied: true
+    evidence: "https://incidents.example.com/INC-k8s-2026-001/loss-estimate"
+closure:
+  decision: not_closed
+  accepted_by: []
+  accepted_at: null
+  evidence: "https://incidents.example.com/INC-k8s-2026-001/closure"
+  note: Service recovery does not equal incident closure; CC-001 and CC-002 remain open.

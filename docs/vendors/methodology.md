@@ -1,11 +1,17 @@
 ---
 title: 厂商评估方法
 description: 如何评估运维 Agent 厂商：产品形态、数据面、行动边界、部署、治理、TCO、可移植性与 POC。
+owner: "Vendor Researcher"
+last_verified: "2026-11-25"
+review_by: "2027-02-25"
+content_status: "reviewed"
 ---
 
 # 厂商评估方法
 
 > 厂商演示的是“能力上限”，生产需要的是“可验证的下限”。用同一套框架评估所有厂商，避免被名词和 Demo 带走。
+>
+> 最后核实：**2026-11-24**；复核截止：**2027-02-22**。
 
 ## 1. 先分层
 
@@ -32,14 +38,16 @@ description: 如何评估运维 Agent 厂商：产品形态、数据面、行动
 
 ## 3. 证据分级
 
-| 级别 | 证据 | 可信度 |
+| 级别 | 证据 | 可信度与边界 |
 | --- | --- | --- |
-| A | 官方文档、API、SLA、定价页 | 高 |
-| B | 官方发布/大会演示/预览公告 | 中高 |
-| C | 公开报道、分析师报告、客户案例 | 中 |
-| D | 社区文章、第三方评测、Demo 视频 | 低，需要 POC 验证 |
+| A | 官方文档、API、SLA、定价页 | 高；仅证明文档明确写出的范围，仍需检查版本、区域与日期 |
+| B | 官方发布、大会演示、预览公告 | 中高；发布与演示不等于 GA 或生产验证 |
+| C | 公开报道、分析师报告、客户案例 | 中；必须写明“报道/厂商称”，不能自动升级为官方事实 |
+| D | 社区文章、第三方评测、Demo 视频 | 低；需要 POC 验证 |
 
-本书的厂商地图会标注依据类型；产品状态（预览/商用）与能力以官方最新文档为准。
+**官方营销页不等于生产能力证明。** 它最多支持“厂商如此宣称”，不能单独证明 SLA、客户规模、区域可用性、节省比例或生产效果。客户案例、benchmark 与厂商性能指标也不能替代独立验证。
+
+本书使用稳定 `claim_id → source_id` 回指。每条 material capability claim 必须有可定位来源；来源不足以支持时写“未核实”，不保留猜测。“未核实”不等于否定，但不得把它当成肯定事实。状态、区域、许可单位、最低消费/超额、数据驻留、导出/退出六项商业字段分别核实，不能用产品主页的单一营销表述补齐。
 
 ## 4. POC 设计
 
@@ -75,7 +83,8 @@ POC 必须用**你自己的数据**，不要只用厂商的演示环境。
 ## 7. 覆盖与更新
 
 - 本地图覆盖主要厂商与代表性产品，不是穷举。
-- 产品名称、状态、能力、计费变化很快；本书标注“依据类型”，但使用前必须查官方文档。
+- 产品名称、状态、能力、计费变化很快；每条事实回指 `source_id`，并遵守 `accessed_at / review_by`。超过复核截止或缺少快照时，先重新核验再使用。
+- 来源清单、访问时间与快照计划见[来源注册表](../appendix/source-registry)；不要用含糊的“官方产品页”作为唯一证据。
 - 欢迎提交 Issue/PR 补充厂商、纠正信息、提供真实 POC 经验。
 
 ## 8. 一页选型结论模板
@@ -98,13 +107,13 @@ POC 结论：
 
 ## 来源与核实
 
-本页评估框架最后核实：**2026-11-12**。证据分级与 POC 方法为本书原创，外部标准与来源参考：
+本页评估框架最后核实：**2026-11-24**；复核截止：**2027-02-22**。证据分级、回指规则与 POC 方法为本书原创，外部标准与来源参考：
 
-- [OWASP GenAI Security Project](https://genai.owasp.org/)
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
-- [ISO/IEC 42001](https://www.iso.org/standard/81230.html)
-- [EU AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
-- [OpenTelemetry GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
-- [Google SRE Workbook](https://sre.google/workbook/table-of-contents/)
+- OWASP GenAI Security Project（METH-01；SRC-OWASP-GENAI-001）
+- NIST AI Risk Management Framework（METH-02；SRC-NIST-AIRMF-001）
+- ISO/IEC 42001（METH-03；SRC-ISO42001-001）
+- EU AI Act（METH-04；SRC-EU-AIACT-001）
+- OpenTelemetry GenAI Semantic Conventions（METH-05；SRC-OTEL-GENAI-001）
+- Google SRE Workbook（METH-06；SRC-GOOGLE-SRE-001）
 
-完整来源清单见[参考资料](../appendix/references)。
+这些标准/框架入口不证明任何产品已合规或认证。完整来源见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。

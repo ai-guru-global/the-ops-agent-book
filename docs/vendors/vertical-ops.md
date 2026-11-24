@@ -1,24 +1,32 @@
 ---
 title: 垂直行业运维 Agent
 description: 电信 NOC、金融、制造/OT、能源、零售、物流、医疗、政务等垂直行业的运维 Agent 场景与代表厂商。
+owner: "Vendor Researcher"
+last_verified: "2026-11-25"
+review_by: "2027-02-25"
+content_status: "reviewed"
 ---
 
 # 垂直行业运维 Agent
 
 > 垂直行业的运维 Agent，不是“把 K8s Agent 换个名字”。它需要行业本体（ontology）、行业数据、行业流程和行业监管约束。
+>
+> 最后核实：**2026-11-24**；复核截止：**2027-02-22**。本页任务是场景设计建议；“代表厂商/产品”仅是导航，**不是逐产品能力证明**。
 
 ## 场景矩阵
 
-| 行业 | 典型运维 Agent 任务 | 代表厂商/产品 | 关键证据 | 护栏 |
-| --- | --- | --- | --- | --- |
-| **电信 NOC** | 告警关联、故障定界、网络优化、闭环处置、客服/工单协同 | 华为 MindOps/AEI/iMaster NCE、Nokia、Cisco、Juniper、Amdocs、Netcracker、Blue Planet、亚信科技、浩鲸科技、中兴 | NMS/OSS、拓扑、告警、KPI、工单、变更 | 维护窗口、业务影响评估、双人审批、回滚 |
-| **金融运维** | AIOps、事件响应、变更风险、容量、合规审计、灾备演练 | ServiceNow、Datadog、Dynatrace、平安/蚂蚁内部实践、嘉为蓝鲸、云智慧、擎创 | APM、日志、交易链路、审计、CMDB | 数据不出域、审计、双人审批、灾备切换演练 |
-| **制造 / OT** | 预测性维护、质量异常、设备健康、OT 安全、能耗优化 | Siemens Industrial Copilot、Rockwell、Schneider、ABB、GE Vernova、PTC | PLC/SCADA、 historians、传感器、MES、工单 | 不直接控制安全仪表系统；OT 分区隔离；人工确认 |
-| **能源 / 电网** | 电网运行、故障预测、调度辅助、设备巡检、能耗 | 国家电网、Schneider、Siemens、华为 | SCADA/EMS、传感器、气象、拓扑 | 安全规程、调度授权、人工闭环 |
-| **零售 / 电商** | 大促保障、站点可靠性、订单/支付运维、容量、客服 | 阿里云、京东云、AWS、Datadog、Dynatrace | APM、日志、业务指标、订单/支付链路 | 变更冻结、灰度、回滚、业务校验 |
-| **物流** | 仓储/分拣设备运维、车队调度、路由、异常件 | Amazon Robotics、京东物流、菜鸟 | WMS/TMS、IoT、路由、设备状态 | 安全优先、人工兜底、SLA |
-| **医疗** | 医院 IT 运维、HIS/EMR 可用性、影像/科研平台运维 | Microsoft、Google、阿里云、华为云 | 基础设施、HIS/EMR、日志、合规 | 患者安全、隐私、人工复核 |
-| **政务** | 政务云运维、等保合规、应急保障、工单 | 阿里云、华为云、腾讯云、中国电子云 | 云监控、工单、审计、合规 | 数据驻留、等保、审计、分级授权 |
+| 行业 | 典型运维 Agent 任务（设计建议） | 代表厂商/产品（仅导航） | 所需数据（设计建议） | 护栏 | 线索来源 |
+| --- | --- | --- | --- | --- | --- |
+| **电信 NOC** | 告警关联、故障定界、网络优化、闭环处置、客服/工单协同 | 华为 MindOps/AEI/iMaster NCE、Nokia、Cisco、Juniper、Amdocs、Netcracker、Blue Planet、亚信科技、浩鲸科技、中兴 | NMS/OSS、拓扑、告警、KPI、工单、变更 | 维护窗口、业务影响评估、双人审批、回滚 | PUB-HUAWEI-MINDOPS-001（公开报道） |
+| **金融运维** | AIOps、事件响应、变更风险、容量、合规审计、灾备演练 | ServiceNow、Datadog、Dynatrace、平安/蚂蚁内部实践、嘉为蓝鲸、云智慧、擎创 | APM、日志、交易链路、审计、CMDB | 数据不出域、审计、双人审批、灾备切换演练 | 无逐行业官方证据 |
+| **制造 / OT** | 预测性维护、质量异常、设备健康、OT 安全、能耗优化 | Siemens Industrial Copilot、Rockwell、Schneider、ABB、GE Vernova、PTC | PLC/SCADA、historian、传感器、MES、工单 | 不直接控制安全仪表系统；OT 分区隔离；人工确认 | 无逐产品官方证据 |
+| **能源 / 电网** | 电网运行、故障预测、调度辅助、设备巡检、能耗 | 国家电网、Schneider、Siemens、华为 | SCADA/EMS、传感器、气象、拓扑 | 安全规程、调度授权、人工闭环 | 无逐行业官方证据 |
+| **零售 / 电商** | 大促保障、站点可靠性、订单/支付运维、容量、客服 | 阿里云、京东云、AWS、Datadog、Dynatrace | APM、日志、业务指标、订单/支付链路 | 变更冻结、灰度、回滚、业务校验 | 无逐行业官方证据 |
+| **物流** | 仓储/分拣设备运维、车队调度、路由、异常件 | Amazon Robotics、京东物流、菜鸟 | WMS/TMS、IoT、路由、设备状态 | 安全优先、人工兜底、SLA | 无逐行业官方证据 |
+| **医疗** | 医院 IT 运维、HIS/EMR 可用性、影像/科研平台运维 | Microsoft、Google、阿里云、华为云 | 基础设施、HIS/EMR、日志、合规 | 患者安全、隐私、人工复核 | 无逐行业官方证据 |
+| **政务** | 政务云运维、等保合规、应急保障、工单 | 阿里云、华为云、腾讯云、中国电子云 | 云监控、工单、审计、合规 | 数据驻留、等保、审计、分级授权 | 无逐行业官方证据 |
+
+公开报道导航：华为 MindOps（VERT-01）见 PUB-HUAWEI-MINDOPS-001；腾讯 CloudQ/AI 可观测（VERT-02）见 PUB-TENCENT-CLOUDQ-001；百度产业智能体/Agent Infra（VERT-03）见 PUB-BAIDU-INDUSTRY-001；运维智能体行业路径（VERT-04）见 PUB-OPS-WHITEPAPER-001。它们只支持“报道存在”，不支持本表任一厂商的生产能力、客户规模或行业合规结论。
 
 ## 三个共同规律
 
@@ -44,16 +52,21 @@ description: 电信 NOC、金融、制造/OT、能源、零售、物流、医疗
 - [ ] 监管/安全边界与审计
 - [ ] 行业专家 owner
 
+## 商业字段回查
+
+行业场景本身没有统一许可单位；必须回到具体产品证据卡，不能把一个产品的价格、区域或驻留承诺推广到整个行业。
+
+| 场景导航 | 商业字段状态 | 回查位置 |
+| --- | --- | --- |
+| 华为 MindOps / AEI | 状态、区域、许可单位、最低消费/超额、数据驻留、导出/退出均未核实 | [中国云厂商证据卡](./china-cloud#商业字段证据卡) |
+| 腾讯 CloudQ / AI 可观测 | 同上，均未核实 | [中国云厂商证据卡](./china-cloud#商业字段证据卡) |
+| 百度产业智能体 / Agent Infra | 同上，均未核实 | [中国云厂商证据卡](./china-cloud#商业字段证据卡) |
+| Datadog / Grafana / Elastic | 逐产品回查，不跨产品套用 | [可观测与 AIOps 证据卡](./observability-aiops#商业字段证据卡) |
+| AWS / Microsoft / Salesforce | 逐产品回查，不跨产品套用 | [全球云厂商证据卡](./global-cloud#商业字段证据卡) |
+| 其余导航厂商 | 六项商业字段均未核实 | 对应厂商页；无证据时保持“未核实” |
+
 ## 来源与核实
 
-本页信息最后核实：**2026-11-12**。垂直行业产品与案例分散在厂商官网、行业报告与公开报道中，表中代表厂商仅作导航：
-
-- [华为 MindOps / Agentic AI 运维报道](https://news.sina.cn/sx/2026-09-22/detail-inissitm5623944.d.html)
-- [腾讯云 CloudQ 与 AI 可观测](https://www.bjnews.com.cn/detail/1793772689129886.html)
-- [百度智能云产业智能体操作系统](https://m.tmtpost.com/nictation/8141994.html)
-- [2026 国产运维智能体 TOP10 横评](https://baijiahao.baidu.com/s?id=1877001265169160727)
-- [2026 运维智能体定义、架构与落地实践白皮书](https://m.sohu.com/a/1099405014_468661/)
-
-行业厂商（Siemens、Rockwell、Schneider、ABB、GE Vernova、PTC 等）的具体产品能力以官网为准；完整来源见[参考资料](../appendix/references)。
+最后核实：**2026-11-24**；复核截止：**2027-02-22**。行业任务与护栏为本书设计建议；公开报道与官方事实分开登记。完整清单见[来源注册表](../appendix/source-registry)与[参考资料](../appendix/references)。
 
 下一篇：[厂商评估方法](./methodology)

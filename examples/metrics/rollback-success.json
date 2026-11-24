@@ -1,0 +1,41 @@
+{
+  "id": "rollback_success",
+  "name": "Production rollback success rate",
+  "definition": "Share of rollbacks initiated after an actual production change failure that restore the approved last-known-good state and pass verification within RTO.",
+  "formula": "count(distinct change_id where rollback_verified=true within RTO) / count(distinct change_id with production_rollback_initiated=true)",
+  "unit": "ratio",
+  "numerator": {
+    "definition": "Distinct failed production changes whose first rollback completed, restored the approved last-known-good state and passed independent verification within 30 minutes.",
+    "population": "events.rollback_completed joined to events.change_verified"
+  },
+  "denominator": {
+    "definition": "All distinct production changes with an initiated rollback after an actual failure; timed-out, canceled and partially completed rollbacks remain in the denominator and count as failures.",
+    "population": "events.rollback_initiated where environment=production and trigger=actual_change_failure"
+  },
+  "window": {"duration": "30d", "cadence": "daily", "timezone": "UTC"},
+  "exclusions": [
+    "scheduled drills with trigger=drill (reported separately as rollback_drill_success)",
+    "test and development environments",
+    "duplicate retries for the same change_id (retained as attempt evidence, not extra denominator units)"
+  ],
+  "data_source": {
+    "system": "Change controller and AgentOps event lake",
+    "dataset": "changes, rollback_attempts and verification_results",
+    "event_time_field": "rollback_initiated_at",
+    "query": "Aggregate the first terminal rollback result by change_id; PASS only when completed_at-initiated_at <= 30 minutes and independent verification_passed=true"
+  },
+  "owner": {"team": "Production Change Management", "role": "Rollback Control Owner", "on_call": "change-manager-primary"},
+  "target": {"comparator": "==", "value": 1},
+  "alert": {
+    "condition": "any production rollback failure OR rolling 30d ratio < 1.0 after minimum_sample",
+    "severity": "SEV1",
+    "actions": ["page change manager", "enter incident command", "freeze automated writes", "restore last-known-good manually", "re-run rollback drill before re-enable"]
+  },
+  "minimum_sample": 5,
+  "confidence": {
+    "level": 0.95,
+    "method": "one_sided_exact",
+    "decision_rule": "Operational PASS requires zero failures and denominator >= 5; report the one-sided exact upper bound for failures and never describe finite samples as proof of 100% future reliability."
+  },
+  "severity": "SEV1"
+}

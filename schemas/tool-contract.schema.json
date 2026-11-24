@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-ops-agent-book.example/schemas/tool-contract.schema.json",
+  "title": "Ops Agent Tool Contract",
+  "description": "运维 Agent 工具契约的结构约束；写操作必须绑定审批、幂等键、错误分类与安全恢复。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "name",
+    "version",
+    "owner",
+    "description",
+    "side_effects",
+    "idempotent",
+    "dry_run",
+    "reversible",
+    "scope",
+    "permissions",
+    "input_schema",
+    "output_schema",
+    "execution",
+    "approval_binding",
+    "preconditions",
+    "rollback",
+    "recovery",
+    "security",
+    "audit",
+    "observability"
+  ],
+  "properties": {
+    "$schema": { "const": "https://json-schema.org/draft/2020-12/schema" },
+    "data_classification": { "type": "string", "minLength": 1 },
+    "name": { "$ref": "#/$defs/toolName" },
+    "version": { "$ref": "#/$defs/semver" },
+    "owner": { "$ref": "#/$defs/owner" },
+    "description": { "type": "string", "minLength": 10 },
+    "side_effects": { "type": "boolean" },
+    "idempotent": { "type": "boolean" },
+    "dry_run": { "type": "boolean" },
+    "reversible": { "type": "boolean" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource_types", "environments", "max_blast_radius"],
+      "properties": {
+        "resource_types": { "$ref": "#/$defs/nonEmptyStrings" },
+        "environments": { "$ref": "#/$defs/nonEmptyStrings" },
+        "max_blast_radius": { "type": "integer", "minimum": 0 },
+        "required_labels": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "approval", "change_window", "break_glass"],
+      "properties": {
+        "role": { "type": "string", "minLength": 1 },
+        "approval": { "enum": ["none", "single", "dual", "cab", "policy"] },
+        "change_window": { "enum": ["required", "optional", "never"] },
+        "break_glass": { "type": "boolean" }
+      }
+    },
+    "input_schema": { "$ref": "#/$defs/inputSchema" },
+    "output_schema": { "$ref": "#/$defs/outputSchema" },
+    "execution": { "$ref": "#/$defs/execution" },
+    "approval_binding": { "$ref": "#/$defs/approvalBinding" },
+    "preconditions": { "$ref": "#/$defs/nonEmptyStrings" },
+    "rollback": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["tool", "window_minutes", "verification"],
+      "properties": {
+        "tool": { "$ref": "#/$defs/toolName" },
+        "window_minutes": { "type": "integer", "minimum": 1 },
+        "verification": { "type": "string", "minLength": 1 }
+      }
+    },
+    "recovery": { "$ref": "#/$defs/recovery" },
+    "security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["credentials", "secret_handling", "input_validation", "injection_protection"],
+      "properties": {
+        "credentials": { "const": "short_lived" },
+        "secret_handling": { "const": "never_log" },
+        "input_validation": { "const": "strict" },
+        "injection_protection": { "const": true }
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fields", "retention_days", "immutable"],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "minItems": 4,
+          "uniqueItems": true,
+          "items": { "type": "string" },
+          "allOf": [
+            { "contains": { "const": "caller" } },
+            { "contains": { "const": "agent_run_id" } },
+            { "contains": { "const": "idempotency_key" } },
+            { "contains": { "const": "outcome" } }
+          ]
+        },
+        "retention_days": { "type": "integer", "minimum": 1 },
+        "immutable": { "const": true }
+      }
+    },
+    "observability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["trace", "metrics", "log_fields"],
+      "properties": {
+        "trace": { "const": true },
+        "metrics": { "$ref": "#/$defs/nonEmptyStrings" },
+        "log_fields": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "type": "object", "properties": { "side_effects": { "const": true } }, "required": ["side_effects"] },
+      "then": {
+        "properties": {
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "required": {
+                "type": "array",
+                "allOf": [
+                  { "contains": { "const": "idempotency_key" } },
+                  { "contains": { "const": "expected_resource_version" } }
+                ]
+              }
+            }
+          },
+          "permissions": { "type": "object", "properties": { "approval": { "enum": ["single", "dual", "cab", "policy"] } } },
+          "approval_binding": { "type": "object", "properties": { "required": { "const": true } } },
+          "execution": { "type": "object", "properties": { "idempotency": { "type": "object", "properties": { "required": { "const": true } } } } },
+          "audit": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array",
+                "allOf": [
+                  { "contains": { "const": "approval_id" } },
+                  { "contains": { "const": "plan_version" } },
+                  { "contains": { "const": "plan_hash" } },
+                  { "contains": { "const": "target_resource_version" } }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "type": "object", "properties": { "reversible": { "const": true } }, "required": ["reversible"] },
+      "then": { "properties": { "rollback": { "type": "object" } } },
+      "else": {
+        "properties": {
+          "rollback": { "type": "null" },
+          "recovery": { "type": "object", "properties": { "mode": { "enum": ["compensate", "manual"] } } }
+        }
+      }
+    },
+    {
+      "if": { "type": "object", "properties": { "recovery": { "type": "object", "properties": { "mode": { "const": "rollback" } }, "required": ["mode"] } }, "required": ["recovery"] },
+      "then": { "properties": { "rollback": { "type": "object" } } }
+    }
+  ],
+  "$defs": {
+    "toolName": { "type": "string", "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$" },
+    "semver": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$" },
+    "nonEmptyStrings": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team", "contact"],
+      "properties": {
+        "team": { "type": "string", "minLength": 1 },
+        "contact": { "type": "string", "minLength": 3 },
+        "runbook": { "type": "string", "minLength": 1 }
+      }
+    },
+    "inputSchema": {
+      "type": "object",
+      "required": ["type", "additionalProperties", "required", "properties"],
+      "properties": {
+        "type": { "const": "object" },
+        "additionalProperties": { "const": false },
+        "required": { "$ref": "#/$defs/nonEmptyStrings" },
+        "properties": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "object" } }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": ["type", "additionalProperties", "required", "properties"],
+      "properties": {
+        "type": { "const": "object" },
+        "additionalProperties": { "type": "boolean" },
+        "required": {
+          "type": "array",
+          "minItems": 4,
+          "uniqueItems": true,
+          "allOf": [
+            { "contains": { "const": "status" } },
+            { "contains": { "const": "partial_success" } },
+            { "contains": { "const": "steps" } },
+            { "contains": { "const": "error" } }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "required": ["status", "partial_success", "steps", "error"],
+          "properties": {
+            "status": true,
+            "partial_success": true,
+            "steps": true,
+            "error": true
+          }
+        }
+      }
+    },
+    "errorCategory": {
+      "enum": ["validation", "auth", "conflict", "pdb_blocked", "not_found", "throttled", "transient", "unknown_outcome", "policy_denied", "unknown"]
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timeout_seconds", "rate_limit", "concurrency_limit", "retry", "idempotency", "error_taxonomy"],
+      "properties": {
+        "timeout_seconds": { "type": "integer", "minimum": 1 },
+        "rate_limit": { "type": "string", "minLength": 1 },
+        "concurrency_limit": { "type": "integer", "minimum": 1 },
+        "retry": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["max_attempts", "backoff", "retry_on", "respect_retry_after", "jitter"],
+          "properties": {
+            "max_attempts": { "type": "integer", "minimum": 1, "maximum": 10 },
+            "backoff": { "enum": ["none", "constant", "exponential"] },
+            "retry_on": { "type": "array", "uniqueItems": true, "items": { "enum": ["throttled", "transient"] } },
+            "respect_retry_after": { "type": "boolean" },
+            "jitter": { "type": "boolean" }
+          }
+        },
+        "idempotency": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required", "key_source", "scope", "retention_minutes"],
+          "properties": {
+            "required": { "type": "boolean" },
+            "key_source": { "type": "string", "minLength": 1 },
+            "scope": { "enum": ["caller", "run", "run_plan_step_target", "tenant_resource"] },
+            "retention_minutes": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "error_taxonomy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["unknown_default", "classes"],
+          "properties": {
+            "unknown_default": { "const": "stop_and_reconcile" },
+            "classes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["code", "category", "retryable", "outcome_known", "meaning", "agent_action"],
+                "properties": {
+                  "code": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+                  "category": { "$ref": "#/$defs/errorCategory" },
+                  "retryable": { "type": "boolean" },
+                  "outcome_known": { "type": "boolean" },
+                  "meaning": { "type": "string", "minLength": 1 },
+                  "agent_action": { "enum": ["reject", "stop", "backoff_then_retry", "reconcile_and_replan", "reconcile_then_escalate", "refresh_auth_then_stop"] }
+                },
+                "allOf": [
+                  {
+                    "if": { "properties": { "category": { "enum": ["transient", "throttled"] } }, "required": ["category"] },
+                    "then": { "properties": { "retryable": { "const": true }, "outcome_known": { "const": true } } },
+                    "else": { "properties": { "retryable": { "const": false } } }
+                  },
+                  {
+                    "if": { "properties": { "category": { "const": "unknown_outcome" } }, "required": ["category"] },
+                    "then": { "properties": { "outcome_known": { "const": false } } }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "approvalBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "fields", "plan_hash_algorithm", "plan_version_required", "target_resource_version_required", "expires_at_required", "revalidate_before_execute", "invalidate_on_plan_change"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "fields": {
+          "type": "array",
+          "minItems": 4,
+          "uniqueItems": true,
+          "allOf": [
+            { "contains": { "const": "plan_version" } },
+            { "contains": { "const": "plan_hash" } },
+            { "contains": { "const": "target_resource_versions" } },
+            { "contains": { "const": "expires_at" } }
+          ],
+          "items": { "type": "string" }
+        },
+        "plan_hash_algorithm": { "const": "sha256" },
+        "plan_version_required": { "const": true },
+        "target_resource_version_required": { "const": true },
+        "expires_at_required": { "const": true },
+        "revalidate_before_execute": { "const": true },
+        "invalidate_on_plan_change": { "const": true }
+      }
+    },
+    "recovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "steps", "safe_conditions", "stop_conditions", "notes"],
+      "properties": {
+        "mode": { "enum": ["none", "rollback", "compensate", "manual"] },
+        "steps": { "$ref": "#/$defs/nonEmptyStrings" },
+        "safe_conditions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "stop_conditions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "notes": { "type": "string", "minLength": 10 }
+      }
+    }
+  }
+}

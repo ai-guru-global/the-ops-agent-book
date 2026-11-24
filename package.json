@@ -1,21 +1,39 @@
 {
   "name": "the-ops-agent-book",
-  "version": "0.1.1",
+  "version": "0.2.0-rc.1",
   "private": true,
   "type": "module",
   "description": "面向运维场景的智能体工程手册：规划、设计、建设、维护、优化、迭代",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "export:pdf": "node scripts/export-book-pdf.mjs",
+    "export:epub": "node scripts/export-book-epub.mjs",
+    "validate:assets": "node scripts/validate-assets.mjs",
+    "check:mermaid": "python3 scripts/check_mermaid_render.py",
+    "check:responsive": "node scripts/check-responsive.mjs",
+    "check:accessibility": "node scripts/check-accessibility.mjs",
+    "test:reference": "npm --prefix examples/reference-agent test",
+    "eval:self-test": "node scripts/run-evals.mjs --self-test",
+    "eval:demo": "node scripts/run-evals.mjs",
+    "cost:demo": "node scripts/cost-model.mjs",
+    "check:all": "npm run docs:build && npm run validate:assets && python3 scripts/check_internal_links.py && npm run check:mermaid && npm run check:responsive && npm run check:accessibility && npm run test:reference && npm run eval:self-test && npm run cost:demo && bash -n examples/playbooks/*.sh && python3 -m py_compile examples/playbooks/*.py"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.1",
     "@fontsource/ibm-plex-mono": "^5.1.0",
     "@fontsource/ibm-plex-sans": "^5.1.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "epub-gen-memory": "^1.1.2",
     "markdown-it-container": "^4.0.0",
     "mermaid": "^11.17.2",
+    "pdf-lib": "^1.17.1",
+    "playwright-core": "^1.65.1",
     "vitepress": "^1.6.4",
     "vitepress-plugin-mermaid": "^2.0.17",
-    "vue": "^3.5.45"
+    "vue": "^3.5.45",
+    "yaml": "^2.9.1"
   }
 }

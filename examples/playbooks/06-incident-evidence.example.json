@@ -1,0 +1,199 @@
+{
+  "data_classification": "synthetic/脱敏",
+  "notice": "所有名称、ID、时间、计数和哈希对应的结果均为构造；不得作为真实事故证据。",
+  "schema_version": "1.0",
+  "incident": {
+    "incident_id": "INC-SYNTHETIC-001",
+    "severity": "SEV-2",
+    "state": "TRIAGE",
+    "incident_version": 7,
+    "started_at": "2026-11-24T10:12:00Z",
+    "impact": "synthetic payments API readiness failures on 3 test pods",
+    "owner": "ic-synthetic"
+  },
+  "evidence": [
+    {
+      "id": "E-SYN-001",
+      "incident_id": "INC-SYNTHETIC-001",
+      "data_classification": "synthetic/脱敏",
+      "source": {
+        "system": "k8s",
+        "collector": "kubectl",
+        "collector_version": "1.31-test",
+        "environment": "kind-ops-test"
+      },
+      "subject": {
+        "service": "payments-api",
+        "cluster": "kind-ops-test",
+        "namespace": "ops-test"
+      },
+      "collected_at": "2026-11-24T10:15:30Z",
+      "time_range": {
+        "start": "2026-11-24T10:10:00Z",
+        "end": "2026-11-24T10:15:00Z",
+        "timezone": "UTC",
+        "window": "5m",
+        "sample_interval": "60s"
+      },
+      "raw_query": {
+        "tool": "kubectl",
+        "statement": "kubectl --context kind-ops-test -n ops-test get events --sort-by=.metadata.creationTimestamp",
+        "parameters": {
+          "context": "kind-ops-test",
+          "namespace": "ops-test"
+        },
+        "secret_references": []
+      },
+      "normalization": {
+        "unit": "event_count",
+        "counter": false,
+        "aggregation": "count by reason",
+        "threshold_version": "synthetic-v1"
+      },
+      "result": {
+        "format": "json",
+        "row_count": 2,
+        "canonicalization": "json.dumps(result_payload, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode('utf-8')",
+        "sha256": "473dbaf502954d7842ebbd0c80675118af667bc47c145d56809960b17735fbf6",
+        "result_payload": {
+          "columns": [
+            "reason",
+            "count"
+          ],
+          "rows": [
+            {
+              "reason": "readiness_probe_failed",
+              "count": 3
+            },
+            {
+              "reason": "scheduled",
+              "count": 2
+            }
+          ]
+        }
+      },
+      "ttl": {
+        "expires_at": "2026-12-24T10:15:30Z",
+        "retention_class": "incident-30d",
+        "purge_status": "scheduled"
+      },
+      "concurrency_version": {
+        "incident_version": 7,
+        "evidence_version": 1,
+        "source_snapshot": "snap-syn-7",
+        "config_version": "cfg-syn-12",
+        "supersedes": null
+      },
+      "confidence": {
+        "value": 0.8,
+        "method": "direct_api_single_snapshot",
+        "limitations": [
+          "single_snapshot",
+          "synthetic_data"
+        ]
+      },
+      "owner": "diag-k8s",
+      "conflicts_with": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "T-SYN-001",
+      "incident_id": "INC-SYNTHETIC-001",
+      "dedupe_key": "INC-SYNTHETIC-001|payments-api|readiness|2026-11-24T10:10:00Z/10:15:00Z|kubectl",
+      "owner": "diag-k8s",
+      "backup_owner": "platform-oncall-synthetic",
+      "question": "Do readiness failures coincide with the synthetic rollout?",
+      "scope": {
+        "service": "payments-api",
+        "namespace": "ops-test"
+      },
+      "time_range": {
+        "start": "2026-11-24T10:10:00Z",
+        "end": "2026-11-24T10:15:00Z",
+        "timezone": "UTC"
+      },
+      "allowed_tools": [
+        "k8s.get",
+        "k8s.describe",
+        "logs.query"
+      ],
+      "read_only": true,
+      "budget": {
+        "query_timeout_seconds": 10,
+        "row_limit": 200,
+        "concurrency": 1,
+        "max_retries": 1
+      },
+      "ack_deadline": "2026-11-24T10:20:00Z",
+      "result_deadline": "2026-11-24T10:30:00Z",
+      "status": "done",
+      "required_evidence": [
+        "E-SYN-001"
+      ],
+      "version": 2
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "APR-SYN-REJECTED",
+      "state": "rejected",
+      "reason": "PDB capacity evidence missing",
+      "approvers": [
+        "change-approver-synthetic"
+      ],
+      "decided_at": "2026-11-24T10:22:00Z"
+    },
+    {
+      "approval_id": "APR-SYN-APPROVED",
+      "state": "approved",
+      "operation": "restart one synthetic test pod",
+      "approvers": [
+        "change-approver-synthetic",
+        "second-approver-synthetic"
+      ],
+      "decided_at": "2026-11-24T10:28:00Z"
+    }
+  ],
+  "action_lock": {
+    "lock_id": "LOCK-SYN-001",
+    "resource_key": "cluster/kind-ops-test/namespace/ops-test/pod/gpu-test-0",
+    "operation": "restart one synthetic test pod",
+    "expected_version": 12,
+    "owner": "operator-synthetic",
+    "fencing_token": "fence-syn-7",
+    "approval_id": "APR-SYN-APPROVED",
+    "acquired_at": "2026-11-24T10:29:00Z",
+    "ttl_seconds": 120,
+    "heartbeat_at": "2026-11-24T10:29:30Z",
+    "state": "released",
+    "released_at": "2026-11-24T10:30:00Z"
+  },
+  "state_history": [
+    {
+      "at": "2026-11-24T10:12:00Z",
+      "from": "DETECTED",
+      "to": "DECLARED",
+      "by": "ic-synthetic"
+    },
+    {
+      "at": "2026-11-24T10:15:00Z",
+      "from": "DECLARED",
+      "to": "TRIAGE",
+      "by": "coordinator-synthetic"
+    },
+    {
+      "at": "2026-11-24T10:22:00Z",
+      "from": "APPROVAL_PENDING",
+      "to": "TRIAGE",
+      "reason": "approval rejected; PDB evidence missing",
+      "by": "change-approver-synthetic"
+    }
+  ],
+  "validation": {
+    "sha256_scope": "evidence[0].result.result_payload only",
+    "expected_incident_version_for_evidence_write": 7,
+    "ttl_rule": "purge_at_expiry_unless_legal_hold",
+    "action_lock_rule": "CAS on resource_key; validate fencing_token immediately before execution"
+  }
+}

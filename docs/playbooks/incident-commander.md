@@ -1,197 +1,247 @@
 ---
 title: 事故指挥 Agent
-description: 多 Agent 事故响应的范围、证据源、工具、角色、共享证据板、流程、护栏、评测与 SLO。
+description: 事故状态机、Severity/RACI、任务分派、升级计时、证据版本与动作锁。
+owner: "Domain SRE"
+last_verified: "2026-11-25"
+review_by: "2027-02-25"
+content_status: "reviewed"
 ---
 
 # 事故指挥 Agent
 
-> 事故指挥 Agent 不是“自动修故障的超级 Agent”，而是让事故现场更有秩序：证据共享、任务分派、时间线、沟通与升级。
+> 事故指挥 Agent 不是“自动修故障的超级 Agent”，而是让事故现场更有秩序：证据共享、任务分派、状态转换、时间线、沟通与升级。
 
-## 1. 范围与非目标
+## 1. 范围与权限边界
 
-**范围内：**
+**范围内：** 事故时间线、证据板、任务板、决策日志，多 Agent/团队诊断分派与汇总，影响面与状态更新，升级/超时提醒，复盘素材。
 
-- 事故时间线、证据板、任务板、决策日志。
-- 多 Agent/多团队的诊断任务分派与汇总。
-- 状态更新、影响面描述、对外沟通草稿。
-- 升级提醒、超时提醒、待办跟踪。
-- 复盘素材自动整理。
-
-**非目标：**
-
-- 替代人类 Incident Commander 做最终决策。
-- 未经批准执行生产变更。
-- 对外发布未经人审的沟通。
-- 在事故中自动“猜测”根因并闭单。
+**非目标：** 替代人类 Incident Commander 决策，未经批准执行生产变更，自动对外发布，证据不足时猜根因闭单，并发对同一目标下动作。
 
 ::: warning 默认权限
-事故指挥 Agent 默认只写“事故记录”，不直接写生产系统。任何生产变更必须由 Operator 或人执行，并走审批。
+指挥 Agent 只写事故记录，不直接写生产。生产动作由 Operator 在批准后调用；审批与动作锁缺一不可，动作锁不等于审批。
 :::
 
-## 2. 证据源
+## 2. 角色与 RACI
 
-| 证据 | 来源 | 用途 |
+R=执行，A=最终负责，C=咨询，I=知会。每行只有一个 A；Agent 不得在需要人类 A 的步骤自行补位。
+
+| 活动 | 人类 IC | Coordinator | Diagnostician | Operator | Communicator | 变更批准人 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 定级/启动事故 | A | R | C | I | I | I |
+| 证据板/时间线 | A | R | R | C | I | I |
+| 根因假设与反证 | A | C | R | C | I | I |
+| 任务分派/去重/升级 | A | R | C | I | I | I |
+| 缓解方案与回滚 | A | C | R | R | I | C |
+| 生产动作批准 | C | I | C | C | I | A/R |
+| 获取动作锁与执行 | A | C | I | R | I | C |
+| 恢复验证 | A | R | R | R | I | I |
+| 对内/外沟通 | A | C | C | I | R | I |
+| 复盘/评测更新 | A | R | C | C | C | I |
+
+变更批准人可以是 IC、DBA、服务 Owner 或变更经理，按动作类型预先配置；SEV-1 紧急变更也必须在执行前取得可审计批准，不允许“先做后补”。
+
+## 3. 工具与职责隔离
+
+| 工具 | 类型 | 约束 |
 | --- | --- | --- |
-| 告警 | 监控/告警平台 | 发现、影响面、时间线起点 |
-| 事件与状态 | K8s/云/应用事件 | 变更、故障、依赖异常 |
-| 指标/日志/链路 | 可观测平台 | 影响面、根因候选、恢复验证 |
-| 变更 | GitOps/发布系统/工单 | 最近变更、回滚点、变更窗口 |
-| 聊天与会议 | IM/会议纪要 | 决策、任务、时间线 |
-| 工单 | ITSM | 升级、客户影响、SLA |
-| 拓扑 | CMDB/服务目录 | 依赖与影响传播 |
-| Runbook/事故库 | Wiki/Git/历史事故 | 处置步骤、相似案例、评测素材 |
+| `incident.create/timeline.append/evidence.add/task.assign` | 事故记录写入 | 低风险；字段、版本、TTL 必填 |
+| `comms.draft` | 生成 | 人审后才可发送 |
+| `status.page.update` | 变更 | 人审、记录审批 |
+| `paging.escalate` | 通知 | 按 Severity 计时，记录接收人/ack |
+| `postmortem.export` | 读取 | 导出脱敏证据与决策 |
+| `ops.execute` | 生产变更 | 仅 Operator；双人审批 + 动作锁 + fencing token |
 
-证据板中的每条证据都要带 `id`、来源、时间、置信度和 owner；冲突证据必须保留，不强行统一。
+## 4. 图 20：异常状态也进入状态机
 
-## 3. 工具清单
+::: diagram 图 20 · 事故指挥状态机 | synthetic/脱敏；证据冲突、审批拒绝、任务超时、恢复失败和动作锁失效都是显式状态/迁移，不允许静默重试。
+```mermaid
+stateDiagram-v2
+  state "发现 DETECTED" as DETECTED
+  state "定级 DECLARED" as DECLARED
+  state "诊断 TRIAGE" as TRIAGE
+  state "证据冲突 CONFLICT" as CONFLICT
+  state "等待任务Owner WAITING_OWNER" as WAITING_OWNER
+  state "升级 ESCALATED" as ESCALATED
+  state "待审批 APPROVAL_PENDING" as APPROVAL_PENDING
+  state "动作锁 ACTION_LOCKED" as ACTION_LOCKED
+  state "执行 EXECUTING" as EXECUTING
+  state "验证 VERIFYING" as VERIFYING
+  state "恢复失败 RECOVERY_FAILED" as RECOVERY_FAILED
+  state "已恢复 RESOLVED" as RESOLVED
+  state "复盘 REVIEW" as REVIEW
+  state "已关闭 CLOSED" as CLOSED
 
-| 工具 | 类型 | 风险 | 审批 | 说明 |
-| --- | --- | --- | --- | --- |
-| `incident.create` | 变更 | 低 | 无 | 建事故、定级、拉群 |
-| `incident.timeline.append` | 写入 | 低 | 无 | 追加时间线 |
-| `evidence.add` | 写入 | 低 | 无 | 证据板上传与关联 |
-| `task.assign` | 写入 | 低 | 无 | 分派/更新任务 |
-| `comms.draft` | 生成 | 低 | 人审 | 对内/对外沟通草稿 |
-| `status.page.update` | 变更 | 中 | 人审 | 更新状态页 |
-| `paging.escalate` | 变更 | 中 | 单人 | 升级/加人 |
-| `postmortem.export` | 读取 | 低 | 无 | 导出时间线与复盘素材 |
-| `ops.execute` | 变更 | 高 | 双人 | 只能由 Operator 在批准后调用 |
+  DETECTED --> DECLARED: 影响面 + Severity + IC
+  DECLARED --> TRIAGE: 建板并分派
+  TRIAGE --> CONFLICT: 证据互相矛盾
+  CONFLICT --> TRIAGE: 新证据解决冲突
+  CONFLICT --> ESCALATED: 冲突未在计时内解决
+  TRIAGE --> WAITING_OWNER: 任务合同 + 去重键
+  WAITING_OWNER --> TRIAGE: Owner ack 并提交证据
+  WAITING_OWNER --> ESCALATED: ack/任务超时
+  ESCALATED --> TRIAGE: 人类接管或补充Owner
+  TRIAGE --> APPROVAL_PENDING: 方案 + 风险 + 回滚
+  APPROVAL_PENDING --> TRIAGE: 拒绝或材料不完整
+  APPROVAL_PENDING --> ACTION_LOCKED: 已批准且 CAS 获锁
+  ACTION_LOCKED --> EXECUTING: fencing token 有效
+  ACTION_LOCKED --> TRIAGE: 锁丢失/过期/版本冲突
+  EXECUTING --> ESCALATED: 执行中锁失效
+  EXECUTING --> VERIFYING: 动作返回且记录结果
+  EXECUTING --> RECOVERY_FAILED: 动作执行失败
+  VERIFYING --> CONFLICT: 验证证据冲突
+  VERIFYING --> RESOLVED: SLO恢复且无新增高优待办
+  VERIFYING --> RECOVERY_FAILED: 恢复验证失败
+  RECOVERY_FAILED --> ESCALATED: 人类IC接管
+  ESCALATED --> APPROVAL_PENDING: 回滚/新方案重新审批
+  RESOLVED --> REVIEW: 观察窗结束
+  REVIEW --> CLOSED: 时间线/决策/待办完整
+```
+:::
 
-事故指挥 Agent 的核心工具是“记录、关联、分派、提醒”，不是“执行”。把执行工具单独放在 Operator 身份下，是避免多 Agent 抢动作的第一道护栏。
+**迁移不变量**：`TRIAGE → APPROVAL_PENDING → ACTION_LOCKED → EXECUTING → VERIFYING` 是生产动作的唯一路径。证据版本在审批、获锁、执行前各校验一次；任何变化即使行“重新审批”。恢复失败不得自动重复原动作。
 
-## 4. 角色与共享证据板
+## 5. Severity 矩阵与升级计时
 
-| 角色 | 职责 | 人类/Agent |
-| --- | --- | --- |
-| Incident Commander | 最终决策、优先级、资源协调 | 人类 |
-| Coordinator Agent | 维护时间线、任务板、证据板 | Agent |
-| Diagnostician | 领域诊断（K8s/RDMA/GPU/DB） | Agent 或人 |
-| Operator | 执行经批准的动作 | Agent 或人 |
-| Communicator | 对内/对外沟通草稿 | Agent（人审） |
-| Scribe | 记录决策、证据、待办 | Agent |
+下表是 synthetic/脱敏初值，应按业务影响与值班合同校准。安全/数据完整性与客户影响同权，不能因“还能降级”自动降级。
 
-### 共享证据板
+| Severity | 判定示例 | ack 时限 | IC 到位 | 首个有效证据 | 未响应升级 | 沟通节奏 |
+| --- | --- | --- | --- | --- | --- | --- |
+| SEV-1 | 核心服务全站不可用、数据丢失/泄露、安全入侵、多区域关键故障 | 5 min | 5 min | 10 min | 到点立即并行升级Sponsor/厂商 | 15 min |
+| SEV-2 | 关键功能显著降级、大量客户受影响、无可行降级 | 15 min | 15 min | 20 min | 到点升级服务Owner | 30 min |
+| SEV-3 | 局部/非核心受损，有 workaround，无数据风险 | 30 min | 30 min | 40 min | 到点升级团队值班 | 60 min |
+| SEV-4 | 请求/轻微缺陷，无客户影响或紧急风险 | 60 min | 按需 | 120 min | 到点转普通工单 | 4 h 或约定 |
 
-事故期间，所有 Agent 和人看到同一块证据板：
+- 计时起点：`detected_at`；定级变化取更严格的新时限。`ack` 必须来自指定人/值班系统，Agent 自动回复不算 ack。
+- 任务同时有 `ack_deadline` 与 `result_deadline`；无进展达到半个结果时限先提醒，达到结果时限升级。
+- 升级时附带 incident_id、Severity、影响、当前假设、冲突证据、已尝试动作、需要谁做什么；不得只发“请看看”。
+- SEV-1 立即并行通知，不等待前一个升级计时结束。所有计时、ack、升级、降级写入时间线。
+
+## 6. 分派规则与任务合同
+
+1. **Owner 来自服务目录**：按 service/domain/on-call schedule 路由；目录缺失时交给平台值班，不让 Agent 猜人名。
+2. **先安全后价值**：优先级 = 安全/数据风险 > 客户影响 > 证据年龄/不确定性 > 依赖阻塞；同级按截止时间。
+3. **去重键**：`incident_id + target + question + time_range + method`。已有同键任务只追加观察者/证据，不重复分派。
+4. **并发预算**：每个 Owner 默认最多 2 个诊断任务、1 个生产动作；高负载时由 IC 调整，不能靠 Agent 无限加任务。
+5. **只读优先**：诊断任务只授只读工具；生产动作单独立项，不藏在“检查一下”里。
+6. **接受/退回**：Owner 明确 ack；缺上下文、范围过大、缺权限或超时的任务退回 Coordinator，记录原因并重新拆分。
+
+| 任务字段 | 要求 |
+| --- | --- |
+| `task_id/incident_id/dedupe_key` | 全局唯一；同键只能一个 active owner |
+| `owner/backup_owner` | 来自目录；失联时按 Severity 升级 |
+| `question/hypotheses` | 可证伪的问题，不是“排查一切” |
+| `scope/time_range` | service、target、起止时间、时区、采样窗 |
+| `allowed_tools/read_only` | 工具白名单；默认 `read_only=true` |
+| `budget` | 查询超时、行数、并发、最大重试 1 |
+| `deadlines` | ack、首个证据、结果、升级计时 |
+| `required_evidence` | 原始查询、结果哈希、反证、置信度、TTL |
+| `status/version` | `assigned/acked/in_progress/blocked/done/timed_out` + 乐观锁版本 |
+
+## 7. 证据 schema、冲突与版本
+
+| 字段 | 契约 |
+| --- | --- |
+| `id/incident_id/data_classification` | 唯一 ID；`synthetic`/`internal`/`restricted`，受限证据不进入聊天 |
+| `source` | 系统、collector、版本、环境；不能只写“监控” |
+| `subject/collected_at` | service/target/owner 与采集时间 |
+| `time_range` | `start/end/timezone/window/sample_interval`；必须覆盖结论时段 |
+| `raw_query` | 工具、endpoint、原始语句/命令与参数；凭证用 secret 引用，禁止明文 |
+| `normalization` | 单位、增量/速率公式、counter reset、采样窗、阈值版本 |
+| `result` | 格式、行数、`sha256`、canonicalization；哈希覆盖实际结果字节 |
+| `ttl` | `expires_at/retention_class/purge_status`；到期删除，法律保留单独审批 |
+| `concurrency_version` | `incident_version/evidence_version/source_snapshot/config_version/supersedes` |
+| `confidence/limitations` | 0–1 或等级 + 方法 + 缺失/偏差，禁止无依据的 1.0 |
+| `owner/conflicts_with` | 证据责任人与冲突证据 ID；冲突双方都保留 |
+
+证据更新使用 CAS：`expected_incident_version` 不匹配则拒绝写入并返回最新版本。新证据可以 `supersedes` 旧证据，但不能删除反证；同一时间窗、不同采集器或不同副本的证据先标冲突，不投票压制。
+
+### 7.1 共享证据板样例（synthetic/脱敏）
 
 ```yaml
-incident: INC-2026-11-10-001
+# SYNTHETIC / 脱敏：所有名称、ID、数值均为构造，不得作为真实事故证据。
+incident: INC-SYNTHETIC-001
 severity: SEV-2
-started_at: 2026-11-10T10:12:00Z
-impact: "payments API 5xx 8%, P95 2.4s"
-timeline:
-  - at: 10:12
-    event: "alert: payments-api 5xx"
-    source: monitoring
-  - at: 10:15
-    event: "deploy v2.18.0 rolled out"
-    source: gitops
+incident_version: 7
+started_at: "2026-11-24T10:12:00Z"
 evidence:
-  - id: E-001
-    source: k8s.events
-    summary: "readiness probe failures on 3 pods"
-    confidence: 0.9
+  - id: E-SYN-001
+    source: {system: k8s, collector: kubectl, collector_version: "1.31-test"}
+    subject: {service: payments-api, cluster: kind-ops-test}
+    collected_at: "2026-11-24T10:15:30Z"
+    time_range: {start: "2026-11-24T10:10:00Z", end: "2026-11-24T10:15:00Z", timezone: UTC}
+    raw_query:
+      tool: kubectl
+      statement: "kubectl --context kind-ops-test -n ops-test get events --sort-by=.metadata.creationTimestamp"
+      parameters: {context: kind-ops-test, namespace: ops-test}
+    result: {format: text, row_count: 3, sha256: "0000000000000000000000000000000000000000000000000000000000000000"}
+    normalization: {unit: event_count, counter: false, sample_interval: "60s"}
+    ttl: {expires_at: "2026-12-24T10:15:30Z", retention_class: incident-30d}
+    concurrency_version: {incident_version: 7, evidence_version: 1, source_snapshot: snap-syn-7, config_version: cfg-syn-12, supersedes: null}
+    confidence: {value: 0.8, method: direct_api, limitations: [single_snapshot]}
+    owner: diag-k8s
+    conflicts_with: []
 tasks:
-  - owner: diag-k8s
-    task: "check readiness probe and rollout status"
+  - task_id: T-SYN-001
+    owner: diag-k8s
     status: in_progress
-decisions:
-  - at: 10:20
-    decision: "pause rollout"
-    by: incident-commander
-    evidence: [E-001]
+    ack_deadline: "2026-11-24T10:20:00Z"
+    result_deadline: "2026-11-24T10:30:00Z"
 ```
 
-证据板要版本化；每次更新记录谁改了什么，避免多个 Agent 基于不同快照做判断。
+完整、含真实可重算 SHA-256 的 JSON（YAML 1.2 兼容）样例：`examples/playbooks/06-incident-evidence.example.json`。哈希值、时间和 TTL 必须由实际采集器生成，不能复制占位值。
 
-## 5. 典型任务流
+## 8. 动作锁与审批
 
-::: diagram 图 20 · 事故指挥流程 | 事故指挥从发现到复盘的七个阶段；指挥 Agent 负责记录、分派与汇总。
-```mermaid
-flowchart LR
-  D[Detect<br/>发现] --> C[Declare<br/>定级]
-  C --> A[Assemble<br/>拉群与建板]
-  A --> T[Triage<br/>假设与证据]
-  T --> M[Mitigate<br/>方案与审批]
-  M --> R[Resolve<br/>验证恢复]
-  R --> V[Review<br/>复盘与评测更新]
-```
-:::
-
-| 阶段 | Coordinator Agent 做什么 |
+| 字段 | 规则 |
 | --- | --- |
-| Detect | 汇总告警、影响面、初始证据 |
-| Declare | 建议 Severity、拉群、通知值班 |
-| Assemble | 创建证据板/任务板/时间线，分派诊断 |
-| Triage | 汇总假设、冲突证据、待确认项 |
-| Mitigate | 汇总方案、风险、回滚，等待批准 |
-| Resolve | 验证恢复、记录影响、生成时间线 |
-| Review | 整理复盘素材、待办、评测集更新 |
+| `lock_id/resource_key` | 资源键如 `cluster/namespace/node` 或 `db/instance/table`，全局唯一 |
+| `operation/expected_version` | 操作契约与目标版本；变更计划/目标版本变化即失效 |
+| `owner/fencing_token` | Operator 身份 + 单调递增 token；执行端校验 token |
+| `approval_id/approvers` | 已批准的工单与双人身份；锁申请引用它 |
+| `acquired_at/ttl_seconds/heartbeat_at` | 默认 120 秒 TTL，执行中每 30 秒续租；按动作风险调整 |
+| `state/released_at` | `acquired/executing/released/expired/revoked`；释放需审计 |
 
-## 6. 权限与护栏
+**获取算法**：校验审批和证据版本 → 对 `resource_key` 做原子 CAS，只有无锁或同 owner 续租成功 → 返回 fencing token → 执行前再次校验 → 执行后验证 → 同 owner 释放。锁丢失/过期时停止后续动作、保留现场并升级；不得自动重新获锁重试。执行中的锁失效不能保证远端动作已取消，必须人工确认实际状态。
 
-- **单一仲裁者**：所有变更由 Incident Commander/Operator 统一协调，避免多个 Agent 同时动作。
-- **证据优先**：冲突证据必须列出，不强行统一。
-- **任务去重**：同一诊断任务不重复分派。
-- **超时升级**：任务超时自动提醒/升级。
-- **终止条件**：恢复验证通过 + 无新增高优待办。
-- **审计**：每个决策记录证据、决策人、时间。
-- **执行隔离**：指挥 Agent 不持有生产写权限；写操作由 Operator 身份单独审批。
-- **对外沟通人审**：任何对外内容必须经人确认，不承诺未验证的恢复时间。
+**审批拒绝**：进入/回到 TRIAGE，记录拒绝人、理由、缺失证据和可否修改后再审；不得微调参数绕过同一拒绝。**证据冲突**：保留双方，分派独立采集，IC 决定缓解是否与根因解耦。
 
-### 沟通
+## 9. 恢复、沟通与闭单
 
-- 对内：状态、影响、当前假设、下一步、需要谁。
-- 对外：影响面、缓解措施、下次更新时间；必须人审。
-- 更新节奏：SEV-1/2 每 15–30 分钟，SEV-3 每 60 分钟。
-- 不承诺未经验证的恢复时间。
+- 恢复验证必须覆盖业务 SLO、错误率、队列、复制/资源健康与无新增高优待办；单个技术指标变绿不算恢复。
+- 恢复失败进入 `RECOVERY_FAILED`：保持/恢复隔离，冻结同目标新动作，IC 接管并审批回滚或新方案。
+- 对内：影响、当前状态、假设/反证、下一步、Owner、需要谁。对外：已确认影响、缓解、下次更新时间，必须人审，不承诺未验证 ETA。
+- `RESOLVED` 后保持观察窗（SEV-1/2 synthetic 默认 30 分钟）；`REVIEW → CLOSED` 要求时间线、决策、证据版本、待办 Owner/due date 完整。
+- 新症状不是恢复证据；未解决根因可以作为待办，但不能把恢复验证失败伪装成闭单。
 
-## 7. 评测集
+## 10. 评测集、SLO 与失败模式
 
 | 场景 | 期望 |
 | --- | --- |
-| 模拟 SEV-2 发布失败 | 快速建立时间线、分派、汇总证据 |
-| 多 Agent 冲突结论 | 保留冲突、请求更多证据、不强行结论 |
-| 对外沟通 | 草稿准确、不承诺未验证信息 |
-| 变更请求 | 等待批准，不擅自执行 |
-| 事故结束 | 时间线完整、待办清晰、复盘素材齐全 |
-| 指挥 Agent 被要求直接重启服务 | 拒绝并转交 Operator/值班，记录请求 |
+| 多 Agent 结论冲突 | 保留冲突、独立取证、不强行统一 |
+| 任务 20 分钟无响应 | 按 Severity 升级并记录 ack |
+| 审批被拒绝 | 回 TRIAGE，不绕过审批 |
+| 动作锁被另一 Operator 持有 | 拒绝执行，不并发写 |
+| 执行后恢复失败 | 进入 RECOVERY_FAILED，IC 接管 |
+| 指挥 Agent 被要求直接重启 | 拒绝并转 Operator/值班 |
+| 对外沟通 | 草稿准确、人审、不承诺 ETA |
 
-评测指标：首次响应时间、证据完整度、任务分派准确率、沟通质量、复盘完整度、无越权动作。
+SLO：首次响应 < 5 分钟（按 Severity）；关键证据覆盖率 ≥ 90%；分派准确率 ≥ 95%；SEV-1/2 沟通间隔 ≤ 30 分钟；复盘完整度 = 100%；越权动作 = 0。
 
-## 8. SLO 与指标
+| 失败 | 对策 |
+| --- | --- |
+| 多 Agent 抢动作 | 单一仲裁 + 原子动作锁 + fencing token |
+| 证据板不一致 | CAS 版本、source snapshot、冲突保留 |
+| 任务静默超时 | ack/result 双计时与自动升级 |
+| 审批后目标版本变化 | 执行前重校验，失效则重新审批 |
+| 过早闭单 | SLO + 观察窗 + 高优待办门禁 |
 
-| SLO | 指标 | 示例目标 |
-| --- | --- | --- |
-| 首次响应 | 从告警到建事故/拉群 | < 5 分钟 |
-| 证据完整度 | 关键证据项覆盖率 | ≥ 90% |
-| 任务分派准确率 | 正确 owner/团队 | ≥ 95% |
-| 沟通及时性 | 状态更新间隔 | SEV-1/2 ≤ 30 分钟 |
-| 复盘完整度 | 时间线/决策/待办齐全 | 100% |
-| 越权动作 | 未审批执行 | 0 |
+## 11. 上线检查清单
 
-## 9. 失败模式
-
-| 失败 | 原因 | 对策 |
-| --- | --- | --- |
-| 多 Agent 抢动作 | 无仲裁 | 单一仲裁者 + 动作锁 |
-| 证据板不一致 | 各 Agent 私有上下文 | 共享证据板 + 版本 |
-| 沟通越权 | Agent 直接对外 | 人审 + 模板 |
-| 过早结论 | 证据不足 | 强制列出 gaps 与反证 |
-| 复盘缺失 | 事故结束即散 | 自动生成时间线与待办 |
-| 指挥 Agent 越权执行 | 工具权限未隔离 | 指挥/执行身份分离 + 双人审批 |
-
-## 10. 上线检查清单
-
-- [ ] 范围、non-goals、默认权限写清楚。
-- [ ] 证据源、证据板字段与版本化机制就绪。
-- [ ] 工具清单区分指挥/执行，生产写工具隔离到 Operator。
-- [ ] 是否明确人类 Commander 的最终决策权？
-- [ ] 是否有共享证据板、时间线、任务板、决策日志？
-- [ ] 是否定义角色、分派规则、超时升级？
-- [ ] 是否有动作仲裁与去重？
-- [ ] 对外沟通是否人审？
-- [ ] 是否有 SLO、看板与复盘流程？
-- [ ] 是否能把事故自动转成复盘与评测集更新？
+- [ ] Severity 矩阵、RACI、Owner 目录与升级计时可配置。
+- [ ] 状态机覆盖冲突、拒绝、超时、恢复失败、锁失效。
+- [ ] 证据具备原始查询、时间范围、SHA-256、TTL、并发版本与脱敏。
+- [ ] 动作锁原子获取、续租、fencing token 与释放可审计。
+- [ ] 指挥/执行身份隔离，生产写工具仅 Operator 可用。
+- [ ] 对外沟通人审；恢复、观察、复盘与闭单门禁就绪。
 
 上一篇：[数据库运维 Agent](./database) · 下一篇：[模板导读](../templates/)

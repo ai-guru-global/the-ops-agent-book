@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "data_classification": "synthetic/desensitized",
+  "version": "1.0.0",
+  "owner": {
+    "team": "synthetic-platform-security",
+    "contact": "security-oncall@example.invalid"
+  },
+  "description": "NotReady 合成案例权限策略：Copilot 只读，Operator 受控写；显式 deny 优先，审批绑定计划。",
+  "decision_order": [
+    "identity_and_delegation_valid",
+    "explicit_deny",
+    "credential_and_revocation",
+    "tool_contract_allowlist",
+    "role_environment_resource_scope",
+    "window_freeze_blast_radius",
+    "approval_plan_binding",
+    "preconditions",
+    "revalidate_before_write",
+    "allow_invocation"
+  ],
+  "principals": [
+    {
+      "id": "nhai:agent:synthetic-copilot",
+      "type": "agent",
+      "roles": ["synthetic-viewer"],
+      "delegation": {
+        "non_transferable": true,
+        "max_depth": 0,
+        "requires_active_delegator": true
+      }
+    },
+    {
+      "id": "nhai:agent:synthetic-operator",
+      "type": "agent",
+      "roles": ["synthetic-senior-operator", "synthetic-viewer"],
+      "delegation": {
+        "non_transferable": true,
+        "max_depth": 1,
+        "requires_active_delegator": true
+      }
+    }
+  ],
+  "tools": [
+    {
+      "name": "k8s.read_node",
+      "contract": "https://contracts.example.invalid/synthetic/k8s.read-node.1.0.0.json",
+      "contract_version": "1.0.0",
+      "effect": "read"
+    },
+    {
+      "name": "k8s.check_pdb",
+      "contract": "https://contracts.example.invalid/synthetic/k8s.check-pdb.1.0.0.json",
+      "contract_version": "1.0.0",
+      "effect": "read"
+    },
+    {
+      "name": "logs.query",
+      "contract": "https://contracts.example.invalid/synthetic/logs.query.1.0.0.json",
+      "contract_version": "1.0.0",
+      "effect": "read"
+    },
+    {
+      "name": "k8s.drain_node",
+      "contract": "https://contracts.example.invalid/synthetic/k8s.drain-node.1.1.0.json",
+      "contract_version": "1.1.0",
+      "effect": "write"
+    },
+    {
+      "name": "node.cleanup_logs",
+      "contract": "https://contracts.example.invalid/synthetic/node.cleanup-logs.1.0.0.json",
+      "contract_version": "1.0.0",
+      "effect": "write"
+    },
+    {
+      "name": "k8s.uncordon",
+      "contract": "https://contracts.example.invalid/synthetic/k8s.uncordon.1.0.0.json",
+      "contract_version": "1.0.0",
+      "effect": "write"
+    }
+  ],
+  "rules": [
+    {
+      "id": "deny-destructive-actions",
+      "priority": 0,
+      "effect": "deny",
+      "principals": ["*"],
+      "roles": ["*"],
+      "tools": ["k8s.force_delete_pod", "k8s.delete_namespace", "k8s.delete_node"],
+      "actions": ["*"],
+      "environments": ["*"],
+      "resources": ["*"],
+      "max_blast_radius": 0,
+      "approval": {
+        "type": "none",
+        "change_window": "never",
+        "binding_required": false,
+        "revalidate_before_execute": true
+      },
+      "conditions": {"reason": "explicit_prohibition"}
+    },
+    {
+      "id": "deny-copilot-write",
+      "priority": 1,
+      "effect": "deny",
+      "principals": ["nhai:agent:synthetic-copilot"],
+      "roles": ["*"],
+      "tools": ["*"],
+      "actions": ["write"],
+      "environments": ["*"],
+      "resources": ["*"],
+      "max_blast_radius": 0,
+      "approval": {
+        "type": "none",
+        "change_window": "never",
+        "binding_required": false,
+        "revalidate_before_execute": true
+      },
+      "conditions": {"reason": "copilot_read_only"}
+    },
+    {
+      "id": "deny-uncordon-before-recovery",
+      "priority": 2,
+      "effect": "deny",
+      "principals": ["*"],
+      "roles": ["*"],
+      "tools": ["k8s.uncordon"],
+      "actions": ["write"],
+      "environments": ["prod"],
+      "resources": [{ "type": "node", "selector": "cluster=synthetic-prod-a" }],
+      "max_blast_radius": 1,
+      "approval": {
+        "type": "none",
+        "change_window": "never",
+        "binding_required": false,
+        "revalidate_before_execute": true
+      },
+      "conditions": {
+        "any": [
+          { "node_ready": false },
+          { "pdb_satisfied": false },
+          { "capacity_available": false }
+        ]
+      }
+    },
+    {
+      "id": "allow-read-only-diagnosis",
+      "priority": 100,
+      "effect": "allow",
+      "principals": ["nhai:agent:synthetic-copilot", "nhai:agent:synthetic-operator"],
+      "roles": ["synthetic-viewer"],
+      "tools": ["k8s.read_node", "k8s.check_pdb", "logs.query"],
+      "actions": ["read"],
+      "environments": ["prod"],
+      "resources": [{ "type": "cluster", "selector": "synthetic-prod-a" }],
+      "max_blast_radius": 0,
+      "approval": {
+        "type": "none",
+        "change_window": "optional",
+        "binding_required": false,
+        "revalidate_before_execute": true
+      },
+      "conditions": {"purpose": "notready-diagnosis"}
+    },
+    {
+      "id": "allow-drain-single-node",
+      "priority": 200,
+      "effect": "allow",
+      "principals": ["nhai:agent:synthetic-operator"],
+      "roles": ["synthetic-senior-operator"],
+      "tools": ["k8s.drain_node"],
+      "actions": ["write"],
+      "environments": ["prod"],
+      "resources": [{ "type": "node", "selector": "cluster=synthetic-prod-a;pool=synthetic-gpu-a" }],
+      "max_blast_radius": 1,
+      "approval": {
+        "type": "dual",
+        "change_window": "required",
+        "binding_required": true,
+        "revalidate_before_execute": true
+      },
+      "conditions": {
+        "node_not_ready": true,
+        "pdb_precheck_passed": true,
+        "plan_hash_algorithm": "sha256",
+        "plan_change_invalidates_approval": true
+      }
+    },
+    {
+      "id": "allow-cleanup-old-logs",
+      "priority": 210,
+      "effect": "allow",
+      "principals": ["nhai:agent:synthetic-operator"],
+      "roles": ["synthetic-senior-operator"],
+      "tools": ["node.cleanup_logs"],
+      "actions": ["write"],
+      "environments": ["prod"],
+      "resources": [
+        {
+          "type": "log_path",
+          "selector": "node=synthetic-node-07;age>24h;allowlist=synthetic-log-cleanup"
+        }
+      ],
+      "max_blast_radius": 1,
+      "approval": {
+        "type": "dual",
+        "change_window": "required",
+        "binding_required": true,
+        "revalidate_before_execute": true
+      },
+      "conditions": {
+        "irreversible": true,
+        "sanitized_evidence_saved": true,
+        "partial_success_stops_next_step": true
+      }
+    },
+    {
+      "id": "allow-uncordon-after-recovery",
+      "priority": 220,
+      "effect": "allow",
+      "principals": ["nhai:agent:synthetic-operator"],
+      "roles": ["synthetic-senior-operator"],
+      "tools": ["k8s.uncordon"],
+      "actions": ["write"],
+      "environments": ["prod"],
+      "resources": [{ "type": "node", "selector": "cluster=synthetic-prod-a;node=synthetic-node-07" }],
+      "max_blast_radius": 1,
+      "approval": {
+        "type": "single",
+        "change_window": "required",
+        "binding_required": true,
+        "revalidate_before_execute": true
+      },
+      "conditions": {
+        "node_ready": true,
+        "pdb_satisfied": true,
+        "capacity_available": true,
+        "semantics": "scheduling_only_not_full_rollback"
+      }
+    }
+  ],
+  "break_glass": {
+    "enabled": true,
+    "incident_id_required": true,
+    "requires_dual_approval": true,
+    "max_duration_minutes": 15,
+    "can_override_explicit_deny": false,
+    "approval_binding_required": true,
+    "resource_scope_required": true,
+    "allowed_tools": ["node.cleanup_logs", "k8s.uncordon"],
+    "auto_revoke_on": ["incident_closed", "expiry", "manual"],
+    "review_within_hours": 24
+  },
+  "revocation": {
+    "event_stream": "https://events.example.invalid/synthetic/revocations",
+    "max_propagation_seconds": 5,
+    "check_before_every_write": true,
+    "on_revoked": {
+      "waiting_task": "reject_immediately",
+      "inflight_request": "record_and_reconcile",
+      "credential_ttl_seconds": 600
+    }
+  },
+  "audit": {
+    "append_only": true,
+    "record_rule_id": true,
+    "record_deny_reason": true,
+    "fields": [
+      "caller",
+      "on_behalf_of",
+      "agent_run_id",
+      "rule_id",
+      "tool",
+      "resource",
+      "approval_id",
+      "plan_version",
+      "plan_hash",
+      "target_resource_version",
+      "idempotency_key",
+      "deny_reason",
+      "outcome"
+    ]
+  }
+}

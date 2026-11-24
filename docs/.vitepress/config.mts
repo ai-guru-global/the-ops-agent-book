@@ -33,17 +33,18 @@ export default withMermaid(defineConfig({
             const raw = token.info.trim().slice("diagram".length).trim();
             const [title, ...noteParts] = raw.split("|");
             const note = noteParts.join("|").trim();
+            const number = raw.match(/图\s*(\d+)/)?.[1] || "diagram";
             const titleHtml = title.trim()
-              ? `<p class="custom-block-title">${md.utils.escapeHtml(
+              ? `<p class="custom-block-title" id="diagram-${number}-title">${md.utils.escapeHtml(
                   title.trim()
                 )}</p>`
               : "";
             const noteHtml = note
-              ? `<p class="diagram-note">${md.utils.escapeHtml(note)}</p>`
+              ? `<p class="diagram-note" id="diagram-${number}-note">${md.utils.escapeHtml(note)}</p>`
               : "";
-            return `<div class="custom-block diagram"><div class="diagram-head">${titleHtml}${noteHtml}</div>\n`;
+            return `<figure class="custom-block diagram" role="group" aria-labelledby="diagram-${number}-title" aria-describedby="diagram-${number}-note"><div class="diagram-head">${titleHtml}${noteHtml}</div>\n`;
           }
-          return "</div>\n";
+          return "</figure>\n";
         },
       });
     },
@@ -132,6 +133,10 @@ export default withMermaid(defineConfig({
         items: [
           { text: "案例：K8s 节点 NotReady", link: "/appendix/case-notready" },
           { text: "失败复盘：一个没有上线的 Agent", link: "/appendix/case-failed-agent" },
+          { text: "需求地图", link: "/appendix/requirement-map" },
+          { text: "图示规范", link: "/appendix/diagram-guide" },
+          { text: "来源注册表", link: "/appendix/source-registry" },
+          { text: "维护注册表", link: "/appendix/maintenance-registry" },
           { text: "阿里 Agent 产品全景", link: "/appendix/alibaba-agent-landscape" },
           { text: "指标与 SLO 库", link: "/appendix/metrics" },
           { text: "术语表", link: "/appendix/glossary" },

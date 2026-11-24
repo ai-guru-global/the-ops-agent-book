@@ -1,0 +1,45 @@
+file,title,depth,breadth,agent_best_practices,readability,usability,ease_of_reading,diagram_completeness,overall_5
+docs/index.md,首页,4,5,4,5,5,5,4,4.57
+docs/guide/index.md,导读,3,4,3,4,3,5,4,3.71
+docs/guide/01-why-ops-agents.md,01 为什么运维 Agent 不一样,3,4,3,4,3,3,2,3.14
+docs/guide/02-lifecycle.md,02 全生命周期,3,4,4,4,4,4,4,3.86
+docs/guide/03-scenario-selection.md,03 场景选择,3,4,3,4,4,3,3,3.43
+docs/guide/04-architecture.md,04 架构与运行模式,4,4,3,4,4,4,2,3.57
+docs/guide/05-tools-permissions.md,05 工具、权限与安全护栏,4,4,4,4,4,4,4,4.0
+docs/guide/06-context-knowledge.md,06 上下文与知识工程,4,4,3,4,4,4,2,3.57
+docs/guide/07-evaluation-release.md,07 评测、验收与发布,4,4,4,4,4,4,3,3.86
+docs/guide/08-operate-improve.md,08 运营、观测与持续改进,3,3,3,5,4,4,3,3.57
+docs/guide/09-organization-governance.md,09 组织、流程与治理,3,3,3,4,3,4,1,3.0
+docs/guide/10-build-vs-buy.md,10 Build vs Buy,3,3,2,4,3,3,2,2.86
+docs/guide/11-agentops-observability.md,11 AgentOps 与可观测性,4,4,4,4,3,4,3,3.71
+docs/guide/12-identity-security.md,12 身份、权限与安全,3,4,3,4,3,4,2,3.29
+docs/guide/13-cost-roi-portfolio.md,13 成本、ROI 与组合管理,3,3,2,4,4,4,2,3.14
+docs/guide/14-future-roadmap.md,14 2027+ 路线图,2,4,2,4,2,4,2,2.86
+docs/playbooks/index.md,场景手册导读,2,3,4,5,2,5,1,3.14
+docs/playbooks/k8s.md,K8s 集群运维,3,4,4,4,3,4,3,3.57
+docs/playbooks/rdma.md,RDMA 高网运维,3,4,4,4,2,4,3,3.43
+docs/playbooks/gpu-inference.md,GPU 推理运维,3,4,4,4,3,4,3,3.57
+docs/playbooks/database.md,数据库运维,2,3,4,4,2,4,3,3.14
+docs/playbooks/incident-commander.md,事故指挥,3,4,4,5,3,4,3,3.71
+docs/vendors/index.md,厂商地图导读,3,4,4,4,3,3,3,3.43
+docs/vendors/global-cloud.md,全球云厂商,3,4,4,4,3,3,1,3.14
+docs/vendors/china-cloud.md,中国云厂商,3,4,3,4,2,3,1,2.86
+docs/vendors/observability-aiops.md,可观测与 AIOps,4,5,4,3,3,2,1,3.14
+docs/vendors/security-network-finops.md,安全、网络与 FinOps,3,4,4,4,3,3,1,3.14
+docs/vendors/embedded-assistants.md,内嵌 Agent 助手,2,4,4,4,2,3,1,2.86
+docs/vendors/vertical-ops.md,垂直行业运维,3,4,3,4,2,3,1,2.86
+docs/vendors/methodology.md,厂商评估方法,4,4,4,4,4,3,2,3.57
+docs/templates/index.md,模板导读,3,4,3,4,4,4,3,3.57
+docs/templates/agent-design-doc.md,Agent 设计文档,3,5,4,4,3,4,2,3.57
+docs/templates/tool-contract.md,工具契约,4,5,5,4,4,4,3,4.14
+docs/templates/eval-set.md,评测集,4,4,4,4,3,4,3,3.71
+docs/templates/permission-matrix.md,权限矩阵,4,4,4,4,3,4,3,3.71
+docs/templates/runbook-tool-map.md,Runbook → Tool 映射,4,4,4,4,4,4,3,3.86
+docs/templates/release-checklist.md,发布与回滚清单,3,4,4,4,3,4,2,3.43
+docs/templates/incident-review.md,事故复盘,4,4,4,4,3,4,3,3.71
+docs/appendix/case-notready.md,案例：K8s NotReady,4,4,4,5,4,5,4,4.29
+docs/appendix/case-failed-agent.md,案例：失败复盘,4,4,5,5,4,5,4,4.43
+docs/appendix/alibaba-agent-landscape.md,阿里 Agent 产品全景,3,4,3,4,3,4,2,3.29
+docs/appendix/metrics.md,指标与 SLO 库,3,5,4,4,3,5,3,3.86
+docs/appendix/glossary.md,术语表,3,4,3,5,4,5,3,3.86
+docs/appendix/references.md,参考资料,4,5,2,4,4,4,3,3.71

@@ -4,6 +4,10 @@ sidebar: false
 aside: false
 outline: false
 title: The Ops Agent Book
+owner: "Content Lead"
+last_verified: "2026-11-25"
+review_by: "2027-02-25"
+content_status: "reviewed"
 ---
 
 <div class="book-home">
@@ -26,7 +30,7 @@ title: The Ops Agent Book
       <dl class="book-meta">
         <div>
           <dt>版本</dt>
-          <dd>v0.1.1 / 2026-11</dd>
+          <dd>v0.2.0-rc1 / 2026-11</dd>
         </div>
         <div>
           <dt>结构</dt>
@@ -130,7 +134,7 @@ title: The Ops Agent Book
       <span class="book-index__num">A</span>
       <div class="book-index__body">
         <h3>案例、阿里 Agent 产品全景与参考资料</h3>
-        <p>一次 K8s 节点 NotReady 的端到端走查、一个未上线项目的失败复盘；AgentRun、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼、AgentLoop、Agentic OS 等产品如何映射到生命周期；指标库、术语与来源。</p>
+        <p>一次 K8s 节点 NotReady 的端到端走查、一个未上线项目的失败复盘、需求→章节→模板→验证地图与来源注册表；AgentRun、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼、AgentLoop、Agentic OS 等产品如何映射到生命周期；指标库、术语与来源。</p>
       </div>
       <a class="book-index__link" href="./appendix/case-notready.html">进入 →</a>
     </li>
@@ -338,6 +342,18 @@ title: The Ops Agent Book
     <li><a href="./vendors/"><span>图 21</span>五类产品形态</a><em>厂商</em></li>
     <li><a href="./appendix/case-notready.html"><span>图 22</span>NotReady 取证与审批时序</a><em>案例</em></li>
     <li><a href="./appendix/case-failed-agent.html"><span>图 23</span>失败项目因果链</a><em>案例</em></li>
+    <li><a href="./guide/01-why-ops-agents.html"><span>图 24</span>角色与能力阶梯</a><em>01</em></li>
+    <li><a href="./guide/01-why-ops-agents.html"><span>图 25</span>最小技术栈</a><em>01</em></li>
+    <li><a href="./guide/03-scenario-selection.html"><span>图 26</span>90 天量化晋级路径</a><em>03</em></li>
+    <li><a href="./guide/10-build-vs-buy.html"><span>图 27</span>自建可控型架构</a><em>10</em></li>
+    <li><a href="./guide/10-build-vs-buy.html"><span>图 28</span>托管运行型架构</a><em>10</em></li>
+    <li><a href="./guide/10-build-vs-buy.html"><span>图 29</span>低代码验证型架构</a><em>10</em></li>
+    <li><a href="./guide/14-future-roadmap.html"><span>图 30</span>受控自进化控制框架</a><em>14</em></li>
+    <li><a href="./playbooks/"><span>图 31</span>场景 Agent 五阶段准入门禁</a><em>手册</em></li>
+    <li><a href="./templates/agent-design-doc.html"><span>图 32</span>Agent 设计参考架构</a><em>模板</em></li>
+    <li><a href="./guide/09-organization-governance.html"><span>图 33</span>治理决策流</a><em>09</em></li>
+    <li><a href="./guide/13-cost-roi-portfolio.html"><span>图 34</span>单位经济与 ROI 结构</a><em>13</em></li>
+    <li><a href="./guide/14-future-roadmap.html"><span>图 35</span>A2A 与保障契约</a><em>14</em></li>
   </ol>
 </section>
 
