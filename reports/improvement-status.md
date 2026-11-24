@@ -53,4 +53,4 @@
 
 ## 发布状态
 
-代码、文档、合成资产与报告已推送至远端提交 `af68e6c`；Docs check 与 Book quality（run `45495476488`）全部通过，可发布为 v0.2.0-rc1。PDF/EPUB 为本地生成产物，不是 GitHub Pages 发布资产。真实用户测试与生产/采购证据未完成前，不声明 v1.0-rc1 或生产就绪。
+代码、文档、合成资产与报告已推送至远端 `main`；Docs check 与 Book quality 使用同一套门禁。PDF/EPUB 为本地生成产物，不是 GitHub Pages 发布资产。真实用户测试与生产/采购证据未完成前，不声明 v1.0-rc1 或生产就绪。
