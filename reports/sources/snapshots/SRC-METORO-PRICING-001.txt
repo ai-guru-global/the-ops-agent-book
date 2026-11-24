@@ -1,0 +1,51 @@
+Metoro Pricing | Kubernetes Observability and AI SRE Pricing
+URL: https://metoro.io/pricing
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Pricing
+Simple pricing.
+
+Buy the same Metoro observability and AI SRE platform by Kubernetes node count.
+
+Hobby
+FREE
+Free forever. For those who like to experiment.
+1 Cluster
+1 User
+2 Nodes
+
+Scale
+$20 USD / node / month
+$0.20 / GB on excess over 100GB / node.
+Unlimited clusters
+Unlimited users
+Unlimited nodes
+Host-based billing by Kubernetes node
+
+Enterprise
+LET'S TALK
+For large organizations with specific needs.
+Unlimited clusters
+Unlimited users
+Unlimited nodes
+Bulk discounts
+24/7 white glove support and onboarding
+Custom SLAs
+On-premises deployments
+Bring your own cloud - Metoro in your VPC managed by us.
+
+Feature Table
+
+AI root cause analysis: Hobby Limited; Scale Included; Enterprise Included.
+AI alert investigation: Hobby Limited; Scale Included; Enterprise Included.
+Deployment verification: Hobby Trial usage; Scale Included; Enterprise Included.
+Runtime-to-code context: Hobby Trial usage; Scale Included; Enterprise Included.
+Automated remediation workflows: Hobby No; Scale Included; Enterprise Included with controls.
+AI model usage billing: At-cost pass-through; At-cost pass-through; At-cost pass-through or bring your own Bedrock keys.
+BYOC / on-prem deployment: Hobby No; Scale No; Enterprise Available.
+
+AI SRE Usage
+AI costs passed through at cost
+AI SRE usage is charged at the underlying model cost only. No platform markup, no hidden margin.

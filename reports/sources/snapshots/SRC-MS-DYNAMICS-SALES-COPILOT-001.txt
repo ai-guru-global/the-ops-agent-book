@@ -1,0 +1,34 @@
+Dynamics 365 Sales 中的 Copilot 概述 | Microsoft Learn
+URL: https://learn.microsoft.com/zh-cn/dynamics365/sales/copilot-overview
+Captured: 2026-11-25
+Document date: 2026-10-13; updated_at: 2026-11-20
+Method: html-to-text
+Content-Type: text/html
+
+Dynamics 365 Sales 中的 Copilot 概述
+
+Copilot 是 Dynamics 365 Sales 中的一个 AI 助手，可以帮助您的销售团队在日常工作中提高生产力和效率。它设有聊天界面，销售人员可以通过 SharePoint 获取信息，询问客户更新和新分配的工作，准备会议，并阅读其客户账户的最新消息。
+
+Microsoft Copilot 中的销售代理是面向销售团队的 Copilot 体验的演进版本。销售代理为 Microsoft 365 应用和 Dynamics 365 Sales 的销售活动提供 AI 驱动的协助。
+
+许可要求
+
+在 Dynamics 365 授权指南中，了解更多关于 Dynamics 365 Sales、Outlook 和 Teams 中 Copilot 的授权要求，并查看比较表以比较不同授权计划中的功能。
+
+数据安全和隐私
+
+Dynamics 365 Sales 中的 Copilot 只能从登录用户有权限访问的记录和文件中获取信息。
+
+Dynamics 365 Sales 中的 Copilot 功能
+
+记录摘要：从销售记录（如潜在顾客、商机和帐户）生成关键信息的简明摘要。
+嵌入式体验：将 AI 生成的摘要和见解直接集成到潜在顾客和机会表单中。
+近期记录变更：重点介绍最近对销售记录的更新和更改。
+信息帮助：提供内容建议和回答存储在 SharePoint 中的文档的问题。
+会议准备：通过汇总与会议关联的机会中的相关信息，帮助卖家为即将到来的会议做好准备。
+电子邮件协助：帮助卖家撰写专业电子邮件，汇总电子邮件对话以添加到客户笔记中。
+新闻更新：总结有关客户和潜在客户的相关新闻。
+
+地理可用性和支持的语言
+
+Dynamics 365 Sales 中的 Copilot 可在 Dynamics 365、Power Platform 和 Copilot Studio 产品可用性中列出的地理区域和语言中提供。

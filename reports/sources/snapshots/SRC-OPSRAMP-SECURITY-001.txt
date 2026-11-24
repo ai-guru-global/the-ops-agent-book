@@ -1,0 +1,41 @@
+Security Reference | OpsRamp Documentation
+URL: https://docs.opsramp.com/platform-features/feature-guides/security-data-management/security/
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Security Reference
+
+Data management
+
+Data classification
+Only required data is collected and stored for IT operations management on managed devices and applications. Data collected data is limited to device performance metrics, performance and failure events, and configuration information.
+
+Data isolation
+Strict multi-tenancy controls are implemented to ensure strict data isolation between customers.
+
+Data encryption (in-flight)
+All data transmitted between the agent and gateway and the cloud are encrypted with TLS v1.2 standards.
+
+Data encryption (at-rest)
+Resource credentials stored in the Cloud are encrypted using AES256 encryption.
+
+Authentication
+Cloud offers SAML and OAuth2 based authentication. Third-party authentication services are supported, such as OneLogin, Okta, and ADFS. The Cloud supports two-factor authentication.
+
+User access management
+Extensive role-based access controls are implemented. Access controls are granular to the managed device, user, and feature.
+
+APIs
+REST APIs are provided for integration with the cloud. The APIs are backed by OAuth2-based authentication.
+
+Regulatory and Compliance Requirements
+Personally-identifiable information (PII) is not collected. OpsRamp is hosted in co-location facilities provided by two United States-based data center providers. Each provider has its own security certifications including SAS and SSAE.
+
+Data security
+All sensitive data is encrypted. Customer data, including inventory, metrics, alerts, and tickets, is logically partitioned and stored under the tenant. Customer data is accessible only to authorized tenant users.
+
+Data retention
+On contract expiration, the tenant is deactivated. An inactive tenant instance inventory, metrics, and alerts data are available in the passive state in the platform, but monitoring, alerting, and other management functions are no longer available.
+
+Based on mutual agreement, all tenant information from the cloud is deleted. The data archival retention policy provides that deleted tenant data is available in the archival repository for ninety days.

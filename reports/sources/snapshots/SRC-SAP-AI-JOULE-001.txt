@@ -1,0 +1,35 @@
+Artificial Intelligence | SAP
+URL: https://www.sap.com/products/artificial-intelligence.html
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Turn your intent into action
+
+Tell Joule Work what you want to achieve, and Joule Assistants, Joule Agents, and Joule Studio—grounded in your business context—help you find answers, execute workflows, build solutions, and connect across SAP and non-SAP systems.
+
+Rethink how work gets done with Joule
+
+Ask questions and turn insights into action with Joule Work, run workflows with Joule Agents and Joule Assistants, and build AI solutions that fit your business with Joule Studio.
+
+One place for your people to direct the business
+
+Joule Work gives your teams fast, accurate answers to any business question and enables reliable autonomous workflows at enterprise scale. Powered by enterprise-ready AI orchestration, it connects every system your business runs on and gives your people the confidence to build whatever comes next.
+
+Coordinate agent workflows with AI assistants
+
+Grounded in SAP’s harmonized data, business process context, and trusted architecture, Joule Agents and Joule Assistants deliver reliable performance without compromising on compliance, security, or scale.
+
+Build agentic solutions with full business context
+
+Guided by your ideas, Joule Studio creates agentic solutions grounded in your business context, giving you the low-code and pro-code tools to personalize them and put them in the hands of teams across your business.
+
+Every answer grounded in how your business works
+
+Joule Work is powered by SAP Knowledge Graph, a robust enterprise agent gateway, and agentic thinking—working together across your SAP landscape to ground every response in real business context, execute with precision, and scale with your processes—fully managed by SAP.
+
+Agentic thinking: Coordinate AI agents, tools, and business workflows through intelligent orchestration that manages multi-step tasks, connects actions across processes, and helps drive reliable, end-to-end execution.
+
+Agent gateway: Joule Work is backed by a secure, enterprise-ready agent gateway that enforces identity, access, and policy controls at runtime. It governs agent communications, tool use, and human oversight to keep AI-driven workflows within your organization’s guardrails.
+
+SAP Knowledge Graph: Ground AI in your enterprise context with SAP Knowledge Graph, connecting business data, relationships, and processes to deliver more relevant, accurate, and context-aware outcomes.

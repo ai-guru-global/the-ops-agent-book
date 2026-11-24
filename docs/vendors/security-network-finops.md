@@ -57,11 +57,11 @@ flowchart TB
 | 厂商 | 产品 | 形态 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
 | **Microsoft** | Security Copilot（SEC-01） | 安全 Agent 平台 | 官方 FAQ 支持安全问答、数据与合规、租户地域和 EU 数据边界；具体合同与跨境配置需另核 | SRC-MS-SECCOPILOT-COMPLIANCE-001 |
-| **Google** | Security Operations (Gemini)（SEC-02） | 平台 AI + Agent | 能力与状态未核实 | 未核实 |
+| **Google** | Security Operations (Gemini)（SEC-02） | 平台 AI + Agent | 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini；UDM 可导自管 BigQuery，Enterprise Plus 不支持 BYOBQ | SRC-GOOGLE-SECOPS-PACKAGES-001；SRC-GOOGLE-SECOPS-EXPORT-001 |
 | **Palo Alto Networks** | Cortex / AgentiX（SEC-03） | SecOps 平台 | 官方页面确认 Cortex 平台与 Cortex AgentiX 入口；原具体版本与 Agent 发现/行为治理能力未核实，已删除确定性表述 | SRC-PAN-CORTEX-001 |
 | **CrowdStrike** | Charlotte AI / AgentWorks（SEC-04） | 安全 Agent 平台 | 官方页面描述跨 endpoint/identity/cloud/network 并行调查、共享上下文、prebuilt agents、无代码 AgentWorks、Agentic SOAR 与 MCP；默认不执行改变环境的动作，影响环境的动作需显式配置与授权审批 | SRC-CS-CHARLOTTE-001 |
-| **SentinelOne** | Purple AI（SEC-05） | 安全 Agent | 能力与状态未核实；候选 URL 返回 429 | 未核实 |
-| **Splunk (Cisco)** | Splunk Security AI（SEC-06） | 平台 AI | 能力与状态未核实 | 未核实 |
+| **SentinelOne** | Purple AI（SEC-05） | 安全 Agent | 官方页面支持 Agentic Investigation、Auto-Triage、Investigation Notebooks、预批准策略动作与零训练表述；GA 与商业细节未核实 | SRC-SENTINELONE-PURPLE-AI-001 |
+| **Splunk (Cisco)** | Splunk Security AI（SEC-06） | 平台 AI | 官方页面支持 AI 辅助检测、分诊、调查、SOAR、恶意软件分析与响应；独立 SKU、GA 与商业细节未核实 | SRC-SPLUNK-AI-SECURITY-001 |
 | **IBM** | QRadar（SEC-07） | 安全运营 | 官方页面描述 QRadar SIEM/SOAR/EDR、AI-driven analytics、威胁情报、SOAR 响应自动化、行为分析与跨云/终端/身份/网络关联 | SRC-IBM-QRADAR-001 |
 | **DropZone AI** | AI SOC Analyst（SEC-08） | 独立 Agent | 官方产品页支持告警调查、Analyst 在售、Hunter Beta 与 EU 专属租户；客户效果为厂商自述 | SRC-DROPZONE-AISOC-001；SRC-DROPZONE-EU-001 |
 | **Culminate / Datadog** | Bits Security Analyst（SEC-09） | 独立/平台 Agent | Datadog 官方发布说明支持 Bits Security Analyst GA 与 Cloud SIEM 自主调查；Culminate 独立产品状态未核实 | SRC-DD-BITS-SECURITY-001 |
@@ -88,13 +88,14 @@ flowchart TB
 | 厂商 | 产品 | 形态 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
 | **IBM Apptio** | Cloudability（FIN-01） | FinOps 平台 | 官方页面描述云/AI/SaaS 成本视图、成本归属、预算/预测、异常告警、rightsizing、K8s 成本分配与 AI 用量拆分；不把“30%+”典型客户结果当保证 | SRC-IBM-CLOUDABILITY-001 |
-| **Broadcom** | CloudHealth（FIN-02） | FinOps 平台 | 能力与状态未核实 | 未核实 |
+| **Broadcom** | CloudHealth（FIN-02） | FinOps 平台 | 官方产品页支持多云/AI/token 成本、治理、FOCUS 与 Intelligent Assist；FlexReports 支持 Excel、邮件/S3 导出 | SRC-BROADCOM-CLOUDHEALTH-001；SRC-BROADCOM-FLEXREPORTS-001 |
 | **Harness** | Cloud Cost Management（FIN-03） | FinOps 平台 | 官方产品页支持云/AI 成本归因、优化与治理；企业模块价格与退出未核实 | SRC-HARNESS-CCM-001 |
 | **IBM Apptio** | Kubecost（FIN-04） | K8s FinOps | 官方产品页支持实时 K8s 成本、Free/Enterprise 与自托管；具体许可与导出未核实 | SRC-APPTIO-KUBECOST-001 |
 | **Vantage** | 多云 FinOps（FIN-06） | FinOps 平台 | 官方定价页支持固定费率套餐与 CSV/API/Snowflake/Databricks 连接 | SRC-VANTAGE-PRICING-001 |
 | **CloudZero** | 多云 FinOps（FIN-07） | FinOps 平台 | 官方定价与 API 文档支持商业订阅、小时成本和成本接口；完整退出未核实 | SRC-CLOUDZERO-PRICING-001；SRC-CLOUDZERO-API-001 |
 | **Finout** | 多云 FinOps（FIN-08） | FinOps 平台 | 官方定价页支持固定年费、MegaBill 归因和 K8s 加购 | SRC-FINOUT-PRICING-001 |
 | **Flexera** | Cloud Cost Optimization（FIN-09） | FinOps 平台 | 官方产品页支持成本分配、预算、治理与策略动作；商业细节未核实 | SRC-FLEXERA-CCO-001 |
+| **FinOps Foundation** | FinOps Framework / FOCUS（FIN-05） | 框架与规范 | 官方定义技术价值管理实践与跨云 FOCUS 账单导出；不是单一商业产品 | SRC-FINOPS-FOUNDATION-001 |
 
 FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格建议、预算预警、变更前成本预估。**删除/降配必须审批**，并区分“建议节省”和“实际节省”。
 
@@ -123,7 +124,11 @@ FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格�
 | NET-06 iMaster NCE | 官方产品页；整体 GA 未核实 | 官方称 120+ 国家部署；非可用区清单 | 未核实 | 未核实 | 未核实 | 未核实 |
 | NET-07 中兴 UniSeer | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | NET-08 H3C U-Center | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
-| SEC-02、SEC-05–06、FIN-02 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| SEC-02 Google SecOps | Standard/Enterprise/Enterprise Plus；整体 GA 未核实 | 未核实 | 按注入量；销售询价 | 未核实 | 具体驻留区域未核实 | UDM 导自管 BigQuery；Enterprise Plus 不支持 BYOBQ；历史数据不迁移 |
+| SEC-05 SentinelOne Purple AI | 官方现行产品页；GA 未核实 | 未核实 | 未核实 | 未核实 | 官方称客户数据不用于训练；FedRAMP High | 未核实 |
+| SEC-06 Splunk AI in Security | 官方现行产品页；独立 SKU/GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| FIN-02 Broadcom CloudHealth | 官方产品页；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | FlexReports Excel 下载、邮件/S3 投递；完整退出未核实 |
+| FIN-05 FinOps Framework / FOCUS | 现行框架；2026-11 更新 | 跨云规范 | CC BY 4.0 | 不适用 | 不适用 | AWS/Azure/GCP/OCI 原生 FOCUS 账单导出 |
 
 ## 选型提示
 

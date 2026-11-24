@@ -1,0 +1,25 @@
+Metoro Cloud - Fully Managed Observability
+URL: https://metoro.io/deployment/metoro-cloud
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Metoro Cloud, observability without the ops.
+
+Managed Kubernetes observability with zero backend to operate. One Helm install, automatic scaling, and production-ready in under 5 minutes.
+
+Global infrastructure
+Pick the region that matches your data residency and latency needs. We run isolated control planes across the US, EU, and Asia-Pacific.
+us-east · us-west · eu · ap
+
+99.95% uptime SLA
+Financially backed availability commitment with multi-AZ failover and independent storage replicas.
+
+SOC 2 Type II
+Enterprise security defaults: encryption in transit and at rest, SSO / SAML, RBAC, audit logs, and signed compliance reports on request.
+
+How does Metoro Cloud handle data retention and storage?
+Metoro Cloud offers flexible retention policies from 7 days to 2 years depending on your plan. Data is stored in highly available, geographically distributed storage with automatic backups, and you can export your data at any time through our APIs.
+
+When should I pick self-hosted Metoro instead?
+Self-hosted Metoro makes sense if you need data to never leave your VPC, or if you have very specific compliance requirements that prevent using a managed service. Most teams pick Cloud because it removes the operational burden - but the same product is available on-prem.

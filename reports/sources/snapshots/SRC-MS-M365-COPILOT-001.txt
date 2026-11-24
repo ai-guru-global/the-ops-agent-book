@@ -1,0 +1,37 @@
+What is Microsoft Copilot? | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/copilot/plan/copilot-overview
+Captured: 2026-11-25
+Document date: 2026-11-17
+Method: html-to-text
+Content-Type: text/html
+
+What is Microsoft Copilot?
+
+Microsoft Copilot is available in many regions worldwide. However, it might not be accessible in certain markets. Some organizations might gain access through an account support escalation process, but access is subject to approval.
+
+Microsoft Copilot Chat and Microsoft Copilot responses and experiences differ by data grounding, integration depth, and licensing.
+
+Compare Microsoft 365 Copilot licenses
+
+Copilot Chat (Basic) license: Securely interact with Copilot Chat using web data only.
+Microsoft 365 Copilot (Basic) license: You don't have the Microsoft 365 Copilot add-on license but can use Copilot in Word, Excel, PowerPoint, and OneNote.
+Microsoft 365 Copilot (Premium) license: You have the Microsoft 365 Copilot add-on license with access to the full experience of Copilot in Word, Excel, PowerPoint, and OneNote.
+Usage-based billing capabilities: Access to Cowork, Code, Autopilot, and other agents that use web and work data. Usage is billed based on consumption.
+
+Copilot features in Microsoft 365 apps
+
+Word: Draft, rewrite, and summarize documents
+Excel: Analyze data, generate insights, create formulas and visuals
+PowerPoint: Create presentations from prompts or existing content, summarize presentations or edit presentations
+Outlook: Draft emails, summarize threads, and use the coaching tips to improve clarity, sentiment and tone
+OneNote: Draft plans, ideas, and lists
+Teams: Summarize (up to 30 days) and transcribe meetings, and capture action items
+Forms: Draft questions to create surveys, polls and other forms
+
+European Union Data Boundary (EUDB)
+
+Copilot Chat (Basic), Microsoft 365 Copilot (Basic), and Microsoft 365 Copilot (Premium) route calls to the LLM to the closest data centers in the region but can also call into other regions where greater capacity is available when utilization is especially high. For European Union (EU) users, Microsoft Copilot has additional safeguards to comply with the EU Data Boundary. EU traffic stays within the EU Data Boundary, while worldwide traffic can be sent to the EU and other countries or regions for LLM processing.
+
+Copilot controls
+
+Remove user access to Copilot Chat entirely, including for Copilot Chat (Basic) users.

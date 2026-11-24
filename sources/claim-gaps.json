@@ -1010,7 +1010,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-ALI-QWENWORK-INTRO-001",
+        "SRC-ALI-LINGYANG-AGENTONE-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1030,7 +1033,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-WORKDAY-ILLUMINATE-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1050,7 +1055,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-ATLASSIAN-ROVO-001",
+        "SRC-ATLASSIAN-ROVO-PRIVACY-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1070,7 +1078,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-GOOGLE-WORKSPACE-GEMINI-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1090,7 +1100,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-MS-M365-COPILOT-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1110,7 +1122,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-MS-DYNAMICS-SALES-COPILOT-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1130,7 +1144,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-BROADCOM-FLEXREPORTS-001",
+        "SRC-BROADCOM-CLOUDHEALTH-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1194,7 +1211,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-FINOPS-FOUNDATION-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1310,7 +1329,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-GOOGLE-CLOUD-ASSIST-001"
+      ],
       "last_evidence_update": "2026-11-25",
       "candidate_urls": [
         "https://cloud.google.com/gemini/docs/cloud-assist-panel"
@@ -1358,7 +1379,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001",
+        "SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001"
+      ],
       "last_evidence_update": "2026-11-25",
       "candidate_urls": [
         "https://cloud.google.com/gemini-enterprise/faq"
@@ -1384,7 +1408,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-GOOGLE-SECOPS-PACKAGES-001",
+        "SRC-GOOGLE-SECOPS-EXPORT-001"
+      ],
       "last_evidence_update": "2026-11-25",
       "candidate_urls": [
         "https://docs.cloud.google.com/chronicle/docs/secops/secops-packages"
@@ -1410,7 +1437,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-GOOGLE-CODEASSIST-SUNSET-001"
+      ],
       "last_evidence_update": "2026-11-25",
       "candidate_urls": [
         "https://cloud.google.com/products/gemini/pricing"
@@ -1548,7 +1577,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-SAP-AI-JOULE-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1972,7 +2003,11 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-HPE-OPSRAMP-001",
+        "SRC-OPSRAMP-OSPILOT-001",
+        "SRC-OPSRAMP-SECURITY-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -1992,7 +2027,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-BMC-HELIXGPT-AGENTS-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2056,7 +2093,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-KOMODOR-KLAUDIA-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2253,7 +2292,12 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-METORO-AI-SRE-001",
+        "SRC-METORO-PRICING-001",
+        "SRC-METORO-CLOUD-001",
+        "SRC-METORO-TERMS-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2361,7 +2405,10 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-GOOGLE-SECOPS-PACKAGES-001",
+        "SRC-GOOGLE-SECOPS-EXPORT-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2403,7 +2450,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-SENTINELONE-PURPLE-AI-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2423,7 +2472,9 @@
         "export_and_exit_terms"
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [],
+      "source_ids": [
+        "SRC-SPLUNK-AI-SECURITY-001"
+      ],
       "last_evidence_update": "2026-11-25"
     },
     {
@@ -2475,8 +2526,8 @@
   "source_registry": "sources/registry.yaml",
   "summary": {
     "total_claims": 111,
-    "with_sources": 91,
-    "without_sources": 20,
+    "with_sources": 111,
+    "without_sources": 0,
     "by_page": {
       "docs/appendix/alibaba-agent-landscape.md": 11,
       "docs/vendors/china-cloud.md": 38,

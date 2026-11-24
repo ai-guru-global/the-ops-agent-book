@@ -1,0 +1,42 @@
+AI in Security | Splunk
+URL: https://www.splunk.com/en_us/products/ai-in-security.html
+Captured: 2026-11-25
+Page metadata: originalPublishDate 03-23-2026; modifiedDate 10-27-2026
+Method: html-to-text
+Content-Type: text/html
+
+Splunk Enterprise Security
+Power the trusted agentic SOC
+
+Build an autonomous SOC with enterprise-ready AI embedded across the entire threat detection, investigation, and response (TDIR) workflow.
+
+Build trusted AI into every SOC workflow
+
+Ground AI in complete, security-relevant data
+Splunk helps security teams bring together open, explainable data across their environment so AI recommendations are grounded in real evidence, connected context, and the full digital footprint analysts need to make confident decisions.
+
+Move faster with purpose-built AI and agentic workflows
+Outpace AI-driven threats with AI that supports detection, triage, investigation, automation, malware analysis, and response. Reduce repetitive work, surface real threats faster, and help analysts move from alert to action with speed and consistency.
+
+Personalize AI to your SOC
+Tailor when, where, and how AI is used across your security workflows so it fits your environment, operating model, and risk tolerance. Splunk helps teams align AI-assisted outcomes to their specific use cases while keeping analysts in control.
+
+Features
+Employ AI around role-specific SecOps needs
+
+Simplify investigation
+Help analysts move through investigations faster with AI-assisted context, summaries, and guided next steps across everyday security workflows.
+
+Focus on real threats
+Prioritize and explain alerts so analysts can reduce noise, focus on true positives, and spend more time on the issues that matter most.
+
+Build response workflows faster
+Turn natural language automation ideas into tested SOAR playbooks, helping teams scale response without requiring deep playbook-building expertise.
+
+Keep response aligned to your procedures
+
+Build detections faster
+Use AI-assisted guidance to help security teams develop and tune detections with greater speed and consistency.
+
+Understand malware behavior faster
+Apply AI-assisted analysis to malware investigation and summary workflows.

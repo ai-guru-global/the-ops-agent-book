@@ -1,0 +1,37 @@
+Purple AI: Agentic AI Security Analyst | SentinelOne
+URL: https://www.sentinelone.com/platform/purple/
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+Purple AI.
+The Agentic Security Analyst.
+
+Manual analysis can't match modern attack speed. Purple AI reasons, investigates, and decides at machine speed, so your team stays ahead of threats instead of buried under them.
+
+ACCELERATE SECURITY OPERATIONS
+Investigate Faster. Decide with Certainty.
+From alert to verdict without manual investigation. Purple AI's Agentic Investigation runs the analysis, surfaces the evidence, and tells your team exactly what to do next.
+
+SIMPLIFY THE COMPLEX
+Ask One Question. Get the Whole Story.
+Get answers without writing a query
+Gain deeper understanding with AI-generated summaries
+Prioritize high-risk activity with Auto-Triage
+
+AMPLIFY EVERY ANALYST
+Document work automatically with Investigation Notebooks
+
+EMBRACE AUTONOMY RESPONSIBLY
+Enterprise AI. Your Data Stays Yours.
+Customer data is never used to train models
+Every AI decision comes with an explainable Verdict Justification
+Automated actions fire only within pre-approved policies, with every action logged for compliance
+FedRAMP High support for regulated environments
+
+PUT PURPLE AI TO WORK
+Agentic AI for Every Critical Security Decision
+
+Frequently Asked Questions
+What is Purple AI?
+Purple AI is an agentic AI security analyst embedded in the Singularity Platform. It reasons across security data to guide investigations, explain risk, and recommend next actions within SOC workflows.

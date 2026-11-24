@@ -1,0 +1,26 @@
+Gemini Cloud Assist overview | Google Cloud
+URL: https://docs.cloud.google.cn/cloud-assist/overview?hl=en
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Gemini Cloud Assist overview
+
+Use of this Preview offering of Gemini Cloud Assist is subject to the Google Cloud Agreement, including the Pre-GA Offering Terms.
+
+Gemini Cloud Assist serves as your AI-powered collaborator, helping you move from reactive troubleshooting to proactive, autonomous cloud operations. By integrating deeply into the cloud platform, Gemini Cloud Assist simplifies the end-to-end application lifecycle, offering intelligent, agentic guidance for designing, deploying, troubleshooting, and optimizing your workloads.
+
+Gemini Cloud Assist is a multi-agent ecosystem capable of dynamic reasoning, executing iterative tool calls, and maintaining long-term memory across complex tasks. It not only understands your cloud infrastructure but also your application code, organizational policies, and real-time operational state.
+
+This document shows the types of generative AI assistance that are available to all Google Cloud users and available to Gemini Code Assist Enterprise users.
+
+As an early-stage technology, Gemini for Google Cloud products can generate output that seems plausible but is factually incorrect. We recommend that you validate all output from Gemini for Google Cloud products before you use it.
+
+Investigations
+Diagnose complex issues by creating and managing AI-driven investigations based on logs, errors, or natural language prompts. Acting as a user-guided site reliability engineer (SRE), Gemini Cloud Assist can ingest logs, metrics, and configurations to explore multiple hypotheses in parallel and trace root causes across multi-tier topologies.
+
+Agentic reasoning
+Gemini Cloud Assist employs dynamic reasoning loops, iteratively invoking tools (such as Cloud APIs and Kubernetes APIs) to gather data, evaluate state, and determine the next best action.
+
+Agent identity
+When operating proactively in the background, Gemini Cloud Assist utilizes a dedicated Service Account (Agent Identity) rather than your personal credentials. This enforces the principle of least privilege and ensures all autonomous actions are fully audit-logged.

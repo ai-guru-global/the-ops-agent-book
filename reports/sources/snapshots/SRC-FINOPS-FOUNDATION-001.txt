@@ -1,0 +1,25 @@
+What is FinOps? - FinOps Foundation
+URL: https://www.finops.org/introduction/what-is-finops/
+Captured: 2026-11-25
+Page metadata: datePublished 2019-02-26; dateModified 2026-10-28; license CC BY 4.0
+Method: html-to-text
+Content-Type: text/html
+
+What is FinOps?
+
+FinOps is an operational framework and cultural practice which maximizes the business value of technology, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams.
+
+FinOps Foundation Technical Advisory Council
+Updated: November 2026
+
+FinOps is a cultural practice at its core. It’s the way for teams to manage and optimize technology value, where everyone takes ownership of their cost and usage supported by a central best-practices group. Cross-functional teams in Engineering, Finance, Product, etc. work together to enable faster product delivery, while at the same time gaining more financial control and predictability, enabling stronger Executive decision making.
+
+Other names for the practice include “Cloud Financial Management”, “Cloud Financial Engineering”, “Cloud Cost Management”, “Cloud Optimization”, or “Cloud Financial Optimization”. FinOps has a strong heritage in managing cloud cost and usage, but that focus expands as modern FinOps practices encompass managing spend across all types of technology categories, such as SaaS, Licensing, Data Center, Data Cloud Platforms, and more.
+
+The goal: identify, communicate, and optimize the value behind technology decisions to support business and technology objectives.
+
+FOCUS: The Unifying Language for Technology Value
+
+The FinOps Foundation supports the development of an open-source technical specification for technology billing data. The FinOps Open Cost and Usage Specification (FOCUS) defines a unified format for data providers to produce consistent billing datasets. FOCUS enables FinOps Practitioners to more easily unlock data-driven decision-making and maximize the business value of their technologies, while making their skills more transferable across clouds, tools, and organizations.
+
+The largest cloud service providers – Microsoft Azure, Google Cloud, Oracle Cloud Infrastructure (OCI), and Amazon Web Services (AWS) – all offer FOCUS-formatted cost and usage billing data exports directly from their native consoles. SaaS providers, like Databricks, Grafana, and more, join in this effort to unify how consumption-based billing data is exported and analyzed by FinOps practitioners.

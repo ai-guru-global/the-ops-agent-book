@@ -1,0 +1,40 @@
+CloudHealth by Broadcom
+URL: https://www.broadcom.com/products/software/finops/cloudhealth
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+CloudHealth
+Master your AI and cloud spend with the insights to drive high-value decisions and accountability.
+
+CloudHealth is an industry-leading multi-cloud cost management platform that helps organizations make sense of complex infrastructure—from traditional cloud resources to AI workloads and token-based pricing models. Through granular reporting, effective optimization, and comprehensive governance, we bring clarity to enterprise cloud data.
+
+AI and Tokenomics
+Take full control of your AI and Technology costs — at scale.
+
+Inform - Granular Visibility & Attribution
+Gain granular visibility into AI expenditures by categorizing monthly spend across vendors, models, and service types to effectively pinpoint cost drivers.
+
+Optimize - Drive Unit Economic Efficiency
+Unlock cloud efficiency by monitoring cost-per-unit trends and allocating total spend across business units to gain precise visibility into performance.
+
+Operate - Governance and Guardrails
+Scale safely with hierarchical governance that aligns permissions across multi-level organizations, ensuring policy consistency and structural alignment.
+
+Capabilities
+Executive Decision Making
+Empower leadership through a unified decision-making framework that synthesizes high-level KPI tracking with customized, stakeholder-ready dashboards.
+
+Optimize for Value
+Move beyond basic cost savings to maximize business value by leveraging cloud unit economics that align infrastructure spend with product profitability.
+
+FinOps Across Technology Spend
+By leveraging our Data Connect architecture to ingest and normalize usage telemetry across public cloud, private cloud, AI, and SaaS platforms, you can eliminate the manual toil of data preparation. Aligning with standards like the FinOps Open Cost and Usage Specification (FOCUS) allows your team to shift focus from data cleaning to high-value analysis.
+
+Key Features
+Reports: From a cloud-wide overview to granular insights, Reports allow you to easily create and analyze data tailored to your needs.
+Intelligent Assist: Ask questions, generate reports and get recommendations with your always available FinOps expert and Gen-AI co-pilot.
+FOCUS: Normalize disparate billing data from AWS, Azure, and Google Cloud into a unified, open-source schema to eliminate multi-cloud reporting complexity.
+
+Fresh from the Labs: FinOpsX Reflections and Our June 2026 Updates
+CloudHealth rolled out an array of governance, multi-cloud, and user experience enhancements for June 2026.

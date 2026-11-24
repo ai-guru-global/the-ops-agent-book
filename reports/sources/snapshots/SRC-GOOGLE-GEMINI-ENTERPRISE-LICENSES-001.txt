@@ -1,0 +1,31 @@
+Get subscriptions and assign licenses for Gemini Enterprise | Google Cloud
+URL: https://docs.cloud.google.cn/gemini/enterprise/docs/licenses?hl=en
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Get subscriptions and assign licenses for Gemini Enterprise
+
+To set up access, you typically complete the following stages:
+Procure: Purchase a subscription to a product edition for your billing account.
+Distribute: Allocate licenses from the subscription to specific projects and locations.
+Assign: Assign the distributed licenses to individual users.
+
+About licenses
+To sign in to the Gemini Enterprise app, a user must have a license. You can assign licenses to users manually or automatically.
+
+Licenses are specific to a Google Cloud project and a location.
+
+About subscriptions
+For Gemini Enterprise, you can buy a monthly subscription or a year-long subscription. You can set these subscriptions to renew automatically.
+
+You can purchase subscriptions for the Gemini Enterprise Standard, Gemini Enterprise Plus, and Gemini Enterprise Pay-as-you-go editions using the Google Cloud console.
+
+Cancel a subscription
+To cancel a Gemini Enterprise subscription, you must turn off automatic renewal. Your subscription remains active until the subscription term ends, and Google might charge you until that date.
+
+Export user data
+If you need to sort, filter, or analyze your user data, you can export up to 1,000,000 user records to a comma-separated values (CSV) file.
+
+Remove users from a license
+You can remove a license from a user at any time. When you remove a license, the user immediately loses access to Gemini Enterprise.

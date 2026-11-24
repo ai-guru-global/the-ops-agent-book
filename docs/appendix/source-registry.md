@@ -19,7 +19,7 @@ content_status: "reviewed"
 - “未核实”表示本轮没有取得足以支持该字段的证据，**不等于否定**。不得据此猜测 GA/预览、区域、价格、数据驻留或退出条款。
 - 动态目录数量只在明确快照日时使用。本轮删除“36 Agent / 328 Skills”的当前事实表述，且**未重新计数**。
 - `accessed_at` 是实际访问或沿用原书访问记录的日期；`review_by` 是下一次复核截止，不是来源失效日。
-- 快照列记录本地正文快照与 SHA-256。本轮已保存 105 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
+- 快照列记录本地正文快照与 SHA-256。本轮已保存 134 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
 - 所有至少有一个“未核实”字段的厂商 claim 同时登记在机器可读的 `sources/claim-gaps.json`；补证只关闭有来源的字段，不能把整条 claim 一键改成已核实。
 
 ## 来源清单
@@ -169,10 +169,39 @@ content_status: "reviewed"
 | SRC-HPE-MIST-REQUIREMENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-02 | 已存 `reports/sources/snapshots/SRC-HPE-MIST-REQUIREMENTS-001.txt` |
 | SRC-ARUBA-CENTRAL-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-03 | 已存 `reports/sources/snapshots/SRC-ARUBA-CENTRAL-001.txt` |
 | SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | NET-03 | 已存 `reports/sources/snapshots/SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001.txt` |
+| SRC-SPLUNK-AI-SECURITY-001 | official_doc | 2026-11-25 | 2027-02-22 | SEC-06 | 已存 `reports/sources/snapshots/SRC-SPLUNK-AI-SECURITY-001.txt` |
+| SRC-FINOPS-FOUNDATION-001 | official_doc | 2026-11-25 | 2027-02-22 | FIN-05 | 已存 `reports/sources/snapshots/SRC-FINOPS-FOUNDATION-001.txt` |
+| SRC-BROADCOM-FLEXREPORTS-001 | official_doc | 2026-11-25 | 2027-02-22 | FIN-02 | 已存 `reports/sources/snapshots/SRC-BROADCOM-FLEXREPORTS-001.txt` |
+| SRC-BROADCOM-CLOUDHEALTH-001 | official_doc | 2026-11-25 | 2027-02-22 | FIN-02 | 已存 `reports/sources/snapshots/SRC-BROADCOM-CLOUDHEALTH-001.txt` |
+| SRC-SENTINELONE-PURPLE-AI-001 | official_doc | 2026-11-25 | 2027-02-22 | SEC-05 | 已存 `reports/sources/snapshots/SRC-SENTINELONE-PURPLE-AI-001.txt` |
+| SRC-SAP-AI-JOULE-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-SAP-01 | 已存 `reports/sources/snapshots/SRC-SAP-AI-JOULE-001.txt` |
+| SRC-ALI-QWENWORK-INTRO-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-ALI-01 | 已存 `reports/sources/snapshots/SRC-ALI-QWENWORK-INTRO-001.txt` |
+| SRC-ALI-LINGYANG-AGENTONE-001 | official_release | 2026-11-25 | 2027-02-22 | EMB-ALI-01 | 已存 `reports/sources/snapshots/SRC-ALI-LINGYANG-AGENTONE-001.txt` |
+| SRC-WORKDAY-ILLUMINATE-001 | official_release | 2026-11-25 | 2027-02-22 | EMB-ENT-01 | 已存 `reports/sources/snapshots/SRC-WORKDAY-ILLUMINATE-001.txt` |
+| SRC-ATLASSIAN-ROVO-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-ENT-02 | 已存 `reports/sources/snapshots/SRC-ATLASSIAN-ROVO-001.txt` |
+| SRC-ATLASSIAN-ROVO-PRIVACY-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-ENT-02 | 已存 `reports/sources/snapshots/SRC-ATLASSIAN-ROVO-PRIVACY-001.txt` |
+| SRC-GOOGLE-WORKSPACE-GEMINI-001 | official_release | 2026-11-25 | 2027-02-22 | EMB-GO-01 | 已存 `reports/sources/snapshots/SRC-GOOGLE-WORKSPACE-GEMINI-001.txt` |
+| SRC-MS-M365-COPILOT-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-M365-COPILOT-001.txt` |
+| SRC-MS-DYNAMICS-SALES-COPILOT-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-MS-02 | 已存 `reports/sources/snapshots/SRC-MS-DYNAMICS-SALES-COPILOT-001.txt` |
+| SRC-HPE-OPSRAMP-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-13 | 已存 `reports/sources/snapshots/SRC-HPE-OPSRAMP-001.txt` |
+| SRC-OPSRAMP-OSPILOT-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-13 | 已存 `reports/sources/snapshots/SRC-OPSRAMP-OSPILOT-001.txt` |
+| SRC-OPSRAMP-SECURITY-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-13 | 已存 `reports/sources/snapshots/SRC-OPSRAMP-SECURITY-001.txt` |
+| SRC-BMC-HELIXGPT-AGENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-14 | 已存 `reports/sources/snapshots/SRC-BMC-HELIXGPT-AGENTS-001.txt` |
+| SRC-KOMODOR-KLAUDIA-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-17 | 已存 `reports/sources/snapshots/SRC-KOMODOR-KLAUDIA-001.txt` |
+| SRC-METORO-AI-SRE-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-26 | 已存 `reports/sources/snapshots/SRC-METORO-AI-SRE-001.txt` |
+| SRC-METORO-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-26 | 已存 `reports/sources/snapshots/SRC-METORO-PRICING-001.txt` |
+| SRC-METORO-CLOUD-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-26 | 已存 `reports/sources/snapshots/SRC-METORO-CLOUD-001.txt` |
+| SRC-METORO-TERMS-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-26 | 已存 `reports/sources/snapshots/SRC-METORO-TERMS-001.txt` |
+| SRC-GOOGLE-CLOUD-ASSIST-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-01 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CLOUD-ASSIST-001.txt` |
+| SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-03 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001.txt` |
+| SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-03 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001.txt` |
+| SRC-GOOGLE-SECOPS-PACKAGES-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-04、SEC-02 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-PACKAGES-001.txt` |
+| SRC-GOOGLE-SECOPS-EXPORT-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-04、SEC-02 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-EXPORT-001.txt` |
+| SRC-GOOGLE-CODEASSIST-SUNSET-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-05 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CODEASSIST-SUNSET-001.txt` |
 
-## 未覆盖与快照计划
+## 字段缺口与快照计划
 
-Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist、SAP Joule Work、HPE OpsRamp、BMC HelixGPT、Komodor、Metoro、SentinelOne Purple AI、Splunk Security AI、Broadcom CloudHealth 等条目仍缺足够可归档正文。Oracle、SAP、ServiceNow、华为/百度/阿里/腾讯/火山、Dynatrace、Splunk、PagerDuty、Sumo Logic、LogicMonitor、BigPanda、SolarWinds、HolmesGPT、K8sGPT、incident.io、Rootly、Resolve.ai、Cleric、观测云及部分国产 AIOps 厂商已有官方来源；Cisco、Juniper/HPE Mist、HPE Aruba、Arista、Nokia、中兴/H3C 网络运维条目也已补证，但区域、许可、驻留与退出字段仍按 claim 逐项保留“未核实”。
+本轮 111 个显式 claim 均已绑定至少一个可回指来源；仍有区域、许可、驻留、导出退出等字段缺少逐产品证据。Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist、SAP Joule、HPE OpsRamp、BMC HelixGPT、Komodor Klaudia、Metoro、Microsoft 365 Copilot、Dynamics 365 Sales Copilot、Google Workspace Gemini、Workday Illuminate、Atlassian Rovo、千问办公/AgentOne、SentinelOne Purple AI、Splunk Security AI、Broadcom CloudHealth 与 FinOps Framework 已补证，但“有来源”不等于“所有采购字段已核实”。
 
 本轮已保存 AWS DevOps Agent、AgentRun、Datadog AI、OWASP、NIST AI RMF、EU AI Act、OTel GenAI、Google SRE Workbook、A2A，以及 AgentArts、百度搭子、百度伐谋、秒哒导出、OCI Enterprise AI Agents、SAP Joule Agents、ServiceNow AI Agents、Model Studio 价格、Qoder 计费、Agentic OS、腾讯 ADP/TCOP、火山智能运维助手/方舟计费、Gemini agent、ADK v2.0、Security Copilot 定价，以及京东云 AIOps、浪潮 InCloud Manager、云智慧 ITSM、擎创夏洛克、炎龙 SREAgent、新炬 IT 运维智能体、ManageEngine AIOps 指南、MindOps、AEI 白皮书、iMasterCloud/NCE、百度胜算/Hogee/文心快码/一镜、SolarWinds、HolmesGPT、K8sGPT、incident.io/Rootly/Resolve.ai/Cleric、观测云、嘉为蓝鲸、云智慧 Castrel、擎创数据中台与炎龙私有化安全说明，以及 CloudWatch Omni、OCI Ops Insights/Fusion AI、ServiceNow Control Tower、Qoder CN、算小维、HiAgent、移动云运维智能体、Security Copilot、DropZone、Datadog Bits Security、Harness CCM、Kubecost、Vantage、CloudZero、Finout、Flexera 正文快照。Azure SRE Agent 与 MCP 待重试；其余来源按采购/发布优先级补存。社区来源还需记录 commit SHA。
 

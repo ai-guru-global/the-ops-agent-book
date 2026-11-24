@@ -1,0 +1,10 @@
+Alibaba Cloud Unveils Strategic Roadmaps for the Next Generation AI Innovations - Alibaba Cloud Community
+URL: https://www.alibabacloud.com/blog/602560
+Captured: 2026-11-25
+Published: September 27, 2025; event date September 24, 2025
+Method: html-to-text
+Content-Type: text/html
+
+Novel AI Platforms to Support Enterprises and Creators
+
+To meet rising enterprise demand for AI-driven growth, Alibaba Cloud also launched Lingyang AgentOne, a one-stop enterprise AI application platform that enables organizations to move from reactive response to proactive intelligence. Powered by Alibaba’s Qwen models and deeply integrated with the Alibaba ecosystem, Lingyang AgentOne offers an end-to-end agent development workspace to connect with existing systems and accelerate time-to-value. Through scenario-based solutions across marketing, analytics, customer service, and operations, Lingyang AgentOne links the full pre-sales, sales, and post-sales value chain to deliver measurable, production-ready outcomes for industries such as home improvement and e-commerce.

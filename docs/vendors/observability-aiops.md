@@ -86,18 +86,18 @@ flowchart TB
 | **LogicMonitor** | Edwin AI（OBS-11） | AIOps Agent | 官方页面支持专门 Agent 自动调查/分诊、根因与自动修复；GA、区域、许可与退出未核实 | SRC-LM-EDWIN-001 |
 | **ScienceLogic** | Skylar AI（OBS-09） | AIOps + Agentic AI | canonical 页面描述 Skylar Advisor 将告警/遥测/工单/文档转为建议与下一步行动，Topic Specialists 做多步调查；Skylar Analytics 做预测告警、异常检测与指标探索 | SRC-SCIENCELOGIC-SKYLAR-001 |
 | **BigPanda** | L1 Agent（OBS-12） | AIOps | 官方文档支持事件分诊/路由/升级，修复动作需显式审批；部分能力 Coming soon | SRC-BP-L1AGENT-001 |
-| **OpsRamp (HPE)** | OpsRamp AI Agents（OBS-13） | AIOps + Agent | 能力与状态未核实；候选页面超时 | 未核实 |
-| **BMC** | BMC Helix / HelixGPT（OBS-14） | ITSM + AIOps | 能力与状态未核实 | 未核实 |
+| **OpsRamp (HPE)** | OpsRamp AI Agents / OpsPilot（OBS-13） | AIOps + Agent | 官方支持混合云可观测、Operations Copilot、意图路由、多步 RCA 与工单管理；AI Agents 独立 SKU 与 OpsPilot 等同关系未核实 | SRC-HPE-OPSRAMP-001；SRC-OPSRAMP-OSPILOT-001；SRC-OPSRAMP-SECURITY-001 |
+| **BMC** | BMC Helix / HelixGPT（OBS-14） | ITSM + AIOps | 官方 26.3 文档支持预构建 agents、AIOps RCA 与 license entitlements；Ask HelixGPT 仅 Controlled availability | SRC-BMC-HELIXGPT-AGENTS-001 |
 | **ManageEngine** | Zia / OpManager Nexus（OBS-15） | 内嵌 Agent | 厂商官方博客描述 Zia、本地模型、私有化与 AI 不另收费；属于厂商营销材料，不是独立横评 | SRC-ME-AIOPS-GUIDE-001 |
 | **SolarWinds** | Observability AI Agent（OBS-16） | 平台 AI 能力 | 官方 2026.1 发行说明支持 Technical Preview 的环境问答与文档搜索；不证明 GA 或自主修复 | SRC-SW-OBS-2026-1-001 |
-| **Komodor** | Komodor AI（OBS-17） | K8s Agent | 能力与状态未核实 | 未核实 |
+| **Komodor** | Klaudia / Komodor AI（OBS-17） | K8s Agent | 官方文档支持检测、调查、RBAC 修复、验证、记忆、Git PR 与 REST/MCP；整体 GA 与商业细节未核实 | SRC-KOMODOR-KLAUDIA-001 |
 | **HolmesGPT** | HolmesGPT（OBS-18） | 开源 K8s Agent | 官方仓库自称 CNCF Sandbox SRE Agent，支持调查/RCA、只读与 RBAC；README 许可证 Apache-2.0 | SRC-HOLMESGPT-001 |
 | **K8sGPT** | K8sGPT（OBS-19） | 开源 K8s Agent | 官方仓库支持 K8s 扫描、诊断与英文分诊，README 称 Apache-2.0 并支持本地模型 | SRC-K8SGPT-001 |
 | **incident.io** | AI SRE（OBS-20） | 独立 Agent | 官方页面支持调查/RCA 与人工 review/merge PR；AI SRE 作为 Pro/Enterprise 加购 | SRC-INCIDENTIO-AISRE-001 |
 | **Rootly** | AI SRE（OBS-23） | 独立 Agent | 官方页面支持调查/RCA、建议修复与显式人工签署；AI SRE 依赖 IR 套餐 | SRC-ROOTLY-AISRE-001 |
 | **Resolve.ai** | AI SRE（OBS-24） | 独立 Agent | 官方页面支持持 pager、RCA 与自主缓解；生产使用为厂商自述 | SRC-RESOLVEAI-AISRE-001 |
 | **Cleric** | AI SRE（OBS-25） | 独立 Agent | 官方页面支持变更验证、告警调查与人工 review 修复 PR；定价与 US/EU 部署选项见官方定价 | SRC-CLERIC-AISRE-001；SRC-CLERIC-PRICING-001 |
-| **Metoro** | AI SRE Agent（OBS-26） | 独立 Agent | 官方页面直抓 SSL 失败；能力与状态未核实 | 未核实 |
+| **Metoro** | AI SRE Agent（OBS-26） | 独立 Agent | 官方支持 Kubernetes 检测、调查、部署验证、RCA、修复 PR 与 review-before-merge；Cloud/BYOC/On-Prem 与公开定价可回指 | SRC-METORO-AI-SRE-001；SRC-METORO-PRICING-001；SRC-METORO-CLOUD-001；SRC-METORO-TERMS-001 |
 | **观测云** | Obsy Copilot（OBS-21） | 内嵌助手 | 官方协议支持问答/分析/诊断/建板、积分计费、第三方模型调用与终止处理 | SRC-OBSY-AGREEMENT-001 |
 | **嘉为蓝鲸** | 智能体自治运维平台（OBS-22） | AIOps + Agent | 官方产品页支持故障分析、自动巡检、IT 流程与标准操作数字人 | SRC-CANWAY-AGENTICOPS-001 |
 | **云智慧** | Castrel AI SRE（OBS-27） | AIOps + Agent | 官方产品页支持告警/RCA/执行/巡检自愈、免费/专业/企业版与私有化/BYOM | SRC-CLOUDWISE-CASTREL-001 |
@@ -127,13 +127,15 @@ flowchart TB
 | OBS-23 Rootly AI SRE | 官方页面在售 | 未核实 | 依赖 IR；Enterprise 包含 | 未核实 | 官方称组织隔离、零第三方训练 | 未核实 |
 | OBS-24 Resolve.ai AI SRE | 官方页面在售 | 未核实 | 未核实 | 未核实 | 官方称组织隔离、不用于外部训练 | 未核实 |
 | OBS-25 Cleric AI SRE | 审批试用 | 官方列 US/EU | 官方定价起步价与积分制 | 超额规则未核实 | 官方称 EU 应用/库/推理在欧，遥测在美 | 官方称书面删除约 2 工作日 |
-| OBS-26 Metoro AI SRE | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| OBS-26 Metoro AI SRE | 官方产品页；整体 GA 未核实 | Cloud us-east/us-west/eu/ap；BYOC/On-Prem | Hobby 免费≤2 节点；Scale $20/节点/月；Enterprise 询价 | AI 模型用量按成本透传；超额规则见定价页 | 区域选项不等同合同驻留；BYOC/On-Prem 可选 | API 随时导出；随时取消，当前付费期结束生效 |
 | OBS-21 Obsy Copilot | 官方协议 | 以平台实际提供为准 | 基础问答免费；高级功能扣积分 | 未核实 | 可调用第三方模型/云；未经同意不训通用模型 | 终止后按保留政策；完整导出未核实 |
 | OBS-22 嘉为蓝鲸 | 官方产品页；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 私域模型与知识库；地域未核实 | 未核实 |
 | OBS-27 云智慧 Castrel AI | 官方产品页；整体 GA 未核实 | 未核实 | 免费/专业/企业版；专业与 enterprise 价格另核 | 未核实 | 支持私有化/BYOM；地域未核实 | 未核实 |
 | OBS-28 擎创大模型集成 | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 私域数据构建运维知识库 | 未核实 |
 | OBS-29 炎龙企业版 | 企业版 V4.17.1；整体 GA 未核实 | 企业内网 | 未核实 | 未核实 | 官方称推理与数据仅在企业内部 | 未核实 |
-| OBS-13、OBS-14、OBS-17 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| OBS-13 HPE OpsRamp | 官方产品/文档；AI Agents 独立 SKU 未核实 | 两家美国数据中心提供商托管 | OpsPilot 套餐/价格未核实 | 未核实 | 合同驻留承诺未核实 | 到期停用，删除数据归档 90 天；完整导出未核实 |
+| OBS-14 BMC HelixGPT | 官方 26.3 文档；Ask HelixGPT Controlled availability | 未核实 | 按 license entitlements；价格未核实 | 未核实 | 未核实 | 未核实 |
+| OBS-17 Komodor Klaudia | 官方文档称开箱运行；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | AWS Bedrock；客户数据隔离且不用于训练 | 分享调查/REST API 取结果；完整导出退出未核实 |
 
 ## 选型要点
 

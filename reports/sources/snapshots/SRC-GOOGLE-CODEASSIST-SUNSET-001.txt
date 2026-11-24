@@ -1,0 +1,22 @@
+Gemini Code Assist Standard and Enterprise subscriptions | Google Cloud
+URL: https://docs.cloud.google.cn/gemini/docs/codeassist/sunset?hl=en
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Gemini Code Assist Standard and Enterprise subscriptions
+
+Starting October 9, 2026, you can no longer purchase new Gemini Code Assist Standard or Enterprise subscriptions. Additionally, new Gemini Enterprise Standard and Plus subscriptions no longer include an entitlement to Gemini Code Assist.
+
+Your existing subscriptions will continue to have access to Gemini Code Assist until the following dates:
+
+Existing Gemini Code Assist subscriptions will remain supported until the end of your contractual agreement.
+If you have an annual subscription, you can continue to auto-renew your subscription until January 31, 2027. After this date, annual subscriptions can't be renewed.
+If you have a monthly subscription, you can continue to auto-renew your subscription until December 31, 2027. After this date, monthly subscriptions can't be renewed.
+
+Existing Gemini Enterprise subscriptions will retain their Gemini Code Assist entitlement until March 31, 2027.
+
+Going forward, agentic coding assistance will be available through Antigravity, which is included in Gemini Enterprise editions. You should plan your subscription transition to Gemini Enterprise before your plan reaches its final renewal or contract end date.
+
+Can I still add licenses to my existing Gemini Code Assist subscription?
+You can continue to add licenses until January 31, 2027. After this date, no new licenses can be added.

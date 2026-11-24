@@ -1,0 +1,46 @@
+FlexReports - CloudHealth - Broadcom TechDocs
+URL: https://techdocs.broadcom.com/us/en/ca-enterprise-software/it-operations-management/cloudhealth/saas/index/working-with-reports-and-recommendation-of-tanzu-cloudhealth-working-with-reports-recommendations/working-with-reports-and-recommendation-of-tanzu-cloudhealth-flexreports.html
+Captured: 2026-11-25
+Document date: 2026-09-30
+Method: html-to-text
+Content-Type: text/html
+
+CloudHealth
+FlexReports
+
+What are FlexReports
+
+FlexReports give you a flexible way to analyze data in your bill on-demand and across any variable. They offer the following benefits:
+
+Build reports that answer queries relevant to your business needs. For example, get costs for the month of October and organize the results by AWS Account, Service Item, and Charge Type.
+
+Integrate a greater number of Perspectives (for AWS Cost and Usage Report dataset).
+
+Download a built report and use Excel to control the level of granularity you want to express. For example, get daily costs only for ElasticSearch, S3, and CloudFront.
+
+Data Sources for FlexReports
+
+The data sources for FlexReports are Amazon Cost and Usage Report (CUR), Azure Enterprise Agreement (EA), GCP BigQuery Billing Export, Alibaba Cloud Bill, Kubernetes Containers Usage, and Kubernetes Nodes Usage. You can also use AWS, Azure, and GCP cost anomaly data in FlexReports.
+
+FlexReport supports 13 months of historical data.
+
+Subscribe to FlexReports
+
+Subscribe to FlexReports to receive regular reports by email or have the report delivered to an S3 bucket.
+
+Configure your subscription options:
+Repeat: How often the report should be sent.
+Deliver as: Whether the subscription should be sent by email or to an S3 bucket.
+Deliver to (Email): The email address where the subscription will be sent.
+Account: When the S3 bucket is the delivery option, the AWS account where the S3 bucket to receive the subscription is set up.
+Deliver to (S3 bucket): The name of the S3 bucket where the subscription will be sent.
+Run & Deliver at: Time the subscription will be sent.
+Start and End Date: The time range for the subscription.
+
+Roles and Privileges for FlexReports
+
+By default, a user in the Administrator or Power User role can create, read, update, and delete FlexReports. This user can be a part of any organization unit.
+
+By default, users in the Standard role can only view the reports. However, you can create a custom role with all the FlexReport privileges.
+
+FlexReports are only visible to a user assigned to a role with read privileges for FlexReports.

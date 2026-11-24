@@ -1,0 +1,43 @@
+Prebuilt agents - BMC HelixGPT 26.3 - Helix Documentation
+URL: https://docs.helixops.ai/bin/Service-Management/Employee-Digital-Workplace/BMC-HelixGPT/helixgpt263/Pre-built-agents/
+Captured: 2026-11-25
+Last updated: Nov 23, 2026
+Method: html-to-text
+Content-Type: text/html
+
+Prebuilt agents
+
+BMC HelixGPT is the foundational agentic AI framework that powers all persona-based agents within BMC Helix products. It provides a robust, scalable platform for deploying both prebuilt agents and custom swarms of agents and tools that are created effortlessly through a no-code studio interface.
+
+AI agents in BMC HelixGPT are designed to operate with minimal human input. Powered by large language and action models (LLMs and LAMs), these agents can understand natural language, take appropriate actions, and learn from every interaction to deliver even better results over time.
+
+AI Agent functionality
+
+AI agents use natural language understanding to interpret user queries and determine the best course of action.
+
+AI agents are available with all models supported by BMC HelixGPT.
+AI agents cannot process inputs provided through images.
+
+Explore AI agents in BMC HelixGPT
+
+The AI agents in BMC HelixGPT work with BMC Helix Service Management and BMC Helix AIOps to provide multiple service management and operations management capabilities. The AI agents are available out-of-the-box depending on your license entitlements.
+
+AI agents in BMC Helix AIOps
+
+AI agents detect anomalies, find root causes, and provide remediation steps to keep services healthy.
+
+Ask HelixGPT
+Ask predefined questions to investigate a situation.
+(Controlled availability customers only)
+
+Change Risk Advisor
+Automatically identify risky changes by analyzing operations and service management data in a single pane of glass.
+
+Best Action Planner
+Analyze situations and determine the most effective way to resolve them. It performs a holistic root cause analysis by correlating situation data with related logs and associated changes in BMC Helix ITSM.
+
+Root Cause Finder
+Leverage a fleet of autonomous agents that analyze event data, correlate events, change requests, and logs in the context of a service, and suggest probable root causes.
+
+Situation Analyzer
+Get a natural-language summary for ML-based situations that helps operators instantly understand the root cause and business impact without manually analyzing raw events.

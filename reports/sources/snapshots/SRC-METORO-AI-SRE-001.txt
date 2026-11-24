@@ -1,0 +1,44 @@
+AI SRE Agent | Metoro
+URL: https://metoro.io/ai-sre-agent
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+AI SRE Agent
+for teams on Kubernetes
+
+Metoro's AI SRE agents detect production issues, investigate alerts, verify deployments, identify root causes, and generate pull requests to fix them.
+
+Install
+Run one command.
+Install a single daemonset into your Kubernetes cluster. No code changes, no sidecars, no SDKs.
+
+Detect · No alert rules required
+Metoro detects issues automatically.
+Metoro watches all your clusters for issues, then investigates using its collected telemetry to find the root cause.
+
+Root causes · Delivered to your team
+Wake up to root causes, not alerts.
+Metoro turns detected issues into clear, investigation-backed notifications with the root cause, supporting evidence, and suggested fixes.
+
+AI Anomaly Detection
+Metoro finds the regression. Down to the line of code.
+Metoro autonomously monitors all your services and infrastructure to detect issues. Once an issue is detected, Metoro automatically root causes it and opens a pull request with a fix.
+
+AI REMEDIATION
+Then Metoro generates the fix PR.
+Metoro turns root cause analysis into proposed code fixes. When it identifies the offending change, it drafts a pull request with the fix, evidence, telemetry links, and an RCA summary - ready for your team to review and merge.
+
+Generates fix PRs from root cause analysis
+Includes RCA summary, evidence, and telemetry links
+Keeps engineers in control with review-before-merge workflows
+
+Deployment Verification
+Every rollout, verified against production.
+Metoro compares each deployment's behavior against the baseline. Regressions surface in Slack with a pre-drafted rollback PR - before a customer notices.
+
+Where does our telemetry live?
+Three deployment options: Metoro Cloud (managed), Metoro BYOC (runs entirely inside your VPC), and Metoro On-Prem (fully air-gapped). Data never leaves boundaries you set.
+
+Does Metoro replace my on-call rotation?
+No. Metoro handles the triage, investigation, and remediation work that typically wakes engineers up. Your on-call is still on-call - they just review PRs instead of grepping logs at 3am.

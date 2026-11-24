@@ -1,0 +1,38 @@
+Klaudia: Cloud-Native AI SRE – Komodor Help Center
+URL: https://help.komodor.com/hc/en-us/articles/22447540595218-Klaudia-Cloud-Native-AI-SRE
+Captured: 2026-11-25
+Method: browser-rendered accessibility/DOM text
+Content-Type: text/html
+
+Klaudia: Cloud-Native AI SRE
+
+Klaudia is Komodor’s AI SRE: a family of proactive AI agents that autonomously detect, investigate, and remediate incidents across your cloud-native environment.
+
+Every incident runs through a continuous loop:
+Detect: Availability issues are identified automatically across your stack and flagged for investigation.
+Investigate: Klaudia correlates events, logs, and signals across all layers to perform full RCA.
+Remediate: A customized fix is created and executed with RBAC guardrails.
+Validate: Klaudia confirms the fix worked.
+Learn: Investigation context is indexed to memory, improving resolution speed for future incidents.
+
+Key Capabilities
+
+AI-Powered Investigation
+AI-Driven RCA — Klaudia conducts independent investigations, correlating events, logs, configuration history, and cross-cluster signals to isolate root cause. Operational from day one, no setup required.
+Clear Reasoning & Audit Trail — Every investigation step is traceable: from the triggering signal, through the evidence chain, to the remediation decision. Every action is logged.
+
+Autonomous Remediation
+One-Click Remediation — Execute fixes directly from Klaudia's RCA output, with RBAC enforcement and a full audit trail.
+Git PR Generation — For configuration-level root causes, Klaudia opens a Pull Request with the correct fix in your repository. The fix goes through your team's standard review and approval flow.
+Policy-Driven Guardrails — Control what Klaudia can act on, the scope of execution, and autonomy levels to align with your security and organizational policies.
+
+Where Klaudia Works
+REST API — Programmatically trigger investigations and retrieve results from CI/CD pipelines, alerting platforms, or ticketing systems.
+MCP Server — Expose Klaudia to external AI agents, IDEs, and internal tools via a standard protocol.
+
+Security
+No Data Training: Komodor has opted not to allow AWS Bedrock to use any of our customer data to train its models.
+Data Segregation: We implement strict data isolation measures to ensure that each customer's data is securely segregated.
+
+Getting Started
+Klaudia can be easily disabled or enabled per each cluster.

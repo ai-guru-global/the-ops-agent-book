@@ -1813,6 +1813,428 @@ sources:
     sha256: d1313ae0d83920e1ba858f3d0ed02940804778b71f6a4eb89a6fa30a37476d41
     captured_at: '2026-11-25'
     method: html-to-text-or-rendered-text
+- source_id: SRC-SPLUNK-AI-SECURITY-001
+  title: Splunk AI in Security
+  url: https://www.splunk.com/en_us/products/ai-in-security.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持 AI 辅助检测、分诊、调查、SOAR 与响应；独立 SKU、GA、区域、许可、驻留和退出未核实。
+  claims:
+    - SEC-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-SPLUNK-AI-SECURITY-001.txt
+    sha256: 47a309678fa79417ef501ef7b9d13d4b1afac1733cacfad19339b4f6d8cbbf8a
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-FINOPS-FOUNDATION-001
+  title: FinOps Foundation - What is FinOps?
+  url: https://www.finops.org/introduction/what-is-finops/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方框架定义 FinOps 为技术价值管理实践，并说明 FOCUS 跨云账单导出；不是单一商业产品。
+  claims:
+    - FIN-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-FINOPS-FOUNDATION-001.txt
+    sha256: 59fb386e8025d89e7ca9b111c6bc2dcbb7a0801737ec6d84a90703b8bec9f1f3
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-BROADCOM-FLEXREPORTS-001
+  title: CloudHealth FlexReports
+  url: https://techdocs.broadcom.com/us/en/ca-enterprise-software/it-operations-management/cloudhealth/saas/index/working-with-reports-and-recommendation-of-tanzu-cloudhealth-working-with-reports-recommendations/working-with-reports-and-recommendation-of-tanzu-cloudhealth-flexreports.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 Excel 下载、邮件/S3 投递、多云数据源与角色权限；完整退出未核实。
+  claims:
+    - FIN-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-BROADCOM-FLEXREPORTS-001.txt
+    sha256: 803cb94748bd7c9c0e2c5f1bb543dd8248de6a5d7d827d8c2bb5a9b5ec5b513a
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-BROADCOM-CLOUDHEALTH-001
+  title: CloudHealth by Broadcom
+  url: https://www.broadcom.com/products/software/finops/cloudhealth
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持多云成本、AI/token 成本、治理、FOCUS 与 Intelligent Assist；GA、区域、许可、驻留和退出未核实。
+  claims:
+    - FIN-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-BROADCOM-CLOUDHEALTH-001.txt
+    sha256: 343193ebb658ccc36357b0c8047114c0a1f6179594815c519ef407bb08501b1a
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-SENTINELONE-PURPLE-AI-001
+  title: "Purple AI: Agentic AI Security Analyst"
+  url: https://www.sentinelone.com/platform/purple/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持 Agentic Investigation、Auto-Triage、Investigation
+    Notebooks、预批准策略动作与零训练表述；GA、区域、许可、驻留和退出未核实。
+  claims:
+    - SEC-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-SENTINELONE-PURPLE-AI-001.txt
+    sha256: 39d9d9e681aa59ff218dfb17e9f28cfe02a54f8978c49db989eb65d828cc028c
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-SAP-AI-JOULE-001
+  title: SAP Artificial Intelligence - Joule
+  url: https://www.sap.com/products/artificial-intelligence.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持 Joule Work/Assistants/Agents/Studio、跨 SAP 与非 SAP 工作流及 agent
+    gateway；完整 GA、区域、许可、驻留和退出未核实。
+  claims:
+    - GC-SAP-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-SAP-AI-JOULE-001.txt
+    sha256: 15239af13df47c89642905647c2d66d0bd5b76839defde0b72ece1933979d558
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ALI-QWENWORK-INTRO-001
+  title: 千问办公简介
+  url: https://www.alibabacloud.com/help/zh/qwenwork/qwenwork-intro
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 QwenWork Agent 工作流、文件/技能/连接器/定时任务、预览下载与订阅管理；价格、驻留和完整退出未核实。
+  claims:
+    - EMB-ALI-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-QWENWORK-INTRO-001.txt
+    sha256: 307fa25c3aa3eca4319f47cc3cfd3cf4c2a4e2c1b02197f24cf01a1f525cdd64
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ALI-LINGYANG-AGENTONE-001
+  title: Alibaba Cloud Lingyang AgentOne 发布
+  url: https://www.alibabacloud.com/blog/602560
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2025-09-24 发布说明支持 Lingyang AgentOne 企业 AI 应用平台与端到端 Agent
+    开发；区域、许可、驻留和退出未核实。
+  claims:
+    - EMB-ALI-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-LINGYANG-AGENTONE-001.txt
+    sha256: 593c44c02b304ecdfd98301b2f7f70b8c8189d9742cb6040e2c5e1582128b112
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-WORKDAY-ILLUMINATE-001
+  title: Workday Illuminate Expands with New AI Agents
+  url: https://newsroom.workday.com/2025-09-16-Workday-Illuminate-TM-Expands-with-New-AI-Agents-for-HR,-Finance,-and-Industry
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2025-09-16 发布说明支持 HR/Finance/Industry agents 与 Flex Credits；新 agents 称
+    2026 可用，当前 GA、区域、驻留和退出未核实。
+  claims:
+    - EMB-ENT-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-WORKDAY-ILLUMINATE-001.txt
+    sha256: 51db0181815cbc4eb68caeeb1be167fe6ba26ddf7536e69fcc5ec983151666c7
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ATLASSIAN-ROVO-001
+  title: "Meet Rovo: AI that knows your business"
+  url: https://www.atlassian.com/software/artificial-intelligence
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持跨 SaaS 上下文、Rovo agents 与管理员 AI 访问控制；区域、许可、驻留和完整导出未核实。
+  claims:
+    - EMB-ENT-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-ATLASSIAN-ROVO-001.txt
+    sha256: cfa51fe1d9ec77a84f8294d3d9814ca24fb6e701d3bce25f4abc388e8a3c8c22
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-ATLASSIAN-ROVO-PRIVACY-001
+  title: Rovo data, privacy, and usage guidelines
+  url: https://support.atlassian.com/rovo/docs/rovo-data-privacy-and-usage-guidelines/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持权限同步、断开连接器后 30 天删除索引内容、data residency 与 LLM 提供商不留存；具体区域与全量导出未核实。
+  claims:
+    - EMB-ENT-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-ATLASSIAN-ROVO-PRIVACY-001.txt
+    sha256: aef43122c6cfab496fe1060c8ec6953a2ac349ee08123ed8bdba283fae212eaa
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-WORKSPACE-GEMINI-001
+  title: Google Workspace 為各種企業開創 AI 輔助工作的未來
+  url: https://blog.google/intl/zh-tw/products/cloud/google-workspace-enables-future-of-ai-powered-work-for-every-business/
+  type: official_release
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2025-01-16 公告支持 Workspace 应用内 Gemini、Business/Enterprise
+    内置与数据使用限制；当前价格、区域、驻留和退出未核实。
+  claims:
+    - EMB-GO-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-WORKSPACE-GEMINI-001.txt
+    sha256: af6dd5e11926618a9400e4e6fa6485c05adffd1a40190de33a4e86982d2e26c4
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-MS-M365-COPILOT-001
+  title: What is Microsoft Copilot?
+  url: https://learn.microsoft.com/en-us/copilot/plan/copilot-overview
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2026-11-17 文档支持
+    Word/Excel/PowerPoint/Outlook/Teams、Chat/Basic/Premium/usage-based 许可、市场限制与
+    EUDB；完整驻留和退出未核实。
+  claims:
+    - EMB-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-M365-COPILOT-001.txt
+    sha256: ed4043e2ba591a701098519b5c0f15fcbe4a0fd6c6caf31baf960dcb46588146
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-MS-DYNAMICS-SALES-COPILOT-001
+  title: Dynamics 365 Sales 中的 Copilot 概述
+  url: https://learn.microsoft.com/zh-cn/dynamics365/sales/copilot-overview
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持记录摘要、会议准备、邮件协助、SharePoint 问答与权限范围；GA、具体区域、许可、驻留和退出未核实。
+  claims:
+    - EMB-MS-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-DYNAMICS-SALES-COPILOT-001.txt
+    sha256: 78b083e3e542c965a45295a9de195a282a076460a828b2d95ff4d04de236994a
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-HPE-OPSRAMP-001
+  title: HPE OpsRamp Software
+  url: https://www.hpe.com/us/en/products/software/opsramp-software.html
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持混合云可观测、AI-driven insights、Operations Copilot 与自动化；AI Agents 独立
+    SKU、GA、区域、许可、驻留和退出未核实。
+  claims:
+    - OBS-13
+  snapshot:
+    path: reports/sources/snapshots/SRC-HPE-OPSRAMP-001.txt
+    sha256: 72cccc07bb75ff90b2e111f1f7562438218cf2cdecc0c51bccf81f4dc16834cc
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-OPSRAMP-OSPILOT-001
+  title: OpsPilot Capabilities
+  url: https://docs.opsramp.com/platform-features/feature-guides/copilot/opspilot/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2026-10-29 文档支持意图路由、实时告警调查、多步 RCA 与工单管理；与 AI Agents SKU 关系、许可、驻留和退出未核实。
+  claims:
+    - OBS-13
+  snapshot:
+    path: reports/sources/snapshots/SRC-OPSRAMP-OSPILOT-001.txt
+    sha256: a2750ccfc7f10490679517e1ebbbb74fe57f465a5f131e6adeca1c484557f318
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-OPSRAMP-SECURITY-001
+  title: OpsRamp Security Reference
+  url: https://docs.opsramp.com/platform-features/feature-guides/security-data-management/security/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持租户隔离、RBAC、TLS/AES、美国托管与合同到期停用/90 天归档删除；合同驻留承诺和完整导出未核实。
+  claims:
+    - OBS-13
+  snapshot:
+    path: reports/sources/snapshots/SRC-OPSRAMP-SECURITY-001.txt
+    sha256: f1dc0b80a8bfd0ae7d49d973bf4a04b64777012e63e623d23d8f911f196a9159
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-BMC-HELIXGPT-AGENTS-001
+  title: BMC HelixGPT 26.3 Prebuilt agents
+  url: https://docs.helixops.ai/bin/Service-Management/Employee-Digital-Workplace/BMC-HelixGPT/helixgpt263/Pre-built-agents/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2026-11-23 文档支持 HelixGPT 框架、预构建 agents、AIOps RCA 与 license
+    entitlements；Ask HelixGPT 仅 Controlled availability，整体 GA、区域、驻留和退出未核实。
+  claims:
+    - OBS-14
+  snapshot:
+    path: reports/sources/snapshots/SRC-BMC-HELIXGPT-AGENTS-001.txt
+    sha256: 0aac75281fc84dd1babc780195c2a79fa43f9d3f9c5d0eafae987bcfed26ee97
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-KOMODOR-KLAUDIA-001
+  title: "Klaudia: Cloud-Native AI SRE"
+  url: https://help.komodor.com/hc/en-us/articles/22447540595218-Klaudia-Cloud-Native-AI-SRE
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 Klaudia 检测/调查/RBAC 修复/验证/记忆、Git PR 与 REST/MCP；整体 GA、区域、许可、驻留和完整退出未核实。
+  claims:
+    - OBS-17
+  snapshot:
+    path: reports/sources/snapshots/SRC-KOMODOR-KLAUDIA-001.txt
+    sha256: 5bd1be25245159c09ec8e54103632cf68db791bf303a83ce7ece595793d05f24
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-METORO-AI-SRE-001
+  title: Metoro AI SRE Agent
+  url: https://metoro.io/ai-sre-agent
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方产品页支持 Kubernetes 检测、调查、部署验证、RCA、修复 PR 与 review-before-merge；整体
+    GA、区域、驻留和退出未核实。
+  claims:
+    - OBS-26
+  snapshot:
+    path: reports/sources/snapshots/SRC-METORO-AI-SRE-001.txt
+    sha256: fe6d388071782a7a76e46d64517926abe79b1fc0d58308ddfe5d55c20da8caad
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-METORO-PRICING-001
+  title: Metoro Pricing
+  url: https://metoro.io/pricing
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方定价页支持 Hobby 2 节点免费、Scale $20/节点/月、Enterprise 与 AI 功能分层、模型用量按成本透传。
+  claims:
+    - OBS-26
+  snapshot:
+    path: reports/sources/snapshots/SRC-METORO-PRICING-001.txt
+    sha256: 0d5dce996ec28949f668b7e4a85d2c8c95ea969f41337802c4a68505bd210e06
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-METORO-CLOUD-001
+  title: Metoro Cloud
+  url: https://metoro.io/deployment/metoro-cloud
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方页面支持 Cloud/BYOC/On-Prem、us-east/us-west/eu/ap 区域、API 数据导出与 99.95%
+    SLA；合同驻留承诺未核实。
+  claims:
+    - OBS-26
+  snapshot:
+    path: reports/sources/snapshots/SRC-METORO-CLOUD-001.txt
+    sha256: 57cabf2982d6bee63b490e7afa89177db9e43b60d9bed78dec51ec7561c40b81
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-METORO-TERMS-001
+  title: Metoro Terms of Service
+  url: https://metoro.io/terms-of-service
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2025-06-24 条款支持随时取消、当前付费期结束生效、美国托管与终止条款；完整数据导出未核实。
+  claims:
+    - OBS-26
+  snapshot:
+    path: reports/sources/snapshots/SRC-METORO-TERMS-001.txt
+    sha256: ff7c698a27d18272e6ec807b89fa89f241b91c31c513a0a2496995c791477039
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-CLOUD-ASSIST-001
+  title: Gemini Cloud Assist overview
+  url: https://docs.cloud.google.cn/cloud-assist/overview?hl=en
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持设计/部署/排障/优化、多 Agent 工具调用与 Agent Identity；明确 Preview/Pre-GA，区域、驻留和退出未核实。
+  claims:
+    - GC-GO-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-CLOUD-ASSIST-001.txt
+    sha256: d206d07d748da6f2702ff693e6fe5a59471a1da5fddb198a07e9127578cd96b5
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001
+  title: Gemini Enterprise data residency locations
+  url: https://docs.cloud.google.cn/gemini/enterprise/docs/locations?hl=en
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 global/us/eu 与 br/ca/in/asia-northeast1/sg/europe-west2，国内区域
+    GA+allowlist；不支持模型可能路由 global 且无区域 DRZ。
+  claims:
+    - GC-GO-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001.txt
+    sha256: 89631349cd0c0206995a3fdcd829340c7257a95243c6c2c11ec54287ee6ce821
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001
+  title: Gemini Enterprise subscriptions and licenses
+  url: https://docs.cloud.google.cn/gemini/enterprise/docs/licenses?hl=en
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持月付/年付、项目与位置绑定许可、自动续订关闭、用户许可 CSV 导出≤100 万条；企业内容批量导出未核实。
+  claims:
+    - GC-GO-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001.txt
+    sha256: 8fdeea5c7e2768f96b556d5f3e6346ae6af0fc6e74b29fd6b3e870ce9bfa08bb
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-SECOPS-PACKAGES-001
+  title: Google SecOps packages overview
+  url: https://docs.cloud.google.cn/chronicle/docs/secops/secops-packages?hl=en
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini
+    与按注入量计费；整体 GA、具体驻留区域和退出未核实。
+  claims:
+    - GC-GO-04
+    - SEC-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-PACKAGES-001.txt
+    sha256: b26f8f226e678c992f5baac5c0d8f407fa0a935ccc837bc068987c9e558d9d96
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-SECOPS-EXPORT-001
+  title: Google SecOps export to self-managed BigQuery
+  url: https://docs.cloud.google.cn/chronicle/docs/reports/export-to-customer-managed-project?hl=en
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 UDM 导出至自管 BigQuery；Enterprise Plus 不支持 BYOBQ，既有数据不自动迁移；完整退出与驻留承诺未核实。
+  claims:
+    - GC-GO-04
+    - SEC-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-EXPORT-001.txt
+    sha256: 9ef7cfcbbed8bdd5cc55e494fe02ebed62bee206c2bec06b37b5dc2e3fabfef0
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-CODEASSIST-SUNSET-001
+  title: Gemini Code Assist Standard and Enterprise subscriptions
+  url: https://docs.cloud.google.cn/gemini/docs/codeassist/sunset?hl=en
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 2026-10-09 停售新订阅、年付续订至 2027-01-31、月付至 2027-12-31、既有 Enterprise 权益至
+    2027-03-31，并转向 Antigravity。
+  claims:
+    - GC-GO-05
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-CODEASSIST-SUNSET-001.txt
+    sha256: 9a2f560e90f31cc12924b28850884dae74ed5de0bbe0dc7ded98492498892fa1
+    captured_at: 2026-11-25
+    method: html-to-text-or-rendered-text
 - source_id: SRC-MCP-001
   title: Model Context Protocol
   url: https://modelcontextprotocol.io/

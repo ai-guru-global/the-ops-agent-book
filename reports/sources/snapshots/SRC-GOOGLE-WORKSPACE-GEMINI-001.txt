@@ -1,0 +1,26 @@
+Google Workspace 為各種企業開創 AI 輔助工作的未來 - Google
+URL: https://blog.google/intl/zh-tw/products/cloud/google-workspace-enables-future-of-ai-powered-work-for-every-business/
+Captured: 2026-11-25
+Published: 2025-01-16
+Method: html-to-text
+Content-Type: text/html
+
+Google Workspace 為各種企業開創 AI 輔助工作的未來
+
+AI 不只是一種工具，更將從本質上改變我們的工作模式。Google AI 優異的功能已整合到 Workspace 付費方案中，企業用戶不需要額外加購外掛程式即可使用這些最新的生成式 AI 功能。
+
+我們相信 AI 是未來工作的基石，這項革命性的技術應當以合理的價格普及至每個企業與每位員工。正因如此，我們決定將 Google AI 最優異的功能納入 Workspace 的 Business 和 Enterprise 方案，讓企業客戶無需購買任何附加元件，就能享有最新生成式 AI 功能。
+
+以下 AI 功能將從今日起，陸續提供給使用 Google Workspace Business 方案的客戶，並預計於本月底前提供給 Enterprise 客戶：
+
+在 Gmail、Google 文件、Google 試算表、Google Meet、Google Chat、Google Vids 等多個應用程式中獲得 AI 協助：將 AI 融入到每天使用的工具中，讓工作事半功倍。Gemini 可協助你摘要、草擬內容，並在電子郵件、聊天訊息和檔案中尋找資訊，以簡化溝通流程。Gemini 也能成為使用者的思考夥伴和靈感來源，協助從頭開始建立專業的文件、簡報、試算表和影片。Gemini 甚至能提升會議效率，協助記錄會議內容、優化音訊和視訊品質，中途加入會議時也能幫助你快速掌握會議內容。
+
+AI 功能內建，更簡單的定價
+
+為了讓所有 Workspace 客戶都能享受到 Google AI 所帶來的附加價值，我們簡化了方案與定價，不需要支付外掛程式費用即可使用最新的生成式 AI 功能。
+
+確保與 AI 安全無虞的互動
+
+尊重企業的資料所有權：我們不會在未經許可的情況下，使用企業的資料、提示或生成的內容來訓練您所在網域之外的 Gemini 模型，也不會販賣企業的資料，或用於廣告投放。
+
+讓企業完全擁有主控權：我們以企業級的控管機制打造 Gemini，讓用戶使用 Gemini 的同時，能有效保護機密資料。Gemini 僅會擷取使用者允許存取的相關資料，並且自動套用至用戶現有的 Workspace 資料安全和資料主權機制。

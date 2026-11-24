@@ -1,0 +1,27 @@
+Meet Rovo: AI that knows your business | Atlassian
+URL: https://www.atlassian.com/software/artificial-intelligence
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/html
+
+Meet Rovo: AI that knows your business
+
+Achieve the impossible with Rovo
+
+Better context, smarter decisions
+Pull context across people, projects, and code so you can make decisions with the full picture.
+
+Your workflows, now on autopilot
+Rovo agents keep your workflows moving, handling next steps and keeping everything on track.
+
+Get help where you need it
+Rovo works alongside your team wherever they work—suggesting, drafting, and surfacing help before you have to ask.
+
+Scale with confidence
+Give admins clear control over what AI accesses, so your teams get the benefits of AI without the risk.
+
+Connect the work behind the work
+
+The Teamwork Graph connects knowledge, people, decisions, and relationships so agents can act with the context your organization has built.
+
+Connect your third party SaaS apps to Rovo

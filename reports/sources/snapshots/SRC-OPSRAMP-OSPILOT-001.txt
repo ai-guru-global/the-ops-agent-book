@@ -1,0 +1,35 @@
+OpsPilot Capabilities | OpsRamp Documentation
+URL: https://docs.opsramp.com/platform-features/feature-guides/copilot/opspilot/
+Captured: 2026-11-25
+Updated: Oct 29, 2026
+Method: html-to-text
+Content-Type: text/html
+
+OpsPilot Capabilities
+
+Introduction
+
+OpsPilot provides a unified conversational interface for performing IT operations tasks. Users do not need to select a mode manually. OpsPilot automatically interprets user intent and routes requests to the appropriate functionality based on context.
+
+How to Access
+
+Click the OpsPilot icon from anywhere in the OpsRamp portal.
+Enter your query in the Ask OpsPilot input field.
+OpsPilot maintains conversation history in the sidebar, allowing users to revisit and continue previous sessions.
+
+Key Capabilities
+
+Documentation and Knowledge
+Retrieve information from OpsRamp documentation, API references, installation guides, and configuration manuals using natural language queries.
+
+Alert and Incident Management
+Investigate and act on alerts and incidents in real time.
+
+Root Cause Analysis
+Support multi-step investigation across operational data sources to identify likely causes and contributing factors for alerts and incidents.
+
+Ticket Management
+Manage service desk tickets, including searching, updating, and reviewing ticket details.
+
+Resource and Infrastructure
+Provide visibility into infrastructure resources and support operational analysis.
