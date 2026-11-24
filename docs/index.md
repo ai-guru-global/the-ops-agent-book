@@ -415,7 +415,7 @@ content_status: "reviewed"
     <li>
       <span class="book-index__num">PDF</span>
       <div class="book-index__body">
-        <h3>407 页 A4 全书</h3>
+        <h3>536 页 A4 全书</h3>
         <p><code>npm run export:pdf</code> · 脚本 <code>scripts/export-book-pdf.mjs</code></p>
       </div>
       <a class="book-index__link" href="https://github.com/ai-guru-global/the-ops-agent-book/blob/main/scripts/export-book-pdf.mjs">查看脚本 →</a>
@@ -427,6 +427,14 @@ content_status: "reviewed"
         <p><code>npm run export:epub</code> · 脚本 <code>scripts/export-book-epub.mjs</code></p>
       </div>
       <a class="book-index__link" href="https://github.com/ai-guru-global/the-ops-agent-book/blob/main/scripts/export-book-epub.mjs">查看脚本 →</a>
+    </li>
+    <li>
+      <span class="book-index__num">POC</span>
+      <div class="book-index__body">
+        <h3>填写的 synthetic POC 与干净目录导入</h3>
+        <p><code>npm run poc:demo</code> · 八维评分、Shadow/rollback、制品 SHA-256；当前 73/100、INCONCLUSIVE。</p>
+      </div>
+      <a class="book-index__link" href="https://github.com/ai-guru-global/the-ops-agent-book/blob/main/examples/poc/reference-agent-poc.md">查看示例 →</a>
     </li>
     <li>
       <span class="book-index__num">QA</span>

@@ -202,6 +202,8 @@ flowchart TB
 
 ## POC 评分卡
 
+填写的 synthetic 示例见 [NotReady 参考 Agent POC](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/examples/poc/reference-agent-poc.md)：包含八维评分、400-case self-test、干净目录导入、Shadow/rollback、制品 SHA-256 与退出缺口；结果 **73/100、INCONCLUSIVE**，不得当作真实厂商或生产证据。
+
 本节七维卡用于 Build/Buy 立项前的初筛；进入正式采购 POC 后，必须改用 [POC 评分卡](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/templates/poc-scorecard.md) 的八维口径，并将本节目录映射为证据输入，**不叠加两个总分**。安全、越权、数据授权和退出失败任一发生即独立否决。
 
 POC 必须使用同一组黄金案例、同一权限边界和同一退出测试，不能由供应商各选各的题。评分 0–5：0 = 缺失，1 = 仅文档/手工，3 = 可重复演示，5 = 有自动化证据并可审计。

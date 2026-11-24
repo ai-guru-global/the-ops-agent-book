@@ -60,6 +60,9 @@ jobs:
       - name: Run evaluation harness self-test
         run: npm run eval:self-test
 
+      - name: Run synthetic POC and clean-room import
+        run: npm run poc:demo
+
       - name: Reconcile synthetic cost model
         run: npm run cost:demo
 

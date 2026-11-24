@@ -1,6 +1,6 @@
 # 运维 Agent 采购 POC 评分卡
 
-> **状态：空白采购模板，未执行、无实测结论。** 本模板本身不是厂商能力证据。所有填入的结果必须可追溯；synthetic、厂商 Demo、预览环境和真实生产证据必须分开标注，不得把演示结果写成 GA 或生产验证。
+> **状态：空白采购模板，未执行、无实测结论。** 本模板本身不是厂商能力证据。所有填入的结果必须可追溯；synthetic、厂商 Demo、预览环境和真实生产证据必须分开标注，不得把演示结果写成 GA 或生产验证。填写的 synthetic 示例见 [NotReady 参考 Agent POC](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/examples/poc/reference-agent-poc.md)。
 
 ## 0. 采购与冻结信息
 

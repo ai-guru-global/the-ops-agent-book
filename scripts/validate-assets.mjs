@@ -100,6 +100,21 @@ if (judgeCalibration.sample_size?.current !== 0) errors.push("Judge calibration 
 const evalReport = readJson("examples/eval-results/report.json");
 if (evalReport.runner?.reference_agent_integration !== "invoked_for_notready_case") errors.push("eval report does not show reference-agent integration");
 if (evalReport.judge_calibration?.sample_size !== 300 || evalReport.judge_calibration?.release_ready !== false) errors.push("eval report does not expose incomplete independent Judge calibration");
+if (process.env.SKIP_POC_VALIDATION !== "1") {
+const pocReport = readJson("examples/poc/reference-agent-poc.json");
+if (pocReport.synthetic !== true || pocReport.production_ready !== false) errors.push("POC report must be explicitly synthetic and non-production");
+if (!["PASS", "FAIL", "INCONCLUSIVE"].includes(pocReport.final_decision)) errors.push("POC report has invalid final decision");
+if (pocReport.clean_room?.import_pass !== true || pocReport.clean_room?.temp_removed !== true) errors.push("POC clean-room import or temporary cleanup did not pass");
+const pocScore = (pocReport.scores || []).reduce((sum, item) => sum + Number(item.score || 0) / 5 * Number(item.weight || 0) * 100, 0);
+if (Math.abs(pocScore - Number(pocReport.weighted_score)) > 0.01) errors.push("POC weighted score does not match dimension scores");
+for (const artifact of pocReport.artifacts || []) {
+  const artifactPath = path.join(root, artifact.path);
+  if (!fs.existsSync(artifactPath)) errors.push(`POC artifact missing: ${artifact.path}`);
+  else if (createHash("sha256").update(fs.readFileSync(artifactPath)).digest("hex") !== artifact.sha256) errors.push(`POC artifact hash stale: ${artifact.path}`);
+}
+const pocMarkdown = fs.readFileSync(path.join(root, "examples/poc/reference-agent-poc.md"), "utf8");
+if (!pocMarkdown.includes(`**${pocReport.final_decision}**`) || !pocMarkdown.includes(`${pocReport.weighted_score.toFixed(1)} / 100`)) errors.push("POC Markdown summary differs from JSON report");
+}
 validate("examples/templates/runbook.yaml", "runbook.schema.json", readYaml("examples/templates/runbook.yaml"));
 
 const registry = readYaml("sources/registry.yaml");
