@@ -412,14 +412,51 @@ test('successive store anchors preserve signed previous-anchor continuity', () =
   assert.equal(second.previous_anchor_hash, sha256(first));
   assert.equal(store.verifyAnchor(second).valid, true);
   assert.equal(store.verifyAnchor(second).previous_anchor_verified, true);
+  assert.equal(store.verifyAnchor(second).anchor_chain_verified, true);
   assert.equal(verifyAnchor(store.events, second, { previousAnchor: first }).valid, true);
-  assert.throws(() => verifyAnchor(store.events, second), { code: 'ANCHOR_CONTINUITY_BROKEN' });
+  assert.equal(verifyAnchor(store.events, second, { previousAnchor: first }).anchor_chain_verified, false);
+  store.append({
+    type: 'run.started', payload: { input_ref: 'synthetic', intent: 'third', scenario_id: 'test', slo_class: 'SEV3' },
+  });
+  const third = store.createAnchor({ anchorId: 'anc_third' });
+  const complete = store.verifyAnchor(third);
+  assert.equal(complete.anchor_chain_verified, true);
+  assert.equal(complete.verified_anchor_count, 3);
+  assert.equal(verifyAnchor(store.events, third, { anchorChain: [first, second] }).valid, true);
+  assert.throws(() => verifyAnchor(store.events, third, { anchorChain: [second] }), { code: 'ANCHOR_CHAIN_INCOMPLETE' });
+  assert.throws(() => verifyAnchor(store.events.slice(0, 2), second), { code: 'ANCHOR_CONTINUITY_BROKEN' });
   const brokenContinuity = clone(second);
   brokenContinuity.previous_anchor_hash = '0'.repeat(64);
   const bound = clone(brokenContinuity);
   delete bound.signature;
   brokenContinuity.signature.value = createHmac('sha256', DEFAULT_ANCHOR_KEY).update(canonicalJson(bound)).digest('hex');
-  assert.throws(() => store.verifyAnchor(brokenContinuity), { code: 'ANCHOR_CONTINUITY_BROKEN' });
+  assert.throws(() => verifyAnchor(store.events.slice(0, 2), brokenContinuity), { code: 'ANCHOR_CONTINUITY_BROKEN' });
+});
+
+test('complete anchor chain verifies historical prefixes without false clock-skew failures', () => {
+  let nowMs = Date.parse(DEFAULT_NOW);
+  const store = new EventStore({ now: () => nowMs });
+  store.append({
+    type: 'run.started', payload: { input_ref: 'synthetic', intent: 'day-0', scenario_id: 'test', slo_class: 'SEV3' },
+  });
+  const first = store.createAnchor({ anchorId: 'anc_day_0' });
+  nowMs += 86_400_000;
+  store.append({
+    type: 'run.completed', payload: { outcome: 'success', error_code: null, verified: true, human_takeover: false },
+  });
+  const second = store.createAnchor({ anchorId: 'anc_day_1' });
+  nowMs += 86_400_000;
+  store.append({
+    type: 'run.started', payload: { input_ref: 'synthetic', intent: 'day-2', scenario_id: 'test', slo_class: 'SEV3' },
+  });
+  const third = store.createAnchor({ anchorId: 'anc_day_2' });
+  const result = verifyAnchor(store.events, third, { anchorChain: [first, second], now: nowMs });
+  assert.equal(result.valid, true);
+  assert.equal(result.anchor_chain_verified, true);
+  assert.equal(result.verified_anchor_count, 3);
+  assert.throws(() => verifyAnchor(store.events, third, {
+    anchorChain: [first, second], now: nowMs + 86_400_000,
+  }), { code: 'CLOCK_SKEW_EXCEEDED' });
 });
 
 test('anchor continuity rejects a previous head from a different trace prefix', () => {

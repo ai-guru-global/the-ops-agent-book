@@ -173,7 +173,9 @@ function signEvent(event, key, keyId) {
   return event;
 }
 
-export function verifyTrace(eventsOrText, { keys, now, maxClockSkewSeconds = DEFAULT_MAX_CLOCK_SKEW_SECONDS } = {}) {
+export function verifyTrace(eventsOrText, {
+  keys, now, maxClockSkewSeconds = DEFAULT_MAX_CLOCK_SKEW_SECONDS, checkFreshness = true,
+} = {}) {
   const events = typeof eventsOrText === 'string'
     ? eventsOrText.split('\n').filter((line) => line.trim()).map((line) => JSON.parse(line))
     : eventsOrText;
@@ -198,7 +200,7 @@ export function verifyTrace(eventsOrText, { keys, now, maxClockSkewSeconds = DEF
       && trustedTime.source === 'injected_trusted_clock'
       && trustedTime.max_skew_seconds === maxSkew,
     'TRUSTED_TIME_MISMATCH', `Trusted time envelope mismatch at sequence ${event.sequence}`);
-    checkClockSkew(trustedTime.observed_at, now, maxSkew, `Event sequence ${event.sequence} trusted time`);
+    if (checkFreshness) checkClockSkew(trustedTime.observed_at, now, maxSkew, `Event sequence ${event.sequence} trusted time`);
     for (const reference of [event.parent_event_id, event.causation_event_id]) {
       assert(reference === null || seen.has(reference), 'BROKEN_REFERENCE', `Unknown prior event reference ${reference}`);
     }
@@ -287,9 +289,11 @@ export function createAnchor(events, { keys, now, maxClockSkewSeconds, ...option
 
 function verifyAnchorCore(events, anchor, {
   anchorKey = DEFAULT_ANCHOR_KEY, anchorKeyId = DEFAULT_ANCHOR_KEY_ID,
-  now, maxClockSkewSeconds = DEFAULT_MAX_CLOCK_SKEW_SECONDS, keys,
+  now, maxClockSkewSeconds = DEFAULT_MAX_CLOCK_SKEW_SECONDS, keys, checkFreshness = true,
 } = {}) {
-  const trace = verifyTrace(events, { keys, now, maxClockSkewSeconds });
+  // Anchor verification authenticates the full historical trace. Freshness is
+  // evaluated on the anchor timestamp, not on every older event in the trace.
+  const trace = verifyTrace(events, { keys, now, maxClockSkewSeconds, checkFreshness: false });
   const maxSkew = validateMaxSkew(maxClockSkewSeconds);
   validateSigningKey(anchorKey, 'Anchor signing key');
   exactKeys(anchor, ANCHOR_FIELDS, 'anchor');
@@ -303,27 +307,53 @@ function verifyAnchorCore(events, anchor, {
   assert(toMillis(anchor.anchored_at) >= toMillis(events.at(-1).event_time), 'INVALID_ANCHOR_TIME', 'Anchor time precedes the last event');
   assert(anchor.signature?.key_id === anchorKeyId, 'UNKNOWN_KEY_ID', 'Anchor signing key id does not match');
   signatureMatches(anchor.signature, anchorKey, withoutSignature(anchor), 'INVALID_ANCHOR_SIGNATURE', 'Anchor');
-  checkClockSkew(anchor.anchored_at, now, maxSkew, 'Anchor trusted time');
+  if (checkFreshness) checkClockSkew(anchor.anchored_at, now, maxSkew, 'Anchor trusted time');
   return { valid: true, anchor_id: anchor.anchor_id, chain_id: anchor.chain_id, event_count: trace.event_count, head_hash: trace.head_hash };
 }
 
-export function verifyAnchor(events, anchor, { previousAnchor, ...options } = {}) {
+export function verifyAnchor(events, anchor, { previousAnchor, anchorChain, ...options } = {}) {
   const result = verifyAnchorCore(events, anchor, options);
-  if (anchor.previous_anchor_hash !== null) {
-    assert(previousAnchor, 'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor manifest is required');
-    const previousCount = previousAnchor.event_count;
-    assert(Number.isInteger(previousCount) && previousCount > 0 && previousCount < anchor.event_count,
-      'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor must cover a non-empty strict prefix');
-    const prefix = events.slice(0, previousCount);
-    const previous = verifyAnchorCore(prefix, previousAnchor, options);
-    assert(sha256(previousAnchor) === anchor.previous_anchor_hash,
-      'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor hash does not match the supplied manifest');
-    assert(previous.chain_id === result.chain_id,
-      'ANCHOR_CHAIN_MISMATCH', 'Previous anchor belongs to a different chain');
-    assert(previous.head_hash === prefix.at(-1).integrity.event_hash,
-      'ANCHOR_FORK_MISMATCH', 'Previous anchor head is not on the current trace prefix');
+  if (anchor.previous_anchor_hash === null) {
+    return { ...result, previous_anchor_verified: null, anchor_chain_verified: false, verified_anchor_count: 1 };
   }
-  return { ...result, previous_anchor_verified: anchor.previous_anchor_hash === null ? null : true };
+
+  assert(anchorChain === undefined || Array.isArray(anchorChain), 'ANCHOR_CHAIN_INCOMPLETE', 'anchorChain must be an ordered array');
+  const chain = anchorChain ?? (previousAnchor ? [previousAnchor] : []);
+  assert(chain.length > 0, 'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor manifest is required');
+  if (previousAnchor) {
+    assert(sha256(chain.at(-1)) === sha256(previousAnchor), 'ANCHOR_CONTINUITY_BROKEN', 'anchorChain must end with previousAnchor');
+  }
+  assert(sha256(chain.at(-1)) === anchor.previous_anchor_hash,
+    'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor hash does not match the supplied manifest');
+  if (anchorChain !== undefined) {
+    assert(chain[0].previous_anchor_hash === null, 'ANCHOR_CHAIN_INCOMPLETE', 'Complete anchorChain must start at the root anchor');
+  }
+
+  let nextCount = anchor.event_count;
+  let expectedHash = anchor.previous_anchor_hash;
+  for (const prior of [...chain].reverse()) {
+    const count = prior.event_count;
+    assert(Number.isInteger(count) && count > 0 && count < nextCount,
+      'ANCHOR_CONTINUITY_BROKEN', 'Anchor chain must cover strictly decreasing non-empty prefixes');
+    assert(sha256(prior) === expectedHash,
+      'ANCHOR_CONTINUITY_BROKEN', 'Anchor chain hash does not match its successor');
+    // Historical manifests prove integrity, not current freshness. Their trusted
+    // timestamps remain signature-bound and must fit their own trace prefix.
+    const verified = verifyAnchorCore(events.slice(0, count), prior, { ...options, checkFreshness: false });
+    assert(verified.chain_id === result.chain_id,
+      'ANCHOR_CHAIN_MISMATCH', 'Previous anchor belongs to a different chain');
+    assert(verified.head_hash === events[count - 1].integrity.event_hash,
+      'ANCHOR_FORK_MISMATCH', 'Previous anchor head is not on the current trace prefix');
+    nextCount = count;
+    expectedHash = prior.previous_anchor_hash;
+  }
+
+  return {
+    ...result,
+    previous_anchor_verified: true,
+    anchor_chain_verified: anchorChain !== undefined,
+    verified_anchor_count: chain.length + 1,
+  };
 }
 
 export class EventStore {
@@ -453,7 +483,9 @@ export class EventStore {
 
   createAnchor(options = {}) {
     assert(this.#events.length > 0, 'EMPTY_TRACE', 'No events to anchor');
-    this.verify();
+    // Events were freshness-checked when appended. Anchoring an older prefix is
+    // an archival operation and must not reject valid historical signatures.
+    this.verify({ checkFreshness: false });
     const anchor = buildAnchor(this.#events, { previousAnchorHash: this.#lastAnchorHash, ...options });
     // Continuity hashes the complete prior manifest, including its signature.
     this.#lastAnchorHash = sha256(anchor);
@@ -462,11 +494,28 @@ export class EventStore {
   }
 
   verifyAnchor(anchor, options = {}) {
-    const previousAnchor = options.previousAnchor
-      ?? this.#anchors.find((candidate) => sha256(candidate) === anchor.previous_anchor_hash);
+    let previousAnchor = options.previousAnchor;
+    let anchorChain = options.anchorChain;
+    if (anchorChain === undefined) {
+      const chain = [];
+      const seen = new Set();
+      let expectedHash = anchor.previous_anchor_hash;
+      while (expectedHash !== null) {
+        assert(!seen.has(expectedHash), 'ANCHOR_CONTINUITY_BROKEN', 'Anchor history contains a cycle');
+        seen.add(expectedHash);
+        const prior = this.#anchors.find((candidate) => sha256(candidate) === expectedHash);
+        if (!prior) break;
+        chain.unshift(prior);
+        expectedHash = prior.previous_anchor_hash;
+      }
+      if (chain.length > 0) {
+        previousAnchor ??= chain.at(-1);
+        if (expectedHash === null) anchorChain = chain;
+      }
+    }
     return verifyAnchor(this.#events, anchor, {
       keys: this.#signingKeys, maxClockSkewSeconds: this.#maxClockSkewSeconds,
-      ...options, previousAnchor,
+      ...options, previousAnchor, anchorChain,
     });
   }
 
