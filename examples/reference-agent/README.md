@@ -2,7 +2,7 @@
 
 纯 Node.js 22+ ESM、零第三方运行时依赖的合成运维 Agent。它读取仓库中的 NotReady 权限策略，在内存 K8s 状态上演示只读诊断、受控写入、审批、撤销、审计、影子运行、单节点灰度和 kill switch 回滚。
 
-> **不能用于生产。** 所有租户、节点、日志、身份、审批人和状态均为 synthetic/desensitized 数据。本实现不连接网络、真实 Kubernetes、密钥服务、模型服务或撤销流，不执行真实 shell/Kubernetes 命令。HMAC 密钥每次运行随机生成，只存在于进程内，绝不写入 Trace。
+> **不能用于生产。** 所有租户、节点、日志、身份、审批人和状态均为 synthetic/desensitized 数据。本实现不连接网络、真实 Kubernetes、密钥服务、模型服务或撤销流，不执行真实 shell/Kubernetes 命令。事件与外部锚点使用固定的 synthetic 演示密钥，保证回归可重复；这些密钥不是秘密，生产必须改用 KMS/HSM、独立锚点服务、可信时间和密钥轮换/撤销。
 
 ## 运行
 
@@ -17,8 +17,9 @@ node runner.mjs rollback --output sample-output/rollback
 
 也可以使用 `npm run demo|shadow|canary|rollback`。每次 CLI 运行生成：
 
-- `summary.json`：结果、计划版本、审批绑定、步骤、检查、最终状态、调用计数和 Trace 头哈希。
-- `trace.jsonl`：符合 `schemas/agent-event.schema.json` 最小信封的 append-only 导出。每个新运行重建输出文件；`EventStore` 内部只能追加。
+- `summary.json`：结果、计划版本、审批绑定、步骤、检查、最终状态、调用计数和 Trace/锚点头哈希。
+- `trace.jsonl`：符合 `schemas/agent-event.schema.json` v1.1.0 的 append-only 导出；每个事件包含 SHA-256 链哈希、HMAC-SHA256 签名和可信时间信封。
+- `anchor.json`：使用独立 synthetic 密钥签名的外部链头承诺，绑定 `chain_id/event_count/head_hash/anchored_at/previous_anchor_hash`。
 
 退出码：成功或已回滚为 `0`，失败/升级为 `1`，参数错误为 `2`。
 
@@ -29,7 +30,7 @@ node runner.mjs rollback --output sample-output/rollback
 | `src/policy-engine.mjs` | 严格按策略 `decision_order` 执行身份/委托、显式 deny、凭证/撤销、工具契约、角色/环境/资源、窗口/爆炸半径、审批绑定、前置条件和写前重校验。 |
 | `src/approval-service.mjs` | 不可变计划快照、canonical JSON SHA-256、`plan_version`、`target_resource_versions`、到期时间、双人/单人批准、拒绝和撤销。完整计划任一字段变化均使旧审批失效。 |
 | `src/credential-service.mjs` | 带 `iss/sub/aud/exp/nbf/jti/tenant/purpose/act/delegation/scope` 的 HMAC-SHA256 短期 token；校验签名、受众、时间、scope 和撤销；委托不可传递。 |
-| `src/event-store.mjs` | 严格最小事件信封、单调 sequence、parent/causation、SHA-256 哈希链、JSONL 导出和验链。 |
+| `src/event-store.mjs` | Canonical Event v1.1.0、单调 sequence、parent/causation、SHA-256 哈希链、HMAC 验签、可信时间、独立外部锚点、JSONL 导出和验链。 |
 | `src/tool-gateway.mjs` | 合成集群、短别名到策略契约名映射、dry-run、幂等键、部分成功闩锁、未知结果对账闩锁、调用前策略检查和审计。 |
 | `src/runtime.mjs` | 四种场景编排、稳定导出接口和输出。 |
 | `src/shared.mjs` | canonical JSON、哈希、不可变克隆、合成标识和 selector 匹配。 |
@@ -75,7 +76,7 @@ import {
 
 四个 `run*` 函数接受可选 `{ outputDir, now, node, clusterName, failedLogId }`。返回对象包含：
 
-- `success`、`summary`、`trace`（同时提供 `events` 别名）、`trace_jsonl`、`final_state`、`audit`。
+- `success`、`summary`、`trace`（同时提供 `events` 别名）、`anchor`、`trace_jsonl`、`final_state`、`audit`。
 - `summary.outcome`、`verified`、`plan_versions`、`approvals`、`steps`、`checks`、`counts`、`trace`。
 - 传入 `outputDir` 时同时写盘；也可直接调用 `writeRunOutput(result, outputDir)`。
 
@@ -86,5 +87,6 @@ import {
 - 这是策略执行点和工具网关的教学参考，不是 MCP/OpenAPI 服务器，也不是完整生产身份平台。
 - canonical JSON 实现覆盖本项目的 JSON 值类型，不声称完整实现 RFC 8785 数值规范化。
 - 撤销、审批人和 change window 都是进程内合成输入；生产实现必须接入持久化、加密、原子 CAS、实时撤销传播、限流、租户隔离、秘密管理和独立审计存储。
+- 事件签名与锚点只证明持有对应 synthetic 密钥者未篡改；生产必须分离事件签名密钥与外部锚点密钥，支持 `key_id` 轮换/撤销、可信时间、锚点连续性监控和 WORM 权限隔离。
 - 未知结果必须使用相同幂等键取得缓存结果，并通过 `reconcile()` 对账；禁止换新键盲目重试。
 - 测试只使用 `node:test` 与 Node 内置模块，不需要安装依赖。

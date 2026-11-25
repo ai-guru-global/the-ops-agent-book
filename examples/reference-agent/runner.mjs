@@ -43,8 +43,10 @@ export async function main(argv = process.argv.slice(2)) {
       verified: result.summary.verified,
       event_count: files.event_count,
       trace_verified: files.trace_verified,
+      anchor_verified: files.anchor_verified,
       summary: files.summary_path,
       trace: files.trace_path,
+      anchor: files.anchor_path,
     }, null, 2));
     return result.summary.outcome === 'failure' || result.summary.outcome === 'escalated' ? 1 : 0;
   } catch (error) {

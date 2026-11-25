@@ -5,6 +5,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { verifyAnchor, verifyTrace } from "../examples/reference-agent/src/event-store.mjs";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const OUT_DIR = path.join(ROOT, "examples/poc");
@@ -48,6 +49,7 @@ function artifactManifest() {
     path.join(ROOT, "schemas/tool-contract.schema.json"),
     path.join(ROOT, "schemas/permission-policy.schema.json"),
     path.join(ROOT, "schemas/agent-event.schema.json"),
+    path.join(ROOT, "schemas/audit-anchor.schema.json"),
     path.join(ROOT, "schemas/runbook.schema.json"),
     path.join(ROOT, "evals/manifest.yaml"),
     path.join(ROOT, "evals/judge-calibration.yaml"),
@@ -101,21 +103,31 @@ function cleanRoomImport() {
       commands.push(result);
       if (result.success) {
         const summary = JSON.parse(fs.readFileSync(path.join(output, "summary.json"), "utf8"));
+        const events = fs.readFileSync(path.join(output, "trace.jsonl"), "utf8")
+          .trim().split("\n").map((line) => JSON.parse(line));
+        const anchor = JSON.parse(fs.readFileSync(path.join(output, "anchor.json"), "utf8"));
+        const traceVerified = verifyTrace(events).valid;
+        const anchorVerified = verifyAnchor(events, anchor).valid;
         summaries[mode] = {
           outcome: summary.outcome,
           verified: summary.verified,
           synthetic: summary.synthetic,
           production_ready: summary.production_ready,
-          trace_verified: summary.trace?.verified,
+          trace_verified: traceVerified,
+          anchor_verified: anchorVerified,
+          anchor_id: anchor.anchor_id,
           write_side_effects: summary.counts?.write_side_effects,
           automatic_writes: summary.final_state?.automatic_writes,
           summary_sha256: sha256File(path.join(output, "summary.json")),
           trace_sha256: sha256File(path.join(output, "trace.jsonl")),
+          anchor_sha256: sha256File(path.join(output, "anchor.json")),
         };
       }
     }
-    const shadowPass = summaries.shadow?.verified === true && summaries.shadow?.write_side_effects === 0;
-    const rollbackPass = summaries.rollback?.verified === true && summaries.rollback?.automatic_writes === false;
+    const shadowPass = summaries.shadow?.verified === true && summaries.shadow?.trace_verified === true
+      && summaries.shadow?.anchor_verified === true && summaries.shadow?.write_side_effects === 0;
+    const rollbackPass = summaries.rollback?.verified === true && summaries.rollback?.trace_verified === true
+      && summaries.rollback?.anchor_verified === true && summaries.rollback?.automatic_writes === false;
     return {
       temp_root: temp,
       commands,
@@ -146,9 +158,9 @@ const scores = [
   { id: "data_plane", label: "数据面", weight: 0.2, score: 2, evidence: "POC-EVT-003；仅内存 K8s 与本地 fixture，无真实连接器" },
   { id: "investigation", label: "调查深度", weight: 0.15, score: 3, evidence: "POC-EVT-002；NotReady 证据链可复跑，但多数 case 为 oracle-seeded" },
   { id: "action_boundary", label: "行动边界", weight: 0.2, score: 5, evidence: "POC-EVT-001/004/006；PEP、双人审批、dry-run、幂等、部分成功闩锁、kill switch" },
-  { id: "identity_audit", label: "身份、策略与审计", weight: 0.15, score: 5, evidence: "POC-EVT-001/004；短时 HMAC、deny-first、撤销与 SHA-256 哈希链" },
+  { id: "identity_audit", label: "身份、策略与审计", weight: 0.15, score: 5, evidence: "POC-EVT-001/004；短时 HMAC、deny-first、撤销、签名哈希链与独立外部锚点" },
   { id: "deployment", label: "部署与集成", weight: 0.1, score: 4, evidence: "POC-EVT-004；干净目录导入并运行，非生产平台" },
-  { id: "evaluation", label: "评测与可观测", weight: 0.1, score: 4, evidence: "POC-EVT-002/003；400 synthetic、5 类负向控制、Trace 验链" },
+  { id: "evaluation", label: "评测与可观测", weight: 0.1, score: 4, evidence: "POC-EVT-002/003；400 synthetic、5 类负向控制、Trace 验签与锚点验证" },
   { id: "tco", label: "TCO 与交付", weight: 0.05, score: 1, evidence: "无真实账单/工作量/合同；外部调用为 0 不代表真实 TCO" },
   { id: "portability", label: "可移植性与退出", weight: 0.05, score: 4, evidence: "POC-EVT-004/007；制品哈希、干净目录导入、Shadow/rollback、临时目录删除" },
 ];

@@ -43,8 +43,9 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 - 负向控制覆盖：缺少 `source_case_key`、failed 工具结果缺少 `partial_success`、可传递委托 token、证据缺少 source、synthetic Release 被标成 PASS/GO。
 - 唯一豁免是 `docs/guide/06-context-knowledge.md` 中明确标注“不可独立执行”的 Runbook 结构片段；完整 Schema-valid Runbook 位于 `examples/templates/runbook.yaml`。
 - 本地与远端 Book quality 都已加入 `gates:check`、`refs:check`、`examples:check`，防止派生页和正文示例再次漂移。
-- `npm run pdf:audit` 对 687 页 PDF 执行全量 A4 几何检查：空白页、文字越界、非 A4 页面均为 0；报告见 `reports/validation/pdf-layout.md`。这仍是几何审计，不冒充人工视觉验收。
+- `npm run pdf:audit` 对 689 页 PDF 执行全量 A4 几何检查：空白页、文字越界、非 A4 页面均为 0；报告见 `reports/validation/pdf-layout.md`。这仍是几何审计，不冒充人工视觉验收。
 - RDMA 多节点 rail 不对齐与 PostgreSQL/MySQL 计划内 failover 已补端到端 Runbook、只读 fixture 与 40 项单元测试、7 项 CLI 集成回归；不连接真实网络或数据库。
+- Agent Event 已升级 v1.1.0：HMAC-SHA256 事件签名、可信时间信封与独立外部锚点共同验证；26 项参考测试覆盖整链重写、错误/未知密钥、缺签名、时钟漂移、锚点头/签名/连续性篡改。
 
 ## 2. 评估口径
 
@@ -77,7 +78,7 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 - 183 条来源、168 个正文引用 source ID、146 份本地快照、134 个仍有至少一个未核实字段的 claim；资产校验另报告 **15 个已注册但正文未引用的 source ID**。
 - 400 条 synthetic K8s 评测案例、400 份本地快照 fixture、300 条独立 Judge 候选；真实人工标注仍为 **0/300**。
 - 工具契约、权限策略、Runbook、Agent Event、Metric、用户阅读结果等 Schema。
-- 参考实现测试 **17/17**、评测 self-test **14/14**、用户阅读校验器测试 **5/5**。
+- 参考实现测试 **26/26**、评测 self-test **14/14**、用户阅读校验器测试 **5/5**。
 - `npm run check:all` 通过：50 张 Mermaid 实际渲染、30 个页面/视口组合、8 个无障碍组合、内部链接与资产一致性均通过。
 
 这些资产证明“工程骨架可运行”，不证明真实模型质量、生产安全、供应商商业条款或真实用户可读性。
@@ -307,7 +308,7 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 
 - 48/48 页面进入七维评分，14 个方法章、5 本场景手册、8 个厂商页、8 个模板页、10 个附录页和首页均有独立结论。
 - 50/50 Mermaid 渲染、图号、图注、资源与内链检查通过。
-- `npm run check:all` 通过；参考实现 17/17、评测 self-test 14/14、用户阅读校验器 5/5。
+- `npm run check:all` 通过；参考实现 26/26、评测 self-test 14/14、用户阅读校验器 5/5。
 - 183 来源、168 个正文 source ID、146 快照、134 claim 缺口、400 synthetic 案例、300 Judge 候选已核对。
 - 真实用户状态为 `not_executed`；Judge 标注为 0/300，`release_ready=false`。
 

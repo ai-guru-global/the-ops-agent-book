@@ -2,7 +2,7 @@ import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ApprovalService } from './approval-service.mjs';
 import { CredentialService } from './credential-service.mjs';
-import { EventStore, verifyTrace } from './event-store.mjs';
+import { createAnchor, EventStore, verifyAnchor, verifyTrace } from './event-store.mjs';
 import { PolicyEngine } from './policy-engine.mjs';
 import { SyntheticCluster, ToolGateway, TOOL_ALIASES } from './tool-gateway.mjs';
 import {
@@ -208,6 +208,8 @@ class ReferenceRuntime {
   summarize({ outcome, verified, steps, approvals = [], checks = [], errorCode = null, humanTakeover = false, extra = {} }) {
     const state = this.cluster.snapshot();
     const trace = this.eventStore.verify();
+    const anchor = this.eventStore.createAnchor();
+    const anchored = this.eventStore.verifyAnchor(anchor);
     const summary = {
       scenario_id: 'notready-synthetic', mode: this.mode, run_id: this.runId,
       synthetic: true, data_classification: 'synthetic/desensitized', production_ready: false,
@@ -234,13 +236,16 @@ class ReferenceRuntime {
         would_do: this.gateway.audit.filter((item) => item.outcome === 'would_do').length,
         denied_calls: this.gateway.audit.filter((item) => item.deny_reason).length,
       },
-      trace: { event_count: trace.event_count, head_hash: trace.head_hash, verified: trace.valid },
+      trace: {
+        event_count: trace.event_count, head_hash: trace.head_hash,
+        verified: trace.valid && anchored.valid, anchor_id: anchor.anchor_id,
+      },
       cost: { model_cost_usd: 0, tool_cost_usd: 0, human_cost_usd: 0, currency: 'USD', synthetic: true },
       ...extra,
     };
     const events = this.eventStore.events;
     return {
-      success: outcome === 'success', summary, trace: events, events, audit: this.gateway.audit,
+      success: outcome === 'success', summary, trace: events, events, anchor, audit: this.gateway.audit,
       trace_jsonl: `${events.map((event) => canonicalJson(event)).join('\n')}\n`,
       final_state: summary.final_state,
     };
@@ -507,12 +512,28 @@ export function writeRunOutput(result, outputDir) {
   mkdirSync(outputDir, { recursive: true });
   const summaryPath = join(outputDir, 'summary.json');
   const tracePath = join(outputDir, 'trace.jsonl');
+  const anchorPath = join(outputDir, 'anchor.json');
+  const events = result.trace_jsonl.split('\n').filter((line) => line.trim()).map((line) => JSON.parse(line));
+  const anchor = result.anchor || createAnchor(events);
   rmSync(summaryPath, { force: true });
   rmSync(tracePath, { force: true });
-  writeFileSync(summaryPath, `${JSON.stringify(result.summary, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
+  rmSync(anchorPath, { force: true });
   writeFileSync(tracePath, result.trace_jsonl, { encoding: 'utf8', mode: 0o600 });
-  const verified = verifyTrace(result.trace_jsonl);
-  return { summary_path: summaryPath, trace_path: tracePath, trace_verified: verified.valid, event_count: verified.event_count };
+  writeFileSync(anchorPath, `${JSON.stringify(anchor, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
+  const verified = verifyTrace(events);
+  const anchored = verifyAnchor(events, anchor);
+  result.summary.trace = {
+    ...result.summary.trace,
+    event_count: verified.event_count,
+    head_hash: verified.head_hash,
+    anchor_id: anchor.anchor_id,
+    verified: verified.valid && anchored.valid,
+  };
+  writeFileSync(summaryPath, `${JSON.stringify(result.summary, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
+  return {
+    summary_path: summaryPath, trace_path: tracePath, anchor_path: anchorPath,
+    trace_verified: verified.valid, anchor_verified: anchored.valid, event_count: verified.event_count,
+  };
 }
 
 export const stableExports = {

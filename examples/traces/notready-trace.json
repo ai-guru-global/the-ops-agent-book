@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "event_id": "evt_tool_20261124_0007",
   "event_type": "tool.requested",
   "event_time": "2026-11-24T14:45:07Z",
@@ -72,7 +72,17 @@
   },
   "integrity": {
     "hash_algorithm": "sha256",
-    "event_hash": "b8c61c5189fec78ca73c8156f84f36b7ddbe6ac328039a3431846c2f668afe26",
-    "prev_event_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    "prev_event_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "trusted_time": {
+      "source": "injected_trusted_clock",
+      "observed_at": "2026-11-24T14:45:07Z",
+      "max_skew_seconds": 300
+    },
+    "event_hash": "1e83d7eee9a3404cf71c558a4c868ecda004f8efe60b0241e43ee41a67e14dea",
+    "signature": {
+      "algorithm": "HMAC-SHA256",
+      "key_id": "synthetic-event-key-v1",
+      "value": "9f6e0fb2eb7ecf142bc4d2dff4cc02ea1b552ed5081d9a0e1336803d3886f220"
+    }
   }
 }

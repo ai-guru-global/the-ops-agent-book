@@ -2,7 +2,7 @@
   "synthetic": true,
   "production_ready": false,
   "poc_id": "POC-REF-NOTREADY-2026-001",
-  "generated_at": "2026-11-25T10:43:16.449Z",
+  "generated_at": "2026-11-25T12:51:21.956Z",
   "candidate": {
     "name": "The Ops Agent Book reference Agent",
     "version": "0.1.0",
@@ -29,27 +29,27 @@
       "command": "npm run test:reference",
       "status": 0,
       "success": true,
-      "duration_ms": 300,
-      "stdout_tail": "\n> the-ops-agent-book@0.2.0-rc.1 test:reference\n> npm --prefix examples/reference-agent test\n\n\n> the-ops-agent-book-reference-agent@0.1.0 test\n> node --test test/*.test.mjs\n\nTAP version 13\n# (node:30054) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n# (Use `node --trace-warnings ...` to show where the warning was created)\n# Subtest: explicit deny runs before credential and tool allowlist checks\nok 1 - explicit deny runs before credential and tool allowlist checks\n  ---\n  duration_ms: 4.341917\n  type: 'test'\n  ...\n# Subtest: uncordon is denied until Ready, PDB and capacity recover\nok 2 - uncordon is denied until Ready, PDB and capacity recover\n  ---\n  duration_ms: 1.364583\n  type: 'test'\n  ...\n# Subtest: any plan field change invalidates a dual approval\nok 3 - any plan field change invalidates a dual approval\n  ---\n  duration_ms: 0.643208\n  type: 'test'\n  ...\n# Subtest: approval expiration, rejection and revocation are fail-closed\nok 4 - approval expiration, rejection and revocation are fail-closed\n  ---\n  duration_ms: 0.286084\n  type: 'test'\n  ...\n# Subtest: credential expiration, revocation, scope, audience and delegation are enforced\nok 5 - credential expiration, revocation, scope, audience and delegation are enforced\n  ---\n  duration_ms: 0.561334\n  type: 'test'\n  ...\n# Subtest: exact idempotent replay does not mutate state twice\nok 6 - exact idempotent replay does not mutate state twice\n  ---\n  duration_ms: 2.102667\n  type: 'test'\n  ...\n# Subtest: partial success stops even a newly approved write until explicit replan resume\nok 7 - partial success stops even a newly approved write until explicit replan resume\n  ---\n  duration_ms: 1.891791\n  type: 'test'\n  ...\n# Subtest: unknown outcome is cached and never blindly retried under a new key\nok 8 - unknown outcome is cached and never blindly retried under a new key\n  ---\n  duration_ms: 1.523083\n  type: 'test'\n  ...\n# Subtest: trace verifies monotonic sequence, references and SHA-256 chain; tampering fails\nok 9 - trace verifies monotonic sequence, references and SHA-256 chain; tampering fails\n  ---\n  duration_ms: 5.284083\n  type: 'test'\n  ...\n# Subtest: append-only JSONL export verifies after reopening\nok 10 - append-only JSONL export verifies after reopening\n  ---\n  duration_ms: 2.233667\n  type: 'test'\n  ...\n# Subtest: shadow records would-do with no mounted write tools or state changes\nok 11 - shadow records would-do with no mounted write tools or state changes\n  ---\n  duration_ms: 2.133083\n  type: 'test'\n  ...\n# Subtest: NotReady demo completes v1 partial halt, v2 cleanup and approved uncordon\nok 12 - NotReady demo completes v1 partial halt, v2 cleanup and approved uncordon\n  ---\n  duration_ms: 4.683334\n  type: 'test'\n  ...\n# Subtest: canary permits exactly one synthetic node write\nok 13 - canary permits exactly one synthetic node write\n  ---\n  duration_ms: 1.716042\n  type: 'test'\n  ...\n# Subtest: rollback engages kill switch, blocks writes, revokes credential and restores LKG read-only\nok 14 - rollback engages kill switch, blocks writes, revokes credential and restores LKG read-only\n  ---\n  duration_ms: 2.581459\n  type: 'test'\n  ...\n# Subtest: single approval cannot satisfy a dual-approval drain rule\nok 15 - single approval cannot satisfy a dual-approval drain rule\n  ---\n  duration_ms: 0.566625\n  type: 'test'\n  ...\n# Subtest: write calls require an explicit idempotency key of at least eight characters\nok 16 - write calls require an explicit idempotency key of at least eight characters\n  ---\n  duration_ms: 0.56875\n  type: 'test'\n  ...\n# Subtest: dry-run write has approval checks but no synthetic side effect\nok 17 - dry-run write has approval checks but no synthetic side effect\n  ---\n  duration_ms: 0.756167\n  type: 'test'\n  ...\n1..17\n# tests 17\n# suites 0\n# pass 17\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 87.913792\n",
-      "stderr_tail": "(node:29965) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:30004) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:30053) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "duration_ms": 299,
+      "stdout_tail": "hed and never blindly retried under a new key\n  ---\n  duration_ms: 1.659583\n  type: 'test'\n  ...\n# Subtest: 1.1.0 events bind canonical hashes, HMAC signatures and injected trusted time\nok 9 - 1.1.0 events bind canonical hashes, HMAC signatures and injected trusted time\n  ---\n  duration_ms: 6.645667\n  type: 'test'\n  ...\n# Subtest: payload and reference tampering fail hash and chain verification\nok 10 - payload and reference tampering fail hash and chain verification\n  ---\n  duration_ms: 4.057875\n  type: 'test'\n  ...\n# Subtest: wrong event keys, unknown key ids and missing or invalid signatures fail closed\nok 11 - wrong event keys, unknown key ids and missing or invalid signatures fail closed\n  ---\n  duration_ms: 0.429208\n  type: 'test'\n  ...\n# Subtest: trusted time tampering and configured skew mismatches fail closed\nok 12 - trusted time tampering and configured skew mismatches fail closed\n  ---\n  duration_ms: 0.741583\n  type: 'test'\n  ...\n# Subtest: trusted clock injection, key maps and optional clock skew are enforced\nok 13 - trusted clock injection, key maps and optional clock skew are enforced\n  ---\n  duration_ms: 0.705875\n  type: 'test'\n  ...\n# Subtest: a fully rewritten chain signed with the wrong key cannot satisfy the original anchor\nok 14 - a fully rewritten chain signed with the wrong key cannot satisfy the original anchor\n  ---\n  duration_ms: 0.758875\n  type: 'test'\n  ...\n# Subtest: external anchors bind trace identity, head, count, time and an independent HMAC key\nok 15 - external anchors bind trace identity, head, count, time and an independent HMAC key\n  ---\n  duration_ms: 0.924333\n  type: 'test'\n  ...\n# Subtest: anchor head, count, chain and signature tampering fail closed\nok 16 - anchor head, count, chain and signature tampering fail closed\n  ---\n  duration_ms: 0.765083\n  type: 'test'\n  ...\n# Subtest: successive store anchors preserve signed previous-anchor continuity\nok 17 - successive store anchors preserve signed previous-anchor continuity\n  ---\n  duration_ms: 0.559458\n  type: 'test'\n  ...\n# Subtest: append-only JSONL export verifies after reopening\nok 18 - append-only JSONL export verifies after reopening\n  ---\n  duration_ms: 1.922792\n  type: 'test'\n  ...\n# Subtest: run output writes a verifiable anchor and records anchor identity in the summary\nok 19 - run output writes a verifiable anchor and records anchor identity in the summary\n  ---\n  duration_ms: 6.187875\n  type: 'test'\n  ...\n# Subtest: shadow records would-do with no mounted write tools or state changes\nok 20 - shadow records would-do with no mounted write tools or state changes\n  ---\n  duration_ms: 3.083083\n  type: 'test'\n  ...\n# Subtest: NotReady demo completes v1 partial halt, v2 cleanup and approved uncordon\nok 21 - NotReady demo completes v1 partial halt, v2 cleanup and approved uncordon\n  ---\n  duration_ms: 7.0675\n  type: 'test'\n  ...\n# Subtest: canary permits exactly one synthetic node write\nok 22 - canary permits exactly one synthetic node write\n  ---\n  duration_ms: 2.897375\n  type: 'test'\n  ...\n# Subtest: rollback engages kill switch, blocks writes, revokes credential and restores LKG read-only\nok 23 - rollback engages kill switch, blocks writes, revokes credential and restores LKG read-only\n  ---\n  duration_ms: 3.829125\n  type: 'test'\n  ...\n# Subtest: single approval cannot satisfy a dual-approval drain rule\nok 24 - single approval cannot satisfy a dual-approval drain rule\n  ---\n  duration_ms: 0.52675\n  type: 'test'\n  ...\n# Subtest: write calls require an explicit idempotency key of at least eight characters\nok 25 - write calls require an explicit idempotency key of at least eight characters\n  ---\n  duration_ms: 0.632416\n  type: 'test'\n  ...\n# Subtest: dry-run write has approval checks but no synthetic side effect\nok 26 - dry-run write has approval checks but no synthetic side effect\n  ---\n  duration_ms: 0.621917\n  type: 'test'\n  ...\n1..26\n# tests 26\n# suites 0\n# pass 26\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 100.567334\n",
+      "stderr_tail": "(node:52449) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:52488) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:52537) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "name": "400-case eval self-test",
       "command": "npm run eval:self-test",
       "status": 0,
       "success": true,
-      "duration_ms": 1468,
+      "duration_ms": 1401,
       "stdout_tail": "\n> the-ops-agent-book@0.2.0-rc.1 eval:self-test\n> node scripts/run-evals.mjs --self-test\n\nPASS manifest partition targets are exactly 400 = 40 + 60 + 300\nPASS rubric weights and four veto rules are valid\nPASS 400 generated cases load, validate snapshots, and run once\nPASS NotReady reference case invokes the reference-agent core\nPASS synthetic mock output is deterministic\nPASS negative controls detect all five fault classes\nPASS baseline comparison is computable but remains synthetic\nPASS 400/400 population remains blocked by Judge calibration and explicit gate\nPASS fault injection forbidden_action triggers forbidden_or_unauthorized_action\nPASS fault injection fabricated_evidence triggers fabricated_or_stale_evidence\nPASS fault injection stale_evidence triggers fabricated_or_stale_evidence\nPASS fault injection write_without_evidence triggers write_without_evidence_or_confidence\nPASS fault injection sensitive_data_leak triggers sensitive_data_leak\nPASS release_ready=true passes only after all synthetic population gates pass\nSynthetic self-test: 14/14 passed. No report files written.\n",
-      "stderr_tail": "(node:30076) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:30115) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "stderr_tail": "(node:52558) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:52598) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "name": "asset and snapshot validation",
       "command": "npm run validate:assets",
       "status": 0,
       "success": true,
-      "duration_ms": 956,
+      "duration_ms": 691,
       "stdout_tail": "\n> the-ops-agent-book@0.2.0-rc.1 validate:assets\n> node scripts/validate-assets.mjs\n\nAsset validation passed: 50 diagrams, 183 sources, 168 cited source IDs, 134 tracked evidence gaps, 400 eval cases, 3 tool-contract YAML examples, 7 negative controls.\n",
-      "stderr_tail": "(node:30139) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:30179) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\nwarning: registered sources not cited in vendor capability tables (reference-only/navigation allowed): COM-AGENTSCOPE-001, COM-QWEN-AGENT-001, COM-SPRING-AI-ALIBABA-001, PUB-ALI-SUMMIT-001, PUB-AWS-DEVOPS-INFOQ-001, PUB-HUAWEI-MINDOPS-001, PUB-HUAWEI-AEI-001, PUB-TENCENT-CLOUDQ-001, PUB-BAIDU-INDUSTRY-001, PUB-CHINA-TOP10-001, PUB-OPS-WHITEPAPER-001, COM-SERVICENOW-AGENTS-001, PUB-DD-DYNATRACE-COMPARE-001, SRC-MCP-001, SRC-A2A-001\n"
+      "stderr_tail": "(node:52621) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:52660) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\nwarning: registered sources not cited in vendor capability tables (reference-only/navigation allowed): COM-AGENTSCOPE-001, COM-QWEN-AGENT-001, COM-SPRING-AI-ALIBABA-001, PUB-ALI-SUMMIT-001, PUB-AWS-DEVOPS-INFOQ-001, PUB-HUAWEI-MINDOPS-001, PUB-HUAWEI-AEI-001, PUB-TENCENT-CLOUDQ-001, PUB-BAIDU-INDUSTRY-001, PUB-CHINA-TOP10-001, PUB-OPS-WHITEPAPER-001, COM-SERVICENOW-AGENTS-001, PUB-DD-DYNATRACE-COMPARE-001, SRC-MCP-001, SRC-A2A-001\n"
     }
   ],
   "clean_room": {
@@ -60,9 +60,9 @@
         "command": "node scripts/run-evals.mjs --self-test",
         "status": 0,
         "success": true,
-        "duration_ms": 1355,
+        "duration_ms": 1303,
         "stdout_tail": "PASS manifest partition targets are exactly 400 = 40 + 60 + 300\nPASS rubric weights and four veto rules are valid\nPASS 400 generated cases load, validate snapshots, and run once\nPASS NotReady reference case invokes the reference-agent core\nPASS synthetic mock output is deterministic\nPASS negative controls detect all five fault classes\nPASS baseline comparison is computable but remains synthetic\nPASS 400/400 population remains blocked by Judge calibration and explicit gate\nPASS fault injection forbidden_action triggers forbidden_or_unauthorized_action\nPASS fault injection fabricated_evidence triggers fabricated_or_stale_evidence\nPASS fault injection stale_evidence triggers fabricated_or_stale_evidence\nPASS fault injection write_without_evidence triggers write_without_evidence_or_confidence\nPASS fault injection sensitive_data_leak triggers sensitive_data_leak\nPASS release_ready=true passes only after all synthetic population gates pass\nSynthetic self-test: 14/14 passed. No report files written.\n",
-        "stderr_tail": "(node:30184) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+        "stderr_tail": "(node:52662) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
       },
       {
         "name": "clean-room demo",
@@ -70,26 +70,26 @@
         "status": 0,
         "success": true,
         "duration_ms": 50,
-        "stdout_tail": "{\n  \"mode\": \"demo\",\n  \"outcome\": \"success\",\n  \"verified\": true,\n  \"event_count\": 19,\n  \"trace_verified\": true,\n  \"summary\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-NQFDZ1/poc-output/demo/summary.json\",\n  \"trace\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-NQFDZ1/poc-output/demo/trace.jsonl\"\n}\n",
-        "stderr_tail": "(node:30189) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+        "stdout_tail": "{\n  \"mode\": \"demo\",\n  \"outcome\": \"success\",\n  \"verified\": true,\n  \"event_count\": 19,\n  \"trace_verified\": true,\n  \"anchor_verified\": true,\n  \"summary\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/demo/summary.json\",\n  \"trace\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/demo/trace.jsonl\",\n  \"anchor\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/demo/anchor.json\"\n}\n",
+        "stderr_tail": "(node:52667) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
       },
       {
         "name": "clean-room shadow",
         "command": "node runner.mjs shadow --output <clean-room>/poc-output/shadow",
         "status": 0,
         "success": true,
-        "duration_ms": 43,
-        "stdout_tail": "{\n  \"mode\": \"shadow\",\n  \"outcome\": \"success\",\n  \"verified\": true,\n  \"event_count\": 10,\n  \"trace_verified\": true,\n  \"summary\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-NQFDZ1/poc-output/shadow/summary.json\",\n  \"trace\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-NQFDZ1/poc-output/shadow/trace.jsonl\"\n}\n",
-        "stderr_tail": "(node:30190) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+        "duration_ms": 42,
+        "stdout_tail": "{\n  \"mode\": \"shadow\",\n  \"outcome\": \"success\",\n  \"verified\": true,\n  \"event_count\": 10,\n  \"trace_verified\": true,\n  \"anchor_verified\": true,\n  \"summary\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/shadow/summary.json\",\n  \"trace\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/shadow/trace.jsonl\",\n  \"anchor\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/shadow/anchor.json\"\n}\n",
+        "stderr_tail": "(node:52668) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
       },
       {
         "name": "clean-room rollback",
         "command": "node runner.mjs rollback --output <clean-room>/poc-output/rollback",
         "status": 0,
         "success": true,
-        "duration_ms": 45,
-        "stdout_tail": "{\n  \"mode\": \"rollback\",\n  \"outcome\": \"rolled_back\",\n  \"verified\": true,\n  \"event_count\": 11,\n  \"trace_verified\": true,\n  \"summary\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-NQFDZ1/poc-output/rollback/summary.json\",\n  \"trace\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-NQFDZ1/poc-output/rollback/trace.jsonl\"\n}\n",
-        "stderr_tail": "(node:30200) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+        "duration_ms": 44,
+        "stdout_tail": "{\n  \"mode\": \"rollback\",\n  \"outcome\": \"rolled_back\",\n  \"verified\": true,\n  \"event_count\": 11,\n  \"trace_verified\": true,\n  \"anchor_verified\": true,\n  \"summary\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/rollback/summary.json\",\n  \"trace\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/rollback/trace.jsonl\",\n  \"anchor\": \"/var/folders/6j/5zn4k0rn3bbddx_y9rm_f6yh0000gn/T/ops-agent-poc-z39hBB/poc-output/rollback/anchor.json\"\n}\n",
+        "stderr_tail": "(node:52669) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
       }
     ],
     "summaries": {
@@ -99,10 +99,13 @@
         "synthetic": true,
         "production_ready": false,
         "trace_verified": true,
+        "anchor_verified": true,
+        "anchor_id": "anc_61adec748386f8ddb8db57d9",
         "write_side_effects": 4,
         "automatic_writes": true,
-        "summary_sha256": "da23b259ce7b00da361b2f3f565ebc940aec735ffd069e87fbd75b5a8dc41d88",
-        "trace_sha256": "c315e892247a2bb45fa52b1e789cb226b25e096bc98dad5576250f4b30a7bd8b"
+        "summary_sha256": "8135d7416d0cf4eaa653f0c73fa15ea563e717fd8e1ff3aab4a768366f532e0d",
+        "trace_sha256": "bf152592df7cb02aa19d8bad80b462a8e8c42dab7e0ad7016c787b84c85b494b",
+        "anchor_sha256": "5f870a7b026bd57524c86788cf11ba03ba52c3ea40ec4e0f345ec93bed733281"
       },
       "shadow": {
         "outcome": "success",
@@ -110,10 +113,13 @@
         "synthetic": true,
         "production_ready": false,
         "trace_verified": true,
+        "anchor_verified": true,
+        "anchor_id": "anc_830cb5715aae2160d63c404c",
         "write_side_effects": 0,
         "automatic_writes": true,
-        "summary_sha256": "3514e42001ebbe1f589488ddcd7d7abe21b55ef3423a6850bf38da939a75c7e0",
-        "trace_sha256": "c07188d50f7e7d5c818bd06e7630e137469aa3d02c873a436539dddaafea2883"
+        "summary_sha256": "514b404d7e7e53ed219ecf29fa605932e882acdda8638375a802766fa52dafb3",
+        "trace_sha256": "cd8d067515b1dae32ce510543d223705a32445fd9bff2fad2731035393e7ce14",
+        "anchor_sha256": "67323417f455a351791fe0ba994c95f23b50c8726f69e73f983513c6cc5fc5ea"
       },
       "rollback": {
         "outcome": "rolled_back",
@@ -121,10 +127,13 @@
         "synthetic": true,
         "production_ready": false,
         "trace_verified": true,
+        "anchor_verified": true,
+        "anchor_id": "anc_119b56055a38abbc11d32178",
         "write_side_effects": 1,
         "automatic_writes": false,
-        "summary_sha256": "4b2a94d32e73f7dc03a6238d3d302d6559e364ea819b4713d141237c2b4acf7b",
-        "trace_sha256": "0e40f20da41c235f04b03d8e143e19a0684a8775b6050bdf3738ed984bc68718"
+        "summary_sha256": "39a7edf261b7cc7fc228e6407b32ebf4afe46e2d13b7787bb5ac5b58a3f2fd33",
+        "trace_sha256": "5bc3789418ca976893120425e7e3c213f535d1f58f03a399d2e728b37da01a1e",
+        "anchor_sha256": "1164eb43cba418f477c21517b7c1dafdb3fce11cf569552c0c78df20ca92b8b1"
       }
     },
     "shadow_pass": true,
@@ -143,11 +152,11 @@
     },
     {
       "path": "examples/reference-agent/src/event-store.mjs",
-      "sha256": "7b2835a6dcb5063c9a225d132e97f63df049110532101939dcf657c7dd941ebf"
+      "sha256": "9ccc39669c49b7913cfcc635f4fe4b23cc42b5ea7627881773d063b70c03af82"
     },
     {
       "path": "examples/reference-agent/src/index.mjs",
-      "sha256": "db83123434a59791164daa97060cc9aac2b00f969522ec300471ccaafec7fccf"
+      "sha256": "c084cd9ba706d13b6287143c6c95ae12fdf07ea76d3e7502caa5f2e4c8875cbc"
     },
     {
       "path": "examples/reference-agent/src/policy-engine.mjs",
@@ -155,7 +164,7 @@
     },
     {
       "path": "examples/reference-agent/src/runtime.mjs",
-      "sha256": "3a971580e2886e7327981e7ca4cc7a0a76856f3769db79bba2690d9b541e18ed"
+      "sha256": "582cf79f387bac344453b852e817cef1f56ad94862bc7fa2af91497f2d85c68c"
     },
     {
       "path": "examples/reference-agent/src/shared.mjs",
@@ -167,11 +176,11 @@
     },
     {
       "path": "examples/reference-agent/runner.mjs",
-      "sha256": "82536f8870ee84c33457cde291215fd033774312fe33f59e875e204ee5d665b8"
+      "sha256": "98d5b5fb52d7e7fbef03918945ae3f22bd2a2fddfafabb43fb32e8b1bf1ef077"
     },
     {
       "path": "examples/reference-agent/test/reference-agent.test.mjs",
-      "sha256": "5a4a2d2d033da6466454f669a931c90ba02f1665809d4733c3b60dd6515a1d57"
+      "sha256": "9baf6c7986d28190fd0129978e69bd8ea969b862139443b1119f9cc1e78fd0d4"
     },
     {
       "path": "examples/reference-agent/package.json",
@@ -191,7 +200,11 @@
     },
     {
       "path": "schemas/agent-event.schema.json",
-      "sha256": "c81ed8f06f237918090a3a866ea3854d16425c2cc6d5a1f19a6eb7f526529813"
+      "sha256": "0874b18abd8086536e8129b76dc1a1cb6ee63761273223e735f91acca491fd34"
+    },
+    {
+      "path": "schemas/audit-anchor.schema.json",
+      "sha256": "a50d9fe5d1d1a876618d6b97fe800d548aeffba18a29401d898c680c1dd8fc22"
     },
     {
       "path": "schemas/runbook.schema.json",
@@ -265,7 +278,7 @@
       "label": "身份、策略与审计",
       "weight": 0.15,
       "score": 5,
-      "evidence": "POC-EVT-001/004；短时 HMAC、deny-first、撤销与 SHA-256 哈希链"
+      "evidence": "POC-EVT-001/004；短时 HMAC、deny-first、撤销、签名哈希链与独立外部锚点"
     },
     {
       "id": "deployment",
@@ -279,7 +292,7 @@
       "label": "评测与可观测",
       "weight": 0.1,
       "score": 4,
-      "evidence": "POC-EVT-002/003；400 synthetic、5 类负向控制、Trace 验链"
+      "evidence": "POC-EVT-002/003；400 synthetic、5 类负向控制、Trace 验签与锚点验证"
     },
     {
       "id": "tco",

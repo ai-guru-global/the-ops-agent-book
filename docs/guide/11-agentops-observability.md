@@ -36,9 +36,9 @@ flowchart LR
 
 没有这条链，复盘只能靠聊天记录；没有成本字段就无法按团队/场景核算；没有版本字段就无法定位“哪次 Prompt/模型/工具变更导致退化”。
 
-## Canonical Event Schema v1.0.0
+## Canonical Event Schema v1.1.0
 
-仓库已发布 Draft 2020-12 契约 `schemas/agent-event.schema.json`，契约 ID 为 `agent-event:1.0.0`。生产者必须在发布前通过 Schema 校验，消费者按 `schema_version` 路由；不兼容变更升主版本，新增可选字段升次版本。
+仓库已发布 Draft 2020-12 契约 `schemas/agent-event.schema.json`，契约 ID 为 `agent-event:1.1.0`。生产者必须在发布前通过 Schema 与签名校验，消费者按 `schema_version` 路由；不兼容变更升主版本，新增可选字段升次版本。v1.1.0 在哈希链之外增加 HMAC-SHA256 事件签名、可信时间信封和独立外部锚点，防止攻击者重写整条链后伪造“自洽”的 SHA-256。
 
 | 字段组 | 必填内容与规则 |
 | --- | --- |
@@ -58,7 +58,7 @@ flowchart LR
 
 ```json
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "event_id": "evt_tool_20261124_0007",
   "event_type": "tool.requested",
   "event_time": "2026-11-24T14:45:07Z",
@@ -131,8 +131,18 @@ flowchart LR
   },
   "integrity": {
     "hash_algorithm": "sha256",
-    "event_hash": "b8c61c5189fec78ca73c8156f84f36b7ddbe6ac328039a3431846c2f668afe26",
-    "prev_event_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    "prev_event_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "trusted_time": {
+      "source": "injected_trusted_clock",
+      "observed_at": "2026-11-24T14:45:07Z",
+      "max_skew_seconds": 300
+    },
+    "event_hash": "1e83d7eee9a3404cf71c558a4c868ecda004f8efe60b0241e43ee41a67e14dea",
+    "signature": {
+      "algorithm": "HMAC-SHA256",
+      "key_id": "synthetic-event-key-v1",
+      "value": "9f6e0fb2eb7ecf142bc4d2dff4cc02ea1b552ed5081d9a0e1336803d3886f220"
+    }
   }
 }
 ```
@@ -152,9 +162,9 @@ flowchart LR
 | Reasoning | 只记录简明决策摘要、候选假设、证据引用和置信度；**不记录隐藏思维链**。原始 Prompt/Completion 默认不存，必要时加密、限权并短期保留 |
 | 采样 | Run、Tool、Approval、Verification、Rollback、安全与写事件 100% 保留；高量模型调试 Span 可低比例采样，但采样决策必须入账，失败事件不得因采样消失 |
 | 保留 | 普通运行遥测默认 30 天，写/审批/回滚审计默认 1 年；租户策略、法律 hold 和删除优先级另行登记。删除生成 tombstone，不静默改历史 |
-| 审计完整性 | 按 `tenant_id+run_id+sequence` 建立哈希链；事件入 WORM/追加存储，每日验链并告警缺口、重放和时钟漂移 |
+| 审计完整性 | 按 `tenant_id+run_id+sequence` 建立哈希链；事件入 WORM/追加存储，每日验签/验链；独立锚点服务对 `head_hash + event_count + anchored_at` 再签名并保存上一锚点哈希，告警缺口、重放、时钟漂移、未知密钥与锚点断裂 |
 
-哈希算法固定为：UTF-8、JSON 键排序、无额外空白、`ensure_ascii=false`；从事件对象移除 `event_hash` 后序列化，再计算 SHA-256。`prev_event_hash` 指向同一链前一事件，首个事件为 null。上例的哈希可按此规则重算。
+哈希算法固定为：UTF-8、JSON 键排序、无额外空白、`ensure_ascii=false`。计算 `event_hash` 时移除 `event_hash` 与 `signature`；计算 HMAC-SHA256 `signature` 时只移除 `signature`，因此签名绑定事件哈希、可信时间和全部业务字段。`prev_event_hash` 指向同一链前一事件，首个事件为 null。`trusted_time` 必须等于事件时间并声明可信时钟来源与最大允许偏差；生产实现应使用 KMS/HSM 或 RFC 3161 可信时间，不得信任 Agent 自带时钟。外部 `audit-anchor` 使用独立密钥，对链头、事件数、锚定时间和上一锚点哈希签名；验证时必须同时通过事件签名、链哈希和外部锚点，缺一即拒绝。密钥按 `key_id` 轮换、撤销与权限隔离，签名密钥不得进入 Prompt/日志。
 
 ## OpenTelemetry GenAI 语义约定
 
@@ -231,7 +241,7 @@ Agent 的变更面包括模型、Prompt、工具、知识、策略、事件 Sche
 | `src/policy-engine.mjs` | 按身份 → 显式 deny → 凭证/撤销 → 工具 allowlist → 角色/环境/资源 → 窗口/冻结/影响面 → 审批绑定 → 前置条件 → 写前复验顺序决策 | 自行批准计划或绕过工具网关 |
 | `src/approval-service.mjs` | 冻结不可变计划、计算 `plan_hash`、签署、撤销与 `approval_binding` 校验 | 执行工具或替代 PEP 的每次调用检查 |
 | `src/tool-gateway.mjs` | synthetic 工具、挂载表、dry-run、幂等、写前复验、Canary 范围、部分成功 halt、kill switch、LKG 捕获/恢复 | 直接信任 Agent 传入的 allow 结论 |
-| `src/event-store.mjs` | Canonical Event v1.0.0、sequence、因果引用、哈希链、JSONL 导出与验链 | 把日志当成审批或业务验证 |
+| `src/event-store.mjs` | Canonical Event v1.1.0、sequence、因果引用、哈希链、HMAC 验签、可信时间、外部锚点、JSONL 导出与验链 | 把日志当成审批或业务验证 |
 | `src/runtime.mjs` | 组装模块，运行 Demo/Shadow/Canary/Rollback，输出 summary 与 Trace | 绕过 PEP、审批或独立验证 |
 
 运行时只负责编排；每次工具调用仍经过凭证与 PEP 检查。计划或目标资源版本变化会使旧审批失效；Shadow 只挂载读工具，Canary 拒绝非目标节点；部分成功会锁住后续步骤，直到按新计划重新审批并显式恢复；kill switch 关闭自动写入口后仍允许只读诊断。
@@ -268,28 +278,32 @@ NODE
 | Canary | `write_calls_executed=1`，仅 synthetic 目标节点；其他节点拒绝，PDB 保持满足 |
 | Rollback | kill switch 已启用、Operator 凭证已撤销、后续写被拒绝、LKG 恢复且只读诊断仍可用 |
 
-### Trace 与哈希链验证
+### Trace 签名、哈希链与外部锚点验证
 
-每个目录都包含 `summary.json` 与 `trace.jsonl`。`verifyJsonl` 检查 Canonical Event 字段、事件类型、sequence 连续、`prev_event_hash` 衔接、当前事件哈希，以及父/触发引用必须指向已有事件；验链失败会抛错，不能静默通过。
+每个目录都包含 `summary.json`、`trace.jsonl` 与独立 `anchor.json`。`verifyJsonl` 检查 Canonical Event 字段、事件类型、sequence 连续、`prev_event_hash` 衔接、当前事件哈希、HMAC 签名、可信时间，以及父/触发引用必须指向已有事件；`verifyAnchor` 再验证外部锚点的独立签名、链头、事件数和锚定时间。任一步失败都会抛错，不能静默通过。
 
 ```bash
 node --input-type=module <<'NODE'
 import { readFileSync } from 'node:fs';
-import { verifyJsonl } from './examples/reference-agent/src/event-store.mjs';
+import { verifyJsonl, verifyAnchor } from './examples/reference-agent/src/event-store.mjs';
 
 for (const mode of ['demo', 'shadow', 'canary', 'rollback']) {
   const base = `/tmp/ops-agent-book/${mode}`;
   const summary = JSON.parse(readFileSync(`${base}/summary.json`, 'utf8'));
+  const anchor = JSON.parse(readFileSync(`${base}/anchor.json`, 'utf8'));
+  const events = readFileSync(`${base}/trace.jsonl`, 'utf8')
+    .trim().split('\n').map((line) => JSON.parse(line));
   const verified = verifyJsonl(`${base}/trace.jsonl`);
-  console.log(mode, summary.outcome, verified);
-  if (!summary.synthetic || summary.production_ready || !verified.valid) process.exitCode = 1;
+  const anchored = verifyAnchor(events, anchor);
+  console.log(mode, summary.outcome, verified, anchored);
+  if (!summary.synthetic || summary.production_ready || !verified.valid || !anchored.valid) process.exitCode = 1;
 }
 const shadow = JSON.parse(readFileSync('/tmp/ops-agent-book/shadow/summary.json', 'utf8'));
 if (shadow.counts.write_side_effects !== 0) throw new Error('Shadow produced a write side effect');
 NODE
 ```
 
-负向验链示例：修改任一事件 payload 而不重算哈希，必须得到 `HASH_MISMATCH`。
+负向验链示例：修改任一事件 payload 而不重算哈希，必须得到 `HASH_MISMATCH`；即使重算整条哈希链，没有事件签名密钥也必须得到 `SIGNATURE_INVALID`。外部锚点被改写后，`verifyAnchor` 同样必须拒绝。
 
 ```bash
 node --input-type=module <<'NODE'
@@ -309,7 +323,7 @@ try {
 NODE
 ```
 
-事件哈希的规范与本章前文一致：UTF-8、JSON 键排序、无额外空白、`ensure_ascii=false`，移除 `event_hash` 后计算 SHA-256。示例验证的是本地 synthetic 链路；生产还必须按 `tenant_id + run_id + sequence` 隔离验链，并检查重放、时钟漂移、归档权限与保留期限。
+事件哈希的规范与本章前文一致：UTF-8、JSON 键排序、无额外空白、`ensure_ascii=false`，移除 `event_hash` 与 `signature` 后计算 SHA-256。示例验证的是本地 synthetic 链路；生产还必须按 `tenant_id + run_id + sequence` 隔离验链，并检查重放、时钟漂移、密钥撤销、归档权限、外部锚点连续性与保留期限。
 
 ## 反模式
 
@@ -326,7 +340,8 @@ NODE
 - [ ] 父子因果、工具契约版本和幂等键是否完整？
 - [ ] 高风险/写操作是否审批，拒绝/超时是否终止执行？
 - [ ] 脱敏、Reasoning 隐私、采样和保留策略是否可审计？
-- [ ] 哈希链是否可重算、验链并发现缺口？
+- [ ] 哈希链是否可重算、验签并发现缺口？
+- [ ] 可信时间、密钥轮换/撤销与独立外部锚点是否验证通过？
 - [ ] 是否运行 synthetic 四场景，验证 Shadow 零写、Canary 单点、kill switch 与 LKG，并明确其非生产边界？
 - [ ] 飞轮是否包含拒绝、部署、观察、回滚和重测分支？
 - [ ] 是否每次变更都回归、灰度、观察且可回滚？

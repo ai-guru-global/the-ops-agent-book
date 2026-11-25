@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import { createHash } from "node:crypto";
+import { createHash, createHmac, timingSafeEqual } from "node:crypto";
 import { isDeepStrictEqual } from "node:util";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
@@ -11,6 +11,7 @@ import { loadInputs, validateCases, validateManifest } from "./run-evals.mjs";
 import { loadPool, status as judgeStatus } from "./annotate-judge.mjs";
 import { generateGateRegistry } from "./generate-gate-registry.mjs";
 import { generateReferences } from "./generate-references.mjs";
+import { DEFAULT_EVENT_SIGNING_KEY, verifyAnchor, verifyTrace } from "../examples/reference-agent/src/event-store.mjs";
 
 const root = process.cwd();
 const errors = [];
@@ -82,6 +83,7 @@ const trace = readJson("examples/traces/notready-trace.json");
 validate("examples/traces/notready-trace.json", "agent-event.schema.json", trace);
 const traceForHash = structuredClone(trace);
 delete traceForHash.integrity.event_hash;
+delete traceForHash.integrity.signature;
 function canonical(value) {
   if (Array.isArray(value)) return value.map(canonical);
   if (value && typeof value === "object") {
@@ -93,6 +95,12 @@ const traceHash = createHash("sha256")
   .update(JSON.stringify(canonical(traceForHash)))
   .digest("hex");
 if (traceHash !== trace.integrity.event_hash) errors.push("agent trace event_hash mismatch");
+const signatureBound = canonical(trace);
+delete signatureBound.integrity.signature;
+const expectedSignature = createHmac("sha256", DEFAULT_EVENT_SIGNING_KEY).update(JSON.stringify(signatureBound)).digest("hex");
+if (!/^[a-f0-9]{64}$/.test(trace.integrity.signature?.value || "")) errors.push("agent trace HMAC signature is missing or malformed");
+else if (!timingSafeEqual(Buffer.from(trace.integrity.signature.value, "hex"), Buffer.from(expectedSignature, "hex"))) errors.push("agent trace HMAC signature mismatch");
+if (trace.integrity.trusted_time?.observed_at !== trace.event_time) errors.push("agent trace trusted_time does not match event_time");
 
 for (const mode of ["demo", "shadow", "canary", "rollback"]) {
   const dir = `examples/reference-agent/sample-output/${mode}`;
@@ -105,11 +113,22 @@ for (const mode of ["demo", "shadow", "canary", "rollback"]) {
     if (event.integrity.prev_event_hash !== previousHash) errors.push(`${dir}: prev hash mismatch at ${index}`);
     const withoutHash = canonical(event);
     delete withoutHash.integrity.event_hash;
+    delete withoutHash.integrity.signature;
     const hash = createHash("sha256").update(JSON.stringify(withoutHash)).digest("hex");
     if (hash !== event.integrity.event_hash) errors.push(`${dir}: event hash mismatch at ${index}`);
     previousHash = event.integrity.event_hash;
   }
+  const anchor = readJson(`${dir}/anchor.json`);
+  validate(`${dir}/anchor.json`, "audit-anchor.schema.json", anchor);
+  try {
+    const verified = verifyTrace(events);
+    const anchored = verifyAnchor(events, anchor);
+    if (!verified.valid || !anchored.valid) errors.push(`${dir}: trace or anchor verification returned invalid`);
+  } catch (error) {
+    errors.push(`${dir}: signed trace/anchor verification failed: ${error.message}`);
+  }
   if (!summary.trace?.verified || summary.trace.event_count !== events.length) errors.push(`${dir}: summary trace mismatch`);
+  if (summary.trace?.anchor_id !== anchor.anchor_id || summary.trace?.head_hash !== anchor.head_hash) errors.push(`${dir}: summary anchor metadata mismatch`);
   if (mode === "shadow" && summary.counts.write_side_effects !== 0) errors.push("shadow produced write side effects");
   if (mode === "canary" && summary.counts.write_side_effects !== 1) errors.push("canary did not limit writes to one synthetic node");
   if (mode === "rollback" && summary.final_state.automatic_writes !== false) errors.push("rollback did not restore read-only state");

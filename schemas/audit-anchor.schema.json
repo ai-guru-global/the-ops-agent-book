@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-ops-agent-book:audit-anchor:1.0.0",
+  "title": "Signed external audit anchor",
+  "description": "Independent signed commitment to a canonical Agent Event chain head, stored outside the append-only trace.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "anchor_id", "chain_id", "event_count", "head_hash", "anchored_at", "previous_anchor_hash", "signature", "store"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "anchor_id": {"type": "string", "pattern": "^anc_[A-Za-z0-9_-]+$"},
+    "chain_id": {"type": "string", "minLength": 1},
+    "event_count": {"type": "integer", "minimum": 1},
+    "head_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "anchored_at": {"type": "string", "format": "date-time"},
+    "previous_anchor_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "key_id", "value"],
+      "properties": {
+        "algorithm": {"const": "HMAC-SHA256"},
+        "key_id": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "store": {"type": "string", "minLength": 1}
+  }
+}

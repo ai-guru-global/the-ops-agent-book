@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "anchor_id": "anc_830cb5715aae2160d63c404c",
+  "chain_id": "tr_shadow_synthetic",
+  "event_count": 10,
+  "head_hash": "76676e10b192cc00566617b0280550fce8a9ccb0f89518708731103814e7693b",
+  "anchored_at": "2026-11-24T00:00:07.000Z",
+  "previous_anchor_hash": null,
+  "signature": {
+    "algorithm": "HMAC-SHA256",
+    "key_id": "synthetic-anchor-key-v1",
+    "value": "88001a1f27a4494e023a9a2cb00116e4e290e676a975e5f67b0b4fffba435e49"
+  },
+  "store": "synthetic-local-worm"
+}

@@ -22,9 +22,9 @@
 | 数据面 | 20% | 2 | 8.0 | POC-EVT-003；仅内存 K8s 与本地 fixture，无真实连接器 |
 | 调查深度 | 15% | 3 | 9.0 | POC-EVT-002；NotReady 证据链可复跑，但多数 case 为 oracle-seeded |
 | 行动边界 | 20% | 5 | 20.0 | POC-EVT-001/004/006；PEP、双人审批、dry-run、幂等、部分成功闩锁、kill switch |
-| 身份、策略与审计 | 15% | 5 | 15.0 | POC-EVT-001/004；短时 HMAC、deny-first、撤销与 SHA-256 哈希链 |
+| 身份、策略与审计 | 15% | 5 | 15.0 | POC-EVT-001/004；短时 HMAC、deny-first、撤销、签名哈希链与独立外部锚点 |
 | 部署与集成 | 10% | 4 | 8.0 | POC-EVT-004；干净目录导入并运行，非生产平台 |
-| 评测与可观测 | 10% | 4 | 8.0 | POC-EVT-002/003；400 synthetic、5 类负向控制、Trace 验链 |
+| 评测与可观测 | 10% | 4 | 8.0 | POC-EVT-002/003；400 synthetic、5 类负向控制、Trace 验签与锚点验证 |
 | TCO 与交付 | 5% | 1 | 1.0 | 无真实账单/工作量/合同；外部调用为 0 不代表真实 TCO |
 | 可移植性与退出 | 5% | 4 | 4.0 | POC-EVT-004/007；制品哈希、干净目录导入、Shadow/rollback、临时目录删除 |
 | **合计** | **100%** | | **73.0 / 100** | 低于 80 分晋级线 |
@@ -33,13 +33,13 @@
 
 | 测试 | 结果 | 耗时 | 命令 |
 | --- | --- | ---: | --- |
-| reference-agent tests | PASS | 300 ms | `npm run test:reference` |
-| 400-case eval self-test | PASS | 1468 ms | `npm run eval:self-test` |
-| asset and snapshot validation | PASS | 956 ms | `npm run validate:assets` |
-| clean-room 400-case self-test | PASS | 1355 ms | `node scripts/run-evals.mjs --self-test` |
+| reference-agent tests | PASS | 299 ms | `npm run test:reference` |
+| 400-case eval self-test | PASS | 1401 ms | `npm run eval:self-test` |
+| asset and snapshot validation | PASS | 691 ms | `npm run validate:assets` |
+| clean-room 400-case self-test | PASS | 1303 ms | `node scripts/run-evals.mjs --self-test` |
 | clean-room demo | PASS | 50 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
-| clean-room shadow | PASS | 43 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
-| clean-room rollback | PASS | 45 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
+| clean-room shadow | PASS | 42 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
+| clean-room rollback | PASS | 44 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
 
 - 干净目录导入后重新运行 400-case self-test、demo、shadow 与 rollback。
 - Shadow 写副作用 = 0；rollback 后 `automatic_writes=false`。
@@ -75,19 +75,20 @@
 | --- | --- |
 | `examples/reference-agent/src/approval-service.mjs` | `1f98be955e2f19cbbead6a5f82538e0807de2f26e0a83631ae305159107c57f0` |
 | `examples/reference-agent/src/credential-service.mjs` | `675d34847e67e148fcafb0ac3e047d128fc8240c02c42f50867e3e9fa41c4ef2` |
-| `examples/reference-agent/src/event-store.mjs` | `7b2835a6dcb5063c9a225d132e97f63df049110532101939dcf657c7dd941ebf` |
-| `examples/reference-agent/src/index.mjs` | `db83123434a59791164daa97060cc9aac2b00f969522ec300471ccaafec7fccf` |
+| `examples/reference-agent/src/event-store.mjs` | `9ccc39669c49b7913cfcc635f4fe4b23cc42b5ea7627881773d063b70c03af82` |
+| `examples/reference-agent/src/index.mjs` | `c084cd9ba706d13b6287143c6c95ae12fdf07ea76d3e7502caa5f2e4c8875cbc` |
 | `examples/reference-agent/src/policy-engine.mjs` | `ffd3366df101f63a820d89a280976bbec4e916c0c24322146c84ddc8d19a8176` |
-| `examples/reference-agent/src/runtime.mjs` | `3a971580e2886e7327981e7ca4cc7a0a76856f3769db79bba2690d9b541e18ed` |
+| `examples/reference-agent/src/runtime.mjs` | `582cf79f387bac344453b852e817cef1f56ad94862bc7fa2af91497f2d85c68c` |
 | `examples/reference-agent/src/shared.mjs` | `98bf2ddc8070accedf801b7a0a770d7326a6487bf626c96b6e7b441554fbe2eb` |
 | `examples/reference-agent/src/tool-gateway.mjs` | `9b19c56a5644ad42aa914904c33df1438f69026f289405e533cbd469eb145fb6` |
-| `examples/reference-agent/runner.mjs` | `82536f8870ee84c33457cde291215fd033774312fe33f59e875e204ee5d665b8` |
-| `examples/reference-agent/test/reference-agent.test.mjs` | `5a4a2d2d033da6466454f669a931c90ba02f1665809d4733c3b60dd6515a1d57` |
+| `examples/reference-agent/runner.mjs` | `98d5b5fb52d7e7fbef03918945ae3f22bd2a2fddfafabb43fb32e8b1bf1ef077` |
+| `examples/reference-agent/test/reference-agent.test.mjs` | `9baf6c7986d28190fd0129978e69bd8ea969b862139443b1119f9cc1e78fd0d4` |
 | `examples/reference-agent/package.json` | `00d0743077e0f97d6d69b909a1fa9655324eee366122356f00b9f8594fb21853` |
 | `examples/cases/notready/permission-policy.notready.json` | `09ce1f42e78526b8b3e53a1d3a634ad3be1ff7a900d885c47398b66bb30f1670` |
 | `schemas/tool-contract.schema.json` | `b83d4d6c1106950a964f6a2b72ef83f80685ef7eedeb1205214e24375d6e2d6d` |
 | `schemas/permission-policy.schema.json` | `715d2718b71630b7fa52dacbe6d5366f814a864b77b1e3de3e2b4e9db4e69a98` |
-| `schemas/agent-event.schema.json` | `c81ed8f06f237918090a3a866ea3854d16425c2cc6d5a1f19a6eb7f526529813` |
+| `schemas/agent-event.schema.json` | `0874b18abd8086536e8129b76dc1a1cb6ee63761273223e735f91acca491fd34` |
+| `schemas/audit-anchor.schema.json` | `a50d9fe5d1d1a876618d6b97fe800d548aeffba18a29401d898c680c1dd8fc22` |
 | `schemas/runbook.schema.json` | `00682b536304f4a92761f9dd27b6b6081bd57517400ac95f7549c85fad085a1e` |
 | `evals/manifest.yaml` | `bdba669e42c906c585ba4ff68fd195d4d66061392a78a69ca349e1ba7207b91f` |
 | `evals/judge-calibration.yaml` | `5bfbcd30fcb46b3a52ac0d4c975ed8eb87b183d5a9443d2f463003ebc2dd550d` |

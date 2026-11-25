@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:the-ops-agent-book:agent-event:1.0.0",
+  "$id": "urn:the-ops-agent-book:agent-event:1.1.0",
   "title": "Canonical Agent Event",
-  "description": "Version 1.0.0 audit envelope for Session, Run, Model, Reasoning, Tool, Approval, Verification and Rollback events.",
+  "description": "Version 1.1.0 signed audit envelope for Session, Run, Model, Reasoning, Tool, Approval, Verification and Rollback events.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -27,7 +27,7 @@
     "integrity"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {"const": "1.1.0"},
     "event_id": {"type": "string", "pattern": "^evt_[A-Za-z0-9_-]+$"},
     "event_type": {
       "type": "string",
@@ -132,11 +132,13 @@
     "integrity": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["hash_algorithm", "event_hash", "prev_event_hash"],
+      "required": ["hash_algorithm", "event_hash", "prev_event_hash", "signature", "trusted_time"],
       "properties": {
         "hash_algorithm": {"const": "sha256"},
         "event_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-        "prev_event_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}
+        "prev_event_hash": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+        "signature": {"$ref": "#/$defs/eventSignature"},
+        "trusted_time": {"$ref": "#/$defs/trustedTime"}
       }
     }
   },
@@ -175,6 +177,26 @@
     }
   ],
   "$defs": {
+    "eventSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "key_id", "value"],
+      "properties": {
+        "algorithm": {"const": "HMAC-SHA256"},
+        "key_id": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "trustedTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "observed_at", "max_skew_seconds"],
+      "properties": {
+        "source": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "max_skew_seconds": {"type": "integer", "minimum": 0, "maximum": 300}
+      }
+    },
     "runStarted": {
       "type": "object",
       "additionalProperties": false,

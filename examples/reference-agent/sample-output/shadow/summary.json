@@ -163,8 +163,9 @@
   },
   "trace": {
     "event_count": 10,
-    "head_hash": "e6cf547d1abb577ff52f38a1f9a1dffbd4a54b60903e9887b82570741b87b1f8",
-    "verified": true
+    "head_hash": "76676e10b192cc00566617b0280550fce8a9ccb0f89518708731103814e7693b",
+    "verified": true,
+    "anchor_id": "anc_830cb5715aae2160d63c404c"
   },
   "cost": {
     "model_cost_usd": 0,
