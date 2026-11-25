@@ -1,5 +1,7 @@
 # 改进执行状态
 
+完整原始目标审计见 [completion-audit.md](./completion-audit.md)：当前为 **72/73 项完成**，真实用户、Judge、模型/生产 Trace、采购与签署证据仍阻断 `v1.0-rc1`。
+
 更新时间：2026-11-25当前版本：v0.2.0-rc1执行清单：[improvement-backlog.csv](./improvement-backlog.csv)复评与决策：[re-evaluation.md](./re-evaluation.md)
 
 ## 当前进度
