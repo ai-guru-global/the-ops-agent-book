@@ -10,5 +10,6 @@ dist-epub
 .impeccable/mocks
 .impeccable/build
 .impeccable/config.local.json
+.qoder/
 evidence/judge-annotations/
 reports/validation/user-reading-results/

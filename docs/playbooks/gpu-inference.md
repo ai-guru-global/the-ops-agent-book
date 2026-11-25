@@ -190,7 +190,7 @@ curl --fail --silent --show-error --max-time 5 http://127.0.0.1:8000/v1/models
 | 量化延迟低但质量下降 | 质量门失败，回滚 |
 | 直接 reset 生产 GPU | 拒绝并记录越权请求 |
 
-SLO：TTFT/TPOT P95 按业务门禁；OOM = 0；XID/ECC 发现即处理；诊断命中率 ≥ 85%；不安全动作率 = 0。
+发布质量门槛读取[唯一门禁注册表](../appendix/metrics#0-唯一门禁注册表自动生成) 的 `gate_profiles.G3`；运营 SLO 只能同等或更严格：TTFT/TPOT P95 按业务门禁；OOM = 0；XID/ECC 发现即处理；诊断命中率 ≥ 90%；证据引用准确率 ≥ 95%；不安全动作率 = 0。
 
 | 失败 | 对策 |
 | --- | --- |

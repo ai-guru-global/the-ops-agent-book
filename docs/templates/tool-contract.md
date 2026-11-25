@@ -85,20 +85,26 @@ sequenceDiagram
 - 示例：[`examples/cases/notready/tool-contract.drain.json`](../../examples/cases/notready/tool-contract.drain.json)（synthetic / 脱敏）。
 - 每个契约都有 `name`、语义化 `version` 与 `owner`。版本变更必须评测；破坏性变更升主版本并迁移调用方。
 - `reversible: false` 不等于“不做”，而是必须提供补偿或人工恢复、安全条件与停止条件。`uncordon` 不能标记为 drain 的完整回滚。
+- 契约不是授权本身。工具网关必须通过 PEP 执行 deny-first 策略；所有写调用先取得与不可变计划、目标版本和有效期绑定的审批，再在写入口重新校验。计划变化、目标漂移、审批过期或撤销都必须拒绝。
+- 本文所有 YAML 代码块都是 synthetic、可独立复制的完整契约，包含 `$schema`；`npm run validate:assets` 会提取这些代码块，使用 Ajv Draft 2020-12 正向校验，并运行恢复约束的负向对照。
 
 ## 完整模板
 
+下面是通用写工具的 synthetic 起点。复制后必须替换为真实的工具名、Owner、范围和经过验证的恢复工具；注册前由工具实现方完成契约测试。
+
 ```yaml
-name: <namespace.tool_name>
+$schema: "https://json-schema.org/draft/2020-12/schema"
+data_classification: synthetic/desensitized
+name: k8s.set_deployment_env
 version: 1.0.0
 owner:
-  team: <owning-team>
-  contact: <oncall-contact>          # synthetic/脱敏示例使用 example.invalid
-  runbook: <runbook-url>
-description: <一句话说明工具做什么、什么时候用、什么时候不要用>
+  team: synthetic-platform-runtime
+  contact: platform-oncall@example.invalid
+  runbook: https://runbook.example.invalid/synthetic/set-deployment-env
+description: 在已审批的变更窗口内更新单个 Deployment 环境变量，并通过健康检查验证结果。
 
 # 能力与副作用
-side_effects: false                  # 是否改变系统状态
+side_effects: true                   # 是否改变系统状态
 idempotent: true                     # 相同 key + 相同参数是否返回相同结果
 dry_run: true
 reversible: true                     # 是否存在可验证的完整逆向操作
@@ -191,14 +197,17 @@ preconditions:
   - dependency_healthy
   - pdb_check_passed
 
-# 完整回滚与补偿分开：不可逆动作不得伪造 rollback
-rollback: null
+# 完整回滚与补偿分开：reversible: true 必须提供可验证 rollback
+rollback:
+  tool: k8s.restore_deployment_env
+  window_minutes: 15
+  verification: k8s.verify_deployment_ready
 recovery:
-  mode: manual                      # none / rollback / compensate / manual
-  steps: [<namespace.verify_tool>]
+  mode: rollback                    # none / rollback / compensate / manual
+  steps: [k8s.restore_deployment_env, k8s.verify_deployment_ready]
   safe_conditions: [target_version_unchanged, approval_valid]
   stop_conditions: [dependency_unhealthy, slo_regression]
-  notes: <说明可逆边界、不可撤销的副作用与升级条件>
+  notes: 仅恢复本次调用写入的环境变量；目标版本漂移时停止并对账，不得覆盖其他变更。
 
 # 安全
 security:
@@ -223,12 +232,15 @@ observability:
 ## 一个例子：K8s 重启 Deployment
 
 ```yaml
+$schema: "https://json-schema.org/draft/2020-12/schema"
+data_classification: synthetic/desensitized
 name: k8s.restart_deployment
 version: 1.2.0
 owner:
   team: platform-runtime
   contact: platform-oncall@example.invalid  # synthetic / 脱敏
-description: 在指定 namespace 内触发 Deployment 滚动重启；不删除资源。
+  runbook: https://runbook.example.invalid/synthetic/restart-deployment
+description: 在指定 namespace 内触发 Deployment 滚动重启；不删除资源，仅回滚本次生成的 revision。
 side_effects: true
 idempotent: true
 dry_run: true
@@ -245,16 +257,17 @@ permissions:
 input_schema:
   type: object
   additionalProperties: false
-  required: [cluster, namespace, name, reason, idempotency_key, expected_generation]
+  required: [cluster, namespace, name, reason, idempotency_key, expected_resource_version]
   properties:
-    cluster: { type: string }
-    namespace: { type: string }
-    name: { type: string }
-    reason: { type: string }
-    idempotency_key: { type: string }
-    expected_generation: { type: integer, minimum: 1 }
+    cluster: { type: string, minLength: 1 }
+    namespace: { type: string, minLength: 1 }
+    name: { type: string, minLength: 1 }
+    reason: { type: string, minLength: 1 }
+    idempotency_key: { type: string, minLength: 8 }
+    expected_resource_version: { type: string, minLength: 1 }
 output_schema:
   type: object
+  additionalProperties: false
   required: [status, partial_success, steps, error]
   properties:
     status: { type: string, enum: [succeeded, failed, unknown] }
@@ -267,10 +280,13 @@ output_schema:
 execution:
   timeout_seconds: 300
   rate_limit: "10/min"
+  concurrency_limit: 1
   retry:
     max_attempts: 2
     backoff: exponential
     retry_on: [transient, throttled]
+    respect_retry_after: true
+    jitter: true
   idempotency:
     required: true
     key_source: run_id+plan_version+step_id+target_resource_version
@@ -280,7 +296,8 @@ execution:
     unknown_default: stop_and_reconcile
     classes:
       - { code: transient, category: transient, retryable: true, outcome_known: true, meaning: 可恢复错误, agent_action: backoff_then_retry }
-      - { code: conflict, category: conflict, retryable: false, outcome_known: true, meaning: generation 变化, agent_action: reconcile_and_replan }
+      - { code: conflict, category: conflict, retryable: false, outcome_known: true, meaning: 资源版本变化, agent_action: reconcile_and_replan }
+      - { code: unknown_outcome, category: unknown_outcome, retryable: false, outcome_known: false, meaning: 请求结果未知, agent_action: reconcile_then_escalate }
 approval_binding:
   required: true
   fields: [plan_version, plan_hash, target_resource_versions, expires_at]
@@ -290,6 +307,11 @@ approval_binding:
   expires_at_required: true
   revalidate_before_execute: true
   invalidate_on_plan_change: true
+preconditions:
+  - deployment_exists
+  - replicas_available
+  - pdb_check_passed
+  - no_active_incident_in_scope
 rollback:
   tool: k8s.rollout_undo
   window_minutes: 15
@@ -297,12 +319,22 @@ rollback:
 recovery:
   mode: rollback
   steps: [k8s.rollout_undo, k8s.get_rollout_status]
-  safe_conditions: [target_generation_unchanged, approval_valid]
-  stop_conditions: [rollback_failed, slo_regression]
+  safe_conditions: [target_resource_version_unchanged, approval_valid]
+  stop_conditions: [rollback_failed, resource_version_changed, slo_regression]
+  notes: 写前记录上一 revision；rollout undo 只恢复本次调用产生的 revision，不回滚其他变更。
+security:
+  credentials: short_lived
+  secret_handling: never_log
+  input_validation: strict
+  injection_protection: true
 audit:
-  fields: [caller, agent_run_id, approval_id, plan_hash, idempotency_key, outcome]
+  fields: [caller, on_behalf_of, agent_run_id, approval_id, plan_version, plan_hash, target_resource_version, idempotency_key, outcome]
   retention_days: 365
   immutable: true
+observability:
+  trace: true
+  metrics: [latency, error_rate, calls, partial_success, rollout_duration]
+  log_fields: [input_hash, output_hash, approval_id, previous_revision, new_revision]
 ```
 
 ## 贯穿案例：K8s 节点 drain
@@ -310,12 +342,15 @@ audit:
 以[附录案例](../appendix/case-notready)中的 NotReady 节点为例。drain **不是完全可逆动作**；`uncordon` 只解除节点不可调度约束，不能撤销 Pod 迁移或恢复已清理日志。
 
 ```yaml
+$schema: "https://json-schema.org/draft/2020-12/schema"
+data_classification: synthetic/desensitized
 name: k8s.drain_node
 version: 1.1.0
 owner:
   team: platform-runtime
   contact: platform-oncall@example.invalid  # synthetic / 脱敏
-description: PDB 通过后 cordon 并 drain 单节点；不强制忽略 PDB，不删除 Pod。
+  runbook: https://runbook.example.invalid/synthetic/drain-node
+description: PDB 通过后 cordon 并 drain 单节点；不强制忽略 PDB，不删除 Pod，Pod 迁移不可自动撤销。
 side_effects: true
 idempotent: true
 dry_run: true
@@ -335,14 +370,15 @@ input_schema:
   additionalProperties: false
   required: [cluster, node, reason, idempotency_key, expected_resource_version]
   properties:
-    cluster: { type: string }
-    node: { type: string }
-    reason: { type: string }
-    idempotency_key: { type: string }
-    expected_resource_version: { type: string }
+    cluster: { type: string, minLength: 1 }
+    node: { type: string, minLength: 1 }
+    reason: { type: string, minLength: 1 }
+    idempotency_key: { type: string, minLength: 8 }
+    expected_resource_version: { type: string, minLength: 1 }
     ignore_daemonsets: { type: boolean, default: true }
 output_schema:
   type: object
+  additionalProperties: false
   required: [status, partial_success, steps, error]
   properties:
     status: { type: string, enum: [succeeded, failed, unknown] }
@@ -360,6 +396,8 @@ execution:
     max_attempts: 1
     backoff: none
     retry_on: []
+    respect_retry_after: true
+    jitter: false
   idempotency:
     required: true
     key_source: run_id+plan_version+step_id+target_resource_version
@@ -391,10 +429,19 @@ recovery:
   safe_conditions: [node_ready, capacity_available, pdb_satisfied, approval_valid]
   stop_conditions: [pdb_violation, capacity_below_threshold, approval_revoked, slo_regression]
   notes: uncordon 不是完整回滚；Pod 迁移由控制器重建，禁止删除新 Pod 还原。
+security:
+  credentials: short_lived
+  secret_handling: never_log
+  input_validation: strict
+  injection_protection: true
 audit:
-  fields: [caller, agent_run_id, approval_id, plan_version, plan_hash, target_resource_version, idempotency_key, outcome]
+  fields: [caller, on_behalf_of, agent_run_id, approval_id, plan_version, plan_hash, target_resource_version, idempotency_key, outcome]
   retention_days: 365
   immutable: true
+observability:
+  trace: true
+  metrics: [latency, error_rate, calls, partial_success, evicted_pods, pdb_violations]
+  log_fields: [input_hash, output_hash, approval_id, target_resource_version]
 ```
 
 没有 PDB 前置检查、审批绑定或安全恢复条件时，不应注册这个工具。机器可读版本见 [drain JSON 示例](../../examples/cases/notready/tool-contract.drain.json)。

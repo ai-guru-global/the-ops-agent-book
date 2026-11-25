@@ -170,6 +170,7 @@ stateDiagram-v2
 # SYNTHETIC / 脱敏：所有名称、ID、数值均为构造，不得作为真实事故证据。
 incident: INC-SYNTHETIC-001
 severity: SEV-2
+data_classification: synthetic/desensitized
 incident_version: 7
 started_at: "2026-11-24T10:12:00Z"
 evidence:
@@ -192,9 +193,17 @@ evidence:
 tasks:
   - task_id: T-SYN-001
     owner: diag-k8s
+    backup_owner: diag-k8s-backup
     status: in_progress
+    question: "NotReady 是否由节点磁盘压力触发，是否有 PDB 阻止安全 drain？"
+    scope: {service: payments-api, cluster: kind-ops-test, namespace: ops-test, time_range: "2026-11-24T10:10:00Z/2026-11-24T10:15:00Z"}
+    allowed_tools: [k8s.get_node, k8s.list_pods, k8s.get_pdb, k8s.get_events]
+    read_only: true
+    budget: {query_timeout_seconds: 30, max_rows: 500, max_concurrency: 2, max_retries: 1}
     ack_deadline: "2026-11-24T10:20:00Z"
     result_deadline: "2026-11-24T10:30:00Z"
+    required_evidence: [E-SYN-001]
+    version: 3
 ```
 
 完整、含真实可重算 SHA-256 的 JSON（YAML 1.2 兼容）样例：`examples/playbooks/06-incident-evidence.example.json`。哈希值、时间和 TTL 必须由实际采集器生成，不能复制占位值。
@@ -203,16 +212,18 @@ tasks:
 
 | 字段 | 规则 |
 | --- | --- |
-| `lock_id/resource_key` | 资源键如 `cluster/namespace/node` 或 `db/instance/table`，全局唯一 |
+| `lock_id/resource_key` | 规范化资源键；K8s 使用 `tenant/cluster/namespace/kind/name`，数据库使用 `tenant/db/instance/schema/table`；同一物理目标的不同别名必须先归一 |
 | `operation/expected_version` | 操作契约与目标版本；变更计划/目标版本变化即失效 |
 | `owner/fencing_token` | Operator 身份 + 单调递增 token；执行端校验 token |
 | `approval_id/approvers` | 已批准的工单与双人身份；锁申请引用它 |
 | `acquired_at/ttl_seconds/heartbeat_at` | 默认 120 秒 TTL，执行中每 30 秒续租；按动作风险调整 |
 | `state/released_at` | `acquired/executing/released/expired/revoked`；释放需审计 |
 
+**资源键与父子锁**：`resource_key` 必须由目录中的稳定 ID 生成，禁止使用显示名、临时 IP 或大小写不一致的别名。节点级动作同时锁 `tenant/cluster/node` 与其 `tenant/cluster/namespace/kind/name` 子键；数据库表级动作锁 `tenant/db/instance/schema/table`，schema/实例级维护需先取得所有受影响子键。父锁与子锁必须原子获取，任何键冲突都拒绝，不能通过换键绕过。
+
 **获取算法**：校验审批和证据版本 → 对 `resource_key` 做原子 CAS，只有无锁或同 owner 续租成功 → 返回 fencing token → 执行前再次校验 → 执行后验证 → 同 owner 释放。锁丢失/过期时停止后续动作、保留现场并升级；不得自动重新获锁重试。执行中的锁失效不能保证远端动作已取消，必须人工确认实际状态。
 
-**审批拒绝**：进入/回到 TRIAGE，记录拒绝人、理由、缺失证据和可否修改后再审；不得微调参数绕过同一拒绝。**证据冲突**：保留双方，分派独立采集，IC 决定缓解是否与根因解耦。
+**审批拒绝**：进入/回到 TRIAGE，记录拒绝人、理由、缺失证据和可否修改后再审；不得微调参数绕过同一拒绝。**证据冲突**：保留双方，分派独立采集，IC 决定缓解是否与根因解耦。冲突计时从首次标记 `CONFLICT` 开始，SEV-1/2 默认 5 分钟、SEV-3 默认 15 分钟；Coordinator 到时未解决即升级，新证据只有记录理由后才重置计时。**部分成功后的补偿**：原审批计划已明确包含补偿工具、目标边界和停止条件时，可按原审批执行；超出原计划、目标版本变化、风险升级或结果未知时必须重新审批，未知结果先对账。
 
 ## 9. 恢复、沟通与闭单
 

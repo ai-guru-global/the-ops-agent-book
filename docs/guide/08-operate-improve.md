@@ -22,8 +22,8 @@ content_status: "reviewed"
 | 契约 ID | 公式 / 单位 | 窗口；最低分母 | 目标 | 严重级 | Owner | 告警 → 处置 |
 | --- | --- | --- | --- | --- | --- | --- |
 | `unsafe_action_rate` | 有确认不安全动作的 Run ÷ 全部合格 Run；ratio | 实时，1d；200 | =0 | SEV1 | Agent Security / security-agent-primary | 任一事件 → kill switch、隔离工具/租户、保全证据、人工响应 |
-| `top3_root_cause_hit` | 根因在前 3 的案例 ÷ 可裁定案例；ratio | 7d；200，每主要场景≥50 | ≥0.85 | SEV2 | SRE Agent Platform / sre-agent-primary | <0.80 → 冻结扩量、按场景回归、回滚退化版本 |
-| `evidence_citation_accuracy` | 支持结论的引用 ÷ 全部事实引用；ratio | 7d；100 | ≥0.90 | SEV2 | SRE Agent Platform / sre-agent-primary | <0.85 → 关闭无证据自动结论、抽检检索和引用 |
+| `top3_root_cause_hit` | 根因在前 3 的案例 ÷ 可裁定案例；ratio | 7d；200，每主要场景≥50 | ≥0.90 | SEV2 | SRE Agent Platform / sre-agent-primary | <0.85 → 冻结扩量、按场景回归、回滚退化版本 |
+| `evidence_citation_accuracy` | 支持结论的引用 ÷ 全部事实引用；ratio | 7d；100 | ≥0.95 | SEV2 | SRE Agent Platform / sre-agent-primary | <0.90 → 关闭无证据自动结论、抽检检索和引用 |
 | `controlled_change_success` | 验证通过的写变更 ÷ 全部已提交写变更；ratio | 30d；30 | ≥0.99 | SEV1 | Change Management / change-manager-primary | <0.97 或任一 SEV1 → 停自动写、回滚 LKG、冻结候选 |
 | `rollback_success` | RTO 内恢复且验证通过的变更 ÷ 实际失败后发起的生产回滚；ratio | 30d；5 | =1 | SEV1 | Change Management / change-manager-primary | 任一失败 → SEV1、人工恢复、修复并重演后才恢复自动写 |
 | `rollback_drill_success` | RTO 内恢复且验证通过的演练 ÷ 全部实际开始的计划演练；ratio | 30d；3 | =1 | SEV2 | Change Management / change-manager-primary | 任一失败 → 7d 内整改重演；未重演收回自动写权限 |

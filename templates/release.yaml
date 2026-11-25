@@ -1,180 +1,85 @@
-# Synthetic example only. Replace artifact digests, owners and evidence URLs.
-artifact_id: REL-k8s-2026-001
-version: 1.0.0
-owner:
-  team: payments-agent
-  backup: platform-oncall
-status: approved
-decision: go
-updated_at: "2026-11-24T00:00:00Z"
-change_summary: Add evidence-gated CrashLoopBackOff diagnosis and approved GitOps remediation.
-related_artifacts:
-  - {id: ADD-k8s-2026-001, version: v1.2.0}
-  - {id: RB-k8s-2026-001, version: 3.0.0}
-  - {id: EVAL-k8s-2026-002, version: v1.0.0}
-evidence_archive: "https://releases.example.com/REL-k8s-2026-001/v1.0.0/"
-environments: [staging, prod]
-artifact_versions:
-  model:
-    version: model-synthetic-v1.0.0
-    immutable_ref: "sha256:1111111111111111111111111111111111111111111111111111111111111111"
-    evidence: "https://releases.example.com/REL-k8s-2026-001/artifacts/model.json"
-  prompt:
-    version: agent-k8s-v2.1.0
-    immutable_ref: "git@github.com:example/agents.git@1111111111111111111111111111111111111111"
-    evidence: "https://releases.example.com/REL-k8s-2026-001/artifacts/prompt.json"
-  tools:
-    version: tool-bundle-v1.3.0
-    immutable_ref: "registry.example.com/ops/tools@sha256:2222222222222222222222222222222222222222222222222222222222222222"
-    evidence: "https://releases.example.com/REL-k8s-2026-001/artifacts/tools.json"
-  knowledge:
-    version: kb-k8s-2026.11
-    immutable_ref: "kb-snapshot@sha256:3333333333333333333333333333333333333333333333333333333333333333"
-    evidence: "https://releases.example.com/REL-k8s-2026-001/artifacts/knowledge.json"
-  policy:
-    version: policy-k8s-v2.0.0
-    immutable_ref: "policy-sha256:4444444444444444444444444444444444444444444444444444444444444444"
-    evidence: "https://releases.example.com/REL-k8s-2026-001/artifacts/policy.json"
-  evaluation:
-    version: EVAL-k8s-2026-002@v1.0.0
-    immutable_ref: "suite-sha256:5555555555555555555555555555555555555555555555555555555555555555"
-    evidence: "https://releases.example.com/REL-k8s-2026-001/artifacts/evaluation.json"
-pre_release_checks:
-  - id: eval
-    status: pass
-    evidence: "https://releases.example.com/REL-k8s-2026-001/checks/eval-report"
-    verified_by: agent-evaluation
-  - id: permissions_and_dry_run
-    status: pass
-    evidence: "https://releases.example.com/REL-k8s-2026-001/checks/policy-tests"
-    verified_by: platform-security
-  - id: rollback_drill
-    status: pass
-    measured_rto_minutes: 12
-    evidence: "https://releases.example.com/REL-k8s-2026-001/checks/rollback-drill"
-    verified_by: payments-sre
-  - id: observability
-    status: pass
-    evidence: "https://releases.example.com/REL-k8s-2026-001/checks/dashboards"
-    verified_by: platform-oncall
-canary:
-  - stage: shadow
-    scope: staging-only
-    traffic_percent: 0
-    minimum_observation_minutes: 60
-    verifier: agent-evaluation
-    evidence: "https://releases.example.com/REL-k8s-2026-001/canary/shadow"
-  - stage: internal
-    scope: payments-staging
-    traffic_percent: 10
-    minimum_observation_minutes: 60
-    verifier: payments-sre
-    evidence: "https://releases.example.com/REL-k8s-2026-001/canary/internal"
-  - stage: production
-    scope: payments-prod-one-cluster
-    traffic_percent: 5
-    minimum_observation_minutes: 120
-    verifier: payments-oncall
-    evidence: "https://releases.example.com/REL-k8s-2026-001/canary/production"
-expansion_gate:
-  all_checks_pass: true
-  veto_count: 0
+# Synthetic example only. This file is intentionally INCONCLUSIVE / NO_GO.
+# Replace every placeholder with independently verifiable evidence before use.
+artifact_id: REL-synthetic-2026-001
+bundle_version: v1.4.0-rc.1+synthetic.1
+supersedes: REL-synthetic-2026-000@v1.3.0
+environment: synthetic-only
+evidence_mode: synthetic
+owner: synthetic-agent-owner
+updated_at: "2026-11-25T00:00:00Z"
+
+candidate_bundle:
+  model: {version: synthetic-model@2026.11.0, immutable_ref: "sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+  prompt: {version: ops-agent@1.4.0-rc.1, immutable_ref: "git:synthetic@0000000000000000000000000000000000000000"}
+  tools: {version: 1.4.0, immutable_ref: "registry.invalid/tools@sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+  knowledge: {version: kb-2026.11, immutable_ref: "snapshot:synthetic-kb-001"}
+  policy: {version: 1.4.0, immutable_ref: "sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+  evaluation: {version: 1.4.0, immutable_ref: "sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+
+lkg:
+  artifact_id: REL-synthetic-2026-000
+  bundle_version: v1.3.0
+  immutable_bundle_ref: "bundle:synthetic-lkg-v1.3.0"
+  deployability_evidence: EV-synthetic-lkg
+  health_evidence: EV-synthetic-lkg
+  audit_evidence: EV-synthetic-lkg
+
+# Links are placeholders. MISSING must never be interpreted as PASS.
+evidence_index:
+  - {evidence_id: EV-synthetic-eval, uri: "https://synthetic.invalid/REL-synthetic-2026-001/eval-report.json", sha256: null, access: MISSING, status: INCONCLUSIVE}
+  - {evidence_id: EV-synthetic-lkg, uri: "https://synthetic.invalid/REL-synthetic-2026-001/lkg-health.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
+  - {evidence_id: EV-synthetic-kill-switch, uri: "https://synthetic.invalid/REL-synthetic-2026-001/kill-switch-drill.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
+  - {evidence_id: EV-synthetic-rollback, uri: "https://synthetic.invalid/REL-synthetic-2026-001/rollback-drill.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
+  - {evidence_id: EV-synthetic-reconcile, uri: "https://synthetic.invalid/REL-synthetic-2026-001/unknown-outcomes.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
+
+# Synthetic targets only; not recommended values and not rollback triggers.
+release_targets:
   weighted_eval_score_min: 85
-  verifier: release-owner
-  evidence: "https://releases.example.com/REL-k8s-2026-001/checks/expansion-gate"
-rollback_thresholds:
-  - id: forbidden_action
-    metric: forbidden_action_count
-    comparator: ">"
-    threshold: 0
-    window_minutes: 0
-    min_samples: 1
-    action: immediate_rollback_and_disable_writes
-    owner: platform-oncall
-  - id: unsafe_action
-    metric: unsafe_action_count
-    comparator: ">"
-    threshold: 0
-    window_minutes: 0
-    min_samples: 1
-    action: immediate_rollback_and_disable_writes
-    owner: platform-oncall
-  - id: error_rate
-    metric: error_rate
-    comparator: ">"
-    threshold: 0.02
-    baseline_multiplier: 1.5
-    threshold_semantics: max_of_absolute_and_baseline_multiple
-    window_minutes: 5
-    min_samples: 20
-    action: rollback
-    owner: payments-oncall
-  - id: p95_latency
-    metric: p95_latency_ms
-    comparator: ">"
-    threshold: 800
-    window_minutes: 10
-    min_samples: 20
-    action: rollback
-    owner: payments-oncall
-  - id: verification_pass_rate
-    metric: verification_pass_rate
-    comparator: "<"
-    threshold: 0.95
-    window_minutes: 15
-    min_samples: 20
-    action: pause_expansion_then_rollback
-    owner: payments-sre
-  - id: human_takeover_rate
-    metric: human_takeover_rate
-    comparator: ">"
-    threshold: 0.25
-    window_minutes: 30
-    min_samples: 20
-    action: rollback_to_read_only
-    owner: payments-sre
-  - id: cost_per_run
-    metric: average_cost_usd_per_run
-    comparator: ">"
-    threshold: 0.65
-    window_minutes: 30
-    min_samples: 20
-    action: rollback_and_enforce_budget
-    owner: agent-owner
-  - id: slo_burn
-    metric: slo_error_budget_burn_rate
-    comparator: ">"
-    threshold: 2
-    window_minutes: 15
-    min_samples: 1
-    action: rollback
-    owner: payments-oncall
+  unsafe_action_rate_max: 0
+  controlled_change_success_min: 0.99
+  controlled_change_min_samples: 30
+  human_takeover_rate_max: 0.20
+  cost_per_run_max_usd: 0.50
+  p95_latency_max_ms: 600
+  veto_count_max: 0
+  evidence_ids: [EV-synthetic-eval]
+
+# Synthetic automatic triggers, frozen separately from release targets.
+automatic_rollback_triggers:
+  - {id: change-success, metric: controlled_change_success, comparator: "<", threshold: 0.97, window_minutes: 30, min_samples: 30, action: ROLLBACK_LKG}
+  - {id: takeover, metric: human_takeover_rate, comparator: ">", threshold: 0.30, window_minutes: 30, min_samples: 20, action: DEGRADE_READ_ONLY}
+  - {id: cost, metric: average_cost_usd_per_run, comparator: ">", threshold: 0.65, window_minutes: 30, min_samples: 20, action: ROLLBACK_LKG}
+  - {id: latency, metric: p95_latency_ms, comparator: ">", threshold: 800, window_minutes: 10, min_samples: 20, action: ROLLBACK_LKG}
+rollback_controller:
+  controller: synthetic-independent-controller
+  armed_evidence: EV-synthetic-kill-switch
+
+kill_switch:
+  controller: synthetic-gateway-control-plane
+  activation_target_seconds: 60
+  measured_activation_seconds: NOT_EVALUATED
+  drill_evidence: EV-synthetic-kill-switch
+
 recovery:
-  rto_minutes: 15
-  rpo_minutes: 5
-  strategy: restore_previous_immutable_bundle_and_read_only_mode
-  previous_artifact_versions:
-    model: model-synthetic-v0.9.0
-    prompt: agent-k8s-v2.0.0
-    tools: tool-bundle-v1.2.0
-    knowledge: kb-k8s-2026.10
-    policy: policy-k8s-v1.9.0
-    evaluation: EVAL-k8s-2026-002@v0.9.0
-  steps:
-    - Disable write tools and route all requests to the on-call queue.
-    - Restore the six previous immutable artifact versions as one bundle.
-    - Invalidate sessions that contain unverified action plans.
-    - Run the previous-version golden suite and contract tests.
-    - Verify service SLO, rollout health, audit continuity and read-only behavior.
-  verification_responsible:
-    release_owner: payments-agent
-    domain_expert: payments-sre
-    security: platform-security
-    on_call: payments-oncall
-  verification_evidence: "https://releases.example.com/REL-k8s-2026-001/checks/post-rollback"
-signoffs:
-  - {role: agent_owner, name: payments-agent, decision: go, evidence: "https://releases.example.com/REL-k8s-2026-001/signoff/agent-owner"}
-  - {role: domain_expert, name: payments-sre, decision: go, evidence: "https://releases.example.com/REL-k8s-2026-001/signoff/domain"}
-  - {role: security, name: platform-security, decision: go, evidence: "https://releases.example.com/REL-k8s-2026-001/signoff/security"}
-  - {role: on_call, name: payments-oncall, decision: go, evidence: "https://releases.example.com/REL-k8s-2026-001/signoff/on-call"}
-open_items: []
+  rto_target_minutes: 15
+  rpo_target_minutes: 0
+  measured_rto_minutes: NOT_EVALUATED
+  drill_date: null
+  drill_evidence: EV-synthetic-rollback
+  independent_verification_evidence: EV-synthetic-rollback
+
+unknown_outcomes:
+  unreconciled_count: NOT_EVALUATED
+  reconciliation_evidence: EV-synthetic-reconcile
+
+checks:
+  evaluation_report: {status: INCONCLUSIVE, evidence: EV-synthetic-eval}
+  lkg_health: {status: NOT_EVALUATED, evidence: EV-synthetic-lkg}
+  kill_switch_drill: {status: NOT_EVALUATED, evidence: EV-synthetic-kill-switch}
+  rollback_drill: {status: NOT_EVALUATED, evidence: EV-synthetic-rollback}
+  unknown_outcome_reconciliation: {status: NOT_EVALUATED, evidence: EV-synthetic-reconcile}
+
+signoffs: []
+evaluation_result: INCONCLUSIVE
+release_decision: NO_GO
+blocking_reason: 合成配置没有原始评测、LKG、kill switch、回滚演练、对账或独立签署证据。

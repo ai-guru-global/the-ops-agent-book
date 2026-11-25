@@ -1,0 +1,49 @@
+file,title,group,depth,breadth,agent_best_practices,readability,usability,ease_of_reading,diagram_completeness,overall_5,v2_overall_5,delta_5,priority
+docs/index.md,首页,home,3,5,4,4,4,4,4,4.000,4.429,-0.429,P0
+docs/guide/index.md,导读,guide,2,3,4,5,4,5,4,3.857,4.571,-0.714,P1
+docs/guide/01-why-ops-agents.md,01 为什么运维 Agent 不一样,guide,3,3,4,5,3,4,4,3.714,4.000,-0.286,P1
+docs/guide/02-lifecycle.md,02 全生命周期,guide,4,5,4,3,5,5,3,4.143,4.571,-0.428,P0
+docs/guide/03-scenario-selection.md,03 场景选择与可行性,guide,4,4,5,4,5,4,4,4.286,4.429,-0.143,P1
+docs/guide/04-architecture.md,04 架构与运行模式,guide,4,5,4,4,4,4,5,4.286,4.429,-0.143,P1
+docs/guide/05-tools-permissions.md,05 工具、权限与安全护栏,guide,5,5,5,4,5,4,5,4.714,4.429,+0.285,P0
+docs/guide/06-context-knowledge.md,06 上下文与知识工程,guide,4,4,5,4,4,5,4,4.286,4.143,+0.143,P1
+docs/guide/07-evaluation-release.md,07 评测、验收与发布,guide,5,5,5,4,5,4,4,4.571,4.286,+0.285,P1
+docs/guide/08-operate-improve.md,08 运营、观测与持续改进,guide,4,4,4,5,4,5,3,4.143,4.429,-0.286,P1
+docs/guide/09-organization-governance.md,09 组织、流程与治理,guide,4,5,5,3,4,4,3,4.000,4.286,-0.286,P1
+docs/guide/10-build-vs-buy.md,10 Build vs Buy 与平台选型,guide,4,5,4,4,5,4,5,4.429,4.286,+0.143,P1
+docs/playbooks/index.md,场景手册导读,playbooks,2,4,4,5,3,5,4,3.857,4.143,-0.286,P1
+docs/playbooks/k8s.md,K8s 集群运维,playbooks,4,4,4,5,4,4,4,4.143,4.000,+0.143,P0
+docs/playbooks/rdma.md,RDMA 高网运维,playbooks,4,4,4,4,3,4,3,3.714,3.857,-0.143,P1
+docs/playbooks/gpu-inference.md,GPU 推理运维,playbooks,4,4,4,5,4,4,4,4.143,4.000,+0.143,P1
+docs/playbooks/database.md,数据库运维,playbooks,4,4,4,4,4,4,3,3.857,4.000,-0.143,P1
+docs/playbooks/incident-commander.md,事故指挥 Agent,playbooks,4,4,4,5,4,4,5,4.286,4.143,+0.143,P0
+docs/vendors/index.md,厂商地图导读,vendors,3,5,4,4,3,4,4,3.857,3.714,+0.143,P1
+docs/vendors/global-cloud.md,全球云厂商,vendors,4,5,4,4,4,3,3,3.857,3.286,+0.571,P1
+docs/vendors/china-cloud.md,中国云厂商,vendors,3,5,4,3,3,3,3,3.429,3.000,+0.429,P1
+docs/vendors/observability-aiops.md,可观测与 AIOps,vendors,4,5,4,4,4,3,3,3.857,3.286,+0.571,P1
+docs/vendors/security-network-finops.md,安全、网络与 FinOps,vendors,3,4,4,4,3,3,3,3.429,3.143,+0.286,P1
+docs/vendors/embedded-assistants.md,内嵌 Agent 助手,vendors,3,5,4,4,3,3,4,3.714,3.000,+0.714,P1
+docs/vendors/vertical-ops.md,垂直行业运维 Agent,vendors,2,4,3,4,3,4,3,3.286,3.429,-0.143,P1
+docs/vendors/methodology.md,厂商评估方法,vendors,4,4,5,5,5,4,4,4.429,3.571,+0.858,P1
+docs/guide/11-agentops-observability.md,11 AgentOps 与可观测性,guide,5,5,5,3,5,4,5,4.571,4.571,+0.000,P1
+docs/guide/12-identity-security.md,12 身份、权限与安全,guide,3,4,4,4,3,4,4,3.714,4.143,-0.429,P1
+docs/guide/13-cost-roi-portfolio.md,13 成本、ROI 与组合管理,guide,5,4,4,5,5,4,4,4.429,4.143,+0.286,P1
+docs/guide/14-future-roadmap.md,14 2027+ 路线图,guide,3,5,4,4,3,4,4,3.857,4.286,-0.429,P1
+docs/templates/index.md,模板导读,templates,4,5,4,5,4,5,5,4.571,4.286,+0.285,P1
+docs/templates/agent-design-doc.md,Agent 设计文档,templates,5,5,4,4,4,5,5,4.571,4.429,+0.142,P1
+docs/templates/tool-contract.md,工具契约,templates,5,5,4,4,3,4,5,4.286,4.429,-0.143,P0
+docs/templates/eval-set.md,评测集,templates,5,5,4,4,4,5,4,4.429,4.286,+0.143,P0
+docs/templates/permission-matrix.md,权限矩阵,templates,4,4,5,4,4,5,5,4.429,4.714,-0.285,P1
+docs/templates/runbook-tool-map.md,Runbook → Tool 映射,templates,5,4,4,3,4,4,5,4.143,4.000,+0.143,P1
+docs/templates/release-checklist.md,发布与回滚清单,templates,4,5,4,5,4,5,5,4.571,4.143,+0.428,P0
+docs/templates/incident-review.md,事故复盘,templates,4,4,4,4,4,5,5,4.286,4.429,-0.143,P1
+docs/appendix/case-notready.md,案例：K8s NotReady,appendix,5,4,4,4,4,5,5,4.429,4.714,-0.285,P0
+docs/appendix/case-failed-agent.md,失败复盘,appendix,4,5,5,5,4,5,4,4.571,4.571,+0.000,P1
+docs/appendix/requirement-map.md,需求地图,appendix,4,5,5,3,5,3,3,4.000,4.143,-0.143,P1
+docs/appendix/diagram-guide.md,图示规范,appendix,3,4,4,5,4,5,3,4.000,4.286,-0.286,P2
+docs/appendix/source-registry.md,来源注册表,appendix,4,5,5,2,3,2,2,3.286,4.000,-0.714,P1
+docs/appendix/maintenance-registry.md,维护注册表,appendix,2,4,3,4,3,4,2,3.143,3.857,-0.714,P1
+docs/appendix/alibaba-agent-landscape.md,阿里 Agent 产品全景,appendix,3,4,4,4,3,4,3,3.571,3.571,+0.000,P1
+docs/appendix/metrics.md,指标与 SLO 库,appendix,5,5,4,3,4,3,3,3.857,4.286,-0.429,P0
+docs/appendix/glossary.md,术语表,appendix,3,5,4,4,4,4,3,3.857,4.286,-0.429,P2
+docs/appendix/references.md,参考资料,appendix,3,5,4,4,4,4,3,3.857,4.429,-0.572,P1

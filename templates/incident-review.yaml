@@ -10,7 +10,7 @@ created_at: "2026-11-20T03:10:00Z"
 updated_at: "2026-11-25T00:00:00Z"
 incident_id: INC-2026-11-20-001
 run_id: run-k8s-20261120-003
-related_release: {id: REL-k8s-2026-001, version: v1.0.0}
+related_release: {id: REL-synthetic-2026-000, version: v1.3.0}
 related_artifacts:
   - {id: ADD-k8s-2026-001, version: v1.2.0}
   - {id: RB-k8s-2026-001, version: 3.0.0}

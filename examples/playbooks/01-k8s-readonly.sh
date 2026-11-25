@@ -31,11 +31,12 @@ fi
 
 printf 'data_classification: synthetic/脱敏\nmode: readonly\ncontext: %s\nnamespace: %s\nnode: %s\n' \
   "$EXPECTED_CONTEXT" "$NAMESPACE" "$NODE"
-printf '# Gate: PDB/capacity evidence is collected before any separately approved drain.\n'
+printf '# Gate: use PLAY-07 for the full emptyDir/PDB/capacity/Ready drain preflight.\n'
 
-# PDB first. This script never performs drain; approval must use a fresh snapshot.
-kubectl --context "$EXPECTED_CONTEXT" -n "$NAMESPACE" get pdb -o wide
-kubectl --context "$EXPECTED_CONTEXT" -n "$NAMESPACE" get pdb -o json
+# PDB first across namespaces. This audit never performs drain or approves one;
+# PLAY-07 adds target identity, emptyDir inventory and fail-closed gate evidence.
+kubectl --context "$EXPECTED_CONTEXT" get pdb --all-namespaces -o wide
+kubectl --context "$EXPECTED_CONTEXT" get pdb --all-namespaces -o json
 kubectl --context "$EXPECTED_CONTEXT" get pods --all-namespaces -o wide
 
 kubectl --context "$EXPECTED_CONTEXT" get node "$NODE" -o wide

@@ -61,3 +61,11 @@ content_status: "reviewed"
 | [安全、网络与 FinOps](../vendors/security-network-finops.md) | 安全、网络与 FinOps | Vendor Researcher | 2026-11-25 | 2027-02-25 | reviewed |
 | [垂直行业运维 Agent](../vendors/vertical-ops.md) | 垂直行业运维 Agent | Vendor Researcher | 2026-11-25 | 2027-02-25 | reviewed |
 | [维护注册表](../appendix/maintenance-registry.md) | 维护注册表 | Maintainer | 2026-11-25 | 2027-02-25 | reviewed |
+
+## 自动一致性与变更动作
+
+- `npm run validate:assets` 检查全部内容页的 Owner、last_verified、review_by、content_status，并验证本表覆盖不遗漏、不指向不存在页面。
+- `npm run gates:check` 验证指标页中的门禁表与 `evals/manifest.yaml` 完全一致；修改门槛只能改 manifest 后运行 `npm run gates:generate`。
+- `npm run refs:check` 验证参考资料页与 `sources/registry.yaml` 完全一致；修改来源后运行 `npm run refs:generate`。
+- `npm run gaps:check` 验证所有显式“未核实”字段都进入 `sources/claim-gaps.json`；补证必须同时更新来源、快照哈希和商业字段。
+- 页面到期、Owner 变更或状态变化时，先更新 frontmatter，再同步本表；CI 不一致即失败，不接受手工漏改。

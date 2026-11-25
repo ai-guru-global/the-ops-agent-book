@@ -15,19 +15,40 @@ content_status: "reviewed"
 
 先看一个最小的运维 Agent 闭环。它不是“用户问、模型答”，而是：
 
-::: diagram 图 01 · 运维 Agent 的最小闭环 | 从观察到复盘的闭环；任何一环缺失都会让 Agent 退化。
+::: diagram 图 01 · 运维 Agent 的最小闭环 | 正常路径从观察到复盘；拒绝、未知、取消与人工接管都是显式退出，不得伪装成成功。
 ```mermaid
 flowchart LR
   A[观察<br/>Observe] --> B[取证<br/>Evidence]
   B --> C[假设<br/>Hypothesize]
   C --> D[计划<br/>Plan]
-  D --> E[审批<br/>Approve]
-  E --> F[执行<br/>Act]
+  D --> E{审批决定}
+  E -->|批准| F[执行<br/>Act]
   F --> G[验证<br/>Verify]
-  G --> H[复盘<br/>Learn]
+  G -->|通过| H[复盘<br/>Learn]
   H --> A
+  B -->|证据缺口 / 状态未知| U[未知 Unknown<br/>停止写操作]
+  U -->|补齐证据| B
+  U -->|无法补齐 / 超时| T[人工接管<br/>Human takeover]
+  E -->|拒绝 Deny| X[拒绝退出<br/>不执行]
+  E -->|取消 Cancel| Y[取消退出<br/>不执行]
+  E -->|人工接管| T
+  F -->|失败 / 结果未知| R[停止 / 对账<br/>升级或重规划]
+  R -->|需要人工| T
+  R -->|可重规划| D
+  G -->|失败 / 结果未知| R
 ```
 :::
+
+闭环有正常路径，也有必须被记录和验证的退出路径：
+
+| 退出 | 触发与动作 | Canonical Event 记录 |
+| --- | --- | --- |
+| **拒绝 Deny** | 策略或审批者拒绝；不得调用写工具 | 策略拒绝保留 PEP 审计；审批者拒绝时记录 `approval.decided.decision = rejected`。未接管的 Run 使用 `run.completed.outcome = failure`、`verified = false`、`human_takeover = false` |
+| **未知 Unknown** | 证据缺失、状态未知或结果未知；停止写操作，能补证则重取证，否则升级 | 需要人工时使用 `run.completed.outcome = escalated`、`human_takeover = true`；不得把未知记为成功 |
+| **取消 Cancel** | 执行前由用户或审批流取消；不得继续动作 | `run.completed.outcome = failure`、`error_code = user_cancelled`、`verified = false`；取消不是 `approval.decided` 的枚举值 |
+| **人工接管 Human takeover** | 超时、冲突、权限失败或安全停止条件触发；冻结 Agent 动作并交接证据、审批与未决项 | `run.completed.outcome = escalated`、`human_takeover = true`；接管后的动作由获授权的人类执行并留痕 |
+
+`run.completed.outcome` 的正式枚举只有 `success / failure / escalated / rolled_back`；Deny、Unknown、Cancel 是退出原因，不是额外的 outcome 值。任何退出都不能跳过验证后声称成功。
 
 任何一步缺失，Agent 都会退化：
 

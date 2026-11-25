@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import { spawn } from "node:child_process";
+import { once } from "node:events";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { chromium } from "playwright-core";
 import epubModule from "epub-gen-memory";
@@ -11,7 +12,7 @@ import { ROUTES } from "./book-routes.mjs";
 const epub = epubModule.default;
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
-const PORT = 4178;
+const PORT = 4500 + (process.pid % 200);
 const BASE = `http://127.0.0.1:${PORT}`;
 const OUT = path.join(ROOT, "dist-epub");
 const OUTPUT = path.join(OUT, "the-ops-agent-book-v0.2.0-rc1.epub");
@@ -29,8 +30,11 @@ function chromePath() {
   return found;
 }
 
-async function waitForServer() {
+let server;
+async function startServer() {
+  server = spawn(process.execPath, [path.join(ROOT, "node_modules/vitepress/bin/vitepress.js"), "preview", "docs", "--port", String(PORT), "--host", "127.0.0.1"], { cwd: ROOT, stdio: "ignore" });
   for (let index = 0; index < 80; index += 1) {
+    if (server.exitCode !== null) throw new Error(`preview server exited with code ${server.exitCode}`);
     try {
       if ((await fetch(BASE)).ok) return;
     } catch {
@@ -40,18 +44,38 @@ async function waitForServer() {
   }
   throw new Error("preview server did not start");
 }
+async function stopServer() {
+  if (!server) return;
+  const current = server;
+  server = null;
+  if (current.exitCode === null) {
+    current.kill("SIGTERM");
+    await Promise.race([once(current, "exit"), new Promise((resolve) => setTimeout(resolve, 1000))]);
+  }
+}
 
 async function main() {
   fs.mkdirSync(OUT, { recursive: true });
-  const server = spawn("npm", ["run", "docs:preview", "--", "--port", String(PORT), "--host", "127.0.0.1"], { cwd: ROOT, stdio: "ignore" });
   const chapters = [];
   let browser;
   try {
-    await waitForServer();
+    await startServer();
     browser = await chromium.launch({ executablePath: chromePath(), headless: true });
     for (const [index, [route, title]] of ROUTES.entries()) {
-      const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
-      await page.goto(BASE + route, { waitUntil: "networkidle" });
+      let page;
+      for (let attempt = 1; attempt <= 3; attempt += 1) {
+        try {
+          page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+          await page.goto(BASE + route, { waitUntil: "networkidle" });
+          await page.evaluate(() => document.fonts.ready.then(() => true));
+          break;
+        } catch (error) {
+          if (page) await page.close();
+          await stopServer();
+          if (attempt === 3) throw error;
+          await startServer();
+        }
+      }
       await page.waitForTimeout(500);
       if (await page.locator(".mermaid").count()) {
         await page.waitForFunction(() => [...document.querySelectorAll(".mermaid")].every((node) => node.querySelector("svg")), { timeout: 30_000 });
@@ -73,7 +97,7 @@ async function main() {
     }
   } finally {
     if (browser) await browser.close();
-    server.kill("SIGTERM");
+    await stopServer();
   }
 
   const css = `

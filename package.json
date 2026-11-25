@@ -12,6 +12,10 @@
     "export:epub": "node scripts/export-book-epub.mjs",
     "validate:assets": "node scripts/validate-assets.mjs",
     "gaps:check": "node scripts/update-claim-gaps.mjs && git diff --exit-code -- sources/claim-gaps.json",
+    "gates:generate": "node scripts/generate-gate-registry.mjs",
+    "gates:check": "node scripts/generate-gate-registry.mjs --check",
+    "refs:generate": "node scripts/generate-references.mjs",
+    "refs:check": "node scripts/generate-references.mjs --check",
     "check:mermaid": "python3 scripts/check_mermaid_render.py",
     "check:responsive": "node scripts/check-responsive.mjs",
     "check:accessibility": "node scripts/check-accessibility.mjs",
@@ -28,7 +32,7 @@
     "test:user-reading": "node --test scripts/user-reading.test.mjs",
     "cost:demo": "node scripts/cost-model.mjs",
     "poc:demo": "node scripts/run-poc.mjs",
-    "check:all": "npm run docs:build && npm run gaps:check && npm run validate:assets && npm run eval:check && npm run judge:check && python3 scripts/check_internal_links.py && npm run check:mermaid && npm run check:responsive && npm run check:accessibility && npm run test:reference && npm run eval:self-test && npm run user-reading:check && npm run test:user-reading && npm run cost:demo && bash -n examples/playbooks/*.sh && python3 -m py_compile examples/playbooks/*.py"
+    "check:all": "npm run docs:build && npm run gaps:check && npm run gates:check && npm run refs:check && npm run validate:assets && npm run eval:check && npm run judge:check && python3 scripts/check_internal_links.py && npm run check:mermaid && npm run check:responsive && npm run check:accessibility && npm run test:reference && npm run eval:self-test && npm run user-reading:check && npm run test:user-reading && npm run cost:demo && bash -n examples/playbooks/*.sh && python3 -m py_compile examples/playbooks/*.py"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.1",

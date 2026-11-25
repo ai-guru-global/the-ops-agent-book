@@ -138,7 +138,7 @@ content_status: "reviewed"
       <span class="book-index__num">A</span>
       <div class="book-index__body">
         <h3>案例、阿里 Agent 产品全景与参考资料</h3>
-        <p>一次 K8s 节点 NotReady 的端到端走查、一个未上线项目的失败复盘、需求→章节→模板→验证地图与来源注册表；AgentRun、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼、AgentLoop、Agentic OS 等产品如何映射到生命周期；指标库、术语与来源。</p>
+        <p>一次 K8s 节点 NotReady 的端到端走查、一个未上线项目的失败复盘、需求→章节→模板→验证地图与来源注册表；AgentRun、AgentScope、Agent Sandbox/AgentBay、Qoder Cloud Agents、百炼、AgentLoop、Agentic OS 等产品如何映射到生命周期；指标库、术语与来源。案例入口：<a href="./appendix/case-notready.html">C1 成功走查</a> · <a href="./appendix/case-failed-agent.html">C2 失败复盘</a>。</p>
       </div>
       <a class="book-index__link" href="./appendix/case-notready.html">进入 →</a>
     </li>
@@ -212,7 +212,7 @@ content_status: "reviewed"
       <span class="book-index__num">C2</span>
       <div class="book-index__body">
         <h3>一个没有上线的 Agent</h3>
-        <p>为什么 Demo 很好、评测也过，却在灰度前被叫停：权限、Owner、评测集与流程的失败复盘。</p>
+        <p>为什么 Demo 很好，却在 G3 评测门禁被 No-Go：缺少基线、黄金集、安全/未知案例、回滚与成本口径，生产试点未启动。</p>
       </div>
       <a class="book-index__link" href="./appendix/case-failed-agent.html">阅读 →</a>
     </li>
@@ -324,7 +324,7 @@ content_status: "reviewed"
   </p>
   <ol class="book-figures">
     <li><a href="./guide/"><span>图 01</span>运维 Agent 最小闭环</a><em>导读</em></li>
-    <li><a href="./guide/02-lifecycle.html"><span>图 02</span>八阶段与六道门禁</a><em>02</em></li>
+    <li><a href="./guide/02-lifecycle.html"><span>图 02</span>八阶段与八道门禁</a><em>02</em></li>
     <li><a href="./guide/03-scenario-selection.html"><span>图 03</span>第一个场景的筛选路径</a><em>03</em></li>
     <li><a href="./guide/04-architecture.html"><span>图 04</span>参考架构</a><em>04</em></li>
     <li><a href="./guide/04-architecture.html"><span>图 05</span>一次运行的 State Machine</a><em>04</em></li>
@@ -345,7 +345,7 @@ content_status: "reviewed"
     <li><a href="./playbooks/incident-commander.html"><span>图 20</span>事故指挥流程</a><em>事故</em></li>
     <li><a href="./vendors/"><span>图 21</span>五类产品形态</a><em>厂商</em></li>
     <li><a href="./appendix/case-notready.html"><span>图 22</span>NotReady 取证与审批时序</a><em>案例</em></li>
-    <li><a href="./appendix/case-failed-agent.html"><span>图 23</span>失败项目因果链</a><em>案例</em></li>
+    <li><a href="./appendix/case-failed-agent.html"><span>图 23</span>失败项目因果链与整改重入闭环</a><em>案例</em></li>
     <li><a href="./guide/01-why-ops-agents.html"><span>图 24</span>角色与能力阶梯</a><em>01</em></li>
     <li><a href="./guide/01-why-ops-agents.html"><span>图 25</span>最小技术栈</a><em>01</em></li>
     <li><a href="./guide/03-scenario-selection.html"><span>图 26</span>90 天量化晋级路径</a><em>03</em></li>
@@ -415,7 +415,7 @@ content_status: "reviewed"
     <li>
       <span class="book-index__num">PDF</span>
       <div class="book-index__body">
-        <h3>576 页 A4 全书</h3>
+        <h3>636 页 A4 全书</h3>
         <p><code>npm run export:pdf</code> · 脚本 <code>scripts/export-book-pdf.mjs</code></p>
       </div>
       <a class="book-index__link" href="https://github.com/ai-guru-global/the-ops-agent-book/blob/main/scripts/export-book-pdf.mjs">查看脚本 →</a>

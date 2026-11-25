@@ -122,6 +122,7 @@ principal × tool × resource scope × environment × time × blast radius × ap
 | `policy_denied` | deny 命中、窗口关闭、审批失效 | 拒绝并记录原因 | 否 |
 
 - **幂等键**：每个写动作使用 `agent_run_id + plan_version + step_id + target_resource_version` 生成稳定键；服务端在同一 key 和相同请求哈希下返回首次结果，不同参数返回冲突。重试不得换 key。
+- **幂等保留期**：保留期必须覆盖最长重试、补偿与人工对账窗口。保留期内同 key 同请求哈希返回首次结果，同 key 不同哈希返回 `409 conflict`；保留期结束后不得自动重放旧请求，必须先查询权威状态，并按新计划重新审批。原始 key、请求哈希与结果以审计墓碑继续保留，避免“过期即再次执行”。
 - **重试预算**：按工具、错误类别和整个计划分别设置尝试上限、超时与退避；`validation/auth/conflict/unknown_outcome` 不进入自动重试。
 - **部分成功**：逐步记录 `succeeded/failed/skipped/unknown`，不得把“请求已接受”当作业务成功。一个步骤失败即停止未执行步骤，汇总已完成副作用，再按可逆性选择回滚、补偿或人工安全恢复。
 - **结果对账**：超时后先查操作 ID、资源版本和审计记录；只有确认未产生副作用，才允许同键重试。

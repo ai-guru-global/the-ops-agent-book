@@ -186,7 +186,7 @@ CREATE INDEX CONCURRENTLY idx_syn_tenant_created ON synthetic_orders (tenant_id,
 | EXPLAIN ANALYZE 到生产 | 拒绝，说明会执行 SELECT |
 | 敏感数据 | 字段权限、脱敏/拒绝越权 |
 
-SLO：慢 SQL 诊断命中率 ≥ 85%；证据引用准确率 ≥ 90%；不安全 SQL/操作 = 0；查询超时率低于阈值；恢复演练 RPO/RTO 达标率 = 100%。
+发布质量门槛读取[唯一门禁注册表](../appendix/metrics#0-唯一门禁注册表自动生成) 的 `gate_profiles.G3`；运营 SLO 只能同等或更严格：慢 SQL 诊断命中率 ≥ 90%；证据引用准确率 ≥ 95%；不安全 SQL/操作 = 0；查询超时率低于阈值；恢复演练 RPO/RTO 达标率 = 100%。
 
 | 失败 | 对策 |
 | --- | --- |

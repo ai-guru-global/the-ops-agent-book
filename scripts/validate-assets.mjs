@@ -3,11 +3,14 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import { createHash } from "node:crypto";
+import { isDeepStrictEqual } from "node:util";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { parse } from "yaml";
 import { loadInputs, validateCases, validateManifest } from "./run-evals.mjs";
 import { loadPool, status as judgeStatus } from "./annotate-judge.mjs";
+import { generateGateRegistry } from "./generate-gate-registry.mjs";
+import { generateReferences } from "./generate-references.mjs";
 
 const root = process.cwd();
 const errors = [];
@@ -26,6 +29,24 @@ function walk(dir) {
     const rel = path.join(dir, entry.name);
     return entry.isDirectory() ? walk(rel) : [rel];
   });
+}
+
+function extractFencedYaml(text, file) {
+  const blocks = [];
+  let current = null;
+  const lines = text.split(/\r?\n/);
+  for (const [index, line] of lines.entries()) {
+    if (!current) {
+      if (/^\s*```ya?ml\s*$/i.test(line)) current = { line: index + 2, lines: [] };
+    } else if (/^\s*```\s*$/.test(line)) {
+      blocks.push({ file, line: current.line, source: current.lines.join("\n") });
+      current = null;
+    } else {
+      current.lines.push(line);
+    }
+  }
+  if (current) errors.push(`${file}:${current.line}: unclosed YAML fence`);
+  return blocks;
 }
 
 const ajv = new Ajv2020({ allErrors: true, strict: false });
@@ -94,6 +115,17 @@ for (const mode of ["demo", "shadow", "canary", "rollback"]) {
   if (mode === "rollback" && summary.final_state.automatic_writes !== false) errors.push("rollback did not restore read-only state");
 }
 const evalManifest = readYaml("evals/manifest.yaml");
+try {
+  generateGateRegistry({ check: true });
+} catch (error) {
+  errors.push(`gate registry: ${error.message}`);
+}
+const gateProfiles = evalManifest.gate_profiles;
+if (!gateProfiles || gateProfiles.registry_version !== "gate-registry-1.0.0") errors.push("gate profile registry version is missing or invalid");
+if (gateProfiles?.G3?.metrics_ref !== "metrics") errors.push("G3 must reference the canonical metrics block");
+if (gateProfiles?.G3?.independent_judge_cases !== 300) errors.push("G3 independent Judge sample must be 300");
+if (gateProfiles?.G5?.human_takeover_rate_max !== 0.1) errors.push("G5 production takeover gate must remain stricter than G3/G4");
+if (gateProfiles?.G4?.unsafe_action_rate_max !== 0 || gateProfiles?.G5?.unsafe_action_rate_max !== 0 || gateProfiles?.G6?.unsafe_action_rate_max !== 0) errors.push("G4-G6 unsafe action gates must be zero");
 const judgeCalibration = readYaml(evalManifest.judge_calibration?.source || "evals/judge-calibration.yaml");
 if (evalManifest.judge_calibration?.independent_of_eval_suite !== true) errors.push("Judge calibration must be independent of the evaluation suite");
 if (judgeCalibration.sample_size?.target !== 300 || judgeCalibration.sample_size?.release_ready !== false) errors.push("Judge calibration starter must explicitly be 0/300 and not release-ready");
@@ -133,6 +165,152 @@ if (!pocMarkdown.includes(`**${pocReport.final_decision}**`) || !pocMarkdown.inc
 }
 validate("examples/templates/runbook.yaml", "runbook.schema.json", readYaml("examples/templates/runbook.yaml"));
 
+const toolContractFile = "docs/templates/tool-contract.md";
+const toolContractBlocks = extractFencedYaml(fs.readFileSync(path.join(root, toolContractFile), "utf8"), toolContractFile);
+const toolContractExamples = [];
+if (toolContractBlocks.length === 0) errors.push(`${toolContractFile}: no fenced YAML contracts found`);
+for (const [index, block] of toolContractBlocks.entries()) {
+  const label = `${block.file}:${block.line} (fenced YAML ${index + 1})`;
+  try {
+    const data = parse(block.source);
+    toolContractExamples.push(data);
+    validate(label, "tool-contract.schema.json", data);
+  } catch (error) {
+    errors.push(`${label}: invalid YAML: ${error.message}`);
+  }
+}
+
+const toolContractValidator = validators.get("tool-contract.schema.json");
+let negativeControlCount = 0;
+function expectInvalidContract(label, data, expected) {
+  negativeControlCount += 1;
+  if (toolContractValidator(data)) {
+    errors.push(`${toolContractFile}: negative control unexpectedly passed: ${label}`);
+    return;
+  }
+  const intendedFailure = toolContractValidator.errors?.some((error) =>
+    error.instancePath === expected.instancePath
+    && error.keyword === expected.keyword
+    && (expected.missingProperty === undefined || error.params?.missingProperty === expected.missingProperty));
+  if (!intendedFailure) {
+    errors.push(`${toolContractFile}: negative control failed for the wrong reason: ${label}: ${ajv.errorsText(toolContractValidator.errors)}`);
+  }
+}
+if (toolContractExamples.length > 0 && toolContractValidator) {
+  const reversibleWithoutRollback = structuredClone(toolContractExamples[0]);
+  reversibleWithoutRollback.reversible = true;
+  reversibleWithoutRollback.rollback = null;
+  expectInvalidContract("reversible:true with rollback:null", reversibleWithoutRollback, {
+    instancePath: "/rollback", keyword: "type"
+  });
+
+  for (const field of ["security", "observability"]) {
+    const missingField = structuredClone(toolContractExamples[0]);
+    delete missingField[field];
+    expectInvalidContract(`missing required ${field}`, missingField, {
+      instancePath: "", keyword: "required", missingProperty: field
+    });
+  }
+  for (const field of ["credentials", "secret_handling", "input_validation", "injection_protection"]) {
+    const missingField = structuredClone(toolContractExamples[0]);
+    delete missingField.security[field];
+    expectInvalidContract(`missing required security.${field}`, missingField, {
+      instancePath: "/security", keyword: "required", missingProperty: field
+    });
+  }
+}
+
+const releaseTemplate = readYaml("templates/release.yaml");
+if (releaseTemplate.evaluation_result !== "INCONCLUSIVE" || releaseTemplate.release_decision !== "NO_GO") {
+  errors.push("templates/release.yaml must remain fail-closed: INCONCLUSIVE / NO_GO");
+}
+if (!Array.isArray(releaseTemplate.signoffs) || releaseTemplate.signoffs.length !== 0) {
+  errors.push("templates/release.yaml synthetic example must not contain signoffs");
+}
+const releaseDocFile = "docs/templates/release-checklist.md";
+const releaseDocBlocks = extractFencedYaml(fs.readFileSync(path.join(root, releaseDocFile), "utf8"), releaseDocFile)
+  .map((block) => {
+    try { return parse(block.source); } catch { return null; }
+  })
+  .filter((value) => value?.artifact_id === releaseTemplate.artifact_id);
+if (releaseDocBlocks.length !== 1) errors.push(`${releaseDocFile}: expected exactly one machine-readable synthetic release example`);
+if (releaseDocBlocks[0] && !isDeepStrictEqual(releaseDocBlocks[0], releaseTemplate)) {
+  errors.push(`${releaseDocFile}: synthetic release example differs from templates/release.yaml`);
+}
+const incidentTemplate = readYaml("templates/incident-review.yaml");
+if (incidentTemplate.related_release?.id !== releaseTemplate.lkg?.artifact_id) {
+  errors.push("templates/incident-review.yaml related_release does not match the synthetic LKG");
+}
+
+const actionAssertionTypes = new Set([
+  "required_tool", "forbidden_tool", "required_approval", "required_precondition",
+  "required_recommendation", "max_blast_radius",
+]);
+function validateActionAssertions(file, example) {
+  if (!Array.isArray(example.expected_action_assertions) || example.expected_action_assertions.length === 0) {
+    errors.push(`${file}: ${example.id || "eval case"} missing expected_action_assertions`);
+    return;
+  }
+  for (const assertion of example.expected_action_assertions) {
+    if (!actionAssertionTypes.has(assertion?.type)) errors.push(`${file}: unsupported action assertion type ${assertion?.type}`);
+    if (["required_tool", "forbidden_tool", "required_approval"].includes(assertion?.type) && typeof assertion.tool !== "string") {
+      errors.push(`${file}: action assertion ${assertion?.type} missing tool`);
+    }
+    if (assertion?.type === "required_approval" && (!Number.isInteger(assertion.min_approvers) || assertion.min_approvers < 1)) {
+      errors.push(`${file}: required_approval missing positive min_approvers`);
+    }
+    if (assertion?.type === "required_precondition" && typeof assertion.check !== "string") {
+      errors.push(`${file}: required_precondition missing check`);
+    }
+    if (assertion?.type === "required_recommendation" && typeof assertion.field !== "string") {
+      errors.push(`${file}: required_recommendation missing field`);
+    }
+    if (assertion?.type === "max_blast_radius" && (!Number.isInteger(assertion.value) || assertion.value < 0)) {
+      errors.push(`${file}: max_blast_radius missing non-negative integer value`);
+    }
+  }
+}
+
+const caseFile = "docs/appendix/case-notready.md";
+const caseBlocks = extractFencedYaml(fs.readFileSync(path.join(root, caseFile), "utf8"), caseFile)
+  .map((block) => {
+    try { return parse(block.source); } catch { return null; }
+  })
+  .filter((value) => value?.id === "synthetic-k8s-node-notready-001");
+if (caseBlocks.length !== 1) errors.push(`${caseFile}: expected exactly one complete synthetic eval case`);
+if (caseBlocks[0]) {
+  const example = caseBlocks[0];
+  for (const field of ["source_case_key", "scenario", "category", "partition", "environment", "severity", "input", "expected_action", "snapshot_id"]) {
+    if (typeof example[field] !== "string" || !example[field]) errors.push(`${caseFile}: eval case missing ${field}`);
+  }
+  if (!Array.isArray(example.forbidden_actions)) errors.push(`${caseFile}: forbidden_actions must be an array`);
+  validateActionAssertions(caseFile, example);
+  if (!Array.isArray(example.expected_evidence) || example.expected_evidence.length === 0) errors.push(`${caseFile}: expected_evidence must be non-empty`);
+  for (const evidence of example.expected_evidence || []) {
+    for (const field of ["source", "contains", "snapshot_id", "time", "raw_ref"]) {
+      if (typeof evidence?.[field] !== "string" || !evidence[field]) errors.push(`${caseFile}: expected_evidence missing ${field}`);
+    }
+    if (evidence?.snapshot_id !== example.snapshot_id) errors.push(`${caseFile}: evidence snapshot_id differs from case snapshot_id`);
+    if (evidence?.raw_ref && !/^s3:\/\/.+\?versionId=.+/.test(evidence.raw_ref)) errors.push(`${caseFile}: raw_ref must be versioned s3://`);
+  }
+  const eventSchema = readJson("schemas/agent-event.schema.json");
+  const runPayloadValidator = ajv.compile(eventSchema.$defs.runCompleted);
+  const verificationPayloadValidator = ajv.compile(eventSchema.$defs.verificationCompleted);
+  if (!runPayloadValidator(example.expected_run_completed)) errors.push(`${caseFile}: expected_run_completed failed agent-event schema: ${ajv.errorsText(runPayloadValidator.errors)}`);
+  if (!verificationPayloadValidator(example.expected_verification_completed)) errors.push(`${caseFile}: expected_verification_completed failed agent-event schema: ${ajv.errorsText(verificationPayloadValidator.errors)}`);
+  if (!["succeeded", "failed"].includes(example.expected_tool_result?.status)) errors.push(`${caseFile}: expected_tool_result.status is invalid`);
+  if (example.expected_tool_result?.partial_success !== true || !Array.isArray(example.expected_tool_result?.step_statuses)) errors.push(`${caseFile}: partial-success tool result is incomplete`);
+}
+
+const evalDocFile = "docs/templates/eval-set.md";
+const evalDocCases = extractFencedYaml(fs.readFileSync(path.join(root, evalDocFile), "utf8"), evalDocFile)
+  .map((block) => {
+    try { return parse(block.source); } catch { return null; }
+  })
+  .filter((value) => ["k8s-crashloop-001", "k8s-node-notready-001"].includes(value?.id));
+if (evalDocCases.length !== 2) errors.push(`${evalDocFile}: expected two documented eval cases`);
+for (const example of evalDocCases) validateActionAssertions(evalDocFile, example);
+
 const registry = readYaml("sources/registry.yaml");
 const sources = registry.sources || [];
 const sourceIds = sources.map((source) => source.source_id);
@@ -152,6 +330,11 @@ for (const source of sources) {
       if (actual !== source.snapshot.sha256) errors.push(`source ${source.source_id} snapshot hash mismatch`);
     }
   }
+}
+try {
+  generateReferences({ check: true });
+} catch (error) {
+  errors.push(`references: ${error.message}`);
 }
 const claimRefs = new Set();
 for (const file of [...walk("docs/vendors"), "docs/appendix/alibaba-agent-landscape.md"].filter((f) => f.endsWith(".md"))) {
@@ -178,7 +361,7 @@ for (const file of vendorFiles) {
   }
 }
 const unused = sourceIds.filter((id) => !claimRefs.has(id));
-if (unused.length) warnings.push(`unused registered sources: ${unused.join(", ")}`);
+if (unused.length) warnings.push(`registered sources not cited in vendor capability tables (reference-only/navigation allowed): ${unused.join(", ")}`);
 
 const gapRegistry = readJson("sources/claim-gaps.json");
 const gapClaims = gapRegistry.claims || [];
@@ -234,7 +417,8 @@ for (const file of [...walk("templates"), ...walk("examples/templates")].filter(
 
 const diagrams = [];
 const textDiagramHits = [];
-for (const file of walk("docs").filter((f) => f.endsWith(".md") && !f.includes(".vitepress"))) {
+const contentDocs = walk("docs").filter((f) => f.endsWith(".md") && !f.includes(".vitepress"));
+for (const file of contentDocs) {
   const text = fs.readFileSync(path.join(root, file), "utf8");
   const frontmatter = text.match(/^---\n([\s\S]*?)\n---/)?.[1] || "";
   for (const field of ["owner", "last_verified", "review_by", "content_status"]) {
@@ -252,6 +436,44 @@ for (const file of walk("docs").filter((f) => f.endsWith(".md") && !f.includes("
       textDiagramHits.push(file);
     }
   }
+}
+const thresholdRules = [
+  { label: "Top-3 根因命中", pattern: /Top-3\s*≥\s*(\d+(?:\.\d+)?)%/g, minimum: Number(manifest.metrics.root_cause_top3_min) * 100 },
+  { label: "证据引用准确率", pattern: /证据引用准确率\s*≥\s*(\d+(?:\.\d+)?)%/g, minimum: Number(manifest.metrics.evidence_reference_accuracy_min) * 100 },
+  { label: "诊断命中率", pattern: /诊断命中率\s*≥\s*(\d+(?:\.\d+)?)%/g, minimum: Number(manifest.metrics.root_cause_top3_min) * 100 },
+];
+for (const file of contentDocs) {
+  const text = fs.readFileSync(path.join(root, file), "utf8");
+  for (const rule of thresholdRules) {
+    for (const match of text.matchAll(rule.pattern)) {
+      if (Number(match[1]) + 1e-9 < rule.minimum) {
+        errors.push(`${file}: ${rule.label} threshold ${match[1]}% is weaker than gate_profiles.G3 ${rule.minimum}%`);
+      }
+    }
+  }
+  for (const [metricId, minimum] of [
+    ["top3_root_cause_hit", Number(manifest.metrics.root_cause_top3_min)],
+    ["evidence_citation_accuracy", Number(manifest.metrics.evidence_reference_accuracy_min)],
+  ]) {
+    const pattern = new RegExp("`" + metricId + "`[^\\n]*≥\\s*(\\d+\\.\\d+)", "g");
+    for (const match of text.matchAll(pattern)) {
+      if (Number(match[1]) + 1e-9 < minimum) {
+        errors.push(`${file}: ${metricId} target ${match[1]} is weaker than gate_profiles.G3 ${minimum}`);
+      }
+    }
+  }
+}
+const maintenanceFile = "docs/appendix/maintenance-registry.md";
+const maintenanceText = fs.readFileSync(path.join(root, maintenanceFile), "utf8");
+const maintainedDocs = new Set(
+  [...maintenanceText.matchAll(/\]\((\.\.?\/[^)]+\.md)\)/g)]
+    .map((match) => path.normalize(path.join(path.dirname(maintenanceFile), match[1])))
+);
+for (const file of contentDocs) {
+  if (!maintainedDocs.has(file)) errors.push(`maintenance registry missing ${file}`);
+}
+for (const file of maintainedDocs) {
+  if (!contentDocs.includes(file)) errors.push(`maintenance registry references missing ${file}`);
 }
 const diagramNumbers = diagrams.map((diagram) => diagram.number);
 if (new Set(diagramNumbers).size !== diagramNumbers.length) errors.push("duplicate diagram numbers");
@@ -288,5 +510,5 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`Asset validation passed: ${diagrams.length} diagrams, ${sources.length} sources, ${claimRefs.size} cited source IDs, ${gapClaims.length} tracked evidence gaps, ${evalInputs.cases.length} eval cases.`);
+console.log(`Asset validation passed: ${diagrams.length} diagrams, ${sources.length} sources, ${claimRefs.size} cited source IDs, ${gapClaims.length} tracked evidence gaps, ${evalInputs.cases.length} eval cases, ${toolContractExamples.length} tool-contract YAML examples, ${negativeControlCount} negative controls.`);
 for (const warning of warnings) console.warn(`warning: ${warning}`);

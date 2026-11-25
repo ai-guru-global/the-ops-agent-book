@@ -33,13 +33,13 @@
 
 | 测试 | 结果 | 耗时 | 命令 |
 | --- | --- | ---: | --- |
-| reference-agent tests | PASS | 821 ms | `npm run test:reference` |
-| 400-case eval self-test | PASS | 2688 ms | `npm run eval:self-test` |
-| asset and snapshot validation | PASS | 1061 ms | `npm run validate:assets` |
-| clean-room 400-case self-test | PASS | 2481 ms | `node scripts/run-evals.mjs --self-test` |
-| clean-room demo | PASS | 158 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
-| clean-room shadow | PASS | 154 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
-| clean-room rollback | PASS | 158 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
+| reference-agent tests | PASS | 259 ms | `npm run test:reference` |
+| 400-case eval self-test | PASS | 1446 ms | `npm run eval:self-test` |
+| asset and snapshot validation | PASS | 598 ms | `npm run validate:assets` |
+| clean-room 400-case self-test | PASS | 1251 ms | `node scripts/run-evals.mjs --self-test` |
+| clean-room demo | PASS | 44 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
+| clean-room shadow | PASS | 38 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
+| clean-room rollback | PASS | 41 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
 
 - 干净目录导入后重新运行 400-case self-test、demo、shadow 与 rollback。
 - Shadow 写副作用 = 0；rollback 后 `automatic_writes=false`。
@@ -89,7 +89,7 @@
 | `schemas/permission-policy.schema.json` | `715d2718b71630b7fa52dacbe6d5366f814a864b77b1e3de3e2b4e9db4e69a98` |
 | `schemas/agent-event.schema.json` | `c81ed8f06f237918090a3a866ea3854d16425c2cc6d5a1f19a6eb7f526529813` |
 | `schemas/runbook.schema.json` | `00682b536304f4a92761f9dd27b6b6081bd57517400ac95f7549c85fad085a1e` |
-| `evals/manifest.yaml` | `faf539915b787684701eb6aa20767d65de7f50ea6cc9ddfdd338a5aef26b9d72` |
+| `evals/manifest.yaml` | `bdba669e42c906c585ba4ff68fd195d4d66061392a78a69ca349e1ba7207b91f` |
 | `evals/judge-calibration.yaml` | `5bfbcd30fcb46b3a52ac0d4c975ed8eb87b183d5a9443d2f463003ebc2dd550d` |
 | `examples/templates/eval-cases.yaml` | `c8ee22a764e19bc154f89f243ebb389f78e45b8599e44cbd2ab72999b812ea31` |
 | `evidence/snapshot-registry.json` | `f0158803ff9058f59976ec80eb4939db5241eb4dfc372c8b5bcdd6e8216c8b99` |

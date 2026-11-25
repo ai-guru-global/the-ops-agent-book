@@ -125,7 +125,6 @@ content_status: "reviewed"
 | --- | --- | --- | --- | --- | --- |
 | FA-01 | 收缩为单集群、单 namespace 的 `CrashLoopBackOff` 只读诊断；补 non-goals、SLO、预算与 Backup | Agent Owner + K8s 领域专家 | Sponsor | 11-27 / 11-27 | `ADD v1.0.0` 获批；明确不做自动修复；[设计文档](../templates/agent-design-doc)字段完整 |
 | FA-02 | 撤销共享账号；建立独立 NHI、短时凭证、PEP、显式 deny、审批绑定与撤销传播 | 平台 + 安全 | 安全 Backup | 12-01 / 12-01 | 18/18 越权/过期/撤销/计划变更用例拒绝；写工具未挂载；[权限矩阵](../templates/permission-matrix) |
-| FA-03 | 重建 400 条 synthetic/脱敏 suite（golden 40 / calibration 60 / holdout 300），另建与 suite 完全分离的 300 条 Judge 双标注校准集 | 评测 Owner | 独立质量评审 | 12-05 / 12-05 | suite 400 条去重通过；Judge 集 300/300；κ=0.86；安全/证据召回均 ≥0.98；[评测模板](../templates/eval-set)、manifest 与 `evals/judge-calibration.yaml` 规则一致 |
 | FA-04 | 统一 Canonical Event，补工具、审批、版本、成本、结果与 SHA-256 哈希链 | Agent 工程师 | 平台可观测性 Owner | 12-03 / 12-03 | 关键路径 Trace 100%；日验链无缺口；[Schema](../../schemas/agent-event.schema.json)与[11 章](../guide/11-agentops-observability) |
 | FA-05 | 准备只读降级、人工接管、kill switch 与恢复 LKG 的演练 | 值班 SRE + 平台 | 变更经理 | 12-07 / 12-07 | kill switch 38 秒；接管 12 分钟；回滚演练 RTO 12 分钟；[发布清单](../templates/release-checklist) |
 | FA-06 | 建立值班、缺席代理、升级与来源 `review_by` | Agent Owner | Maintainer | 12-08 / 12-08 | Primary/Backup 可解析；升级时限与证据齐全；[09 治理](../guide/09-organization-governance)与 [GOVERNANCE.md](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/GOVERNANCE.md) |
@@ -142,10 +141,21 @@ content_status: "reviewed"
 | 工具参数正确率 | ≥95% | 390/400，97.5% | Pass |
 | 证据引用准确率 | ≥95% | 384/400，96.0% | Pass |
 | 不安全/禁止/越权动作 | 0 | 0 / 0 / 0 | Pass |
-| 独立 Judge 校准 | 300 条；与 suite 无共享 key/快照/答案键；一致性 ≥90%，κ ≥0.80，安全/证据召回 ≥0.98 | 300/300；93.0%；κ=0.86；0.99 / 0.99 | Pass |
 | Trace / 成本 | 关键路径 100%；平均成本 ≤0.50 USD/run | 100%；0.18 USD/run | Pass |
 | 权限负向测试 | 100% 拒绝 | 18/18 拒绝；拒绝原因与规则 ID 完整 | Pass |
 | 停止与恢复 | kill switch ≤60s；接管/回滚 RTO ≤15m | 38s；12m；12m | Pass |
+
+**合成算术账本（synthetic / illustrative，未附原始逐案例报告）：** 本节数字用于演示闭环，不是真实评测证据。`364/400 = 91.0%` 是案例通过率，不能单独推出加权总分；下表同时给出聚合 Rubric 点数与 Judge 混淆矩阵，使两项声称可复算：
+
+| 复算项 | 合成输入 | 计算 |
+| --- | --- | --- |
+| 案例通过率 | 364 Pass / 400 cases | `364 / 400 × 100 = 91.0%` |
+| 加权总分 | diagnosis 738、evidence 740、safety 758、action 634；每维满分 `400 × 2 = 800` | `100 / (2 × 400) × (0.30×738 + 0.30×740 + 0.25×758 + 0.15×634) = 91.0` |
+| Judge 一致性 | 300 条校准案例；Judge 与裁决均为 positive 140、均为 negative 140、Judge-only positive 10、裁决-only positive 10 | `(140 + 140) / 300 = 93.3%` |
+| Cohen's κ | 双方 positive 均为 150、negative 均为 150；期望一致率 `pe = 0.50` | `(280/300 − 0.50) / (1 − 0.50) = 0.8667 ≈ 0.87` |
+| 安全 / 证据召回 | 安全子集 30/30；证据 297/300 | `100% / 99.0%`，均 ≥98% |
+
+聚合点数不是 400 条逐案例评分明细，不能据此证明分数分布、 veto 顺序或原始 Trace；真实 G3 仍必须归档逐案例判定、权重版本、标注与混淆矩阵。其余运行指标同样是 synthetic 示例，未由本文包含的原始数据独立验证。
 
 复评结论：**G3 Go，仅授权进入 G4 Shadow；生产 Canary 仍为 No-Go。** Agent Owner、评测 Owner、安全/合规、变更经理与领域 Owner 于 2026-12-09 签署 `sig-g3-reeval-v1.1.0`。原 `v1.0.0` No-Go 永久保留，状态为 `Closed-Superseded-by-v1.1.0`；不是删除或改判历史。
 
@@ -161,7 +171,7 @@ content_status: "reviewed"
 
 **最终状态**：初始 G3 否决已关闭；整改与复评形成“否决 → Owner 整改 → 独立验证 → 仅 Shadow 重入”的闭环。生产写准入尚未取得，且不属于当前只读诊断范围；必须继续完成 Shadow 与建议模式条件。未来写能力须重新立项、评测和签署，不得把 synthetic 复评结果当作真实生产证据。
 
-::: diagram 图 23 · 失败项目的因果链 | 失败项目的五条因果链；范围、评测、权限、Owner 与门禁共同导致叫停。
+::: diagram 图 23 · 失败项目的因果链与整改重入闭环 | 五条因果链导致 G3 叫停；整改必须经独立验收与新版签署，只重入 Shadow，不自动获得生产权限。
 ```mermaid
 flowchart TD
   A[范围过大] --> B[每类只做 Demo 深度]
@@ -174,6 +184,16 @@ flowchart TD
   G --> J
   I --> J
   J --> K[试点未启动]
+  K --> L[保留 v1.0.0 No-Go<br/>指定整改 Owner]
+  L --> M[FA-01–06 整改]
+  M --> N[独立验收证据]
+  N -->|未达标| M
+  N -->|全部 Closed + 签署| O[G3 v1.1.0 Go]
+  O --> P[仅重入 G4 Shadow]
+  P -->|条件未满足| Q[保持 Shadow / 补齐证据]
+  Q --> M
+  P -->|未来申请写能力| R[回 G1 / G3<br/>重新评测与签署]
+  P -->|只读 Operate 门槛| S[G5 运营评审]
 ```
 :::
 
@@ -223,6 +243,8 @@ flowchart TD
 - [ ] 门禁是否有硬规则和否决权，而不是打勾？
 - [ ] 是否有 kill switch、只读降级、人工接管与回滚演练？
 - [ ] 是否能在评审时回答“它在 100 个真实告警上表现如何”？
+- [ ] 加权总分、Judge 一致性与 κ 是否可由聚合点数/混淆矩阵复算，并保留逐案例原始证据？
+- [ ] 图 23 的整改回路是否经独立验收、新版签署后仅重入 Shadow，而非自动恢复生产权限？
 
 ## 9. 结论
 
