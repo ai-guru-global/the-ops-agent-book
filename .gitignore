@@ -11,3 +11,4 @@ dist-epub
 .impeccable/build
 .impeccable/config.local.json
 evidence/judge-annotations/
+reports/validation/user-reading-results/

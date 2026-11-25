@@ -61,7 +61,10 @@
 3. 观察但不指导；需要帮助时记录帮助发生点。
 4. 每项任务后追问：“你刚才依据什么判断？”
 5. 结束时收集 3 个“最困惑”与 3 个“最有用”。
-6. 将结果脱敏后写入 `reports/validation/user-reading-results.md`。
+6. 将结果脱敏后写入 `reports/validation/user-reading-results/`，每位参与者一个 YAML 文件；原始记录不提交 git。
+7. 运行 `npm run user-reading:check -- --write` 生成汇总；只有真实记录满足全部门禁才可通过。
+
+模板：[user-reading-results.template.yaml](./user-reading-results.template.yaml)。Schema：`schemas/user-reading-result.schema.json`。校验器会拒绝重复任务、混合提交、直接身份标识和未关闭的 critical/serious 问题；无记录时状态必须为 `not_executed`。
 
 ## 6. 通过标准
 

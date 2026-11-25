@@ -66,6 +66,12 @@ jobs:
       - name: Run evaluation harness self-test
         run: npm run eval:self-test
 
+      - name: Validate real-user reading evidence gate
+        run: npm run user-reading:check
+
+      - name: Test real-user reading validator
+        run: npm run test:user-reading
+
       - name: Run synthetic POC and clean-room import
         run: npm run poc:demo
 

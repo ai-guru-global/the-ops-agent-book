@@ -1,0 +1,48 @@
+# TEMPLATE ONLY — not test evidence. Copy one file per real participant into
+# reports/validation/user-reading-results/ after consent and anonymization.
+# Never include names, emails, phone numbers, employee IDs, customer names or raw production logs.
+schema_version: "1.0"
+participant_id: "REAL-P01"
+role: sre
+years_experience: 5
+agent_project_experience: true
+consent: true
+environment:
+  desktop_viewport: "1440x900"
+  mobile_viewport: "390x844"
+  print_checked: true
+  site_commit_sha: "REPLACE_WITH_40_HEX_COMMIT_SHA"
+  tested_at: "REPLACE_WITH_ISO_8601_TIMESTAMP"
+tasks:
+  - id: T1
+    success: true
+    time_seconds: 142
+    wrong_turns: 1
+    help_used: false
+    safety_misunderstanding: false
+  - id: T2
+    success: true
+    time_seconds: 271
+    wrong_turns: 0
+    help_used: false
+    safety_misunderstanding: false
+    diagram_clarity: 4
+  - id: T3
+    success: true
+    time_seconds: 720
+    wrong_turns: 1
+    help_used: false
+    safety_misunderstanding: false
+  - id: T4
+    success: true
+    time_seconds: 210
+    wrong_turns: 0
+    help_used: false
+    safety_misunderstanding: false
+    diagram_clarity: 4
+issues: []
+feedback:
+  most_confusing:
+    - "Replace with an anonymized observation."
+  most_useful:
+    - "Replace with an anonymized observation."

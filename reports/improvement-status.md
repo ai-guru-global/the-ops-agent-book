@@ -30,6 +30,7 @@
 7. **评测资产**：400 条 synthetic K8s 案例（40/60/300，五类各 80）与 400 份本地快照 fixture；确定性生成、SHA-256、负向控制与 14 项 self-test 通过；报告仍为 INCONCLUSIVE。
 8. **POC 示例**：填写的 synthetic POC 73/100、INCONCLUSIVE；17/17 参考测试、400-case self-test、干净目录导入、Shadow/rollback 与 26 项制品哈希通过；真实 TCO/商务退出未完成。
 9. **Judge 校准工具**：300 条独立候选池、答案键、快照 registry、双人标注/独立裁决 CLI 与 κ/召回报告已就绪；真实标注 0/300，release_ready=false。
+10. **真实用户测试工具**：匿名参与者 Schema、YAML 模板、汇总门禁与 5 项校验器测试已就绪；原始记录默认不入 git，无记录时严格返回 `not_executed`。
 
 ## 质量门禁
 
@@ -38,7 +39,7 @@
 - VitePress 构建、Schema/JSON/YAML/资产校验、内部链接。
 - 50 张 Mermaid 实际渲染、编号、图注与图状文本残留检查。
 - 320/390/768/1024/1440 与 A4 打印、WCAG 2.1 AA。
-- 参考实现 17/17、eval self-test 14/14、5 类负向控制与 synthetic 基线回归。
+- 参考实现 17/17、eval self-test 14/14、用户阅读校验器 5/5、5 类负向控制与 synthetic 基线回归。
 - 成本模型 18 个 derived 与 14 个敏感性数值对账。
 - Shell/Python 语法、Runbook Schema、Trace 哈希链、来源快照 SHA-256。
 
