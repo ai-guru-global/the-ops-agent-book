@@ -36,6 +36,9 @@ jobs:
       - name: Build VitePress
         run: npm run docs:build
 
+      - name: Verify cross-report consistency and POC hashes
+        run: npm run consistency:check
+
       - name: Verify vendor claim gap registry
         run: npm run gaps:check
 

@@ -85,4 +85,4 @@ npm run pdf:audit
 node scripts/cost-model.mjs --check
 ```
 
-`npm run check:all` 汇总文档、资源、链接、Mermaid、门禁/参考资料派生一致性、427 项内嵌示例 Schema 检查、参考实现 28 项测试、评测 harness 自检、RDMA/数据库 fixture 40 项单元测试与 7 项 CLI 集成回归、成本重算与 playbook 静态检查；它**不包含**真实模型/生产 Agent 评测或生产发布验收。参考实现的运行与验链命令见[第 11 章 · 参考实现](../guide/11-agentops-observability#参考实现)。
+`npm run check:all` 汇总跨报告一致性、POC 制品哈希、文档、资源、链接、Mermaid、门禁/参考资料派生一致性、427 项内嵌示例 Schema 检查、参考实现 28 项测试、评测 harness 自检、RDMA/数据库 fixture 40 项单元测试与 7 项 CLI 集成回归、成本重算与 playbook 静态检查；它**不包含**真实模型/生产 Agent 评测或生产发布验收。参考实现的运行与验链命令见[第 11 章 · 参考实现](../guide/11-agentops-observability#参考实现)。
