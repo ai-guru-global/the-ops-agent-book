@@ -33,13 +33,13 @@
 
 | 测试 | 结果 | 耗时 | 命令 |
 | --- | --- | ---: | --- |
-| reference-agent tests | PASS | 259 ms | `npm run test:reference` |
-| 400-case eval self-test | PASS | 1446 ms | `npm run eval:self-test` |
-| asset and snapshot validation | PASS | 598 ms | `npm run validate:assets` |
-| clean-room 400-case self-test | PASS | 1251 ms | `node scripts/run-evals.mjs --self-test` |
-| clean-room demo | PASS | 44 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
-| clean-room shadow | PASS | 38 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
-| clean-room rollback | PASS | 41 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
+| reference-agent tests | PASS | 300 ms | `npm run test:reference` |
+| 400-case eval self-test | PASS | 1468 ms | `npm run eval:self-test` |
+| asset and snapshot validation | PASS | 956 ms | `npm run validate:assets` |
+| clean-room 400-case self-test | PASS | 1355 ms | `node scripts/run-evals.mjs --self-test` |
+| clean-room demo | PASS | 50 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
+| clean-room shadow | PASS | 43 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
+| clean-room rollback | PASS | 45 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
 
 - 干净目录导入后重新运行 400-case self-test、demo、shadow 与 rollback。
 - Shadow 写副作用 = 0；rollback 后 `automatic_writes=false`。

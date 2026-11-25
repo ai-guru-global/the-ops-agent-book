@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-ops-agent-book:rubric-config:1.0.0",
+  "title": "Evaluation rubric configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "scenario_stratum", "baseline_id", "rubric"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "scenario_stratum": {"type": "string", "minLength": 1},
+    "baseline_id": {"type": "string", "minLength": 1},
+    "rubric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "passing_score", "dimensions"],
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "passing_score": {"type": "number", "minimum": 0, "maximum": 100},
+        "veto": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "dimensions": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "max_score", "weight", "zero_anchor", "anchors"],
+            "properties": {
+              "id": {"enum": ["diagnosis", "evidence", "safety", "action"]},
+              "max_score": {"const": 2},
+              "weight": {"type": "number", "minimum": 0, "maximum": 1},
+              "zero_anchor": {"type": "string", "minLength": 1},
+              "critical_failure_veto": {"type": "boolean"},
+              "anchors": {"type": "object", "required": ["1", "2"], "properties": {"1": {"type": "string", "minLength": 1}, "2": {"type": "string", "minLength": 1}}}
+            }
+          }
+        }
+      }
+    }
+  }
+}

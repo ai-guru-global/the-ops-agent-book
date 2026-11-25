@@ -65,6 +65,7 @@ content_status: "reviewed"
 ## 自动一致性与变更动作
 
 - `npm run validate:assets` 检查全部内容页的 Owner、last_verified、review_by、content_status，并验证本表覆盖不遗漏、不指向不存在页面。
+- `npm run examples:check` 抽取正文内嵌 YAML/JSON，按工具契约、评测、发布、Runbook、事故、证据包、Event、委托 token 与 Rubric Schema 校验；唯一豁免项必须明确标注为不可独立执行的结构片段。
 - `npm run gates:check` 验证指标页中的门禁表与 `evals/manifest.yaml` 完全一致；修改门槛只能改 manifest 后运行 `npm run gates:generate`。
 - `npm run refs:check` 验证参考资料页与 `sources/registry.yaml` 完全一致；修改来源后运行 `npm run refs:generate`。
 - `npm run gaps:check` 验证所有显式“未核实”字段都进入 `sources/claim-gaps.json`；补证必须同时更新来源、快照哈希和商业字段。

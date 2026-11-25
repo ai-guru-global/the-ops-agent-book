@@ -48,7 +48,7 @@ flowchart LR
 
 ## 证据包
 
-每次诊断都应该产出结构化证据包，而不是一段自然语言总结。下例中的每个 `support` / `contradict` 都只能引用 `observations` 中**实际返回**的记录；未查询、未返回或结果不完整的内容放入 `gaps`，不能伪装成反证。
+每次诊断都应该产出结构化证据包，而不是一段自然语言总结。下例中的每个 `support` / `contradict` 都只能引用 `observations` 中**实际返回**的记录；未查询、未返回或结果不完整的内容放入 `gaps`，不能伪装成反证。结构契约见 [`schemas/evidence-bundle.schema.json`](../../schemas/evidence-bundle.schema.json)。
 
 ```json
 {
@@ -119,7 +119,7 @@ flowchart LR
 
 传统 Runbook 是写给人看的散文；运维 Agent 需要**可执行、可验证、可回滚**的 Runbook。
 
-下面是一个**已确认由错误发布引起、需要回滚到已知良好版本**的可执行片段。参数必须来自审批包，不能由模型凭空填写。
+下面是一个**已确认由错误发布引起、需要回滚到已知良好版本**的结构示意片段，**不可独立执行**；完整、通过 Schema 校验的 Runbook 见 [`examples/templates/runbook.yaml`](../../examples/templates/runbook.yaml)。参数必须来自审批包，不能由模型凭空填写。
 
 ```yaml
 id: k8s-rollback-known-good

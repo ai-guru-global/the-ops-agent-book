@@ -35,6 +35,15 @@
 
 P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `not_executed`、Judge 0/300、真实模型/生产 Trace 缺失和 134 个商业/事实缺口仍是硬阻断。
 
+### 1.2 P1 正文示例合同闭环（2026-11-25）
+
+- 新增 Eval Case、Release、Incident、Evidence Bundle、Tool Result、Delegation Token 与 Rubric Config Schema，并复用 Tool Contract、Runbook、Agent Event Schema。
+- `npm run examples:check` 对正文内嵌 YAML/JSON、400 条生成案例和关键外部示例执行 **427 项 Schema 检查**，全部通过。
+- Release、Runbook、事故记录的 Markdown 示例与外部权威文件做深一致检查；Release 证据 ID 全部可解析；Rubric 权重合计 1.0；证据/案例 `snapshot_id` 相等。
+- 负向控制覆盖：缺少 `source_case_key`、failed 工具结果缺少 `partial_success`、可传递委托 token、证据缺少 source、synthetic Release 被标成 PASS/GO。
+- 唯一豁免是 `docs/guide/06-context-knowledge.md` 中明确标注“不可独立执行”的 Runbook 结构片段；完整 Schema-valid Runbook 位于 `examples/templates/runbook.yaml`。
+- 本地与远端 Book quality 都已加入 `gates:check`、`refs:check`、`examples:check`，防止派生页和正文示例再次漂移。
+
 ## 2. 评估口径
 
 | 维度 | 评估内容 | 1 分 | 3 分 | 5 分 |

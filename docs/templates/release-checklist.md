@@ -47,6 +47,10 @@ stateDiagram-v2
 第一部分是空白模板；第二部分是**合成填写示例**。模板中的默认值、示例数值、占位链接和签署状态都不构成验证、演练、批准或生产发布授权。文档构建通过只证明文档可构建。
 :::
 
+机器可读记录使用 [`schemas/release.schema.json`](../../schemas/release.schema.json)（JSON Schema Draft 2020-12）校验。候选与 LKG 都必须给出六类制品的不可变引用；`release_targets` 只容纳发布门槛，`automatic_rollback_triggers` 只容纳自动动作。`evidence_mode: synthetic` 禁止任何 `PASS` / `GO`；证据不可访问、未校验哈希或缺少验证元数据时禁止 `PASS`；`NO_GO` 必须给出非空 `blocking_reason`。默认状态仍是 `NOT_EVALUATED`，示例仍是 `INCONCLUSIVE` / `NO_GO`。
+
+Schema 校验之外，发布控制器还必须在 `decision_at` 检查证据与签署有效期、时间先后、实测 RTO / kill switch 是否满足目标，并解析全部 evidence ID 确实存在且支持对应检查；这些跨记录语义不能由 JSON Schema 的比较运算替代。校验通过也不等于已取得真实证据。
+
 ## 0. 使用规则与决策语义
 
 复制第一部分到项目仓库后填写。每个字段、阈值和签署必须绑定到同一候选 bundle；不得直接修改已签署记录，变更时升版本并保留 `supersedes` 关系。
@@ -306,19 +310,26 @@ lkg:
   artifact_id: REL-synthetic-2026-000
   bundle_version: v1.3.0
   immutable_bundle_ref: "bundle:synthetic-lkg-v1.3.0"
+  components:
+    model: {version: synthetic-model@2026.10.0, immutable_ref: "sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+    prompt: {version: ops-agent@1.3.0, immutable_ref: "git:synthetic@0000000000000000000000000000000000000000"}
+    tools: {version: 1.3.0, immutable_ref: "registry.invalid/tools@sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+    knowledge: {version: kb-2026.10, immutable_ref: "snapshot:synthetic-kb-000"}
+    policy: {version: 1.3.0, immutable_ref: "sha256:0000000000000000000000000000000000000000000000000000000000000000"}
+    evaluation: {version: 1.3.0, immutable_ref: "sha256:0000000000000000000000000000000000000000000000000000000000000000"}
   deployability_evidence: EV-synthetic-lkg
   health_evidence: EV-synthetic-lkg
   audit_evidence: EV-synthetic-lkg
 
-# 链接只是填写演示；.invalid 不可解析，MISSING 绝不能当作 PASS。
+# Links are placeholders. MISSING must never be interpreted as PASS.
 evidence_index:
-  - {evidence_id: EV-synthetic-eval, uri: "https://synthetic.invalid/REL-synthetic-2026-001/eval-report.json", sha256: null, access: MISSING, status: INCONCLUSIVE}
-  - {evidence_id: EV-synthetic-lkg, uri: "https://synthetic.invalid/REL-synthetic-2026-001/lkg-health.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
-  - {evidence_id: EV-synthetic-kill-switch, uri: "https://synthetic.invalid/REL-synthetic-2026-001/kill-switch-drill.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
-  - {evidence_id: EV-synthetic-rollback, uri: "https://synthetic.invalid/REL-synthetic-2026-001/rollback-drill.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
-  - {evidence_id: EV-synthetic-reconcile, uri: "https://synthetic.invalid/REL-synthetic-2026-001/unknown-outcomes.json", sha256: null, access: MISSING, status: NOT_EVALUATED}
+  - {evidence_id: EV-synthetic-eval, uri: "https://synthetic.invalid/REL-synthetic-2026-001/eval-report.json", sha256: null, access: MISSING, hash_status: NOT_CHECKED, sampled_at: null, valid_from: null, expires_at: null, verified_by: null, verified_at: null, status: INCONCLUSIVE}
+  - {evidence_id: EV-synthetic-lkg, uri: "https://synthetic.invalid/REL-synthetic-2026-001/lkg-health.json", sha256: null, access: MISSING, hash_status: NOT_CHECKED, sampled_at: null, valid_from: null, expires_at: null, verified_by: null, verified_at: null, status: NOT_EVALUATED}
+  - {evidence_id: EV-synthetic-kill-switch, uri: "https://synthetic.invalid/REL-synthetic-2026-001/kill-switch-drill.json", sha256: null, access: MISSING, hash_status: NOT_CHECKED, sampled_at: null, valid_from: null, expires_at: null, verified_by: null, verified_at: null, status: NOT_EVALUATED}
+  - {evidence_id: EV-synthetic-rollback, uri: "https://synthetic.invalid/REL-synthetic-2026-001/rollback-drill.json", sha256: null, access: MISSING, hash_status: NOT_CHECKED, sampled_at: null, valid_from: null, expires_at: null, verified_by: null, verified_at: null, status: NOT_EVALUATED}
+  - {evidence_id: EV-synthetic-reconcile, uri: "https://synthetic.invalid/REL-synthetic-2026-001/unknown-outcomes.json", sha256: null, access: MISSING, hash_status: NOT_CHECKED, sampled_at: null, valid_from: null, expires_at: null, verified_by: null, verified_at: null, status: NOT_EVALUATED}
 
-# 合成发布目标：不是建议值，也不是回滚触发器。
+# Synthetic targets only; not recommended values and not rollback triggers.
 release_targets:
   weighted_eval_score_min: 85
   unsafe_action_rate_max: 0
@@ -330,7 +341,7 @@ release_targets:
   veto_count_max: 0
   evidence_ids: [EV-synthetic-eval]
 
-# 合成自动触发器：与发布目标分表冻结。
+# Synthetic automatic triggers, frozen separately from release targets.
 automatic_rollback_triggers:
   - {id: change-success, metric: controlled_change_success, comparator: "<", threshold: 0.97, window_minutes: 30, min_samples: 30, action: ROLLBACK_LKG}
   - {id: takeover, metric: human_takeover_rate, comparator: ">", threshold: 0.30, window_minutes: 30, min_samples: 20, action: DEGRADE_READ_ONLY}
@@ -338,7 +349,10 @@ automatic_rollback_triggers:
   - {id: latency, metric: p95_latency_ms, comparator: ">", threshold: 800, window_minutes: 10, min_samples: 20, action: ROLLBACK_LKG}
 rollback_controller:
   controller: synthetic-independent-controller
+  owner: synthetic-on-call-sre
+  armed: false
   armed_evidence: EV-synthetic-kill-switch
+  status: NOT_EVALUATED
 
 kill_switch:
   controller: synthetic-gateway-control-plane
@@ -369,6 +383,7 @@ signoffs: []
 evaluation_result: INCONCLUSIVE
 release_decision: NO_GO
 blocking_reason: 合成配置没有原始评测、LKG、kill switch、回滚演练、对账或独立签署证据。
+decision_at: null
 ```
 
 ## B. 示例为何仍然是 NO-GO

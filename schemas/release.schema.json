@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-ops-agent-book.example/schemas/release.schema.json",
+  "title": "Fail-closed release decision record",
+  "description": "Machine-readable companion to the release checklist. Synthetic records and unavailable or unverified evidence can never authorize a release. Timestamp freshness and URI reachability still require validation against decision_at at release time.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_id",
+    "bundle_version",
+    "supersedes",
+    "environment",
+    "evidence_mode",
+    "owner",
+    "updated_at",
+    "candidate_bundle",
+    "lkg",
+    "evidence_index",
+    "release_targets",
+    "automatic_rollback_triggers",
+    "rollback_controller",
+    "kill_switch",
+    "recovery",
+    "unknown_outcomes",
+    "checks",
+    "signoffs",
+    "evaluation_result",
+    "release_decision"
+  ],
+  "$defs": {
+    "semVer": {
+      "type": "string",
+      "pattern": "^v(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "immutable_ref"],
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "immutable_ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "sixArtifactBundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "prompt", "tools", "knowledge", "policy", "evaluation"],
+      "properties": {
+        "model": {"$ref": "#/$defs/artifact"},
+        "prompt": {"$ref": "#/$defs/artifact"},
+        "tools": {"$ref": "#/$defs/artifact"},
+        "knowledge": {"$ref": "#/$defs/artifact"},
+        "policy": {"$ref": "#/$defs/artifact"},
+        "evaluation": {"$ref": "#/$defs/artifact"}
+      }
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "notEvaluated": {"const": "NOT_EVALUATED"},
+    "checkStatus": {
+      "type": "string",
+      "enum": ["NOT_EVALUATED", "PASS", "FAIL", "INCONCLUSIVE"],
+      "default": "NOT_EVALUATED"
+    },
+    "evidenceStatus": {
+      "type": "string",
+      "enum": ["NOT_EVALUATED", "PASS", "FAIL", "INCONCLUSIVE"],
+      "default": "NOT_EVALUATED"
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "uri", "sha256", "access", "hash_status", "status"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "uri": {"type": "string", "format": "uri", "minLength": 1},
+        "sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "access": {"type": "string", "enum": ["AVAILABLE", "MISSING", "DENIED"]},
+        "hash_status": {"type": "string", "enum": ["NOT_CHECKED", "MATCH", "MISMATCH"]},
+        "sampled_at": {"type": ["string", "null"], "format": "date-time"},
+        "valid_from": {"type": ["string", "null"], "format": "date-time"},
+        "expires_at": {"type": ["string", "null"], "format": "date-time"},
+        "verified_by": {"type": ["string", "null"], "minLength": 1},
+        "verified_at": {"type": ["string", "null"], "format": "date-time"},
+        "status": {"$ref": "#/$defs/evidenceStatus"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "PASS"}}, "required": ["status"]},
+          "then": {
+            "required": ["sampled_at", "valid_from", "expires_at", "verified_by", "verified_at"],
+            "properties": {
+              "sha256": {"$ref": "#/$defs/sha256"},
+              "access": {"const": "AVAILABLE"},
+              "hash_status": {"const": "MATCH"},
+              "sampled_at": {"type": "string", "format": "date-time"},
+              "valid_from": {"type": "string", "format": "date-time"},
+              "expires_at": {"type": "string", "format": "date-time"},
+              "verified_by": {"type": "string", "minLength": 1},
+              "verified_at": {"type": "string", "format": "date-time"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"access": {"enum": ["MISSING", "DENIED"]}}, "required": ["access"]},
+          "then": {"properties": {"status": {"enum": ["NOT_EVALUATED", "FAIL", "INCONCLUSIVE"]}}}
+        }
+      ]
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence"],
+      "properties": {
+        "status": {"$ref": "#/$defs/checkStatus"},
+        "evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "signoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "identity", "independent", "conflict_checked", "decision", "signed_at", "expires_at", "evidence"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["AGENT_OWNER", "EVALUATION_OWNER", "DOMAIN_EXPERT", "SECURITY_COMPLIANCE", "DATA_OWNER", "CHANGE_MANAGER", "ON_CALL_SRE_HUMAN_IC"]
+        },
+        "identity": {"type": "string", "minLength": 1},
+        "independent": {"type": "boolean"},
+        "conflict_checked": {"type": "boolean"},
+        "decision": {"type": "string", "enum": ["NOT_EVALUATED", "GO", "NO_GO"]},
+        "signed_at": {"type": "string", "format": "date-time"},
+        "expires_at": {"type": "string", "format": "date-time"},
+        "evidence": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"decision": {"const": "GO"}}, "required": ["decision"]},
+          "then": {"type": "object", "properties": {"independent": {"const": true}, "conflict_checked": {"const": true}}}
+        }
+      ]
+    }
+  },
+  "properties": {
+    "artifact_id": {"type": "string", "pattern": "^REL-[a-z0-9-]+-[0-9]{4}-[0-9]{3}$"},
+    "bundle_version": {"$ref": "#/$defs/semVer"},
+    "supersedes": {"type": ["string", "null"], "minLength": 1},
+    "environment": {"type": "string", "minLength": 1, "not": {"enum": ["all", "latest"]}},
+    "evidence_mode": {"type": "string", "enum": ["synthetic", "real"]},
+    "owner": {"type": "string", "minLength": 1},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "candidate_bundle": {"$ref": "#/$defs/sixArtifactBundle"},
+    "lkg": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "bundle_version", "immutable_bundle_ref", "components", "deployability_evidence", "health_evidence", "audit_evidence"],
+      "properties": {
+        "artifact_id": {"type": "string", "pattern": "^REL-[a-z0-9-]+-[0-9]{4}-[0-9]{3}$"},
+        "bundle_version": {"$ref": "#/$defs/semVer"},
+        "immutable_bundle_ref": {"type": "string", "minLength": 1},
+        "components": {"$ref": "#/$defs/sixArtifactBundle"},
+        "deployability_evidence": {"type": "string", "minLength": 1},
+        "health_evidence": {"type": "string", "minLength": 1},
+        "audit_evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence_index": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "release_targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Entry or expansion gates only. Automatic rollback conditions belong in automatic_rollback_triggers.",
+      "required": ["weighted_eval_score_min", "unsafe_action_rate_max", "controlled_change_success_min", "controlled_change_min_samples", "human_takeover_rate_max", "cost_per_run_max_usd", "p95_latency_max_ms", "veto_count_max", "evidence_ids"],
+      "properties": {
+        "weighted_eval_score_min": {"type": "number", "minimum": 0, "maximum": 100},
+        "unsafe_action_rate_max": {"type": "number", "minimum": 0, "maximum": 1},
+        "controlled_change_success_min": {"type": "number", "minimum": 0, "maximum": 1},
+        "controlled_change_min_samples": {"type": "integer", "minimum": 1},
+        "human_takeover_rate_max": {"type": "number", "minimum": 0, "maximum": 1},
+        "cost_per_run_max_usd": {"type": "number", "minimum": 0},
+        "p95_latency_max_ms": {"type": "number", "minimum": 0},
+        "veto_count_max": {"type": "integer", "minimum": 0},
+        "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "automatic_rollback_triggers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "metric", "comparator", "threshold", "window_minutes", "min_samples", "action"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "metric": {"type": "string", "minLength": 1},
+          "comparator": {"type": "string", "enum": ["<", "<=", ">", ">="]},
+          "threshold": {"type": "number"},
+          "window_minutes": {"type": "integer", "minimum": 1},
+          "min_samples": {"type": "integer", "minimum": 1},
+          "action": {"type": "string", "enum": ["STOP_EXPANSION", "DEGRADE_READ_ONLY", "ROLLBACK_LKG"]}
+        }
+      }
+    },
+    "rollback_controller": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["controller", "owner", "armed", "armed_evidence", "status"],
+      "properties": {
+        "controller": {"type": "string", "minLength": 1},
+        "owner": {"type": "string", "minLength": 1},
+        "armed": {"type": "boolean", "default": false},
+        "armed_evidence": {"type": "string", "minLength": 1},
+        "status": {"$ref": "#/$defs/checkStatus"}
+      }
+    },
+    "kill_switch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["controller", "activation_target_seconds", "measured_activation_seconds", "drill_evidence"],
+      "properties": {
+        "controller": {"type": "string", "minLength": 1},
+        "activation_target_seconds": {"type": "number", "minimum": 0},
+        "measured_activation_seconds": {
+          "anyOf": [{"type": "number", "minimum": 0}, {"$ref": "#/$defs/notEvaluated"}],
+          "default": "NOT_EVALUATED"
+        },
+        "drill_evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "recovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rto_target_minutes", "rpo_target_minutes", "measured_rto_minutes", "drill_date", "drill_evidence", "independent_verification_evidence"],
+      "properties": {
+        "rto_target_minutes": {"type": "number", "minimum": 0},
+        "rpo_target_minutes": {"type": "number", "minimum": 0},
+        "measured_rto_minutes": {
+          "anyOf": [{"type": "number", "minimum": 0}, {"$ref": "#/$defs/notEvaluated"}],
+          "default": "NOT_EVALUATED"
+        },
+        "drill_date": {"type": ["string", "null"], "format": "date"},
+        "drill_evidence": {"type": "string", "minLength": 1},
+        "independent_verification_evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "unknown_outcomes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unreconciled_count", "reconciliation_evidence"],
+      "properties": {
+        "unreconciled_count": {
+          "anyOf": [{"type": "integer", "minimum": 0}, {"$ref": "#/$defs/notEvaluated"}],
+          "default": "NOT_EVALUATED"
+        },
+        "reconciliation_evidence": {"type": "string", "minLength": 1}
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evaluation_report", "lkg_health", "kill_switch_drill", "rollback_drill", "unknown_outcome_reconciliation"],
+      "properties": {
+        "evaluation_report": {"$ref": "#/$defs/check"},
+        "lkg_health": {"$ref": "#/$defs/check"},
+        "kill_switch_drill": {"$ref": "#/$defs/check"},
+        "rollback_drill": {"$ref": "#/$defs/check"},
+        "unknown_outcome_reconciliation": {"$ref": "#/$defs/check"}
+      }
+    },
+    "signoffs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/signoff"}
+    },
+    "evaluation_result": {
+      "type": "string",
+      "enum": ["NOT_EVALUATED", "INCONCLUSIVE", "PASS", "FAIL"],
+      "default": "NOT_EVALUATED"
+    },
+    "release_decision": {
+      "type": "string",
+      "enum": ["NOT_EVALUATED", "NO_GO", "GO"],
+      "default": "NOT_EVALUATED"
+    },
+    "blocking_reason": {"type": "string", "minLength": 1},
+    "decision_at": {"type": ["string", "null"], "format": "date-time"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"evidence_mode": {"const": "synthetic"}}, "required": ["evidence_mode"]},
+      "then": {
+        "type": "object",
+        "properties": {
+          "evaluation_result": {"enum": ["NOT_EVALUATED", "INCONCLUSIVE", "FAIL"]},
+          "release_decision": {"enum": ["NOT_EVALUATED", "NO_GO"]},
+          "evidence_index": {"type": "array", "items": {"type": "object", "properties": {"status": {"enum": ["NOT_EVALUATED", "FAIL", "INCONCLUSIVE"]}}}},
+          "checks": {"type": "object", "properties": {"evaluation_report": {"type": "object", "properties": {"status": {"enum": ["NOT_EVALUATED", "FAIL", "INCONCLUSIVE"]}}}, "lkg_health": {"type": "object", "properties": {"status": {"enum": ["NOT_EVALUATED", "FAIL", "INCONCLUSIVE"]}}}, "kill_switch_drill": {"type": "object", "properties": {"status": {"enum": ["NOT_EVALUATED", "FAIL", "INCONCLUSIVE"]}}}, "rollback_drill": {"type": "object", "properties": {"status": {"enum": ["NOT_EVALUATED", "FAIL", "INCONCLUSIVE"]}}}, "unknown_outcome_reconciliation": {"type": "object", "properties": {"status": {"enum": ["NOT_EVALUATED", "FAIL", "INCONCLUSIVE"]}}}}},
+          "signoffs": {"type": "array", "maxItems": 0}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"release_decision": {"const": "NO_GO"}}, "required": ["release_decision"]},
+      "then": {"type": "object", "required": ["blocking_reason"], "properties": {"blocking_reason": {"type": "string", "minLength": 1, "pattern": "\\S"}}}
+    },
+    {
+      "if": {"properties": {"evaluation_result": {"enum": ["NOT_EVALUATED", "INCONCLUSIVE", "FAIL"]}}, "required": ["evaluation_result"]},
+      "then": {"type": "object", "properties": {"release_decision": {"not": {"const": "GO"}}}}
+    },
+    {
+      "if": {
+        "type": "object",
+        "anyOf": [
+          {
+            "required": ["checks"],
+            "properties": {
+              "checks": {
+                "type": "object",
+                "anyOf": [
+                  {"required": ["evaluation_report"], "properties": {"evaluation_report": {"type": "object", "required": ["status"], "properties": {"status": {"const": "PASS"}}}}},
+                  {"required": ["lkg_health"], "properties": {"lkg_health": {"type": "object", "required": ["status"], "properties": {"status": {"const": "PASS"}}}}},
+                  {"required": ["kill_switch_drill"], "properties": {"kill_switch_drill": {"type": "object", "required": ["status"], "properties": {"status": {"const": "PASS"}}}}},
+                  {"required": ["rollback_drill"], "properties": {"rollback_drill": {"type": "object", "required": ["status"], "properties": {"status": {"const": "PASS"}}}}},
+                  {"required": ["unknown_outcome_reconciliation"], "properties": {"unknown_outcome_reconciliation": {"type": "object", "required": ["status"], "properties": {"status": {"const": "PASS"}}}}}
+                ]
+              }
+            }
+          },
+          {
+            "required": ["rollback_controller"],
+            "properties": {"rollback_controller": {"type": "object", "required": ["status"], "properties": {"status": {"const": "PASS"}}}}
+          },
+          {
+            "required": ["signoffs"],
+            "properties": {"signoffs": {"type": "array", "contains": {"type": "object", "required": ["decision"], "properties": {"decision": {"const": "GO"}}}}}
+          }
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {"evidence_index": {"type": "array", "items": {"type": "object", "properties": {"status": {"const": "PASS"}}}}}
+      }
+    },
+    {
+      "if": {"properties": {"evaluation_result": {"const": "PASS"}}, "required": ["evaluation_result"]},
+      "then": {
+        "type": "object",
+        "properties": {
+          "evidence_index": {"type": "array", "items": {"type": "object", "properties": {"status": {"const": "PASS"}}}},
+          "checks": {"type": "object", "properties": {"evaluation_report": {"type": "object", "properties": {"status": {"const": "PASS"}}}, "lkg_health": {"type": "object", "properties": {"status": {"const": "PASS"}}}, "kill_switch_drill": {"type": "object", "properties": {"status": {"const": "PASS"}}}, "rollback_drill": {"type": "object", "properties": {"status": {"const": "PASS"}}}, "unknown_outcome_reconciliation": {"type": "object", "properties": {"status": {"const": "PASS"}}}}},
+          "rollback_controller": {"type": "object", "properties": {"status": {"const": "PASS"}, "armed": {"const": true}}},
+          "unknown_outcomes": {"type": "object", "properties": {"unreconciled_count": {"const": 0}}}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"release_decision": {"const": "GO"}}, "required": ["release_decision"]},
+      "then": {
+        "type": "object",
+        "required": ["decision_at"],
+        "properties": {
+          "decision_at": {"type": "string", "format": "date-time"},
+          "evaluation_result": {"const": "PASS"},
+          "kill_switch": {"type": "object", "properties": {"measured_activation_seconds": {"type": "number", "minimum": 0}}},
+          "recovery": {"type": "object", "properties": {"measured_rto_minutes": {"type": "number", "minimum": 0}, "drill_date": {"type": "string", "format": "date"}}},
+          "signoffs": {
+            "type": "array",
+            "minItems": 7,
+            "maxItems": 7,
+            "items": {"type": "object", "properties": {"decision": {"const": "GO"}}},
+            "allOf": [
+              {"contains": {"type": "object", "properties": {"role": {"const": "AGENT_OWNER"}}, "required": ["role"]}, "minContains": 1, "maxContains": 1},
+              {"contains": {"type": "object", "properties": {"role": {"const": "EVALUATION_OWNER"}}, "required": ["role"]}, "minContains": 1, "maxContains": 1},
+              {"contains": {"type": "object", "properties": {"role": {"const": "DOMAIN_EXPERT"}}, "required": ["role"]}, "minContains": 1, "maxContains": 1},
+              {"contains": {"type": "object", "properties": {"role": {"const": "SECURITY_COMPLIANCE"}}, "required": ["role"]}, "minContains": 1, "maxContains": 1},
+              {"contains": {"type": "object", "properties": {"role": {"const": "DATA_OWNER"}}, "required": ["role"]}, "minContains": 1, "maxContains": 1},
+              {"contains": {"type": "object", "properties": {"role": {"const": "CHANGE_MANAGER"}}, "required": ["role"]}, "minContains": 1, "maxContains": 1},
+              {"contains": {"type": "object", "properties": {"role": {"const": "ON_CALL_SRE_HUMAN_IC"}}, "required": ["role"]}, "minContains": 1, "maxContains": 1}
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

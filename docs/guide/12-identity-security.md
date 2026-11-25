@@ -51,7 +51,7 @@ flowchart LR
 
 ### Claims 示例（synthetic / 脱敏）
 
-以下仅展示 Claims 结构，不含真实身份或凭证。示例凭证应使用短有效期（如 10 分钟），并通过 TLS 传输；`aud` 限定执行网关，`scope` 限定工具和资源，`act` 保留原始委托者：
+以下仅展示 Claims 结构，不含真实身份或凭证。示例凭证应使用短有效期（如 10 分钟），并通过 TLS 传输；`aud` 限定执行网关，`scope` 限定工具和资源，`act` 保留原始委托者。结构契约见 [`schemas/delegation-token.schema.json`](../../schemas/delegation-token.schema.json)。
 
 ```json
 {

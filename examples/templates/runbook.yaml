@@ -1,12 +1,16 @@
-# Synthetic example; replace hosts, identities and evidence URIs before production use.
+# Synthetic, staging-only contract example; not production authorization or evidence.
+# The 0.80 confidence threshold is a synthetic starter placeholder, not a production-calibrated value.
+# Runtime terminal states are SUCCEEDED, FAILED, ESCALATED and CANCELLED only.
+# A verified rollback after a failed objective ends as ESCALATED, never RECOVERED or SUCCEEDED.
+# Evidence archival is post-terminal bookkeeping, not a run state.
 artifact_id: RB-k8s-2026-001
 version: 3.0.0
 owner:
-  team: payments-sre
-  backup: platform-oncall
-status: approved
-updated_at: "2026-11-24T00:00:00Z"
-review_by: "2027-02-01"
+  team: synthetic-payments-sre
+  backup: synthetic-platform-oncall
+status: in_review
+updated_at: "2026-11-25T00:00:00Z"
+review_by: "2027-02-25"
 related_artifacts:
   - id: ADD-k8s-2026-001
     version: v1.2.0
@@ -16,19 +20,19 @@ related_artifacts:
     version: v1.1.0
   - id: EVAL-k8s-2026-001
     version: v1.0.0
-environments: [staging, prod]
+environments: [staging]
 variables:
-  cluster: {type: string, description: Registered cluster ID}
-  namespace: {type: string, description: Allowlisted Kubernetes namespace}
-  pod: {type: string, description: Exact Pod name; never a wildcard}
-  service: {type: string, description: Service ID in the observability backend}
-  deployment: {type: string, description: Deployment name in namespace}
-  repo: {type: string, description: Approved GitOps repository ID}
-  patch_ref: {type: string, description: Immutable reviewed patch object ID}
-  change_ticket: {type: string, description: Approved change record ID}
-  approval_id: {type: string, description: Single-use approval ID bound to patch hash}
+  cluster: {type: string, description: Registered synthetic staging cluster ID}
+  namespace: {type: string, description: Allowlisted synthetic Kubernetes namespace}
+  pod: {type: string, description: Exact synthetic Pod name; never a wildcard}
+  service: {type: string, description: Synthetic service ID in the observability backend}
+  deployment: {type: string, description: Synthetic Deployment name in namespace}
+  repo: {type: string, description: Approved synthetic GitOps repository ID}
+  patch_ref: {type: string, description: Immutable reviewed synthetic patch object ID}
+  change_ticket: {type: string, description: Synthetic approved change record ID}
   reason: {type: string, description: Human-readable audit reason; no secrets}
-  base_revision: {type: string, description: Git SHA captured before the run}
+  base_revision: {type: string, description: Git SHA captured before the synthetic run}
+  plan_version: {type: string, description: Immutable approved plan version included in idempotency keys}
 input_schemas:
   k8s.get_pod:
     type: object
@@ -76,15 +80,17 @@ input_schemas:
     properties:
       change_ticket: {type: string, minLength: 1}
       patch_hash: {type: string, minLength: 64}
-      requested_role: {type: string, enum: [payments-change-approver]}
+      requested_role: {type: string, enum: [synthetic-payments-change-approver]}
   gitops.commit:
     type: object
     additionalProperties: false
-    required: [repo, patch_ref, approval_id, idempotency_key, reason]
+    required: [repo, patch_ref, approval_id, expected_patch_hash, expected_deployment_generation, idempotency_key, reason]
     properties:
       repo: {type: string, minLength: 1}
       patch_ref: {type: string, minLength: 1}
       approval_id: {type: string, minLength: 1}
+      expected_patch_hash: {type: string, minLength: 64}
+      expected_deployment_generation: {type: string, minLength: 1}
       idempotency_key: {type: string, minLength: 8}
       reason: {type: string, minLength: 1}
   k8s.rollout_status:
@@ -106,11 +112,12 @@ input_schemas:
   gitops.revert:
     type: object
     additionalProperties: false
-    required: [repo, commit_sha, approval_id, idempotency_key, reason]
+    required: [repo, commit_sha, approval_id, expected_current_revision, idempotency_key, reason]
     properties:
       repo: {type: string, minLength: 1}
       commit_sha: {type: string, minLength: 40}
       approval_id: {type: string, minLength: 1}
+      expected_current_revision: {type: string, minLength: 40}
       idempotency_key: {type: string, minLength: 8}
       reason: {type: string, minLength: 1}
   gitops.diff:
@@ -122,17 +129,20 @@ input_schemas:
       base_revision: {type: string, minLength: 1}
       target_revision: {type: string, minLength: 1}
 confidence_calibration:
-  source: EVAL-k8s-2026-001 calibration partition
+  source: EVAL-k8s-2026-001 synthetic calibration partition metadata; no real model calibration evidence
   suite_version: v1.0.0
   sample_size: 60
-  method: temperature_scaling_with_stratified_reliability_bins
+  method: synthetic_starter_placeholder_only; no production calibration performed
   threshold: 0.8
-  calibration_evidence: "eval://EVAL-k8s-2026-001/v1.0.0/calibration-report"
+  calibration_evidence: "eval://synthetic.invalid/EVAL-k8s-2026-001/v1.0.0/calibration-report"
   recalibrate_when:
     - model_version_changes
     - prompt_version_changes
+    - tool_or_environment_changes
+    - threshold_changes
     - ece_exceeds_0.08_over_14_days
     - safety_calibration_recall_below_0.98
+    - before_production_use_complete_target_environment_calibration_and_independent_approval
 preconditions:
   - id: target_exists
     expression: "pod_exists && deployment_exists"
@@ -152,9 +162,9 @@ preconditions:
 steps:
   - id: get_pod
     action_class: read
-    purpose: Confirm the exact Pod and its restart state.
+    purpose: Confirm the exact synthetic Pod and its restart state.
     evidence:
-      - {source: k8s.pod_status, fresh_within: 2m, required_fields: [phase, restartCount]}
+      - {source: k8s.pod_status, fresh_within: 2m, required_fields: [name, phase, restartCount]}
     tool: k8s.get_pod
     tool_version: 2.3.0
     input_schema_ref: k8s.get_pod
@@ -175,7 +185,7 @@ steps:
           on_failure: abort
   - id: get_events
     action_class: read
-    purpose: Correlate Kubernetes events with the restart window.
+    purpose: Correlate synthetic Kubernetes events with the restart window.
     evidence:
       - {source: k8s.events, fresh_within: 5m, required_fields: [reason, message, lastTimestamp]}
     tool: k8s.get_events
@@ -198,7 +208,7 @@ steps:
           on_failure: escalate
   - id: get_logs
     action_class: read
-    purpose: Find the container error signature in the last fifteen minutes.
+    purpose: Find the synthetic container error signature in the last fifteen minutes.
     evidence:
       - {source: logs.container, fresh_within: 15m, required_fields: [timestamp, message]}
     tool: logs.query
@@ -221,7 +231,7 @@ steps:
           on_failure: escalate
   - id: get_deployment
     action_class: read
-    purpose: Compare live and desired configuration without reading Secret values.
+    purpose: Compare synthetic live and desired configuration without reading Secret values; capture generation for write revalidation.
     evidence:
       - {source: k8s.deployment, fresh_within: 5m, required_fields: [generation, envKeys]}
     tool: k8s.get_deployment
@@ -232,7 +242,7 @@ steps:
     assertions:
       success:
         - id: env_key_missing
-          expression: "result.envKeys.includes('DATABASE_URL') == false"
+          expression: "result.envKeys.includes('DATABASE_URL') == false && result.generation != null"
           expected: "true"
           timeout_seconds: 5
           on_failure: escalate
@@ -244,7 +254,7 @@ steps:
           on_failure: abort
   - id: plan_patch
     action_class: plan
-    purpose: Produce an immutable, reviewed configuration patch without changing Git or Kubernetes.
+    purpose: Produce an immutable, reviewed synthetic configuration patch without changing Git or Kubernetes.
     evidence:
       - {source: gitops.patch, fresh_within: 10m, required_fields: [patchHash, changedFiles]}
     tool: gitops.plan
@@ -255,7 +265,7 @@ steps:
     assertions:
       success:
         - id: patch_scope_valid
-          expression: "result.changedFiles.length == 1 && result.changedFiles[0] == params.patch_ref"
+          expression: "result.patchHash != null && result.changedFiles.length == 1 && result.changedFiles[0] == params.patch_ref"
           expected: "true"
           timeout_seconds: 5
           on_failure: abort
@@ -267,13 +277,13 @@ steps:
           on_failure: abort
   - id: request_approval
     action_class: approval
-    purpose: Bind a single-use human approval to the reviewed patch hash and change ticket.
+    purpose: Bind a single-use synthetic human approval to the reviewed patch hash and change ticket.
     evidence:
       - {source: workflow.approval, fresh_within: 30m, required_fields: [approvalId, patchHash, expiresAt]}
     tool: workflow.approval
     tool_version: 1.2.0
     input_schema_ref: workflow.approval
-    params: {change_ticket: "${change_ticket}", patch_hash: "${plan_patch.output.patchHash}", requested_role: payments-change-approver}
+    params: {change_ticket: "${change_ticket}", patch_hash: "${plan_patch.output.patchHash}", requested_role: synthetic-payments-change-approver}
     timeout_seconds: 900
     assertions:
       success:
@@ -284,46 +294,64 @@ steps:
           on_failure: abort
       failure:
         - id: approval_not_granted
-          expression: "result.status in ['rejected', 'expired']"
+          expression: "result.status in ['rejected', 'expired'] || error.code == 'TIMEOUT'"
           expected: "true"
           timeout_seconds: 10
           on_failure: escalate
+  # Write gateway hashes canonical params: same key + same hash replays the first result; same key + different hash returns CONFLICT.
+  # At most one automatic retry, with the same key, only for transient + outcome_known + confirmed no side effect.
+  # Unknown outcomes require reconciliation, never blind retry; retention covers retry, reconciliation, rollback and handoff.
   - id: commit_patch
     action_class: write
-    purpose: Commit only the approved environment-variable patch; never delete Pods or namespaces.
+    purpose: Commit only the approved synthetic environment-variable patch; use a stable idempotency key and revalidate patch hash and Deployment generation.
     evidence:
-      - {source: gitops.audit, fresh_within: 1m, required_fields: [commitSha, approvalId]}
+      - {source: gitops.audit, fresh_within: 1m, required_fields: [operationId, status, partialSuccess, commitSha, approvalId, patchHash]}
     tool: gitops.commit
     tool_version: 1.4.0
     input_schema_ref: gitops.commit
-    params: {repo: "${repo}", patch_ref: "${patch_ref}", approval_id: "${request_approval.output.approvalId}", idempotency_key: "${run_id}:commit_patch:${patch_ref}", reason: "${reason}"}
+    params: {repo: "${repo}", patch_ref: "${patch_ref}", approval_id: "${request_approval.output.approvalId}", expected_patch_hash: "${plan_patch.output.patchHash}", expected_deployment_generation: "${get_deployment.output.generation}", idempotency_key: "${run_id}:${plan_version}:commit_patch:${get_deployment.output.generation}", reason: "${reason}"}
     timeout_seconds: 60
     dry_run: true
     approval:
       min_approvers: 1
-      roles: [payments-change-approver]
+      roles: [synthetic-payments-change-approver]
       expires_in_minutes: 15
       change_window_required: true
     rollback_step_refs: [revert_patch]
     assertions:
       success:
-        - id: commit_recorded
-          expression: "result.commitSha != null && result.approvalId == params.approval_id"
+        - id: commit_fully_applied
+          expression: "result.status == 'succeeded' && result.partialSuccess == false && result.commitSha != null && result.approvalId == params.approval_id && result.patchHash == params.expected_patch_hash"
           expected: "true"
           timeout_seconds: 5
           on_failure: rollback
       failure:
+        - id: commit_retryable_no_effect
+          expression: "error.category == 'transient' && error.outcome_known == true && error.side_effect == false"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: retry
         - id: commit_rejected
-          expression: "error.code in ['APPROVAL_EXPIRED', 'POLICY_DENIED', 'CONFLICT']"
+          expression: "error.code in ['AUTH', 'APPROVAL_EXPIRED', 'POLICY_DENIED', 'CONFLICT']"
           expected: "true"
           timeout_seconds: 5
           on_failure: escalate
+        - id: commit_outcome_unknown
+          expression: "error.code in ['TIMEOUT', 'UNKNOWN_OUTCOME'] || error.outcome_known == false"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
+        - id: commit_invalid
+          expression: "error.code == 'VALIDATION'"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: abort
 verification:
   - id: verify_rollout
     action_class: verify
-    purpose: Verify the desired configuration has reached a healthy rollout.
+    purpose: Verify the desired synthetic configuration has reached a healthy rollout.
     evidence:
-      - {source: k8s.rollout, fresh_within: 2m, required_fields: [readyReplicas, availableReplicas]}
+      - {source: k8s.rollout, fresh_within: 2m, required_fields: [status, readyReplicas, availableReplicas, desiredReplicas]}
     tool: k8s.rollout_status
     tool_version: 2.3.0
     input_schema_ref: k8s.rollout_status
@@ -342,9 +370,14 @@ verification:
           expected: "true"
           timeout_seconds: 5
           on_failure: rollback
+        - id: rollout_outcome_unknown
+          expression: "result.status == 'timeout' || error.outcome_known == false"
+          expected: "true"
+          timeout_seconds: 5
+          on_failure: escalate
   - id: verify_slo
     action_class: verify
-    purpose: Verify the service SLO recovered before declaring success.
+    purpose: Verify the synthetic service SLO recovered before declaring success.
     evidence:
       - {source: slo.window, fresh_within: 15m, required_fields: [errorRate, p95LatencyMs]}
     tool: slo.query
@@ -361,45 +394,57 @@ verification:
           on_failure: rollback
       failure:
         - id: slo_unavailable
-          expression: "error.code == 'QUERY_TIMEOUT'"
+          expression: "error.code == 'QUERY_TIMEOUT' || error.outcome_known == false"
           expected: "true"
-          timeout_seconds: 5
+          timeout_seconds: 15
           on_failure: escalate
 rollback:
   trigger:
-    - "commit_patch.assertions.success failed"
+    - "commit_patch.assertions.success failed AND commitSha is known"
+    - "commit_patch.result.partialSuccess == true AND commitSha is known"
     - "verify_rollout.assertions.success failed"
     - "verify_slo.assertions.success failed"
     - "kill_switch == true"
   rto_minutes: 15
   steps:
+    # Rollback requires an authoritative known commitSha; expected_current_revision blocks concurrent-change overwrite.
     - id: revert_patch
       action_class: rollback
-      purpose: Revert the exact commit through GitOps; approval is reused only inside its original expiry.
+      purpose: Revert the exact known synthetic commit without overwriting concurrent changes; reuse approval only inside its original expiry and only at the expected current revision.
       evidence:
-        - {source: gitops.audit, fresh_within: 1m, required_fields: [revertSha, originalCommitSha]}
+        - {source: gitops.audit, fresh_within: 1m, required_fields: [operationId, status, partialSuccess, revertSha, originalCommitSha]}
       tool: gitops.revert
       tool_version: 1.4.0
       input_schema_ref: gitops.revert
-      params: {repo: "${repo}", commit_sha: "${commit_patch.output.commitSha}", approval_id: "${request_approval.output.approvalId}", idempotency_key: "${run_id}:revert_patch:${commit_patch.output.commitSha}", reason: "Runbook verification failed"}
+      params: {repo: "${repo}", commit_sha: "${commit_patch.output.commitSha}", approval_id: "${request_approval.output.approvalId}", expected_current_revision: "${commit_patch.output.commitSha}", idempotency_key: "${run_id}:${plan_version}:revert_patch:${commit_patch.output.commitSha}", reason: "Synthetic runbook verification failed"}
       timeout_seconds: 60
       assertions:
         success:
-          - id: revert_recorded
-            expression: "result.revertSha != null && result.originalCommitSha == params.commit_sha"
+          - id: revert_fully_applied
+            expression: "result.status == 'succeeded' && result.partialSuccess == false && result.revertSha != null && result.originalCommitSha == params.commit_sha"
             expected: "true"
             timeout_seconds: 5
             on_failure: escalate
         failure:
+          - id: revert_retryable_no_effect
+            expression: "error.category == 'transient' && error.outcome_known == true && error.side_effect == false"
+            expected: "true"
+            timeout_seconds: 5
+            on_failure: retry
           - id: revert_rejected
-            expression: "error.code in ['APPROVAL_EXPIRED', 'CONFLICT']"
+            expression: "error.code in ['AUTH', 'APPROVAL_EXPIRED', 'POLICY_DENIED', 'CONFLICT', 'VALIDATION']"
+            expected: "true"
+            timeout_seconds: 5
+            on_failure: escalate
+          - id: revert_outcome_unknown
+            expression: "error.code in ['TIMEOUT', 'UNKNOWN_OUTCOME'] || error.outcome_known == false"
             expected: "true"
             timeout_seconds: 5
             on_failure: escalate
   verification:
     - id: verify_revert_diff
       action_class: verify
-      purpose: Verify no unapproved environment diff remains.
+      purpose: Verify the exact revert leaves no unapproved synthetic environment diff.
       evidence:
         - {source: gitops.diff, fresh_within: 2m, required_fields: [changedFiles]}
       tool: gitops.diff
@@ -416,15 +461,15 @@ rollback:
             on_failure: escalate
         failure:
           - id: diff_unavailable
-            expression: "error.code == 'TIMEOUT'"
+            expression: "error.code == 'TIMEOUT' || error.outcome_known == false"
             expected: "true"
             timeout_seconds: 5
             on_failure: escalate
     - id: verify_revert_rollout
       action_class: verify
-      purpose: Verify the prior revision is healthy after rollback.
+      purpose: Verify the prior synthetic revision is healthy after rollback.
       evidence:
-        - {source: k8s.rollout, fresh_within: 2m, required_fields: [readyReplicas, availableReplicas]}
+        - {source: k8s.rollout, fresh_within: 2m, required_fields: [status, readyReplicas, availableReplicas, desiredReplicas]}
       tool: k8s.rollout_status
       tool_version: 2.3.0
       input_schema_ref: k8s.rollout_status
@@ -439,19 +484,49 @@ rollback:
             on_failure: escalate
         failure:
           - id: rollback_not_healthy
-            expression: "result.status in ['failed', 'timeout']"
+            expression: "result.status in ['failed', 'timeout'] || error.outcome_known == false"
             expected: "true"
             timeout_seconds: 5
             on_failure: escalate
+    - id: verify_revert_slo
+      action_class: verify
+      purpose: Verify the prior synthetic revision meets the service SLO; when all recovery checks pass, end as ESCALATED because the original objective was not met.
+      evidence:
+        - {source: slo.window, fresh_within: 15m, required_fields: [errorRate, p95LatencyMs]}
+      tool: slo.query
+      tool_version: 1.1.0
+      input_schema_ref: slo.query
+      params: {cluster: "${cluster}", service: "${service}", window: "15m"}
+      timeout_seconds: 30
+      assertions:
+        success:
+          - id: rollback_slo_healthy
+            expression: "result.errorRate <= 0.01 && result.p95LatencyMs <= 800"
+            expected: "true"
+            timeout_seconds: 15
+            on_failure: escalate
+        failure:
+          - id: rollback_slo_unavailable
+            expression: "error.code == 'QUERY_TIMEOUT' || error.outcome_known == false"
+            expected: "true"
+            timeout_seconds: 15
+            on_failure: escalate
 escalation:
   when:
-    - "confidence < 0.80"
+    - "confidence < applicable calibrated threshold; 0.80 applies only to this synthetic starter"
+    - "production_calibration_not_approved"
     - evidence_gap
-    - any_assertion_failed
+    - "write_outcome_unknown_after_bounded_reconciliation"
+    - "partial_success_without_safe_verified_rollback"
+    - "any_assertion_failed AND on_failure == escalate"
     - approval_timeout
+    - rollback_or_recovery_verification_failed
+    - "idempotency_key_reused_with_different_request_hash"
+    - "concurrent_change_or_target_version_drift"
+    - "recovery_verified_but_original_objective_unmet -> terminal ESCALATED"
   to:
-    team: payments-oncall
-    backup: platform-oncall
+    team: synthetic-payments-oncall
+    backup: synthetic-platform-oncall
   response_minutes: 10
-  handoff_fields: [run_id, state, evidence_snapshot_ids, executed_tool_calls, approval_id, next_action, rollback_token]
+  handoff_fields: [run_id, state, terminal_state, evidence_snapshot_ids, executed_tool_calls, approval_id, next_action, rollback_token, outcome_known, idempotency_keys, request_hashes, completed_side_effects, recovery_status, applicable_confidence_threshold, threshold_scope]
 evidence_retention_days: 365

@@ -1,0 +1,1051 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-ops-agent-book.example/schemas/incident.schema.json",
+  "title": "Incident command evidence and action contract",
+  "description": "Draft 2020-12 contract for a versioned incident snapshot: evidence, task contracts, approvals, normalized resource locks, execution outcomes, conflict timers, reconciliation and an auditable timeline. The bundled example is entirely synthetic.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "notice",
+    "synthetic",
+    "incident",
+    "evidence",
+    "tasks",
+    "approvals",
+    "resource_locks",
+    "executions",
+    "conflicts",
+    "reconciliations",
+    "timeline"
+  ],
+  "properties": {
+    "$schema": {"const": "https://json-schema.org/draft/2020-12/schema"},
+    "schema_version": {"const": "1.0"},
+    "notice": {"type": "string", "minLength": 1},
+    "synthetic": {"$ref": "#/$defs/syntheticLabels"},
+    "incident": {"$ref": "#/$defs/incident"},
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/task"}
+    },
+    "approvals": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/approval"}
+    },
+    "resource_locks": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/resourceLock"}
+    },
+    "executions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/execution"}
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/conflict"}
+    },
+    "reconciliations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/reconciliation"}
+    },
+    "timeline": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/timelineEntry"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "synthetic": {
+            "type": "object",
+            "properties": {"is_synthetic": {"const": true}},
+            "required": ["is_synthetic"]
+          }
+        },
+        "required": ["synthetic"]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "incident": {
+            "type": "object",
+            "properties": {"data_classification": {"const": "synthetic"}}
+          },
+          "evidence": {
+            "items": {
+              "type": "object",
+              "properties": {"data_classification": {"const": "synthetic"}}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nullableTimestamp": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "duration": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*(s|m|h)$"
+    },
+    "resourceKey": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 512,
+      "pattern": "^[a-z0-9][a-z0-9._-]*(/[a-z0-9][a-z0-9._-]*)+$",
+      "description": "Canonical lowercase directory ID path, not a display name, temporary IP or alias."
+    },
+    "tool": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+\\.[a-z0-9_]+$"
+    },
+    "idList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/identifier"}
+    },
+    "timeRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end", "timezone", "window", "sample_interval"],
+      "properties": {
+        "start": {"$ref": "#/$defs/timestamp"},
+        "end": {"$ref": "#/$defs/timestamp"},
+        "timezone": {"type": "string", "minLength": 1},
+        "window": {"$ref": "#/$defs/duration"},
+        "sample_interval": {"$ref": "#/$defs/duration"}
+      }
+    },
+    "syntheticLabels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["is_synthetic", "labels"],
+      "properties": {
+        "is_synthetic": {"type": "boolean"},
+        "labels": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"enum": ["synthetic", "desensitized", "no_real_incident_data"]}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"is_synthetic": {"const": true}}, "required": ["is_synthetic"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "labels": {
+                "minItems": 3,
+                "contains": {"const": "synthetic"},
+                "allOf": [
+                  {"contains": {"const": "desensitized"}},
+                  {"contains": {"const": "no_real_incident_data"}}
+                ]
+              }
+            }
+          },
+          "else": {"type": "object", "properties": {"labels": {"maxItems": 0}}}
+        }
+      ]
+    },
+    "incident": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "incident_id",
+        "title",
+        "incident_version",
+        "severity",
+        "data_classification",
+        "state",
+        "detected_at",
+        "started_at",
+        "impact",
+        "owner",
+        "resolved_at",
+        "closed_at"
+      ],
+      "properties": {
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "title": {"type": "string", "minLength": 1},
+        "incident_version": {"type": "integer", "minimum": 1},
+        "severity": {"enum": ["SEV-1", "SEV-2", "SEV-3", "SEV-4"]},
+        "data_classification": {"enum": ["synthetic", "internal", "restricted"]},
+        "state": {"$ref": "#/$defs/incidentState"},
+        "detected_at": {"$ref": "#/$defs/timestamp"},
+        "started_at": {"$ref": "#/$defs/timestamp"},
+        "impact": {"type": "string", "minLength": 1},
+        "owner": {"$ref": "#/$defs/identifier"},
+        "resolved_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "closed_at": {"$ref": "#/$defs/nullableTimestamp"}
+      }
+    },
+    "incidentState": {
+      "enum": [
+        "DETECTED",
+        "DECLARED",
+        "TRIAGE",
+        "CONFLICT",
+        "WAITING_OWNER",
+        "ESCALATED",
+        "APPROVAL_PENDING",
+        "ACTION_LOCKED",
+        "EXECUTING",
+        "PARTIAL_SUCCESS",
+        "UNKNOWN_OUTCOME",
+        "VERIFYING",
+        "RECOVERY_FAILED",
+        "RESOLVED",
+        "REVIEW",
+        "CLOSED"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "incident_id",
+        "data_classification",
+        "source",
+        "subject",
+        "collected_at",
+        "time_range",
+        "raw_query",
+        "normalization",
+        "result",
+        "ttl",
+        "concurrency_version",
+        "confidence",
+        "owner",
+        "conflicts_with"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"},
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "data_classification": {"enum": ["synthetic", "internal", "restricted"]},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["system", "collector", "collector_version", "environment"],
+          "properties": {
+            "system": {"type": "string", "minLength": 1},
+            "collector": {"type": "string", "minLength": 1},
+            "collector_version": {"type": "string", "minLength": 1},
+            "environment": {"type": "string", "minLength": 1}
+          }
+        },
+        "subject": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["service", "target", "owner"],
+          "properties": {
+            "service": {"type": "string", "minLength": 1},
+            "target": {"$ref": "#/$defs/identifier"},
+            "owner": {"$ref": "#/$defs/identifier"}
+          }
+        },
+        "collected_at": {"$ref": "#/$defs/timestamp"},
+        "time_range": {"$ref": "#/$defs/timeRange"},
+        "raw_query": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tool", "statement", "parameters", "secret_references"],
+          "properties": {
+            "tool": {"$ref": "#/$defs/tool"},
+            "statement": {"type": "string", "minLength": 1},
+            "parameters": {"type": "object"},
+            "secret_references": {"$ref": "#/$defs/idList"}
+          }
+        },
+        "normalization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["unit", "counter", "aggregation", "formula", "counter_reset_policy", "threshold_version"],
+          "properties": {
+            "unit": {"type": "string", "minLength": 1},
+            "counter": {"type": "boolean"},
+            "aggregation": {"type": "string", "minLength": 1},
+            "formula": {"type": ["string", "null"]},
+            "counter_reset_policy": {"type": ["string", "null"]},
+            "threshold_version": {"type": "string", "minLength": 1}
+          }
+        },
+        "result": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["format", "row_count", "sha256", "canonicalization", "result_payload"],
+          "properties": {
+            "format": {"enum": ["json", "text", "csv"]},
+            "row_count": {"type": "integer", "minimum": 0},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "canonicalization": {"type": "string", "minLength": 1},
+            "result_payload": {"type": ["object", "array"]}
+          }
+        },
+        "ttl": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["expires_at", "retention_class", "purge_status"],
+          "properties": {
+            "expires_at": {"$ref": "#/$defs/timestamp"},
+            "retention_class": {"type": "string", "minLength": 1},
+            "purge_status": {"enum": ["scheduled", "purged", "legal_hold"]}
+          }
+        },
+        "concurrency_version": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["incident_version", "evidence_version", "source_snapshot", "config_version", "supersedes"],
+          "properties": {
+            "incident_version": {"type": "integer", "minimum": 1},
+            "evidence_version": {"type": "integer", "minimum": 1},
+            "source_snapshot": {"$ref": "#/$defs/identifier"},
+            "config_version": {"$ref": "#/$defs/identifier"},
+            "supersedes": {"type": ["string", "null"], "minLength": 1}
+          }
+        },
+        "confidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "method", "limitations"],
+          "properties": {
+            "value": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+            "method": {"type": "string", "minLength": 1},
+            "limitations": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "owner": {"$ref": "#/$defs/identifier"},
+        "conflicts_with": {"$ref": "#/$defs/idList"}
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id",
+        "incident_id",
+        "dedupe_key",
+        "owner",
+        "backup_owner",
+        "question",
+        "hypotheses",
+        "scope",
+        "allowed_tools",
+        "read_only",
+        "budget",
+        "deadlines",
+        "required_evidence",
+        "status",
+        "acknowledged_at",
+        "approval_id",
+        "resource_lock_ids",
+        "result",
+        "version"
+      ],
+      "properties": {
+        "task_id": {"$ref": "#/$defs/identifier"},
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "dedupe_key": {"type": "string", "minLength": 1, "maxLength": 2048},
+        "owner": {"$ref": "#/$defs/identifier"},
+        "backup_owner": {"$ref": "#/$defs/identifier"},
+        "question": {"type": "string", "minLength": 1},
+        "hypotheses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["service", "target", "time_range"],
+          "properties": {
+            "service": {"type": "string", "minLength": 1},
+            "target": {"$ref": "#/$defs/identifier"},
+            "cluster": {"type": "string", "minLength": 1},
+            "namespace": {"type": "string", "minLength": 1},
+            "resource_keys": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/resourceKey"}},
+            "time_range": {"$ref": "#/$defs/timeRange"}
+          }
+        },
+        "allowed_tools": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/tool"}
+        },
+        "read_only": {"type": "boolean"},
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["query_timeout_seconds", "row_limit", "concurrency", "max_retries"],
+          "properties": {
+            "query_timeout_seconds": {"type": "integer", "minimum": 1},
+            "row_limit": {"type": "integer", "minimum": 1},
+            "concurrency": {"type": "integer", "minimum": 1},
+            "max_retries": {"const": 1}
+          }
+        },
+        "deadlines": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ack_deadline", "first_evidence_deadline", "result_deadline", "reminder_at", "escalation_deadline"],
+          "properties": {
+            "ack_deadline": {"$ref": "#/$defs/timestamp"},
+            "first_evidence_deadline": {"$ref": "#/$defs/timestamp"},
+            "result_deadline": {"$ref": "#/$defs/timestamp"},
+            "reminder_at": {"$ref": "#/$defs/timestamp"},
+            "escalation_deadline": {"$ref": "#/$defs/timestamp"}
+          }
+        },
+        "required_evidence": {"$ref": "#/$defs/idList"},
+        "status": {"enum": ["assigned", "acked", "in_progress", "blocked", "done", "timed_out"]},
+        "acknowledged_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "approval_id": {"type": ["string", "null"], "minLength": 1},
+        "resource_lock_ids": {"$ref": "#/$defs/idList"},
+        "result": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["summary", "evidence_ids"],
+          "properties": {
+            "summary": {"type": "string", "minLength": 1},
+            "evidence_ids": {"$ref": "#/$defs/idList"}
+          }
+        },
+        "version": {"type": "integer", "minimum": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"read_only": {"const": true}}, "required": ["read_only"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "allowed_tools": {
+                "items": {"pattern": "^(?!.*(?:apply|delete|restart|write|execute|patch|update|drain|rollout)).*$"}
+              },
+              "approval_id": {"type": "null"},
+              "resource_lock_ids": {"maxItems": 0}
+            }
+          },
+          "else": {
+            "type": "object",
+            "properties": {
+              "approval_id": {"type": "string", "minLength": 1},
+              "resource_lock_ids": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"status": {"const": "done"}}, "required": ["status"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "result": {"type": "object"},
+              "acknowledged_at": {"$ref": "#/$defs/timestamp"}
+            }
+          },
+          "else": {"properties": {"result": {"type": "null"}}}
+        }
+      ]
+    },
+    "evidenceSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["incident_version", "evidence_versions"],
+      "properties": {
+        "incident_version": {"type": "integer", "minimum": 1},
+        "evidence_versions": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/identifier"},
+          "additionalProperties": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_id",
+        "incident_id",
+        "state",
+        "operation",
+        "approvers",
+        "requested_at",
+        "decided_at",
+        "reason",
+        "evidence_snapshot",
+        "resource_keys",
+        "expected_versions",
+        "plan",
+        "compensation"
+      ],
+      "properties": {
+        "approval_id": {"$ref": "#/$defs/identifier"},
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "state": {"enum": ["pending", "approved", "rejected", "expired"]},
+        "operation": {"type": "string", "minLength": 1},
+        "approvers": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/identifier"}
+        },
+        "requested_at": {"$ref": "#/$defs/timestamp"},
+        "decided_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "reason": {"type": "string", "minLength": 1},
+        "evidence_snapshot": {"$ref": "#/$defs/evidenceSnapshot"},
+        "resource_keys": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/resourceKey"}
+        },
+        "expected_versions": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {"$ref": "#/$defs/resourceKey"},
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "plan": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["steps"],
+          "properties": {
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"$ref": "#/$defs/plannedStep"}
+            }
+          }
+        },
+        "compensation": {"$ref": "#/$defs/compensationPolicy"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"state": {"const": "approved"}}, "required": ["state"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "approvers": {"minItems": 2},
+              "decided_at": {"$ref": "#/$defs/timestamp"}
+            }
+          },
+          "else": {
+            "type": "object",
+            "properties": {
+              "decided_at": {
+                "if": {"type": "string"},
+                "then": {"type": "string"},
+                "else": {"type": "null"}
+              }
+            }
+          }
+        },
+        {
+          "if": {"properties": {"state": {"enum": ["rejected", "expired"]}}, "required": ["state"]},
+          "then": {"type": "object", "properties": {"decided_at": {"$ref": "#/$defs/timestamp"}}}
+        },
+        {
+          "if": {"properties": {"state": {"const": "pending"}}, "required": ["state"]},
+          "then": {"type": "object", "properties": {"decided_at": {"type": "null"}}}
+        }
+      ]
+    },
+    "plannedStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["step_id", "operation", "resource_key", "tool", "target_version", "stop_condition"],
+      "properties": {
+        "step_id": {"$ref": "#/$defs/identifier"},
+        "operation": {"type": "string", "minLength": 1},
+        "resource_key": {"$ref": "#/$defs/resourceKey"},
+        "tool": {"$ref": "#/$defs/tool"},
+        "target_version": {"type": "integer", "minimum": 0},
+        "stop_condition": {"type": "string", "minLength": 1}
+      }
+    },
+    "compensationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "covered_resource_keys", "covered_target_versions", "allowed_tools", "stop_conditions", "requires_new_approval_when", "prohibited_when"],
+      "properties": {
+        "policy": {"enum": ["preauthorized_within_plan", "new_approval_required", "not_applicable"]},
+        "covered_resource_keys": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/resourceKey"}},
+        "covered_target_versions": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/resourceKey"},
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        },
+        "allowed_tools": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/tool"}},
+        "stop_conditions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "requires_new_approval_when": {
+          "const": ["outside_original_plan", "target_version_changes", "risk_increases", "outcome_unknown"]
+        },
+        "prohibited_when": {"const": ["outcome_unknown"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"policy": {"const": "preauthorized_within_plan"}}, "required": ["policy"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "covered_resource_keys": {"minItems": 1},
+              "covered_target_versions": {"minProperties": 1},
+              "allowed_tools": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"policy": {"const": "not_applicable"}}, "required": ["policy"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "covered_resource_keys": {"maxItems": 0},
+              "covered_target_versions": {"maxProperties": 0},
+              "allowed_tools": {"maxItems": 0}
+            }
+          }
+        }
+      ]
+    },
+    "resourceLock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lock_id",
+        "incident_id",
+        "resource_key",
+        "resource_type",
+        "parent_resource_key",
+        "child_resource_keys",
+        "operation",
+        "expected_version",
+        "owner",
+        "fencing_token",
+        "approval_id",
+        "evidence_snapshot",
+        "acquired_at",
+        "ttl_seconds",
+        "heartbeat_at",
+        "expires_at",
+        "state",
+        "released_at",
+        "revoked_at"
+      ],
+      "properties": {
+        "lock_id": {"$ref": "#/$defs/identifier"},
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "resource_key": {"$ref": "#/$defs/resourceKey"},
+        "resource_type": {"enum": ["kubernetes_pod", "kubernetes_node", "kubernetes_deployment", "database_table", "database_schema", "database_instance", "service", "generic"]},
+        "parent_resource_key": {"type": ["string", "null"], "minLength": 1, "pattern": "^[a-z0-9][a-z0-9._-]*(/[a-z0-9][a-z0-9._-]*)+$"},
+        "child_resource_keys": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/resourceKey"}},
+        "operation": {"type": "string", "minLength": 1},
+        "expected_version": {"type": "integer", "minimum": 0},
+        "owner": {"$ref": "#/$defs/identifier"},
+        "fencing_token": {"type": "integer", "minimum": 1},
+        "approval_id": {"$ref": "#/$defs/identifier"},
+        "evidence_snapshot": {"$ref": "#/$defs/evidenceSnapshot"},
+        "acquired_at": {"$ref": "#/$defs/timestamp"},
+        "ttl_seconds": {"type": "integer", "minimum": 30, "maximum": 3600},
+        "heartbeat_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "expires_at": {"$ref": "#/$defs/timestamp"},
+        "state": {"enum": ["acquired", "executing", "released", "expired", "revoked"]},
+        "released_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "revoked_at": {"$ref": "#/$defs/nullableTimestamp"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"state": {"const": "executing"}}, "required": ["state"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "heartbeat_at": {"$ref": "#/$defs/timestamp"},
+              "released_at": {"type": "null"},
+              "revoked_at": {"type": "null"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"state": {"const": "released"}}, "required": ["state"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "released_at": {"$ref": "#/$defs/timestamp"},
+              "revoked_at": {"type": "null"}
+            }
+          },
+          "else": {"type": "object", "properties": {"released_at": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"state": {"const": "revoked"}}, "required": ["state"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "revoked_at": {"$ref": "#/$defs/timestamp"},
+              "released_at": {"type": "null"}
+            }
+          },
+          "else": {"type": "object", "properties": {"revoked_at": {"type": "null"}}}
+        }
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["execution_id", "incident_id", "task_id", "approval_id", "resource_lock_ids", "operation", "fencing_token", "started_at", "completed_at", "outcome", "step_results", "compensation"],
+      "properties": {
+        "execution_id": {"$ref": "#/$defs/identifier"},
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "task_id": {"$ref": "#/$defs/identifier"},
+        "approval_id": {"$ref": "#/$defs/identifier"},
+        "resource_lock_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/identifier"}},
+        "operation": {"type": "string", "minLength": 1},
+        "fencing_token": {"type": "integer", "minimum": 1},
+        "started_at": {"$ref": "#/$defs/timestamp"},
+        "completed_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "outcome": {"enum": ["succeeded", "failed", "partial_success", "unknown_outcome"]},
+        "step_results": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/stepResult"}
+        },
+        "compensation": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/compensationExecution"}
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"outcome": {"const": "succeeded"}}, "required": ["outcome"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "completed_at": {"$ref": "#/$defs/timestamp"},
+              "compensation": {"type": "null"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"outcome": {"enum": ["failed", "partial_success"]}}, "required": ["outcome"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "completed_at": {"$ref": "#/$defs/timestamp"},
+              "compensation": {"type": "object"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"outcome": {"const": "unknown_outcome"}}, "required": ["outcome"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "completed_at": {"type": "null"},
+              "compensation": {
+                "type": "object",
+                "properties": {"decision": {"const": "blocked_pending_reconciliation"}}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "stepResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["step_id", "resource_key", "tool", "started_at", "completed_at", "outcome", "summary", "evidence_ids"],
+      "properties": {
+        "step_id": {"$ref": "#/$defs/identifier"},
+        "resource_key": {"$ref": "#/$defs/resourceKey"},
+        "tool": {"$ref": "#/$defs/tool"},
+        "started_at": {"$ref": "#/$defs/timestamp"},
+        "completed_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "outcome": {"enum": ["succeeded", "failed", "unknown"]},
+        "summary": {"type": "string", "minLength": 1},
+        "evidence_ids": {"$ref": "#/$defs/idList"}
+      }
+    },
+    "compensationExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "approval_id", "reason", "checks", "steps", "started_at", "completed_at", "evidence_ids"],
+      "properties": {
+        "decision": {"enum": ["not_required", "executed_under_original_approval", "new_approval_required", "blocked_pending_reconciliation"]},
+        "approval_id": {"type": ["string", "null"], "minLength": 1},
+        "reason": {"type": "string", "minLength": 1},
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["within_approved_plan", "target_versions_match_approval", "risk_unchanged", "outcome_known"],
+          "properties": {
+            "within_approved_plan": {"enum": ["pass", "fail", "unknown", "not_applicable"]},
+            "target_versions_match_approval": {"enum": ["pass", "fail", "unknown", "not_applicable"]},
+            "risk_unchanged": {"enum": ["pass", "fail", "unknown", "not_applicable"]},
+            "outcome_known": {"enum": ["pass", "fail", "unknown", "not_applicable"]}
+          }
+        },
+        "steps": {"type": "array", "items": {"$ref": "#/$defs/compensationStep"}},
+        "started_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "completed_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "evidence_ids": {"$ref": "#/$defs/idList"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"decision": {"const": "executed_under_original_approval"}}, "required": ["decision"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "approval_id": {"type": "string", "minLength": 1},
+              "checks": {
+                "properties": {
+                  "within_approved_plan": {"const": "pass"},
+                  "target_versions_match_approval": {"const": "pass"},
+                  "risk_unchanged": {"const": "pass"},
+                  "outcome_known": {"const": "pass"}
+                }
+              },
+              "steps": {"minItems": 1},
+              "started_at": {"$ref": "#/$defs/timestamp"},
+              "completed_at": {"$ref": "#/$defs/timestamp"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"decision": {"const": "blocked_pending_reconciliation"}}, "required": ["decision"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "approval_id": {"type": "null"},
+              "checks": {"properties": {"outcome_known": {"const": "unknown"}}},
+              "steps": {"maxItems": 0},
+              "started_at": {"type": "null"},
+              "completed_at": {"type": "null"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"decision": {"const": "new_approval_required"}}, "required": ["decision"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "approval_id": {"type": "null"},
+              "steps": {"maxItems": 0},
+              "started_at": {"type": "null"},
+              "completed_at": {"type": "null"}
+            }
+          }
+        }
+      ]
+    },
+    "compensationStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["step_id", "operation", "resource_key", "tool", "target_version", "stop_condition", "started_at", "completed_at", "outcome", "evidence_ids"],
+      "properties": {
+        "step_id": {"$ref": "#/$defs/identifier"},
+        "operation": {"type": "string", "minLength": 1},
+        "resource_key": {"$ref": "#/$defs/resourceKey"},
+        "tool": {"$ref": "#/$defs/tool"},
+        "target_version": {"type": "integer", "minimum": 0},
+        "stop_condition": {"type": "string", "minLength": 1},
+        "started_at": {"$ref": "#/$defs/timestamp"},
+        "completed_at": {"$ref": "#/$defs/timestamp"},
+        "outcome": {"enum": ["succeeded", "failed", "unknown"]},
+        "evidence_ids": {"$ref": "#/$defs/idList"}
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["conflict_id", "incident_id", "evidence_ids", "owner", "status", "first_marked_at", "severity", "timer_policy", "resolution_deadline_at", "escalated_at", "timer_resets", "resolution"],
+      "properties": {
+        "conflict_id": {"$ref": "#/$defs/identifier"},
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "evidence_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/identifier"}},
+        "owner": {"$ref": "#/$defs/identifier"},
+        "status": {"enum": ["open", "resolved", "escalated"]},
+        "first_marked_at": {"$ref": "#/$defs/timestamp"},
+        "severity": {"enum": ["SEV-1", "SEV-2", "SEV-3", "SEV-4"]},
+        "timer_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["duration_minutes", "starts_at", "reset_rule"],
+          "properties": {
+            "duration_minutes": {"enum": [5, 15]},
+            "starts_at": {"$ref": "#/$defs/timestamp"},
+            "reset_rule": {"const": "only_new_evidence_with_recorded_reason"}
+          }
+        },
+        "resolution_deadline_at": {"$ref": "#/$defs/timestamp"},
+        "escalated_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "timer_resets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["at", "evidence_id", "reason"],
+            "properties": {
+              "at": {"$ref": "#/$defs/timestamp"},
+              "evidence_id": {"$ref": "#/$defs/identifier"},
+              "reason": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "resolution": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["evidence_ids", "resolved_at", "decided_by", "reason"],
+          "properties": {
+            "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/identifier"}},
+            "resolved_at": {"$ref": "#/$defs/timestamp"},
+            "decided_by": {"$ref": "#/$defs/identifier"},
+            "reason": {"type": "string", "minLength": 1}
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"severity": {"enum": ["SEV-1", "SEV-2"]}}, "required": ["severity"]},
+          "then": {"type": "object", "properties": {"timer_policy": {"properties": {"duration_minutes": {"const": 5}}}}},
+          "else": {"type": "object", "properties": {"timer_policy": {"properties": {"duration_minutes": {"const": 15}}}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "resolved"}}, "required": ["status"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "resolution": {"type": "object"},
+              "escalated_at": {"type": "null"}
+            }
+          },
+          "else": {"type": "object", "properties": {"resolution": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "escalated"}}, "required": ["status"]},
+          "then": {"type": "object", "properties": {"escalated_at": {"$ref": "#/$defs/timestamp"}}}
+        }
+      ]
+    },
+    "reconciliation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reconciliation_id", "incident_id", "execution_id", "resource_lock_id", "status", "idempotency_key", "operator", "started_at", "completed_at", "method", "attempts", "actual_outcome", "next_action", "no_automatic_retry", "compensation_allowed"],
+      "properties": {
+        "reconciliation_id": {"$ref": "#/$defs/identifier"},
+        "incident_id": {"$ref": "#/$defs/identifier"},
+        "execution_id": {"$ref": "#/$defs/identifier"},
+        "resource_lock_id": {"$ref": "#/$defs/identifier"},
+        "status": {"enum": ["in_progress", "confirmed", "unknown", "escalated"]},
+        "idempotency_key": {"$ref": "#/$defs/identifier"},
+        "operator": {"$ref": "#/$defs/identifier"},
+        "started_at": {"$ref": "#/$defs/timestamp"},
+        "completed_at": {"$ref": "#/$defs/nullableTimestamp"},
+        "method": {"enum": ["read_only_state_check", "idempotency_key_lookup", "audit_log_correlation", "manual_operator_confirmation"]},
+        "attempts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/reconciliationAttempt"}
+        },
+        "actual_outcome": {"enum": ["unknown", "applied", "not_applied"]},
+        "next_action": {"enum": ["verify", "escalate", "request_new_approval"]},
+        "no_automatic_retry": {"const": true},
+        "compensation_allowed": {"const": false}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "in_progress"}}, "required": ["status"]},
+          "then": {
+            "type": "object",
+            "properties": {
+              "completed_at": {"type": "null"},
+              "actual_outcome": {"const": "unknown"}
+            }
+          },
+          "else": {"type": "object", "properties": {"completed_at": {"$ref": "#/$defs/timestamp"}}}
+        },
+        {
+          "if": {"properties": {"actual_outcome": {"const": "unknown"}}, "required": ["actual_outcome"]},
+          "then": {"type": "object", "properties": {"next_action": {"enum": ["verify", "escalate", "request_new_approval"]}}}
+        }
+      ]
+    },
+    "reconciliationAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempt", "at", "tool", "evidence_ids", "observed_state", "conclusion"],
+      "properties": {
+        "attempt": {"type": "integer", "minimum": 1},
+        "at": {"$ref": "#/$defs/timestamp"},
+        "tool": {"$ref": "#/$defs/tool"},
+        "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/identifier"}},
+        "observed_state": {"enum": ["confirmed_applied", "confirmed_not_applied", "unknown", "conflicting"]},
+        "conclusion": {"type": "string", "minLength": 1}
+      }
+    },
+    "timelineEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "at", "kind", "actor", "incident_version", "summary", "state_from", "state_to", "refs"],
+      "properties": {
+        "sequence": {"type": "integer", "minimum": 1},
+        "at": {"$ref": "#/$defs/timestamp"},
+        "kind": {"enum": ["state_transition", "evidence_added", "task_assigned", "approval_requested", "approval_decided", "lock_acquired", "lock_revoked", "execution_started", "partial_success", "compensation_started", "compensation_completed", "recovery_check", "conflict_marked", "conflict_resolved", "unknown_outcome", "reconciliation_attempted", "escalated"]},
+        "actor": {"$ref": "#/$defs/identifier"},
+        "incident_version": {"type": "integer", "minimum": 1},
+        "summary": {"type": "string", "minLength": 1},
+        "state_from": {"type": ["string", "null"], "enum": ["DETECTED", "DECLARED", "TRIAGE", "CONFLICT", "WAITING_OWNER", "ESCALATED", "APPROVAL_PENDING", "ACTION_LOCKED", "EXECUTING", "PARTIAL_SUCCESS", "UNKNOWN_OUTCOME", "VERIFYING", "RECOVERY_FAILED", "RESOLVED", "REVIEW", "CLOSED", null]},
+        "state_to": {"type": ["string", "null"], "enum": ["DETECTED", "DECLARED", "TRIAGE", "CONFLICT", "WAITING_OWNER", "ESCALATED", "APPROVAL_PENDING", "ACTION_LOCKED", "EXECUTING", "PARTIAL_SUCCESS", "UNKNOWN_OUTCOME", "VERIFYING", "RECOVERY_FAILED", "RESOLVED", "REVIEW", "CLOSED", null]},
+        "refs": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ids": {"$ref": "#/$defs/idList"},
+            "task_ids": {"$ref": "#/$defs/idList"},
+            "approval_id": {"$ref": "#/$defs/identifier"},
+            "lock_id": {"$ref": "#/$defs/identifier"},
+            "execution_id": {"$ref": "#/$defs/identifier"},
+            "conflict_id": {"$ref": "#/$defs/identifier"},
+            "reconciliation_id": {"$ref": "#/$defs/identifier"}
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "state_transition"}}, "required": ["kind"]},
+          "then": {"type": "object", "properties": {"state_to": {"$ref": "#/$defs/incidentState"}}},
+          "else": {"type": "object", "properties": {"state_from": {"type": "null"}, "state_to": {"type": "null"}}}
+        }
+      ]
+    }
+  }
+}

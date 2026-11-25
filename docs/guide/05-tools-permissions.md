@@ -217,12 +217,15 @@ flowchart TD
 ## 一个工具契约的骨架
 
 ```yaml
+$schema: "https://json-schema.org/draft/2020-12/schema"
+data_classification: synthetic/desensitized
 name: k8s.restart_deployment
 version: 1.2.0
 owner:
   team: platform-runtime
-  contact: platform-oncall@example.invalid  # synthetic
-description: 在指定 namespace 内触发 Deployment 滚动重启
+  contact: platform-oncall@example.invalid  # synthetic / 脱敏
+  runbook: https://runbook.example.invalid/synthetic/restart-deployment
+description: 在指定 namespace 内触发 Deployment 滚动重启；不删除资源，仅回滚本次生成的 revision。
 side_effects: true
 idempotent: true
 dry_run: true
@@ -238,49 +241,85 @@ permissions:
   break_glass: false
 input_schema:
   type: object
-  required: [cluster, namespace, name, reason, idempotency_key]
+  additionalProperties: false
+  required: [cluster, namespace, name, reason, idempotency_key, expected_resource_version]
   properties:
-    cluster: { type: string }
-    namespace: { type: string }
-    name: { type: string }
-    reason: { type: string }
-    idempotency_key: { type: string }
+    cluster: { type: string, minLength: 1 }
+    namespace: { type: string, minLength: 1 }
+    name: { type: string, minLength: 1 }
+    reason: { type: string, minLength: 1 }
+    idempotency_key: { type: string, minLength: 8 }
+    expected_resource_version: { type: string, minLength: 1 }
 output_schema:
   type: object
+  additionalProperties: false
   required: [status, partial_success, steps, error]
   properties:
     status: { type: string, enum: [succeeded, failed, unknown] }
     partial_success: { type: boolean }
     steps: { type: array, items: { type: object } }
+    previous_revision: { type: string }
+    new_revision: { type: string }
+    rollout_status: { type: string, enum: [progressing, completed, degraded, unknown] }
     error: { type: [object, "null"] }
 execution:
   timeout_seconds: 300
   rate_limit: "10/min"
+  concurrency_limit: 1
   retry:
     max_attempts: 2
     backoff: exponential
     retry_on: [transient, throttled]
+    respect_retry_after: true
+    jitter: true
   idempotency:
     required: true
+    key_source: run_id+plan_version+step_id+target_resource_version
     scope: run_plan_step_target
     retention_minutes: 1440
   error_taxonomy:
+    unknown_default: stop_and_reconcile
     classes:
-      - { code: transient, category: transient, retryable: true, agent_action: backoff_then_retry }
-      - { code: conflict, category: conflict, retryable: false, agent_action: reconcile_and_replan }
+      - { code: transient, category: transient, retryable: true, outcome_known: true, meaning: 可恢复错误, agent_action: backoff_then_retry }
+      - { code: conflict, category: conflict, retryable: false, outcome_known: true, meaning: 资源版本变化, agent_action: reconcile_and_replan }
+      - { code: unknown_outcome, category: unknown_outcome, retryable: false, outcome_known: false, meaning: 请求结果未知, agent_action: reconcile_then_escalate }
 approval_binding:
   required: true
   fields: [plan_version, plan_hash, target_resource_versions, expires_at]
   plan_hash_algorithm: sha256
+  plan_version_required: true
+  target_resource_version_required: true
+  expires_at_required: true
   revalidate_before_execute: true
   invalidate_on_plan_change: true
+preconditions:
+  - deployment_exists
+  - replicas_available
+  - pdb_check_passed
+  - no_active_incident_in_scope
+rollback:
+  tool: k8s.rollout_undo
+  window_minutes: 15
+  verification: k8s.get_rollout_status
 recovery:
   mode: rollback
-  steps: [k8s.rollout_undo]
-  safe_conditions: [target_generation_unchanged, approval_valid]
-  stop_conditions: [rollback_failed, slo_regression]
+  steps: [k8s.rollout_undo, k8s.get_rollout_status]
+  safe_conditions: [target_resource_version_unchanged, approval_valid]
+  stop_conditions: [rollback_failed, resource_version_changed, slo_regression]
+  notes: 写前记录上一 revision；rollout undo 只恢复本次调用产生的 revision，不回滚其他变更。
+security:
+  credentials: short_lived
+  secret_handling: never_log
+  input_validation: strict
+  injection_protection: true
 audit:
-  fields: [caller, agent_run_id, approval_id, plan_hash, idempotency_key, outcome]
+  fields: [caller, on_behalf_of, agent_run_id, approval_id, plan_version, plan_hash, target_resource_version, idempotency_key, outcome]
+  retention_days: 365
+  immutable: true
+observability:
+  trace: true
+  metrics: [latency, error_rate, calls, partial_success, rollout_duration]
+  log_fields: [input_hash, output_hash, approval_id, previous_revision, new_revision]
 ```
 
 正式结构约束见 [JSON Schema](../../schemas/tool-contract.schema.json)，完整模板见[工具契约](../templates/tool-contract)，可校验示例见 [drain 契约示例](../../examples/cases/notready/tool-contract.drain.json)。
@@ -290,18 +329,24 @@ audit:
 以第 02 章的 NotReady 节点为例。drain 是高风险动作，契约必须写清楚 PDB、范围、审批、回滚和验证：
 
 ```yaml
+$schema: "https://json-schema.org/draft/2020-12/schema"
+data_classification: synthetic/desensitized
 name: k8s.drain_node
 version: 1.1.0
-owner: { team: platform-runtime, contact: platform-oncall@example.invalid } # synthetic
-description: 在 PDB 允许的前提下 cordon 并 drain 单个节点；不自动删除 Pod
+owner:
+  team: platform-runtime
+  contact: platform-oncall@example.invalid  # synthetic / 脱敏
+  runbook: https://runbook.example.invalid/synthetic/drain-node
+description: PDB 通过后 cordon 并 drain 单节点；不强制忽略 PDB，不删除 Pod，Pod 迁移不可自动撤销。
 side_effects: true
 idempotent: true
 dry_run: true
-reversible: false  # Pod 迁移与调度后果不能由 uncordon 撤销
+reversible: false
 scope:
   resource_types: [node]
   environments: [prod]
   max_blast_radius: 1
+  required_labels: [managed-by=platform]
 permissions:
   role: ops-agent-senior-operator
   approval: dual
@@ -309,23 +354,25 @@ permissions:
   break_glass: false
 input_schema:
   type: object
+  additionalProperties: false
   required: [cluster, node, reason, idempotency_key, expected_resource_version]
   properties:
-    cluster: { type: string }
-    node: { type: string }
-    reason: { type: string }
-    idempotency_key: { type: string }
-    expected_resource_version: { type: string }
+    cluster: { type: string, minLength: 1 }
+    node: { type: string, minLength: 1 }
+    reason: { type: string, minLength: 1 }
+    idempotency_key: { type: string, minLength: 8 }
+    expected_resource_version: { type: string, minLength: 1 }
     ignore_daemonsets: { type: boolean, default: true }
 output_schema:
   type: object
+  additionalProperties: false
   required: [status, partial_success, steps, error]
   properties:
     status: { type: string, enum: [succeeded, failed, unknown] }
     partial_success: { type: boolean }
     steps: { type: array, items: { type: object } }
-    evicted_pods: { type: integer }
-    pdb_violations: { type: integer }
+    evicted_pods: { type: integer, minimum: 0 }
+    pdb_violations: { type: integer, minimum: 0 }
     cordoned: { type: boolean }
     error: { type: [object, "null"] }
 execution:
@@ -336,14 +383,18 @@ execution:
     max_attempts: 1
     backoff: none
     retry_on: []
+    respect_retry_after: true
+    jitter: false
   idempotency:
     required: true
+    key_source: run_id+plan_version+step_id+target_resource_version
     scope: run_plan_step_target
     retention_minutes: 1440
   error_taxonomy:
+    unknown_default: stop_and_reconcile
     classes:
-      - { code: pdb_blocked, category: pdb_blocked, retryable: false, agent_action: stop }
-      - { code: unknown_outcome, category: unknown_outcome, retryable: false, agent_action: reconcile_then_escalate }
+      - { code: pdb_blocked, category: pdb_blocked, retryable: false, outcome_known: true, meaning: 可用副本不足, agent_action: stop }
+      - { code: unknown_outcome, category: unknown_outcome, retryable: false, outcome_known: false, meaning: 请求结果未知, agent_action: reconcile_then_escalate }
 approval_binding:
   required: true
   fields: [plan_version, plan_hash, target_resource_versions, expires_at]
@@ -358,12 +409,26 @@ preconditions:
   - node_not_ready
   - pdb_check_passed
   - no_active_incident_in_scope
+rollback: null
 recovery:
   mode: compensate
   steps: [k8s.uncordon_node, k8s.verify_node_ready, k8s.verify_pdb, slo.query]
   safe_conditions: [node_ready, capacity_available, pdb_satisfied, approval_valid]
   stop_conditions: [pdb_violation, capacity_below_threshold, approval_revoked, slo_regression]
-  notes: uncordon 仅恢复可调度性，不撤销 Pod 迁移；必要时由控制器重建副本
+  notes: uncordon 不是完整回滚；Pod 迁移由控制器重建，禁止删除新 Pod 还原。
+security:
+  credentials: short_lived
+  secret_handling: never_log
+  input_validation: strict
+  injection_protection: true
+audit:
+  fields: [caller, on_behalf_of, agent_run_id, approval_id, plan_version, plan_hash, target_resource_version, idempotency_key, outcome]
+  retention_days: 365
+  immutable: true
+observability:
+  trace: true
+  metrics: [latency, error_rate, calls, partial_success, evicted_pods, pdb_violations]
+  log_fields: [input_hash, output_hash, approval_id, target_resource_version]
 ```
 
 审批人至少看到：节点与节点池、当前 NotReady 证据、待驱逐 Pod 与 PDB、预计影响面、清理/恢复步骤、补偿与验证。没有 PDB 检查、审批绑定或安全恢复条件时，不允许注册这个工具。案例的完整走查见[附录：K8s 节点 NotReady 端到端案例](../appendix/case-notready)。

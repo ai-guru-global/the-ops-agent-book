@@ -110,7 +110,7 @@ sequenceDiagram
 + rotationScope: gpu-containers-only
 ```
 
-结论：磁盘预算被放大、轮转范围缩小，导致非 GPU 容器缺少有效轮转。02:14 的每容器大小快照显示 `synthetic-api` 日志占 61 GiB，与 diff 形成相互印证。
+结论：磁盘预算被放大、轮转范围缩小，导致非 GPU 容器缺少有效轮转。02:14 的每容器大小快照显示 `synthetic-api` 日志占 61 GiB，与 diff 形成相互印证。证据包结构由 [`schemas/evidence-bundle.schema.json`](../../schemas/evidence-bundle.schema.json) 校验。
 
 ```json
 {
@@ -242,7 +242,7 @@ sequenceDiagram
 }
 ```
 
-这里 `status: failed` 与 `partial_success: true` 同时成立：工具整体未完成，但两个子步骤已成功。[Tool Contract Schema](../../schemas/tool-contract.schema.json) 要求输出包含 `status / partial_success / steps / error`；本书工具契约（如 [drain 输出契约](../../examples/cases/notready/tool-contract.drain.json)）将 `status` 枚举定义为 `succeeded / failed / unknown`，将 `partial_success` 定义为独立布尔字段，将 `steps[].status` 定义为 `succeeded / failed / skipped / unknown`；不能把 `partial_success` 当作顶层状态。对应的 [Canonical Event](../../schemas/agent-event.schema.json) 使用 `run.completed.outcome = escalated`、`error_code = permission_denied`、`verified = false`、`human_takeover = true`，而不是发明 `partial_success` outcome。
+这里 `status: failed` 与 `partial_success: true` 同时成立：工具整体未完成，但两个子步骤已成功。该记录由 [`schemas/tool-result.schema.json`](../../schemas/tool-result.schema.json) 校验。[Tool Contract Schema](../../schemas/tool-contract.schema.json) 要求输出包含 `status / partial_success / steps / error`；本书工具契约（如 [drain 输出契约](../../examples/cases/notready/tool-contract.drain.json)）将 `status` 枚举定义为 `succeeded / failed / unknown`，将 `partial_success` 定义为独立布尔字段，将 `steps[].status` 定义为 `succeeded / failed / skipped / unknown`；不能把 `partial_success` 当作顶层状态。对应的 [Canonical Event](../../schemas/agent-event.schema.json) 使用 `run.completed.outcome = escalated`、`error_code = permission_denied`、`verified = false`、`human_takeover = true`，而不是发明 `partial_success` outcome。
 
 v2 只覆盖失败目录与尚未执行的恢复步骤，不能复用 v1 审批。最终验证：02:46 kubelet 恢复上报；02:49 Node Ready 且 PDB 满足；02:50 所有关键 Pod 恢复，推理 P95 回到 SLO 基线。这里没有触发“完整回滚”，因为 drain 与日志清理不具备完全可逆性。
 
@@ -278,7 +278,7 @@ v2 只覆盖失败目录与尚未执行的恢复步骤，不能复用 v1 审批�
 
 ## 8. 评测集更新
 
-以下用例遵循[评测集模板](../templates/eval-set)的案例格式；其中事件断言使用 [Agent Event Schema](../../schemas/agent-event.schema.json) 的正式 payload 字段与枚举。快照与 `raw_ref` 均为 synthetic 示例，不是可访问的生产证据。
+以下用例遵循[评测集模板](../templates/eval-set)的案例格式，并可通过 [Eval Case Schema](../../schemas/eval-case.schema.json) 的 Draft 2020-12 校验；NotReady 扩展中的 `expected_run_completed` / `expected_verification_completed` payload 与 [Agent Event Schema](../../schemas/agent-event.schema.json) 的正式字段和枚举对齐。快照与 `raw_ref` 均为 synthetic 示例，不是可访问的生产证据。
 
 ```yaml
 data_classification: synthetic/desensitized
@@ -295,6 +295,8 @@ context:
   cluster: synthetic-prod-a
   node: synthetic-node-07
   time_range: "2026-11-12T02:07:00Z/2026-11-12T02:14:00Z"
+  synthetic: true
+  production_ready: false
 expected_evidence:
   - source: k8s.node_conditions
     contains: "Ready=False, DiskPressure=True"

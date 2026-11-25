@@ -109,6 +109,9 @@ npm run eval:demo
 npm run judge:generate
 npm run judge:status
 npm run gaps:check
+npm run gates:check
+npm run refs:check
+npm run examples:check
 npm run cost:demo
 npm run poc:demo
 npm run export:pdf
@@ -154,13 +157,13 @@ npm run check:all
 
 ## 当前发布状态
 
-当前在线候选为 **v0.2.0-rc1**。v3 逐章质量评估覆盖 48 页，综合 **4.057/5**，低于 v1.0-rc1 的 4.36 门槛；审计后的 7 类 P0 文档与合同缺陷已关闭，但历史评分不回溯改写。真实用户阅读测试、400 条 suite 与独立 300 条 Judge 校准尚未完成，因此 **v1.0-rc1 No-Go**。详见 [v3 逐章质量评估](reports/chapter-evaluation-v3.md) 与 [复评与发布决策](reports/re-evaluation.md)。
+当前在线候选为 **v0.2.0-rc1**。v3 逐章质量评估覆盖 48 页，综合 **4.057/5**，低于 v1.0-rc1 的 4.36 门槛；审计后的 7 类原始 P0 及页面级残余已关闭，但历史评分不回溯改写。真实用户阅读测试、400 条 suite 与独立 300 条 Judge 校准尚未完成，因此 **v1.0-rc1 No-Go**。详见 [v3 逐章质量评估](reports/chapter-evaluation-v3.md) 与 [复评与发布决策](reports/re-evaluation.md)。
 
 ## 版本记录
 
 | 版本 | 日期 | 主要变化 |
 | --- | --- | --- |
-| v0.2.0-rc1 | 2026-11-25 | 完成 P0 安全与语义修订；图示扩展至 50 张并覆盖厂商页和关键模板页；建立来源/claim/商业字段矩阵、指标与事件 Schema、工具/权限/Runbook Schema、评测与发布模板、可执行场景样例；分离 60 条 Agent confidence 校准与 300 条独立 Judge 校准；关闭 v3 审计 7 类 P0；v1.0-rc1 复评 No-Go |
+| v0.2.0-rc1 | 2026-11-25 | 完成 P0 安全与语义修订；图示扩展至 50 张并覆盖厂商页和关键模板页；建立来源/claim/商业字段矩阵、指标与事件 Schema、工具/权限/Runbook Schema、评测与发布模板、可执行场景样例；分离 60 条 Agent confidence 校准与 300 条独立 Judge 校准；关闭 v3 审计 7 类 P0；正文 427 项 Schema 检查通过；v1.0-rc1 复评 No-Go |
 | v0.1.1 | 2026-11-12 | 统一五本场景手册口径；补齐 K8s NotReady 贯穿案例；新增端到端案例与失败复盘；补齐厂商来源与核实日期；IBM 白底蓝主题重构；23 张 Mermaid 图解；新增内链检查 |
 | v0.1 | 2026-11-11 | 初版：方法、5 本场景手册、厂商地图、2026 工程域、模板与附录 |
 

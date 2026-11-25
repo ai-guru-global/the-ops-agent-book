@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-ops-agent-book:evidence-bundle:1.0.0",
+  "title": "Synthetic diagnosis evidence bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run_id", "environment", "scope", "observations", "hypotheses", "gaps"],
+  "properties": {
+    "data_classification": {"const": "synthetic/desensitized"},
+    "run_id": {"type": "string", "minLength": 1},
+    "environment": {"type": "string", "minLength": 1},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "cluster": {"type": "string", "minLength": 1},
+        "namespace": {"type": "string", "minLength": 1},
+        "node": {"type": "string", "minLength": 1},
+        "node_pool": {"type": "string", "minLength": 1},
+        "service": {"type": "string", "minLength": 1}
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["principal", "tenant", "purpose"],
+      "properties": {
+        "principal": {"type": "string", "minLength": 1},
+        "tenant": {"type": "string", "minLength": 1},
+        "purpose": {"type": "string", "minLength": 1}
+      }
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "query", "summary"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "minLength": 1},
+          "query": {"type": "string", "minLength": 1},
+          "time_range": {"type": "string", "minLength": 1},
+          "collected_at": {"type": "string", "format": "date-time"},
+          "summary": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "provenance": {"type": "string", "minLength": 1},
+          "result_ref": {"type": "string", "minLength": 1},
+          "result_hash": {"type": "string", "minLength": 1},
+          "completeness": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["cause", "support", "contradict", "confidence"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "cause": {"type": "string", "minLength": 1},
+          "support": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "contradict": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "falsify": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "unassessed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["cause", "reason"],
+        "properties": {
+          "cause": {"type": "string", "minLength": 1},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "gaps": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "resolved_gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gap", "resolved_at", "evidence"],
+        "properties": {
+          "gap": {"type": "string", "minLength": 1},
+          "resolved_at": {"type": "string", "minLength": 1},
+          "evidence": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -39,8 +39,17 @@ jobs:
       - name: Verify vendor claim gap registry
         run: npm run gaps:check
 
+      - name: Verify generated gate registry
+        run: npm run gates:check
+
+      - name: Verify generated references
+        run: npm run refs:check
+
       - name: Validate schemas, sources, metrics and diagrams
         run: npm run validate:assets
+
+      - name: Validate embedded YAML and JSON examples
+        run: npm run examples:check
 
       - name: Verify deterministic eval fixtures
         run: npm run eval:check
