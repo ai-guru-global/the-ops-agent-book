@@ -32,9 +32,10 @@
     "test:judge": "node --test scripts/judge-annotations.test.mjs",
     "user-reading:check": "node scripts/validate-user-reading.mjs",
     "test:user-reading": "node --test scripts/user-reading.test.mjs",
+    "test:playbooks": "python3 examples/playbooks/08-rdma-rail-audit_test.py && python3 examples/playbooks/09-db-failover-fixture.test.py && python3 scripts/test-playbook-fixtures.py",
     "cost:demo": "node scripts/cost-model.mjs",
     "poc:demo": "node scripts/run-poc.mjs",
-    "check:all": "npm run docs:build && npm run gaps:check && npm run gates:check && npm run refs:check && npm run validate:assets && npm run examples:check && npm run eval:check && npm run judge:check && python3 scripts/check_internal_links.py && npm run check:mermaid && npm run check:responsive && npm run check:accessibility && npm run test:reference && npm run eval:self-test && npm run user-reading:check && npm run test:user-reading && npm run cost:demo && bash -n examples/playbooks/*.sh && python3 -m py_compile examples/playbooks/*.py"
+    "check:all": "npm run docs:build && npm run gaps:check && npm run gates:check && npm run refs:check && npm run validate:assets && npm run examples:check && npm run eval:check && npm run judge:check && python3 scripts/check_internal_links.py && npm run check:mermaid && npm run check:responsive && npm run check:accessibility && npm run test:reference && npm run eval:self-test && npm run user-reading:check && npm run test:user-reading && npm run test:playbooks && npm run cost:demo && bash -n examples/playbooks/*.sh && python3 -m py_compile examples/playbooks/*.py"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.1",

@@ -68,5 +68,6 @@ content_status: "reviewed"
 - `npm run examples:check` 抽取正文内嵌 YAML/JSON，按工具契约、评测、发布、Runbook、事故、证据包、Event、委托 token 与 Rubric Schema 校验；唯一豁免项必须明确标注为不可独立执行的结构片段。
 - `npm run gates:check` 验证指标页中的门禁表与 `evals/manifest.yaml` 完全一致；修改门槛只能改 manifest 后运行 `npm run gates:generate`。
 - `npm run refs:check` 验证参考资料页与 `sources/registry.yaml` 完全一致；修改来源后运行 `npm run refs:generate`。
+- `npm run pdf:audit` 在导出后检查全部 PDF 页面的 A4 尺寸、空白页与文字越界；结果写入 `reports/validation/pdf-layout.md`，不替代人工视觉审计。
 - `npm run gaps:check` 验证所有显式“未核实”字段都进入 `sources/claim-gaps.json`；补证必须同时更新来源、快照哈希和商业字段。
 - 页面到期、Owner 变更或状态变化时，先更新 frontmatter，再同步本表；CI 不一致即失败，不接受手工漏改。

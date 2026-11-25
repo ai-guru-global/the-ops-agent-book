@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "synthetic/脱敏",
+  "target_id": "node-b.lab.invalid/mlx5_b0/port1",
+  "change_id": "CHG-SYN-RDMA-008",
+  "protocol": "RoCEv2",
+  "rail_map": [
+    {"host": "node-a.lab.invalid", "nic": "mlx5_a0", "port": 0, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0a"},
+    {"host": "node-a.lab.invalid", "nic": "mlx5_a0", "port": 1, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0b"},
+    {"host": "node-a.lab.invalid", "nic": "mlx5_a1", "port": 0, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1a"},
+    {"host": "node-a.lab.invalid", "nic": "mlx5_a1", "port": 1, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1b"},
+    {"host": "node-b.lab.invalid", "nic": "mlx5_b0", "port": 0, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0a"},
+    {"host": "node-b.lab.invalid", "nic": "mlx5_b0", "port": 1, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0b"},
+    {"host": "node-b.lab.invalid", "nic": "mlx5_b1", "port": 0, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1a"},
+    {"host": "node-b.lab.invalid", "nic": "mlx5_b1", "port": 1, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1b"},
+    {"host": "node-c.lab.invalid", "nic": "mlx5_c0", "port": 0, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0a"},
+    {"host": "node-c.lab.invalid", "nic": "mlx5_c0", "port": 1, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0b"},
+    {"host": "node-c.lab.invalid", "nic": "mlx5_c1", "port": 0, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1a"},
+    {"host": "node-c.lab.invalid", "nic": "mlx5_c1", "port": 1, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1b"},
+    {"host": "node-d.lab.invalid", "nic": "mlx5_d0", "port": 0, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0a"},
+    {"host": "node-d.lab.invalid", "nic": "mlx5_d0", "port": 1, "gpu_ids": [0, 1, 2, 3], "rail": 0, "leaf": "leaf-0b"},
+    {"host": "node-d.lab.invalid", "nic": "mlx5_d1", "port": 0, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1a"},
+    {"host": "node-d.lab.invalid", "nic": "mlx5_d1", "port": 1, "gpu_ids": [4, 5, 6, 7], "rail": 1, "leaf": "leaf-1b"}
+  ],
+  "evidence_sha256": "b9dda1daa786a77bd5f6ffd17eb0a2a0b381d2793a760e6329a977908d7e57a0",
+  "canary": {
+    "action_id": "SYN-RDMA-008-RAIL0-P1",
+    "host": "node-b.lab.invalid",
+    "nic": "mlx5_b0",
+    "port": 1,
+    "rail": 0,
+    "expected_leaf": "leaf-0b",
+    "action": "Re-terminate only this synthetic rail-0 port on the approved leaf-0b port using the vendor-specific change procedure.",
+    "affected_port_count": 1,
+    "max_duration_seconds": 300,
+    "lkg_config_id": "CFG-SYN-LKG-RDMA-008",
+    "lkg_config_sha256": "4a3ef6be937f19e8f2b8d49a2e97357bdaee6cc3e33a6822ce61a9b1a72dc433"
+  },
+  "thresholds": {
+    "expected_mtu": 9000,
+    "expected_speed_gbps": 100,
+    "pause_packets_per_second": 1000.0,
+    "pause_duration_ratio": 0.05,
+    "lkg_ecn_marked_per_second": 25.0,
+    "ecn_ratio_vs_lkg": 3.0,
+    "max_cross_rail_percent": 5.0,
+    "min_throughput_ratio_vs_lkg": 0.8,
+    "max_new_link_error_delta": 0
+  }
+}

@@ -42,7 +42,7 @@ content_status: "reviewed"
 | RM-GOV-02 缺席与升级 | 关键角色登记 Primary/Backup；4 业务小时或声明缺席后由合格同角色 Backup 接替；安全/数据/评测/变更否决不可随意转授 | [09 缺席代理与升级](../guide/09-organization-governance#缺席代理与升级) | [GOVERNANCE · 缺席代理与升级](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/GOVERNANCE.md#5-缺席代理与升级) | 治理规则与联系路由登记 | 检查书面委派、资质、响应时限、升级记录与双人 break-glass |
 | RM-GOV-03 退役 | 依赖、写权、NHI、委托、Secret、入口与数据处理均有 Owner 和证据；生产写授权 24 小时内 100% 回收，30 天后复查 | [08 退役](../guide/08-operate-improve#退役)、[09 退役执行矩阵](../guide/09-organization-governance#退役执行矩阵) | [GOVERNANCE · 退役](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/GOVERNANCE.md#6-退役)、[事故复盘](../templates/incident-review) | G7 清单与归档 | 权限/委托/Secret 回收报告、依赖扫描、数据处置凭证和 30 天复查 |
 | RM-SCN-01 场景 | Charter 明确价值、非目标、风险、数据/工具就绪度、Owner 与基线；先只读，再按证据扩权 | [03 场景选择](../guide/03-scenario-selection)、[02 生命周期](../guide/02-lifecycle) | [Agent 设计文档](../templates/agent-design-doc) | [K8s NotReady 案例](./case-notready) | 场景评分与基线人工复核；G0/G1 签署检查 |
-| RM-SCN-02 多场景与 POC | 场景覆盖 K8s、GPU、RDMA、数据库、KV Cache 等；POC 使用同一指标、反例与退出测试，不以 Demo 代替评测 | [POC 评分卡](../guide/10-build-vs-buy#poc-评分卡)、[场景 playbooks](../playbooks/index) | [工具契约](../templates/tool-contract)、[权限矩阵](../templates/permission-matrix) | `examples/playbooks/01-k8s-readonly.sh` 至 `06-incident-evidence.example.json`、[filled synthetic POC](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/examples/poc/reference-agent-poc.md) | `bash -n examples/playbooks/*.sh`；`python3 -m py_compile examples/playbooks/*.py`；`npm run poc:demo`；SQL 只读人工审查 |
+| RM-SCN-02 多场景与 POC | 场景覆盖 K8s、GPU、RDMA、数据库、KV Cache 等；POC 使用同一指标、反例与退出测试，不以 Demo 代替评测 | [POC 评分卡](../guide/10-build-vs-buy#poc-评分卡)、[场景 playbooks](../playbooks/index) | [工具契约](../templates/tool-contract)、[权限矩阵](../templates/permission-matrix) | `examples/playbooks/01-k8s-readonly.sh` 至 `09-db-failover-fixture.py`、[filled synthetic POC](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/examples/poc/reference-agent-poc.md) | `npm run test:playbooks`；`bash -n examples/playbooks/*.sh`；`python3 -m py_compile examples/playbooks/*.py`；`npm run poc:demo`；SQL 只读人工审查 |
 | RM-CASE-01 失败闭环 | No-Go 保留原不可变记录；整改有 Owner/验收人/期限/证据；复评生成新版本；再进入 Shadow/Canary 必须满足独立条件 | [失败 Agent 案例](./case-failed-agent)、[09 门禁矩阵](../guide/09-organization-governance#门禁证据与否决矩阵) | [评测集](../templates/eval-set)、[发布清单](../templates/release-checklist)、[GOVERNANCE](https://github.com/ai-guru-global/the-ops-agent-book/blob/main/GOVERNANCE.md) | `G3-K8S-DIAG-2026-001 v1.0.0 → v1.1.0`（synthetic） | 检查否决理由、签署角色、FA-01–06、复评指标和再准入门槛 |
 
 ## 门禁到验证的快捷索引
@@ -62,10 +62,14 @@ content_status: "reviewed"
 # 文档构建、资源、链接与 Mermaid 渲染
 npm run docs:build
 npm run validate:assets
+npm run examples:check
+npm run gates:check
+npm run refs:check
 python3 scripts/check_internal_links.py
 npm run check:mermaid
 
 # 示例脚本静态检查
+npm run test:playbooks
 bash -n examples/playbooks/*.sh
 python3 -m py_compile examples/playbooks/*.py
 
@@ -73,8 +77,12 @@ python3 -m py_compile examples/playbooks/*.py
 node scripts/run-evals.mjs --self-test
 node scripts/cost-model.mjs --self-test
 
+# 全量 PDF 几何审计（先导出）
+npm run export:pdf
+npm run pdf:audit
+
 # 成本重算；--check 在存在差异时返回非零
 node scripts/cost-model.mjs --check
 ```
 
-`npm run check:all` 汇总文档、资源、链接、Mermaid、参考实现 17 项测试、评测 harness 自检、成本重算与 playbook 静态检查；它**不包含**真实模型/生产 Agent 评测或生产发布验收。参考实现的运行与验链命令见[第 11 章 · 参考实现](../guide/11-agentops-observability#参考实现)。
+`npm run check:all` 汇总文档、资源、链接、Mermaid、门禁/参考资料派生一致性、427 项内嵌示例 Schema 检查、参考实现 17 项测试、评测 harness 自检、RDMA/数据库 fixture 40 项单元测试与 7 项 CLI 集成回归、成本重算与 playbook 静态检查；它**不包含**真实模型/生产 Agent 评测或生产发布验收。参考实现的运行与验链命令见[第 11 章 · 参考实现](../guide/11-agentops-observability#参考实现)。

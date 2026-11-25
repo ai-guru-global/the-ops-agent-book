@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "synthetic/脱敏",
+  "change_id": "CHG-SYN-RDMA-008",
+  "target_id": "node-b.lab.invalid/mlx5_b0/port1",
+  "target_sha256": "e774835ab6073099ef2fef58db58c098fa626c8687c5311caaca908e6e72d50d",
+  "evidence_sha256": "b9dda1daa786a77bd5f6ffd17eb0a2a0b381d2793a760e6329a977908d7e57a0",
+  "approvals": [
+    {
+      "approval_id": "APR-SYN-NET-008",
+      "role": "network_owner",
+      "approver": "synthetic-network-owner",
+      "decision": "APPROVE",
+      "target_sha256": "e774835ab6073099ef2fef58db58c098fa626c8687c5311caaca908e6e72d50d",
+      "evidence_sha256": "b9dda1daa786a77bd5f6ffd17eb0a2a0b381d2793a760e6329a977908d7e57a0",
+      "action_id": "SYN-RDMA-008-RAIL0-P1",
+      "approved_at": "2026-11-25T10:02:00Z",
+      "expires_at": "2026-11-25T12:02:00Z"
+    },
+    {
+      "approval_id": "APR-SYN-SVC-008",
+      "role": "service_owner",
+      "approver": "synthetic-service-owner",
+      "decision": "APPROVE",
+      "target_sha256": "e774835ab6073099ef2fef58db58c098fa626c8687c5311caaca908e6e72d50d",
+      "evidence_sha256": "b9dda1daa786a77bd5f6ffd17eb0a2a0b381d2793a760e6329a977908d7e57a0",
+      "action_id": "SYN-RDMA-008-RAIL0-P1",
+      "approved_at": "2026-11-25T10:03:00Z",
+      "expires_at": "2026-11-25T12:03:00Z"
+    }
+  ]
+}

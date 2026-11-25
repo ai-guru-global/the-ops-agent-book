@@ -81,6 +81,9 @@ jobs:
       - name: Test real-user reading validator
         run: npm run test:user-reading
 
+      - name: Test RDMA and database playbook fixtures
+        run: npm run test:playbooks
+
       - name: Run synthetic POC and clean-room import
         run: npm run poc:demo
 

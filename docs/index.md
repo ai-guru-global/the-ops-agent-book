@@ -415,7 +415,7 @@ content_status: "reviewed"
     <li>
       <span class="book-index__num">PDF</span>
       <div class="book-index__body">
-        <h3>683 页 A4 全书</h3>
+        <h3>687 页 A4 全书</h3>
         <p><code>npm run export:pdf</code> · 脚本 <code>scripts/export-book-pdf.mjs</code></p>
       </div>
       <a class="book-index__link" href="https://github.com/ai-guru-global/the-ops-agent-book/blob/main/scripts/export-book-pdf.mjs">查看脚本 →</a>

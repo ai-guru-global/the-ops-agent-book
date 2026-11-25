@@ -157,6 +157,33 @@ NCCL_DEBUG=INFO NCCL_IB_HCA=mlx5_0 timeout 60s \
 
 只读 flap 采样脚本：`examples/playbooks/02-rdma-flap-audit.sh`（PLAY-02）。脚本默认 `WINDOWS=5`，逐窗口输出增量/速率；TX 与优先级计数器为可选证据，缺失时输出 `NA` 并标记 `evidence_gap`，IB 的 VL 分解需要交换机遥测，不能用端口聚合值代替。脚本不会执行 perftest/NCCL。
 
+### 5.4 多节点 rail 不对齐：只读审计到单 rail 恢复（PLAY-08）
+
+适用场景：多个 synthetic 节点的 GPU–NIC–port–rail–leaf 映射与观测拓扑不一致，或单端口跨 rail/错误 leaf。Agent 只生成证据与候选计划，不修改交换机、NIC 或主机。
+
+固定输入为 `examples/playbooks/08-rdma-rail-target.json`、`08-rdma-rail-evidence.json`、`08-rdma-rail-approvals.json`。审计器 `08-rdma-rail-audit.py` 只读取这三个本地 JSON，拒绝 symlink、超限文件、非 `.invalid` 主机、未知计数器单位、负增量和漂移目标；过期、未绑定或角色不足的审批不会让进程伪造失败，而是输出 `canary_gate=NOT_ELIGIBLE`。脚本不执行网络命令。
+
+```bash
+# SYNTHETIC / 脱敏：输出目录必须新建或为空；脚本不覆盖既有证据。
+OUT=$(mktemp -d /tmp/rdma-rail-audit.XXXXXX)
+python3 examples/playbooks/08-rdma-rail-audit.py \
+  --input-dir examples/playbooks \
+  --output-dir "$OUT" \
+  --expected-target-sha256 e774835ab6073099ef2fef58db58c098fa626c8687c5311caaca908e6e72d50d \
+  --evaluated-at 2026-11-25T10:05:00Z
+```
+
+当前 fixture 输出 `review_status=REMEDIATION_REQUIRED_SINGLE_RAIL_ONLY`、`canary_gate=ELIGIBLE_FOR_HUMAN_AUTHORIZATION_NOT_GRANTED`、`authorization=NONE_READ_ONLY_LOCAL_PARSE`，并生成 `rail-audit.json`、`port-deltas.tsv`、`run-summary.txt`、`SHA256SUMS`。`ELIGIBLE` 只表示证据门满足，不是执行授权。
+
+| 阶段 | 必查证据与动作 | 失败/未知处理 |
+| --- | --- | --- |
+| 拓扑审计 | 16 个预期端口与观测逐项比对 rail/leaf/GPU；固定 target/evidence/approval SHA-256 | 缺失、额外或映射漂移 → 停止，补 CMDB/LLDP/SM 证据 |
+| 性能与拥塞 | 60 秒增量、MTU/速率、PFC/ECN/CNP、错误计数、同拓扑 LKG 吞吐；限制 2,000 行、每端口 20 样本、8 个性能案例、30 秒处理预算 | 单位未知、负增量或超时 → `UNKNOWN`，不得推断为 0 或成功 |
+| 审批 | 网络 Owner + 服务 Owner 双人，绑定 action_id、target_hash、evidence_hash、过期时间 | 计划/目标/证据任一变化 → 新版本、新审批 |
+| 单 rail canary | 仅 `node-b/mlx5_b0/port1`、rail 0、leaf-0b；最多 1 个端口、300 秒；先保存 LKG 配置 | 越界、锁失效、PDB/作业影响或 SLO 恶化 → 停止并恢复 LKG |
+| 恢复验证 | 拓扑重新一致、错误增量=0、pause/ECN 回到基线、吞吐 ≥ LKG 80%、跨 rail 比例 ≤5% | 未达阈值 → 不扩量；按厂商流程恢复单端口，不全局改 PFC/ECN |
+| 超时/取消 | 保存最后请求、动作锁、设备/交换机审计与实际端口状态 | 未知结果先只读对账；禁止自动重试或盲目切冗余端口 |
+
 ## 6. 权限与护栏
 
 - 默认只读；配置/固件/端口变更双人审批、厂商支持、维护窗口、配置备份和回滚。
@@ -171,7 +198,7 @@ NCCL_DEBUG=INFO NCCL_IB_HCA=mlx5_0 timeout 60s \
 | --- | --- |
 | 单端口 link flap | 定位单端口，审批后走冗余路径，不全局改 PFC |
 | PFC pause 飙升 | 看包数与时长、DSCP/CNP/buffer，不把累计值当速率 |
-| rail 不对齐 | 用拓扑证据建议重调度，不自动改交换网络 |
+| rail 不对齐 | 用 PLAY-08 拓扑证据建议重调度或单 rail 修复，不自动改交换网络 |
 | 请求“全局关闭 PFC” | 拒绝并升级网络值班 |
 | 请求“只读跑 NCCL” | 纠正为主动施压，要求审批 |
 
@@ -191,6 +218,7 @@ NCCL_DEBUG=INFO NCCL_IB_HCA=mlx5_0 timeout 60s \
 - [ ] DSCP/CNP 或 SL/VL、PFC/ECN、pause 单位有版本化契约。
 - [ ] 计数器采样、增量、速率、采样窗与阈值已校准。
 - [ ] perftest/NCCL 明确标为主动施压，具备限额、超时和审批。
+- [ ] PLAY-08 多节点 rail 不对齐只读审计、单 rail canary 与未知结果对账已演练。
 - [ ] 写工具全部双人审批 + 窗口 + 回滚。
 - [ ] 网络值班、厂商 TAC、升级路径明确。
 
