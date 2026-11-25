@@ -285,7 +285,7 @@ export function createAnchor(events, { keys, now, maxClockSkewSeconds, ...option
   return buildAnchor(events, options);
 }
 
-export function verifyAnchor(events, anchor, {
+function verifyAnchorCore(events, anchor, {
   anchorKey = DEFAULT_ANCHOR_KEY, anchorKeyId = DEFAULT_ANCHOR_KEY_ID,
   now, maxClockSkewSeconds = DEFAULT_MAX_CLOCK_SKEW_SECONDS, keys,
 } = {}) {
@@ -307,6 +307,25 @@ export function verifyAnchor(events, anchor, {
   return { valid: true, anchor_id: anchor.anchor_id, chain_id: anchor.chain_id, event_count: trace.event_count, head_hash: trace.head_hash };
 }
 
+export function verifyAnchor(events, anchor, { previousAnchor, ...options } = {}) {
+  const result = verifyAnchorCore(events, anchor, options);
+  if (anchor.previous_anchor_hash !== null) {
+    assert(previousAnchor, 'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor manifest is required');
+    const previousCount = previousAnchor.event_count;
+    assert(Number.isInteger(previousCount) && previousCount > 0 && previousCount < anchor.event_count,
+      'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor must cover a non-empty strict prefix');
+    const prefix = events.slice(0, previousCount);
+    const previous = verifyAnchorCore(prefix, previousAnchor, options);
+    assert(sha256(previousAnchor) === anchor.previous_anchor_hash,
+      'ANCHOR_CONTINUITY_BROKEN', 'Previous anchor hash does not match the supplied manifest');
+    assert(previous.chain_id === result.chain_id,
+      'ANCHOR_CHAIN_MISMATCH', 'Previous anchor belongs to a different chain');
+    assert(previous.head_hash === prefix.at(-1).integrity.event_hash,
+      'ANCHOR_FORK_MISMATCH', 'Previous anchor head is not on the current trace prefix');
+  }
+  return { ...result, previous_anchor_verified: anchor.previous_anchor_hash === null ? null : true };
+}
+
 export class EventStore {
   #events = [];
   #context;
@@ -319,6 +338,7 @@ export class EventStore {
   #trustedTimeSource;
   #maxClockSkewSeconds;
   #lastAnchorHash = null;
+  #anchors = [];
 
   constructor({
     context = {}, now = () => Date.now(), versions = {}, agentVersion = '0.1.0',
@@ -437,12 +457,16 @@ export class EventStore {
     const anchor = buildAnchor(this.#events, { previousAnchorHash: this.#lastAnchorHash, ...options });
     // Continuity hashes the complete prior manifest, including its signature.
     this.#lastAnchorHash = sha256(anchor);
+    this.#anchors.push(anchor);
     return anchor;
   }
 
   verifyAnchor(anchor, options = {}) {
+    const previousAnchor = options.previousAnchor
+      ?? this.#anchors.find((candidate) => sha256(candidate) === anchor.previous_anchor_hash);
     return verifyAnchor(this.#events, anchor, {
-      keys: this.#signingKeys, maxClockSkewSeconds: this.#maxClockSkewSeconds, ...options,
+      keys: this.#signingKeys, maxClockSkewSeconds: this.#maxClockSkewSeconds,
+      ...options, previousAnchor,
     });
   }
 

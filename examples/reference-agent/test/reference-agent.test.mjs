@@ -411,9 +411,33 @@ test('successive store anchors preserve signed previous-anchor continuity', () =
   assert.equal(first.previous_anchor_hash, null);
   assert.equal(second.previous_anchor_hash, sha256(first));
   assert.equal(store.verifyAnchor(second).valid, true);
+  assert.equal(store.verifyAnchor(second).previous_anchor_verified, true);
+  assert.equal(verifyAnchor(store.events, second, { previousAnchor: first }).valid, true);
+  assert.throws(() => verifyAnchor(store.events, second), { code: 'ANCHOR_CONTINUITY_BROKEN' });
   const brokenContinuity = clone(second);
   brokenContinuity.previous_anchor_hash = '0'.repeat(64);
-  assert.throws(() => store.verifyAnchor(brokenContinuity), { code: 'INVALID_ANCHOR_SIGNATURE' });
+  const bound = clone(brokenContinuity);
+  delete bound.signature;
+  brokenContinuity.signature.value = createHmac('sha256', DEFAULT_ANCHOR_KEY).update(canonicalJson(bound)).digest('hex');
+  assert.throws(() => store.verifyAnchor(brokenContinuity), { code: 'ANCHOR_CONTINUITY_BROKEN' });
+});
+
+test('anchor continuity rejects a previous head from a different trace prefix', () => {
+  const original = new EventStore({ now: () => DEFAULT_NOW });
+  original.append({
+    type: 'run.started', payload: { input_ref: 'synthetic', intent: 'shared-prefix', scenario_id: 'test', slo_class: 'SEV3' },
+  });
+  const first = original.createAnchor({ anchorId: 'anc_shared_prefix' });
+
+  const fork = new EventStore({ now: () => DEFAULT_NOW });
+  fork.append({
+    type: 'run.started', payload: { input_ref: 'synthetic', intent: 'different-prefix', scenario_id: 'test', slo_class: 'SEV3' },
+  });
+  fork.append({
+    type: 'run.completed', payload: { outcome: 'failure', error_code: 'synthetic_fork', verified: false, human_takeover: true },
+  });
+  const forkedAnchor = fork.createAnchor({ anchorId: 'anc_fork', previousAnchorHash: sha256(first) });
+  assert.throws(() => verifyAnchor(fork.events, forkedAnchor, { previousAnchor: first }), { code: 'ANCHOR_HEAD_MISMATCH' });
 });
 
 test('append-only JSONL export verifies after reopening', (t) => {

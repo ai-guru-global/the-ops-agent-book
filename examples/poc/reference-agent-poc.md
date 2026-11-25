@@ -33,12 +33,12 @@
 
 | 测试 | 结果 | 耗时 | 命令 |
 | --- | --- | ---: | --- |
-| reference-agent tests | PASS | 299 ms | `npm run test:reference` |
-| 400-case eval self-test | PASS | 1401 ms | `npm run eval:self-test` |
-| asset and snapshot validation | PASS | 691 ms | `npm run validate:assets` |
-| clean-room 400-case self-test | PASS | 1303 ms | `node scripts/run-evals.mjs --self-test` |
-| clean-room demo | PASS | 50 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
-| clean-room shadow | PASS | 42 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
+| reference-agent tests | PASS | 283 ms | `npm run test:reference` |
+| 400-case eval self-test | PASS | 1328 ms | `npm run eval:self-test` |
+| asset and snapshot validation | PASS | 623 ms | `npm run validate:assets` |
+| clean-room 400-case self-test | PASS | 1241 ms | `node scripts/run-evals.mjs --self-test` |
+| clean-room demo | PASS | 48 ms | `node runner.mjs demo --output <clean-room>/poc-output/demo` |
+| clean-room shadow | PASS | 43 ms | `node runner.mjs shadow --output <clean-room>/poc-output/shadow` |
 | clean-room rollback | PASS | 44 ms | `node runner.mjs rollback --output <clean-room>/poc-output/rollback` |
 
 - 干净目录导入后重新运行 400-case self-test、demo、shadow 与 rollback。
@@ -75,14 +75,14 @@
 | --- | --- |
 | `examples/reference-agent/src/approval-service.mjs` | `1f98be955e2f19cbbead6a5f82538e0807de2f26e0a83631ae305159107c57f0` |
 | `examples/reference-agent/src/credential-service.mjs` | `675d34847e67e148fcafb0ac3e047d128fc8240c02c42f50867e3e9fa41c4ef2` |
-| `examples/reference-agent/src/event-store.mjs` | `9ccc39669c49b7913cfcc635f4fe4b23cc42b5ea7627881773d063b70c03af82` |
+| `examples/reference-agent/src/event-store.mjs` | `a7d519c6b253d3fa5e69dfaa4ca411b2e0688635433ab2a5f2b25b068cd444ef` |
 | `examples/reference-agent/src/index.mjs` | `c084cd9ba706d13b6287143c6c95ae12fdf07ea76d3e7502caa5f2e4c8875cbc` |
 | `examples/reference-agent/src/policy-engine.mjs` | `ffd3366df101f63a820d89a280976bbec4e916c0c24322146c84ddc8d19a8176` |
 | `examples/reference-agent/src/runtime.mjs` | `582cf79f387bac344453b852e817cef1f56ad94862bc7fa2af91497f2d85c68c` |
 | `examples/reference-agent/src/shared.mjs` | `98bf2ddc8070accedf801b7a0a770d7326a6487bf626c96b6e7b441554fbe2eb` |
 | `examples/reference-agent/src/tool-gateway.mjs` | `9b19c56a5644ad42aa914904c33df1438f69026f289405e533cbd469eb145fb6` |
 | `examples/reference-agent/runner.mjs` | `98d5b5fb52d7e7fbef03918945ae3f22bd2a2fddfafabb43fb32e8b1bf1ef077` |
-| `examples/reference-agent/test/reference-agent.test.mjs` | `9baf6c7986d28190fd0129978e69bd8ea969b862139443b1119f9cc1e78fd0d4` |
+| `examples/reference-agent/test/reference-agent.test.mjs` | `8ca5335e37f854cba1f786adcdf334bb1256bc5c65b21c5cb58d4940906f5ac8` |
 | `examples/reference-agent/package.json` | `00d0743077e0f97d6d69b909a1fa9655324eee366122356f00b9f8594fb21853` |
 | `examples/cases/notready/permission-policy.notready.json` | `09ce1f42e78526b8b3e53a1d3a634ad3be1ff7a900d885c47398b66bb30f1670` |
 | `schemas/tool-contract.schema.json` | `b83d4d6c1106950a964f6a2b72ef83f80685ef7eedeb1205214e24375d6e2d6d` |

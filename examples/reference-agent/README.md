@@ -19,7 +19,7 @@ node runner.mjs rollback --output sample-output/rollback
 
 - `summary.json`：结果、计划版本、审批绑定、步骤、检查、最终状态、调用计数和 Trace/锚点头哈希。
 - `trace.jsonl`：符合 `schemas/agent-event.schema.json` v1.1.0 的 append-only 导出；每个事件包含 SHA-256 链哈希、HMAC-SHA256 签名和可信时间信封。
-- `anchor.json`：使用独立 synthetic 密钥签名的外部链头承诺，绑定 `chain_id/event_count/head_hash/anchored_at/previous_anchor_hash`。
+- `anchor.json`：使用独立 synthetic 密钥签名的外部链头承诺，绑定 `chain_id/event_count/head_hash/anchored_at/previous_anchor_hash`；非首锚点验证时必须提供上一 manifest，并检查严格前缀与链头连续性。
 
 退出码：成功或已回滚为 `0`，失败/升级为 `1`，参数错误为 `2`。
 

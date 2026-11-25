@@ -164,7 +164,7 @@ flowchart LR
 | 保留 | 普通运行遥测默认 30 天，写/审批/回滚审计默认 1 年；租户策略、法律 hold 和删除优先级另行登记。删除生成 tombstone，不静默改历史 |
 | 审计完整性 | 按 `tenant_id+run_id+sequence` 建立哈希链；事件入 WORM/追加存储，每日验签/验链；独立锚点服务对 `head_hash + event_count + anchored_at` 再签名并保存上一锚点哈希，告警缺口、重放、时钟漂移、未知密钥与锚点断裂 |
 
-哈希算法固定为：UTF-8、JSON 键排序、无额外空白、`ensure_ascii=false`。计算 `event_hash` 时移除 `event_hash` 与 `signature`；计算 HMAC-SHA256 `signature` 时只移除 `signature`，因此签名绑定事件哈希、可信时间和全部业务字段。`prev_event_hash` 指向同一链前一事件，首个事件为 null。`trusted_time` 必须等于事件时间并声明可信时钟来源与最大允许偏差；生产实现应使用 KMS/HSM 或 RFC 3161 可信时间，不得信任 Agent 自带时钟。外部 `audit-anchor` 使用独立密钥，对链头、事件数、锚定时间和上一锚点哈希签名；验证时必须同时通过事件签名、链哈希和外部锚点，缺一即拒绝。密钥按 `key_id` 轮换、撤销与权限隔离，签名密钥不得进入 Prompt/日志。
+哈希算法固定为：UTF-8、JSON 键排序、无额外空白、`ensure_ascii=false`。计算 `event_hash` 时移除 `event_hash` 与 `signature`；计算 HMAC-SHA256 `signature` 时只移除 `signature`，因此签名绑定事件哈希、可信时间和全部业务字段。`prev_event_hash` 指向同一链前一事件，首个事件为 null。`trusted_time` 必须等于事件时间并声明可信时钟来源与最大允许偏差；生产实现应使用 KMS/HSM 或 RFC 3161 可信时间，不得信任 Agent 自带时钟。外部 `audit-anchor` 使用独立密钥，对链头、事件数、锚定时间和上一锚点哈希签名；非首锚点还必须提供上一锚点 manifest，验证其签名、`chain_id`、严格更小的 `event_count`，以及上一链头等于当前 Trace 的对应前缀头。缺失上一锚点、前缀分叉、重签断链或未知密钥均拒绝。`EventStore` 保存本进程创建的锚点历史用于自动连续验证；跨进程恢复时必须由归档服务提供完整锚点链。密钥按 `key_id` 轮换、撤销与权限隔离，签名密钥不得进入 Prompt/日志。
 
 ## OpenTelemetry GenAI 语义约定
 
@@ -280,7 +280,7 @@ NODE
 
 ### Trace 签名、哈希链与外部锚点验证
 
-每个目录都包含 `summary.json`、`trace.jsonl` 与独立 `anchor.json`。`verifyJsonl` 检查 Canonical Event 字段、事件类型、sequence 连续、`prev_event_hash` 衔接、当前事件哈希、HMAC 签名、可信时间，以及父/触发引用必须指向已有事件；`verifyAnchor` 再验证外部锚点的独立签名、链头、事件数和锚定时间。任一步失败都会抛错，不能静默通过。
+每个目录都包含 `summary.json`、`trace.jsonl` 与独立 `anchor.json`。`verifyJsonl` 检查 Canonical Event 字段、事件类型、sequence 连续、`prev_event_hash` 衔接、当前事件哈希、HMAC 签名、可信时间，以及父/触发引用必须指向已有事件；`verifyAnchor` 再验证外部锚点的独立签名、链头、事件数和锚定时间。非首锚点需通过 `previousAnchor` 或 `EventStore` 历史提供上一 manifest，并验证严格前缀与链头连续性。任一步失败都会抛错，不能静默通过。
 
 ```bash
 node --input-type=module <<'NODE'

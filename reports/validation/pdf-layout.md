@@ -4,7 +4,7 @@
 
 - PDF：`/Users/allengaller/Documents/GitHub/ai-guru-global/the-ops-agent-book/dist-pdf/the-ops-agent-book-v0.2.0-rc1.pdf`
 - 页数：**689**
-- 可提取文字数：**65177**
+- 可提取文字数：**65202**
 - 文字边界：left 39.37 / top 3.43 / right 566.30 / bottom 827.56 pt
 - 页面尺寸：全部应为 A4 `595.92 × 842.88 pt`。
 - 检查范围：空白页、文字越界、非 A4 页面。该检查不替代人工视觉审计，也不能证明图表语义、字体可读性或分页美观。

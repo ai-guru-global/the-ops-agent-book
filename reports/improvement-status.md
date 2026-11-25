@@ -4,8 +4,8 @@
 
 ## 当前进度
 
-- 总任务：70
-- 已完成：69
+- 总任务：71
+- 已完成：70
 - 进行中：1
 - 未开始：0
 
@@ -28,13 +28,13 @@
 5. **决策证据**：48 页 v3 评分、No-Go 报告、真实用户测试协议；本地 PDF 689 页、EPUB 48 章已重新生成并校验。
 6. **厂商补证**：来源注册表增至 183 条、正文快照 146 份；134 个证据缺口 claim 机器可读，134 个均已绑定至少一个 source_id；Azure SRE 区域、AAU、驻留/删除与执行控制已补证，MCP 改用官方仓库规范快照，未核实商业字段不默认通过。
 7. **评测资产**：400 条 synthetic K8s 案例（40/60/300，五类各 80）与 400 份本地快照 fixture；确定性生成、SHA-256、负向控制与 14 项 self-test 通过；报告仍为 INCONCLUSIVE。
-8. **POC 示例**：填写的 synthetic POC 73/100、INCONCLUSIVE；26/26 参考测试、400-case self-test、干净目录导入、Shadow/rollback、Trace 验签/锚点验证与 27 项制品哈希通过；真实 TCO/商务退出未完成。
+8. **POC 示例**：填写的 synthetic POC 73/100、INCONCLUSIVE；27/27 参考测试、400-case self-test、干净目录导入、Shadow/rollback、Trace 验签/锚点验证与 27 项制品哈希通过；真实 TCO/商务退出未完成。
 9. **Judge 校准工具**：300 条独立候选池、答案键、快照 registry、双人标注/独立裁决 CLI 与 κ/召回报告已就绪；真实标注 0/300，release_ready=false。
 10. **真实用户测试工具**：匿名参与者 Schema、YAML 模板、汇总门禁与 5 项校验器测试已就绪；原始记录默认不入 git，无记录时严格返回 `not_executed`。
 11. **v3 P0 闭环**：入口/案例状态、工具契约、发布清单、K8s drain、唯一门禁、参考资料派生同步、案例 Schema 与页面级幂等/锁/指标/评测语义共 8 类 P0 已关闭；正文示例纳入 CI，未改写 v3 历史评分。
 12. **P1 示例合同**：正文内嵌 YAML/JSON 已全部纳入 Schema 校验，427 项检查通过；覆盖评测、发布、Runbook、事故、证据包、工具结果、Event、委托 token 与 Rubric。唯一豁免项是明确标注“不可独立执行”的 Runbook 结构片段。
 13. **P1 场景深化**：RDMA 多节点 rail 不对齐与 PostgreSQL/MySQL 计划内 failover 已形成只读证据→审批→单范围动作→验证/恢复→未知结果对账闭环；40 项 fixture 单元测试与 7 项 CLI 集成回归通过。
-14. **P1 审计锚定**：Canonical Event 升级 v1.1.0，增加 HMAC-SHA256 签名、可信时间与独立外部锚点；整链重写、错误/未知密钥、缺签名、时钟漂移和锚点改写均 fail-closed，26 项参考测试通过。
+14. **P1 审计锚定**：Canonical Event 升级 v1.1.0，增加 HMAC-SHA256 签名、可信时间与独立外部锚点；整链重写、错误/未知密钥、缺签名、时钟漂移、缺失上一锚点、前缀分叉与锚点改写均 fail-closed，27 项参考测试通过。
 
 ## 质量门禁
 
@@ -44,7 +44,7 @@
 - 50 张 Mermaid 实际渲染、编号、图注与图状文本残留检查。
 - 320/390/768/1024/1440 与 A4 打印、WCAG 2.1 AA。
 - 689 页 PDF 全量几何审计：A4 尺寸、空白页与文字越界 0 违规；报告见 [pdf-layout.md](./validation/pdf-layout.md)。该检查不替代人工视觉审计。
-- 参考实现 26/26、eval self-test 14/14、用户阅读校验器 5/5、5 类负向控制与 synthetic 基线回归。
+- 参考实现 27/27、eval self-test 14/14、用户阅读校验器 5/5、5 类负向控制与 synthetic 基线回归。
 - 3 段工具契约 YAML 正向校验、7 个契约负向控制、NotReady 评测/Event payload 校验。
 - 正文内嵌 YAML/JSON 全量 Schema 校验、400 条生成案例校验、发布/Runbook/事故示例与外部文件深一致检查。
 - 门禁注册表与参考资料注册表派生一致性、发布模板 fail-closed/正文同步、维护注册表覆盖检查。
