@@ -11,6 +11,8 @@ const ROOT = fileURLToPath(new URL("../", import.meta.url));
 const DEFAULT_DIR = path.join(ROOT, "reports/validation/user-reading-results");
 const SCHEMA_PATH = path.join(ROOT, "schemas/user-reading-result.schema.json");
 const TASK_IDS = ["T1", "T2", "T3", "T4"];
+const TASK_LIMITS_SECONDS = { T1: 180, T2: 300, T3: 900, T4: 300 };
+const CORE_CAPABILITIES = new Set(["k8s", "observability", "ai"]);
 
 function median(values) {
   if (!values.length) return null;
@@ -28,6 +30,10 @@ function containsDirectIdentifier(value) {
   if (Array.isArray(value)) return value.some(containsDirectIdentifier);
   if (value && typeof value === "object") return Object.values(value).some(containsDirectIdentifier);
   return false;
+}
+
+function independentlyPassed(task) {
+  return task.success && !task.help_used;
 }
 
 export function validateRecords(records) {
@@ -58,13 +64,27 @@ export function validateRecords(records) {
     if (containsDirectIdentifier(record)) {
       errors.push(`${label}: direct identifier detected; anonymize before submission`);
     }
-    const issueIds = record.issues.map((issue) => issue.id);
-    if (new Set(issueIds).size !== issueIds.length) errors.push(`${label}: duplicate issue id`);
-    for (const issue of record.issues) {
-      if (issue.status === "closed" && !issue.resolution?.trim()) {
-        errors.push(`${label}: ${issue.id} is closed without a resolution`);
+    if (record.evidence_review.reviewer_id === record.participant_id
+      || record.evidence_review.reviewer_id === record.session.facilitator_id) {
+      errors.push(`${label}: evidence reviewer must be independent of participant and facilitator`);
+    }
+    for (const task of record.tasks) {
+      if (task.success && task.first_correct_seconds === null) {
+        errors.push(`${label}: ${task.id} success requires first_correct_seconds`);
+      }
+      if (task.first_correct_seconds !== null && task.first_correct_seconds > task.time_seconds) {
+        errors.push(`${label}: ${task.id} first_correct_seconds cannot exceed final time_seconds`);
+      }
+      if (task.timed_out && (task.success || task.time_seconds > TASK_LIMITS_SECONDS[task.id])) {
+        errors.push(`${label}: ${task.id} timed_out must be unsuccessful and stop at the task limit`);
+      }
+      if (task.id === "T4" && task.success
+        && (!task.mobile_result.passed || !task.print_result.passed)) {
+        errors.push(`${label}: T4 success requires both mobile_result and print_result to pass`);
       }
     }
+    const issueIds = record.issues.map((issue) => issue.id);
+    if (new Set(issueIds).size !== issueIds.length) errors.push(`${label}: duplicate issue id`);
   });
 
   if (commits.size > 1) errors.push("all participants must test the same site_commit_sha");
@@ -81,36 +101,49 @@ export function summarize(records) {
     };
   }
 
-  const participantCount = records.length;
+  const coreRecords = records.filter((record) => record.role !== "docs");
+  const docsRecords = records.filter((record) => record.role === "docs");
+  const participantCount = coreRecords.length;
   const taskResults = TASK_IDS.map((id) => {
-    const tasks = records.map((record) => record.tasks.find((task) => task.id === id));
+    const tasks = coreRecords.map((record) => record.tasks.find((task) => task.id === id));
+    const passed = tasks.filter(independentlyPassed).length;
     return {
       id,
-      success_count: tasks.filter((task) => task.success).length,
-      success_rate: tasks.filter((task) => task.success).length / participantCount,
+      success_count: passed,
+      success_rate: participantCount ? passed / participantCount : 0,
       median_time_seconds: median(tasks.map((task) => task.time_seconds)),
       help_used_count: tasks.filter((task) => task.help_used).length,
       safety_misunderstanding_count: tasks.filter((task) => task.safety_misunderstanding).length
     };
+  });
+  const participantResults = coreRecords.map((record) => {
+    const passed = record.tasks.filter(independentlyPassed).length;
+    return { participant_id: record.participant_id, passed_tasks: passed, task_pass_rate: passed / TASK_IDS.length };
   });
   const totalTasks = participantCount * TASK_IDS.length;
   const successfulTasks = taskResults.reduce((sum, result) => sum + result.success_count, 0);
   const safetyCount = taskResults.reduce((sum, result) => sum + result.safety_misunderstanding_count, 0);
   const openSerious = records.flatMap((record) => record.issues)
     .filter((issue) => ["critical", "serious"].includes(issue.severity) && issue.status === "open").length;
-  const roles = [...new Set(records.map((record) => record.role))].filter((role) => role !== "docs");
-  const t3 = taskResults.find((result) => result.id === "T3");
-  const t3Within15Minutes = records.filter((record) => {
+  const capabilities = new Set(coreRecords.flatMap((record) => record.capabilities).filter((item) => CORE_CAPABILITIES.has(item)));
+  const t3Within15Minutes = coreRecords.filter((record) => {
     const task = record.tasks.find((item) => item.id === "T3");
-    return task.success && task.time_seconds <= 900;
+    return independentlyPassed(task) && task.time_seconds <= TASK_LIMITS_SECONDS.T3;
   }).length;
+  const acceptedReviews = records.filter((record) => record.evidence_review.decision === "accepted"
+    && record.evidence_review.anonymization_confirmed).length;
   const gates = {
-    participants_3_to_5: participantCount >= 3 && participantCount <= 5,
-    role_coverage_at_least_two: roles.length >= 2,
+    core_participants_3_to_5: participantCount >= 3 && participantCount <= 5,
+    docs_participant_at_most_one: docsRecords.length <= 1,
+    total_participants_at_most_six: records.length <= 6,
+    capability_coverage_at_least_two: capabilities.size >= 2,
     task_success_rate_at_least_80_percent: totalTasks > 0 && successfulTasks / totalTasks >= 0.8,
+    each_task_success_rate_at_least_80_percent: taskResults.every((result) => result.success_rate >= 0.8),
+    each_core_participant_passes_at_least_three_tasks: participantResults.every((result) => result.passed_tasks >= 3),
     no_safety_misunderstanding: safetyCount === 0,
     at_least_three_t3_within_15_minutes: t3Within15Minutes >= Math.min(3, participantCount),
     no_open_critical_or_serious: openSerious === 0,
+    independent_evidence_reviews_accepted: acceptedReviews === records.length,
     single_tested_commit: new Set(records.map((record) => record.environment.site_commit_sha)).size === 1
   };
   const releaseReady = Object.values(gates).every(Boolean);
@@ -118,19 +151,21 @@ export function summarize(records) {
     status: releaseReady ? "passed" : "failed",
     release_ready: releaseReady,
     participant_count: participantCount,
+    docs_participant_count: docsRecords.length,
     tested_commit_sha: records[0].environment.site_commit_sha,
     total_tasks: totalTasks,
     successful_tasks: successfulTasks,
-    task_success_rate: successfulTasks / totalTasks,
+    task_success_rate: totalTasks ? successfulTasks / totalTasks : 0,
     t3_within_15_minutes: t3Within15Minutes,
-    t3_median_time_seconds: t3.median_time_seconds,
     safety_misunderstanding_count: safetyCount,
     open_critical_or_serious: openSerious,
-    roles_covered: roles,
+    capabilities_covered: [...capabilities],
+    accepted_evidence_reviews: acceptedReviews,
+    participants: participantResults,
     tasks: taskResults,
     gates,
     note: releaseReady
-      ? "All PUB-04 quantitative gates pass; retain anonymized raw records outside git and obtain reviewer sign-off."
+      ? "All PUB-04 gates pass for this 3–5 person sample; this is not a population success-rate estimate. Retain access-controlled raw evidence outside git."
       : "PUB-04 remains open. Resolve failed gates and retest affected participants."
   };
 }
@@ -153,7 +188,7 @@ function renderMarkdown(summary) {
   }
   const rows = summary.tasks.map((task) => `| ${task.id} | ${task.success_count}/${summary.participant_count} | ${(task.success_rate * 100).toFixed(1)}% | ${task.median_time_seconds ?? "—"} | ${task.help_used_count} | ${task.safety_misunderstanding_count} |`).join("\n");
   const gates = Object.entries(summary.gates).map(([name, passed]) => `| ${name} | ${passed ? "PASS" : "FAIL"} |`).join("\n");
-  return `# 真实用户阅读测试汇总\n\n状态：**${summary.status}**  \nrelease_ready：**${summary.release_ready}**  \n测试提交：\`${summary.tested_commit_sha}\`\n\n${summary.note}\n\n## 任务指标\n\n| 任务 | 成功 | 成功率 | 中位耗时（秒） | 使用帮助 | 安全误解 |\n| --- | ---: | ---: | ---: | ---: | ---: |\n${rows}\n\n## 门禁\n\n| 门禁 | 结果 |\n| --- | --- |\n${gates}\n`;
+  return `# 真实用户阅读测试汇总\n\n状态：**${summary.status}**  \nrelease_ready：**${summary.release_ready}**  \n测试提交：\`${summary.tested_commit_sha}\`\n\n${summary.note}\n\n## 任务指标\n\n| 任务 | 独立成功 | 核心参与者 | 样本任务通过率 | 中位耗时（秒） | 使用帮助 | 安全误解 |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n${rows}\n\n## 门禁\n\n| 门禁 | 结果 |\n| --- | --- |\n${gates}\n`;
 }
 
 function main() {
@@ -174,7 +209,7 @@ function main() {
     const jsonPath = path.join(ROOT, "reports/validation/user-reading-summary.json");
     const mdPath = path.join(ROOT, "reports/validation/user-reading-summary.md");
     fs.writeFileSync(jsonPath, `${JSON.stringify(summary, null, 2)}\n`);
-    fs.writeFileSync(mdPath, renderMarkdown(summary));
+    fs.writeFileSync(mdPath, `${renderMarkdown(summary)}\n`);
     console.log(`Wrote ${path.relative(ROOT, jsonPath)} and ${path.relative(ROOT, mdPath)}`);
   }
   console.log(JSON.stringify(summary, null, 2));

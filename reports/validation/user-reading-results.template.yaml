@@ -1,48 +1,85 @@
 # TEMPLATE ONLY — not test evidence. Copy one file per real participant into
-# reports/validation/user-reading-results/ after consent and anonymization.
-# Never include names, emails, phone numbers, employee IDs, customer names or raw production logs.
-schema_version: "1.0"
-participant_id: "REAL-P01"
+# reports/validation/user-reading-results/ after consent, anonymization and independent review.
+# Replace every REPLACE_* value. Never include names, emails, phone numbers, employee IDs,
+# customer names, raw production logs or unredacted session recordings.
+schema_version: "1.1"
+participant_id: "REPLACE_WITH_PSEUDONYMOUS_ID"
 role: sre
+capabilities: [k8s]
 years_experience: 5
 agent_project_experience: true
 consent: true
 environment:
+  desktop_browser: "REPLACE_WITH_BROWSER_AND_VERSION"
   desktop_viewport: "1440x900"
+  mobile_device: "REPLACE_WITH_DEVICE_OR_EMULATION"
   mobile_viewport: "390x844"
-  print_checked: true
+  print:
+    checked: true
+    pages: [guide/05-tools-permissions, playbooks/k8s]
+    renderer: "REPLACE_WITH_PRINT_OR_PDF_RENDERER"
   site_commit_sha: "REPLACE_WITH_40_HEX_COMMIT_SHA"
   tested_at: "REPLACE_WITH_ISO_8601_TIMESTAMP"
+session:
+  session_id: "REPLACE_WITH_USR_SESSION_ID"
+  facilitator_id: "REPLACE_WITH_PSEUDONYMOUS_FACILITATOR_ID"
+  consent_recorded: true
+  recording_ref: "REPLACE_WITH_ACCESS_CONTROLLED_ANONYMIZED_RECORD_REF"
 tasks:
   - id: T1
     success: true
-    time_seconds: 142
+    first_correct_seconds: 110
+    time_seconds: 120
+    timed_out: false
     wrong_turns: 1
     help_used: false
     safety_misunderstanding: false
   - id: T2
     success: true
+    first_correct_seconds: 250
     time_seconds: 271
+    timed_out: false
     wrong_turns: 0
     help_used: false
     safety_misunderstanding: false
     diagram_clarity: 4
   - id: T3
     success: true
+    first_correct_seconds: 700
     time_seconds: 720
+    timed_out: false
     wrong_turns: 1
     help_used: false
     safety_misunderstanding: false
+    artifacts:
+      tool_contract_ref: "REPLACE_WITH_TOOL_CONTRACT_REF"
+      eval_case_ref: "REPLACE_WITH_EVAL_CASE_REF"
+      permission_rule_ref: "REPLACE_WITH_PERMISSION_RULE_REF"
+      non_goals_ref: "REPLACE_WITH_NON_GOALS_REF"
+      verification_ref: "REPLACE_WITH_VERIFICATION_REF"
+      rollback_ref: "REPLACE_WITH_ROLLBACK_REF"
   - id: T4
     success: true
+    first_correct_seconds: 200
     time_seconds: 210
+    timed_out: false
     wrong_turns: 0
     help_used: false
     safety_misunderstanding: false
     diagram_clarity: 4
+    mobile_result:
+      passed: true
+      evidence_ref: "REPLACE_WITH_MOBILE_EVIDENCE_REF"
+    print_result:
+      passed: true
+      evidence_ref: "REPLACE_WITH_PRINT_EVIDENCE_REF"
 issues: []
 feedback:
-  most_confusing:
-    - "Replace with an anonymized observation."
-  most_useful:
-    - "Replace with an anonymized observation."
+  most_confusing: []
+  most_useful: []
+evidence_review:
+  reviewer_id: "REPLACE_WITH_INDEPENDENT_PSEUDONYMOUS_REVIEWER_ID"
+  reviewed_at: "REPLACE_WITH_ISO_8601_TIMESTAMP"
+  decision: accepted
+  anonymization_confirmed: true
+  evidence_ref: "REPLACE_WITH_REVIEW_EVIDENCE_REF"

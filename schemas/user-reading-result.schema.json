@@ -2,42 +2,74 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-ops-agent-book.example/schemas/user-reading-result.schema.json",
   "title": "Anonymized real-user reading test result",
-  "description": "Validates one pseudonymous participant record for PUB-04. This schema does not create evidence; only completed real sessions may be submitted.",
+  "description": "Validates one pseudonymous participant record for PUB-04. This schema does not create evidence; only completed real sessions with independent review may be submitted.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
     "participant_id",
     "role",
+    "capabilities",
     "years_experience",
     "agent_project_experience",
     "consent",
     "environment",
+    "session",
     "tasks",
     "issues",
-    "feedback"
+    "feedback",
+    "evidence_review"
   ],
   "properties": {
-    "schema_version": {"const": "1.0"},
+    "schema_version": {"const": "1.1"},
     "participant_id": {
       "type": "string",
       "pattern": "^[A-Z0-9][A-Z0-9-]{2,31}$",
       "description": "Pseudonymous ID only; no name, email, phone, employee ID or customer identifier."
     },
     "role": {"enum": ["sre", "platform", "ai", "docs"]},
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {"enum": ["k8s", "observability", "ai", "documentation"]}
+    },
     "years_experience": {"type": "integer", "minimum": 0, "maximum": 60},
     "agent_project_experience": {"type": "boolean"},
     "consent": {"const": true},
     "environment": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["desktop_viewport", "mobile_viewport", "print_checked", "site_commit_sha", "tested_at"],
+      "required": ["desktop_browser", "desktop_viewport", "mobile_device", "mobile_viewport", "print", "site_commit_sha", "tested_at"],
       "properties": {
+        "desktop_browser": {"type": "string", "minLength": 1, "maxLength": 100},
         "desktop_viewport": {"const": "1440x900"},
+        "mobile_device": {"type": "string", "minLength": 1, "maxLength": 100},
         "mobile_viewport": {"const": "390x844"},
-        "print_checked": {"const": true},
+        "print": {"$ref": "#/$defs/printCheck"},
         "site_commit_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
         "tested_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["session_id", "facilitator_id", "consent_recorded", "recording_ref"],
+      "properties": {
+        "session_id": {"type": "string", "pattern": "^USR-[A-Z0-9-]{3,40}$"},
+        "facilitator_id": {
+          "type": "string",
+          "pattern": "^[A-Z0-9][A-Z0-9-]{2,31}$",
+          "description": "Pseudonymous facilitator ID; no direct identity."
+        },
+        "consent_recorded": {"const": true},
+        "recording_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "Access-controlled anonymized session record reference; raw records stay outside git."
+        }
       }
     },
     "tasks": {
@@ -66,21 +98,99 @@
           "items": {"type": "string", "minLength": 1, "maxLength": 500}
         }
       }
+    },
+    "evidence_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer_id", "reviewed_at", "decision", "anonymization_confirmed", "evidence_ref"],
+      "properties": {
+        "reviewer_id": {
+          "type": "string",
+          "pattern": "^[A-Z0-9][A-Z0-9-]{2,31}$",
+          "description": "Independent pseudonymous reviewer; must differ from participant and facilitator."
+        },
+        "reviewed_at": {"type": "string", "format": "date-time"},
+        "decision": {"enum": ["accepted", "rejected"]},
+        "anonymization_confirmed": {"const": true},
+        "evidence_ref": {"type": "string", "minLength": 1, "maxLength": 500},
+        "notes": {"type": "string", "maxLength": 1000}
+      }
     }
   },
   "$defs": {
+    "printCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checked", "pages", "renderer"],
+      "properties": {
+        "checked": {"const": true},
+        "pages": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {"enum": ["guide/05-tools-permissions", "playbooks/k8s"]}
+        },
+        "renderer": {"type": "string", "minLength": 1, "maxLength": 100}
+      }
+    },
     "task": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "success", "time_seconds", "wrong_turns", "help_used", "safety_misunderstanding"],
+      "required": ["id", "success", "first_correct_seconds", "time_seconds", "timed_out", "wrong_turns", "help_used", "safety_misunderstanding"],
       "properties": {
         "id": {"enum": ["T1", "T2", "T3", "T4"]},
         "success": {"type": "boolean"},
-        "time_seconds": {"type": "integer", "minimum": 0, "maximum": 86400},
+        "first_correct_seconds": {"type": ["integer", "null"], "minimum": 0, "maximum": 86400},
+        "time_seconds": {"type": "integer", "minimum": 1, "maximum": 86400},
+        "timed_out": {"type": "boolean"},
         "wrong_turns": {"type": "integer", "minimum": 0, "maximum": 1000},
         "help_used": {"type": "boolean"},
         "safety_misunderstanding": {"type": "boolean"},
         "diagram_clarity": {"type": "integer", "minimum": 1, "maximum": 5},
+        "notes": {"type": "string", "maxLength": 1000},
+        "artifacts": {"$ref": "#/$defs/reuseArtifacts"},
+        "mobile_result": {"$ref": "#/$defs/viewResult"},
+        "print_result": {"$ref": "#/$defs/viewResult"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"id": {"const": "T3"}}},
+          "then": {"required": ["artifacts"], "properties": {"artifacts": {"$ref": "#/$defs/reuseArtifacts"}}}
+        },
+        {
+          "if": {"properties": {"id": {"const": "T4"}}},
+          "then": {
+            "required": ["diagram_clarity", "mobile_result", "print_result"],
+            "properties": {
+              "diagram_clarity": {"type": "integer", "minimum": 1, "maximum": 5},
+              "mobile_result": {"$ref": "#/$defs/viewResult"},
+              "print_result": {"$ref": "#/$defs/viewResult"}
+            }
+          }
+        }
+      ]
+    },
+    "reuseArtifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tool_contract_ref", "eval_case_ref", "permission_rule_ref", "non_goals_ref", "verification_ref", "rollback_ref"],
+      "properties": {
+        "tool_contract_ref": {"type": "string", "minLength": 1, "maxLength": 500},
+        "eval_case_ref": {"type": "string", "minLength": 1, "maxLength": 500},
+        "permission_rule_ref": {"type": "string", "minLength": 1, "maxLength": 500},
+        "non_goals_ref": {"type": "string", "minLength": 1, "maxLength": 500},
+        "verification_ref": {"type": "string", "minLength": 1, "maxLength": 500},
+        "rollback_ref": {"type": "string", "minLength": 1, "maxLength": 500}
+      }
+    },
+    "viewResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["passed", "evidence_ref"],
+      "properties": {
+        "passed": {"type": "boolean"},
+        "evidence_ref": {"type": "string", "minLength": 1, "maxLength": 500},
         "notes": {"type": "string", "maxLength": 1000}
       }
     },
@@ -95,7 +205,13 @@
         "description": {"type": "string", "minLength": 1, "maxLength": 1000},
         "status": {"enum": ["open", "closed"]},
         "resolution": {"type": "string", "maxLength": 1000}
-      }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "closed"}}},
+          "then": {"required": ["resolution"], "properties": {"resolution": {"type": "string", "minLength": 1}}}
+        }
+      ]
     }
   }
 }

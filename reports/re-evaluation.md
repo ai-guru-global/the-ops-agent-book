@@ -79,7 +79,7 @@
 
 ### 6.1 真实用户阅读测试未执行
 
-PUB-04 仍需 3–5 名真实 SRE/平台工程师完成定位、理解、复用与窄屏/打印任务。协议已写入 [user-reading-protocol.md](./validation/user-reading-protocol.md)，但自动化检查、axe、合成 reviewer 和参考实现测试都不能替代它。
+PUB-04 仍需 3–5 名真实 SRE/平台工程师完成定位、理解、复用与窄屏/打印任务。协议 v1.1 已明确能力覆盖、独立成功、计时/超时、T3 产出、分开的移动/打印证据、独立复核与样本结论边界，见 [user-reading-protocol.md](./validation/user-reading-protocol.md)；自动化检查、axe、合成 reviewer 和参考实现测试都不能替代它。
 
 ### 6.2 评测与 Judge 证据不足
 
