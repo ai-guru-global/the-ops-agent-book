@@ -1,0 +1,23 @@
+License Options for Microsoft Copilot | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/copilot/plan/copilot-license-options
+Captured: 2026-11-25
+Document date: 2026-10-19; updated_at: 2026-11-04
+Method: html-to-text
+Content-Type: text/html
+
+License Options for Microsoft Copilot
+
+Microsoft Copilot is available with Microsoft 365 E7 or as an add-on for eligible commercial, US Government, and education subscription plans.
+
+Licensing availability and product terms can change. Before you purchase or assign licenses, confirm eligibility in the Microsoft Product Terms, Microsoft Copilot service description, and Microsoft Copilot pricing and plans.
+
+Microsoft Copilot Business is an add-on for organizations with up to 300 users that have eligible Microsoft 365 Business licenses. It's available with an annual commitment and supports up to 300 licensed users per tenant.
+
+Commercial eligible plans include Microsoft 365 E7, E5, E3, F1, F3, Business Premium, Business Standard, Business Basic, Apps for Enterprise and Apps for Business; Office 365 E5, E3, E1 and F3; and eligible Exchange, SharePoint, OneDrive, Teams, Planner, Project and Visio plans.
+
+US Government
+Microsoft Copilot is available as an add-on in Government Community Cloud (GCC), Government Community Cloud High (GCC High), and Department of Defense (DoD) environments for the listed eligible plans.
+
+Set up Microsoft Copilot
+Assign or unassign licenses for users in the Microsoft 365 admin center.
+Use the Microsoft Copilot service plan diagnostic tool to verify whether a specific user account meets the requirements.

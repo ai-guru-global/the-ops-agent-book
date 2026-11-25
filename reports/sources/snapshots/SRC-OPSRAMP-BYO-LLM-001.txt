@@ -1,0 +1,33 @@
+Bring Your Own LLM/Key (BYO-LLM) | OpsRamp Documentation
+URL: https://docs.opsramp.com/platform-features/feature-guides/copilot/getting-started/bring-your-own-llm/
+Captured: 2026-11-25
+Updated: Sep 2, 2026
+Method: html-to-text
+Content-Type: text/html
+
+Bring Your Own LLM/Key (BYO-LLM)
+
+Use this setup to connect OpsPilot to your own LLM provider and enable AI-powered capabilities in OpsRamp.
+
+You can connect through two access types:
+DIRECT_API - Direct API access (OpenAI only)
+CLOUD_BASED - Cloud provider access (Vertex AI, AWS Bedrock, Azure Foundry)
+
+This release supports Google Cloud Platform (GCP) Vertex AI, AWS Bedrock, Azure Foundry, and OpenAI provider configurations.
+
+Default State
+OpsPilot is disabled by default until an administrator configures valid LLM credentials.
+Once configured and saved, OpsPilot is automatically enabled for your account.
+
+Prerequisites
+OpsRamp platform access with appropriate permissions to manage credentials.
+Valid credentials for your chosen LLM provider.
+Models enabled or deployed in your cloud account.
+
+Supported LLM Providers
+Vertex AI: claude-sonnet-4-6, gemini-2.5-flash
+AWS Bedrock: us.anthropic.claude-sonnet-4-6
+Azure Foundry: claude-sonnet-4-6, gpt-5.4, gpt-5.5
+OpenAI: gpt-5.4, gpt-5.5
+
+OpsPilot supports separate Standard and Advanced model tiers. OpsPilot automatically selects which tier to use for each request based on the complexity of the plan the agent builds.

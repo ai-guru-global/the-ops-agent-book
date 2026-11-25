@@ -1,0 +1,15 @@
+区域以及语言常见问题解答 | Dynamics 365 Sales | Microsoft Learn
+URL: https://learn.microsoft.com/zh-cn/dynamics365/sales/faq-region-language
+Captured: 2026-11-25
+Document date: 2026-06-16; updated_at: 2026-11-20
+Method: html-to-text
+Content-Type: text/html
+
+区域以及语言常见问题解答
+
+Sales Premium 仅在以下国家或地区可用：亚太地区、加拿大、欧洲/中东/非洲、法国、德国、英国、印度、日本、北美、大洋洲、南非、南美洲、瑞典、瑞士、阿联酋、GCC、GCC High。Sales Premium 在所有其他区域不可用，包括 DoD。
+
+Exchange 集成仅在特定区域可用。组织的 Office 365 数据位置必须位于以下位置之一：全球地区 1（欧洲/中东/非洲）、全球地区 2（亚太）、全球地理 3（美洲）、GCC/GCC High（美国弗吉尼亚州和德克萨斯州）。
+
+Dynamics 365 Sales 中的 Copilot 支持哪些语言？
+Dynamics 365 Sales 中的 Copilot 可在 Dynamics 365、Power Platform 和 Copilot Studio 产品可用性中列出的区域和语言中提供。

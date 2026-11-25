@@ -2235,6 +2235,80 @@ sources:
     sha256: 9a2f560e90f31cc12924b28850884dae74ed5de0bbe0dc7ded98492498892fa1
     captured_at: 2026-11-25
     method: html-to-text-or-rendered-text
+- source_id: SRC-GOOGLE-SECOPS-DEPROVISION-001
+  title: Google SecOps deprovisioning
+  url: https://docs.cloud.google.cn/chronicle/docs/onboard/customer-initiated-secops-deprovision?hl=en
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方文档支持 12 天软删后永久删除、删除不取消计费、客户自管项目需自行删除及部分关联产品需手工退订。
+  claims:
+    - GC-GO-04
+    - SEC-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-DEPROVISION-001.txt
+    sha256: 9427d19deb117284897b7960f92417df47402914cea108194ddde2a78d42bdb9
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-MS-COPILOT-LICENSING-001
+  title: License Options for Microsoft Copilot
+  url: https://learn.microsoft.com/en-us/copilot/plan/copilot-license-options
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2026-11-04 文档支持 E7 内置、Business≤300 用户年付加购、商业/政府/教育先决许可与管理员许可分配/撤销。
+  claims:
+    - EMB-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-COPILOT-LICENSING-001.txt
+    sha256: c7ae408e2130d17200101e057d9045c284e67e9169a17f61df6a0de0cccb0a93
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-MS-COPILOT-REQUIREMENTS-001
+  title: Microsoft Copilot requirements
+  url: https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2026-11-05 文档支持 Entra 身份、许可先决条件、Windows/macOS/移动版本与网络/WebSocket
+    要求；具体国家可用性仍需单独核对。
+  claims:
+    - EMB-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-COPILOT-REQUIREMENTS-001.txt
+    sha256: b8b284d5cff41f40a402d9627cc3e79f41ecdc725fe7e74200f8197be52bd6ca
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-MS-DYNAMICS-REGION-LANGUAGE-001
+  title: Dynamics 365 Sales 区域以及语言常见问题解答
+  url: https://learn.microsoft.com/zh-cn/dynamics365/sales/faq-region-language
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2026-11-20 文档支持 Sales Premium 区域、Exchange 数据位置限制与 Copilot
+    区域/语言指向产品可用性报告；完整许可和驻留承诺未核实。
+  claims:
+    - EMB-MS-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-DYNAMICS-REGION-LANGUAGE-001.txt
+    sha256: 80d575b2c2cea3b4976154d96fea30e1f4aa928d93ecd3f5aacf2f3126277608
+    captured_at: 2026-11-25
+    method: html-to-text
+- source_id: SRC-OPSRAMP-BYO-LLM-001
+  title: OpsPilot Bring Your Own LLM/Key
+  url: https://docs.opsramp.com/platform-features/feature-guides/copilot/getting-started/bring-your-own-llm/
+  type: official_doc
+  accessed_at: 2026-11-25
+  review_by: 2027-02-22
+  notes: 官方 2026-09-02 文档支持 Vertex AI/Bedrock/Azure Foundry/OpenAI、管理员配置凭证、默认关闭与
+    Standard/Advanced 模型分层；具体价格、区域和驻留承诺未核实。
+  claims:
+    - OBS-13
+  snapshot:
+    path: reports/sources/snapshots/SRC-OPSRAMP-BYO-LLM-001.txt
+    sha256: b9cc91b447cac972367b69f182615150f8394e9afe31e164d4685c3e6f8659db
+    captured_at: 2026-11-25
+    method: html-to-text
 - source_id: SRC-MCP-001
   title: Model Context Protocol
   url: https://modelcontextprotocol.io/

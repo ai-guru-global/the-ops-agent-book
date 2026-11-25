@@ -1101,7 +1101,9 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-MS-M365-COPILOT-001"
+        "SRC-MS-M365-COPILOT-001",
+        "SRC-MS-COPILOT-LICENSING-001",
+        "SRC-MS-COPILOT-REQUIREMENTS-001"
       ],
       "last_evidence_update": "2026-11-25"
     },
@@ -1123,7 +1125,8 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-MS-DYNAMICS-SALES-COPILOT-001"
+        "SRC-MS-DYNAMICS-SALES-COPILOT-001",
+        "SRC-MS-DYNAMICS-REGION-LANGUAGE-001"
       ],
       "last_evidence_update": "2026-11-25"
     },
@@ -1410,7 +1413,8 @@
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
         "SRC-GOOGLE-SECOPS-PACKAGES-001",
-        "SRC-GOOGLE-SECOPS-EXPORT-001"
+        "SRC-GOOGLE-SECOPS-EXPORT-001",
+        "SRC-GOOGLE-SECOPS-DEPROVISION-001"
       ],
       "last_evidence_update": "2026-11-25",
       "candidate_urls": [
@@ -2006,7 +2010,8 @@
       "source_ids": [
         "SRC-HPE-OPSRAMP-001",
         "SRC-OPSRAMP-OSPILOT-001",
-        "SRC-OPSRAMP-SECURITY-001"
+        "SRC-OPSRAMP-SECURITY-001",
+        "SRC-OPSRAMP-BYO-LLM-001"
       ],
       "last_evidence_update": "2026-11-25"
     },
@@ -2407,7 +2412,8 @@
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
         "SRC-GOOGLE-SECOPS-PACKAGES-001",
-        "SRC-GOOGLE-SECOPS-EXPORT-001"
+        "SRC-GOOGLE-SECOPS-EXPORT-001",
+        "SRC-GOOGLE-SECOPS-DEPROVISION-001"
       ],
       "last_evidence_update": "2026-11-25"
     },

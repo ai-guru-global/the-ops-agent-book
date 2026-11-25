@@ -19,7 +19,7 @@ content_status: "reviewed"
 - “未核实”表示本轮没有取得足以支持该字段的证据，**不等于否定**。不得据此猜测 GA/预览、区域、价格、数据驻留或退出条款。
 - 动态目录数量只在明确快照日时使用。本轮删除“36 Agent / 328 Skills”的当前事实表述，且**未重新计数**。
 - `accessed_at` 是实际访问或沿用原书访问记录的日期；`review_by` 是下一次复核截止，不是来源失效日。
-- 快照列记录本地正文快照与 SHA-256。本轮已保存 134 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
+- 快照列记录本地正文快照与 SHA-256。本轮已保存 139 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
 - 所有至少有一个“未核实”字段的厂商 claim 同时登记在机器可读的 `sources/claim-gaps.json`；补证只关闭有来源的字段，不能把整条 claim 一键改成已核实。
 
 ## 来源清单
@@ -198,6 +198,11 @@ content_status: "reviewed"
 | SRC-GOOGLE-SECOPS-PACKAGES-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-04、SEC-02 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-PACKAGES-001.txt` |
 | SRC-GOOGLE-SECOPS-EXPORT-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-04、SEC-02 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-EXPORT-001.txt` |
 | SRC-GOOGLE-CODEASSIST-SUNSET-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-05 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CODEASSIST-SUNSET-001.txt` |
+| SRC-GOOGLE-SECOPS-DEPROVISION-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-GO-04、SEC-02 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-DEPROVISION-001.txt` |
+| SRC-MS-COPILOT-LICENSING-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-COPILOT-LICENSING-001.txt` |
+| SRC-MS-COPILOT-REQUIREMENTS-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-COPILOT-REQUIREMENTS-001.txt` |
+| SRC-MS-DYNAMICS-REGION-LANGUAGE-001 | official_doc | 2026-11-25 | 2027-02-22 | EMB-MS-02 | 已存 `reports/sources/snapshots/SRC-MS-DYNAMICS-REGION-LANGUAGE-001.txt` |
+| SRC-OPSRAMP-BYO-LLM-001 | official_doc | 2026-11-25 | 2027-02-22 | OBS-13 | 已存 `reports/sources/snapshots/SRC-OPSRAMP-BYO-LLM-001.txt` |
 
 ## 字段缺口与快照计划
 

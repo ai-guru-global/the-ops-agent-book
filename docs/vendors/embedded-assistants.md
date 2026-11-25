@@ -94,8 +94,8 @@ flowchart TB
 
 | 产品 | 内嵌助手/Agent（claim） | 运维相关性 | source_id |
 | --- | --- | --- | --- |
-| Microsoft 365 Copilot（EMB-MS-01） | Word/Excel/PowerPoint/Outlook/Teams；Chat/Basic/Premium/usage-based 分层 | 运维知识、事故沟通、复盘草稿（场景建议，非能力证明） | SRC-MS-M365-COPILOT-001 |
-| Dynamics 365 Copilot（EMB-MS-02） | 记录摘要、会议准备、邮件协助、SharePoint 问答；仅访问用户有权限的记录/文件 | 业务/服务运营（场景建议） | SRC-MS-DYNAMICS-SALES-COPILOT-001 |
+| Microsoft 365 Copilot（EMB-MS-01） | Word/Excel/PowerPoint/Outlook/Teams；Chat/Basic/Premium/usage-based 分层 | 运维知识、事故沟通、复盘草稿（场景建议，非能力证明） | SRC-MS-M365-COPILOT-001；SRC-MS-COPILOT-LICENSING-001；SRC-MS-COPILOT-REQUIREMENTS-001 |
+| Dynamics 365 Copilot（EMB-MS-02） | 记录摘要、会议准备、邮件协助、SharePoint 问答；仅访问用户有权限的记录/文件 | 业务/服务运营（场景建议） | SRC-MS-DYNAMICS-SALES-COPILOT-001；SRC-MS-DYNAMICS-REGION-LANGUAGE-001 |
 | Azure Copilot（GC-MS-02） | Design、Operate、Optimize、Troubleshoot、Migrate、Deploy；migration agent 为 public preview，动作需用户确认 | 云运维 | SRC-MS-COPILOT-001；SRC-MS-COPILOT-DOC-001 |
 | Security Copilot（GC-MS-03） | 能力未核实 | SecOps | 未核实 |
 | GitHub Copilot（GC-MS-05） | issue/PR、并行任务、IDE/CLI/GitHub、审查、模型选择、连接器与 MCP | 研发与 DevOps，不是运维 Agent | SRC-GH-COPILOT-001 |
@@ -166,8 +166,8 @@ flowchart TB
 | OBS-07 Grafana Assistant | 未核实 | 未核实 | 订阅与 AI Supplemental Terms；具体单位未核实 | 未核实 | 具体驻留未核实 | 未核实 |
 | OBS-08 Elastic AI Assistant | Cloud Serverless 与 Stack 明示 GA | 未核实 | Managed LLM 需订阅/feature tier 并额外收费 | 额外成本存在；最低消费/超额未核实 | 第三方 provider 会处理数据；位置未核实 | 未核实 |
 | GC-SF-01 Agentforce | 未核实 | 未核实 | Flex Credits、Resolutions、per-user licensing | 未核实 | 未核实 | 未核实 |
-| EMB-MS-01 Microsoft 365 Copilot | 官方文档；许多区域可用，部分市场需批准 | 具体国家清单未核实 | Chat Basic / Basic / Premium / usage-based | 未核实 | EUDB；非 EU 流量可至其他国家/地区 | 管理员可移除访问；完整导出/删除未核实 |
-| EMB-MS-02 Dynamics 365 Sales Copilot | 官方现行文档；GA 时间未核实 | 以官方可用性报告为准 | 指向 Dynamics 365 授权指南 | 未核实 | 未核实 | 未核实 |
+| EMB-MS-01 Microsoft 365 Copilot | 官方文档；许多区域可用，部分市场需批准 | 具体国家清单未核实；需 Entra 工作/学校账户 | E7 内置；Business≤300 用户年付加购；其他商业/政府/教育先决许可见官方清单 | 未核实 | EUDB；非 EU 流量可至其他国家/地区 | 管理员可分配/撤销许可；完整数据导出/删除未核实 |
+| EMB-MS-02 Dynamics 365 Sales Copilot | 官方现行文档；GA 时间未核实 | Sales Premium 区域清单与 Exchange 数据位置限制见官方文档；Copilot 指向产品可用性报告 | 指向 Dynamics 365 授权指南 | 未核实 | 未核实 | 未核实 |
 | EMB-GO-01 Workspace Gemini | 2025 官方公告；当前 GA 范围未核实 | 未核实 | 2025 起并入 Business/Enterprise；当前价格未核实 | 未核实 | 官方称不未经许可用企业数据训练域外模型 | 未核实 |
 | GC-SAP-01 SAP Joule | 官方产品页；完整 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 完整导出/退出未核实 |
 | EMB-ENT-01 Workday Illuminate | 2025 发布说明称新 agents 2026 可用；当前 GA 未核实 | 未核实 | Flex Credits 包含于订阅、每年重置 | 未核实 | 未核实 | 未核实 |

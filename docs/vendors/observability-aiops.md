@@ -86,7 +86,7 @@ flowchart TB
 | **LogicMonitor** | Edwin AI（OBS-11） | AIOps Agent | 官方页面支持专门 Agent 自动调查/分诊、根因与自动修复；GA、区域、许可与退出未核实 | SRC-LM-EDWIN-001 |
 | **ScienceLogic** | Skylar AI（OBS-09） | AIOps + Agentic AI | canonical 页面描述 Skylar Advisor 将告警/遥测/工单/文档转为建议与下一步行动，Topic Specialists 做多步调查；Skylar Analytics 做预测告警、异常检测与指标探索 | SRC-SCIENCELOGIC-SKYLAR-001 |
 | **BigPanda** | L1 Agent（OBS-12） | AIOps | 官方文档支持事件分诊/路由/升级，修复动作需显式审批；部分能力 Coming soon | SRC-BP-L1AGENT-001 |
-| **OpsRamp (HPE)** | OpsRamp AI Agents / OpsPilot（OBS-13） | AIOps + Agent | 官方支持混合云可观测、Operations Copilot、意图路由、多步 RCA 与工单管理；AI Agents 独立 SKU 与 OpsPilot 等同关系未核实 | SRC-HPE-OPSRAMP-001；SRC-OPSRAMP-OSPILOT-001；SRC-OPSRAMP-SECURITY-001 |
+| **OpsRamp (HPE)** | OpsRamp AI Agents / OpsPilot（OBS-13） | AIOps + Agent | 官方支持混合云可观测、Operations Copilot、意图路由、多步 RCA 与工单管理；支持 BYO-LLM，AI Agents 独立 SKU 与 OpsPilot 等同关系未核实 | SRC-HPE-OPSRAMP-001；SRC-OPSRAMP-OSPILOT-001；SRC-OPSRAMP-SECURITY-001；SRC-OPSRAMP-BYO-LLM-001 |
 | **BMC** | BMC Helix / HelixGPT（OBS-14） | ITSM + AIOps | 官方 26.3 文档支持预构建 agents、AIOps RCA 与 license entitlements；Ask HelixGPT 仅 Controlled availability | SRC-BMC-HELIXGPT-AGENTS-001 |
 | **ManageEngine** | Zia / OpManager Nexus（OBS-15） | 内嵌 Agent | 厂商官方博客描述 Zia、本地模型、私有化与 AI 不另收费；属于厂商营销材料，不是独立横评 | SRC-ME-AIOPS-GUIDE-001 |
 | **SolarWinds** | Observability AI Agent（OBS-16） | 平台 AI 能力 | 官方 2026.1 发行说明支持 Technical Preview 的环境问答与文档搜索；不证明 GA 或自主修复 | SRC-SW-OBS-2026-1-001 |
@@ -133,7 +133,7 @@ flowchart TB
 | OBS-27 云智慧 Castrel AI | 官方产品页；整体 GA 未核实 | 未核实 | 免费/专业/企业版；专业与 enterprise 价格另核 | 未核实 | 支持私有化/BYOM；地域未核实 | 未核实 |
 | OBS-28 擎创大模型集成 | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 私域数据构建运维知识库 | 未核实 |
 | OBS-29 炎龙企业版 | 企业版 V4.17.1；整体 GA 未核实 | 企业内网 | 未核实 | 未核实 | 官方称推理与数据仅在企业内部 | 未核实 |
-| OBS-13 HPE OpsRamp | 官方产品/文档；AI Agents 独立 SKU 未核实 | 两家美国数据中心提供商托管 | OpsPilot 套餐/价格未核实 | 未核实 | 合同驻留承诺未核实 | 到期停用，删除数据归档 90 天；完整导出未核实 |
+| OBS-13 HPE OpsRamp | 官方产品/文档；AI Agents 独立 SKU 未核实 | 两家美国数据中心提供商托管 | 支持 Vertex AI/Bedrock/Azure Foundry/OpenAI BYO-LLM；套餐/价格未核实 | 未核实 | 合同驻留承诺未核实 | 到期停用，删除数据归档 90 天；完整导出未核实 |
 | OBS-14 BMC HelixGPT | 官方 26.3 文档；Ask HelixGPT Controlled availability | 未核实 | 按 license entitlements；价格未核实 | 未核实 | 未核实 | 未核实 |
 | OBS-17 Komodor Klaudia | 官方文档称开箱运行；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | AWS Bedrock；客户数据隔离且不用于训练 | 分享调查/REST API 取结果；完整导出退出未核实 |
 

@@ -1,0 +1,32 @@
+Microsoft Copilot requirements | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements
+Captured: 2026-11-25
+Document date: 2026-11-04; updated_at: 2026-11-05
+Method: html-to-text
+Content-Type: text/html
+
+Microsoft Copilot requirements
+
+Requirements vary based on the Copilot experience and Microsoft 365 app that your users access.
+
+Licensing requirements
+Microsoft Copilot: Users need a Microsoft Copilot license and a qualifying prerequisite license.
+Microsoft Copilot Chat: Available to users with an eligible Microsoft 365 subscription.
+Microsoft Copilot isn't available with device-based licensing for Microsoft 365 Apps for enterprise.
+
+Identity and sign-in requirements
+Users must have a work or school account in Microsoft Entra ID.
+
+Operating system requirements
+Windows: Windows 11, version 22H2 or later.
+Mac: macOS 13 (Ventura) and later.
+Mobile: iPhone iOS 16.0 or later; iPad iPadOS 16.0 or later; Android 10 or later.
+
+Network requirements
+Allow the worldwide Microsoft 365 URLs and IP address ranges.
+Add the Microsoft Copilot endpoints to your allow list.
+Add *.cloud.microsoft to your organization's allow lists.
+Verify full WebSocket Secure connectivity to *.office.com, *.cloud.microsoft and copilot.cloud.microsoft.
+
+Validate a user's configuration
+Use the Copilot License Details diagnostic to check whether a user account meets applicable licensing requirements.
