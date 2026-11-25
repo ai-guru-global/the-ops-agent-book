@@ -43,6 +43,7 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 - 负向控制覆盖：缺少 `source_case_key`、failed 工具结果缺少 `partial_success`、可传递委托 token、证据缺少 source、synthetic Release 被标成 PASS/GO。
 - 唯一豁免是 `docs/guide/06-context-knowledge.md` 中明确标注“不可独立执行”的 Runbook 结构片段；完整 Schema-valid Runbook 位于 `examples/templates/runbook.yaml`。
 - 本地与远端 Book quality 都已加入 `gates:check`、`refs:check`、`examples:check`，防止派生页和正文示例再次漂移。
+- `npm run pdf:audit` 对 683 页 PDF 执行全量 A4 几何检查：空白页、文字越界、非 A4 页面均为 0；报告见 `reports/validation/pdf-layout.md`。这仍是几何审计，不冒充人工视觉验收。
 
 ## 2. 评估口径
 

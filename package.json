@@ -10,6 +10,7 @@
     "docs:preview": "vitepress preview docs",
     "export:pdf": "node scripts/export-book-pdf.mjs",
     "export:epub": "node scripts/export-book-epub.mjs",
+    "pdf:audit": "python3 scripts/audit_pdf_layout.py",
     "validate:assets": "node scripts/validate-assets.mjs",
     "examples:check": "node scripts/validate-embedded-examples.mjs",
     "gaps:check": "node scripts/update-claim-gaps.mjs && git diff --exit-code -- sources/claim-gaps.json",

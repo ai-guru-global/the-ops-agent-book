@@ -4,8 +4,8 @@
 
 ## 当前进度
 
-- 总任务：66
-- 已完成：65
+- 总任务：67
+- 已完成：66
 - 进行中：1
 - 未开始：0
 
@@ -41,6 +41,7 @@
 - VitePress 构建、Schema/JSON/YAML/资产校验、内部链接。
 - 50 张 Mermaid 实际渲染、编号、图注与图状文本残留检查。
 - 320/390/768/1024/1440 与 A4 打印、WCAG 2.1 AA。
+- 683 页 PDF 全量几何审计：A4 尺寸、空白页与文字越界 0 违规；报告见 [pdf-layout.md](./validation/pdf-layout.md)。该检查不替代人工视觉审计。
 - 参考实现 17/17、eval self-test 14/14、用户阅读校验器 5/5、5 类负向控制与 synthetic 基线回归。
 - 3 段工具契约 YAML 正向校验、7 个契约负向控制、NotReady 评测/Event payload 校验。
 - 正文内嵌 YAML/JSON 全量 Schema 校验、400 条生成案例校验、发布/Runbook/事故示例与外部文件深一致检查。

@@ -116,6 +116,7 @@ npm run cost:demo
 npm run poc:demo
 npm run export:pdf
 npm run export:epub
+npm run pdf:audit
 npm run check:all
 ```
 
