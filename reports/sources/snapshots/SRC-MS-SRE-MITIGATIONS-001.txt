@@ -1,0 +1,22 @@
+Execute Mitigations in Azure SRE Agent | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/azure/sre-agent/execute-mitigations/
+Captured: 2026-11-25
+Document date: 2026-03-18; updated_at: 2026-05-01
+Method: html-to-text
+Content-Type: text/html
+
+Execute Mitigations in Azure SRE Agent
+
+Your agent diagnoses problems and fixes them. It restarts services, scales resources, hardens security settings, and collects diagnostics, all with the level of control you choose.
+
+The agent follows a consistent pattern: diagnose → identify action → check permissions → execute (or propose) → verify the fix worked. Every action is logged with who triggered it, what changed, why, and whether it succeeded.
+
+Run modes give you graduated trust. Start in Review mode where the agent proposes and you approve. Move to Autonomous when you're confident in the pattern. Use ReadOnly for monitoring-only agents that never take action.
+
+Safety guardrails
+Delete operations are blocked: the agent never runs delete and remove commands.
+Key Vault commands are blocked.
+Management locks are respected before modifying a resource.
+Subscription IDs are validated before execution.
+
+By default, agents have Reader access and can't take actions. You explicitly grant write permissions by assigning roles to the agent's managed identity.

@@ -19,7 +19,7 @@ content_status: "reviewed"
 - “未核实”表示本轮没有取得足以支持该字段的证据，**不等于否定**。不得据此猜测 GA/预览、区域、价格、数据驻留或退出条款。
 - 动态目录数量只在明确快照日时使用。本轮删除“36 Agent / 328 Skills”的当前事实表述，且**未重新计数**。
 - `accessed_at` 是实际访问或沿用原书访问记录的日期；`review_by` 是下一次复核截止，不是来源失效日。
-- 快照列记录本地正文快照与 SHA-256。本轮已保存 139 个关键官方来源；Azure SRE Agent 返回 503、MCP 官方站 SSL 握手失败，两项待重试。临时 WebFetch 文件不是永久证据。
+- 快照列记录本地正文快照与 SHA-256。本轮已保存 146 个关键官方来源；Azure SRE Agent 的 overview、安全、数据隐私、计费、区域与执行控制已归档；MCP 官网访问失败，已改用官方仓库的 2026-07-28 规范正文。临时 WebFetch 文件不是永久证据。
 - 所有至少有一个“未核实”字段的厂商 claim 同时登记在机器可读的 `sources/claim-gaps.json`；补证只关闭有来源的字段，不能把整条 claim 一键改成已核实。
 
 ## 来源清单
@@ -37,7 +37,12 @@ content_status: "reviewed"
 | SRC-AWS-QDEV-001 | official_doc | 2026-11-24 | 2027-02-22 | GC-AWS-02 | IDE 停服提示已提取；待存 |
 | SRC-AWS-AGENTCORE-001 | official_doc | 2026-11-24 | 2027-02-22 | GC-AWS-04 | 官方文档已提取；待存 |
 | SRC-AWS-QUICK-001 | official_doc | 2026-11-24 | 2027-02-22 | GC-AWS-05 | 价格页时点值已提取；待存 |
-| SRC-MS-SRE-001 | official_doc | 2026-11-24 | 2027-02-22 | GC-MS-01 | 2026-11-25 抓取返回 503；快照待重试 |
+| SRC-MS-SRE-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-SRE-OVERVIEW-001.txt` |
+| SRC-MS-SRE-SECURITY-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-SRE-SECURITY-001.txt` |
+| SRC-MS-SRE-DATA-PRIVACY-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-SRE-DATA-PRIVACY-001.txt` |
+| SRC-MS-SRE-PRICING-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-SRE-PRICING-001.txt` |
+| SRC-MS-SRE-REGIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-SRE-REGIONS-001.txt` |
+| SRC-MS-SRE-MITIGATIONS-001 | official_doc | 2026-11-25 | 2027-02-22 | GC-MS-01 | 已存 `reports/sources/snapshots/SRC-MS-SRE-MITIGATIONS-001.txt` |
 | SRC-MS-COPILOT-001 | official_doc | 2026-11-24 | 2027-02-22 | GC-MS-02 | 官方产品页已提取；待存 |
 | SRC-MS-COPILOT-DOC-001 | official_doc | 2026-11-24 | 2027-02-22 | GC-MS-02 | Learn 正文已提取；待存 |
 | SRC-MS-FOUNDRY-001 | official_doc | 2026-11-24 | 2027-02-22 | GC-MS-04 | 官方产品页已提取；待存 |
@@ -65,7 +70,7 @@ content_status: "reviewed"
 | PUB-OPS-WHITEPAPER-001 | public_report | 2026-11-12 | 2027-02-10 | VERT-04 | 转载入口；正文待复核 |
 | COM-SERVICENOW-AGENTS-001 | community | 2026-11-12 | 2027-02-10 | 无确定性 claim | 本轮未取得正文；仅导航 |
 | PUB-DD-DYNATRACE-COMPARE-001 | public_report | 2026-11-12 | 2027-02-10 | 无确定性 claim | 第三方比较；仅导航 |
-| SRC-MCP-001 | official_doc | 2026-11-25 | 2027-02-25 | PROTO-01 | 官方站 SSL 握手失败；快照待重试 |
+| SRC-MCP-001 | official_doc | 2026-11-25 | 2027-02-25 | PROTO-01 | 官网失败；已存官方仓库规范 `reports/sources/snapshots/SRC-MCP-001.txt` |
 | SRC-A2A-001 | official_doc | 2026-11-25 | 2027-02-25 | PROTO-02 | 已存 `reports/sources/snapshots/SRC-A2A-001.txt` |
 | SRC-OWASP-GENAI-001 | official_doc | 2026-11-25 | 2027-02-10 | METH-01 | 已存 `reports/sources/snapshots/SRC-OWASP-GENAI-001.txt` |
 | SRC-NIST-AIRMF-001 | official_doc | 2026-11-25 | 2027-02-10 | METH-02 | 已存 `reports/sources/snapshots/SRC-NIST-AIRMF-001.txt` |
@@ -206,7 +211,7 @@ content_status: "reviewed"
 
 ## 字段缺口与快照计划
 
-本轮 111 个显式 claim 均已绑定至少一个可回指来源；仍有区域、许可、驻留、导出退出等字段缺少逐产品证据。Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist、SAP Joule、HPE OpsRamp、BMC HelixGPT、Komodor Klaudia、Metoro、Microsoft 365 Copilot、Dynamics 365 Sales Copilot、Google Workspace Gemini、Workday Illuminate、Atlassian Rovo、千问办公/AgentOne、SentinelOne Purple AI、Splunk Security AI、Broadcom CloudHealth 与 FinOps Framework 已补证，但“有来源”不等于“所有采购字段已核实”。
+本轮 134 个显式 claim 均已绑定至少一个可回指来源；仍有区域、许可、驻留、导出退出等字段缺少逐产品证据。Gemini Cloud Assist、Gemini Enterprise、Google Security Operations、Gemini Code Assist、SAP Joule、HPE OpsRamp、BMC HelixGPT、Komodor Klaudia、Metoro、Microsoft 365 Copilot、Dynamics 365 Sales Copilot、Google Workspace Gemini、Workday Illuminate、Atlassian Rovo、千问办公/AgentOne、SentinelOne Purple AI、Splunk Security AI、Broadcom CloudHealth 与 FinOps Framework 已补证，但“有来源”不等于“所有采购字段已核实”。
 
 本轮已保存 AWS DevOps Agent、AgentRun、Datadog AI、OWASP、NIST AI RMF、EU AI Act、OTel GenAI、Google SRE Workbook、A2A，以及 AgentArts、百度搭子、百度伐谋、秒哒导出、OCI Enterprise AI Agents、SAP Joule Agents、ServiceNow AI Agents、Model Studio 价格、Qoder 计费、Agentic OS、腾讯 ADP/TCOP、火山智能运维助手/方舟计费、Gemini agent、ADK v2.0、Security Copilot 定价，以及京东云 AIOps、浪潮 InCloud Manager、云智慧 ITSM、擎创夏洛克、炎龙 SREAgent、新炬 IT 运维智能体、ManageEngine AIOps 指南、MindOps、AEI 白皮书、iMasterCloud/NCE、百度胜算/Hogee/文心快码/一镜、SolarWinds、HolmesGPT、K8sGPT、incident.io/Rootly/Resolve.ai/Cleric、观测云、嘉为蓝鲸、云智慧 Castrel、擎创数据中台与炎龙私有化安全说明，以及 CloudWatch Omni、OCI Ops Insights/Fusion AI、ServiceNow Control Tower、Qoder CN、算小维、HiAgent、移动云运维智能体、Security Copilot、DropZone、Datadog Bits Security、Harness CCM、Kubecost、Vantage、CloudZero、Finout、Flexera 正文快照。Azure SRE Agent 与 MCP 待重试；其余来源按采购/发布优先级补存。社区来源还需记录 commit SHA。
 

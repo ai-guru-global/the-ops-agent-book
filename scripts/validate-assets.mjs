@@ -191,8 +191,8 @@ if (gapRegistry.summary?.total_claims !== gapClaims.length || gapRegistry.summar
 const vendorText = vendorFiles.map((file) => fs.readFileSync(path.join(root, file), "utf8")).join("\n");
 const explicitGapIds = new Set();
 for (const file of vendorFiles) {
-  const productSection = fs.readFileSync(path.join(root, file), "utf8").split("## 商业字段证据卡")[0];
-  for (const line of productSection.split("\n")) {
+  const text = fs.readFileSync(path.join(root, file), "utf8");
+  for (const line of text.split("\n")) {
     if (!line.startsWith("|") || !line.includes("未核实")) continue;
     for (const match of line.matchAll(claimPattern)) explicitGapIds.add(match[0]);
   }

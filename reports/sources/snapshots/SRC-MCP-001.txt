@@ -1,0 +1,44 @@
+Model Context Protocol Specification 2026-07-28 | Official repository
+URL: https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/index.mdx
+Captured: 2026-11-25
+Method: html-to-text
+Content-Type: text/plain
+
+Specification
+
+Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools. MCP provides a standardized way to connect LLMs with the context they need.
+
+This specification defines the authoritative protocol requirements, based on the TypeScript schema in schema.ts.
+
+Overview
+
+MCP provides a standardized way for applications to:
+- Share contextual information with language models
+- Expose tools and capabilities to AI systems
+- Build composable integrations and workflows
+
+The protocol uses JSON-RPC 2.0 messages to establish communication between:
+- Hosts: LLM applications that initiate connections
+- Clients: Connectors within the host application
+- Servers: Services that provide context and capabilities
+
+Base Protocol
+- JSON-RPC message format
+- Stateless, self-contained requests
+- Per-request capability negotiation
+
+Features
+Servers offer resources, prompts, and tools.
+Clients may offer elicitation.
+Additional utilities include progress tracking, cancellation, subscriptions, completion, pagination, caching, and error reporting.
+
+Security and Trust & Safety
+The Model Context Protocol enables powerful capabilities through arbitrary data access and code execution paths.
+Users must explicitly consent to and understand all data access and operations.
+Users must retain control over what data is shared and what actions are taken.
+Hosts must obtain explicit user consent before exposing user data to servers.
+Hosts must obtain explicit user consent before invoking any tool.
+Tools represent arbitrary code execution and must be treated with appropriate caution.
+MCP itself cannot enforce these security principles at the protocol level; implementors should build robust consent and authorization flows, implement appropriate access controls and data protections, and follow security best practices.
+
+Official website note: modelcontextprotocol.io was attempted on 2026-11-25; WebFetch failed and the in-app browser timed out. This snapshot is the official specification source in the modelcontextprotocol GitHub repository, not a claim that the documentation website was reachable.

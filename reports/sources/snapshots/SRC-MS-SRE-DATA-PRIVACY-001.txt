@@ -1,0 +1,28 @@
+Data residency and privacy in Azure SRE Agent | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/azure/sre-agent/data-privacy/
+Captured: 2026-11-25
+Document date: 2026-11-12; updated_at: 2026-11-17
+Method: html-to-text
+Content-Type: text/html
+
+Data residency and privacy in Azure SRE Agent
+
+When you select Anthropic, your data can be processed globally and isn't covered by Microsoft's EU Data Boundary commitments.
+
+Model inference
+Azure OpenAI: For agents deployed in EU and EFTA regions, inference stays within Microsoft's EU Data Boundary. Outside the boundary, inference can happen globally.
+Anthropic: Inference can happen globally and isn't covered by Microsoft's EU Data Boundary commitments.
+
+Stored data
+Conversation history and uploaded files are stored in the agent region you select.
+Memory and knowledge search indexes are stored in the selected agent region unless the documentation specifies another region.
+
+Privacy
+Microsoft and Anthropic don't use your data to train AI models.
+Customer Lockbox for Microsoft Azure isn't currently supported for Azure SRE Agent.
+
+Data retention and deletion
+Azure SRE Agent keeps conversations, uploaded knowledge, agent memory, and connector settings until you delete them. It doesn't delete them automatically.
+Delete a thread to remove its conversation, files, and session insights. Agent memory learned from a deleted thread might remain until you delete the agent.
+Delete the agent to remove its agent-managed data, including conversations, memory, knowledge, files, search indexes, and credentials.
+Agent deletion can't be undone through Azure SRE Agent.

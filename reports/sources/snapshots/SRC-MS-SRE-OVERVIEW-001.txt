@@ -1,0 +1,22 @@
+Overview of Azure SRE Agent | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/azure/sre-agent/overview/
+Captured: 2026-11-25
+Document date: 2026-10-28; updated_at: 2026-10-29
+Method: html-to-text
+Content-Type: text/html
+
+Overview of Azure SRE Agent
+
+Azure SRE Agent connects to your Azure resources, observability tools, incident platforms, and source code repositories so you can investigate issues with more operational context in one place. Use it to gather signals, compare current issues with previous investigations, and run governed automation within configured permissions, run modes, and policies.
+
+Azure SRE Agent helps your team investigate incidents and respond faster. It gathers context, identifies probable causes, and suggests or, when configured, executes mitigations.
+
+In Review mode, an SRE Agent administrator reviews the summary with attached runbook context and approves actions that require approval. Whether the agent applies a mitigation automatically or waits for approval depends on your configured run mode.
+
+Every proposed tool call passes through governance controls before it runs, so your team defines the boundaries even for fully automated workflows.
+
+Security and governance
+Network isolation: VNet integration routes agent workspace traffic through your virtual network.
+Identity and RBAC: The agent authenticates with managed identity and operates under Azure role-based access control (RBAC).
+Tool-level access control: Set each tool the agent uses to allow, ask, or deny.
+Governed skill distribution: Platform teams can publish approved skills to a private GitHub repository.

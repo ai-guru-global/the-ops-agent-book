@@ -45,7 +45,7 @@ export function updateClaimGaps() {
   const document = JSON.parse(fs.readFileSync(GAP_FILE, "utf8"));
   const claims = new Map(document.claims.map((claim) => [claim.claim_id, claim]));
   for (const file of vendorFiles()) {
-    const text = fs.readFileSync(path.join(ROOT, file), "utf8").split("## 商业字段证据卡")[0];
+    const text = fs.readFileSync(path.join(ROOT, file), "utf8");
     for (const line of text.split("\n")) {
       if (!line.startsWith("|") || !line.includes("未核实")) continue;
       const cells = line.trim().replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim());

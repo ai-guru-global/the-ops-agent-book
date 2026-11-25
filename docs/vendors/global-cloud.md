@@ -66,7 +66,7 @@ AWS 的已核验共同点是“**Agent + 既有可观测/工单生态**”：Dev
 
 | 产品 | 形态 | 运维域 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
-| **Azure SRE Agent**（GC-MS-01） | 独立/托管 SRE Agent | 可靠性、根因、缓解 | 官方页面描述多层根因调查、遥测关联、假设检验、事件知识复用、缓解执行、自定义子 Agent、外部 MCP 与 GitHub Copilot 协作；强调人工监督 | SRC-MS-SRE-001 |
+| **Azure SRE Agent**（GC-MS-01） | 独立/托管 SRE Agent | 可靠性、根因、缓解 | 官方文档描述遥测关联、根因调查、事件知识复用、技能/MCP、治理工具调用与缓解执行；Review 模式审批写操作，ReadOnly 不执行动作 | SRC-MS-SRE-001；SRC-MS-SRE-SECURITY-001；SRC-MS-SRE-MITIGATIONS-001 |
 | **Azure Copilot**（GC-MS-02） | 内嵌助手 | Azure 云运维 | 官方页面列出 Design、Operate、Optimize、Troubleshoot、Migrate、Deploy；migration agent 明示 public preview，不能推广到整个产品；动作需用户确认 | SRC-MS-COPILOT-001；SRC-MS-COPILOT-DOC-001 |
 | **Microsoft Security Copilot**（GC-MS-03） | 安全运营 Agent 平台 | SecOps | 官方定价页描述独立或嵌入 Microsoft Security 产品的生成式 AI 助手，采用 SCU 计费；E5/E7 权益分阶段启用 | SRC-MS-SECCOPILOT-PRICING-001 |
 | **Microsoft Foundry**（GC-MS-04） | Agent 平台 | 通用 | 官方页面描述 Agent 生命周期、模型选择/微调/路由、Agent Service、权限感知 grounding、连接器/MCP、Entra/Purview/Defender 治理、OpenTelemetry tracing 与 evaluators | SRC-MS-FOUNDRY-001 |
@@ -120,7 +120,7 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | GC-AWS-02 Amazon Q Developer | IDE 插件将于 2027-04-30 停服；其他形态未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | GC-AWS-04 AgentCore | 未核实 | 未核实 | 按量消费；官方称无预付承诺或最低费用 | 具体超额规则未核实 | 未核实 | 未核实 |
 | GC-AWS-05 AWS Quick | 未核实 | 未核实 | 页面列 Free/Plus/Max 与组织版，按 user/month；组织版另有账户基础设施费 | Agent hours 因版本而异；具体额度、超额未核实 | 未核实 | 未核实 |
-| GC-MS-01 Azure SRE Agent | 未核实 | 未核实 | Azure Agent Unit（AAU）；baseline 4 AAU/Agent/小时 | task 额外 0.25 AAU/秒；最低消费未核实 | 未核实 | 未核实 |
+| GC-MS-01 Azure SRE Agent | 官方文档可用；整体 GA 范围未核实 | 22 个已列区域；每 Agent 单区域，创建后不可更改，多区域需分别创建（SRC-MS-SRE-REGIONS-001） | AAU：always-on 4 AAU/Agent/小时 + active flow token 用量（SRC-MS-SRE-PRICING-001） | active flow 月度分配可设 500–1,000,000 AAU；达上限暂停 chat/actions，但 always-on 继续计费 | 对话/上传文件存所选 Agent 区域；Azure OpenAI 在 EU/EFTA 边界内推理，Anthropic 可全球处理且不适用 EUDB（SRC-MS-SRE-DATA-PRIVACY-001） | 删除 Agent 停止两类计费并清除代理管理数据；完整批量导出未核实（SRC-MS-SRE-PRICING-001；SRC-MS-SRE-DATA-PRIVACY-001） |
 | GC-MS-02 Azure Copilot | migration agent 为 public preview；整体未核实 | 未核实；不适用于 national clouds | 当前 chat/agentic capabilities 无额外费用；Observability Agent 按 usage 计费 | 未来 Agent 价格、最低消费与超额未核实 | 未核实 | 未核实 |
 | GC-MS-04 Microsoft Foundry | 未核实 | 未核实 | 按使用的各项服务各自计费 | 未核实 | 未核实 | 未核实 |
 | GC-MS-05 GitHub Copilot | 未核实 | 未核实 | Free/Pro/Pro+/Max/Business/Enterprise；页面按 credits/user | 页面称超额 credits 为 $0.01/枚，可设预算；各计划额度/最低消费未核实 | 未核实 | 未核实 |
@@ -141,6 +141,8 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | GC-GO-04 Google SecOps | Standard/Enterprise/Enterprise Plus | 未核实 | 按注入量；销售询价 | 未核实 | 具体 DRZ 区域未核实 | UDM 导自管 BigQuery；Enterprise Plus 不支持 BYOBQ；历史数据不迁移；12 天软删后永久删除，删除不取消计费 |
 | GC-GO-05 Gemini Code Assist | 2026-10-09 停售新订阅 | 未核实 | 仅存量；续订截止见正文 | 未核实 | 未核实 | 转向 Gemini Enterprise 所含 Antigravity；数据导出未核实 |
 | GC-SAP-01 SAP Joule | 官方产品页；完整 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 完整导出/退出未核实 |
+
+Azure SRE Agent 的执行边界已由官方文档具体化：每个 Agent 使用独立微 VM 沙箱，身份 sidecar 提供单次、按工具调用作用域的 token；Review 模式需批准写操作，ReadOnly 不采取动作，delete/remove 与 `az keyvault` 命令被阻止，资源管理锁受尊重，审计记录身份、动作、时间、触发者与结果（SRC-MS-SRE-SECURITY-001；SRC-MS-SRE-MITIGATIONS-001）。这些是厂商控制声明，不能替代本组织的策略执行点、计划哈希复核和真实演练。
 
 ## 选型提示
 

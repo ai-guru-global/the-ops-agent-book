@@ -1,0 +1,24 @@
+Pricing and billing for Azure SRE Agent | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing/
+Captured: 2026-11-25
+Document date: 2026-10-28; updated_at: 2026-10-29
+Method: html-to-text
+Content-Type: text/html
+
+Pricing and billing for Azure SRE Agent
+
+Azure SRE Agent usage is measured in Azure Agent Units (AAUs). Your monthly bill combines a fixed always-on charge for keeping each agent available and a variable active flow charge for the work your agents perform.
+
+Always-on flow
+4 AAUs per agent-hour.
+Always-on billing continues from agent creation until the agent is deleted.
+
+Active flow
+Active flow applies to interactive questions, automated tasks, and background operations.
+Input, output, cache read and cache write tokens are metered separately.
+Customers can set a monthly active flow AAU allocation limit from 500 to 1,000,000 AAUs.
+When the active flow limit is reached, the agent becomes unavailable for chat and actions until the next month. Always-on charges continue.
+
+Billing impact
+Stop agent: active flow stops, always-on continues.
+Delete agent: active flow and always-on stop.

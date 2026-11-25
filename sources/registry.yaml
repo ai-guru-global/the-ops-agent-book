@@ -126,14 +126,89 @@ sources:
   claims:
   - GC-AWS-05
 - source_id: SRC-MS-SRE-001
-  title: Azure SRE Agent
-  url: https://azure.microsoft.com/en-us/products/sre-agent
+  title: Azure SRE Agent overview
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/overview/
   type: official_doc
-  accessed_at: '2026-11-24'
+  accessed_at: '2026-11-25'
   review_by: '2027-02-22'
-  notes: 官方产品页；AAU 计费与试用量可核验，GA 与完整区域未核实。
+  notes: 官方 2026-10-29 文档支持调查上下文、技能/MCP、Review 审批与每次工具调用治理；GA 范围未在本文单独声明。
   claims:
   - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-OVERVIEW-001.txt
+    sha256: aef4808cb0a2e9a048baccbc6e0e516128a67b9f306de50ae01e44d96b2ef56d
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-MS-SRE-SECURITY-001
+  title: Azure SRE Agent security overview
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/security-overview/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方 2026-07-30 文档支持微 VM 隔离、推理/执行边界、身份 sidecar、单次 action token 与每客户隔离。
+  claims:
+  - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-SECURITY-001.txt
+    sha256: 537012c04f67ec879b53f0b296dae486fb1aa591dbc1a2a3c7702aad297552c6
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-MS-SRE-DATA-PRIVACY-001
+  title: Azure SRE Agent data residency and privacy
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/data-privacy/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方 2026-11-17 文档区分 Azure OpenAI EU/EFTA 边界与 Anthropic 全球处理；对话/上传文件存所选区域，删除 Agent 清除代理管理数据且不可撤销。
+  claims:
+  - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-DATA-PRIVACY-001.txt
+    sha256: e93d6fa690c93d2c9ac992374ca65fc36dca5bc298e1578ee9381c52407768e2
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-MS-SRE-PRICING-001
+  title: Azure SRE Agent pricing and billing
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方 2026-10-29 文档以 AAU 计量：always-on 4 AAU/Agent/小时；active flow 分 token 计量，月度分配 500–1,000,000 AAU，停止/删除的计费边界明确。
+  claims:
+  - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-PRICING-001.txt
+    sha256: ec1161613d52f3fbeef3653364580874ed4aa4cc84f6bec199490e00e4f74f7a
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-MS-SRE-REGIONS-001
+  title: Azure SRE Agent supported regions
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/supported-regions/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方 2026-09-18 文档列出 22 个区域；每个 Agent 单区域且创建后不可改，多区域需分别创建 Agent。
+  claims:
+  - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-REGIONS-001.txt
+    sha256: 755398671d258b0caf6b5560f6ec83ff1765f90d013b173b0527137d48f636d3
+    captured_at: '2026-11-25'
+    method: html-to-text
+- source_id: SRC-MS-SRE-MITIGATIONS-001
+  title: Azure SRE Agent execute mitigations
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/execute-mitigations/
+  type: official_doc
+  accessed_at: '2026-11-25'
+  review_by: '2027-02-22'
+  notes: 官方 2026-05-01 文档支持 Review/ReadOnly/Autonomous 模式、动作审计；delete/remove 与 Key Vault 命令被阻止，管理锁受尊重。
+  claims:
+  - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-MITIGATIONS-001.txt
+    sha256: 09725bd3cc0424c2e8c65541fc77b412ae1844ae34810e943b19c2e6e35ad30e
+    captured_at: '2026-11-25'
+    method: html-to-text
 - source_id: SRC-MS-COPILOT-001
   title: Azure Copilot
   url: https://azure.microsoft.com/en-us/products/copilot
@@ -2310,12 +2385,19 @@ sources:
     captured_at: 2026-11-25
     method: html-to-text
 - source_id: SRC-MCP-001
-  title: Model Context Protocol
-  url: https://modelcontextprotocol.io/
+  title: Model Context Protocol Specification 2026-07-28
+  url: https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/index.mdx
   type: official_doc
   accessed_at: '2026-11-25'
   review_by: '2027-02-25'
-  notes: MCP 官方规范入口。
+  notes: 官方仓库规范正文；支持 JSON-RPC 2.0、host/client/server、resources/prompts/tools、显式用户同意与工具授权；官网当日访问失败，不声称官网可读。
+  claims:
+    - PROTO-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MCP-001.txt
+    sha256: 914fb3d73583065d99d30d1c958e58d024c8a23b76c61cf8608b312839299eb2
+    captured_at: '2026-11-25'
+    method: html-to-text
 - source_id: SRC-A2A-001
   title: A2A Protocol Specification
   url: https://a2a-protocol.org/latest/specification/

@@ -1,0 +1,31 @@
+Security overview for Azure SRE Agent | Microsoft Learn
+URL: https://learn.microsoft.com/en-us/azure/sre-agent/security-overview/
+Captured: 2026-11-25
+Document date: 2026-07-30
+Method: html-to-text
+Content-Type: text/html
+
+Security overview for Azure SRE Agent
+
+Azure SRE Agent uses defense-in-depth security across four areas: execution isolation, secretless credentials, data residency, and per-customer separation.
+
+Execution isolation
+The agent's reasoning engine and tool execution run in separate compute boundaries.
+Each agent has its own sandbox with a dedicated compute environment that runs in a micro VM.
+Each tool invocation launches a fresh process inside the sandbox.
+
+Secretless credential management
+The execution environment never holds credentials directly. An isolated identity sidecar manages all tokens and provides them on demand to individual tool processes.
+Tokens are scoped to individual tool invocations.
+Action tokens are single use.
+
+Data residency
+Conversation threads are stored until manually deleted.
+Session insights and memory files are persistent.
+Thread files are tied to thread lifetime.
+Session insights are synthesized summaries, not raw data copies.
+
+Per-customer isolation
+No data, compute, or credentials are shared between agents or customers.
+
+Run modes control this behavior: Review mode requires approval for write operations, while Autonomous mode uses the managed identity directly.
