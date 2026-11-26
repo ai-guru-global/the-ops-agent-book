@@ -1,28 +1,12 @@
-Export to a self-managed BigQuery project | Google Security Operations
-URL: https://docs.cloud.google.cn/chronicle/docs/reports/export-to-customer-managed-project?hl=en
-Captured: 2026-11-25
-Method: html-to-text
-Content-Type: text/html
-
 Export to a self-managed BigQuery project
-
-Google Security Operations lets you export Unified Data Model (UDM) data to a self-managed project that you own and manage. You can link your own Google Cloud project to your Google SecOps instance and independently manage IAM permissions with no dependency on Google-managed settings.
-
-Enabling BYOBQ on your Bring your own project (BYOP) project may incur additional storage and compute costs.
+URL: https://docs.cloud.google.cn/chronicle/docs/reports/export-to-customer-managed-project?hl=en
+Captured: 2026-11-26
+Method: webfetch-markdown
 
 BYOBQ is not available for Google SecOps Enterprise Plus customers.
 
-Google SecOps exports the following categories of data to your BigQuery project:
-udm_events
-udm_events_aggregates
-entity_graph
-rule_detections
-ioc_matches
-ingestion_metrics
-udm_enum_value_to_name_mapping
-entity_enum_value_to_name_mapping
+Google SecOps exports: udm_events, udm_events_aggregates, entity_graph, rule_detections, ioc_matches, ingestion_metrics, udm_enum_value_to_name_mapping, and entity_enum_value_to_name_mapping.
 
-Data migration for existing customers
-If you're an existing customer, your data from the existing Google-managed project isn't migrated to the self-managed project. Because data isn't migrated, your data is located in two separate projects.
+If you're an existing customer, your data from the existing Google-managed project isn't migrated to the self-managed project.
 
-All the resources created in your self-managed Google Cloud project to enable exports, including Cloud Storage bucket and BigQuery tables, are in the same region as Google SecOps.
+All resources created in the self-managed Google Cloud project to enable exports, including Cloud Storage bucket and BigQuery tables, are in the same region as Google SecOps.

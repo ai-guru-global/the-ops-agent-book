@@ -1,0 +1,17 @@
+Source: https://aws.amazon.com/devops-agent/pricing/
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Pricing
+
+With AWS DevOps Agent, you pay only for the time the agent spends on operational tasks, billed per second. Agent time is the cumulative time the agent spends actively working across all activities for a given task. There are no upfront commitments or charges for when the agent is idle or waiting for work. AWS DevOps Agent release management is available at no additional cost during the preview period.
+
+AWS DevOps Agent is included in the AWS Free Tier free plan for new AWS customers. Additionally, new AWS DevOps Agent customers receive a 2-month free trial starting with their first operational task after general availability. Each trial month includes up to 10 agent spaces, 20 hours of investigations (incident response), 15 hours of evaluations (incident prevention), and 20 hours of on-demand SRE tasks (chat). Standard pay-as-you-go pricing applies for usage beyond these limits and after your trial ends.
+
+Pay-As-You-Go
+Investigations (Incident Response): $0.0083 per agent-second
+Evaluations (Site Reliability): $0.0083 per agent-second
+On-demand SRE tasks (Chat and Custom SRE Agents): $0.0083 per agent-second
+
+Additional charges
+You are responsible for fees incurred for other AWS services that you use and connect to AWS DevOps Agent, for example, Amazon CloudWatch Logs Insights queries or trace retrievals. These fees are billed through the respective services at standard rates and are not included in the DevOps Agent pricing.

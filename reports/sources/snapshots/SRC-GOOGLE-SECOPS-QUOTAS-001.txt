@@ -1,0 +1,10 @@
+Understand quotas and burst limits
+URL: https://docs.cloud.google.cn/chronicle/docs/ingestion/burst-limits?hl=en
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Google SecOps assigns burst limits to tenants based on purchased annual ingestion volume (purchased capacity) according to the Google SecOps license.
+
+The daily burst limit lets ingestion between one and three times (1x to 3x) the expected daily average, calculated as purchased annual capacity divided by 365 days. If ingestion consistently exceeds this range, an increase in purchased annual capacity is required.
+
+This is a technical throughput window, not a statement of free overage or a product-specific minimum purchase amount.

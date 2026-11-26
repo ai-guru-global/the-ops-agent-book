@@ -1,27 +1,14 @@
-Google SecOps packages overview | Google Cloud
-URL: https://docs.cloud.google.cn/chronicle/docs/secops/secops-packages?hl=en
-Captured: 2026-11-25
-Method: html-to-text
-Content-Type: text/html
-
 Google SecOps packages overview
+URL: https://docs.cloud.google.cn/chronicle/docs/secops/secops-packages?hl=en
+Captured: 2026-11-26
+Method: webfetch-markdown
 
-Google Security Operations is offered in three packages: Standard, Enterprise, and Enterprise Plus. Each package determines the features and capabilities available to you in Google SecOps.
+Google Security Operations is offered in three packages: Standard, Enterprise, and Enterprise Plus.
 
-Standard: Includes core capabilities for data ingestion, threat detection, investigation, and response. It provides 12 months of hot data retention.
+Standard includes core capabilities for data ingestion, threat detection, investigation, and response. It provides 12 months of hot data retention.
 
-Enterprise: Everything that is included in the Standard package, plus enhanced threat intelligence, user and entity behavior analytics (UEBA), and Google Cloud's generative AI assistance.
+Enterprise includes Standard plus enhanced threat intelligence, UEBA, and Google Cloud's generative AI assistance.
 
-Enterprise Plus: Everything that is included in the Enterprise package, plus the full power of Google Threat Intelligence Enterprise Plus, advanced data pipeline management, and extended storage options.
+Enterprise Plus includes Enterprise plus Google Threat Intelligence Enterprise Plus, advanced data pipeline management, and extended storage options.
 
-The pricing for all packages is based on ingestion volume.
-
-Standard
-The Standard package provides the foundational layer for security operations. It lets teams ingest telemetry from across their enterprise, normalize it into the Unified Data Model (UDM), and perform searches and investigations.
-
-Core detection engine: Run up to 1,000 single-event and 75 multi-event detection rules.
-SOAR integrations: Access over 300 prebuilt integrations to orchestrate your response.
-
-Enterprise
-Gemini in security operations: Use natural language to search data, summarize cases, and create playbooks or detection rules.
-User and Entity Behavior Analytics (UEBA): Automatically identify anomalous behavior that might indicate compromised credentials or insider threats.
+The pricing for all packages is based on ingestion volume. For more information, contact a sales representative or your Google Cloud partner.

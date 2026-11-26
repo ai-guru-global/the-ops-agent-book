@@ -1,0 +1,27 @@
+Source: https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Regional processing and data flow
+
+Your data will remain stored only in the region where your Agent Space is created, however, input prompts and output results may be processed outside that region as described in the following list. All data will be transmitted encrypted across Amazon's secure network.
+
+Inference requests originating in Europe will be processed within Europe.
+Inference requests originating in the United States will be processed within the United States.
+Inference requests originating in Australia will be processed within Australia.
+Inference requests originating within Japan will be processed within Japan.
+Inference requests originating in Canada will be processed within North America (Canada or United States).
+If an inference request originates in an area not listed, it will be processed by default within the United States.
+DevOps Agent and Bedrock are not impacted by customer policies in Service Control Policies (SCPs) or Control Tower that restrict customer content to specific regions.
+
+For Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Mumbai), and South America (São Paulo), the geography-based routing does not apply. AWS DevOps Agent will automatically select the optimal region globally to process inference requests.
+
+Data storage and retention
+
+Data is stored in the region where your Agent Space is created, while inference processing may occur within your geography as described in the preceding Amazon Bedrock usage section.
+
+When you delete an Agent Space, you lose access to its data immediately. AWS DevOps Agent then permanently deletes the data from all its systems within 30 days.
+
+Data usage
+
+AWS does not use agent data, chat messages, or data from integrated data sources to train models or improve the product.

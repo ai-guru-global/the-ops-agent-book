@@ -1,0 +1,16 @@
+ServiceNow AI Agents — Build, Operations & Governance Guide (Australia release)
+URL: https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/930
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+AI Native tier active (Foundation, Advanced, or Prime); custom AI skill and agent creation requires Prime. Legacy Pro Plus or Enterprise Plus remain valid until renewal and reached end of sale on 1 July 2026.
+
+Three AI-native license tiers replaced the legacy Standard, Pro, Pro Plus, Enterprise, and Enterprise Plus tiers on 9 April 2026.
+
+Assist consumption bands: 0 to 4 tools = 25 assists; 5 to 8 tools = 50 assists; 9 to 20 tools = 150 assists.
+
+Assists reset annually on the contract anniversary. Sub-production consumes assists too.
+
+Evaluation results can be exported to CSV.
+
+To stop a trigger: AI Agent Studio > [Agent] > Trigger tab > Set Inactive. Cancel in-progress executions from the execution plan list.

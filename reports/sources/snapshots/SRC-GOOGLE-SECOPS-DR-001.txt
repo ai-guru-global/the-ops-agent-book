@@ -1,0 +1,14 @@
+Architecting disaster recovery for cloud infrastructure outages — Google Security Operations SIEM
+URL: https://docs.cloud.google.cn/architecture/disaster-recovery?hl=en
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Google Security Operations SIEM has regional and multi-regional offerings.
+
+In regional offerings, data and traffic are automatically load-balanced across zones within the chosen region, and data is stored redundantly across availability zones within the region.
+
+Multi-regions are geo-redundant.
+
+Regional deployments store all customer data within a single region and traffic is never routed across regions.
+
+Multi-regional deployments without feeds replicate data synchronously across multiple regions. Multi-regional deployments with feeds replicate asynchronously with a recovery point objective; data within the RPO window might not be replicated.

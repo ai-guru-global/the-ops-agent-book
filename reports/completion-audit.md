@@ -2,7 +2,7 @@
 
 审计日期：2026-11-25
 
-审计内容快照提交：`98f1799927f7d1ee0d1a4a650ca02f2ea7689a5b`
+审计内容快照提交：`98f1799927f7d1ee0d1a4a650ca02f2ea7700a5b`
 
 当前版本：`v0.2.0-rc1`
 
@@ -41,12 +41,12 @@
 | A-13 | 可运行参考 Agent 与审计链 | Event v1.1.0、HMAC、可信时间、外部锚点、完整祖先链；28/28 | 已交付 | 未连接真实 K8s、模型或生产身份 |
 | A-14 | 评测集与回归报告 | 400 synthetic cases、400 snapshots、5 类负向控制、14/14 self-test | 部分完成 | 无真实模型/工具 Trace；synthetic 400/400 不是生产质量证据 |
 | A-15 | 独立 Judge 校准 | 300 candidates、双标注/裁决工具、2/2 工具测试 | 未完成 | 人工标注 0/300、双标注 0/300、裁决 0/300 |
-| A-16 | 来源、claim 与商业字段追溯 | 183 sources、146 snapshots、134 claims 均至少绑定一个 source | 部分完成 | `sources/claim-gaps.json` 仍跟踪 134 个有未核实字段的 claim |
+| A-16 | 来源、claim 与商业字段追溯 | 194 sources、157 snapshots、133 claims 均至少绑定一个 source | 部分完成 | `sources/claim-gaps.json` 仍跟踪 133 个有未核实字段的 claim |
 | A-17 | 真实用户阅读测试 | 协议/Schema/模板 v1.1；校验器 13/13 | 未完成 | 核心真实参与者 0；状态 `not_executed`；独立复核 0 |
 | A-18 | 填写 POC 评分卡与退出测试 | synthetic POC 73/100、INCONCLUSIVE、clean-room PASS、27 项哈希 | 部分完成 | 真实厂商 POC、TCO、合同与商业退出未完成 |
-| A-19 | PDF/EPUB 与打印可读性 | PDF 689 页 A4、EPUB 48 章；PDF 几何审计 0 违规 | 已交付 | 几何审计不替代人工视觉验收；产物按设计保留本地 |
+| A-19 | PDF/EPUB 与打印可读性 | PDF 700 页 A4、EPUB 48 章；PDF 几何审计 0 违规 | 已交付 | 几何审计不替代人工视觉验收；产物按设计保留本地 |
 | A-20 | 响应式与无障碍 | 30 page/viewport 组合通过；8 组 axe WCAG 2.1 AA 无 serious/critical | 已交付 | 自动审计不替代真实用户窄屏/打印测试 |
-| A-21 | 发布到线上站点 | <https://ai-guru-global.github.io/the-ops-agent-book/>；48/48 内容路由 HTTP 200；首页 689 页、AgentOps `anchorChain`、需求地图一致性门禁均在线可读；远端 Docs check 与 Book quality 通过 | 已交付 | Web 交付完成不等于整体出版目标完成 |
+| A-21 | 发布到线上站点 | <https://ai-guru-global.github.io/the-ops-agent-book/>；48/48 内容路由 HTTP 200；首页 700 页、AgentOps `anchorChain`、需求地图一致性门禁均在线可读；远端 Docs check 与 Book quality 通过 | 已交付 | Web 交付完成不等于整体出版目标完成 |
 | A-22 | 安全与脱敏边界 | synthetic 标记、`production_ready=false`、无真实密钥/客户数据；POC 明确非采购证据 | 已交付 | 持续维护义务仍然存在 |
 | A-23 | 达到“最高标准”并完成发布决策 | v3 综合 4.057/5；目标 4.36；`v1.0-rc1 No-Go` | 未完成 | 缺真实用户、Judge、模型/生产 Trace、完整厂商证据和独立签署；需复评 |
 
@@ -54,13 +54,13 @@
 
 2026-11-25 当前工作区执行结果：
 
-- `npm run consistency:check`：PASS；73 任务、72 completed、1 in_progress、111.0 人日、48 评分页、28 参考测试、689 PDF 页、27 POC 哈希一致。
+- `npm run consistency:check`：PASS；73 任务、72 completed、1 in_progress、111.0 人日、48 评分页、28 参考测试、700 PDF 页、27 POC 哈希一致。
 - `npm run check:all`：PASS；包含构建、来源/门禁派生、资产、427 Schema 检查、Mermaid、响应式、无障碍、参考实现、eval、用户阅读校验器、playbook 与成本重算。
 - `npm run user-reading:check`：`not_executed`、`release_ready=false`、`participant_count=0`。
 - `npm run judge:status`：300 candidates；人工标注、双标注、裁决均为 0；`release_ready=false`。
 - `npm run poc:demo`：73/100、`INCONCLUSIVE`、clean-room import PASS；27 项制品哈希一致。
-- `npm run pdf:audit`：689 页、0 violation。
-- 线上 Web 路由审计：48/48 内容页 HTTP 200；首页包含 `v0.2.0-rc1`、`v1.0-rc1 No-Go`、50 图索引与 689 页 A4；AgentOps 包含 `anchorChain`；需求地图包含跨报告一致性门禁。
+- `npm run pdf:audit`：700 页、0 violation。
+- 线上 Web 路由审计：48/48 内容页 HTTP 200；首页包含 `v0.2.0-rc1`、`v1.0-rc1 No-Go`、50 图索引与 700 页 A4；AgentOps 包含 `anchorChain`；需求地图包含跨报告一致性门禁。
 - 远端提交 `98f1799` 的 Docs check 与 Book quality：PASS；后续完成度审计提交 `c3bbead` 的 Docs check 与 Book quality：PASS。
 
 这些结果证明工程合同、合成实验和交付链路可复现，**不证明**真实用户接受、真实模型质量、生产安全或采购就绪。
@@ -70,7 +70,7 @@
 1. **PUB-04 真实用户测试**：协议已就绪，但 0 名真实核心参与者；不能用自动化或 synthetic reviewer 替代。
 2. **独立 Judge 人工校准**：0/300 双标注、0/300 裁决；候选池和答案键不是校准证据。
 3. **真实模型/工具运行**：无真实 Trace、失败样本、回归报告或独立 Judge 300/300。
-4. **厂商采购证据**：134 个 claim 仍有至少一个未核实字段；区域、许可、最低消费、超额、数据驻留、导出/退出等不能支持采购结论。
+4. **厂商采购证据**：133 个 claim 仍有至少一个未核实字段；区域、许可、最低消费、超额、数据驻留、导出/退出等不能支持采购结论。
 5. **真实 POC/TCO/商业退出**：当前 POC 为 synthetic、73/100、INCONCLUSIVE；无真实账单、合同或迁移义务证据。
 6. **修复后复评与签署**：当前 4.057/5 低于 4.36；P0 关闭不等于分数自动提升；需 Review Board、安全、平台、领域、数据和采购角色独立签署。
 7. **图示最高标准**：50 张图已渲染并通过自动检查，但图示维度仍低于目标，需真实读者与领域审稿确认语义覆盖。

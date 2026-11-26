@@ -5,12 +5,10 @@ import { fileURLToPath } from "node:url";
 import { parse } from "yaml";
 
 const ROOT = fileURLToPath(new URL("../", import.meta.url));
-const GAP_FILE = path.join(ROOT, "sources/claim-gaps.json");
-const REGISTRY_FILE = path.join(ROOT, "sources/registry.yaml");
 const CLAIM_PATTERN = /\b(?:(?:GC|CN)-[A-Z]{1,4}-\d{2}|(?:OBS|SEC|FIN|VERT|ALI|NET)-\d{2}|EMB-[A-Z]{1,4}-\d{2})\b/g;
 
-function vendorFiles() {
-  const dir = path.join(ROOT, "docs/vendors");
+function vendorFiles(root = ROOT) {
+  const dir = path.join(root, "docs/vendors");
   return [...fs.readdirSync(dir).filter((file) => file.endsWith(".md")).map((file) => `docs/vendors/${file}`), "docs/appendix/alibaba-agent-landscape.md"];
 }
 function productName(cells, claimId) {
@@ -39,13 +37,19 @@ function summary(claims) {
     by_priority: Object.fromEntries(Object.entries(byPriority).sort()),
   };
 }
-export function updateClaimGaps() {
-  const registry = parse(fs.readFileSync(REGISTRY_FILE, "utf8"));
+export function updateClaimGaps(root = ROOT) {
+  const gapFile = path.join(root, "sources/claim-gaps.json");
+  const registryFile = path.join(root, "sources/registry.yaml");
+  const registry = parse(fs.readFileSync(registryFile, "utf8"));
   const sources = registry.sources || [];
-  const document = JSON.parse(fs.readFileSync(GAP_FILE, "utf8"));
+  const document = JSON.parse(fs.readFileSync(gapFile, "utf8"));
   const claims = new Map(document.claims.map((claim) => [claim.claim_id, claim]));
-  for (const file of vendorFiles()) {
-    const text = fs.readFileSync(path.join(ROOT, file), "utf8");
+  const openClaimIds = new Set();
+  // Rebuild page membership from the current documents; verified fields must not
+  // leave stale pages or closed claims in the gap register.
+  for (const claim of claims.values()) claim.pages = [];
+  for (const file of vendorFiles(root)) {
+    const text = fs.readFileSync(path.join(root, file), "utf8");
     for (const line of text.split("\n")) {
       if (!line.startsWith("|") || !line.includes("未核实")) continue;
       const cells = line.trim().replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim());
@@ -63,13 +67,15 @@ export function updateClaimGaps() {
           closure_rule: "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
           source_ids: [],
         };
-        existing.pages = [...new Set([...existing.pages, file])];
+        existing.pages = [...new Set([...existing.pages, file])].sort();
+        openClaimIds.add(claimId);
         if (!existing.product || existing.product === claimId) existing.product = productName(cells, claimId);
         claims.set(claimId, existing);
       }
     }
   }
-  const ordered = [...claims.values()].sort((a, b) => a.claim_id.localeCompare(b.claim_id));
+  const ordered = [...claims.values()].filter((claim) => openClaimIds.has(claim.claim_id))
+    .sort((a, b) => a.claim_id.localeCompare(b.claim_id));
   for (const claim of ordered) {
     claim.source_ids = sources.filter((source) => source.claims?.includes(claim.claim_id)).map((source) => source.source_id);
     claim.last_evidence_update = "2026-11-25";
@@ -77,7 +83,7 @@ export function updateClaimGaps() {
   document.updated_at = "2026-11-25";
   document.claims = ordered;
   document.summary = summary(ordered);
-  fs.writeFileSync(GAP_FILE, `${JSON.stringify(document, null, 2)}\n`);
+  fs.writeFileSync(gapFile, `${JSON.stringify(document, null, 2)}\n`);
   return document.summary;
 }
 

@@ -132,7 +132,7 @@ flowchart TB
 
 | 产品 | 内嵌助手/Agent（claim） | 运维相关性 | source_id |
 | --- | --- | --- | --- |
-| ServiceNow Now Assist / AI Agents（GC-SN-01） | 能力与状态未核实 | 工单、事件、变更、AIOps（场景建议） | 未核实 |
+| ServiceNow Now Assist / AI Agents（GC-SN-01） | Foundation/Advanced/Prime；自定义 Agent 需 Prime；新 Studio 指定补丁以上 GA，但 agentic solutions 删除仍受限 | 工单、事件、变更、AIOps（场景建议） | SRC-SN-AI-AGENTS-001；SRC-SN-AI-AGENTS-GUIDE-001；SRC-SN-AGENT-STUDIO-2026-09-001 |
 | Salesforce Agentforce（GC-SF-01） | 业务 Agent、CRM/Data 360 grounding、人工升级、Agent Builder 与多 Agent 编排 | 服务运营；未证明 IT 运维能力 | SRC-SF-AGENTFORCE-001 |
 | SAP Joule（GC-SAP-01） | Joule Work/Assistants/Agents/Studio；跨 SAP/非 SAP 工作流与 agent gateway | 业务运营（场景建议） | SRC-SAP-AI-JOULE-001 |
 | Oracle Fusion AI Agents（GC-OR-03） | 25C 发布说明提供 AI Agents 页面与会话入口；统一 GA 未核实 | 业务运营 | SRC-OR-FUSION-AI-001 |
@@ -173,7 +173,8 @@ flowchart TB
 | EMB-ENT-01 Workday Illuminate | 2025 发布说明称新 agents 2026 可用；当前 GA 未核实 | 未核实 | Flex Credits 包含于订阅、每年重置 | 未核实 | 未核实 | 未核实 |
 | EMB-ENT-02 Atlassian Rovo | 官方产品/文档在列 | 支持 data residency；具体区域未核实 | 未核实 | 未核实 | 权限同步；LLM 提供商不留存输入输出 | 断开连接器后 30 天删除索引内容；全量导出未核实 |
 | EMB-ALI-01 QwenWork / AgentOne | QwenWork 国际版完整流程；AgentOne 2025-09 发布 | QwenWork 国际版；AgentOne 区域未核实 | QwenWork 套餐/积分/订阅；价格未核实 | 未核实 | 未核实 | QwenWork 交付物可下载；完整退出未核实 |
-| ALI-01/15、GC-SN-01、GC-OR-03 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-SN-01 ServiceNow Otto AI Agents | 新 Studio 指定补丁以上 GA；整体未核实 | 未核实 | Foundation/Advanced/Prime；Assists 按动作与工具档位消耗 | 年度重置；最低量/超额价格未核实 | ServiceNow 管理 Azure；区域/驻留未核实 | 评估 CSV、Set Inactive；solution 删除受限；完整导出/退出未核实 |
+| ALI-01/15、GC-OR-03 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 
 ## 评估要点
 

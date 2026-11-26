@@ -57,7 +57,7 @@ flowchart TB
 | 厂商 | 产品 | 形态 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
 | **Microsoft** | Security Copilot（SEC-01） | 安全 Agent 平台 | 官方 FAQ 支持安全问答、数据与合规、租户地域和 EU 数据边界；具体合同与跨境配置需另核 | SRC-MS-SECCOPILOT-COMPLIANCE-001 |
-| **Google** | Security Operations (Gemini)（SEC-02） | 平台 AI + Agent | 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini；UDM 可导自管 BigQuery，Enterprise Plus 不支持 BYOBQ；租户删除不自动取消计费 | SRC-GOOGLE-SECOPS-PACKAGES-001；SRC-GOOGLE-SECOPS-EXPORT-001；SRC-GOOGLE-SECOPS-DEPROVISION-001 |
+| **Google** | Security Operations (Gemini)（SEC-02） | 平台 AI + Agent | 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini；UDM 可导自管 BigQuery，Enterprise Plus 不支持 BYOBQ；区域部署不跨区流量，多区域按 feeds 同步/异步复制；租户删除不自动取消计费 | SRC-GOOGLE-SECOPS-PACKAGES-001；SRC-GOOGLE-SECOPS-EXPORT-001；SRC-GOOGLE-SECOPS-DEPROVISION-001；SRC-GOOGLE-SECOPS-QUOTAS-001；SRC-GOOGLE-SECOPS-DR-001 |
 | **Palo Alto Networks** | Cortex / AgentiX（SEC-03） | SecOps 平台 | 官方页面确认 Cortex 平台与 Cortex AgentiX 入口；原具体版本与 Agent 发现/行为治理能力未核实，已删除确定性表述 | SRC-PAN-CORTEX-001 |
 | **CrowdStrike** | Charlotte AI / AgentWorks（SEC-04） | 安全 Agent 平台 | 官方页面描述跨 endpoint/identity/cloud/network 并行调查、共享上下文、prebuilt agents、无代码 AgentWorks、Agentic SOAR 与 MCP；默认不执行改变环境的动作，影响环境的动作需显式配置与授权审批 | SRC-CS-CHARLOTTE-001 |
 | **SentinelOne** | Purple AI（SEC-05） | 安全 Agent | 官方页面支持 Agentic Investigation、Auto-Triage、Investigation Notebooks、预批准策略动作与零训练表述；GA 与商业细节未核实 | SRC-SENTINELONE-PURPLE-AI-001 |
@@ -124,7 +124,7 @@ FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格�
 | NET-06 iMaster NCE | 官方产品页；整体 GA 未核实 | 官方称 120+ 国家部署；非可用区清单 | 未核实 | 未核实 | 未核实 | 未核实 |
 | NET-07 中兴 UniSeer | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | NET-08 H3C U-Center | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
-| SEC-02 Google SecOps | Standard/Enterprise/Enterprise Plus；整体 GA 未核实 | 未核实 | 按注入量；销售询价 | 未核实 | 具体驻留区域未核实 | UDM 导自管 BigQuery；Enterprise Plus 不支持 BYOBQ；历史数据不迁移；12 天软删后永久删除，删除不取消计费 |
+| SEC-02 Google SecOps | Standard/Enterprise/Enterprise Plus；整体 GA 未核实 | 区域部署单区不跨流量；多区域 geo-redundant，有 feeds 时存在 RPO；完整清单未核实 | 年度采购注入容量；Standard 含 12 个月热保留 | 1x–3x 突发不是免超额额度；最低金额/超额单价未核实 | 区域部署单区存储；多区域同步/异步取决于 feeds；Gemini/SOAR 边界未核实 | 八类 UDM/检测/指标导自管 BigQuery；Enterprise Plus 不支持 BYOBQ；历史数据不迁移；12 天软删后永久删除含备份，删除不取消计费；完整配置/SOAR 导出未核实 |
 | SEC-05 SentinelOne Purple AI | 官方现行产品页；GA 未核实 | 未核实 | 未核实 | 未核实 | 官方称客户数据不用于训练；FedRAMP High | 未核实 |
 | SEC-06 Splunk AI in Security | 官方现行产品页；独立 SKU/GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | FIN-02 Broadcom CloudHealth | 官方产品页；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | FlexReports Excel 下载、邮件/S3 投递；完整退出未核实 |

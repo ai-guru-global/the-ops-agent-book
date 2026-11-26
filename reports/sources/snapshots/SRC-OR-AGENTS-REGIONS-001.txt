@@ -1,0 +1,16 @@
+Source: https://docs.oracle.com/en-us/iaas/Content/generative-ai/agentic-regions.htm
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Available Commercial Regions (OC1)
+Brazil East (Sao Paulo), Germany Central (Frankfurt), India South (Hyderabad), Japan Central (Osaka), Saudi Arabia Central (Riyadh), UK South (London), US East (Ashburn), US Midwest (Chicago), US West (Phoenix).
+
+Availability: Not every listed model is available in the preceding listed regions.
+
+External Calls to xAI Grok Models
+The xAI Grok models that can be accessed through the OCI Generative AI service in an OCI region are hosted externally by xAI. Therefore, a call to an xAI Grok model through the OCI Generative AI service results in a call to an xAI location.
+
+External Calls to Google Gemini Models
+For Google Gemini 2.5 Pro in the Osaka region, requests are routed through a Google Asia-Pacific regional endpoint, but model processing can occur at any Google location globally, including outside Asia-Pacific. Routing through the endpoint does not guarantee Asia-Pacific data residency for processing.
+
+For Gemini 2.5 Flash in the Osaka and Hyderabad regions, requests are routed through a Google Asia-Pacific regional endpoint, but model processing can occur at any Google location globally, including outside Asia-Pacific. Routing through the endpoint does not guarantee Asia-Pacific data residency for processing.

@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 183 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 194 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -53,6 +53,10 @@ content_status: "reviewed"
 | SRC-AWS-AGENTCORE-001 | [What is Amazon Bedrock AgentCore?](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) | official_doc / GC-AWS-04 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-AWS-CLOUDWATCH-OMNI-001 | [CloudWatch Omni](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-omni.html) | official_doc / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-CLOUDWATCH-OMNI-001.txt` |
 | SRC-AWS-DEVOPS-001 | [AWS DevOps Agent](https://aws.amazon.com/devops-agent/) | official_doc / GC-AWS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-DEVOPS-001.txt` |
+| SRC-AWS-DEVOPS-GA-001 | [Announcing General Availability of AWS DevOps Agent](https://aws.amazon.com/blogs/mt/announcing-general-availability-of-aws-devops-agent/) | official_release / GC-AWS-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-DEVOPS-GA-001.txt` |
+| SRC-AWS-DEVOPS-PRICING-001 | [AWS DevOps Agent Pricing](https://aws.amazon.com/devops-agent/pricing/) | official_doc / GC-AWS-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-DEVOPS-PRICING-001.txt` |
+| SRC-AWS-DEVOPS-REGIONS-001 | [AWS DevOps Agent Supported Regions](https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent-supported-regions.html) | official_doc / GC-AWS-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-DEVOPS-REGIONS-001.txt` |
+| SRC-AWS-DEVOPS-SECURITY-001 | [AWS DevOps Agent Security](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security.html) | official_doc / GC-AWS-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-DEVOPS-SECURITY-001.txt` |
 | SRC-AWS-OMNI-PRICING-001 | [Amazon CloudWatch Omni Pricing](https://aws.amazon.com/cloudwatch/omni/pricing/) | official_doc / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-OMNI-PRICING-001.txt` |
 | SRC-AWS-OMNI-REGIONS-001 | [CloudWatch Omni regional availability](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-omni-8-regions/) | official_release / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-OMNI-REGIONS-001.txt` |
 | SRC-AWS-OMNI-RETENTION-001 | [CloudWatch investigations data retention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Retention.html) | official_doc / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-OMNI-RETENTION-001.txt` |
@@ -66,9 +70,11 @@ content_status: "reviewed"
 | SRC-GOOGLE-CODEASSIST-SUNSET-001 | [Gemini Code Assist Standard and Enterprise subscriptions](https://docs.cloud.google.cn/gemini/docs/codeassist/sunset?hl=en) | official_doc / GC-GO-05 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CODEASSIST-SUNSET-001.txt` |
 | SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001 | [Gemini Enterprise subscriptions and licenses](https://docs.cloud.google.cn/gemini/enterprise/docs/licenses?hl=en) | official_doc / GC-GO-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001.txt` |
 | SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001 | [Gemini Enterprise data residency locations](https://docs.cloud.google.cn/gemini/enterprise/docs/locations?hl=en) | official_doc / GC-GO-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001.txt` |
-| SRC-GOOGLE-SECOPS-DEPROVISION-001 | [Google SecOps deprovisioning](https://docs.cloud.google.cn/chronicle/docs/onboard/customer-initiated-secops-deprovision?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-DEPROVISION-001.txt` |
-| SRC-GOOGLE-SECOPS-EXPORT-001 | [Google SecOps export to self-managed BigQuery](https://docs.cloud.google.cn/chronicle/docs/reports/export-to-customer-managed-project?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-EXPORT-001.txt` |
-| SRC-GOOGLE-SECOPS-PACKAGES-001 | [Google SecOps packages overview](https://docs.cloud.google.cn/chronicle/docs/secops/secops-packages?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-PACKAGES-001.txt` |
+| SRC-GOOGLE-SECOPS-DEPROVISION-001 | [Google SecOps deprovisioning](https://docs.cloud.google.cn/chronicle/docs/onboard/customer-initiated-secops-deprovision?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-DEPROVISION-001.txt` |
+| SRC-GOOGLE-SECOPS-DR-001 | [Google Security Operations SIEM disaster recovery](https://docs.cloud.google.cn/architecture/disaster-recovery?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-DR-001.txt` |
+| SRC-GOOGLE-SECOPS-EXPORT-001 | [Google SecOps export to self-managed BigQuery](https://docs.cloud.google.cn/chronicle/docs/reports/export-to-customer-managed-project?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-EXPORT-001.txt` |
+| SRC-GOOGLE-SECOPS-PACKAGES-001 | [Google SecOps packages overview](https://docs.cloud.google.cn/chronicle/docs/secops/secops-packages?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-PACKAGES-001.txt` |
+| SRC-GOOGLE-SECOPS-QUOTAS-001 | [Google SecOps quotas and burst limits](https://docs.cloud.google.cn/chronicle/docs/ingestion/burst-limits?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-QUOTAS-001.txt` |
 | SRC-IBM-CONCERT-001 | [IBM Concert](https://www.ibm.com/products/concert) | official_doc / GC-IBM-01 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-IBM-INSTANA-001 | [IBM Instana](https://www.ibm.com/products/instana) | official_doc / GC-IBM-02 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-IBM-ORCH-001 | [IBM watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate) | official_doc / GC-IBM-03 | 2026-11-24 | 待存 / 仅入口 |
@@ -84,13 +90,18 @@ content_status: "reviewed"
 | SRC-MS-SRE-PRICING-001 | [Azure SRE Agent pricing and billing](https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-PRICING-001.txt` |
 | SRC-MS-SRE-REGIONS-001 | [Azure SRE Agent supported regions](https://learn.microsoft.com/en-us/azure/sre-agent/supported-regions/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-REGIONS-001.txt` |
 | SRC-MS-SRE-SECURITY-001 | [Azure SRE Agent security overview](https://learn.microsoft.com/en-us/azure/sre-agent/security-overview/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-SECURITY-001.txt` |
+| SRC-OR-AGENTS-GA-001 | [Enterprise AI Agents are in General Availability in OCI Generative AI](https://docs.oracle.com/iaas/releasenotes/generative-ai/enterprise-ai.htm) | official_release / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-GA-001.txt` |
+| SRC-OR-AGENTS-REGIONS-001 | [Generative AI Models and Regions for Enterprise AI Agents](https://docs.oracle.com/en-us/iaas/Content/generative-ai/agentic-regions.htm) | official_doc / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-REGIONS-001.txt` |
+| SRC-OR-AGENTS-RETENTION-001 | [Creating a Project in OCI Generative AI](https://docs.oracle.com/en-us/iaas/Content/generative-ai/create-project.htm) | official_doc / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-RETENTION-001.txt` |
 | SRC-OR-ENTERPRISE-AGENTS-001 | [Enterprise AI Agents in OCI Generative AI](https://docs.oracle.com/en-us/iaas/Content/generative-ai/agents.htm) | official_doc / GC-OR-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-OR-ENTERPRISE-AGENTS-001.txt` |
 | SRC-OR-FUSION-AI-001 | [Explore AI Agents for Oracle Fusion Cloud Applications](https://docs.oracle.com/en/cloud/saas/readiness/common/25c/common25c/25C-common-wn-f39182.htm) | official_release / GC-OR-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-OR-FUSION-AI-001.txt` |
 | SRC-OR-OPSINSIGHTS-001 | [About OCI Operations Insights](https://docs.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html) | official_doc / GC-OR-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-OR-OPSINSIGHTS-001.txt` |
 | SRC-SAP-AI-JOULE-001 | [SAP Artificial Intelligence - Joule](https://www.sap.com/products/artificial-intelligence.html) | official_doc / GC-SAP-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SAP-AI-JOULE-001.txt` |
 | SRC-SAP-JOULE-AGENTS-001 | [Joule Agents and Joule Assistants](https://www.sap.com/products/artificial-intelligence/ai-agents.html) | official_doc / GC-SAP-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SAP-JOULE-AGENTS-001.txt` |
 | SRC-SF-AGENTFORCE-001 | [Salesforce Agentforce](https://www.salesforce.com/agentforce/) | official_doc / GC-SF-01 | 2026-11-24 | 待存 / 仅入口 |
-| SRC-SN-AI-AGENTS-001 | [ServiceNow Otto - AI Agents FAQ and Troubleshooting](https://www.servicenow.com/community/servicenow-otto-articles/ai-agents-faq-and-troubleshooting/tac-p/3207986/highlight/true) | official_doc / GC-SN-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SN-AI-AGENTS-001.txt` |
+| SRC-SN-AGENT-STUDIO-2026-09-001 | [Reimagined AI Agent Studio - September 2026 release](https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/1037) | official_doc / GC-SN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-SN-AGENT-STUDIO-2026-09-001.txt` |
+| SRC-SN-AI-AGENTS-001 | [ServiceNow Otto - AI Agents FAQ and Troubleshooting](https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/218) | official_doc / GC-SN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-SN-AI-AGENTS-001.txt` |
+| SRC-SN-AI-AGENTS-GUIDE-001 | [ServiceNow AI Agents - Build, Operations & Governance Guide (Australia release)](https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/930) | official_doc / GC-SN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-SN-AI-AGENTS-GUIDE-001.txt` |
 | SRC-SN-CONTROLTOWER-001 | [ServiceNow Super Intelligence Control Tower release](https://www.servicenow.com/community/si-control-tower-articles/what-s-new-in-ai-control-tower-for-august-amp-september-2026/ta-p/3597749) | official_doc / GC-SN-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SN-CONTROLTOWER-001.txt` |
 
 ### 中国云厂商

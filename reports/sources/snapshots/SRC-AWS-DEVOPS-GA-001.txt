@@ -1,0 +1,8 @@
+Source: https://aws.amazon.com/blogs/mt/announcing-general-availability-of-aws-devops-agent/
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Announcing General Availability of AWS DevOps Agent
+by Madhu Balaji on 31 MAR 2026
+
+Today, we’re announcing the general availability of AWS DevOps Agent. AWS DevOps Agent is your always-available operations teammate. It resolves and proactively prevents incidents, optimizes application reliability and performance, and handles on-demand SRE tasks across AWS, multicloud, and on-premises environments.

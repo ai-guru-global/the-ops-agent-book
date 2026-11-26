@@ -53,6 +53,18 @@ product = read("PRODUCT.md")
 require(f"{appendix_count} 个附录与案例页" in product,
         f"PRODUCT.md appendix/case page count is stale: expected {appendix_count}")
 
+source_count = len(re.findall(r"^- source_id:", read("sources/registry.yaml"), re.MULTILINE))
+snapshot_count = len(list((ROOT / "reports/sources/snapshots").glob("*.txt")))
+gap_count = len(json.loads(read("sources/claim-gaps.json"))["claims"])
+for relative in ("reports/improvement-status.md", "reports/completion-audit.md"):
+    text = read(relative)
+    require(f"{source_count} 条" in text or f"{source_count} sources" in text,
+            f"{relative} source count is stale: expected {source_count}")
+    require(f"{snapshot_count} 份" in text or f"{snapshot_count} snapshots" in text,
+            f"{relative} snapshot count is stale: expected {snapshot_count}")
+    require(f"{gap_count} 个" in text,
+            f"{relative} claim-gap count is stale: expected {gap_count}")
+
 with (ROOT / "reports/chapter-scores-v3.csv").open(newline="", encoding="utf-8") as handle:
     scored_pages = list(csv.DictReader(handle))
 page_count = len(scored_pages)
@@ -109,5 +121,6 @@ print(
     f"{task_count} tasks ({completed} completed/{in_progress} in progress), "
     f"{person_days} person-days, {page_count} scored pages, "
     f"{reference_tests} reference tests, {pdf_pages} PDF pages, "
+    f"{source_count} sources/{snapshot_count} snapshots/{gap_count} claim gaps, "
     f"{len(poc.get('artifacts', []))} POC hashes."
 )

@@ -98,6 +98,62 @@ sources:
     sha256: 29400d0fe99ddfb024efa0696e68f2c8a66bdf538b3a6649747bcd3e24e5cf93
     captured_at: '2026-11-25'
     method: html-to-text
+- source_id: SRC-AWS-DEVOPS-GA-001
+  title: Announcing General Availability of AWS DevOps Agent
+  url: https://aws.amazon.com/blogs/mt/announcing-general-availability-of-aws-devops-agent/
+  type: official_release
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方公告明确整体于 2026-03-31 GA；子功能 Preview 状态需单独判断。
+  claims:
+  - GC-AWS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-DEVOPS-GA-001.txt
+    sha256: 5107e0f62a8fdcbeb9c815a0d6c71807f84f9fe810c12ef6de68e9b75834aaac
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-AWS-DEVOPS-PRICING-001
+  title: AWS DevOps Agent Pricing
+  url: https://aws.amazon.com/devops-agent/pricing/
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方按 agent-second 计费，无预付承诺或空闲等待费；试用额度和关联 AWS 服务另收费有明确正文。
+  claims:
+  - GC-AWS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-DEVOPS-PRICING-001.txt
+    sha256: fd2631a42f708ada92aa7a80658c018f94b77a3327ce46496857382165e6a365
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-AWS-DEVOPS-SECURITY-001
+  title: AWS DevOps Agent Security
+  url: https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security.html
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 数据存储在 Agent Space 区域，但提示/输出可能跨区处理；删除后立即失去访问并在30天内永久删除；不用于训练。
+  claims:
+  - GC-AWS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-DEVOPS-SECURITY-001.txt
+    sha256: 5d51ba24b99e4c0145ea0fb02b296045d45e7865c15291b7c40f555996c8c48d
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-AWS-DEVOPS-REGIONS-001
+  title: AWS DevOps Agent Supported Regions
+  url: https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent-supported-regions.html
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方列出16个支持区域及功能差异；生产运维、按需任务和自定义Agent覆盖全部支持区域，GovCloud有例外。
+  claims:
+  - GC-AWS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-DEVOPS-REGIONS-001.txt
+    sha256: 2d74aa66573724b2d2d201bf5bb33f25bffc562d2dc2f2b2098809388866e953
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-AWS-QDEV-001
   title: Amazon Q Developer
   url: https://aws.amazon.com/q/developer/
@@ -612,6 +668,48 @@ sources:
     sha256: b067135c9325248d68412134a720eb84e669fba5baf61af69412ae23629c1105
     captured_at: '2026-11-25'
     method: webfetch-markdown
+- source_id: SRC-OR-AGENTS-GA-001
+  title: Enterprise AI Agents are in General Availability in OCI Generative AI
+  url: https://docs.oracle.com/iaas/releasenotes/generative-ai/enterprise-ai.htm
+  type: official_release
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方发布说明确认 2026-03-31 GA，并列出九个商业区域；不证明所有模型在每个区域可用。
+  claims:
+  - GC-OR-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-AGENTS-GA-001.txt
+    sha256: 6dfc6762471d3f64c3f1747b4064a1f77e82f441476b2139cc38e8497fcb01ad
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-OR-AGENTS-REGIONS-001
+  title: Generative AI Models and Regions for Enterprise AI Agents
+  url: https://docs.oracle.com/en-us/iaas/Content/generative-ai/agentic-regions.htm
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方确认区域清单、模型可用性限制，以及 xAI/Google 外部处理可能跨区；不能把OCI区域当作全域驻留保证。
+  claims:
+  - GC-OR-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-AGENTS-REGIONS-001.txt
+    sha256: 6182f6a9338ac332a9dbfe38c979d4d397e14480f2136c8b7587e351369e3409
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-OR-AGENTS-RETENTION-001
+  title: Creating a Project in OCI Generative AI
+  url: https://docs.oracle.com/en-us/iaas/Content/generative-ai/create-project.htm
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方说明响应/会话最长保留720小时；启用后的短/长期记忆只能随项目删除，不证明完整导出或退出条款。
+  claims:
+  - GC-OR-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-AGENTS-RETENTION-001.txt
+    sha256: e287978c241cabb9900bcd3d7ca5420ace83b5548c4f1894985d0d9f4f65169c
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-SAP-JOULE-AGENTS-001
   title: Joule Agents and Joule Assistants
   url: https://www.sap.com/products/artificial-intelligence/ai-agents.html
@@ -628,18 +726,46 @@ sources:
     method: webfetch-markdown
 - source_id: SRC-SN-AI-AGENTS-001
   title: ServiceNow Otto - AI Agents FAQ and Troubleshooting
-  url: https://www.servicenow.com/community/servicenow-otto-articles/ai-agents-faq-and-troubleshooting/tac-p/3207986/highlight/true
+  url: https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/218
   type: official_doc
-  accessed_at: '2026-11-25'
+  accessed_at: '2026-11-26'
   review_by: '2027-02-22'
-  notes: 官方社区 FAQ 描述自主 AI Agents 与 ITSM/HRSD/CRM 场景；页面版本和 SKU 要求不等于整体 GA，区域、驻留与退出条款未核实。
+  notes: 官方社区 FAQ 说明 Assist 按动作消耗、默认编排模型运行于 ServiceNow 管理的 Azure 服务器；未给出区域清单、驻留或完整退出承诺。
   claims:
   - GC-SN-01
   snapshot:
     path: reports/sources/snapshots/SRC-SN-AI-AGENTS-001.txt
-    sha256: 5f77b9e60099dc13d37f059903d8cffe22068d00cb3cdbbe70c5690acf39399d
-    captured_at: '2026-11-25'
-    method: webfetch-markdown
+    sha256: 41eddc3a55540daaf8da1bba1ea409ee4975f6af110758d371f644effe8893ef
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-SN-AI-AGENTS-GUIDE-001
+  title: ServiceNow AI Agents - Build, Operations & Governance Guide (Australia release)
+  url: https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/930
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方指南确认 Foundation/Advanced/Prime、自定义 Agent 需 Prime、旧套餐 2026-07-01 停售、Assists 年度重置与工具数计费档位、评估 CSV 和 Set Inactive；最低金额/超额价格未核实。
+  claims:
+  - GC-SN-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-SN-AI-AGENTS-GUIDE-001.txt
+    sha256: cfcaf6348238db33beb2dce61bad913b147d40d28c4db951c95db287e64c6e8d
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-SN-AGENT-STUDIO-2026-09-001
+  title: Reimagined AI Agent Studio - September 2026 release
+  url: https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/1037
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方 2026-09-10 正文称新 Studio 对指定补丁版本以上 GA，但管理员仍不能删除 agentic solutions；不能把 Studio GA 外推为整体商业退出能力。
+  claims:
+  - GC-SN-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-SN-AGENT-STUDIO-2026-09-001.txt
+    sha256: 85f6db05cfe2cf9db4afa3c804f001d4c9ab6b81e651f6e6c2cbb5f6704294fe
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-ALI-MODELSTUDIO-PRICING-001
   title: 大模型服务平台百炼 Model Studio 模型价格
   url: https://help.aliyun.com/zh/model-studio/model-pricing
@@ -2268,33 +2394,32 @@ sources:
   title: Google SecOps packages overview
   url: https://docs.cloud.google.cn/chronicle/docs/secops/secops-packages?hl=en
   type: official_doc
-  accessed_at: 2026-11-25
+  accessed_at: 2026-11-26
   review_by: 2027-02-22
-  notes: 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini
-    与按注入量计费；整体 GA、具体驻留区域和退出未核实。
+  notes: 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini 与按注入量计费；具体最低金额、超额价格、整体 GA 和完整区域清单未核实。
   claims:
     - GC-GO-04
     - SEC-02
   snapshot:
     path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-PACKAGES-001.txt
-    sha256: b26f8f226e678c992f5baac5c0d8f407fa0a935ccc837bc068987c9e558d9d96
-    captured_at: 2026-11-25
-    method: html-to-text-or-rendered-text
+    sha256: f85f86397a68bc997fed99d9f1cb23f5fdb8fbd905203b7627c5c8f91a1fe394
+    captured_at: 2026-11-26
+    method: webfetch-markdown
 - source_id: SRC-GOOGLE-SECOPS-EXPORT-001
   title: Google SecOps export to self-managed BigQuery
   url: https://docs.cloud.google.cn/chronicle/docs/reports/export-to-customer-managed-project?hl=en
   type: official_doc
-  accessed_at: 2026-11-25
+  accessed_at: 2026-11-26
   review_by: 2027-02-22
-  notes: 官方文档支持 UDM 导出至自管 BigQuery；Enterprise Plus 不支持 BYOBQ，既有数据不自动迁移；完整退出与驻留承诺未核实。
+  notes: 官方文档支持八类 UDM/检测/指标数据导出至自管 BigQuery；Enterprise Plus 不支持 BYOBQ，既有数据不自动迁移，导出资源与 SecOps 同区域；完整配置/案例/SOAR 退出格式未核实。
   claims:
     - GC-GO-04
     - SEC-02
   snapshot:
     path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-EXPORT-001.txt
-    sha256: 9ef7cfcbbed8bdd5cc55e494fe02ebed62bee206c2bec06b37b5dc2e3fabfef0
-    captured_at: 2026-11-25
-    method: html-to-text-or-rendered-text
+    sha256: e150be72389b66bed095ef956dd205ffff2cfe5195577656dd9ef875400bbbde
+    captured_at: 2026-11-26
+    method: webfetch-markdown
 - source_id: SRC-GOOGLE-CODEASSIST-SUNSET-001
   title: Gemini Code Assist Standard and Enterprise subscriptions
   url: https://docs.cloud.google.cn/gemini/docs/codeassist/sunset?hl=en
@@ -2314,17 +2439,47 @@ sources:
   title: Google SecOps deprovisioning
   url: https://docs.cloud.google.cn/chronicle/docs/onboard/customer-initiated-secops-deprovision?hl=en
   type: official_doc
-  accessed_at: 2026-11-25
+  accessed_at: 2026-11-26
   review_by: 2027-02-22
-  notes: 官方文档支持 12 天软删后永久删除、删除不取消计费、客户自管项目需自行删除及部分关联产品需手工退订。
+  notes: 官方文档支持 12 天软删、之后永久删除含备份、删除不取消合同计费、客户自管项目需自行删除及部分关联产品需手工退订；硬删除完成时长未给出。
   claims:
     - GC-GO-04
     - SEC-02
   snapshot:
     path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-DEPROVISION-001.txt
-    sha256: 9427d19deb117284897b7960f92417df47402914cea108194ddde2a78d42bdb9
-    captured_at: 2026-11-25
-    method: html-to-text
+    sha256: e0c7d9cdfe1507fcf2d3df17326ba663d8633968101f8ff1c6c89274590fc213
+    captured_at: 2026-11-26
+    method: webfetch-markdown
+- source_id: SRC-GOOGLE-SECOPS-QUOTAS-001
+  title: Google SecOps quotas and burst limits
+  url: https://docs.cloud.google.cn/chronicle/docs/ingestion/burst-limits?hl=en
+  type: official_doc
+  accessed_at: 2026-11-26
+  review_by: 2027-02-22
+  notes: 官方按年度采购注入容量设置1x–3x日均突发窗口；持续超额需增购容量。该窗口不是最低购买量或免超额计费额度。
+  claims:
+    - GC-GO-04
+    - SEC-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-QUOTAS-001.txt
+    sha256: e4b933c99dcf873a2dc10149400f3ecd5c19d9a375905403ad06a411ddcfb46c
+    captured_at: 2026-11-26
+    method: webfetch-markdown-excerpt
+- source_id: SRC-GOOGLE-SECOPS-DR-001
+  title: Google Security Operations SIEM disaster recovery
+  url: https://docs.cloud.google.cn/architecture/disaster-recovery?hl=en
+  type: official_doc
+  accessed_at: 2026-11-26
+  review_by: 2027-02-22
+  notes: 官方说明区域部署数据与流量不跨区；多区域无feeds同步复制、有feeds异步复制并存在RPO。完整可选区域清单和Gemini/SOAR处理边界未核实。
+  claims:
+    - GC-GO-04
+    - SEC-02
+  snapshot:
+    path: reports/sources/snapshots/SRC-GOOGLE-SECOPS-DR-001.txt
+    sha256: 7cfa30310fab7411846a91a9453ee579e8bfef82c55a60f2a875f972dcc1ec52
+    captured_at: 2026-11-26
+    method: webfetch-markdown-excerpt
 - source_id: SRC-MS-COPILOT-LICENSING-001
   title: License Options for Microsoft Copilot
   url: https://learn.microsoft.com/en-us/copilot/plan/copilot-license-options

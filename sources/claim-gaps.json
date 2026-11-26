@@ -3,15 +3,15 @@
   "title": "Vendor claim evidence gaps",
   "updated_at": "2026-11-25",
   "owner": "Vendor Researcher",
-  "description": "Machine-readable registry for vendor claims with at least one explicit unverified field. This is a gap register, not negative product evidence.",
+  "description": "Machine-readable registry for vendor claims with at least one explicit unverified field. This is a gap register, not negative product evidence. Claims with no remaining explicit unverified field are removed and page membership is rebuilt from current documents.",
   "claims": [
     {
       "claim_id": "ALI-01",
       "product": "千问办公 / AgentOne",
       "pages": [
         "docs/appendix/alibaba-agent-landscape.md",
-        "docs/vendors/embedded-assistants.md",
-        "docs/vendors/china-cloud.md"
+        "docs/vendors/china-cloud.md",
+        "docs/vendors/embedded-assistants.md"
       ],
       "status": "needs_evidence",
       "owner": "Vendor Researcher",
@@ -33,9 +33,9 @@
       "claim_id": "ALI-02",
       "product": "ALI-02、ALI-04 AgentRun",
       "pages": [
+        "docs/appendix/alibaba-agent-landscape.md",
         "docs/vendors/china-cloud.md",
-        "docs/vendors/embedded-assistants.md",
-        "docs/appendix/alibaba-agent-landscape.md"
+        "docs/vendors/embedded-assistants.md"
       ],
       "status": "needs_evidence",
       "owner": "Vendor Researcher",
@@ -80,8 +80,8 @@
       "claim_id": "ALI-04",
       "product": "ALI-02、ALI-04 AgentRun",
       "pages": [
-        "docs/vendors/china-cloud.md",
-        "docs/appendix/alibaba-agent-landscape.md"
+        "docs/appendix/alibaba-agent-landscape.md",
+        "docs/vendors/china-cloud.md"
       ],
       "status": "needs_evidence",
       "owner": "Vendor Researcher",
@@ -126,8 +126,8 @@
       "claim_id": "ALI-06",
       "product": "ALI-06 AgentScope",
       "pages": [
-        "docs/vendors/china-cloud.md",
-        "docs/appendix/alibaba-agent-landscape.md"
+        "docs/appendix/alibaba-agent-landscape.md",
+        "docs/vendors/china-cloud.md"
       ],
       "status": "needs_evidence",
       "owner": "Vendor Researcher",
@@ -1336,28 +1336,6 @@
       "last_evidence_update": "2026-11-25"
     },
     {
-      "claim_id": "FIN-05",
-      "product": "多云 FinOps",
-      "pages": [
-        "docs/vendors/security-network-finops.md"
-      ],
-      "status": "needs_evidence",
-      "owner": "Vendor Researcher",
-      "priority": "P1",
-      "last_checked": "2026-11-25",
-      "required_evidence": [
-        "official_product_or_documentation",
-        "pricing_or_licensing",
-        "region_and_data_residency",
-        "export_and_exit_terms"
-      ],
-      "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
-      "source_ids": [
-        "SRC-FINOPS-FOUNDATION-001"
-      ],
-      "last_evidence_update": "2026-11-25"
-    },
-    {
       "claim_id": "FIN-06",
       "product": "FIN-06 Vantage",
       "pages": [
@@ -1465,7 +1443,11 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-AWS-DEVOPS-001"
+        "SRC-AWS-DEVOPS-001",
+        "SRC-AWS-DEVOPS-GA-001",
+        "SRC-AWS-DEVOPS-PRICING-001",
+        "SRC-AWS-DEVOPS-SECURITY-001",
+        "SRC-AWS-DEVOPS-REGIONS-001"
       ],
       "last_evidence_update": "2026-11-25"
     },
@@ -1496,7 +1478,6 @@
       "claim_id": "GC-AWS-03",
       "product": "CloudWatch investigations / Omni",
       "pages": [
-        "docs/vendors/embedded-assistants.md",
         "docs/vendors/global-cloud.md"
       ],
       "status": "needs_evidence",
@@ -1618,7 +1599,6 @@
       "claim_id": "GC-GO-03",
       "product": "Gemini Enterprise",
       "pages": [
-        "docs/vendors/embedded-assistants.md",
         "docs/vendors/global-cloud.md"
       ],
       "status": "needs_evidence",
@@ -1664,7 +1644,9 @@
       "source_ids": [
         "SRC-GOOGLE-SECOPS-PACKAGES-001",
         "SRC-GOOGLE-SECOPS-EXPORT-001",
-        "SRC-GOOGLE-SECOPS-DEPROVISION-001"
+        "SRC-GOOGLE-SECOPS-DEPROVISION-001",
+        "SRC-GOOGLE-SECOPS-QUOTAS-001",
+        "SRC-GOOGLE-SECOPS-DR-001"
       ],
       "last_evidence_update": "2026-11-25",
       "candidate_urls": [
@@ -1882,7 +1864,10 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-OR-ENTERPRISE-AGENTS-001"
+        "SRC-OR-ENTERPRISE-AGENTS-001",
+        "SRC-OR-AGENTS-GA-001",
+        "SRC-OR-AGENTS-REGIONS-001",
+        "SRC-OR-AGENTS-RETENTION-001"
       ],
       "last_evidence_update": "2026-11-25"
     },
@@ -2018,7 +2003,9 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-SN-AI-AGENTS-001"
+        "SRC-SN-AI-AGENTS-001",
+        "SRC-SN-AI-AGENTS-GUIDE-001",
+        "SRC-SN-AGENT-STUDIO-2026-09-001"
       ],
       "last_evidence_update": "2026-11-25"
     },
@@ -2227,8 +2214,8 @@
       "claim_id": "OBS-01",
       "product": "Bits AI",
       "pages": [
-        "docs/vendors/observability-aiops.md",
-        "docs/vendors/embedded-assistants.md"
+        "docs/vendors/embedded-assistants.md",
+        "docs/vendors/observability-aiops.md"
       ],
       "status": "needs_evidence",
       "owner": "Vendor Researcher",
@@ -2250,7 +2237,6 @@
       "claim_id": "OBS-02",
       "product": "Dynatrace Davis",
       "pages": [
-        "docs/vendors/embedded-assistants.md",
         "docs/vendors/observability-aiops.md"
       ],
       "status": "needs_evidence",
@@ -2296,7 +2282,6 @@
       "claim_id": "OBS-04",
       "product": "Splunk AI Assistant",
       "pages": [
-        "docs/vendors/embedded-assistants.md",
         "docs/vendors/observability-aiops.md"
       ],
       "status": "needs_evidence",
@@ -2320,7 +2305,6 @@
       "claim_id": "OBS-05",
       "product": "PagerDuty AI",
       "pages": [
-        "docs/vendors/embedded-assistants.md",
         "docs/vendors/observability-aiops.md"
       ],
       "status": "needs_evidence",
@@ -2896,7 +2880,9 @@
       "source_ids": [
         "SRC-GOOGLE-SECOPS-PACKAGES-001",
         "SRC-GOOGLE-SECOPS-EXPORT-001",
-        "SRC-GOOGLE-SECOPS-DEPROVISION-001"
+        "SRC-GOOGLE-SECOPS-DEPROVISION-001",
+        "SRC-GOOGLE-SECOPS-QUOTAS-001",
+        "SRC-GOOGLE-SECOPS-DR-001"
       ],
       "last_evidence_update": "2026-11-25"
     },
@@ -3058,19 +3044,19 @@
   ],
   "source_registry": "sources/registry.yaml",
   "summary": {
-    "total_claims": 134,
-    "with_sources": 134,
+    "total_claims": 133,
+    "with_sources": 133,
     "without_sources": 0,
     "by_page": {
       "docs/appendix/alibaba-agent-landscape.md": 16,
       "docs/vendors/china-cloud.md": 43,
-      "docs/vendors/embedded-assistants.md": 31,
+      "docs/vendors/embedded-assistants.md": 26,
       "docs/vendors/global-cloud.md": 25,
       "docs/vendors/observability-aiops.md": 28,
-      "docs/vendors/security-network-finops.md": 26
+      "docs/vendors/security-network-finops.md": 25
     },
     "by_priority": {
-      "P1": 117,
+      "P1": 116,
       "P2": 17
     }
   }

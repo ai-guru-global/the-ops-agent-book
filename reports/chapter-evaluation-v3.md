@@ -29,11 +29,11 @@
 | 发布清单像已验收 | CLOSED | 空白模板默认 `NOT_EVALUATED`；删除预填 Go/12 分钟 RTO；`templates/release.yaml` 与正文 synthetic 示例同步为 `INCONCLUSIVE/NO_GO`，CI 拒绝签署或状态漂移 |
 | K8s drain 高风险参数 | CLOSED | 默认命令移除 `--delete-emptydir-data`；新增 `emptyDir` 清单、只读预检脚本、独立双人审批与未知结果对账 |
 | 门槛没有单一事实源 | CLOSED | `evals/manifest.yaml` 增加 `gate_profiles`；指标页自动生成门禁表；生命周期/评测/场景页改为回指唯一源；CI 拒绝低于 G3 的 Top-3、证据引用与诊断命中阈值 |
-| 参考资料与注册表冲突 | CLOSED | 参考资料页由 `sources/registry.yaml` 生成，183 条来源同步；CI 检查派生漂移 |
+| 参考资料与注册表冲突 | CLOSED | 参考资料页由 `sources/registry.yaml` 生成，194 条来源同步；CI 检查派生漂移 |
 | 案例状态与 Schema 漂移 | CLOSED | NotReady 区分 RESOLVED/CLOSED；嵌入评测 YAML 与 Event payload 纳入自动校验；失败案例给出 300 条 Judge 合成算术账本 |
 | P0 页面级残余 | CLOSED | 05 补幂等保留期后语义；事故指挥补冲突计时、补偿审批、资源键/父子锁与完整任务字段；指标库补 P95/CI 口径并对齐 G3；评测模板改用独立 Judge 校准集与机器可判定动作谓词 |
 
-P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `not_executed`、Judge 0/300、真实模型/生产 Trace 缺失和 134 个商业/事实缺口仍是硬阻断。
+P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `not_executed`、Judge 0/300、真实模型/生产 Trace 缺失和 133 个商业/事实缺口仍是硬阻断。
 
 ### 1.2 P1 正文示例合同闭环（2026-11-25）
 
@@ -43,7 +43,7 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 - 负向控制覆盖：缺少 `source_case_key`、failed 工具结果缺少 `partial_success`、可传递委托 token、证据缺少 source、synthetic Release 被标成 PASS/GO。
 - 唯一豁免是 `docs/guide/06-context-knowledge.md` 中明确标注“不可独立执行”的 Runbook 结构片段；完整 Schema-valid Runbook 位于 `examples/templates/runbook.yaml`。
 - 本地与远端 Book quality 都已加入 `gates:check`、`refs:check`、`examples:check`，防止派生页和正文示例再次漂移。
-- `npm run pdf:audit` 对 689 页 PDF 执行全量 A4 几何检查：空白页、文字越界、非 A4 页面均为 0；报告见 `reports/validation/pdf-layout.md`。这仍是几何审计，不冒充人工视觉验收。
+- `npm run pdf:audit` 对 700 页 PDF 执行全量 A4 几何检查：空白页、文字越界、非 A4 页面均为 0；报告见 `reports/validation/pdf-layout.md`。这仍是几何审计，不冒充人工视觉验收。
 - RDMA 多节点 rail 不对齐与 PostgreSQL/MySQL 计划内 failover 已补端到端 Runbook、只读 fixture 与 40 项单元测试、7 项 CLI 集成回归；不连接真实网络或数据库。
 - Agent Event 已升级 v1.1.0：HMAC-SHA256 事件签名、可信时间信封与独立外部锚点共同验证；28 项参考测试覆盖整链重写、错误/未知密钥、缺签名、时钟漂移、缺失上一锚点、前缀分叉、锚点头/签名/连续性篡改，以及跨进程完整祖先链、根链缺口与历史归档新鲜度分离。
 
@@ -75,7 +75,7 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 
 其他可复现资产：
 
-- 183 条来源、168 个正文引用 source ID、146 份本地快照、134 个仍有至少一个未核实字段的 claim；资产校验另报告 **15 个已注册但正文未引用的 source ID**。
+- 194 条来源、179 个正文引用 source ID、157 份本地快照、133 个仍有至少一个未核实字段的 claim；资产校验另报告 **15 个已注册但正文未引用的 source ID**。
 - 400 条 synthetic K8s 评测案例、400 份本地快照 fixture、300 条独立 Judge 候选；真实人工标注仍为 **0/300**。
 - 工具契约、权限策略、Runbook、Agent Event、Metric、用户阅读结果等 Schema。
 - 参考实现测试 **28/28**、评测 self-test **14/14**、用户阅读校验器测试 **13/13**。
@@ -103,10 +103,10 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 | 48/48 页进入逐章评分 | PASS | `chapter-scores-v3.csv` 与路由清单一致 |
 | 构建、Schema、资产、内链、Mermaid、响应式、无障碍 | PASS | `npm run check:all` exit 0 |
 | 无 P0 正文误导或不可安全复制示例 | **FAIL** | 首页摘要、工具契约示例、发布清单、K8s drain、指标门槛存在 P0 问题 |
-| 来源可逐主张回指且派生页同步 | PARTIAL | 183 来源/168 引用/134 缺口；参考资料仍与注册表冲突 |
+| 来源可逐主张回指且派生页同步 | PARTIAL | 194 来源/179 引用/133 缺口；剩余未核实字段不得支持采购结论 |
 | 正文示例 100% 通过声明 Schema | **FAIL** | 工具契约内嵌 YAML 与发布清单未形成可执行验收 |
 | 图示语义完整且全站视觉验收 | PARTIAL | 50 图全渲染；9 页无 Mermaid，关键比较图与异常路径仍有缺口 |
-| 真实用户、真实模型、生产/采购证据 | **FAIL** | 用户测试 `not_executed`；Judge 0/300；评测 `INCONCLUSIVE`；134 个商业/事实缺口 |
+| 真实用户、真实模型、生产/采购证据 | **FAIL** | 用户测试 `not_executed`；Judge 0/300；评测 `INCONCLUSIVE`；133 个商业/事实缺口 |
 
 ## 5. 逐章评分与关键缺口
 
@@ -309,7 +309,7 @@ P0 关闭只表示文档与自动化合同缺陷已修复；真实用户测试 `
 - 48/48 页面进入七维评分，14 个方法章与导读、5 本场景手册与导读、8 个厂商页、8 个模板页、10 个附录页和首页均有独立结论。
 - 50/50 Mermaid 渲染、图号、图注、资源与内链检查通过。
 - `npm run check:all` 通过；参考实现 28/28、评测 self-test 14/14、用户阅读校验器 13/13。
-- 183 来源、168 个正文 source ID、146 快照、134 claim 缺口、400 synthetic 案例、300 Judge 候选已核对。
+- 194 来源、179 个正文 source ID、157 快照、133 claim 缺口、400 synthetic 案例、300 Judge 候选已核对。
 - 真实用户状态为 `not_executed`；Judge 标注为 0/300，`release_ready=false`。
 
 ### 未完成，不能声称已验证

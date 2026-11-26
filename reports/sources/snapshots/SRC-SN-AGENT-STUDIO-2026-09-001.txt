@@ -1,0 +1,12 @@
+Reimagined AI Agent Studio [September 2026 release]
+URL: https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/1037
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Article edited 2026-09-10.
+
+The reimagined Studio provides feature parity with the existing experience: Agent configuration, tools, agentic workflow management, and analytics.
+
+Admins are currently not able to delete agentic solutions; this will be addressed in a future patch.
+
+The new AI Agent Studio is generally available to customers with the September release on instances running Zurich Patch 13, Australia Patch 6, Brazil EA1 (Sep-24), and above. The Otto AI Agents plugin v9.0.8+ is required.

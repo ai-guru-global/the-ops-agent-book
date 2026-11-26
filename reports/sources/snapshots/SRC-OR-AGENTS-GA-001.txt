@@ -1,0 +1,14 @@
+Source: https://docs.oracle.com/iaas/releasenotes/generative-ai/enterprise-ai.htm
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Enterprise AI Agents are in General Availability in OCI Generative AI
+Release Date: March 31, 2026
+
+OCI Generative AI now offers Enterprise AI agents that speed up the development and deployment of production-grade agentic applications through modular and composable primitives.
+
+Projects
+New resource model for organizing agent workloads, isolation of conversations, files, containers and memory by project, configurable data retention and memory settings, replaces the conversation store used during the limited availability (LA) offering of the feature.
+
+Supported Regions
+Available in the Chicago, Ashburn, Phoenix, Frankfurt, London, Osaka, Hyderabad, São Paulo, and Riyadh regions.

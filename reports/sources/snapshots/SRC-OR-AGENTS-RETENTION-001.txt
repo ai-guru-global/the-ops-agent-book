@@ -1,0 +1,12 @@
+Source: https://docs.oracle.com/en-us/iaas/Content/generative-ai/create-project.htm
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Data Retention
+Configure how long responses and conversations can be stored. Response retention controls how long individual responses are preserved after generation before automatic deletion. Conversation retention controls how long conversations is stored after the most recent update. The maximum retention duration is 720 hours (30 days).
+
+Short-Term Memory Compaction
+Short-term memory compaction can be enabled at any time, but it can't be disabled or deleted once it has been enabled unless this project is deleted.
+
+Long-Term Memory
+Long-term memory can be enabled at any time, but it can't be disabled or deleted after it has been enabled unless this project is deleted.

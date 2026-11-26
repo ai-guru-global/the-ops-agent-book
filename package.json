@@ -13,7 +13,7 @@
     "pdf:audit": "python3 scripts/audit_pdf_layout.py",
     "validate:assets": "node scripts/validate-assets.mjs",
     "examples:check": "node scripts/validate-embedded-examples.mjs",
-    "gaps:check": "node scripts/update-claim-gaps.mjs && git diff --exit-code -- sources/claim-gaps.json",
+    "gaps:check": "node --test scripts/update-claim-gaps.test.mjs && node scripts/update-claim-gaps.mjs && git diff --exit-code -- sources/claim-gaps.json",
     "gates:generate": "node scripts/generate-gate-registry.mjs",
     "gates:check": "node scripts/generate-gate-registry.mjs --check",
     "refs:generate": "node scripts/generate-references.mjs",

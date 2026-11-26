@@ -1,0 +1,18 @@
+Source: https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent-supported-regions.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Supported Regions
+
+AWS DevOps Agent is available in the following AWS Regions:
+us-east-1, us-east-2, us-west-2, ca-central-1, sa-east-1, ap-south-1, ap-southeast-1, ap-southeast-2, ap-northeast-1, ap-northeast-2, eu-central-1, eu-west-1, eu-west-2, eu-west-3, eu-north-1, us-gov-west-1.
+
+Feature availability by Region
+Production operations (investigations, recommendations, prevention): All supported Regions.
+On-demand DevOps tasks: All supported Regions.
+Custom agents: All supported Regions.
+Code Change Risk Analysis — preview: All supported commercial Regions.
+Release testing (removed on December 1, 2026): US East (N. Virginia) us-east-1 only.
+Sandbox — preview: All commercial AWS Regions (in the aws partition).
+
+In AWS GovCloud (US-West), Sandbox is not available, and you can associate only AWS GovCloud (US) accounts with an Agent Space.
