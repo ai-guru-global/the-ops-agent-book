@@ -1,0 +1,11 @@
+What is Amazon Bedrock AgentCore?
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Amazon Bedrock AgentCore is an agentic platform for building, deploying, and operating agents securely at scale using any framework and foundation model.
+
+Core services include Harness, Runtime, Memory, Gateway, Identity, Code Interpreter, Browser, Observability, Payments, Evaluations, Optimization, Policy and Registry. Services can be used together or independently.
+
+Pricing
+AgentCore offers flexible, consumption-based pricing with no upfront commitments or minimum fees.

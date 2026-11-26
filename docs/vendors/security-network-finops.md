@@ -87,7 +87,7 @@ flowchart TB
 
 | 厂商 | 产品 | 形态 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
-| **IBM Apptio** | Cloudability（FIN-01） | FinOps 平台 | 官方页面描述云/AI/SaaS 成本视图、成本归属、预算/预测、异常告警、rightsizing、K8s 成本分配与 AI 用量拆分；不把“30%+”典型客户结果当保证 | SRC-IBM-CLOUDABILITY-001 |
+| **IBM Apptio** | Cloudability（FIN-01） | FinOps 平台 | 官方页面描述云/AI/SaaS 成本视图、成本归属、预算/预测、异常告警、rightsizing、K8s 成本分配与 AI 用量拆分；官方文档确认 CSV/API 导出与 UAE/EU 区域托管，但不把“30%+”典型客户结果当保证 | SRC-IBM-CLOUDABILITY-001；SRC-IBM-CLOUDABILITY-2025-001；SRC-IBM-CLOUDABILITY-2024-001 |
 | **Broadcom** | CloudHealth（FIN-02） | FinOps 平台 | 官方产品页支持多云/AI/token 成本、治理、FOCUS 与 Intelligent Assist；FlexReports 支持 Excel、邮件/S3 导出 | SRC-BROADCOM-CLOUDHEALTH-001；SRC-BROADCOM-FLEXREPORTS-001 |
 | **Harness** | Cloud Cost Management（FIN-03） | FinOps 平台 | 官方产品页支持云/AI 成本归因、优化与治理；企业模块价格与退出未核实 | SRC-HARNESS-CCM-001 |
 | **IBM Apptio** | Kubecost（FIN-04） | K8s FinOps | 官方产品页支持实时 K8s 成本、Free/Enterprise 与自托管；具体许可与导出未核实 | SRC-APPTIO-KUBECOST-001 |
@@ -106,7 +106,7 @@ FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格�
 | SEC-03 Palo Alto Cortex / AgentiX | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | SEC-04 CrowdStrike Charlotte AI | 未核实 | 未核实 | 符合条件客户可在 Falcon console 使用，每月 50 AI credits 并续期 | 其他价格、最低消费与超额未核实 | 未核实 | 未核实 |
 | SEC-07 IBM QRadar | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
-| FIN-01 IBM Cloudability | 未核实 | 未核实 | 页面列 Essentials/Standard/Premium；具体许可单位未核实 | 未核实 | 未核实 | 未核实 |
+| FIN-01 IBM Cloudability | 现行产品文档持续更新；IBM Cloud 成本集成 GA，整体版本状态未核实 | 已核实 UAE 托管与欧洲区域发布；完整区域清单未核实 | 页面列 Essentials/Standard/Premium；具体许可单位未核实 | IBM Cloud 支出受合同 Monitored Cost Limit；普遍最低价/超额单价未核实 | 官方称 UAE/欧洲区域客户数据留在区域内；完整驻留与保留承诺未核实 | 报表 CSV、Resource Inventory API、CUR 2.0 CSV/Parquet；完整租户导出、删除时限与退出未核实 |
 | SEC-01 Microsoft Security Copilot | 官方 FAQ；商业云在售 | 美政府云不支持；tenant Geo | SCU / E5-E7 分阶段 | 最低消费与超额未核实 | EU 租户且不共享时静态数据在 EU | 删除需支持入口；完整导出未核实 |
 | SEC-08 DropZone AI | Analyst 在售；Hunter Beta | EU 可申请 | 企业/MSSP/联邦询价 | 未核实 | 官方支持 EU 专属租户 | 证据报告；保留至合同结束 |
 | SEC-09 Datadog Bits Security Analyst | 官方发布说明 GA | 未核实 | Cloud SIEM；价格未核实 | 未核实 | 官方称第三方 AI 零留存/零训练 | API Preview；完整退出未核实 |

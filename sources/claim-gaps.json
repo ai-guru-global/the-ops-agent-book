@@ -1665,7 +1665,9 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-IBM-CLOUDABILITY-001"
+        "SRC-IBM-CLOUDABILITY-001",
+        "SRC-IBM-CLOUDABILITY-2025-001",
+        "SRC-IBM-CLOUDABILITY-2024-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
@@ -1997,15 +1999,15 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-AWS-AGENTCORE-001"
+        "SRC-AWS-AGENTCORE-001",
+        "SRC-AWS-AGENTCORE-GA-001",
+        "SRC-AWS-AGENTCORE-REGIONS-001",
+        "SRC-AWS-AGENTCORE-PRICING-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
         "data_residency",
-        "export_exit",
-        "minimum_overage",
-        "region",
-        "status"
+        "export_exit"
       ]
     },
     {
@@ -2291,6 +2293,8 @@
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
         "SRC-MS-SRE-001",
+        "SRC-MS-SRE-API-001",
+        "SRC-MS-SRE-SETUP-001",
         "SRC-MS-SRE-SECURITY-001",
         "SRC-MS-SRE-DATA-PRIVACY-001",
         "SRC-MS-SRE-PRICING-001",
@@ -4000,10 +4004,10 @@
       "P2": 17
     },
     "unverified_field_counts": {
-      "status": 91,
-      "region": 106,
+      "status": 90,
+      "region": 105,
       "licensing_pricing": 78,
-      "minimum_overage": 124,
+      "minimum_overage": 123,
       "data_residency": 98,
       "export_exit": 119,
       "other": 58

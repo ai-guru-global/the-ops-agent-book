@@ -1,0 +1,10 @@
+API reference for Azure SRE Agent
+URL: https://learn.microsoft.com/en-us/azure/sre-agent/api-reference
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Both the control plane and data plane APIs are currently in preview. Endpoint paths, request and response schemas, and behavior might change before general availability.
+
+The control plane supports create, get, update, delete, start, stop and usage operations. The data plane supports listing/getting threads and messages, approvals, repositories, knowledge documents, triggers, hooks and extended-agent resources.
+
+Thread and message read APIs provide partial content access; the document does not promise a complete tenant export.

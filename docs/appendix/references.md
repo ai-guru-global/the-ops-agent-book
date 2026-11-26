@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 194 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 201 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -50,7 +50,10 @@ content_status: "reviewed"
 
 | source_id | 来源 | 类型 / claim | 访问日 | 快照 |
 | --- | --- | --- | --- | --- |
-| SRC-AWS-AGENTCORE-001 | [What is Amazon Bedrock AgentCore?](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) | official_doc / GC-AWS-04 | 2026-11-24 | 待存 / 仅入口 |
+| SRC-AWS-AGENTCORE-001 | [What is Amazon Bedrock AgentCore?](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) | official_doc / GC-AWS-04 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-AGENTCORE-001.txt` |
+| SRC-AWS-AGENTCORE-GA-001 | [Amazon Bedrock AgentCore is now generally available](https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/) | official_release / GC-AWS-04 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-AGENTCORE-GA-001.txt` |
+| SRC-AWS-AGENTCORE-PRICING-001 | [Amazon Bedrock AgentCore Pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) | official_doc / GC-AWS-04 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-AGENTCORE-PRICING-001.txt` |
+| SRC-AWS-AGENTCORE-REGIONS-001 | [Amazon Bedrock AgentCore endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock_agentcore.html) | official_doc / GC-AWS-04 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-AGENTCORE-REGIONS-001.txt` |
 | SRC-AWS-CLOUDWATCH-OMNI-001 | [CloudWatch Omni](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-omni.html) | official_doc / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-CLOUDWATCH-OMNI-001.txt` |
 | SRC-AWS-DEVOPS-001 | [AWS DevOps Agent](https://aws.amazon.com/devops-agent/) | official_doc / GC-AWS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-DEVOPS-001.txt` |
 | SRC-AWS-DEVOPS-GA-001 | [Announcing General Availability of AWS DevOps Agent](https://aws.amazon.com/blogs/mt/announcing-general-availability-of-aws-devops-agent/) | official_release / GC-AWS-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-DEVOPS-GA-001.txt` |
@@ -85,11 +88,13 @@ content_status: "reviewed"
 | SRC-MS-FOUNDRY-001 | [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) | official_doc / GC-MS-04 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-MS-SECCOPILOT-PRICING-001 | [Microsoft Security Copilot pricing](https://www.microsoft.com/en-us/security/pricing/microsoft-security-copilot/) | official_doc / GC-MS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SECCOPILOT-PRICING-001.txt` |
 | SRC-MS-SRE-001 | [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-OVERVIEW-001.txt` |
+| SRC-MS-SRE-API-001 | [API reference for Azure SRE Agent](https://learn.microsoft.com/en-us/azure/sre-agent/api-reference) | official_doc / GC-MS-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-MS-SRE-API-001.txt` |
 | SRC-MS-SRE-DATA-PRIVACY-001 | [Azure SRE Agent data residency and privacy](https://learn.microsoft.com/en-us/azure/sre-agent/data-privacy/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-DATA-PRIVACY-001.txt` |
 | SRC-MS-SRE-MITIGATIONS-001 | [Azure SRE Agent execute mitigations](https://learn.microsoft.com/en-us/azure/sre-agent/execute-mitigations/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-MITIGATIONS-001.txt` |
 | SRC-MS-SRE-PRICING-001 | [Azure SRE Agent pricing and billing](https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-PRICING-001.txt` |
 | SRC-MS-SRE-REGIONS-001 | [Azure SRE Agent supported regions](https://learn.microsoft.com/en-us/azure/sre-agent/supported-regions/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-REGIONS-001.txt` |
 | SRC-MS-SRE-SECURITY-001 | [Azure SRE Agent security overview](https://learn.microsoft.com/en-us/azure/sre-agent/security-overview/) | official_doc / GC-MS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SRE-SECURITY-001.txt` |
+| SRC-MS-SRE-SETUP-001 | [Create and Set Up Azure SRE Agent](https://learn.microsoft.com/en-us/azure/sre-agent/create-and-set-up) | official_doc / GC-MS-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-MS-SRE-SETUP-001.txt` |
 | SRC-OR-AGENTS-GA-001 | [Enterprise AI Agents are in General Availability in OCI Generative AI](https://docs.oracle.com/iaas/releasenotes/generative-ai/enterprise-ai.htm) | official_release / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-GA-001.txt` |
 | SRC-OR-AGENTS-REGIONS-001 | [Generative AI Models and Regions for Enterprise AI Agents](https://docs.oracle.com/en-us/iaas/Content/generative-ai/agentic-regions.htm) | official_doc / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-REGIONS-001.txt` |
 | SRC-OR-AGENTS-RETENTION-001 | [Creating a Project in OCI Generative AI](https://docs.oracle.com/en-us/iaas/Content/generative-ai/create-project.htm) | official_doc / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-RETENTION-001.txt` |
@@ -216,6 +221,8 @@ content_status: "reviewed"
 | SRC-FLEXERA-CCO-001 | [Flexera Cloud Cost Optimization](https://www.flexera.com/products/flexera-one/cloud-cost-optimization) | official_doc / FIN-09 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-FLEXERA-CCO-001.txt` |
 | SRC-HARNESS-CCM-001 | [Harness AI and Cloud Costs](https://www.harness.io/products/cloud-ai-cost-management) | official_doc / FIN-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-HARNESS-CCM-001.txt` |
 | SRC-IBM-CLOUDABILITY-001 | [IBM Cloudability](https://www.apptio.com/products/cloudability/) | official_doc / FIN-01 | 2026-11-24 | 待存 / 仅入口 |
+| SRC-IBM-CLOUDABILITY-2024-001 | [Cloudability - What's new in 2024](https://www.ibm.com/docs/en/cloudability-commercial/cloudability-standard/saas?topic=cloudability-whats-new-in-2024) | official_doc / FIN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-IBM-CLOUDABILITY-2024-001.txt` |
+| SRC-IBM-CLOUDABILITY-2025-001 | [Cloudability - What's new in 2025](https://www.ibm.com/docs/en/cloudability-commercial/cloudability-enterprise/saas?topic=cloudability-whats-new-in-2025) | official_doc / FIN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-IBM-CLOUDABILITY-2025-001.txt` |
 | SRC-VANTAGE-PRICING-001 | [Vantage pricing](https://www.vantage.sh/pricing) | official_doc / FIN-06 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-VANTAGE-PRICING-001.txt` |
 
 ### 网络与云网

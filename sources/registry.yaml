@@ -167,11 +167,58 @@ sources:
   title: What is Amazon Bedrock AgentCore?
   url: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
   type: official_doc
-  accessed_at: '2026-11-24'
+  accessed_at: '2026-11-26'
   review_by: '2027-02-22'
-  notes: 官方文档；支持运行时、身份、记忆、工具、观测等模块及无预付/最低费用的按量定价表述。
+  notes: 官方文档确认模块化 Agent 平台与无预付承诺/最低费用的按量定价；不证明所有子服务在同一区域可用。
   claims:
   - GC-AWS-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-AGENTCORE-001.txt
+    sha256: db5834cb8f2adb533e140d1bb2d1242cf393631718fbf961656f358853e576fc
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-AWS-AGENTCORE-GA-001
+  title: Amazon Bedrock AgentCore is now generally available
+  url: https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/
+  type: official_release
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方 2025-10-13 公告确认 AgentCore 整体 GA 与首批九个区域；当前区域能力需以端点/功能文档为准。
+  claims:
+  - GC-AWS-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-AGENTCORE-GA-001.txt
+    sha256: 36986066d387c7acf9680a5bcd597ce1b5b50977c494ae7275c5b665b5f96c6c
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-AWS-AGENTCORE-REGIONS-001
+  title: Amazon Bedrock AgentCore endpoints and quotas
+  url: https://docs.aws.amazon.com/general/latest/gr/bedrock_agentcore.html
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方列出控制面/数据面九区与 Gateway 额外区域；端点存在不证明每个子服务可用。
+  claims:
+  - GC-AWS-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-AGENTCORE-REGIONS-001.txt
+    sha256: a89cd061ee50b1eef7143de7e86b755b1b5795d412dfe6556358d0a2569b9bd5
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-AWS-AGENTCORE-PRICING-001
+  title: Amazon Bedrock AgentCore Pricing
+  url: https://aws.amazon.com/bedrock/agentcore/pricing/
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方按消费定价、无预付承诺或最低费用；Runtime/Browser/Code Interpreter/Gateway/Identity/Memory/Web Search 有各自计量单位，网络与关联服务另收费。
+  claims:
+  - GC-AWS-04
+  snapshot:
+    path: reports/sources/snapshots/SRC-AWS-AGENTCORE-PRICING-001.txt
+    sha256: 5c208472d842283be67ee28003525569ca0c6763fb17e7428f679caa43606438
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-AWS-QUICK-001
   title: AWS Quick
   url: https://aws.amazon.com/quick/
@@ -195,6 +242,34 @@ sources:
     sha256: aef4808cb0a2e9a048baccbc6e0e516128a67b9f306de50ae01e44d96b2ef56d
     captured_at: '2026-11-25'
     method: html-to-text
+- source_id: SRC-MS-SRE-API-001
+  title: API reference for Azure SRE Agent
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/api-reference
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方明确控制面/数据面 API 仍为 preview；线程/消息/审批/知识等 API 提供部分读取与删除能力，不构成完整租户导出承诺。
+  claims:
+  - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-API-001.txt
+    sha256: 9a853016e29ad1e2b884715c20dbd02da4099bf6346d014eb4503089ebc0ea25
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-MS-SRE-SETUP-001
+  title: Create and Set Up Azure SRE Agent
+  url: https://learn.microsoft.com/en-us/azure/sre-agent/create-and-set-up
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方说明 Agent 365 对 person-started chat turns 的默认内容导出、EUDB 模型提示与30天免 always-on 试用；完整导出/退出仍未知。
+  claims:
+  - GC-MS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-MS-SRE-SETUP-001.txt
+    sha256: 943b470f6ee4f0de7c04b9b12736335e8912e4f108dbb4cc9f32c8b637873847
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-MS-SRE-SECURITY-001
   title: Azure SRE Agent security overview
   url: https://learn.microsoft.com/en-us/azure/sre-agent/security-overview/
@@ -434,6 +509,34 @@ sources:
   notes: 官方营销页；成本分配、预算、rightsizing、K8s 与 AI 成本；30%+ 为 typical outcomes，不作保证。
   claims:
   - FIN-01
+- source_id: SRC-IBM-CLOUDABILITY-2025-001
+  title: Cloudability - What's new in 2025
+  url: https://www.ibm.com/docs/en/cloudability-commercial/cloudability-enterprise/saas?topic=cloudability-whats-new-in-2025
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方确认 CSV 报表导出、Resource Inventory 报表保存/共享、AWS CUR 2.0 CSV/Parquet；不证明完整租户退出、删除SLA或公开最低价格。
+  claims:
+  - FIN-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-IBM-CLOUDABILITY-2025-001.txt
+    sha256: 2ed59553c749c886eab773ad4bd072d133b78028bf38d18d064335e411fb02b5
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-IBM-CLOUDABILITY-2024-001
+  title: Cloudability - What's new in 2024
+  url: https://www.ibm.com/docs/en/cloudability-commercial/cloudability-standard/saas?topic=cloudability-whats-new-in-2024
+  type: official_doc
+  accessed_at: '2026-11-26'
+  review_by: '2027-02-22'
+  notes: 官方确认中东UAE托管区域、Resource Inventory公共API与IBM Cloud成本管理GA；合同Monitored Cost Limit存在，但普遍最低价/超额/删除时限未公开。
+  claims:
+  - FIN-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-IBM-CLOUDABILITY-2024-001.txt
+    sha256: 374151b6ba864fdb7b4f0a83030737108b083c9dba6784d510b5ea6f72958f63
+    captured_at: '2026-11-26'
+    method: webfetch-markdown-excerpt
 - source_id: PUB-AWS-DEVOPS-INFOQ-001
   title: AWS DevOps Agent (InfoQ)
   url: https://www.infoq.cn/article/GJED7TYiFFUYb87re523

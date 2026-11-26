@@ -1,0 +1,10 @@
+Amazon Bedrock AgentCore Pricing
+URL: https://aws.amazon.com/bedrock/agentcore/pricing/
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+AgentCore offers flexible, consumption-based pricing with no upfront commitments or minimum fees.
+
+Examples of listed units include Runtime microVM vCPU-hour and GB-hour, Browser/Code Interpreter CPU-hour and GB-hour, Gateway API calls per 1,000, Identity token/API-key requests, Memory events, and Web Search queries per 1,000.
+
+Network data transfer and connected AWS services can incur additional charges.

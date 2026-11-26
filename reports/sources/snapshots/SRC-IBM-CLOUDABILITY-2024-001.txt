@@ -1,0 +1,12 @@
+Cloudability: What's new in 2024
+URL: https://www.ibm.com/docs/en/cloudability-commercial/cloudability-standard/saas?topic=cloudability-whats-new-in-2024
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+September 30, 2024: Cloudability hosting was introduced in the Middle East region at a UAE data center. The release states that regional customers' data remains within regional boundaries.
+
+December 24, 2024: Public API endpoints support AWS and Azure Resource Inventory data previously available only through the UI.
+
+December 13, 2024: IBM Cloud cost management reached GA. IBM Cloud managed spend is subject to the contracted Monitored Cost Limit.
+
+The page does not publish a universal minimum price, overage tariff, full export format or deletion timeline.

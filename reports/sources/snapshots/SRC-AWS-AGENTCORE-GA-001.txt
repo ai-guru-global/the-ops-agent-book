@@ -1,0 +1,10 @@
+Amazon Bedrock AgentCore is now generally available
+URL: https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Amazon Bedrock AgentCore is now generally available.
+
+The launch lists nine AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Frankfurt), and Europe (Ireland).
+
+AgentCore uses consumption-based pricing with no upfront fee.

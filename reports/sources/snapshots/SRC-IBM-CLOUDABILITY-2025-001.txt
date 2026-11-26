@@ -1,0 +1,12 @@
+Cloudability: What's new in 2025
+URL: https://www.ibm.com/docs/en/cloudability-commercial/cloudability-enterprise/saas?topic=cloudability-whats-new-in-2025
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+October 16, 2025: Cloudability Reports allows report data export in CSV format consistent with the selected locale, using dot or comma as the decimal separator.
+
+October 31, 2025: Resource Inventory reports can be saved with date, service and filter selections and shared with View Only or Edit permissions.
+
+December 9, 2025: AWS CUR 2.0 supports text/csv gzip and Parquet formats.
+
+The page describes product features and releases; it does not state a full tenant exit format, deletion SLA or public minimum price.

@@ -1,0 +1,12 @@
+Amazon Bedrock AgentCore endpoints and quotas
+URL: https://docs.aws.amazon.com/general/latest/gr/bedrock_agentcore.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Control plane and data plane endpoints are listed for:
+us-east-1, us-east-2, us-west-2, ap-southeast-1, ap-southeast-2, ap-south-1, ap-northeast-1, eu-west-1, eu-central-1.
+
+Gateway data plane endpoints are additionally listed for:
+us-west-1, eu-west-2, eu-west-3, eu-south-1, eu-south-2, eu-north-1, ap-northeast-2, ap-south-2, ap-southeast-5, ap-southeast-7, ca-central-1, sa-east-1.
+
+Feature availability must be checked per service; endpoint presence does not prove every AgentCore capability is available in every Region.

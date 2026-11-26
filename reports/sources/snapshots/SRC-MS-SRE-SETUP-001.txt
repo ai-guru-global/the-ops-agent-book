@@ -1,0 +1,10 @@
+Create and Set Up Azure SRE Agent
+URL: https://learn.microsoft.com/en-us/azure/sre-agent/create-and-set-up
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Where export is available, the identity enables Agent 365 content export by default for person-started chat turns, with no per-agent opt-out.
+
+In EUDB regions, the wizard labels providers either Covered by EU Data Boundary commitments or Excluded from EU Data Boundary. Data might be processed in the United States.
+
+New customers can evaluate SRE Agent without paying always-on charges for the first 30 days.
