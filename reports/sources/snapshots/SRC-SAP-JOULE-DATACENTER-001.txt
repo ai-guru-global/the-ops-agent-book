@@ -1,0 +1,10 @@
+SAP S/4HANA Cloud Private Edition - Customer data center option
+URL: https://www.sap.com/products/erp/s4hana-private-edition/customer-data-center.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+The customer data center option can deliver SAP Business AI capabilities such as Joule within the customer's infrastructure.
+
+The offering includes embedded ERP AI use cases running locally and necessary AI Foundation services accessed through a secure connection to SAP Business Technology Platform cloud infrastructure.
+
+SAP states that payload data never leaves the customer's physical landscape to satisfy national security and residency mandates.

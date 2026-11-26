@@ -55,7 +55,7 @@ flowchart TB
 | 产品 | 形态 | 运维域 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
 | **AWS DevOps Agent**（GC-AWS-01） | 独立运维 Agent | 发布、事件响应、可靠性 | 官方公告确认整体于 2026-03-31 GA；可调查告警、给出根因与缓解步骤，接入 CloudWatch、Dynatrace、Datadog、Grafana、New Relic、Splunk 及代码/CI/CD；Code Change Risk Analysis 仍为 Preview | SRC-AWS-DEVOPS-001；SRC-AWS-DEVOPS-GA-001；SRC-AWS-DEVOPS-PRICING-001；SRC-AWS-DEVOPS-SECURITY-001；SRC-AWS-DEVOPS-REGIONS-001 |
-| **Amazon Q Developer**（GC-AWS-02） | 内嵌助手 | 开发 + 云工程 | 官方页面仍列 IDE/CLI 等入口；IDE 插件将于 2027-04-30 停止支持，其他形态能力与整体状态未核实 | SRC-AWS-QDEV-001 |
+| **Amazon Q Developer**（GC-AWS-02） | 内嵌助手 | 开发 + 云工程 | 官方确认 IDE/CLI 保留 Amazon Q Developer 名称，控制台体验更名 AWS assistant；提供 Free 与 Pro，IDE 插件将于 2027-04-30 停止支持；Pro 按用户月付，指定功能按 profile 区域存储 | SRC-AWS-QDEV-001；SRC-AWS-QDEV-PRICING-001；SRC-AWS-QDEV-DATA-001；SRC-AWS-QDEV-REGIONS-001 |
 | **Amazon CloudWatch Omni / investigations**（GC-AWS-03） | 平台 AI 能力 | 可观测 | 官方文档支持 AI 可观测体验、事故调查与根因分析；定价、跨区域推理风险与保留规则见官方文档 | SRC-AWS-CLOUDWATCH-OMNI-001；SRC-AWS-OMNI-PRICING-001；SRC-AWS-OMNI-SECURITY-001；SRC-AWS-OMNI-RETENTION-001；SRC-AWS-OMNI-REGIONS-001 |
 | **Amazon Bedrock AgentCore**（GC-AWS-04） | Agent 运行时 | 通用 | 官方公告确认 2025-10-13 整体 GA；Runtime、Memory、Gateway、Identity、Code Interpreter、Browser、Observability、Evaluations 等模块可独立/组合使用；按消费定价且无预付承诺或最低费用 | SRC-AWS-AGENTCORE-001；SRC-AWS-AGENTCORE-GA-001；SRC-AWS-AGENTCORE-REGIONS-001；SRC-AWS-AGENTCORE-PRICING-001 |
 | **AWS Quick**（GC-AWS-05；旧书称 Quick Suite / Q Business） | 内嵌/平台 | 企业知识与工作 | 官方页面称可从对话生成文档/表格/演示稿，做研究，构建应用，并连接 Slack、Salesforce、Notion、Jira、Box 等 | SRC-AWS-QUICK-001 |
@@ -80,7 +80,7 @@ Microsoft 的已核验路线是“**Azure Copilot + SRE Agent + Foundry + GitHub
 | --- | --- | --- | --- | --- |
 | **Gemini Cloud Assist**（GC-GO-01） | 内嵌助手 | 云运维/可观测 | 官方文档支持设计/部署/排障/优化、多 Agent 工具调用与专用 Agent Identity；明确 Preview/Pre-GA | SRC-GOOGLE-CLOUD-ASSIST-001 |
 | **Gemini agent**（GC-GO-02） | 通用工作 Agent | 跨 Workspace/企业系统 | 官方公告称已发布 universal agent for work，可连接业务系统并交付成果；GA、区域与商业条款未核实 | SRC-GO-GEMINI-AGENT-001 |
-| **Gemini Enterprise / Workspace**（GC-GO-03） | 内嵌助手 | 办公/企业知识 | 官方文档支持企业搜索、Assistant、connectors、Agent Registry/Workflow Builder 与项目/位置绑定许可；部分模型路由 global 时无区域 DRZ | SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001 |
+| **Gemini Enterprise / Workspace**（GC-GO-03） | 内嵌助手 | 办公/企业知识 | 官方文档支持企业搜索、Assistant、connectors、Agent Registry/Workflow Builder 与项目/位置绑定许可；部分模型路由 global 时无区域 DRZ；超额用量与项目月度支出上限有官方控制 | SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001；SRC-GOOGLE-GEMINI-ENTERPRISE-QUOTAS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-BILLING-001 |
 | **Google Security Operations (Gemini)**（GC-GO-04） | 安全运营 | SecOps | 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini 与自管 BigQuery 导出；BYOBQ 不适用于 Enterprise Plus；区域部署不跨区流量，多区域按 feeds 采用同步或异步复制；删除租户不自动取消计费 | SRC-GOOGLE-SECOPS-PACKAGES-001；SRC-GOOGLE-SECOPS-EXPORT-001；SRC-GOOGLE-SECOPS-DEPROVISION-001；SRC-GOOGLE-SECOPS-QUOTAS-001；SRC-GOOGLE-SECOPS-DR-001 |
 | **Gemini Code Assist**（GC-GO-05） | 内嵌编码助手 | 研发 | 官方文档称 2026-10-09 起停售新订阅；存量年付可续订至 2027-01-31、月付至 2027-12-31，并转向 Antigravity | SRC-GOOGLE-CODEASSIST-SUNSET-001 |
 | **Agent Development Kit（ADK）**（GC-GO-06；Agentspace 已并入 Gemini Enterprise，状态未核实） | Agent 框架 | 通用 | Google 官方仓库发布 ADK 2.0 GA，支持多 Agent 工作流与动态协作；不等于托管 Runtime 的区域或 SLA | SRC-GO-ADK-V2-001 |
@@ -106,7 +106,7 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | Oracle | OCI Generative AI — Enterprise AI Agents（GC-OR-01） | Agent 平台 | 官方发布说明确认 2026-03-31 GA；文档描述 Responses API、托管应用与混合架构，支持工具调用、记忆、NL2SQL 和隔离沙箱；不是运维专用 Agent | SRC-OR-ENTERPRISE-AGENTS-001；SRC-OR-AGENTS-GA-001；SRC-OR-AGENTS-REGIONS-001；SRC-OR-AGENTS-RETENTION-001 |
 | Oracle | OCI Operations Insights（GC-OR-02） | AIOps | 官方文档支持数据库/主机资源与容量洞察、SQL/Exadata 分析；MySQL HeatWave 弃用与存量迁移需按文档执行 | SRC-OR-OPSINSIGHTS-001 |
 | Oracle | Fusion AI Agents（GC-OR-03） | 内嵌业务 Agent | 官方 25C 发布说明支持 AI Agents 页面、会话与聊天入口；统一 GA 范围未核实 | SRC-OR-FUSION-AI-001 |
-| SAP | Joule（GC-SAP-01） | 内嵌助手 | 官方页面支持 Joule Work/Assistants/Agents/Studio、跨 SAP 与非 SAP 工作流及 agent gateway；完整 GA 与商业细节未核实 | SRC-SAP-AI-JOULE-001 |
+| SAP | Joule（GC-SAP-01） | 内嵌助手 | 官方页面支持 Joule Work/Assistants/Agents/Studio、跨 SAP 与非 SAP 工作流及 agent gateway；客户数据留在 SAP 租户，Joule 本身不存储客户数据；客户数据中心选项可在本地运行 Joule | SRC-SAP-AI-JOULE-001；SRC-SAP-JOULE-DATACENTER-001 |
 | SAP | Joule Agents and Joule Assistants（GC-SAP-02） | Agent 平台/业务 Agent | 官方页面描述跨 SAP/非 SAP 多步业务 Agent、人工监督、唯一身份、Agent 网关与沙箱；不证明 IT 运维能力 | SRC-SAP-JOULE-AGENTS-001 |
 | ServiceNow | ServiceNow Otto / AI Agents（GC-SN-01） | 内嵌助手 + Agent 平台 | 官方指南确认 Foundation/Advanced/Prime，自定义 Agent 需 Prime；Assists 按动作与工具数档位消耗并年度重置；新 Studio 对指定补丁版本以上 GA，但 2026-09-10 正文仍称不能删除 agentic solutions | SRC-SN-AI-AGENTS-001；SRC-SN-AI-AGENTS-GUIDE-001；SRC-SN-AGENT-STUDIO-2026-09-001 |
 | ServiceNow | Super Intelligence Control Tower（GC-SN-02） | Agent 治理 | 官方发布说明支持 AI 资产发现、治理、安全、观测、度量、运行时监控与 kill switch；公开报价未核实 | SRC-SN-CONTROLTOWER-001 |
@@ -117,7 +117,7 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | claim_id / 产品 | 状态 | 区域 | 许可/计费单位 | 最低消费 / 超额 | 数据驻留 | 导出 / 退出 |
 | --- | --- | --- | --- | --- | --- | --- |
 | GC-AWS-01 AWS DevOps Agent | 整体 GA：2026-03-31；Code Change Risk Analysis 为 Preview | 16 个支持区域；生产运维/按需任务/自定义 Agent 覆盖全部支持区域，GovCloud 功能有例外 | $0.0083/agent-second；按实际工作时间计费 | 无预付承诺或空闲等待费；新客户 2 个月试用，每月 10 Agent Spaces、20h 调查、15h 评估、20h 按需任务；关联 AWS 服务另收费 | 数据存储在 Agent Space 区域；提示/输出可能跨区或全球处理；删除后立即失去访问并在 30 天内永久删除；不用于训练 | 拓扑支持 PNG/JSON/Mermaid，调查/缓解摘要可经 API 读取；完整批量导出未核实；删除不可恢复，IAM 角色/策略需手工清理 |
-| GC-AWS-02 Amazon Q Developer | IDE 插件将于 2027-04-30 停服；其他形态未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-AWS-02 Amazon Q Developer | IDE/CLI 在用；控制台体验更名 AWS assistant；IDE 插件 2027-04-30 停止支持 | Builder ID Pro 支持 us-east-1；控制台/profile 支持 us-east-1 与 eu-central-1，Frankfurt 有功能限制 | Free 零成本；Pro $19/用户/月 | Pro 按月续订直至取消；代码转换 4,000 LOC/月账户池，超额 $0.003/LOC；未声明额外最低购买量 | 指定 Pro 功能按 profile 区域存储；其他功能/Free 多在美国区域；跨区推理按地理范围处理 | 可取消 Pro 订阅；完整内容批量导出、删除时限与迁移协助未核实 |
 | GC-AWS-04 AgentCore | 整体 GA：2025-10-13；子能力状态需分别核对 | 控制面/数据面九区；Gateway 额外列十二区，功能可用性因服务而异 | 按消费计量；Runtime/Browser/Code Interpreter/Gateway/Identity/Memory/Web Search 各有单位 | 无预付承诺或最低费用；网络传输与关联 AWS 服务另收费 | 未核实；Bedrock 推理保留规则不等于 AgentCore 全平台驻留承诺 | 可通过 API/OTel 读取运行数据；完整租户导出、删除时限与迁移协助未核实 |
 | GC-AWS-05 AWS Quick | 未核实 | 未核实 | 页面列 Free/Plus/Max 与组织版，按 user/month；组织版另有账户基础设施费 | Agent hours 因版本而异；具体额度、超额未核实 | 未核实 | 未核实 |
 | GC-MS-01 Azure SRE Agent | 控制面/数据面 API 为 preview；整体 GA 范围未核实 | 22 个已列区域；每 Agent 单区域，创建后不可更改，多区域需分别创建（SRC-MS-SRE-REGIONS-001） | AAU：always-on 4 AAU/Agent/小时 + active flow token 用量（SRC-MS-SRE-PRICING-001） | active flow 月度分配可设 500–1,000,000 AAU；达上限暂停 chat/actions，但 always-on 继续计费 | 对话/上传文件存所选 Agent 区域；Azure OpenAI 在 EU/EFTA 边界内推理，Anthropic 可全球处理且不适用 EUDB（SRC-MS-SRE-DATA-PRIVACY-001） | API 可读线程/消息；Agent 365 可对 person-started chat turns 默认导出；删除 Agent 停止计费并清除代理管理数据；完整批量导出未核实（SRC-MS-SRE-API-001；SRC-MS-SRE-SETUP-001） |
@@ -137,10 +137,10 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | GC-OR-03 Fusion AI Agents | 25C 发布说明；统一 GA 未核实 | 未核实 | 需角色/权限/duty roles；商业费用未核实 | 未核实 | 未核实 | 未核实 |
 | GC-SN-02 Control Tower | 官方 8–9 月发布说明；AI Gateway 2026-09-10 GA | 未核实 | Store 标记 paid；公开报价未核实 | 未核实 | 未核实 | 未核实 |
 | GC-GO-01 Gemini Cloud Assist | Preview/Pre-GA | 未核实 | 所有 Cloud 用户与 Code Assist Enterprise 权益分层 | 未核实 | 未核实 | 未核实 |
-| GC-GO-03 Gemini Enterprise | 基础功能；国内区域 GA+allowlist | global/us/eu；br/ca/in/JP/SG/UK | 月付/年付；项目与位置绑定许可 | 未核实 | at-rest DRZ/MLP 受模型与位置限制；不支持模型路由 global | 用户许可 CSV≤100 万条；关闭自动续订；内容批量导出未核实 |
+| GC-GO-03 Gemini Enterprise | 基础功能；国内区域 GA+allowlist | global/us/eu；br/ca/in/JP/SG/UK | 月付/年付；项目与位置绑定许可；纯按量版无许可费 | 超额需有效非试用订阅；按预付余额或月度发票计费；项目月度支出上限可停止付费用量，但生效延迟可能超额 | at-rest DRZ/MLP 受模型与位置限制；不支持模型路由 global | 用户许可 CSV≤100 万条；关闭自动续订；内容批量导出未核实 |
 | GC-GO-04 Google SecOps | Standard/Enterprise/Enterprise Plus；整体 GA 未核实 | 区域部署数据与流量不跨区；多区域 geo-redundant，有 feeds 时异步复制存在 RPO；完整区域清单未核实 | 按年度采购注入容量；Standard 含 12 个月热保留；销售询价 | 1x–3x 日均突发是技术窗口，不是免超额额度；最低金额与超额单价未核实 | 区域部署单区存储；多区域无 feeds 同步、有 feeds 异步；Gemini/SOAR 全部处理边界未核实 | 八类 UDM/检测/指标导自管 BigQuery；Enterprise Plus 不支持 BYOBQ；历史数据不迁移；12 天软删后永久删除含备份，删除不取消计费；完整配置/SOAR 导出未核实 |
 | GC-GO-05 Gemini Code Assist | 2026-10-09 停售新订阅 | 未核实 | 仅存量；续订截止见正文 | 未核实 | 未核实 | 转向 Gemini Enterprise 所含 Antigravity；数据导出未核实 |
-| GC-SAP-01 SAP Joule | 官方产品页；完整 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 完整导出/退出未核实 |
+| GC-SAP-01 SAP Joule | 官方产品页；完整 GA 未核实 | 提供客户数据中心选项；完整区域清单未核实 | 现有 SAP 云订阅可激活 Joule base；完整商业价格未核实 | 未核实 | 客户数据留在 SAP 租户且 Joule 不存储客户数据；客户数据中心选项称 payload 不离开物理环境，必要 AI Foundation 服务仍连接 SAP BTP | Deep Research 可导出通用格式；完整 Joule 内容/配置导出与退出未核实 |
 
 Azure SRE Agent 的执行边界已由官方文档具体化：每个 Agent 使用独立微 VM 沙箱，身份 sidecar 提供单次、按工具调用作用域的 token；Review 模式需批准写操作，ReadOnly 不采取动作，delete/remove 与 `az keyvault` 命令被阻止，资源管理锁受尊重，审计记录身份、动作、时间、触发者与结果（SRC-MS-SRE-SECURITY-001；SRC-MS-SRE-MITIGATIONS-001）。这些是厂商控制声明，不能替代本组织的策略执行点、计划哈希复核和真实演练。
 

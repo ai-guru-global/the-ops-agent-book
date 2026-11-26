@@ -1,0 +1,12 @@
+How billing works in Gemini Enterprise
+URL: https://docs.cloud.google.cn/gemini/enterprise/docs/manage-costs-overview?hl=en
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Subscription-only editions are billed per license and usage stops at pooled quotas unless overage is enabled.
+
+Subscription with pay-as-you-go usage above quota charges usage beyond pooled quotas at pay-as-you-go rates. The Pay-as-you-go edition has no license fee and charges all usage.
+
+A project monthly spend limit stops paid usage when reached. Usage resumes next month or earlier if the cap is lifted. Stopping usage can take time to take effect, so charges can exceed the limit.
+
+Prepaid credit balance and monthly auto-charge limits provide additional controls.

@@ -1,0 +1,10 @@
+Data storage in Amazon Q Developer
+URL: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/data-storage.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+For specified Amazon Q Developer Pro features, IAM Identity Center workforce user content is stored in the AWS Region where the Amazon Q Developer profile was created.
+
+For other Pro features, integrations, and the Free tier, content may be stored and processed in a US Region. Console-error diagnosis data is stored in US West (Oregon); other data is stored in US East (N. Virginia).
+
+Cross-region inference can process requests in a different Region within the geography where content is stored. Some Redshift and Console-to-Code features have different regional behavior.

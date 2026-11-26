@@ -105,7 +105,7 @@ flowchart TB
 | 产品 | 内嵌助手/Agent（claim） | 运维相关性 | source_id |
 | --- | --- | --- | --- |
 | Google Workspace Gemini（EMB-GO-01） | Gmail/Docs/Sheets/Meet/Chat/Vids 内 AI；Business/Enterprise 内置 | 运维知识、沟通（场景建议） | SRC-GOOGLE-WORKSPACE-GEMINI-001 |
-| Gemini Enterprise（GC-GO-03） | 企业搜索、Assistant、connectors、Agent Registry/Workflow Builder；区域与模型限制见商业字段卡 | 运维知识库、SOP（场景建议） | SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001 |
+| Gemini Enterprise（GC-GO-03） | 企业搜索、Assistant、connectors、Agent Registry/Workflow Builder；区域与模型限制见商业字段卡 | 运维知识库、SOP（场景建议） | SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001；SRC-GOOGLE-GEMINI-ENTERPRISE-QUOTAS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-BILLING-001 |
 | Gemini Cloud Assist（GC-GO-01） | 能力未核实 | 云故障排查、优化（场景建议） | 未核实 |
 | Gemini Code Assist（GC-GO-05） | 能力未核实 | 研发（场景建议） | 未核实 |
 | Google Security Operations（GC-GO-04） | 能力未核实 | SecOps（场景建议） | 未核实 |
@@ -114,7 +114,7 @@ flowchart TB
 
 | 产品 | 内嵌助手/Agent（claim） | 运维相关性 | source_id |
 | --- | --- | --- | --- |
-| Amazon Q Developer（GC-AWS-02） | 官方页面仍列 IDE/CLI 等入口；IDE 插件将于 2027-04-30 停止支持，其他形态未核实 | 云工程、排障 | SRC-AWS-QDEV-001 |
+| Amazon Q Developer（GC-AWS-02） | IDE/CLI 保留 Amazon Q Developer 名称；控制台体验更名 AWS assistant；Free/Pro 两档，IDE 插件 2027-04-30 停止支持 | 云工程、排障 | SRC-AWS-QDEV-001；SRC-AWS-QDEV-PRICING-001；SRC-AWS-QDEV-DATA-001；SRC-AWS-QDEV-REGIONS-001 |
 | AWS Quick（GC-AWS-05；旧称 Quick Suite / Q Business） | 文档/表格/演示稿生成、研究、自然语言构建应用、工具连接 | 运维知识、工单、分析 | SRC-AWS-QUICK-001 |
 | CloudWatch Omni / investigations（GC-AWS-03） | AI 可观测体验、事故调查与根因分析 | 告警调查/可观测 | SRC-AWS-CLOUDWATCH-OMNI-001 |
 | AWS DevOps Agent（GC-AWS-01） | 告警调查、根因与缓解步骤、可观测/代码/CI/CD 集成；Release Management 为 Preview | 事件响应/根因/可靠性；属于独立 Agent | SRC-AWS-DEVOPS-001 |
@@ -134,7 +134,7 @@ flowchart TB
 | --- | --- | --- | --- |
 | ServiceNow Now Assist / AI Agents（GC-SN-01） | Foundation/Advanced/Prime；自定义 Agent 需 Prime；新 Studio 指定补丁以上 GA，但 agentic solutions 删除仍受限 | 工单、事件、变更、AIOps（场景建议） | SRC-SN-AI-AGENTS-001；SRC-SN-AI-AGENTS-GUIDE-001；SRC-SN-AGENT-STUDIO-2026-09-001 |
 | Salesforce Agentforce（GC-SF-01） | 业务 Agent、CRM/Data 360 grounding、人工升级、Agent Builder 与多 Agent 编排 | 服务运营；未证明 IT 运维能力 | SRC-SF-AGENTFORCE-001 |
-| SAP Joule（GC-SAP-01） | Joule Work/Assistants/Agents/Studio；跨 SAP/非 SAP 工作流与 agent gateway | 业务运营（场景建议） | SRC-SAP-AI-JOULE-001 |
+| SAP Joule（GC-SAP-01） | Joule Work/Assistants/Agents/Studio；跨 SAP/非 SAP 工作流与 agent gateway；客户数据留在 SAP 租户 | 业务运营（场景建议） | SRC-SAP-AI-JOULE-001；SRC-SAP-JOULE-DATACENTER-001 |
 | Oracle Fusion AI Agents（GC-OR-03） | 25C 发布说明提供 AI Agents 页面与会话入口；统一 GA 未核实 | 业务运营 | SRC-OR-FUSION-AI-001 |
 | Workday Illuminate（EMB-ENT-01） | HR/Finance/Industry purpose-built agents；2025 发布说明称新 agents 2026 可用，当前 GA 未核实 | 企业运营（场景建议） | SRC-WORKDAY-ILLUMINATE-001 |
 | Atlassian Rovo（EMB-ENT-02） | 跨 SaaS 搜索/聊天/agents、Teamwork Graph 与管理员 AI 访问控制；支持 data residency | 研发/ITSM 协作（场景建议） | SRC-ATLASSIAN-ROVO-001；SRC-ATLASSIAN-ROVO-PRIVACY-001 |
@@ -157,7 +157,7 @@ flowchart TB
 | --- | --- | --- | --- | --- | --- | --- |
 | GC-MS-02 Azure Copilot | migration agent 为 public preview；整体未核实 | 未核实；不适用于 national clouds | 当前 chat/agentic capabilities 无额外费用；Observability Agent 按 usage 计费 | 未来 Agent 价格、最低消费与超额未核实 | 未核实 | 未核实 |
 | GC-MS-05 GitHub Copilot | 未核实 | 未核实 | 按计划与 credits/user；具体额度未核实 | 页面称超额 credits 为 $0.01/枚，可设预算 | 未核实 | 未核实 |
-| GC-AWS-02 Amazon Q Developer | IDE 插件 2027-04-30 停服；其他形态未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-AWS-02 Amazon Q Developer | IDE/CLI 在用；控制台更名 AWS assistant；IDE 插件 2027-04-30 停服 | Builder ID Pro 支持 us-east-1；控制台/profile 支持 us-east-1 与 eu-central-1 | Free 零成本；Pro $19/用户/月 | 按月续订；代码转换超额 $0.003/LOC；未声明额外最低购买量 | 指定 Pro 功能按 profile 区域；其他功能/Free 多在美国；跨区推理按地理范围 | 可取消订阅；完整内容批量导出与删除时限未核实 |
 | GC-AWS-05 AWS Quick | 未核实 | 未核实 | 按 user/month；组织版另有账户基础设施费 | Agent hours 因版本而异；超额未核实 | 未核实 | 未核实 |
 | GC-AWS-01 AWS DevOps Agent | 整体未核实；Release Management 为 Preview | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | ALI-02 AgentRun | 未核实 | 未核实 | 未核实 | 浅休眠计费有描述；具体价格/超额未核实 | 私有化/网络隔离为文档宣称；具体配置未核实 | 未核实 |
@@ -169,7 +169,7 @@ flowchart TB
 | EMB-MS-01 Microsoft 365 Copilot | 官方文档；许多区域可用，部分市场需批准 | 具体国家清单未核实；需 Entra 工作/学校账户 | E7 内置；Business≤300 用户年付加购；其他商业/政府/教育先决许可见官方清单 | 未核实 | EUDB；非 EU 流量可至其他国家/地区 | 管理员可分配/撤销许可；完整数据导出/删除未核实 |
 | EMB-MS-02 Dynamics 365 Sales Copilot | 官方现行文档；GA 时间未核实 | Sales Premium 区域清单与 Exchange 数据位置限制见官方文档；Copilot 指向产品可用性报告 | 指向 Dynamics 365 授权指南 | 未核实 | 未核实 | 未核实 |
 | EMB-GO-01 Workspace Gemini | 2025 官方公告；当前 GA 范围未核实 | 未核实 | 2025 起并入 Business/Enterprise；当前价格未核实 | 未核实 | 官方称不未经许可用企业数据训练域外模型 | 未核实 |
-| GC-SAP-01 SAP Joule | 官方产品页；完整 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 完整导出/退出未核实 |
+| GC-SAP-01 SAP Joule | 官方产品页；完整 GA 未核实 | 客户数据中心选项；完整区域清单未核实 | 现有 SAP 云订阅可激活 Joule base；完整价格未核实 | 未核实 | 客户数据留在 SAP 租户；Joule 不存储客户数据；数据中心选项称 payload 不离开物理环境 | Deep Research 可导出通用格式；完整 Joule 导出/退出未核实 |
 | EMB-ENT-01 Workday Illuminate | 2025 发布说明称新 agents 2026 可用；当前 GA 未核实 | 未核实 | Flex Credits 包含于订阅、每年重置 | 未核实 | 未核实 | 未核实 |
 | EMB-ENT-02 Atlassian Rovo | 官方产品/文档在列 | 支持 data residency；具体区域未核实 | 未核实 | 未核实 | 权限同步；LLM 提供商不留存输入输出 | 断开连接器后 30 天删除索引内容；全量导出未核实 |
 | EMB-ALI-01 QwenWork / AgentOne | QwenWork 国际版完整流程；AgentOne 2025-09 发布 | QwenWork 国际版；AgentOne 区域未核实 | QwenWork 套餐/积分/订阅；价格未核实 | 未核实 | 未核实 | QwenWork 交付物可下载；完整退出未核实 |

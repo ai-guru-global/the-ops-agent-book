@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 201 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 207 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -64,15 +64,20 @@ content_status: "reviewed"
 | SRC-AWS-OMNI-REGIONS-001 | [CloudWatch Omni regional availability](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-cloudwatch-omni-8-regions/) | official_release / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-OMNI-REGIONS-001.txt` |
 | SRC-AWS-OMNI-RETENTION-001 | [CloudWatch investigations data retention](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Retention.html) | official_doc / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-OMNI-RETENTION-001.txt` |
 | SRC-AWS-OMNI-SECURITY-001 | [Security in CloudWatch investigations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations-Security.html) | official_doc / GC-AWS-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-AWS-OMNI-SECURITY-001.txt` |
-| SRC-AWS-QDEV-001 | [Amazon Q Developer](https://aws.amazon.com/q/developer/) | official_doc / GC-AWS-02 | 2026-11-24 | 待存 / 仅入口 |
+| SRC-AWS-QDEV-001 | [What is Amazon Q Developer?](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html) | official_doc / GC-AWS-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-QDEV-001.txt` |
+| SRC-AWS-QDEV-DATA-001 | [Data storage in Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/data-storage.html) | official_doc / GC-AWS-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-QDEV-DATA-001.txt` |
+| SRC-AWS-QDEV-PRICING-001 | [Amazon Q Developer Pricing](https://aws.amazon.com/q/developer/pricing/) | official_doc / GC-AWS-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-QDEV-PRICING-001.txt` |
+| SRC-AWS-QDEV-REGIONS-001 | [Amazon Q Developer Pro Region support](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-regions.html) | official_doc / GC-AWS-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-AWS-QDEV-REGIONS-001.txt` |
 | SRC-AWS-QUICK-001 | [AWS Quick](https://aws.amazon.com/quick/) | official_doc / GC-AWS-05 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-GH-COPILOT-001 | [GitHub Copilot](https://github.com/features/copilot) | official_doc / GC-MS-05 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-GO-ADK-V2-001 | [Google ADK Python v2.0.0 General Availability](https://github.com/google/adk-python/releases/tag/v2.0.0) | official_release / GC-GO-06 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GO-ADK-V2-001.txt` |
 | SRC-GO-GEMINI-AGENT-001 | [Google Cloud launches Gemini agent](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/) | official_release / GC-GO-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GO-GEMINI-AGENT-001.txt` |
 | SRC-GOOGLE-CLOUD-ASSIST-001 | [Gemini Cloud Assist overview](https://docs.cloud.google.cn/cloud-assist/overview?hl=en) | official_doc / GC-GO-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CLOUD-ASSIST-001.txt` |
 | SRC-GOOGLE-CODEASSIST-SUNSET-001 | [Gemini Code Assist Standard and Enterprise subscriptions](https://docs.cloud.google.cn/gemini/docs/codeassist/sunset?hl=en) | official_doc / GC-GO-05 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CODEASSIST-SUNSET-001.txt` |
+| SRC-GOOGLE-GEMINI-ENTERPRISE-BILLING-001 | [How billing works in Gemini Enterprise](https://docs.cloud.google.cn/gemini/enterprise/docs/manage-costs-overview?hl=en) | official_doc / GC-GO-03 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-BILLING-001.txt` |
 | SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001 | [Gemini Enterprise subscriptions and licenses](https://docs.cloud.google.cn/gemini/enterprise/docs/licenses?hl=en) | official_doc / GC-GO-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001.txt` |
 | SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001 | [Gemini Enterprise data residency locations](https://docs.cloud.google.cn/gemini/enterprise/docs/locations?hl=en) | official_doc / GC-GO-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001.txt` |
+| SRC-GOOGLE-GEMINI-ENTERPRISE-QUOTAS-001 | [Gemini Enterprise quotas and pay-as-you-go usage](https://docs.cloud.google.cn/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage?hl=en) | official_doc / GC-GO-03 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-GEMINI-ENTERPRISE-QUOTAS-001.txt` |
 | SRC-GOOGLE-SECOPS-DEPROVISION-001 | [Google SecOps deprovisioning](https://docs.cloud.google.cn/chronicle/docs/onboard/customer-initiated-secops-deprovision?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-DEPROVISION-001.txt` |
 | SRC-GOOGLE-SECOPS-DR-001 | [Google Security Operations SIEM disaster recovery](https://docs.cloud.google.cn/architecture/disaster-recovery?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-DR-001.txt` |
 | SRC-GOOGLE-SECOPS-EXPORT-001 | [Google SecOps export to self-managed BigQuery](https://docs.cloud.google.cn/chronicle/docs/reports/export-to-customer-managed-project?hl=en) | official_doc / GC-GO-04、SEC-02 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-GOOGLE-SECOPS-EXPORT-001.txt` |
@@ -103,6 +108,7 @@ content_status: "reviewed"
 | SRC-OR-OPSINSIGHTS-001 | [About OCI Operations Insights](https://docs.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html) | official_doc / GC-OR-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-OR-OPSINSIGHTS-001.txt` |
 | SRC-SAP-AI-JOULE-001 | [SAP Artificial Intelligence - Joule](https://www.sap.com/products/artificial-intelligence.html) | official_doc / GC-SAP-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SAP-AI-JOULE-001.txt` |
 | SRC-SAP-JOULE-AGENTS-001 | [Joule Agents and Joule Assistants](https://www.sap.com/products/artificial-intelligence/ai-agents.html) | official_doc / GC-SAP-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SAP-JOULE-AGENTS-001.txt` |
+| SRC-SAP-JOULE-DATACENTER-001 | [SAP S/4HANA Cloud Private Edition - Customer data center option](https://www.sap.com/products/erp/s4hana-private-edition/customer-data-center.html) | official_doc / GC-SAP-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-SAP-JOULE-DATACENTER-001.txt` |
 | SRC-SF-AGENTFORCE-001 | [Salesforce Agentforce](https://www.salesforce.com/agentforce/) | official_doc / GC-SF-01 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-SN-AGENT-STUDIO-2026-09-001 | [Reimagined AI Agent Studio - September 2026 release](https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/1037) | official_doc / GC-SN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-SN-AGENT-STUDIO-2026-09-001.txt` |
 | SRC-SN-AI-AGENTS-001 | [ServiceNow Otto - AI Agents FAQ and Troubleshooting](https://www.servicenow.com/community/tkb/articleprintpage/tkb-id/now-assist-articles/article-id/218) | official_doc / GC-SN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-SN-AI-AGENTS-001.txt` |

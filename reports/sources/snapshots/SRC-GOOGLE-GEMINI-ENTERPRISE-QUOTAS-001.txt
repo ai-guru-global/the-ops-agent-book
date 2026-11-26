@@ -1,0 +1,10 @@
+Quotas and pay-as-you-go usage | Gemini Enterprise
+URL: https://docs.cloud.google.cn/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage?hl=en
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Pay-as-you-go usage above quota is available only when the project has at least one active, non-free-trial subscription. Self-serve accounts use prepaid credits; invoiced accounts are billed monthly.
+
+The Pay-as-you-go edition has no subscription or license fee and no feature quota limits. Storage and data indexing are listed at $5 per GiB per month.
+
+Usage above storage and data indexing quota automatically incurs pay-as-you-go charges. Feature overage is optional per edition. Single-user quota limits do not restrict pay-as-you-go usage above the pooled quota.

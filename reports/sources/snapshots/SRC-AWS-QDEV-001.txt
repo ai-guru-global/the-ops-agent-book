@@ -1,0 +1,10 @@
+What is Amazon Q Developer?
+URL: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Amazon Q Developer in the AWS Management Console is now the AWS assistant. Amazon Q Developer in the IDE and on the command line keeps its name.
+
+AWS will discontinue support for Amazon Q Developer IDE plugins on April 30, 2027.
+
+Amazon Q Developer is available through a Free tier and the Amazon Q Developer Pro subscription.

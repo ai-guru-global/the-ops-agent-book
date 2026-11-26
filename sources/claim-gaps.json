@@ -1938,17 +1938,14 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-AWS-QDEV-001"
+        "SRC-AWS-QDEV-001",
+        "SRC-AWS-QDEV-PRICING-001",
+        "SRC-AWS-QDEV-DATA-001",
+        "SRC-AWS-QDEV-REGIONS-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
-        "data_residency",
-        "export_exit",
-        "licensing_pricing",
-        "minimum_overage",
-        "other",
-        "region",
-        "status"
+        "export_exit"
       ]
     },
     {
@@ -2125,7 +2122,9 @@
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
         "SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001",
-        "SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001"
+        "SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001",
+        "SRC-GOOGLE-GEMINI-ENTERPRISE-QUOTAS-001",
+        "SRC-GOOGLE-GEMINI-ENTERPRISE-BILLING-001"
       ],
       "last_evidence_update": "2026-11-26",
       "candidate_urls": [
@@ -2134,8 +2133,7 @@
       "last_attempt_result": "official page fetch failed on 2026-11-25; search snippets not accepted as evidence",
       "last_attempted_at": "2026-11-25",
       "unverified_fields": [
-        "export_exit",
-        "minimum_overage"
+        "export_exit"
       ]
     },
     {
@@ -2536,15 +2534,14 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-SAP-AI-JOULE-001"
+        "SRC-SAP-AI-JOULE-001",
+        "SRC-SAP-JOULE-DATACENTER-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
-        "data_residency",
         "export_exit",
         "licensing_pricing",
         "minimum_overage",
-        "other",
         "region",
         "status"
       ]
@@ -4004,13 +4001,13 @@
       "P2": 17
     },
     "unverified_field_counts": {
-      "status": 90,
-      "region": 105,
-      "licensing_pricing": 78,
-      "minimum_overage": 123,
-      "data_residency": 98,
+      "status": 89,
+      "region": 104,
+      "licensing_pricing": 77,
+      "minimum_overage": 121,
+      "data_residency": 96,
       "export_exit": 119,
-      "other": 58
+      "other": 56
     }
   },
   "field_definitions": {

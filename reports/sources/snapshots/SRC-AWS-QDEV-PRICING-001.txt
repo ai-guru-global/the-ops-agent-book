@@ -1,0 +1,13 @@
+Amazon Q Developer Pricing
+URL: https://aws.amazon.com/q/developer/pricing/
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Amazon Q Developer offers two pricing tiers.
+
+Free Tier: advanced capabilities at zero cost.
+Pro Tier: expanded limits at $19 per month per user.
+
+The Pro subscription is charged per user and renews monthly until canceled. Code transformation includes 4,000 lines of code per month per user pooled at account level; extra lines are charged at $0.003 per line submitted.
+
+The page does not state a minimum purchase quantity or minimum term beyond monthly per-user billing.

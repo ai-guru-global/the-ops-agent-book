@@ -6,6 +6,7 @@ from __future__ import annotations
 import os
 import re
 import shutil
+import socket
 import subprocess
 import sys
 import tempfile
@@ -15,8 +16,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
-PORT = 4173
-BASE = f"http://127.0.0.1:{PORT}"
 
 
 def chrome_binary() -> str:
@@ -50,8 +49,16 @@ def main() -> int:
         for file in DOCS.rglob("*.md")
         if ".vitepress" not in file.parts and expected_count(file) > 0
     )
+    with socket.socket() as listener:
+        listener.bind(("127.0.0.1", 0))
+        port = listener.getsockname()[1]
+    base = f"http://127.0.0.1:{port}"
     server = subprocess.Popen(
-        ["npm", "run", "docs:preview", "--", "--port", str(PORT), "--host", "127.0.0.1"],
+        [
+            shutil.which("node") or "node",
+            str(ROOT / "node_modules/vitepress/bin/vitepress.js"),
+            "preview", "docs", "--port", str(port), "--host", "127.0.0.1",
+        ],
         cwd=ROOT,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
@@ -60,7 +67,7 @@ def main() -> int:
     try:
         for _ in range(60):
             try:
-                urllib.request.urlopen(BASE, timeout=1).close()
+                urllib.request.urlopen(base, timeout=1).close()
                 break
             except Exception:
                 time.sleep(0.25)
@@ -72,6 +79,7 @@ def main() -> int:
         for index, file in enumerate(files):
             route = route_for(file)
             expected = expected_count(file)
+            total += expected
             with tempfile.TemporaryDirectory(prefix="book-chrome-") as profile:
                 command = [
                     chrome,
@@ -81,7 +89,7 @@ def main() -> int:
                     f"--user-data-dir={profile}",
                     "--virtual-time-budget=9000",
                     "--dump-dom",
-                    BASE + route,
+                    base + route,
                 ]
                 if sys.platform.startswith("linux"):
                     command.append("--no-sandbox")
@@ -89,8 +97,20 @@ def main() -> int:
             html = result.stdout
             blocks = re.findall(r'<div class="mermaid"[^>]*>(.*?)</div>', html, re.S)
             rendered = sum(1 for block in blocks if "<svg" in block)
-            total += expected
             syntax_error = "Syntax error" in html or "mermaid version" in html
+            if result.returncode == 0 and rendered == 0 and not syntax_error:
+                # A cold Chrome profile can occasionally dump before Mermaid's
+                # asynchronous module executes. Retry once with a fresh profile.
+                with tempfile.TemporaryDirectory(prefix="book-chrome-retry-") as profile:
+                    retry = list(command)
+                    profile_index = next(i for i, value in enumerate(retry) if value.startswith("--user-data-dir="))
+                    retry[profile_index] = f"--user-data-dir={profile}"
+                    retry[retry.index("--virtual-time-budget=9000")] = "--virtual-time-budget=15000"
+                    result = subprocess.run(retry, capture_output=True, text=True, timeout=60)
+                html = result.stdout
+                blocks = re.findall(r'<div class="mermaid"[^>]*>(.*?)</div>', html, re.S)
+                rendered = sum(1 for block in blocks if "<svg" in block)
+                syntax_error = "Syntax error" in html or "mermaid version" in html
             if result.returncode != 0 or rendered != expected or syntax_error:
                 failures.append(
                     f"{file.relative_to(ROOT)} {route}: expected {expected}, rendered {rendered}, "

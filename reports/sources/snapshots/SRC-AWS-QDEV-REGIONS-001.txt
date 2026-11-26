@@ -1,0 +1,10 @@
+Amazon Q Developer Pro Region support
+URL: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-admin-setup-subscribe-regions.html
+Captured: 2026-11-26
+Method: webfetch-markdown excerpt
+
+Personal Builder ID Pro subscriptions are supported in US East (N. Virginia).
+
+The Amazon Q Developer console and profile are supported in US East (N. Virginia) and Europe (Frankfurt).
+
+Several features are not supported for profiles created in Europe (Frankfurt), including AWS Support chat, resource troubleshooting, .NET transformations, Slack chat, Console Mobile Application, GitLab Duo and Amazon Q for GitHub.
