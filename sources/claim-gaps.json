@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "title": "Vendor claim evidence gaps",
-  "updated_at": "2026-11-25",
+  "updated_at": "2026-11-26",
   "owner": "Vendor Researcher",
   "description": "Machine-readable registry for vendor claims with at least one explicit unverified field. This is a gap register, not negative product evidence. Claims with no remaining explicit unverified field are removed and page membership is rebuilt from current documents.",
   "claims": [
@@ -27,7 +27,16 @@
       "source_ids": [
         "SRC-ALI-CATALOG-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-02",
@@ -51,7 +60,15 @@
       "source_ids": [
         "SRC-ALI-AGENTRUN-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-03",
@@ -74,7 +91,16 @@
       "source_ids": [
         "SRC-ALI-SANDBOX-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-04",
@@ -97,7 +123,15 @@
       "source_ids": [
         "SRC-ALI-AGENTRUN-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-05",
@@ -120,7 +154,16 @@
       "source_ids": [
         "SRC-ALI-AGENTBAY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-06",
@@ -143,7 +186,13 @@
       "source_ids": [
         "COM-AGENTSCOPE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-07",
@@ -165,7 +214,15 @@
       "source_ids": [
         "COM-QWEN-AGENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-08",
@@ -187,7 +244,15 @@
       "source_ids": [
         "COM-SPRING-AI-ALIBABA-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-09",
@@ -209,7 +274,16 @@
       "source_ids": [
         "PUB-ALI-SUMMIT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-10",
@@ -231,7 +305,10 @@
       "source_ids": [
         "PUB-ALI-SUMMIT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "other"
+      ]
     },
     {
       "claim_id": "ALI-11",
@@ -253,7 +330,10 @@
       "source_ids": [
         "PUB-ALI-SUMMIT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "other"
+      ]
     },
     {
       "claim_id": "ALI-14",
@@ -276,7 +356,16 @@
       "source_ids": [
         "SRC-ALI-MODELSTUDIO-PRICING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-15",
@@ -300,7 +389,15 @@
       "source_ids": [
         "SRC-QODER-CLOUDAGENTS-BILLING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-16",
@@ -323,7 +420,16 @@
       "source_ids": [
         "PUB-ALI-SUMMIT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-17",
@@ -346,7 +452,15 @@
       "source_ids": [
         "SRC-ALI-AGENTICOS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "ALI-18",
@@ -370,7 +484,10 @@
         "SRC-ALI-QODER-CN-BILLING-001",
         "SRC-ALI-QODERWORK-CN-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "other"
+      ]
     },
     {
       "claim_id": "CN-BD-01",
@@ -392,7 +509,16 @@
       "source_ids": [
         "PUB-BAIDU-INDUSTRY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-02",
@@ -415,7 +541,16 @@
         "PUB-BAIDU-INDUSTRY-001",
         "SRC-BD-QIANFAN-AGENTINFRA-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-03",
@@ -437,7 +572,15 @@
       "source_ids": [
         "SRC-BD-DUMATE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-04",
@@ -459,7 +602,14 @@
       "source_ids": [
         "SRC-BD-FAMOU-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-05",
@@ -482,7 +632,13 @@
         "SRC-BD-DATABUILDER-001",
         "SRC-BD-DATABUILDER-VERSIONS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-06",
@@ -504,7 +660,14 @@
       "source_ids": [
         "SRC-BD-MIAODA-EXPORT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-07",
@@ -527,7 +690,13 @@
         "SRC-BD-HOGEE-BILLING-001",
         "SRC-BD-HOGEE-PRIVACY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-08",
@@ -551,7 +720,12 @@
         "SRC-BD-COMATE-PRICING-001",
         "SRC-BD-COMATE-DATA-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-BD-09",
@@ -573,7 +747,16 @@
       "source_ids": [
         "SRC-BD-YIJING-API-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-DOM-01",
@@ -595,7 +778,16 @@
       "source_ids": [
         "PUB-CHINA-TOP10-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-DOM-02",
@@ -617,7 +809,16 @@
       "source_ids": [
         "SRC-CLOUDWISE-ITSM-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-DOM-03",
@@ -639,7 +840,14 @@
       "source_ids": [
         "SRC-EOITEK-AIOPS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-DOM-04",
@@ -661,7 +869,14 @@
       "source_ids": [
         "SRC-YANLONG-SREAGENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-DOM-05",
@@ -683,7 +898,16 @@
       "source_ids": [
         "SRC-XJ-IT-AGENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-DOM-06",
@@ -705,7 +929,15 @@
       "source_ids": [
         "SRC-ME-AIOPS-GUIDE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-HW-01",
@@ -728,7 +960,15 @@
         "PUB-HUAWEI-MINDOPS-001",
         "SRC-HW-MINDOPS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-HW-02",
@@ -751,7 +991,16 @@
         "PUB-HUAWEI-AEI-001",
         "SRC-HW-AEI-2026-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-HW-03",
@@ -773,7 +1022,16 @@
       "source_ids": [
         "SRC-HW-AGENTARTS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-HW-04",
@@ -798,7 +1056,15 @@
         "SRC-HW-IMASTERCLOUD-REGIONS-001",
         "SRC-HW-IMASTERCLOUD-ACCOUNT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-HW-05",
@@ -820,7 +1086,14 @@
       "source_ids": [
         "SRC-HW-IMASTERNCE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-HW-06",
@@ -843,7 +1116,16 @@
         "SRC-HW-CCAE-001",
         "SRC-HW-SUANXIAOWEI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-OT-01",
@@ -865,7 +1147,14 @@
       "source_ids": [
         "SRC-VOLC-OPSASSISTANT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "CN-OT-02",
@@ -887,7 +1176,15 @@
       "source_ids": [
         "SRC-VOLC-HIAGENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-OT-03",
@@ -909,7 +1206,15 @@
       "source_ids": [
         "SRC-VOLC-ARK-PRICING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-OT-04",
@@ -931,7 +1236,16 @@
       "source_ids": [
         "SRC-JD-AIOPS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-OT-05",
@@ -953,7 +1267,14 @@
       "source_ids": [
         "SRC-CMCC-OPSAGENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "CN-OT-06",
@@ -975,7 +1296,15 @@
       "source_ids": [
         "SRC-INSPUR-INCLOUD-MANAGER-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-TX-01",
@@ -997,7 +1326,16 @@
       "source_ids": [
         "PUB-TENCENT-CLOUDQ-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-TX-02",
@@ -1019,7 +1357,10 @@
       "source_ids": [
         "PUB-TENCENT-CLOUDQ-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "other"
+      ]
     },
     {
       "claim_id": "CN-TX-03",
@@ -1041,7 +1382,10 @@
       "source_ids": [
         "PUB-TENCENT-CLOUDQ-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "other"
+      ]
     },
     {
       "claim_id": "CN-TX-04",
@@ -1063,7 +1407,10 @@
       "source_ids": [
         "PUB-TENCENT-CLOUDQ-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "other"
+      ]
     },
     {
       "claim_id": "CN-TX-05",
@@ -1085,7 +1432,14 @@
       "source_ids": [
         "SRC-TX-ADP-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "CN-TX-06",
@@ -1107,7 +1461,15 @@
       "source_ids": [
         "SRC-TX-TCOP-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "EMB-ALI-01",
@@ -1130,7 +1492,14 @@
         "SRC-ALI-QWENWORK-INTRO-001",
         "SRC-ALI-LINGYANG-AGENTONE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "EMB-ENT-01",
@@ -1152,7 +1521,15 @@
       "source_ids": [
         "SRC-WORKDAY-ILLUMINATE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "EMB-ENT-02",
@@ -1175,7 +1552,13 @@
         "SRC-ATLASSIAN-ROVO-001",
         "SRC-ATLASSIAN-ROVO-PRIVACY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "EMB-GO-01",
@@ -1197,7 +1580,14 @@
       "source_ids": [
         "SRC-GOOGLE-WORKSPACE-GEMINI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "EMB-MS-01",
@@ -1221,7 +1611,12 @@
         "SRC-MS-COPILOT-LICENSING-001",
         "SRC-MS-COPILOT-REQUIREMENTS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "EMB-MS-02",
@@ -1244,7 +1639,13 @@
         "SRC-MS-DYNAMICS-SALES-COPILOT-001",
         "SRC-MS-DYNAMICS-REGION-LANGUAGE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "status"
+      ]
     },
     {
       "claim_id": "FIN-01",
@@ -1266,7 +1667,15 @@
       "source_ids": [
         "SRC-IBM-CLOUDABILITY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "FIN-02",
@@ -1289,7 +1698,15 @@
         "SRC-BROADCOM-FLEXREPORTS-001",
         "SRC-BROADCOM-CLOUDHEALTH-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "FIN-03",
@@ -1311,7 +1728,15 @@
       "source_ids": [
         "SRC-HARNESS-CCM-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "FIN-04",
@@ -1333,7 +1758,13 @@
       "source_ids": [
         "SRC-APPTIO-KUBECOST-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "status"
+      ]
     },
     {
       "claim_id": "FIN-06",
@@ -1355,7 +1786,12 @@
       "source_ids": [
         "SRC-VANTAGE-PRICING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "FIN-07",
@@ -1378,7 +1814,14 @@
         "SRC-CLOUDZERO-PRICING-001",
         "SRC-CLOUDZERO-API-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     },
     {
       "claim_id": "FIN-08",
@@ -1400,7 +1843,13 @@
       "source_ids": [
         "SRC-FINOUT-PRICING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "FIN-09",
@@ -1422,7 +1871,16 @@
       "source_ids": [
         "SRC-FLEXERA-CCO-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-AWS-01",
@@ -1449,7 +1907,15 @@
         "SRC-AWS-DEVOPS-SECURITY-001",
         "SRC-AWS-DEVOPS-REGIONS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-AWS-02",
@@ -1472,7 +1938,16 @@
       "source_ids": [
         "SRC-AWS-QDEV-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-AWS-03",
@@ -1498,7 +1973,11 @@
         "SRC-AWS-OMNI-RETENTION-001",
         "SRC-AWS-OMNI-REGIONS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "minimum_overage",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-AWS-04",
@@ -1520,7 +1999,14 @@
       "source_ids": [
         "SRC-AWS-AGENTCORE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-AWS-05",
@@ -1543,7 +2029,14 @@
       "source_ids": [
         "SRC-AWS-QUICK-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-GO-01",
@@ -1566,12 +2059,19 @@
       "source_ids": [
         "SRC-GOOGLE-CLOUD-ASSIST-001"
       ],
-      "last_evidence_update": "2026-11-25",
+      "last_evidence_update": "2026-11-26",
       "candidate_urls": [
         "https://cloud.google.com/gemini/docs/cloud-assist-panel"
       ],
       "last_attempt_result": "official page fetch failed on 2026-11-25; search snippets not accepted as evidence",
-      "last_attempted_at": "2026-11-25"
+      "last_attempted_at": "2026-11-25",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     },
     {
       "claim_id": "GC-GO-02",
@@ -1593,7 +2093,16 @@
       "source_ids": [
         "SRC-GO-GEMINI-AGENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-GO-03",
@@ -1616,12 +2125,16 @@
         "SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001",
         "SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001"
       ],
-      "last_evidence_update": "2026-11-25",
+      "last_evidence_update": "2026-11-26",
       "candidate_urls": [
         "https://cloud.google.com/gemini-enterprise/faq"
       ],
       "last_attempt_result": "official page fetch failed on 2026-11-25; search snippets not accepted as evidence",
-      "last_attempted_at": "2026-11-25"
+      "last_attempted_at": "2026-11-25",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage"
+      ]
     },
     {
       "claim_id": "GC-GO-04",
@@ -1648,12 +2161,20 @@
         "SRC-GOOGLE-SECOPS-QUOTAS-001",
         "SRC-GOOGLE-SECOPS-DR-001"
       ],
-      "last_evidence_update": "2026-11-25",
+      "last_evidence_update": "2026-11-26",
       "candidate_urls": [
         "https://docs.cloud.google.com/chronicle/docs/secops/secops-packages"
       ],
       "last_attempt_result": "official page fetch failed on 2026-11-25; search snippets not accepted as evidence",
-      "last_attempted_at": "2026-11-25"
+      "last_attempted_at": "2026-11-25",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-GO-05",
@@ -1676,12 +2197,19 @@
       "source_ids": [
         "SRC-GOOGLE-CODEASSIST-SUNSET-001"
       ],
-      "last_evidence_update": "2026-11-25",
+      "last_evidence_update": "2026-11-26",
       "candidate_urls": [
         "https://cloud.google.com/products/gemini/pricing"
       ],
       "last_attempt_result": "official page fetch failed on 2026-11-25; search snippets not accepted as evidence",
-      "last_attempted_at": "2026-11-25"
+      "last_attempted_at": "2026-11-25",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     },
     {
       "claim_id": "GC-GO-06",
@@ -1703,7 +2231,16 @@
       "source_ids": [
         "SRC-GO-ADK-V2-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-IBM-01",
@@ -1725,7 +2262,15 @@
       "source_ids": [
         "SRC-IBM-CONCERT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-MS-01",
@@ -1752,7 +2297,11 @@
         "SRC-MS-SRE-REGIONS-001",
         "SRC-MS-SRE-MITIGATIONS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-MS-02",
@@ -1776,7 +2325,14 @@
         "SRC-MS-COPILOT-001",
         "SRC-MS-COPILOT-DOC-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-MS-03",
@@ -1799,7 +2355,14 @@
       "source_ids": [
         "SRC-MS-SECCOPILOT-PRICING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     },
     {
       "claim_id": "GC-MS-04",
@@ -1821,7 +2384,14 @@
       "source_ids": [
         "SRC-MS-FOUNDRY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-MS-05",
@@ -1844,7 +2414,15 @@
       "source_ids": [
         "SRC-GH-COPILOT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-OR-01",
@@ -1869,7 +2447,12 @@
         "SRC-OR-AGENTS-REGIONS-001",
         "SRC-OR-AGENTS-RETENTION-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage"
+      ]
     },
     {
       "claim_id": "GC-OR-02",
@@ -1891,7 +2474,12 @@
       "source_ids": [
         "SRC-OR-OPSINSIGHTS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "GC-OR-03",
@@ -1914,7 +2502,16 @@
       "source_ids": [
         "SRC-OR-FUSION-AI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-SAP-01",
@@ -1937,7 +2534,16 @@
       "source_ids": [
         "SRC-SAP-AI-JOULE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-SAP-02",
@@ -1959,7 +2565,15 @@
       "source_ids": [
         "SRC-SAP-JOULE-AGENTS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-SF-01",
@@ -1982,7 +2596,14 @@
       "source_ids": [
         "SRC-SF-AGENTFORCE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-SN-01",
@@ -2007,7 +2628,14 @@
         "SRC-SN-AI-AGENTS-GUIDE-001",
         "SRC-SN-AGENT-STUDIO-2026-09-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "GC-SN-02",
@@ -2029,7 +2657,15 @@
       "source_ids": [
         "SRC-SN-CONTROLTOWER-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     },
     {
       "claim_id": "NET-01",
@@ -2052,7 +2688,14 @@
         "SRC-CISCO-CLOUDCONTROL-001",
         "SRC-CISCO-IQ-FAQ-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other"
+      ]
     },
     {
       "claim_id": "NET-02",
@@ -2074,7 +2717,13 @@
       "source_ids": [
         "SRC-HPE-MIST-REQUIREMENTS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "NET-03",
@@ -2097,7 +2746,13 @@
         "SRC-ARUBA-CENTRAL-001",
         "SRC-ARUBA-CENTRAL-SUBSCRIPTIONS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "NET-04",
@@ -2120,7 +2775,15 @@
         "SRC-ARISTA-CLOUDVISION-001",
         "SRC-ARISTA-EOS-LICENSING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "NET-05",
@@ -2142,7 +2805,16 @@
       "source_ids": [
         "SRC-NOKIA-ASSURANCE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "NET-06",
@@ -2164,7 +2836,14 @@
       "source_ids": [
         "SRC-HW-IMASTERNCE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "status"
+      ]
     },
     {
       "claim_id": "NET-07",
@@ -2186,7 +2865,16 @@
       "source_ids": [
         "SRC-ZTE-UNISEER-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "NET-08",
@@ -2208,7 +2896,16 @@
       "source_ids": [
         "SRC-H3C-UCENTER-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-01",
@@ -2231,7 +2928,16 @@
       "source_ids": [
         "SRC-DD-AI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-02",
@@ -2253,7 +2959,15 @@
       "source_ids": [
         "SRC-DD-CLOUDSRE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-03",
@@ -2276,7 +2990,15 @@
       "source_ids": [
         "SRC-NR-AI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-04",
@@ -2299,7 +3021,13 @@
         "SRC-SPLUNK-AIASSISTANT-001",
         "SRC-SPLUNK-ITSI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-05",
@@ -2321,7 +3049,14 @@
       "source_ids": [
         "SRC-PD-AIAGENTS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-07",
@@ -2344,7 +3079,15 @@
       "source_ids": [
         "SRC-GRAFANA-ASSIST-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-08",
@@ -2367,7 +3110,13 @@
       "source_ids": [
         "SRC-ELASTIC-AI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-09",
@@ -2389,7 +3138,15 @@
       "source_ids": [
         "SRC-SCIENCELOGIC-SKYLAR-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-10",
@@ -2411,7 +3168,11 @@
       "source_ids": [
         "SRC-SUMO-MOBOT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage"
+      ]
     },
     {
       "claim_id": "OBS-11",
@@ -2433,7 +3194,16 @@
       "source_ids": [
         "SRC-LM-EDWIN-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-12",
@@ -2455,7 +3225,14 @@
       "source_ids": [
         "SRC-BP-L1AGENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-13",
@@ -2480,7 +3257,15 @@
         "SRC-OPSRAMP-SECURITY-001",
         "SRC-OPSRAMP-BYO-LLM-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-14",
@@ -2502,7 +3287,14 @@
       "source_ids": [
         "SRC-BMC-HELIXGPT-AGENTS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-15",
@@ -2524,7 +3316,12 @@
       "source_ids": [
         "SRC-ME-AIOPS-GUIDE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-16",
@@ -2546,7 +3343,14 @@
       "source_ids": [
         "SRC-SW-OBS-2026-1-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-17",
@@ -2568,7 +3372,15 @@
       "source_ids": [
         "SRC-KOMODOR-KLAUDIA-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-18",
@@ -2590,7 +3402,13 @@
       "source_ids": [
         "SRC-HOLMESGPT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-19",
@@ -2612,7 +3430,12 @@
       "source_ids": [
         "SRC-K8SGPT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-20",
@@ -2634,7 +3457,13 @@
       "source_ids": [
         "SRC-INCIDENTIO-AISRE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-21",
@@ -2656,7 +3485,11 @@
       "source_ids": [
         "SRC-OBSY-AGREEMENT-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage"
+      ]
     },
     {
       "claim_id": "OBS-22",
@@ -2678,7 +3511,15 @@
       "source_ids": [
         "SRC-CANWAY-AGENTICOPS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-23",
@@ -2700,7 +3541,12 @@
       "source_ids": [
         "SRC-ROOTLY-AISRE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-24",
@@ -2722,7 +3568,13 @@
       "source_ids": [
         "SRC-RESOLVEAI-AISRE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region"
+      ]
     },
     {
       "claim_id": "OBS-25",
@@ -2745,7 +3597,10 @@
         "SRC-CLERIC-AISRE-001",
         "SRC-CLERIC-PRICING-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "minimum_overage"
+      ]
     },
     {
       "claim_id": "OBS-26",
@@ -2770,7 +3625,10 @@
         "SRC-METORO-CLOUD-001",
         "SRC-METORO-TERMS-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-27",
@@ -2792,7 +3650,14 @@
       "source_ids": [
         "SRC-CLOUDWISE-CASTREL-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-28",
@@ -2814,7 +3679,14 @@
       "source_ids": [
         "SRC-EOITEK-DATA-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "OBS-29",
@@ -2836,7 +3708,13 @@
       "source_ids": [
         "SRC-YANLONG-PRIVATE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "status"
+      ]
     },
     {
       "claim_id": "SEC-01",
@@ -2858,7 +3736,11 @@
       "source_ids": [
         "SRC-MS-SECCOPILOT-COMPLIANCE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "minimum_overage"
+      ]
     },
     {
       "claim_id": "SEC-02",
@@ -2884,7 +3766,14 @@
         "SRC-GOOGLE-SECOPS-QUOTAS-001",
         "SRC-GOOGLE-SECOPS-DR-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "SEC-03",
@@ -2906,7 +3795,16 @@
       "source_ids": [
         "SRC-PAN-CORTEX-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "SEC-04",
@@ -2928,7 +3826,14 @@
       "source_ids": [
         "SRC-CS-CHARLOTTE-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "SEC-05",
@@ -2950,7 +3855,15 @@
       "source_ids": [
         "SRC-SENTINELONE-PURPLE-AI-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "SEC-06",
@@ -2972,7 +3885,16 @@
       "source_ids": [
         "SRC-SPLUNK-AI-SECURITY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "SEC-07",
@@ -2994,7 +3916,15 @@
       "source_ids": [
         "SRC-IBM-QRADAR-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "data_residency",
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "region",
+        "status"
+      ]
     },
     {
       "claim_id": "SEC-08",
@@ -3017,7 +3947,10 @@
         "SRC-DROPZONE-AISOC-001",
         "SRC-DROPZONE-EU-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "minimum_overage"
+      ]
     },
     {
       "claim_id": "SEC-09",
@@ -3039,7 +3972,14 @@
       "source_ids": [
         "SRC-DD-BITS-SECURITY-001"
       ],
-      "last_evidence_update": "2026-11-25"
+      "last_evidence_update": "2026-11-26",
+      "unverified_fields": [
+        "export_exit",
+        "licensing_pricing",
+        "minimum_overage",
+        "other",
+        "region"
+      ]
     }
   ],
   "source_registry": "sources/registry.yaml",
@@ -3058,6 +3998,24 @@
     "by_priority": {
       "P1": 116,
       "P2": 17
+    },
+    "unverified_field_counts": {
+      "status": 91,
+      "region": 106,
+      "licensing_pricing": 78,
+      "minimum_overage": 124,
+      "data_residency": 98,
+      "export_exit": 119,
+      "other": 58
     }
+  },
+  "field_definitions": {
+    "status": "产品/能力状态",
+    "region": "区域与可用性",
+    "licensing_pricing": "许可与计费单位",
+    "minimum_overage": "最低消费与超额",
+    "data_residency": "数据驻留与保留",
+    "export_exit": "导出、退出与删除",
+    "other": "其他未核实字段"
   }
 }

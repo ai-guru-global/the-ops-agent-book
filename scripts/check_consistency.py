@@ -55,7 +55,16 @@ require(f"{appendix_count} 个附录与案例页" in product,
 
 source_count = len(re.findall(r"^- source_id:", read("sources/registry.yaml"), re.MULTILINE))
 snapshot_count = len(list((ROOT / "reports/sources/snapshots").glob("*.txt")))
-gap_count = len(json.loads(read("sources/claim-gaps.json"))["claims"])
+gap_document = json.loads(read("sources/claim-gaps.json"))
+gap_count = len(gap_document["claims"])
+field_counts = {field: 0 for field in gap_document.get("field_definitions", {})}
+for claim in gap_document["claims"]:
+    for field in claim.get("unverified_fields", []):
+        require(field in field_counts, f"Unknown claim-gap field {field} in {claim['claim_id']}")
+        if field in field_counts:
+            field_counts[field] += 1
+require(gap_document.get("summary", {}).get("unverified_field_counts") == field_counts,
+        "claim-gaps.json unverified_field_counts summary is stale")
 for relative in ("reports/improvement-status.md", "reports/completion-audit.md"):
     text = read(relative)
     require(f"{source_count} 条" in text or f"{source_count} sources" in text,
@@ -121,6 +130,7 @@ print(
     f"{task_count} tasks ({completed} completed/{in_progress} in progress), "
     f"{person_days} person-days, {page_count} scored pages, "
     f"{reference_tests} reference tests, {pdf_pages} PDF pages, "
-    f"{source_count} sources/{snapshot_count} snapshots/{gap_count} claim gaps, "
+    f"{source_count} sources/{snapshot_count} snapshots/{gap_count} claim gaps "
+    f"({sum(field_counts.values())} unverified fields), "
     f"{len(poc.get('artifacts', []))} POC hashes."
 )

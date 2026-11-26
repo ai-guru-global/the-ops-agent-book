@@ -12,7 +12,12 @@ function fixture(t) {
     fs.mkdirSync(path.join(root, dir), { recursive: true });
   }
   fs.writeFileSync(path.join(root, "sources/registry.yaml"), `sources:\n  - source_id: SRC-AWS-DEVOPS-001\n    claims: [GC-AWS-01]\n`);
-  fs.writeFileSync(path.join(root, "docs/vendors/global-cloud.md"), "| GC-AWS-01 | 未核实 |\n");
+  fs.writeFileSync(path.join(root, "docs/vendors/global-cloud.md"), [
+    "| claim | status | region | licensing/pricing |",
+    "| --- | --- | --- | --- |",
+    "| GC-AWS-01 | GA | 未核实 | 未核实 |",
+    ""
+  ].join("\n"));
   fs.writeFileSync(path.join(root, "docs/appendix/alibaba-agent-landscape.md"), "| ALI-01 | 已核实 |\n");
   fs.writeFileSync(path.join(root, "sources/claim-gaps.json"), JSON.stringify({
     schema_version: "1.0",
@@ -32,11 +37,20 @@ test("claim gap register removes closed claims and rebuilds current page members
   assert.deepEqual(document.claims.map((claim) => claim.claim_id), ["GC-AWS-01"]);
   assert.deepEqual(document.claims[0].pages, ["docs/vendors/global-cloud.md"]);
   assert.deepEqual(document.claims[0].source_ids, ["SRC-AWS-DEVOPS-001"]);
+  assert.deepEqual(document.claims[0].unverified_fields, ["licensing_pricing", "region"]);
+  assert.equal(document.summary.unverified_field_counts.region, 1);
+  assert.equal(document.summary.unverified_field_counts.licensing_pricing, 1);
+  assert.equal(document.summary.unverified_field_counts.status, 0);
 });
 
 test("claim gap register becomes empty when every field is verified", (t) => {
   const root = fixture(t);
-  fs.writeFileSync(path.join(root, "docs/vendors/global-cloud.md"), "| GC-AWS-01 | 已核实 |\n");
+  fs.writeFileSync(path.join(root, "docs/vendors/global-cloud.md"), [
+    "| claim | status | region | licensing/pricing |",
+    "| --- | --- | --- | --- |",
+    "| GC-AWS-01 | GA | us-east-1 | pay-as-you-go |",
+    ""
+  ].join("\n"));
   const summary = updateClaimGaps(root);
   const document = JSON.parse(fs.readFileSync(path.join(root, "sources/claim-gaps.json"), "utf8"));
   assert.equal(summary.total_claims, 0);
