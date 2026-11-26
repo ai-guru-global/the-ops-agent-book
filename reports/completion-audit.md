@@ -2,7 +2,7 @@
 
 审计日期：2026-11-25
 
-当前发布提交：`98f1799927f7d1ee0d1a4a650ca02f2ea7689a5b`
+审计内容快照提交：`98f1799927f7d1ee0d1a4a650ca02f2ea7689a5b`
 
 当前版本：`v0.2.0-rc1`
 
@@ -46,7 +46,7 @@
 | A-18 | 填写 POC 评分卡与退出测试 | synthetic POC 73/100、INCONCLUSIVE、clean-room PASS、27 项哈希 | 部分完成 | 真实厂商 POC、TCO、合同与商业退出未完成 |
 | A-19 | PDF/EPUB 与打印可读性 | PDF 689 页 A4、EPUB 48 章；PDF 几何审计 0 违规 | 已交付 | 几何审计不替代人工视觉验收；产物按设计保留本地 |
 | A-20 | 响应式与无障碍 | 30 page/viewport 组合通过；8 组 axe WCAG 2.1 AA 无 serious/critical | 已交付 | 自动审计不替代真实用户窄屏/打印测试 |
-| A-21 | 发布到线上站点 | <https://ai-guru-global.github.io/the-ops-agent-book/>；远端 Docs check 与 Book quality 通过 | 已交付 | 当前线上内容对应最新文档；报告/Schema 更新不要求重新部署静态页 |
+| A-21 | 发布到线上站点 | <https://ai-guru-global.github.io/the-ops-agent-book/>；48/48 内容路由 HTTP 200；首页 689 页、AgentOps `anchorChain`、需求地图一致性门禁均在线可读；远端 Docs check 与 Book quality 通过 | 已交付 | Web 交付完成不等于整体出版目标完成 |
 | A-22 | 安全与脱敏边界 | synthetic 标记、`production_ready=false`、无真实密钥/客户数据；POC 明确非采购证据 | 已交付 | 持续维护义务仍然存在 |
 | A-23 | 达到“最高标准”并完成发布决策 | v3 综合 4.057/5；目标 4.36；`v1.0-rc1 No-Go` | 未完成 | 缺真实用户、Judge、模型/生产 Trace、完整厂商证据和独立签署；需复评 |
 
@@ -60,7 +60,8 @@
 - `npm run judge:status`：300 candidates；人工标注、双标注、裁决均为 0；`release_ready=false`。
 - `npm run poc:demo`：73/100、`INCONCLUSIVE`、clean-room import PASS；27 项制品哈希一致。
 - `npm run pdf:audit`：689 页、0 violation。
-- 远端提交 `98f1799` 的 Docs check 与 Book quality：PASS。
+- 线上 Web 路由审计：48/48 内容页 HTTP 200；首页包含 `v0.2.0-rc1`、`v1.0-rc1 No-Go`、50 图索引与 689 页 A4；AgentOps 包含 `anchorChain`；需求地图包含跨报告一致性门禁。
+- 远端提交 `98f1799` 的 Docs check 与 Book quality：PASS；后续完成度审计提交 `c3bbead` 的 Docs check 与 Book quality：PASS。
 
 这些结果证明工程合同、合成实验和交付链路可复现，**不证明**真实用户接受、真实模型质量、生产安全或采购就绪。
 
