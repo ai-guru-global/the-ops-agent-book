@@ -75,7 +75,7 @@ flowchart TB
 
 | 厂商 | 产品 | 形态 | 关键能力（claim） | source_id |
 | --- | --- | --- | --- | --- |
-| **Datadog** | Bits AI（OBS-01） | 平台 AI + Agent Builder | 当前官方页面展示 Bits Chat、Investigation、Code、Security Analyst、Agent Builder；描述调查告警、根因/修复建议、代码修复、安全分诊与自定义 Agent。旧书 Bits AI SRE/Memories/AI Guard/Scout 组合未核实 | SRC-DD-AI-001 |
+| **Datadog** | Bits AI（OBS-01） | 平台 AI + Agent Builder | 官方文档确认 Bits Chat/Investigation/Code/Security Analyst/Data Analysis/Detection/Remediation、Agent Builder custom automations 与 Autonomous Ops（guardrails 限定修复、action history 可审计）；Memories 可查看/删除；AI Credits 统一计费，ddog-gov 站点不支持 | SRC-DD-AI-001；SRC-DD-BITS-AI-001；SRC-DD-AI-CREDITS-001；SRC-DD-BITS-SETTINGS-001；SRC-DD-BITS-KNOWLEDGE-001 |
 | **Dynatrace** | Cloud SRE Agents 社区应用（OBS-02） | 社区 AI SRE | Dynatrace Hub 描述并行分派问题给匹配 Agent；页面明确不是 Dynatrace 官方支持，Davis CoPilot/Assist 对应关系未核实 | SRC-DD-CLOUDSRE-001 |
 | **New Relic** | New Relic AI（OBS-03） | 平台 AI 能力 | 官方页面描述自然语言转查询、解释结果、分析错误日志/堆栈、变更调查、仪表盘解释与代码级排障；不证明自主修复 | SRC-NR-AI-001 |
 | **Splunk (Cisco)** | Splunk AI Assistant / ITSI（OBS-04） | 平台 AI 能力 | 官方页面支持自然语言转 SPL、代理模式调查、AI episode 摘要与根因指导；标准订阅外无额外费用为厂商页面口径 | SRC-SPLUNK-AIASSISTANT-001；SRC-SPLUNK-ITSI-001 |
@@ -108,7 +108,7 @@ flowchart TB
 
 | claim_id / 产品 | 状态 | 区域 | 许可/计费单位 | 最低消费 / 超额 | 数据驻留 | 导出 / 退出 |
 | --- | --- | --- | --- | --- | --- | --- |
-| OBS-01 Datadog Bits AI | 未核实 | 未核实 | 官方定价入口含 AI Credits；具体计费单位与覆盖范围未核实 | Credits 额度、最低消费与超额未核实 | 未核实 | 未核实 |
+| OBS-01 Datadog Bits AI | 官方文档与定价页在售；Autonomous Ops 按 guardrails 自主分诊/调查/修复/验证 | 商业站点可用；FedRAMP 与 US-FED/ddog-gov 站点不支持；显式 opt-out 客户不可用 | AI Credits：$500/500 credits/月（年付）或 $1.30/credit on-demand；单次参考 Chat ~0.5、Investigation ~2.5、Code ~5、Agent Builder ~1 credits | Commit 按 500 credits/月捆绑；每月 1 日 00:00 UTC 重置不结转；超额自动按 On-Demand 计费；组织/角色/用户/服务账号级月度上限可设 | 未核实 | memories 可查看/删除，action history 可审计，组织级开关可禁用全部 AI 产品；全量数据导出与合同退出未核实 |
 | OBS-03 New Relic AI | 未核实 | 未核实 | 未核实 | 未核实 | 未核实；官方称 FedRAMP/HIPAA 客户当前不适用 | 未核实 |
 | OBS-07 Grafana Assistant | 未核实 | 未核实 | 受 Grafana 订阅与 AI Supplemental Terms 约束；具体单位未核实 | 未核实 | 文档称遵循 RBAC、通过经审核的 provider；具体驻留未核实 | 未核实 |
 | OBS-08 Elastic AI Assistant | Cloud Serverless 与 Elastic Stack 明示 GA | 未核实 | 需 privileges 与 LLM connector；Managed LLMs 需订阅/feature tier 并额外收费 | 额外成本存在；最低消费/超额未核实 | Elastic 称不用 customer data 训练；用户选择的第三方 provider 会处理数据，具体位置未核实 | 未核实 |

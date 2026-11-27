@@ -484,6 +484,76 @@ sources:
     sha256: 7695b0cad1eb25e3d322eec7be602a2e9d21cf803115cd6a59d5c2a0c9c91afd
     captured_at: '2026-11-25'
     method: html-to-text
+- source_id: SRC-DD-BITS-AI-001
+  title: Bits AI (Datadog Docs overview)
+  url: https://docs.datadoghq.com/bits_ai/
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方文档总览：Bits Chat/Investigation/Code/Security Analyst/Data Analysis/Detection/Remediation 与 Agent Builder custom automations；Autonomous Ops 按 guardrails 自主分诊/调查/修复/验证；Bits Chat 按用户 Datadog 角色取数；app.ddog-gov.com 与 us2.ddog-gov.com 不支持。
+  claims:
+  - OBS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-BITS-AI-001.txt
+    sha256: 9ca971ed3421b7ef5f8dc87d7bc2ff941c395ba0de8f62de48f1141592ba755e
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-DD-AI-CREDITS-001
+  title: AI Credits (Datadog billing docs)
+  url: https://docs.datadoghq.com/account_management/billing/ai_credits/
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方计费文档：Annual/Monthly Commit 均按 500 credits/月捆绑，On-Demand 无承诺；每月 1 日 00:00 UTC 重置、未用不结转；超 Commit 自动按 On-Demand 计费；组织级开关与按产品权限；组织/角色/用户/服务账号级额度上限；FedRAMP 与显式 opt-out 客户不可用；ddog-gov 站点不支持。
+  claims:
+  - OBS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-AI-CREDITS-001.txt
+    sha256: 2228e83de933c3834755a1258260db86372af05c24263fb49dff9147620e3bf8
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-DD-AI-CREDITS-PRICING-001
+  title: Datadog Pricing — AI Credits
+  url: https://www.datadoghq.com/pricing/?site=us&product=ai-credits
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方定价页 AI Credits 区块：$500/500 credits/月（年付）或 $1.30/credit on-demand；单次参考用量 Chat ~0.5、Investigation ~2.5、Code ~5、Agent Builder ~1、DB Optimization ~0.3（官方注明仅供参考）；Bits Testing 11 月 30 日前免费；FAQ 确认月度重置不结转、超额自动 On-Demand；US-FED 站点不可用。
+  claims:
+  - OBS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-AI-CREDITS-PRICING-001.txt
+    sha256: 1192acae7c60acc79bc98b1711e4335517c188092de50009e925cd40f0c86276
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-DD-BITS-SETTINGS-001
+  title: Bits AI Settings (Datadog Docs)
+  url: https://docs.datadoghq.com/bits_ai/bits_settings/
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方设置文档：Bits.md 用户级/组织级、Skills、Memories；Guardrails 限定修复动作与资源范围并可要求人工批准；Action history 为可审计动作记录（执行细节/所依 guardrail/所属调查）；Credits 跨五个 Bits 产品共享，月度上限可按组织/角色/用户/服务账号设置（需 billing_edit）。
+  claims:
+  - OBS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-BITS-SETTINGS-001.txt
+    sha256: 2912689db664071b1af06b961203342bff5251afb4f0a293257c7c78ad69936e
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-DD-BITS-KNOWLEDGE-001
+  title: Knowledge Sources (Bits Investigation)
+  url: https://docs.datadoghq.com/bits_ai/bits_investigation/knowledge_sources/
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方知识源文档：Runbooks/bits.md/Feedback and memories；自动记忆存储根因与经验并在同 monitor 再告警时召回；memories 可在 Monitor Management 页查看与删除；未给出保留期、全量导出或合同退出条款。
+  claims:
+  - OBS-01
+  snapshot:
+    path: reports/sources/snapshots/SRC-DD-BITS-KNOWLEDGE-001.txt
+    sha256: f6e2a3764d6b787e453c4908f7b9ca22db12efcd00efe150c53da7090b150988
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-NR-AI-001
   title: New Relic AI
   url: https://newrelic.com/platform/new-relic-ai/

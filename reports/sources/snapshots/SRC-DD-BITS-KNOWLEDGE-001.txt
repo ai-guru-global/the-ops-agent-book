@@ -1,0 +1,20 @@
+Knowledge Sources（Datadog Docs > Bits AI > Bits Investigation）
+URL: https://docs.datadoghq.com/bits_ai/bits_investigation/knowledge_sources/
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+知识源：Runbooks（monitor message 内 instructions 或 Confluence 链接）、bits.md、Feedback and memories。
+
+Automatic memories（逐字）：
+"Bits Investigation automatically stores the root cause and learnings from past investigations, then retrieves them the next time the same monitor alerts."
+
+Feedback memories（逐字）：
+"All positive feedback, as well as any negative feedback that includes details provided in the Bits' chat, creates a memory. Bits dynamically selects which memories to use in future investigations to improve its performance."
+
+Memories 管理（逐字）：
+"To manage memories, including viewing and deleting them, go to the Memories column of the Monitor Management page."
+
+bits.md 在 Bits Investigation > Settings > Bits.md 创建，可选择作用于 Investigations/Chat；Runbooks 链接由用户定义，Bits 只访问其有权限的链接。
+
+站点限制：app.ddog-gov.com、us2.ddog-gov.com 不支持本产品。
+注：本页证明 memories 可查看/删除、bits.md 用户可控；未给出 memories 保留期、全量导出或合同退出条款，data_residency 与完整 export_exit 保持未核实。

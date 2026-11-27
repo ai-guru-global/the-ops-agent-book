@@ -1,0 +1,25 @@
+Datadog Pricing — AI Credits  section
+URL: https://www.datadoghq.com/pricing/?site=us&product=ai-credits
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt（AI Credits 区块）
+
+价格（逐字）：
+"Starting At $500 Per 500 credits, per month*"
+"*Billed annually or $1.30 per credit on-demand."
+
+单次用量参考（逐字，官方注明仅供参考、实际随任务复杂度变化）：
+"Bits Testing – Autonomous test generation job: Free of charge through Nov 30"
+"Bits Database Optimization — Autonomous Database Optimization: ~0.3 credits"
+"Bits Chat — Message: ~0.5 credits"
+"Bits Agent Builder — Manual or Autonomous Run: ~1 credit"
+"Bits Code — Code Fix: ~5 credits"
+"Bits Investigate — Autonomous Investigation: ~2.5 credits"
+"Average credit consumption for each feature set out above is provided only for reference. Actual consumption for any single request may vary with task complexity and the amount of context the model processes."
+
+FAQ（逐字）：
+"An AI credit represents one unit of intelligent work performed by Datadog's AI products listed above."
+"AI Credits reset on the first day of each calendar month. Unused credits do not roll over to the next month."
+"If your usage exceeds your purchased monthly bundle, additional credits are billed automatically at the On-Demand rate. You do not need to switch pricing models or top up manually."
+"Annual, monthly, and on-demand plans are available. Annual and monthly plans are billed per 500 credits. On-demand is billed per individual credit."
+
+页面另标注："AI Credits — This product is currently unavailable on the US-FED site."

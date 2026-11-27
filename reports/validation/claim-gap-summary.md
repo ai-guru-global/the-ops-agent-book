@@ -5,7 +5,7 @@
 - P1：116
 - P2：17
 - 已绑定至少一个来源：133
-- 未核实字段计数：658
+- 未核实字段计数：653
 
 本摘要由 `scripts/generate-claim-gap-summary.mjs` 从 [claim-gaps.json](../../sources/claim-gaps.json) 生成；字段计数按 claim 计，同一 claim 的同一字段只计一次。完整记录与 closure rule 以机器可读注册表为准。
 
@@ -13,13 +13,13 @@
 
 | 字段 | 含义 | claim 数 |
 | --- | --- | ---: |
-| status | 产品/能力状态 | 88 |
-| region | 区域与可用性 | 104 |
-| licensing_pricing | 许可与计费单位 | 76 |
-| minimum_overage | 最低消费与超额 | 120 |
+| status | 产品/能力状态 | 87 |
+| region | 区域与可用性 | 103 |
+| licensing_pricing | 许可与计费单位 | 75 |
+| minimum_overage | 最低消费与超额 | 119 |
 | data_residency | 数据驻留与保留 | 96 |
 | export_exit | 导出、退出与删除 | 119 |
-| other | 其他未核实字段 | 55 |
+| other | 其他未核实字段 | 54 |
 
 ## 缺口最多的 25 个 claim
 
@@ -48,5 +48,5 @@
 | NET-05 | AIOps/网络保障 | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | NET-07 | 网络 AIOps/管控 | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | NET-08 | U-Center 统一运维平台 | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
-| OBS-01 | Bits AI | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | OBS-11 | Edwin AI | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
+| SEC-03 | Cortex / AgentiX | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |

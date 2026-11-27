@@ -1,0 +1,27 @@
+AI Credits（Datadog Docs > Account Management > Billing）
+URL: https://docs.datadoghq.com/account_management/billing/ai_credits/
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+定义（逐字）：
+"AI Credits are how Datadog meters and bills usage of its AI products. One AI Credit represents a unit of intelligent work performed by a Datadog AI product."
+
+消耗 Credits 的产品：Bits Chat、Bits Investigation、Bits Code、Bits Agent Builder、Bits Database Optimization。
+
+定价档位（逐字）：
+"Annual Commit: 12-month commitment, billed monthly. Credits are purchased in bundles of 500 per month."
+"Monthly Commit: Month-to-month, no annual commitment. Credits are purchased in bundles of 500 per month."
+"On-Demand: No commitment. Billed monthly based on actual usage."
+
+计费周期（逐字）：
+"AI Credits reset on the first day of each calendar month, at 00:00 UTC. Unused Commit credits do not roll over to the next month."
+
+超额（逐字）：
+"If your usage exceeds your monthly Commit, additional credits are billed automatically at the On-Demand rate."
+
+管理控制：组织级单一开关可启用/禁用全部 AI Credits 产品（禁用后新请求被阻止，历史结果仍可见）；按产品权限（Bits Chat Access、Bits Investigations Write、Bits Code Write、Bits Agent Builder Write/Run）控制；AI Credit Limits 支持组织/角色/用户/服务账号级上限。
+
+可用性（逐字）：
+"AI Credits are available to all Datadog customers except: FedRAMP customers, where AI Credit products are not supported. Customers who have explicitly opted out of AI features through their account team."
+
+站点限制：app.ddog-gov.com、us2.ddog-gov.com 不支持本产品。

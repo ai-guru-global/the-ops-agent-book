@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 212 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 217 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -176,6 +176,11 @@ content_status: "reviewed"
 | SRC-CLERIC-PRICING-001 | [Cleric pricing](https://cleric.ai/pricing.md) | official_doc / OBS-25 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-CLERIC-PRICING-001.txt` |
 | SRC-CLOUDWISE-CASTREL-001 | [云智慧 Castrel AI SRE](https://www.cloudwise.com/cn/page/jx/castrel.html) | official_doc / OBS-27 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-CLOUDWISE-CASTREL-001.txt` |
 | SRC-DD-AI-001 | [Datadog Bits AI](https://www.datadoghq.com/product/ai/) | official_doc / OBS-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-DD-AI-001.txt` |
+| SRC-DD-AI-CREDITS-001 | [AI Credits (Datadog billing docs)](https://docs.datadoghq.com/account_management/billing/ai_credits/) | official_doc / OBS-01 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-DD-AI-CREDITS-001.txt` |
+| SRC-DD-AI-CREDITS-PRICING-001 | [Datadog Pricing — AI Credits](https://www.datadoghq.com/pricing/?site=us&product=ai-credits) | official_doc / OBS-01 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-DD-AI-CREDITS-PRICING-001.txt` |
+| SRC-DD-BITS-AI-001 | [Bits AI (Datadog Docs overview)](https://docs.datadoghq.com/bits_ai/) | official_doc / OBS-01 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-DD-BITS-AI-001.txt` |
+| SRC-DD-BITS-KNOWLEDGE-001 | [Knowledge Sources (Bits Investigation)](https://docs.datadoghq.com/bits_ai/bits_investigation/knowledge_sources/) | official_doc / OBS-01 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-DD-BITS-KNOWLEDGE-001.txt` |
+| SRC-DD-BITS-SETTINGS-001 | [Bits AI Settings (Datadog Docs)](https://docs.datadoghq.com/bits_ai/bits_settings/) | official_doc / OBS-01 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-DD-BITS-SETTINGS-001.txt` |
 | SRC-DD-CLOUDSRE-001 | [Dynatrace Cloud SRE Agents](https://www.dynatrace.com/hub/detail/community-cloudsreagents/) | community / OBS-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-DD-CLOUDSRE-001.txt` |
 | SRC-ELASTIC-AI-001 | [Elastic AI Assistant](https://www.elastic.co/docs/explore-analyze/ai-assistant) | official_doc / OBS-08 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-EOITEK-DATA-001 | [擎创运维数据中台与大模型能力集成](https://www.eoitek.com/product_page/131.html) | official_doc / OBS-28 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-EOITEK-DATA-001.txt` |

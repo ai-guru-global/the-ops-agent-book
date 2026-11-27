@@ -1,0 +1,21 @@
+Bits AI（Datadog Docs 总览）
+URL: https://docs.datadoghq.com/bits_ai/
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+站点限制（逐字）：
+"Important note for users on the following Datadog sites: app.ddog-gov.com, us2.ddog-gov.com — This product is not supported for your selected Datadog site."
+
+总览（逐字）：
+"Bits AI is your agentic teammate in Datadog. Bits assists you with operational workflows across development, security, and DevOps, and can operate autonomously as your first on-call responder."
+"Learn about Bits AI pricing in AI Credits."
+
+Autonomous Ops（逐字）：
+"Bits Autonomous Operations (Autonomous Ops) lets you assign Bits as the first on-call responder for your systems. You define one or more scopes for Bits to watch. When an issue occurs in a scope, Bits triages it. Then, Bits decides whether to handle the issue or hand it off to someone on your team, based on the guardrails that you set."
+步骤：Triages the alert → Investigates the root cause → Recommends next steps, and can take remediation actions within the guardrails that you define → Verifies that the issue is resolved.
+
+权限（逐字）：
+"Bits Chat uses your Datadog role to fetch data, so it can only access the resources that you have permission to view or modify."
+
+功能列表：Bits Investigation、Bits Code、Bits Security Analyst、Bits Chat、Bits Data Analysis、Bits Detection、Bits Remediation；Custom automations 编排 Bits Agent Builder 构建的 agent，可定时或触发运行。
+Settings 含 Knowledge（Bits.md/skills/memories）与 Administration（integrations、guardrails、action history、credit usage、rate limits）。

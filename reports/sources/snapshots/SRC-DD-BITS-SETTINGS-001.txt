@@ -1,0 +1,19 @@
+Bits AI Settings（Datadog Docs）
+URL: https://docs.datadoghq.com/bits_ai/bits_settings/
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+Knowledge settings：Bits.md（用户级/组织级 Markdown 上下文，适用于 Bits Chat 与 Bits Investigation）、Skills（可复用领域知识）、Memories（Bits Investigation 从反馈学习）。
+
+Guardrails（逐字）：
+"Guardrails are rules that control what remediation actions Bits can take on your infrastructure after an investigation. Each guardrail applies to specific actions and resources that match its scope. For example, you can create a guardrail that allows Bits to roll back deployments for service:checkout after someone on the checkout team approves the action."
+
+Action history（逐字）：
+"Action history is an auditable record of every action that Bits has taken. For each action, you can see its execution details, the guardrail that covered it, and the investigation that led to it."
+
+Credit usage（逐字要点）：
+"AI Credits are shared across Bits Chat, Bits Investigation, Bits Code, Bits Agent Builder, and Bits Database Optimization."
+"Set limits: Set monthly AI Credit limits for your organization, for roles, for individual users, and for service accounts. Setting limits requires the billing_edit permission."
+非人工触发的用量（如自动调查）计入 Autonomous Agents。
+
+站点限制：app.ddog-gov.com、us2.ddog-gov.com 不支持本产品。

@@ -2928,17 +2928,17 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-DD-AI-001"
+        "SRC-DD-AI-001",
+        "SRC-DD-BITS-AI-001",
+        "SRC-DD-AI-CREDITS-001",
+        "SRC-DD-AI-CREDITS-PRICING-001",
+        "SRC-DD-BITS-SETTINGS-001",
+        "SRC-DD-BITS-KNOWLEDGE-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
         "data_residency",
-        "export_exit",
-        "licensing_pricing",
-        "minimum_overage",
-        "other",
-        "region",
-        "status"
+        "export_exit"
       ]
     },
     {
@@ -4002,13 +4002,13 @@
       "P2": 17
     },
     "unverified_field_counts": {
-      "status": 88,
-      "region": 104,
-      "licensing_pricing": 76,
-      "minimum_overage": 120,
+      "status": 87,
+      "region": 103,
+      "licensing_pricing": 75,
+      "minimum_overage": 119,
       "data_residency": 96,
       "export_exit": 119,
-      "other": 55
+      "other": 54
     }
   },
   "field_definitions": {

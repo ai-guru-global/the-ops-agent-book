@@ -143,7 +143,7 @@ flowchart TB
 
 | 产品 | 内嵌助手/Agent（claim） | 运维相关性 | source_id |
 | --- | --- | --- | --- |
-| Datadog Bits AI（OBS-01） | 当前页面展示 Chat、Investigation、Code、Security Analyst、Agent Builder | 可观测/事件 | SRC-DD-AI-001 |
+| Datadog Bits AI（OBS-01） | 官方文档确认 Chat/Investigation/Code/Security Analyst/Agent Builder 与 Autonomous Ops；AI Credits 统一计费 | 可观测/事件 | SRC-DD-AI-001；SRC-DD-BITS-AI-001；SRC-DD-AI-CREDITS-001 |
 | Dynatrace Cloud SRE Agents 社区应用（OBS-02） | 社区应用支持并行 Agent 分派；非 Dynatrace 官方支持 | 可观测/可靠性 | SRC-DD-CLOUDSRE-001 |
 | New Relic AI（OBS-03） | 自然语言查询、日志/堆栈、变更与仪表盘解释、代码级排障 | 可观测 | SRC-NR-AI-001 |
 | Splunk AI Assistant/ITSI（OBS-04） | 自然语言转 SPL、代理调查、episode 摘要与根因指导 | 可观测/安全 | SRC-SPLUNK-AIASSISTANT-001；SRC-SPLUNK-ITSI-001 |
@@ -161,7 +161,7 @@ flowchart TB
 | GC-AWS-05 AWS Quick | 未核实 | 未核实 | 按 user/month；组织版另有账户基础设施费 | Agent hours 因版本而异；超额未核实 | 未核实 | 未核实 |
 | GC-AWS-01 AWS DevOps Agent | 整体未核实；Release Management 为 Preview | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | ALI-02 AgentRun | 未核实 | 未核实 | 未核实 | 浅休眠计费有描述；具体价格/超额未核实 | 私有化/网络隔离为文档宣称；具体配置未核实 | 未核实 |
-| OBS-01 Datadog Bits AI | 未核实 | 未核实 | 定价入口含 AI Credits；具体单位未核实 | 未核实 | 未核实 | 未核实 |
+| OBS-01 Datadog Bits AI | 官方文档与定价页在售；Autonomous Ops 文档化 | 商业站点可用；FedRAMP/US-FED/ddog-gov 不支持 | AI Credits $500/500 credits/月（年付）或 $1.30/credit on-demand | 500 credits/月捆绑；月度重置不结转；超额自动 On-Demand；多级额度上限 | 未核实 | memories 可查看/删除、action history 可审计；全量导出与退出未核实 |
 | OBS-03 New Relic AI | 未核实 | 未核实 | 未核实 | 未核实 | 未核实；FedRAMP/HIPAA 客户当前不适用 | 未核实 |
 | OBS-07 Grafana Assistant | 未核实 | 未核实 | 订阅与 AI Supplemental Terms；具体单位未核实 | 未核实 | 具体驻留未核实 | 未核实 |
 | OBS-08 Elastic AI Assistant | Cloud Serverless 与 Stack 明示 GA | 未核实 | Managed LLM 需订阅/feature tier 并额外收费 | 额外成本存在；最低消费/超额未核实 | 第三方 provider 会处理数据；位置未核实 | 未核实 |
