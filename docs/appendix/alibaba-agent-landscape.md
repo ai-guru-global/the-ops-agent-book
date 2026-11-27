@@ -22,7 +22,7 @@ content_status: "reviewed"
 | **可即用 Agent 产品** | 官方目录中的产品导航（ALI-01） | 官方 Agent 服务目录 | 快速检索；目录数量与产品状态须按快照日核实 | SRC-ALI-CATALOG-001 |
 | **Agent 运行时/基础设施** | 让 Agent 跑起来、隔离、观测 | AgentRun（ALI-02）、Agent Sandbox（ALI-03）、AgentBay（ALI-05） | 承载长任务、沙箱、弹性与执行边界 | SRC-ALI-AGENTRUN-001、SRC-ALI-SANDBOX-001、SRC-ALI-AGENTBAY-001 |
 | **Agent 开发框架** | 用代码构建 Agent/多 Agent | AgentScope（ALI-06）、Spring AI Alibaba（ALI-08）、Qwen-Agent（ALI-07） | 自建、深度集成、可控编排 | COM-AGENTSCOPE-001、COM-SPRING-AI-ALIBABA-001、COM-QWEN-AGENT-001 |
-| **Agent 开发/低代码平台** | 可视化/低代码构建 Agent、RAG、工具 | 百炼 / Model Studio（ALI-14，未核实） | 快速验证标准场景 | 未核实 |
+| **Agent 开发/低代码平台** | 可视化/低代码构建 Agent、RAG、工具 | 百炼 / Model Studio（ALI-14） | 快速验证标准场景 | 模型计费与 Agent 安全防护有官方文档；完整运维场景需 POC |
 | **Agent 治理/观测/协作** | 多 Agent 治理、可观测、评估优化 | AgentLoop、AgentTeams、AgentCore（ALI-09–11，公开报道）；STAROps（ALI-16，公开报道） | 具体能力未核实，不能据此认定生产可用 | PUB-ALI-SUMMIT-001 |
 
 ## 产品清单
@@ -37,7 +37,7 @@ content_status: "reviewed"
 | **AgentBay**（ALI-05） | 执行隔离 | Browser、Computer、Code、Mobile 四类环境；SDK/MCP/ASP 访问 | 需要操作 GUI 的运维 Agent；状态持久化未核实 | official_doc / SRC-ALI-AGENTBAY-001 |
 | **AgentScope**（ALI-06） | 开源框架 | 项目 README 描述 Agent Service、TeamPipeline 委派与 ModelRouterMiddleware；voice/SOP 为 Experimental | 自建多 Agent；项目“production-ready”自述不是独立生产验证 | community / COM-AGENTSCOPE-001 |
 | **Qoder Cloud Agents**（ALI-15） | 托管运行时 | 能力与状态未核实 | 长任务/异步运维（场景建议） | 未核实 |
-| **百炼 / Model Studio**（ALI-14） | 开发平台 | 能力与状态未核实 | 标准运维流程、知识库问答（场景建议） | 未核实 |
+| **百炼 / Model Studio**（ALI-14） | 开发平台 | 官方文档确认模型服务与 Agent 安全默认/高级防护（身份签发、内容安全、供应链扫描、凭证隔离、会话治理、高级策略与风险审计） | 标准运维流程、知识库问答（场景建议） | official_doc / SRC-ALI-MODELSTUDIO-PRICING-001；SRC-ALI-AGENT-SECURITY-BILLING-001 |
 | **AgentLoop**（ALI-09） | 观测/评估 | 公开报道称其面向 Agent 观测/评估；具体能力未核实 | Trace、评测、持续优化（候选方向） | public_report / PUB-ALI-SUMMIT-001 |
 | **AgentTeams**（ALI-10） | 多 Agent 协作/治理 | 公开报道口径；具体能力未核实 | 多 Agent 事故指挥、跨域协作（候选方向） | public_report / PUB-ALI-SUMMIT-001 |
 | **AgentCore**（ALI-11） | 构建/治理平台 | 公开报道口径；具体能力未核实 | 构建、治理、观测（候选方向） | public_report / PUB-ALI-SUMMIT-001 |
@@ -78,7 +78,8 @@ content_status: "reviewed"
 | ALI-06 AgentScope | Experimental 功能不视为 GA；整体商业状态未核实 | 不适用/未核实 | README 称 Apache-2.0；服务条款另核 | 不适用/未核实 | 不适用/未核实 | 按具体仓库版本与许可证另核 |
 | ALI-08 Spring AI Alibaba | 未核实 | 不适用/未核实 | 许可证未核实 | 不适用/未核实 | 不适用/未核实 | 未核实 |
 | ALI-07 Qwen-Agent | 未核实；本地 Python executor 仅限本地测试 | 不适用/未核实 | 许可证未核实 | 不适用/未核实 | 不适用/未核实 | 未核实 |
-| ALI-09–11、ALI-14–18 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| ALI-09–11、ALI-15–18 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| ALI-14 百炼 / Model Studio | 官方文档；安全高级防护截至 2026-09 限时免费，正式计费前至少提前 1 个月通知 | 模型价格页列北京/新加坡/弗吉尼亚等条目；完整区域清单未核实 | Agent 安全高级防护正式计费后 ¥0.42/运行席位·小时 + 超额 ¥0.0015/Credit；默认防护免费 | 每席位每日独立 300 Credits、24 小时有效不结转；超额按实际用量 | 未核实 | 未核实 |
 
 ## 选型建议
 

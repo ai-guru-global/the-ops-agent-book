@@ -28,7 +28,7 @@
 3. **图示覆盖**：在 35 张图基础上补齐 8 张厂商页图和 7 张关键模板页图，总计 50 张；旧图号不重排。
 4. **维护与导出**：来源日期同步、维护注册表自登记、首页 PDF/EPUB 与复现入口；宽表增加键盘可访问滚动容器，打印时完整展开。
 5. **决策证据**：48 页 v3 评分、No-Go 报告、真实用户测试协议；本地 PDF 720 页、EPUB 48 章已重新生成并校验。
-6. **厂商补证**：来源注册表增至 223 条、正文快照 188 份；133 个证据缺口 claim 机器可读，133 个均已绑定至少一个 source_id，并逐字段记录 644 个未核实项；AWS DevOps Agent、OCI Enterprise AI Agents、Google SecOps、ServiceNow Otto、AWS AgentCore、Azure SRE Agent、IBM Cloudability、Amazon Q Developer、Gemini Enterprise、SAP Joule、Oracle Fusion AI Agents、Datadog Bits AI、Flexera CCO 与 Google Agent Platform 的官方状态/区域/计费/驻留/导出/删除证据已分批补强，未核实商业字段不默认通过。
+6. **厂商补证**：来源注册表增至 226 条、正文快照 191 份；133 个证据缺口 claim 机器可读，133 个均已绑定至少一个 source_id，并逐字段记录 639 个未核实项；AWS DevOps Agent、OCI Enterprise AI Agents、Google SecOps、ServiceNow Otto、AWS AgentCore、Azure SRE Agent、IBM Cloudability、Amazon Q Developer、Gemini Enterprise、SAP Joule、Oracle Fusion AI Agents、Datadog Bits AI、Flexera CCO、Google Agent Platform、Palo Alto AgentiX 与百炼安全防护 的官方状态/区域/计费/驻留/导出/删除证据已分批补强，未核实商业字段不默认通过。
 7. **评测资产**：400 条 synthetic K8s 案例（40/60/300，五类各 80）与 400 份本地快照 fixture；确定性生成、SHA-256、负向控制与 14 项 self-test 通过；报告仍为 INCONCLUSIVE。
 8. **POC 示例**：填写的 synthetic POC 73/100、INCONCLUSIVE；28/28 参考测试、400-case self-test、干净目录导入、Shadow/rollback、Trace 验签/锚点验证与 27 项制品哈希通过；真实 TCO/商务退出未完成。
 9. **Judge 校准工具**：300 条独立候选池、答案键、快照 registry、双人标注/独立裁决 CLI 与 κ/召回报告已就绪；真实标注 0/300，release_ready=false。

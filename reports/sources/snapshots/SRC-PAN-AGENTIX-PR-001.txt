@@ -1,0 +1,15 @@
+Palo Alto Networks Unveils Cortex AgentiX（官方新闻稿，2025-10-28）
+URL: https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-unveils-cortex-agentix-to-build--deploy-and-govern-the-agentic-workforce-of-the-future
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+逐字摘录：
+"SANTA CLARA, Calif., Oct. 28, 2025 /PRNewswire/ -- ... Palo Alto Networks (NASDAQ: PANW) ... is launching Cortex® AgentiX™ ... As the next generation of Cortex XSOAR®, AgentiX is the industry's most secure platform to build, deploy and govern the AI agent workforce of the future."
+"available today in Cortex Cloud™ and Cortex XSIAM®. Cortex XDR® and the standalone AgentiX platform will be available in early 2026."
+"1,000 prebuilt integrations and native Model Context Protocol (MCP) support."
+"role-based access controls and require human-in-the-loop approval for impactful actions, helping ensure agentic workflows are safe and reliable. Every agent action comes with full auditability to support the strictest compliance and security requirements."
+
+厂商宣称（非独立验证结果，仅记录为厂商 claim）：
+"AgentiX delivers up to a 98% reduction in MTTR with 75% less manual work"
+
+注：新闻稿给出发布时点的可用范围；XDR 与独立平台"early 2026"为当时计划，当前状态需另行核实。区域、定价、驻留与退出条款未在该稿给出。

@@ -56,7 +56,7 @@ flowchart TB
 | **Agent Sandbox**（ALI-03） | 执行隔离 | 通用 | 官方帮助中心定义为安全隔离执行环境，提供代码执行、进程运行、文件操作、网络访问和状态管理；其他兼容性未核实 | SRC-ALI-SANDBOX-001 |
 | **AgentBay**（ALI-05） | 执行隔离 | 通用 | 官方产品页描述 Browser、Computer、Code、Mobile 四类环境及 SDK/MCP/ASP 访问；页面宣称部署于 Singapore | SRC-ALI-AGENTBAY-001 |
 | **AgentScope**（ALI-06） | 开源框架 | 多 Agent | 项目 README 描述 Agent Service、TeamPipeline 委派与 ModelRouterMiddleware；Realtime voice/SOP 标为 Experimental，不写成 GA | COM-AGENTSCOPE-001 |
-| **百炼 / Model Studio**（ALI-14） | Agent 平台 | 通用 | 官方价格页证实模型服务按量计费与部分地域条目；完整 Agent 平台能力、驻留与退出未核实 | SRC-ALI-MODELSTUDIO-PRICING-001 |
+| **百炼 / Model Studio**（ALI-14） | Agent 平台 | 通用 | 官方价格页证实模型服务按量计费与部分地域条目；安全文档确认默认防护免费自动启用、高级防护含 7 项策略与风险审计；完整 Agent 平台驻留与退出需按合同另核 | SRC-ALI-MODELSTUDIO-PRICING-001；SRC-ALI-AGENT-SECURITY-BILLING-001 |
 | **Qoder Cloud Agents**（ALI-15） | 托管运行时 | 长任务/异步 | 官方计费文档支持个人 Credits 预付费、企业资源包及模型/沙箱按用量扣减；导出、删除与驻留未核实 | SRC-QODER-CLOUDAGENTS-BILLING-001 |
 | **STAROps**（ALI-16） | 运维平台 | 全域智能运维 | 公开报道称其为全域智能运维平台；具体能力与生产可用性未核实 | PUB-ALI-SUMMIT-001 |
 | **Alibaba Cloud Linux 4 Agentic Edition / Agentic OS**（ALI-17） | Agent-first OS | 主机/系统运维 | 官方文档称镜像免费、计算/存储/模型资源另计，核心组件已开源；支持 x86 并建议至少 2GB 内存 | SRC-ALI-AGENTICOS-001 |
@@ -150,7 +150,7 @@ flowchart TB
 | CN-BD-08 文心快码 | 官方产品/定价文档；整体 GA 未核实 | 官方称中国境内 | 个人免费起；企业按人月；私有化询价 | 配额与超额未核实 | 官方称私有化数据不出边界 | 注销后 30 天内删除；完整导出未核实 |
 | CN-BD-09 百度一镜 | 官方 API 产品页；整体 GA 未核实 | 未核实 | SaaS/PaaS 购买入口；具体价格未核实 | 未核实 | 未核实 | 未核实 |
 | CN-BD-06 秒哒 | 公有云文档；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 多数新应用可导出源码；旧应用不支持，复杂应用需二次开发 |
-| ALI-14 Model Studio | 模型服务价格页；整体平台状态未核实 | 价格页列北京/新加坡/弗吉尼亚等；完整清单未核实 | 按量；北京有免费额度，其他地域无免费额度 | 具体额度与超额未核实 | 未核实 | 未核实 |
+| ALI-14 Model Studio | 官方文档；安全高级防护截至 2026-09 限时免费，正式计费前至少提前 1 个月通知 | 价格页列北京/新加坡/弗吉尼亚等；完整清单未核实 | 模型服务按量；Agent 安全高级防护正式计费后 ¥0.42/运行席位·小时 + 超额 ¥0.0015/Credit；默认防护免费 | 每席位每日独立 300 Credits、24 小时有效不结转；超额按实际用量 | 未核实 | 未核实 |
 | ALI-15 Qoder Cloud Agents | 商业计费文档；整体 GA 未核实 | 未核实 | 个人 Credits 预付；企业资源包；模型/沙箱按用量 | 具体套餐与最低消费未核实 | 未核实 | 未核实 |
 | ALI-17 Agentic OS | 官方镜像文档；商业 SLA 未核实 | 未核实 | 镜像免费；计算/存储/模型等资源另计 | 未核实 | 未核实 | 核心组件开源；完整退出流程未核实 |
 | CN-TX-05 ADP | 官方产品页；整体 GA 未核实 | 未核实 | 云部署/私有化 License；私有化在客户 TKE | 未核实 | 未核实 | 未核实 |

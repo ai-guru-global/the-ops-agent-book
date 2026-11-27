@@ -354,17 +354,14 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-ALI-MODELSTUDIO-PRICING-001"
+        "SRC-ALI-MODELSTUDIO-PRICING-001",
+        "SRC-ALI-AGENT-SECURITY-BILLING-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
         "data_residency",
         "export_exit",
-        "licensing_pricing",
-        "minimum_overage",
-        "other",
-        "region",
-        "status"
+        "region"
       ]
     },
     {
@@ -393,6 +390,7 @@
       "unverified_fields": [
         "data_residency",
         "export_exit",
+        "licensing_pricing",
         "minimum_overage",
         "other",
         "region",
@@ -3792,7 +3790,9 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-PAN-CORTEX-001"
+        "SRC-PAN-CORTEX-001",
+        "SRC-PAN-AGENTIX-PR-001",
+        "SRC-PAN-AGENTIX-CN-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
@@ -3800,9 +3800,7 @@
         "export_exit",
         "licensing_pricing",
         "minimum_overage",
-        "other",
-        "region",
-        "status"
+        "region"
       ]
     },
     {
@@ -3999,13 +3997,13 @@
       "P2": 17
     },
     "unverified_field_counts": {
-      "status": 85,
+      "status": 83,
       "region": 102,
       "licensing_pricing": 74,
-      "minimum_overage": 118,
+      "minimum_overage": 117,
       "data_residency": 94,
       "export_exit": 119,
-      "other": 52
+      "other": 50
     }
   },
   "field_definitions": {

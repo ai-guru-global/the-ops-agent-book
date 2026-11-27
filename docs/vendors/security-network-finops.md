@@ -58,7 +58,7 @@ flowchart TB
 | --- | --- | --- | --- | --- |
 | **Microsoft** | Security Copilot（SEC-01） | 安全 Agent 平台 | 官方 FAQ 支持安全问答、数据与合规、租户地域和 EU 数据边界；具体合同与跨境配置需另核 | SRC-MS-SECCOPILOT-COMPLIANCE-001 |
 | **Google** | Security Operations (Gemini)（SEC-02） | 平台 AI + Agent | 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini；UDM 可导自管 BigQuery，Enterprise Plus 不支持 BYOBQ；区域部署不跨区流量，多区域按 feeds 同步/异步复制；租户删除不自动取消计费 | SRC-GOOGLE-SECOPS-PACKAGES-001；SRC-GOOGLE-SECOPS-EXPORT-001；SRC-GOOGLE-SECOPS-DEPROVISION-001；SRC-GOOGLE-SECOPS-QUOTAS-001；SRC-GOOGLE-SECOPS-DR-001 |
-| **Palo Alto Networks** | Cortex / AgentiX（SEC-03） | SecOps 平台 | 官方页面确认 Cortex 平台与 Cortex AgentiX 入口；原具体版本与 Agent 发现/行为治理能力未核实，已删除确定性表述 | SRC-PAN-CORTEX-001 |
+| **Palo Alto Networks** | Cortex / AgentiX（SEC-03） | SecOps 平台 | 官方 2025-10-28 新闻稿确认 AgentiX 发布：当时 Cortex Cloud/XSIAM 已可用，XDR 与独立平台计划 2026 年初；1000 预建集成与 MCP；RBAC、关键动作人工审批、每动作可审计；中文产品页独立平台仍为 early access | SRC-PAN-CORTEX-001；SRC-PAN-AGENTIX-PR-001；SRC-PAN-AGENTIX-CN-001 |
 | **CrowdStrike** | Charlotte AI / AgentWorks（SEC-04） | 安全 Agent 平台 | 官方页面描述跨 endpoint/identity/cloud/network 并行调查、共享上下文、prebuilt agents、无代码 AgentWorks、Agentic SOAR 与 MCP；默认不执行改变环境的动作，影响环境的动作需显式配置与授权审批 | SRC-CS-CHARLOTTE-001 |
 | **SentinelOne** | Purple AI（SEC-05） | 安全 Agent | 官方页面支持 Agentic Investigation、Auto-Triage、Investigation Notebooks、预批准策略动作与零训练表述；GA 与商业细节未核实 | SRC-SENTINELONE-PURPLE-AI-001 |
 | **Splunk (Cisco)** | Splunk Security AI（SEC-06） | 平台 AI | 官方页面支持 AI 辅助检测、分诊、调查、SOAR、恶意软件分析与响应；独立 SKU、GA 与商业细节未核实 | SRC-SPLUNK-AI-SECURITY-001 |
@@ -103,7 +103,7 @@ FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格�
 
 | claim_id / 产品 | 状态 | 区域 | 许可/计费单位 | 最低消费 / 超额 | 数据驻留 | 导出 / 退出 |
 | --- | --- | --- | --- | --- | --- | --- |
-| SEC-03 Palo Alto Cortex / AgentiX | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| SEC-03 Palo Alto Cortex / AgentiX | 2025-10-28 官方发布；发布时 Cloud/XSIAM 已可用，XDR/独立平台计划 2026 年初；独立平台当前 early access | 未核实 | 未核实 | 未核实 | 未核实 | 每动作可审计；全量配置/日志导出与合同退出未核实 |
 | SEC-04 CrowdStrike Charlotte AI | 未核实 | 未核实 | 符合条件客户可在 Falcon console 使用，每月 50 AI credits 并续期 | 其他价格、最低消费与超额未核实 | 未核实 | 未核实 |
 | SEC-07 IBM QRadar | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | FIN-01 IBM Cloudability | 现行产品文档持续更新；IBM Cloud 成本集成 GA，整体版本状态未核实 | 已核实 UAE 托管与欧洲区域发布；完整区域清单未核实 | 页面列 Essentials/Standard/Premium；具体许可单位未核实 | IBM Cloud 支出受合同 Monitored Cost Limit；普遍最低价/超额单价未核实 | 官方称 UAE/欧洲区域客户数据留在区域内；完整驻留与保留承诺未核实 | 报表 CSV、Resource Inventory API、CUR 2.0 CSV/Parquet；完整租户导出、删除时限与退出未核实 |

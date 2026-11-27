@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 223 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 226 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -35,6 +35,7 @@ content_status: "reviewed"
 | COM-QWEN-AGENT-001 | [Qwen-Agent GitHub repository](https://github.com/QwenLM/Qwen-Agent) | community / ALI-07 | 2026-11-24 | 待存 / 仅入口 |
 | COM-SPRING-AI-ALIBABA-001 | [Spring AI Alibaba project documentation](https://spring-ai-alibaba.github.io) | community / ALI-08 | 2026-11-24 | 待存 / 仅入口 |
 | PUB-ALI-SUMMIT-001 | [2026 阿里云峰会 Agent Native 产品报道](https://culture.ifeng.com/c/8tPjCX8bdEh) | public_report / ALI-09、ALI-10、ALI-11、ALI-16 | 2026-11-12 | 待存 / 仅入口 |
+| SRC-ALI-AGENT-SECURITY-BILLING-001 | [Security Billing (Alibaba Cloud Model Studio Agent security advanced protection)](https://help.aliyun.com/en/model-studio/security/billing) | official_doc / ALI-14 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-ALI-AGENT-SECURITY-BILLING-001.txt` |
 | SRC-ALI-AGENTBAY-001 | [无影 AgentBay](https://www.alibabacloud.com/en/product/agentbay) | official_doc / ALI-05 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-ALI-AGENTICOS-001 | [Alibaba Cloud Linux 4 Agentic Edition 产品概览](https://help.aliyun.com/zh/alinux/agentic-os) | official_doc / ALI-17 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-ALI-AGENTICOS-001.txt` |
 | SRC-ALI-AGENTRUN-001 | [AgentRun 是什么](https://help.aliyun.com/zh/agentrun/what-is-agentrun) | official_doc / ALI-02、ALI-04 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-ALI-AGENTRUN-001.txt` |
@@ -222,6 +223,8 @@ content_status: "reviewed"
 | SRC-DROPZONE-AISOC-001 | [Dropzone AI SOC Analyst](https://www.dropzone.ai/ai-soc-analyst) | official_doc / SEC-08 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-DROPZONE-AISOC-001.txt` |
 | SRC-DROPZONE-EU-001 | [Dropzone EU Data Residency for AI SOC](https://www.dropzone.ai/eu/ai-soc-data-residency) | official_doc / SEC-08 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-DROPZONE-EU-001.txt` |
 | SRC-MS-SECCOPILOT-COMPLIANCE-001 | [Microsoft Security Copilot Data and Compliance FAQ](https://learn.microsoft.com/en-us/copilot/security/faq-data-compliance) | official_doc / SEC-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-MS-SECCOPILOT-COMPLIANCE-001.txt` |
+| SRC-PAN-AGENTIX-CN-001 | [Cortex AgentiX 产品页（Palo Alto Networks 中文官网）](https://www.paloaltonetworks.cn/cortex/agentix) | official_doc / SEC-03 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-PAN-AGENTIX-CN-001.txt` |
+| SRC-PAN-AGENTIX-PR-001 | [Palo Alto Networks Unveils Cortex AgentiX (2025-10-28 press release)](https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-unveils-cortex-agentix-to-build--deploy-and-govern-the-agentic-workforce-of-the-future) | official_release / SEC-03 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-PAN-AGENTIX-PR-001.txt` |
 | SRC-PAN-CORTEX-001 | [Palo Alto Networks Cortex](https://www.paloaltonetworks.com/cortex/) | official_doc / SEC-03 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-SENTINELONE-PURPLE-AI-001 | [Purple AI: Agentic AI Security Analyst](https://www.sentinelone.com/platform/purple/) | official_doc / SEC-05 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SENTINELONE-PURPLE-AI-001.txt` |
 | SRC-SPLUNK-AI-SECURITY-001 | [Splunk AI in Security](https://www.splunk.com/en_us/products/ai-in-security.html) | official_doc / SEC-06 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SPLUNK-AI-SECURITY-001.txt` |

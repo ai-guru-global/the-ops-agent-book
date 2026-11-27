@@ -617,6 +617,34 @@ sources:
   notes: 官方营销页；仅确认 Cortex 平台与 AgentiX 入口，未核验 Prisma AIRS 3.0 或具体自治能力。
   claims:
   - SEC-03
+- source_id: SRC-PAN-AGENTIX-PR-001
+  title: Palo Alto Networks Unveils Cortex AgentiX (2025-10-28 press release)
+  url: https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-unveils-cortex-agentix-to-build--deploy-and-govern-the-agentic-workforce-of-the-future
+  type: official_release
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方新闻稿（2025-10-28）：发布时 Cortex Cloud/XSIAM 已可用，XDR 与独立平台计划 2026 年初；1000 预建集成 + MCP；RBAC、关键动作 human-in-the-loop 审批、每动作可审计。98% MTTR/75% 人工减少为厂商宣称，非独立验证。
+  claims:
+  - SEC-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-PAN-AGENTIX-PR-001.txt
+    sha256: ec6a2e70fe3dd24df35661ac8c52da94f2dfd13d1917ec60a66d38c8e0d37bee
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-PAN-AGENTIX-CN-001
+  title: Cortex AgentiX 产品页（Palo Alto Networks 中文官网）
+  url: https://www.paloaltonetworks.cn/cortex/agentix
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方中文产品页：可控制监督/自主运行，访问控制与权限管理约束 Agent，有影响动作人工审批；请求解释/动作/结果全透明可追溯；自然语言构建自动操作；1000+ 预建集成与本地 MCP；AgentiX 支持 Cortex Agentic Assistant（XSIAM/XDR/云），独立平台仍为 early access 注册。
+  claims:
+  - SEC-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-PAN-AGENTIX-CN-001.txt
+    sha256: 0ccf542b331af91aa55d1fba7883f218d9f9b7082943164d90b1b48e3b243e8f
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-IBM-CLOUDABILITY-001
   title: IBM Cloudability
   url: https://www.apptio.com/products/cloudability/
@@ -1000,6 +1028,20 @@ sources:
     sha256: 6b0fbc9d422a0ce4cb72066cee4377f80255ac9aa3f890bfee5eba7746c17760
     captured_at: '2026-11-25'
     method: html-to-text
+- source_id: SRC-ALI-AGENT-SECURITY-BILLING-001
+  title: Security Billing (Alibaba Cloud Model Studio Agent security advanced protection)
+  url: https://help.aliyun.com/en/model-studio/security/billing
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方计费页：截至 2026-09 Agent 安全高级防护限时免费，正式计费前至少提前 1 个月通知；正式计费后按运行席位 ¥0.42/席位·小时 + 超额 Credits ¥0.0015/Credit；每席位每日独立 300 Credits、24 小时有效不结转；默认防护免费自动启用（身份签发/内容安全/供应链静态扫描/凭证隔离/会话治理）；高级防护需服务授权，含 7 项策略与风险审计。口径仅覆盖 Agent 安全防护，不代表百炼平台整体价格。
+  claims:
+  - ALI-14
+  snapshot:
+    path: reports/sources/snapshots/SRC-ALI-AGENT-SECURITY-BILLING-001.txt
+    sha256: e3a207548be3f1a3bb465cd76d09bd790c6c813ddd0f692744f8f8ddc9f3fd93
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-QODER-CLOUDAGENTS-BILLING-001
   title: Qoder Cloud Agents 计费
   url: https://docs.qoder.com/zh/cloud-agents/billing

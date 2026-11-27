@@ -1,0 +1,28 @@
+Security Billing（Alibaba Cloud Model Studio / 百炼 Agent 安全高级防护）
+URL: https://help.aliyun.com/en/model-studio/security/billing
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+限时免费说明（逐字）：
+"As of September 2026, Agent security advanced protection is still in a limited-time free stage. The platform will give at least one month's notice before formal charging begins, and billing will follow the rules below after that."
+
+默认防护（逐字）：
+"Default protection in Bailian (Agent identity issuance, content security, supply chain static scan, credential isolation, etc.) is automatically enabled as the Agent is used, with no additional activation or fees. Advanced protection requires service authorization and activation."
+
+正式计费规则（逐字）：
+"After formal billing starts, advanced protection adopts a postpaid model combining 'hourly billing for running seats + daily default Credit quota + excess Credit billing'."
+"Agent Defense Seat Fee: ¥0.42 / seat·hour — Billed by the number of Agent seats running under advanced protection and their duration"
+"Excess Credits Usage: ¥0.0015 / Credit — The portion exceeding the daily default Credit quota, billed by actual usage"
+"Seat: an Agent that is running and using advanced protection. Fees apply only while the Agent is actually running and using advanced protection capabilities. No seat fee is incurred while the Agent is not running."
+
+Credit 额度（逐字）：
+"Default quota: 300 Credits per seat per day"
+"Quota isolation: Each Agent has an independent quota that cannot be shared across Agents"
+"Validity period: Credits are valid for 24 hours (calculated by calendar day) and do not carry over after expiration"
+"Consumption rule: Credit consumption is related to the volume of content inspected. The system converts Credits based on the token count of the inspected content..."
+
+计费示例（官方）：3 Agent × 24h × ¥0.42 = ¥30.24 席位费；900 Credits 免费额度；(10000−900) × ¥0.0015 = ¥13.65 超额；日合计 ¥43.89。
+服务授权：开通需同意《百炼 Agent 安全（按量付费）服务协议》与服务关联角色授权（AliyunServiceRoleForSFMSecurity 等）。
+默认防护免费含会话生命周期治理；高级防护含 7 项安全策略配置、风险监控与风险审计。
+
+口径说明：本页为百炼 Agent 安全高级防护计费，不是百炼平台整体模型/Agent 开发计费；ALI-14 其余字段（平台整体区域/驻留/退出）仍按各自证据状态。
