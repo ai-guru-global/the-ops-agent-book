@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 226 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 229 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -228,6 +228,9 @@ content_status: "reviewed"
 | SRC-PAN-CORTEX-001 | [Palo Alto Networks Cortex](https://www.paloaltonetworks.com/cortex/) | official_doc / SEC-03 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-SENTINELONE-PURPLE-AI-001 | [Purple AI: Agentic AI Security Analyst](https://www.sentinelone.com/platform/purple/) | official_doc / SEC-05 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SENTINELONE-PURPLE-AI-001.txt` |
 | SRC-SPLUNK-AI-SECURITY-001 | [Splunk AI in Security](https://www.splunk.com/en_us/products/ai-in-security.html) | official_doc / SEC-06 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SPLUNK-AI-SECURITY-001.txt` |
+| SRC-SPLUNK-AI-USAGE-001 | [AI Assistant Usage Dashboard in Cloud Monitoring Console (2025-10-02)](https://www.splunk.com/en_us/blog/artificial-intelligence/now-offering-the-ai-assistant-usage-dashboard-in-cloud-monitoring-console.html) | official_doc / SEC-06 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-SPLUNK-AI-USAGE-001.txt` |
+| SRC-SPLUNK-ES-PRICING-001 | [Splunk Pricing — Enterprise Security edition matrix](https://www.splunk.com/en_us/products/pricing.html#enterprise-security) | official_doc / SEC-06 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-SPLUNK-ES-PRICING-001.txt` |
+| SRC-SPLUNK-RESPONSIBLE-AI-001 | [Responsible AI for Splunk AI Assistant in Security and Agentic Capabilities](https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/responsible-ai-for-splunk-security-ai-assistant-agentic-capabilities.html) | official_doc / SEC-06 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-SPLUNK-RESPONSIBLE-AI-001.txt` |
 
 ### FinOps
 

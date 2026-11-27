@@ -61,7 +61,7 @@ flowchart TB
 | **Palo Alto Networks** | Cortex / AgentiX（SEC-03） | SecOps 平台 | 官方 2025-10-28 新闻稿确认 AgentiX 发布：当时 Cortex Cloud/XSIAM 已可用，XDR 与独立平台计划 2026 年初；1000 预建集成与 MCP；RBAC、关键动作人工审批、每动作可审计；中文产品页独立平台仍为 early access | SRC-PAN-CORTEX-001；SRC-PAN-AGENTIX-PR-001；SRC-PAN-AGENTIX-CN-001 |
 | **CrowdStrike** | Charlotte AI / AgentWorks（SEC-04） | 安全 Agent 平台 | 官方页面描述跨 endpoint/identity/cloud/network 并行调查、共享上下文、prebuilt agents、无代码 AgentWorks、Agentic SOAR 与 MCP；默认不执行改变环境的动作，影响环境的动作需显式配置与授权审批 | SRC-CS-CHARLOTTE-001 |
 | **SentinelOne** | Purple AI（SEC-05） | 安全 Agent | 官方页面支持 Agentic Investigation、Auto-Triage、Investigation Notebooks、预批准策略动作与零训练表述；GA 与商业细节未核实 | SRC-SENTINELONE-PURPLE-AI-001 |
-| **Splunk (Cisco)** | Splunk Security AI（SEC-06） | 平台 AI | 官方页面支持 AI 辅助检测、分诊、调查、SOAR、恶意软件分析与响应；独立 SKU、GA 与商业细节未核实 | SRC-SPLUNK-AI-SECURITY-001 |
+| **Splunk (Cisco)** | Splunk Security AI（SEC-06） | 平台 AI | 官方产品页支持检测/分诊/调查/SOAR/恶意软件分析/响应；Agentic SOC 强调人工审批、审计轨迹与策略护栏；AI Assistant 运行于 Splunk Cloud 多租户 AI Platform Service，可选仅 Splunk-hosted 模型，训练数据可 opt-out；ES Essentials/Premier 均含 AI | SRC-SPLUNK-AI-SECURITY-001；SRC-SPLUNK-RESPONSIBLE-AI-001；SRC-SPLUNK-AI-USAGE-001；SRC-SPLUNK-ES-PRICING-001 |
 | **IBM** | QRadar（SEC-07） | 安全运营 | 官方页面描述 QRadar SIEM/SOAR/EDR、AI-driven analytics、威胁情报、SOAR 响应自动化、行为分析与跨云/终端/身份/网络关联 | SRC-IBM-QRADAR-001 |
 | **DropZone AI** | AI SOC Analyst（SEC-08） | 独立 Agent | 官方产品页支持告警调查、Analyst 在售、Hunter Beta 与 EU 专属租户；客户效果为厂商自述 | SRC-DROPZONE-AISOC-001；SRC-DROPZONE-EU-001 |
 | **Culminate / Datadog** | Bits Security Analyst（SEC-09） | 独立/平台 Agent | Datadog 官方发布说明支持 Bits Security Analyst GA 与 Cloud SIEM 自主调查；Culminate 独立产品状态未核实 | SRC-DD-BITS-SECURITY-001 |
@@ -126,7 +126,7 @@ FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格�
 | NET-08 H3C U-Center | 官方页面；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | SEC-02 Google SecOps | Standard/Enterprise/Enterprise Plus；整体 GA 未核实 | 区域部署单区不跨流量；多区域 geo-redundant，有 feeds 时存在 RPO；完整清单未核实 | 年度采购注入容量；Standard 含 12 个月热保留 | 1x–3x 突发不是免超额额度；最低金额/超额单价未核实 | 区域部署单区存储；多区域同步/异步取决于 feeds；Gemini/SOAR 边界未核实 | 八类 UDM/检测/指标导自管 BigQuery；Enterprise Plus 不支持 BYOBQ；历史数据不迁移；12 天软删后永久删除含备份，删除不取消计费；完整配置/SOAR 导出未核实 |
 | SEC-05 SentinelOne Purple AI | 官方现行产品页；GA 未核实 | 未核实 | 未核实 | 未核实 | 官方称客户数据不用于训练；FedRAMP High | 未核实 |
-| SEC-06 Splunk AI in Security | 官方现行产品页；独立 SKU/GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| SEC-06 Splunk AI in Security | 官方现行产品页；统一独立 GA 范围未核实 | 云与自管/本地部署；具体区域清单未核实 | AI 含于 ES Essentials/Premier；ES 可按 activity/workload/ingest 计费；AI Assistant 独立单价需询价 | 未核实 | AI Platform Service 为 Splunk Cloud 多租户服务；可选仅 Splunk-hosted 模型使数据留在 Splunk 环境，默认可组合第三方模型；prompt/response/log/feedback 可能用于训练，可在 ES 设置 opt-out | 使用仪表盘与审计轨迹；全量配置/日志/记忆导出与退出未核实 |
 | FIN-02 Broadcom CloudHealth | 官方产品页；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | FlexReports Excel 下载、邮件/S3 投递；完整退出未核实 |
 | FIN-05 FinOps Framework / FOCUS | 现行框架；2026-11 更新 | 跨云规范 | CC BY 4.0 | 不适用 | 不适用 | AWS/Azure/GCP/OCI 原生 FOCUS 账单导出 |
 

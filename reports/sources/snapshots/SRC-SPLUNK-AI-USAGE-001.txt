@@ -1,0 +1,12 @@
+Now Offering the AI Assistant Usage Dashboard in Cloud Monitoring Console（Splunk 官方博客，2025-10-02）
+URL: https://www.splunk.com/en_us/blog/artificial-intelligence/now-offering-the-ai-assistant-usage-dashboard-in-cloud-monitoring-console.html
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+逐字摘录：
+"With that in mind, today we’re excited to announce the release of a new AI assistant usage dashboard in Cloud Monitoring Console!"
+支持助手：AI Assistant for SPL、AI Assistant for SPL in Search and Reporting、AI Assistant in Security。
+Dashboard 指标：prompt/response 次数、按 assistant/skill/user 拆分、top users、时间范围筛选。
+"Access to Splunk Cloud Monitoring Console and the AI assistant usage dashboard is provided at no additional cost to Splunk Admins with a Splunk Cloud Platform deployment."
+
+注意：免费的是 Admin usage dashboard，不等于 AI Assistant 本身免费；本页未给出 AI 单价、Credits 或超额规则。

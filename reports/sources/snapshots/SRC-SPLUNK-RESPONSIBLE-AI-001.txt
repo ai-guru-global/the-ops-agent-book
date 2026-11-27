@@ -1,0 +1,21 @@
+Responsible AI for Splunk’s AI Assistant in Security and Agentic Capabilities
+URL: https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/responsible-ai-for-splunk-security-ai-assistant-agentic-capabilities.html
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+页面 metadata: originalPublishDate 2025-09-08；modifiedDate 2026-07-20
+
+逐字摘录：
+"Splunk’s AI Assistant in Security operates on the AI Platform Service, a multi-tenant cloud service hosted within Splunk Cloud Platform. This service provides GPU resources to process and generate responses to your prompts. All AI computations are handled by Splunk’s own AI Service, with no AI workloads running on your own search head."
+
+Model Choices（逐字）：
+"Let Splunk choose the best model ... Splunk harnesses a combination of Splunk-hosted and frontier models hosted by a trusted cloud provider..."
+"Limit to Splunk-hosted models only ... all AI requests are routed to a Splunk-hosted model within Splunk Cloud Platform, ensuring that your data (such as telemetry and logs) remains entirely within our environment."
+
+Data sources for model training（逐字）：
+"Splunk might leverage customer prompts, responses, underlying logs and feedback to train Splunk-hosted models in accordance with Specific Terms for Splunk Offerings and Documentation to improve our offerings, unless customers opt out of this data sharing in the Splunk Enterprise Security settings. Note that alpha release/private preview program participation requires you to opt in to sharing the data described above."
+
+Fairness（逐字）：
+"The AI Assistant in Security results are unique to each customer and should be reviewed for accuracy and fairness by a human prior to use. There are risks associated with using alpha and beta versions in your production environment."
+
+能力：总结、上下文 SPL/报告、对话、playbook skeleton/blocks、workflow validation 与推荐。
+注：模型路由与训练 opt-out 是采购关键；本页未给出区域清单或保留期。

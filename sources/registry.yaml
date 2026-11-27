@@ -2436,7 +2436,7 @@ sources:
   type: official_doc
   accessed_at: 2026-11-25
   review_by: 2027-02-22
-  notes: 官方页面支持 AI 辅助检测、分诊、调查、SOAR 与响应；独立 SKU、GA、区域、许可、驻留和退出未核实。
+  notes: 官方产品页（2026-10-27 修改）支持 AI 辅助检测、分诊、调查、SOAR、恶意软件分析与响应；独立 GA 范围未核实，许可/驻留/退出另见本组新来源。
   claims:
     - SEC-06
   snapshot:
@@ -2444,6 +2444,48 @@ sources:
     sha256: 47a309678fa79417ef501ef7b9d13d4b1afac1733cacfad19339b4f6d8cbbf8a
     captured_at: 2026-11-25
     method: html-to-text-or-rendered-text
+- source_id: SRC-SPLUNK-RESPONSIBLE-AI-001
+  title: Responsible AI for Splunk AI Assistant in Security and Agentic Capabilities
+  url: https://www.splunk.com/en_us/about-splunk/splunk-data-security-and-privacy/responsible-ai-for-splunk-security-ai-assistant-agentic-capabilities.html
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方 Responsible AI（2026-07-20 修改）：AI Assistant in Security 运行于 Splunk Cloud Platform 多租户 AI Platform Service，计算不在客户 search head；可选仅 Splunk-hosted 模型使数据留在 Splunk 环境，否则组合第三方 frontier model；可能用 prompt/response/log/feedback 训练 Splunk-hosted 模型，客户可在 ES 设置 opt-out；结果需人工复核。
+  claims:
+  - SEC-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-SPLUNK-RESPONSIBLE-AI-001.txt
+    sha256: de59763f01af93527e12870a210d9e8f8c582fe6fd09fea41ef292d8284d1e64
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-SPLUNK-AI-USAGE-001
+  title: AI Assistant Usage Dashboard in Cloud Monitoring Console (2025-10-02)
+  url: https://www.splunk.com/en_us/blog/artificial-intelligence/now-offering-the-ai-assistant-usage-dashboard-in-cloud-monitoring-console.html
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方博客（2025-10-02）：Cloud Monitoring Console 提供 AI Assistant 使用仪表盘，支持 SPL/Search/AI Assistant in Security，按 assistant/skill/user 拆分 prompt/response；Splunk Cloud Platform 管理员使用 dashboard 不额外收费，但这不是 AI Assistant 本体免费。
+  claims:
+  - SEC-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-SPLUNK-AI-USAGE-001.txt
+    sha256: 8806a975799d95cf49e22e2c190c5d1eaa9fe64ea6b623c81836518e828509b7
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-SPLUNK-ES-PRICING-001
+  title: Splunk Pricing — Enterprise Security edition matrix
+  url: https://www.splunk.com/en_us/products/pricing.html#enterprise-security
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方定价页（2026-11-20 修改）：Enterprise Security Essentials/Premier 两版矩阵均含 Artificial Intelligence；ES 可选 activity-based/workload/ingest pricing，云与自管/本地部署均有；AI Assistant 独立 SKU、Credits、单价与最低消费未公开，需询价。
+  claims:
+  - SEC-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-SPLUNK-ES-PRICING-001.txt
+    sha256: 9e0551c664b92aa3866309fd92440cf32d7b9f6e2ccfe449f5a014d6ac01bfe1
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-FINOPS-FOUNDATION-001
   title: FinOps Foundation - What is FinOps?
   url: https://www.finops.org/introduction/what-is-finops/

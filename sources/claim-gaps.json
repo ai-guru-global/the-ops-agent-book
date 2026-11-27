@@ -3880,15 +3880,15 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-SPLUNK-AI-SECURITY-001"
+        "SRC-SPLUNK-AI-SECURITY-001",
+        "SRC-SPLUNK-RESPONSIBLE-AI-001",
+        "SRC-SPLUNK-AI-USAGE-001",
+        "SRC-SPLUNK-ES-PRICING-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
-        "data_residency",
         "export_exit",
-        "licensing_pricing",
         "minimum_overage",
-        "other",
         "region",
         "status"
       ]
@@ -3999,11 +3999,11 @@
     "unverified_field_counts": {
       "status": 83,
       "region": 102,
-      "licensing_pricing": 74,
+      "licensing_pricing": 73,
       "minimum_overage": 117,
-      "data_residency": 94,
+      "data_residency": 93,
       "export_exit": 119,
-      "other": 50
+      "other": 49
     }
   },
   "field_definitions": {

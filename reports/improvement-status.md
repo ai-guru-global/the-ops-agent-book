@@ -27,8 +27,8 @@
 2. **校准门禁**：60 条 Agent confidence 校准与 300 条独立 Judge 验收校准分离；Judge starter 明确为 0/300，未完成不得 release-ready。
 3. **图示覆盖**：在 35 张图基础上补齐 8 张厂商页图和 7 张关键模板页图，总计 50 张；旧图号不重排。
 4. **维护与导出**：来源日期同步、维护注册表自登记、首页 PDF/EPUB 与复现入口；宽表增加键盘可访问滚动容器，打印时完整展开。
-5. **决策证据**：48 页 v3 评分、No-Go 报告、真实用户测试协议；本地 PDF 720 页、EPUB 48 章已重新生成并校验。
-6. **厂商补证**：来源注册表增至 226 条、正文快照 191 份；133 个证据缺口 claim 机器可读，133 个均已绑定至少一个 source_id，并逐字段记录 639 个未核实项；AWS DevOps Agent、OCI Enterprise AI Agents、Google SecOps、ServiceNow Otto、AWS AgentCore、Azure SRE Agent、IBM Cloudability、Amazon Q Developer、Gemini Enterprise、SAP Joule、Oracle Fusion AI Agents、Datadog Bits AI、Flexera CCO、Google Agent Platform、Palo Alto AgentiX 与百炼安全防护 的官方状态/区域/计费/驻留/导出/删除证据已分批补强，未核实商业字段不默认通过。
+5. **决策证据**：48 页 v3 评分、No-Go 报告、真实用户测试协议；本地 PDF 721 页、EPUB 48 章已重新生成并校验。
+6. **厂商补证**：来源注册表增至 229 条、正文快照 194 份；133 个证据缺口 claim 机器可读，133 个均已绑定至少一个 source_id，并逐字段记录 636 个未核实项；AWS DevOps Agent、OCI Enterprise AI Agents、Google SecOps、ServiceNow Otto、AWS AgentCore、Azure SRE Agent、IBM Cloudability、Amazon Q Developer、Gemini Enterprise、SAP Joule、Oracle Fusion AI Agents、Datadog Bits AI、Flexera CCO、Google Agent Platform、Palo Alto AgentiX、百炼安全防护与 Splunk Security AI 的官方状态/区域/计费/驻留/导出/删除证据已分批补强，未核实商业字段不默认通过。
 7. **评测资产**：400 条 synthetic K8s 案例（40/60/300，五类各 80）与 400 份本地快照 fixture；确定性生成、SHA-256、负向控制与 14 项 self-test 通过；报告仍为 INCONCLUSIVE。
 8. **POC 示例**：填写的 synthetic POC 73/100、INCONCLUSIVE；28/28 参考测试、400-case self-test、干净目录导入、Shadow/rollback、Trace 验签/锚点验证与 27 项制品哈希通过；真实 TCO/商务退出未完成。
 9. **Judge 校准工具**：300 条独立候选池、答案键、快照 registry、双人标注/独立裁决 CLI 与 κ/召回报告已就绪；真实标注 0/300，release_ready=false。
@@ -45,7 +45,7 @@
 - VitePress 构建、Schema/JSON/YAML/资产校验、内部链接。
 - 50 张 Mermaid 实际渲染、编号、图注与图状文本残留检查。
 - 320/390/768/1024/1440 与 A4 打印、WCAG 2.1 AA。
-- 720 页 PDF 全量几何审计：A4 尺寸、空白页与文字越界 0 违规；报告见 [pdf-layout.md](./validation/pdf-layout.md)。该检查不替代人工视觉审计。
+- 721 页 PDF 全量几何审计：A4 尺寸、空白页与文字越界 0 违规；报告见 [pdf-layout.md](./validation/pdf-layout.md)。该检查不替代人工视觉审计。
 - 跨报告一致性门禁核对任务/人日/状态、评分页数、参考测试数、PDF 页数与 27 项 POC 制品 SHA-256；初始计划与当前 backlog 明确区分。
 - 参考实现 28/28、eval self-test 14/14、用户阅读校验器 13/13、5 类负向控制与 synthetic 基线回归。
 - 3 段工具契约 YAML 正向校验、7 个契约负向控制、NotReady 评测/Event payload 校验。

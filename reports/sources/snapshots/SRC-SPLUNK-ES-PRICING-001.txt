@@ -1,0 +1,15 @@
+Splunk Pricing — Splunk Enterprise Security  edition matrix
+URL: https://www.splunk.com/en_us/products/pricing.html#enterprise-security
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+页面 modifiedDate: 2026-11-20
+
+逐字摘录：
+"Choose between two editions – Essentials or Premier – to get the exact capabilities you need to support the next stage of your security journey. Available in the cloud and for self-managed or on-prem environments."
+"Choose from activity-based, workload, or ingest pricing"
+"Full control of usage and costs without hindering scale"
+Essentials Edition: "Human-led, AI-accelerated defense."
+Premier Edition: "Adaptive, autonomous defense."
+Edition matrix：Artificial Intelligence = ✓ Essentials、✓ Premier；SIEM/Threat Intelligence/Detection Studio/Exposure Analytics 两版均有；SOAR 仅 Premier；UEBA/Automated Threat Analysis 仅 Premier。
+
+注：矩阵证明 Artificial Intelligence 属于 Enterprise Security 两版能力，但未给出 AI Assistant 独立 SKU、Credits、单价或最低消费；具体报价需 Get a quote。AI Assistant in Security 的 AI Platform Service 为 Splunk Cloud 多租户服务（另见 SRC-SPLUNK-RESPONSIBLE-AI-001）。
