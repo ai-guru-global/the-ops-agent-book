@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 217 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 220 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -235,6 +235,9 @@ content_status: "reviewed"
 | SRC-FINOPS-FOUNDATION-001 | [FinOps Foundation - What is FinOps?](https://www.finops.org/introduction/what-is-finops/) | official_doc / FIN-05 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-FINOPS-FOUNDATION-001.txt` |
 | SRC-FINOUT-PRICING-001 | [Finout pricing](https://www.finout.io/pricing) | official_doc / FIN-08 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-FINOUT-PRICING-001.txt` |
 | SRC-FLEXERA-CCO-001 | [Flexera Cloud Cost Optimization](https://www.flexera.com/products/flexera-one/cloud-cost-optimization) | official_doc / FIN-09 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-FLEXERA-CCO-001.txt` |
+| SRC-FLEXERA-DPA-001 | [Flexera Data Processing Agreement](https://www.flexera.com/legal/data-processing-agreement) | official_doc / FIN-09 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-FLEXERA-DPA-001.txt` |
+| SRC-FLEXERA-LICENSE-METRICS-001 | [Flexera One Product-Specific Terms (Effective October 15, 2026)](https://www.flexera.com/sites/default/files/flexera-one-license-metrics.pdf) | official_doc / FIN-09 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-FLEXERA-LICENSE-METRICS-001.txt` |
+| SRC-FLEXERA-SECURITY-001 | [Flexera One Security Terms (Schedule 4 - Information Security)](https://www.flexera.com/sites/default/files/flexera-one-security-terms.pdf) | official_doc / FIN-09 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-FLEXERA-SECURITY-001.txt` |
 | SRC-HARNESS-CCM-001 | [Harness AI and Cloud Costs](https://www.harness.io/products/cloud-ai-cost-management) | official_doc / FIN-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-HARNESS-CCM-001.txt` |
 | SRC-IBM-CLOUDABILITY-001 | [IBM Cloudability](https://www.apptio.com/products/cloudability/) | official_doc / FIN-01 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-IBM-CLOUDABILITY-2024-001 | [Cloudability - What's new in 2024](https://www.ibm.com/docs/en/cloudability-commercial/cloudability-standard/saas?topic=cloudability-whats-new-in-2024) | official_doc / FIN-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-IBM-CLOUDABILITY-2024-001.txt` |

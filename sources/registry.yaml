@@ -2156,7 +2156,7 @@ sources:
   type: official_doc
   accessed_at: 2026-11-25
   review_by: 2027-02-22
-  notes: 官方产品页支持成本分配、预算、治理与策略动作；区域、许可、驻留和退出未核实。
+  notes: 官方产品页支持成本分配、预算、治理与策略动作；计费计量、超额与删除条款另见 SRC-FLEXERA-LICENSE-METRICS-001 与 SRC-FLEXERA-DPA-001；托管区域清单未核实。
   claims:
     - FIN-09
   snapshot:
@@ -2164,6 +2164,48 @@ sources:
     sha256: bbc674530f070140d4cf4db7c46e9efcf4d32cd647194e522c1dbafbd5ca65b2
     captured_at: 2026-11-25
     method: html-to-text
+- source_id: SRC-FLEXERA-LICENSE-METRICS-001
+  title: Flexera One Product-Specific Terms (Effective October 15, 2026)
+  url: https://www.flexera.com/sites/default/files/flexera-one-license-metrics.pdf
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方条款（2026-10-15 生效）：CCO 按 Spend Under Management 计费（Bill Source 未摊销 as-incurred 总额、扣折扣前、含税，按订阅年度滚动累计）；CCO Private Cloud 按 Servers；超额须 30 天内补购，否则提前 15 天通知可停用；年度 True-Up 只升不降低于上年 License Level；单价与最低采购额未公开（询价）。
+  claims:
+  - FIN-09
+  snapshot:
+    path: reports/sources/snapshots/SRC-FLEXERA-LICENSE-METRICS-001.txt
+    sha256: 195066267b73f66ac559b4dca248d0600c412e96c5d14844a22f78f8531f0db5
+    captured_at: '2026-11-27'
+    method: official-pdf-text-excerpt
+- source_id: SRC-FLEXERA-DPA-001
+  title: Flexera Data Processing Agreement
+  url: https://www.flexera.com/legal/data-processing-agreement
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方 DPA：停止服务后 60 天内删除剩余 Personal Information（合同另有约定/书面请求/法律要求除外）；允许跨境转移并以 EU SCC Module 2/3 与 UK Addendum 约束；不用第三方 API 数据训练 AI/ML；子处理者新增 28 天异议期；无区域驻留承诺或托管区域清单。
+  claims:
+  - FIN-09
+  snapshot:
+    path: reports/sources/snapshots/SRC-FLEXERA-DPA-001.txt
+    sha256: b3e5962a434347f775a1c5b6581dd490726b7293ec45495852f2bb382f69d5af
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-FLEXERA-SECURITY-001
+  title: Flexera One Security Terms (Schedule 4 - Information Security)
+  url: https://www.flexera.com/sites/default/files/flexera-one-security-terms.pdf
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方安全条款：订阅期内维持 SOC2 认证并可应请求提供报告；安全事件确认后 48 小时内通知客户；独立第三方渗透测试至少每 12 个月一次；产品安全文档另见 information-security-standards-flexera-one.pdf（无托管区域清单）。
+  claims:
+  - FIN-09
+  snapshot:
+    path: reports/sources/snapshots/SRC-FLEXERA-SECURITY-001.txt
+    sha256: 17d988bf9cc8b54dc13b422aa086e95b5336076ae58754b5aa24a1afebbdacc5
+    captured_at: '2026-11-27'
+    method: official-pdf-text-excerpt
 - source_id: SRC-ZTE-UNISEER-001
   title: ZTE UniSeer Intelligent Operation and Maintenance
   url: https://www.zte.com.cn/global/solutions_latest/service_and_dgital_patform_01/transworkone02.html

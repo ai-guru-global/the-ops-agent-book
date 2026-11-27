@@ -1871,17 +1871,15 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-FLEXERA-CCO-001"
+        "SRC-FLEXERA-CCO-001",
+        "SRC-FLEXERA-LICENSE-METRICS-001",
+        "SRC-FLEXERA-DPA-001",
+        "SRC-FLEXERA-SECURITY-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
-        "data_residency",
         "export_exit",
-        "licensing_pricing",
-        "minimum_overage",
-        "other",
-        "region",
-        "status"
+        "region"
       ]
     },
     {
@@ -4002,13 +4000,13 @@
       "P2": 17
     },
     "unverified_field_counts": {
-      "status": 87,
+      "status": 86,
       "region": 103,
-      "licensing_pricing": 75,
-      "minimum_overage": 119,
-      "data_residency": 96,
+      "licensing_pricing": 74,
+      "minimum_overage": 118,
+      "data_residency": 95,
       "export_exit": 119,
-      "other": 54
+      "other": 53
     }
   },
   "field_definitions": {

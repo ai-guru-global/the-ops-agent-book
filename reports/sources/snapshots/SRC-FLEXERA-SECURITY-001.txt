@@ -1,0 +1,12 @@
+Flexera One Security Terms（Schedule 4 - Information Security）
+URL: https://www.flexera.com/sites/default/files/flexera-one-security-terms.pdf
+Captured: 2026-11-27
+Method: official-pdf-text-excerpt（pypdf 提取，2 页）
+
+逐字摘录：
+"1. Standards Compliance. Flexera has and will maintain SOC2 certification throughout the subscription term of the Order and will make reports on the same available to the Customer upon request."
+"3. Product Security: Flexera One is provided in accordance with the Product Security Documentation set out at https://www.flexera.com/sites/default/files/information-security-standards-flexera-one.pdf"
+"4.d. Flexera will without undue delay (within 48 hours from confirmation) notify Customer of any Information Security Incidents."
+"5.a. Flexera, through its contractors, will perform penetration testing on the Flexera's systems no more than once every twelve (12) months."（独立第三方执行；书面请求可提供执行摘要报告）
+
+另核：Product Security Documentation（information-security-standards-flexera-one.pdf，10 页）含资产/物理/访问控制与 GDPR/CCPA 合规声明，但未给出托管区域清单或数据驻留承诺。

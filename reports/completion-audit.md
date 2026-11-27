@@ -41,7 +41,7 @@
 | A-13 | 可运行参考 Agent 与审计链 | Event v1.1.0、HMAC、可信时间、外部锚点、完整祖先链；28/28 | 已交付 | 未连接真实 K8s、模型或生产身份 |
 | A-14 | 评测集与回归报告 | 400 synthetic cases、400 snapshots、5 类负向控制、14/14 self-test | 部分完成 | 无真实模型/工具 Trace；synthetic 400/400 不是生产质量证据 |
 | A-15 | 独立 Judge 校准 | 300 candidates、双标注/裁决工具、2/2 工具测试 | 未完成 | 人工标注 0/300、双标注 0/300、裁决 0/300 |
-| A-16 | 来源、claim 与商业字段追溯 | 217 sources、182 snapshots、133 claims 均至少绑定一个 source；逐字段 `unverified_fields` 与汇总计数一致 | 部分完成 | `sources/claim-gaps.json` 仍跟踪 133 个有未核实字段的 claim |
+| A-16 | 来源、claim 与商业字段追溯 | 220 sources、185 snapshots、133 claims 均至少绑定一个 source；逐字段 `unverified_fields` 与汇总计数一致 | 部分完成 | `sources/claim-gaps.json` 仍跟踪 133 个有未核实字段的 claim |
 | A-17 | 真实用户阅读测试 | 协议/Schema/模板 v1.1；校验器 13/13 | 未完成 | 核心真实参与者 0；状态 `not_executed`；独立复核 0 |
 | A-18 | 填写 POC 评分卡与退出测试 | synthetic POC 73/100、INCONCLUSIVE、clean-room PASS、27 项哈希 | 部分完成 | 真实厂商 POC、TCO、合同与商业退出未完成 |
 | A-19 | PDF/EPUB 与打印可读性 | PDF 717 页 A4、EPUB 48 章；PDF 几何审计 0 违规 | 已交付 | 几何审计不替代人工视觉验收；产物按设计保留本地 |

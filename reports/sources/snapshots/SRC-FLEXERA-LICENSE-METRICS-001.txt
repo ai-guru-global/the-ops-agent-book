@@ -1,0 +1,26 @@
+Flexera One Product-Specific Terms（Effective October 15, 2026）
+URL: https://www.flexera.com/sites/default/files/flexera-one-license-metrics.pdf
+Captured: 2026-11-27
+Method: official-pdf-text-excerpt（pypdf 提取，4 页；入口页 https://www.flexera.com/legal/flexera-one-product-specific-terms）
+
+Spend Under Management 定义（p1，逐字）：
+"The total cost reflected in each Bill Source ingested or processed by, or connected to, a specific Product, calculated on an unamortized, as-incurred basis (without smoothing or spreading of prepayments, committed-use, or reserved-capacity purchases), before deduction of any credits, discounts, or refunds, and inclusive of taxes, support charges, and all other cost line items appearing in the Bill Source."
+"Bill Source means a unique source of cost data that is ingested or processed by, or connected to, a Product."（含公有云账单、SaaS 发票、AI 模型/应用用量或成本数据）
+
+计量方式（p3，逐字）：
+"Spend Under Management: Total cost reflected in each Bill Source ingested or processed by the Product — Running aggregate per Subscription Term year"
+
+产品-计量对应（p3，逐字摘录）：
+"Cloud Cost Optimization (CCO): Spend Under Management"
+"Cloud Cost Optimization – Private Cloud: Servers"
+"Cloud Sustainability: Spend Under Management"
+"Data Cloud Insights (DCI): Spend Under Management"
+"Cloud License Management (CLM): Cloud Instances"
+"Flexera One SaaS Management (FOSM): Users"
+"IT Asset Management Standard: Clients; Servers; Containers"
+
+超额与年度 True-Up（p2，逐字）：
+"Order, correct the Overage within thirty (30) days by purchasing additional licenses in the quantity or tier sufficient to cover its usage through the remainder of the Subscription Term. If Customer does not correct the Overage within that period, Flexera may suspend Customer's use of the affected Product on fifteen (15) days' prior notice..."
+"Annual True-Up Review. On each anniversary of the Subscription Term the parties will meet to review Customer's actual license measurement... If the actual measurement is higher, Customer will, via a new Order, increase its License Level within thirty (30) days... Additional licenses will be priced at the committed rates in the applicable Order or, if none, Flexera's rates then in effect. The License Level may not be reduced below the License Level in effect for the preceding year."
+
+注：条款未公开具体单价或最低采购金额（销售询价）；10 Containers = 1 Server。

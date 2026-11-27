@@ -94,7 +94,7 @@ flowchart TB
 | **Vantage** | 多云 FinOps（FIN-06） | FinOps 平台 | 官方定价页支持固定费率套餐与 CSV/API/Snowflake/Databricks 连接 | SRC-VANTAGE-PRICING-001 |
 | **CloudZero** | 多云 FinOps（FIN-07） | FinOps 平台 | 官方定价与 API 文档支持商业订阅、小时成本和成本接口；完整退出未核实 | SRC-CLOUDZERO-PRICING-001；SRC-CLOUDZERO-API-001 |
 | **Finout** | 多云 FinOps（FIN-08） | FinOps 平台 | 官方定价页支持固定年费、MegaBill 归因和 K8s 加购 | SRC-FINOUT-PRICING-001 |
-| **Flexera** | Cloud Cost Optimization（FIN-09） | FinOps 平台 | 官方产品页支持成本分配、预算、治理与策略动作；商业细节未核实 | SRC-FLEXERA-CCO-001 |
+| **Flexera** | Cloud Cost Optimization（FIN-09） | FinOps 平台 | 官方产品页支持成本分配、预算、治理与策略动作；官方条款（2026-10-15 生效）确认按 Spend Under Management 计费、超额 30 天补救/年度 True-Up；DPA 承诺停止服务后 60 天删除个人信息、不用第三方 API 数据训练 AI | SRC-FLEXERA-CCO-001；SRC-FLEXERA-LICENSE-METRICS-001；SRC-FLEXERA-DPA-001；SRC-FLEXERA-SECURITY-001 |
 | **FinOps Foundation** | FinOps Framework / FOCUS（FIN-05） | 框架与规范 | 官方定义技术价值管理实践与跨云 FOCUS 账单导出；不是单一商业产品 | SRC-FINOPS-FOUNDATION-001 |
 
 FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格建议、预算预警、变更前成本预估。**删除/降配必须审批**，并区分“建议节省”和“实际节省”。
@@ -115,7 +115,7 @@ FinOps Agent 的典型任务是成本异常归因、闲置资源识别、规格�
 | FIN-06 Vantage | 官方定价页 | 未核实 | Free / $30月 / $200月 / Custom | 未核实 | 未核实 | CSV/API/Snowflake/Databricks |
 | FIN-07 CloudZero | 官方定价页 | 未核实 | 商业订阅；询价 | 未核实 | 未核实 | 成本 API 60 次/日；完整退出未核实 |
 | FIN-08 Finout | 官方定价页 | 未核实 | 固定年费；K8s 加购 | 未核实 | 未核实 | API V2；完整退出未核实 |
-| FIN-09 Flexera | 官方产品页；整体 GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| FIN-09 Flexera | 官方产品页在售；Product-Specific Terms 2026-10-15 生效 | 托管区域清单未核实 | CCO 按 Spend Under Management（Bill Source 未摊销 as-incurred 总额、扣折扣前、含税，订阅年度滚动累计）；Private Cloud 版按 Servers；单价询价 | 超额须 30 天内补购，否则提前 15 天通知可停用；年度 True-Up 只升不降低于上年；最低采购额未公开 | DPA 允许跨境转移（EU SCC Module 2/3、UK Addendum），无区域驻留承诺；不用第三方 API 数据训练 AI/ML | 停止服务后 60 天内删除剩余 Personal Information（合同/法律例外）；全量账单数据导出与退出流程未核实 |
 | NET-01 Cisco Cloud Control / IQ | Cloud Control 部分功能仍在开发；IQ FAQ 列 Air-Gapped 自 2026-07 起 | IQ 支持 SaaS/On-Prem；区域驻留指向 Offer Disclosure | 未核实 | 未核实 | 未核实 | IQ 支持资产导出；完整退出未核实 |
 | NET-02 HPE Mist / Marvis | 2026-10-30 官方文档在列 | 未核实 | Base/Assurance/Marvis VNA 分权 | 未核实 | 未核实 | 集成 Teams/Zoom；完整退出未核实 |
 | NET-03 HPE Aruba Central | 官方称 agentic mesh 正在部署 | 云/本地/aaS/VPC 形态；区域清单未核实 | Foundation/Advanced；Copilot 需全设备 Advanced | 未核实 | 未核实 | 支持第三方遥测；完整退出未核实 |

@@ -1,0 +1,20 @@
+Flexera Data Processing Agreement
+URL: https://www.flexera.com/legal/data-processing-agreement
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+数据删除与保留（§14，逐字）：
+"In the absence of (i) any provision within the Master Agreement to the contrary; (ii) a request from the Customer in writing, or (iii) Applicable Privacy Laws or other applicable laws require continued storage of the Personal Information, within sixty days of Flexera ceasing to provide the Services to Customer, Flexera shall erase any Personal Information remaining on any of its systems"
+
+国际转移（§7.1–7.2，逐字）：
+"Flexera may transfer Personal Information outside of the territory in which it originates; where this occurs any such transfer is executed in accordance with Applicable Privacy Laws."
+"Where Flexera is located outside the European Economic Area, the United Kingdom or Switzerland, the terms of the Standard Contractual Clauses annexed to Commission Implementing Decision (EU) 2021/914 ('SCC')... are hereby incorporated by reference..."（Schedule 2 选 Module Two/Three；UK 适用 ICO Addendum）
+
+AI 训练限制（§5.1，逐字）：
+"Flexera will not use any data accessed from third party APIs to train Artificial Intelligence or Machine Learning models."
+
+子处理者：一般授权 + 新增提前通知，28 天无异议视为同意（§6.3）；清单见 community.flexera.com/s/Sub-Processors。
+角色：GDPR 下 Flexera 为 Processor/sub-processor；CCPA 下为 service provider，不 Sell/Share Personal Information（Schedule 4）。
+审计：每 12 个月一次客户审计权（§10）。
+
+注：DPA 未给出托管区域清单或区域驻留承诺；Personal Information 范围见 Schedule 1（姓名/账号/设备名/IP 等）。CCO 账单数据中非个人信息部分不适用本 DPA。

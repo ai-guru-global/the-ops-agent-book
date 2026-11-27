@@ -5,7 +5,7 @@
 - P1：116
 - P2：17
 - 已绑定至少一个来源：133
-- 未核实字段计数：653
+- 未核实字段计数：648
 
 本摘要由 `scripts/generate-claim-gap-summary.mjs` 从 [claim-gaps.json](../../sources/claim-gaps.json) 生成；字段计数按 claim 计，同一 claim 的同一字段只计一次。完整记录与 closure rule 以机器可读注册表为准。
 
@@ -13,13 +13,13 @@
 
 | 字段 | 含义 | claim 数 |
 | --- | --- | ---: |
-| status | 产品/能力状态 | 87 |
+| status | 产品/能力状态 | 86 |
 | region | 区域与可用性 | 103 |
-| licensing_pricing | 许可与计费单位 | 75 |
-| minimum_overage | 最低消费与超额 | 119 |
-| data_residency | 数据驻留与保留 | 96 |
+| licensing_pricing | 许可与计费单位 | 74 |
+| minimum_overage | 最低消费与超额 | 118 |
+| data_residency | 数据驻留与保留 | 95 |
 | export_exit | 导出、退出与删除 | 119 |
-| other | 其他未核实字段 | 54 |
+| other | 其他未核实字段 | 53 |
 
 ## 缺口最多的 25 个 claim
 
@@ -42,7 +42,6 @@
 | CN-HW-06 | 计算集群运维智能体 | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 2 |
 | CN-OT-04 | 京东云智能运维 | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | CN-TX-01 | CloudQ | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
-| FIN-09 | Flexera Cloud Cost Optimization | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | GC-GO-02 | Gemini Agent | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | GC-GO-06 | Agent Development Kit / Agentspace | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | NET-05 | AIOps/网络保障 | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
@@ -50,3 +49,4 @@
 | NET-08 | U-Center 统一运维平台 | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | OBS-11 | Edwin AI | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
 | SEC-03 | Cortex / AgentiX | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
+| SEC-06 | Splunk Security AI | P1 | data_residency, export_exit, licensing_pricing, minimum_overage, other, region, status | 1 |
