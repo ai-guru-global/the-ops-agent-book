@@ -83,7 +83,7 @@ Microsoft 的已核验路线是“**Azure Copilot + SRE Agent + Foundry + GitHub
 | **Gemini Enterprise / Workspace**（GC-GO-03） | 内嵌助手 | 办公/企业知识 | 官方文档支持企业搜索、Assistant、connectors、Agent Registry/Workflow Builder 与项目/位置绑定许可；部分模型路由 global 时无区域 DRZ；超额用量与项目月度支出上限有官方控制 | SRC-GOOGLE-GEMINI-ENTERPRISE-LOCATIONS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-LICENSES-001；SRC-GOOGLE-GEMINI-ENTERPRISE-QUOTAS-001；SRC-GOOGLE-GEMINI-ENTERPRISE-BILLING-001 |
 | **Google Security Operations (Gemini)**（GC-GO-04） | 安全运营 | SecOps | 官方文档支持 Standard/Enterprise/Enterprise Plus、SIEM/SOAR/UEBA/Gemini 与自管 BigQuery 导出；BYOBQ 不适用于 Enterprise Plus；区域部署不跨区流量，多区域按 feeds 采用同步或异步复制；删除租户不自动取消计费 | SRC-GOOGLE-SECOPS-PACKAGES-001；SRC-GOOGLE-SECOPS-EXPORT-001；SRC-GOOGLE-SECOPS-DEPROVISION-001；SRC-GOOGLE-SECOPS-QUOTAS-001；SRC-GOOGLE-SECOPS-DR-001 |
 | **Gemini Code Assist**（GC-GO-05） | 内嵌编码助手 | 研发 | 官方文档称 2026-10-09 起停售新订阅；存量年付可续订至 2027-01-31、月付至 2027-12-31，并转向 Antigravity | SRC-GOOGLE-CODEASSIST-SUNSET-001 |
-| **Agent Development Kit（ADK）**（GC-GO-06；Agentspace 已并入 Gemini Enterprise，状态未核实） | Agent 框架 | 通用 | Google 官方仓库发布 ADK 2.0 GA，支持多 Agent 工作流与动态协作；不等于托管 Runtime 的区域或 SLA | SRC-GO-ADK-V2-001 |
+| **Agent Development Kit（ADK）**（GC-GO-06；Agentspace 已并入 Gemini Enterprise，Agent Engine 现称 Gemini Enterprise Agent Platform） | Agent 框架 | 通用 | Google 官方仓库发布 ADK 2.0 GA，支持多 Agent 工作流与动态协作；托管 Agent Platform Runtime 在 23 个区域提供 v1 GA，官方文档给出 at-rest DRZ、CMEK/VPC-SC 矩阵与逐模型 ML processing 驻留承诺 | SRC-GO-ADK-V2-001；SRC-GO-AGENT-PLATFORM-001；SRC-GO-AGENT-LOCATIONS-001；SRC-GO-AGENT-DRZ-001 |
 
 Google 条目仅保留产品导航；本轮不把发布报道或历史记忆升级为官方能力结论。
 
@@ -130,7 +130,7 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | GC-SAP-02 Joule Agents | 各 Agent GA 不同；整体未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
 | GC-SN-01 ServiceNow Otto AI Agents | 新 Studio 对 Zurich Patch 13 / Australia Patch 6 / Brazil EA1 及以上 GA；整体商业范围未核实 | 未核实 | Foundation/Advanced/Prime；自定义 Agent 需 Prime；Assists 按动作消耗，0–4/5–8/9–20 工具分别 25/50/150 | Assists 按合同周年年度重置；最低购买量、超额单价与池耗尽行为未核实 | 默认编排模型运行于 ServiceNow 管理 Azure 服务器；区域清单与驻留承诺未核实 | 评估结果可导 CSV；可 Set Inactive 停用 trigger；agentic solutions 仍不能删除；完整配置/日志/记忆导出、数据删除与合同退出未核实 |
 | GC-GO-02 Gemini agent | 官方已宣布；GA 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
-| GC-GO-06 ADK | ADK 2.0 GA；托管 Runtime 未核实 | 部署无关；Runtime 区域未核实 | 未核实 | 未核实 | 框架层不适用/未核实 | 可自部署；平台退出未核实 |
+| GC-GO-06 ADK | ADK 2.0 GA；托管 Agent Platform Runtime v1 在 23 区域 GA（v1beta1 为 Preview） | Runtime 23 区域（us/eu 多区域端点另支持）；Memory Bank 缺 Jakarta/Melbourne/Toronto，Agent Gateway 缺 HK/Seoul/Jakarta；global 端点限 Sessions/Memory Bank | 框架开源免费；托管 Runtime 公开定价未核实 | 未核实 | at-rest 留所选位置；ML processing 按端点：us/eu 多区域内（eu 排除英/瑞）、global 无驻留保证；Runtime/Sessions/Memory Bank 支持 DRZ/CMEK/VPC-SC | 可自部署；Sessions/Memory Bank 有 API 管理；平台级全量导出与退出未核实 |
 | GC-MS-03 Security Copilot | 商业云在售；E5/E7 分阶段启用；政府云不支持 | 未核实 | SCU；最低 1 provisioned SCU；示例 $4/SCU-h、$6/overage SCU | 可设 overage 上限；具体合同未核实 | 未核实 | 未核实 |
 | GC-AWS-03 CloudWatch Omni | 官方文档可用；整体 GA 范围未核实 | 官方公告列多个区域；完整清单需复核 | CloudWatch 标准摄取/存储费率；调查可能产生 API 费用 | 超额查询与具体账户价格未核实 | 调查数据存主 Region；跨 Region 推理可能移出主 Region | 报告可复制；默认 24 小时删除，可配置 7–90 天 |
 | GC-OR-02 OCI Ops Insights | 官方文档可用；MySQL HeatWave 弃用 | 未核实 | 文档列 OCPU/小时等计费；Autonomous AI DB Basic 免费 | 未核实 | 未核实 | 停用资源后 30 天清除；常规保留 25 个月 |

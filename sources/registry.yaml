@@ -1112,6 +1112,48 @@ sources:
     sha256: f1b04b45b3611f31c275393784eeb9b89261387d205ce5fc205992c8ac820013
     captured_at: '2026-11-25'
     method: html-to-text
+- source_id: SRC-GO-AGENT-PLATFORM-001
+  title: Gemini Enterprise Agent Platform overview (formerly Vertex AI Agent Engine)
+  url: https://docs.cloud.google.cn/vertex-ai/generative-ai/docs/agent-engine/overview
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方文档（.cn 镜像）：Agent Engine 现归属 Gemini Enterprise Agent Platform；托管 Agent Runtime、Sessions、Memory Bank、Example Store/Evaluation、Code Execution/Computer Use 沙箱；安全矩阵列 VPC-SC/CMEK/DRZ at-rest/HIPAA/Access Transparency；Runtime CMEK 仅单区域端点；Memory Bank ML 处理在所用模型端点区域/多区域内。
+  claims:
+  - GC-GO-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-GO-AGENT-PLATFORM-001.txt
+    sha256: 48b120a20b2649d54a6a82d56fe00cc469957b81d267ecc7b553e7bbe43f0f9b
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-GO-AGENT-LOCATIONS-001
+  title: Supported locations for agent infrastructure (Gemini Enterprise Agent Platform)
+  url: https://docs.cloud.google.cn/gemini-enterprise-agent-platform/resources/agent-locations
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方区域表：23 个区域 v1 支持 GA 功能、v1beta1 支持 Preview；Memory Bank 不支持 Jakarta/Melbourne/Toronto，Agent Gateway 不支持 HK/Seoul/Jakarta；Runtime/Sessions/Memory Bank/Code Execution 支持 us/eu 多区域端点，Sessions/Memory Bank 另支持 global；global 端点不支持 CMEK，Runtime 多区域端点不支持 CMEK；at-rest 驻留在所选位置。
+  claims:
+  - GC-GO-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-GO-AGENT-LOCATIONS-001.txt
+    sha256: 3022402943fb79b0809afc976811ca018cf8f7da9e288a732f74ca23ae2de850
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-GO-AGENT-DRZ-001
+  title: Data residency (Gemini Enterprise Agent Platform)
+  url: https://docs.cloud.google.cn/gemini-enterprise-agent-platform/resources/data-residency
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方驻留文档：at-rest 数据留在客户所选位置、与调用端点无关；ML processing 由端点决定——jurisdictional us/eu 多区域内处理（eu 严格限欧盟成员国，排除英国/瑞士），locational 端点在对应司法辖区，global 端点无驻留保证；逐模型 ML processing 承诺表覆盖 Google/伙伴/开放模型。
+  claims:
+  - GC-GO-06
+  snapshot:
+    path: reports/sources/snapshots/SRC-GO-AGENT-DRZ-001.txt
+    sha256: 5e96c3e747da5b46c1cabc181fa52e58bdd801075ef15d11c3e4192f69a773c8
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-MS-SECCOPILOT-PRICING-001
   title: Microsoft Security Copilot pricing
   url: https://www.microsoft.com/en-us/security/pricing/microsoft-security-copilot/

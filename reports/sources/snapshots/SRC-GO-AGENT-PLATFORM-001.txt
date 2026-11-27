@@ -1,0 +1,24 @@
+Gemini Enterprise Agent Platform overview（原 Vertex AI Agent Engine）
+URL: https://docs.cloud.google.cn/vertex-ai/generative-ai/docs/agent-engine/overview
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt（docs.cloud.google.cn 镜像；原 cloud.google.com 路径不可达）
+
+逐字摘录：
+"Gemini Enterprise Agent Platform offers the following to help you seamlessly scale your agents in production."
+"Agent Platform provides a fully managed environment for developers to handle testing, release management, and reliability at a global scale."
+四大能力：Serverless efficiency（fully managed Agent Runtime）、Context management（Sessions + Memory Bank）、Continuous quality improvement（Example Store + Evaluation Service）、Secure sandbox execution（Code Execution + Computer Use）。
+
+企业安全矩阵（逐字整理）：
+VPC Service Controls：Runtime/evaluation/Sessions/Memory Bank/Code Execution = Yes，Example Store = No
+CMEK：同上 Yes（Example Store No）
+Data residency (DRZ) at rest：同上 Yes（Example Store No）
+HIPAA：全部 Yes
+Access Transparency：Runtime/Sessions/Memory Bank = Yes
+Access Approval：Runtime/Sessions/Memory Bank = Yes
+
+注记（逐字）：
+"For deployed agents on Agent Runtime, CMEK is supported only on single-region endpoints and isn't supported on multi-regional endpoints (us or eu)."
+"Agent Platform Memory Bank uses Generative AI models to generate memories. Machine learning (ML) processing occurs within the specific region or multi-region of the model endpoint used by Agent Platform Memory Bank."
+
+支持框架：custom、LangChain、LangGraph、LlamaIndex、Agent2Agent、ADK、AG2。
+说明：Agent Engine 文档路径现归属 Gemini Enterprise Agent Platform；这是托管 Runtime 证据，不改变 ADK 框架本身部署无关的性质。

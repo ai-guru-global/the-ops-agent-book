@@ -1,0 +1,17 @@
+Data residency（Gemini Enterprise Agent Platform）
+URL: https://docs.cloud.google.cn/gemini-enterprise-agent-platform/resources/data-residency
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+逐字摘录：
+"Data stored at rest in the customer selected location remains at rest in that location, independent of the Gemini Enterprise Agent Platform endpoint called by that customer's request."
+"Requests submitted to a global endpoint may be processed in any Google Cloud location around the world, and therefore don't provide any data residency guarantees."
+"When you store data on Agent Platform (such as custom model weights or metadata), it remains physically stored in the specific Google Cloud location you chose. This residency is maintained regardless of which endpoint you use to call the model."
+
+ML processing（in-use）规则：
+"Jurisdictional multi-region endpoints: When you use jurisdictional endpoints, ML processing stays within that specific geographical region (such as the United States or the European Union)."
+"The European Union multi-region (eu) endpoint strictly covers data residency within EU member states. Geographies outside the European Union political boundary, including the United Kingdom and Switzerland, are excluded from this endpoint."
+"Locational endpoints: These endpoints (like us-central1, europe-west1) ensure that ML processing remains entirely within the broader multi-regional or country jurisdiction associated with that region."
+"Global endpoints route and process data anywhere globally... they don't provide regional isolation or data residency guarantees."
+
+逐模型 ML processing 承诺表覆盖 Google 模型（Gemini 2.5/3.x/4 系列）、伙伴模型（Anthropic Claude、Mistral）与开放模型（Gemma、gpt-oss、Llama 等）；DoD IL5/ITAR 需 jurisdictional endpoints 加客户自管架构。

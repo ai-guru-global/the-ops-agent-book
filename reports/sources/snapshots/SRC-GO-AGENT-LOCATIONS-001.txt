@@ -1,0 +1,18 @@
+Supported locations for agent infrastructure（Gemini Enterprise Agent Platform）
+URL: https://docs.cloud.google.cn/gemini-enterprise-agent-platform/resources/agent-locations
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+
+逐字摘录：
+"Supported locations for agent infrastructure features provide data-at-rest residency for your data (including agent source code, deployment packages, session history, memory bank entries, and metadata) in the selected location. When an agent invokes foundation models or generative AI services, ML processing support is governed by the location and endpoint configured for that model."
+
+区域表（23 个区域，均标注 "v1 is supported for GA features. v1beta1 is supported for Preview features."）：
+us-east1、us-east4、us-west1、us-central1、europe-west1、europe-west2、europe-west3、europe-west4、europe-west6、europe-west8、europe-southwest1、asia-east1、asia-east2†、asia-northeast1、asia-northeast3†、asia-south1、asia-southeast1、asia-southeast2*†、australia-southeast2*、me-west1、northamerica-northeast1、northamerica-northeast2*、southamerica-east1
+"* Memory Bank is not supported in this region."（Jakarta、Melbourne、Toronto）
+"† Agent Gateway is not supported in this region."（HK、Seoul、Jakarta）
+
+多区域与 global（逐字）：
+"Memory Bank, Sessions, Runtime, and Code Execution support multi-regional endpoints. Memory Bank and Sessions also support global endpoints. For global requests, set your location to global. For multi-regional requests, set your location to us or eu."
+"You can't use CMEK if your Memory Bank or Sessions is configured to use the global endpoint."
+"You can't use CMEK if your Runtime is configured to use a multi-regional endpoint."
+global endpoint 支持的 Google agents：CodeMender (Preview)、Gemini Deep Research Agent (Preview)。

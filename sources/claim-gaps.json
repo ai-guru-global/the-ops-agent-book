@@ -2227,17 +2227,16 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-GO-ADK-V2-001"
+        "SRC-GO-ADK-V2-001",
+        "SRC-GO-AGENT-PLATFORM-001",
+        "SRC-GO-AGENT-LOCATIONS-001",
+        "SRC-GO-AGENT-DRZ-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
-        "data_residency",
         "export_exit",
         "licensing_pricing",
-        "minimum_overage",
-        "other",
-        "region",
-        "status"
+        "minimum_overage"
       ]
     },
     {
@@ -4000,13 +3999,13 @@
       "P2": 17
     },
     "unverified_field_counts": {
-      "status": 86,
-      "region": 103,
+      "status": 85,
+      "region": 102,
       "licensing_pricing": 74,
       "minimum_overage": 118,
-      "data_residency": 95,
+      "data_residency": 94,
       "export_exit": 119,
-      "other": 53
+      "other": 52
     }
   },
   "field_definitions": {

@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 220 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 223 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -71,6 +71,9 @@ content_status: "reviewed"
 | SRC-AWS-QUICK-001 | [AWS Quick](https://aws.amazon.com/quick/) | official_doc / GC-AWS-05 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-GH-COPILOT-001 | [GitHub Copilot](https://github.com/features/copilot) | official_doc / GC-MS-05 | 2026-11-24 | 待存 / 仅入口 |
 | SRC-GO-ADK-V2-001 | [Google ADK Python v2.0.0 General Availability](https://github.com/google/adk-python/releases/tag/v2.0.0) | official_release / GC-GO-06 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GO-ADK-V2-001.txt` |
+| SRC-GO-AGENT-DRZ-001 | [Data residency (Gemini Enterprise Agent Platform)](https://docs.cloud.google.cn/gemini-enterprise-agent-platform/resources/data-residency) | official_doc / GC-GO-06 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-GO-AGENT-DRZ-001.txt` |
+| SRC-GO-AGENT-LOCATIONS-001 | [Supported locations for agent infrastructure (Gemini Enterprise Agent Platform)](https://docs.cloud.google.cn/gemini-enterprise-agent-platform/resources/agent-locations) | official_doc / GC-GO-06 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-GO-AGENT-LOCATIONS-001.txt` |
+| SRC-GO-AGENT-PLATFORM-001 | [Gemini Enterprise Agent Platform overview (formerly Vertex AI Agent Engine)](https://docs.cloud.google.cn/vertex-ai/generative-ai/docs/agent-engine/overview) | official_doc / GC-GO-06 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-GO-AGENT-PLATFORM-001.txt` |
 | SRC-GO-GEMINI-AGENT-001 | [Google Cloud launches Gemini agent](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/) | official_release / GC-GO-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GO-GEMINI-AGENT-001.txt` |
 | SRC-GOOGLE-CLOUD-ASSIST-001 | [Gemini Cloud Assist overview](https://docs.cloud.google.cn/cloud-assist/overview?hl=en) | official_doc / GC-GO-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CLOUD-ASSIST-001.txt` |
 | SRC-GOOGLE-CODEASSIST-SUNSET-001 | [Gemini Code Assist Standard and Enterprise subscriptions](https://docs.cloud.google.cn/gemini/docs/codeassist/sunset?hl=en) | official_doc / GC-GO-05 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-GOOGLE-CODEASSIST-SUNSET-001.txt` |
