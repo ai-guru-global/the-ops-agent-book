@@ -25,7 +25,7 @@ content_status: "reviewed"
 <!-- BEGIN GENERATED REFERENCES -->
 ## 注册表来源（自动生成）
 
-以下 207 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
+以下 212 条来源直接由 `sources/registry.yaml` 生成；URL、类型、claim、访问日与快照状态均不在本页手工维护。官方营销页只证明厂商宣称，不证明生产效果或采购就绪。
 
 ### 阿里 Agent 产品与生态
 
@@ -103,8 +103,13 @@ content_status: "reviewed"
 | SRC-OR-AGENTS-GA-001 | [Enterprise AI Agents are in General Availability in OCI Generative AI](https://docs.oracle.com/iaas/releasenotes/generative-ai/enterprise-ai.htm) | official_release / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-GA-001.txt` |
 | SRC-OR-AGENTS-REGIONS-001 | [Generative AI Models and Regions for Enterprise AI Agents](https://docs.oracle.com/en-us/iaas/Content/generative-ai/agentic-regions.htm) | official_doc / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-REGIONS-001.txt` |
 | SRC-OR-AGENTS-RETENTION-001 | [Creating a Project in OCI Generative AI](https://docs.oracle.com/en-us/iaas/Content/generative-ai/create-project.htm) | official_doc / GC-OR-01 | 2026-11-26 | 已存 `reports/sources/snapshots/SRC-OR-AGENTS-RETENTION-001.txt` |
+| SRC-OR-AIAAS-GUIDE-001 | [How do I use AI Agent Studio? (Oracle AI for Fusion Applications, 26D, G59779-07)](https://docs.oracle.com/en/cloud/saas/fusion-ai/aiaas/access-ai-agent-studio.html) | official_doc / GC-OR-03 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-OR-AIAAS-GUIDE-001.txt` |
+| SRC-OR-AIAAS-MIGRATE-001 | [Migrate Agentic Applications or Workflows from One Instance to Another (26C)](https://docs.oracle.com/en/cloud/saas/fusion-ai/26c/aiaas/migrate-agentic-applications-or-workflows-from-one-instance-to-another.html) | official_doc / GC-OR-03 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-OR-AIAAS-MIGRATE-001.txt` |
+| SRC-OR-AIAAS-MIGRATE-FAQ-001 | [Can I migrate any workflow or supervisor agent from one environment to another? (26C)](https://docs.oracle.com/en/cloud/saas/fusion-ai/26c/aiaas/can-i-migrate-any-workflow-or-supervisor-agent-from-one-environment-to-another.html) | official_doc / GC-OR-03 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-OR-AIAAS-MIGRATE-FAQ-001.txt` |
 | SRC-OR-ENTERPRISE-AGENTS-001 | [Enterprise AI Agents in OCI Generative AI](https://docs.oracle.com/en-us/iaas/Content/generative-ai/agents.htm) | official_doc / GC-OR-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-OR-ENTERPRISE-AGENTS-001.txt` |
+| SRC-OR-EPM-AI-AVAIL-001 | [Availability of Generative AI, Predictive AI, and EPM Assistants](https://docs.oracle.com/en/cloud/saas/enterprise-performance-management-common/tsepm/opc_gen2_gen_ai.html) | official_doc / GC-OR-03 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-OR-EPM-AI-AVAIL-001.txt` |
 | SRC-OR-FUSION-AI-001 | [Explore AI Agents for Oracle Fusion Cloud Applications](https://docs.oracle.com/en/cloud/saas/readiness/common/25c/common25c/25C-common-wn-f39182.htm) | official_release / GC-OR-03 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-OR-FUSION-AI-001.txt` |
+| SRC-OR-FUSION-PRICELIST-001 | [Oracle Fusion Cloud Service Global Price List (November 5, 2026)](https://www.oracle.com/a/ocom/docs/corporate/pricing/oracle-fusion-cloud-global-price-list.pdf) | official_doc / GC-OR-03 | 2026-11-27 | 已存 `reports/sources/snapshots/SRC-OR-FUSION-PRICELIST-001.txt` |
 | SRC-OR-OPSINSIGHTS-001 | [About OCI Operations Insights](https://docs.oracle.com/en-us/iaas/operations-insights/doc/operations-insights.html) | official_doc / GC-OR-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-OR-OPSINSIGHTS-001.txt` |
 | SRC-SAP-AI-JOULE-001 | [SAP Artificial Intelligence - Joule](https://www.sap.com/products/artificial-intelligence.html) | official_doc / GC-SAP-01 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SAP-AI-JOULE-001.txt` |
 | SRC-SAP-JOULE-AGENTS-001 | [Joule Agents and Joule Assistants](https://www.sap.com/products/artificial-intelligence/ai-agents.html) | official_doc / GC-SAP-02 | 2026-11-25 | 已存 `reports/sources/snapshots/SRC-SAP-JOULE-AGENTS-001.txt` |

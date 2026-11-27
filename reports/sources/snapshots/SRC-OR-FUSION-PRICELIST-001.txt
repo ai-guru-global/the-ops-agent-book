@@ -1,0 +1,27 @@
+Oracle Fusion Cloud Service Global Price List（November 5, 2026）
+URL: https://www.oracle.com/a/ocom/docs/corporate/pricing/oracle-fusion-cloud-global-price-list.pdf
+Captured: 2026-11-27
+Method: official-pdf-text-excerpt（pypdf 提取；完整 PDF 25 页，731443 字节，SHA-256 见 registry notes）
+
+页眉（p1）：
+Oracle Fusion Cloud Service Global Price List
+November 5, 2026
+Software Investment Guide
+
+SKU 行（p8，含计量单位与最低量列）：
+Oracle Fusion Agentic Applications Cloud Service 500,000.00 Each 1 B112535
+Per Unit Price
+Oracle Fusion AI Units Cloud Service 1,000.00 100,000 Pooled AI Units 1 B112536
+Monthly Subscription Price
+Oracle Fusion AI Agents Cloud Service 150.00 Hosted Named User 50 B112537
+Oracle Fusion AI Agents Cloud Service 5.00 Hosted Employee 500 B112538
+
+池化 AI Units 定义与耗尽/作废条款（p23，逐字）：
+"100,000 Pooled Fusion AI Units: is defined as 100,000 Fusion AI (Artificial Intelligence) Units for use during the Services Period. A Fusion AI Unit is a measure of value of certain AI services as defined in the Fusion AI Unit Actions Table."
+"The 100,000 Pooled Fusion AI Units are pooled for the Services Period stated on the Order Document. Fusion AI Unit consumption may vary each month. If the Fusion AI Units as specified in Your order are depleted, You must replenish Your Fusion AI Units before the Services Period End Date or discontinue usage that consumes additional Fusion AI Units."
+"Oracle will sum up the Fusion AI Units used each calendar month and decrement that amount from the total available Fusion AI Units (after first decrementing any non-pooled Fusion AI Unit allocations that You may have). Any AI Units purchased under Your order that remain unused or unapplied at the end of the Services Period will be deemed forfeited, and there will be no reduction in fees or reimbursement due to such forfeiture."
+
+Custom AI Agent 定义（p24，逐字）：
+"Custom AI Agent: is any AI Agent either created with, or resulting from modification of Oracle delivered agents that are included with Your Oracle Cloud Service. Custom AI agents could result from modifications such as adding a tool, accessing an external service, accessing external tools through Model Context Protocol (MCP) servers, bringing Your own AI Large Language Model (BYO LLM), multimodal capabilities (e.g. image generation, voice, video), or otherwise altering the intended scope and purpose of the Oracle included agents."
+
+注：价格表未给出 Fusion AI Unit Actions Table 的逐动作倍率，也未给出数据驻留条款；这两项保持未核实。

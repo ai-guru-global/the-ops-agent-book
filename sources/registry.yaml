@@ -1758,6 +1758,76 @@ sources:
     sha256: d06de5c345db14bbcbd83190eb148f4e12b3c3b9b522b7af994e4bf980660ec1
     captured_at: 2026-11-25
     method: html-to-text-or-rendered-text
+- source_id: SRC-OR-FUSION-PRICELIST-001
+  title: Oracle Fusion Cloud Service Global Price List (November 5, 2026)
+  url: https://www.oracle.com/a/ocom/docs/corporate/pricing/oracle-fusion-cloud-global-price-list.pdf
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方价格表（2026-11-05，25 页）列 Fusion AI Agents $150/Hosted Named User/月（最低 50，B112537）与 $5/Hosted Employee/月（最低 500，B112538）；AI Units $1,000/10 万池化单位（B112536），耗尽须续购或停用、期末未用作废不退费；Agentic Applications $500,000/年（B112535）；含 Custom AI Agent 定义（MCP/BYO LLM 等）。完整 PDF SHA-256 888a40ab6399d5d17c6599ec2426246c98f26d20b40b1a0548a13f0d033ddfde。逐动作倍率表与驻留条款未给出。
+  claims:
+    - GC-OR-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-FUSION-PRICELIST-001.txt
+    sha256: 6fc4dcff87ae665b3e9e85822d6d97d9af2809f7f968b276c932eff0cbedd701
+    captured_at: '2026-11-27'
+    method: official-pdf-text-excerpt
+- source_id: SRC-OR-AIAAS-MIGRATE-001
+  title: Migrate Agentic Applications or Workflows from One Instance to Another (26C)
+  url: https://docs.oracle.com/en/cloud/saas/fusion-ai/26c/aiaas/migrate-agentic-applications-or-workflows-from-one-instance-to-another.html
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方 26C 文档（2026-08-24）：AI Agent Studio 应用导出 JSON、工作流导出 ZIP，目标环境导入后须发布；Document/Email/External REST 工具有导入后重配置任务。证明配置级导出/迁移，不等于全量业务数据导出或合同退出条款。
+  claims:
+    - GC-OR-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-AIAAS-MIGRATE-001.txt
+    sha256: dd23d7c8daa679827e81aa2cb9942dc6bae56c5e9485fc943052e860b2552d54
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-OR-AIAAS-MIGRATE-FAQ-001
+  title: Can I migrate any workflow or supervisor agent from one environment to another? (26C)
+  url: https://docs.oracle.com/en/cloud/saas/fusion-ai/26c/aiaas/can-i-migrate-any-workflow-or-supervisor-agent-from-one-environment-to-another.html
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方 26C FAQ（2026-08-24）：管理员可跨环境迁移单个 workflow/supervisor agent；目标环境无对应产品族权限则不可见导入对象。
+  claims:
+    - GC-OR-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-AIAAS-MIGRATE-FAQ-001.txt
+    sha256: 366e642d11e98850aae592dd7430140cd57028c8fd2afa1cece5dc18e90d8e88
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-OR-EPM-AI-AVAIL-001
+  title: Availability of Generative AI, Predictive AI, and EPM Assistants
+  url: https://docs.oracle.com/en/cloud/saas/enterprise-performance-management-common/tsepm/opc_gen2_gen_ai.html
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方 EPM 文档（2026-11-04）：GenAI 仅在 OC1/OC2/OC3/OC4/OC19/OC29/OC42 realm 的所有区域可用；EPM Assistants 依赖 Fusion Agent Studio 在相应 realm/region 可用。口径为 Cloud EPM/EDM，非 Fusion AI Agents 全产品区域清单；zh_CN 旧版（2026-09-24）realm 列表较旧，以英文最新版为准。
+  claims:
+    - GC-OR-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-EPM-AI-AVAIL-001.txt
+    sha256: d9ce8194aa13bce8541718cdd377cb750ef00bb0eb1ba454e894d798744a3899
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
+- source_id: SRC-OR-AIAAS-GUIDE-001
+  title: How do I use AI Agent Studio? (Oracle AI for Fusion Applications, 26D, G59779-07)
+  url: https://docs.oracle.com/en/cloud/saas/fusion-ai/aiaas/access-ai-agent-studio.html
+  type: official_doc
+  accessed_at: '2026-11-27'
+  review_by: '2027-02-22'
+  notes: 官方 26D 指南书目（2026-11-10，G59779-07）：描述管理员用 AI Agent Studio 创建含 topics/tools/instructions 的 agentic workflows；正文 JS 渲染，快照仅含书目元数据。证明官方指南持续发布，不单独证明统一 GA 范围。
+  claims:
+    - GC-OR-03
+  snapshot:
+    path: reports/sources/snapshots/SRC-OR-AIAAS-GUIDE-001.txt
+    sha256: af3c5cafe81b70c4bfe05202476331d36518ce4fd0b665bff495005030b8aa33
+    captured_at: '2026-11-27'
+    method: webfetch-markdown-excerpt
 - source_id: SRC-SN-CONTROLTOWER-001
   title: ServiceNow Super Intelligence Control Tower release
   url: https://www.servicenow.com/community/si-control-tower-articles/what-s-new-in-ai-control-tower-for-august-amp-september-2026/ta-p/3597749

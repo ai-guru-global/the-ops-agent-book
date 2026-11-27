@@ -1,0 +1,16 @@
+Availability of Generative AI, Predictive AI, and EPM Assistants（Enterprise Performance Management Common, Latest Cloud Release）
+URL: https://docs.oracle.com/en/cloud/saas/enterprise-performance-management-common/tsepm/opc_gen2_gen_ai.html
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+页面 datePublished/dateModified: 2026-11-04
+
+逐字摘录：
+"Some Oracle Fusion Cloud Enterprise Performance Management business processes use Oracle AI (Generative AI) including AI Assistants to provide more business value. This feature is available in all regions in the following realms only."
+Realms: OC1, OC2, OC3, OC4, OC19, OC29, OC42
+
+"IPM and Predictive AI features are available in all realms and regions"
+"EPM Assistants using Fusion Agent Studio work in all realms and regions where EPM Enterprise Subscription or Cloud EDM is available, assuming that Fusion AI Studio is also available in the realm and region."
+"Additionally, custom-built integrations where external AI tools or agent platforms call Oracle-published EPM REST APIs are supported in all realms and regions."
+
+口径说明：本页为 Cloud EPM/EDM 的 AI 可用性口径，不是 Fusion AI Agents 全产品的区域清单；它证明 Fusion Agent Studio 的可用性按 realm/region 受限。Fusion AI Agents 的完整区域清单仍保持未核实。
+另注：zh_CN 旧版同题页面（2026-09-24）仅列 OC1/OC4/OC19/OC29/OC42，与英文最新版（2026-11-04，含 OC2/OC3）不一致；以英文最新版为准。

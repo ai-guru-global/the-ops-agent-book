@@ -1,0 +1,24 @@
+Migrate Agentic Applications or Workflows from One Instance to Another（Oracle AI for Fusion Applications, 26C）
+URL: https://docs.oracle.com/en/cloud/saas/fusion-ai/26c/aiaas/migrate-agentic-applications-or-workflows-from-one-instance-to-another.html
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+页面 datePublished/dateModified: 2026-08-24
+
+逐字摘录：
+"You can migrate an individual application or a workflow from one environment to another using the import and export options available in AI Agent Studio. For example, you can export from the test or staging environment and import into the production environment."
+
+Migrate an Agentic Application：
+"Locate the application you want to export and select Export. A JSON file is downloaded to your local system. You can edit it to enter the export details."
+"From the target environment ... Select Import and upload the previously downloaded JSON file. Your application is imported successfully."
+"Publish the application."
+
+Migrate a Workflow：
+"Locate the workflow you want to export and select Export. A ZIP file is downloaded to your local system. You can extract it locally and edit it to enter the export details."
+"Select Import and upload the previously downloaded ZIP file. Your workflow is imported successfully."
+"Publish the workflow."
+
+导入后任务（逐字）：
+"The imported application or workflow will be available for use in the new environment only after you publish it in that environment. Also, if any of your agents use the following tools, make sure you complete the corresponding post-import tasks for each tool:"
+"Document tool: Upload and republish the document to ensure its content is correctly processed in the new environment."
+"Email tool: Reconfigure the email tool to make sure necessary alerts are generated properly in the new environment."
+"External REST tool: Reconfigure authentication settings for external REST API tools."

@@ -105,7 +105,7 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | --- | --- | --- | --- | --- |
 | Oracle | OCI Generative AI — Enterprise AI Agents（GC-OR-01） | Agent 平台 | 官方发布说明确认 2026-03-31 GA；文档描述 Responses API、托管应用与混合架构，支持工具调用、记忆、NL2SQL 和隔离沙箱；不是运维专用 Agent | SRC-OR-ENTERPRISE-AGENTS-001；SRC-OR-AGENTS-GA-001；SRC-OR-AGENTS-REGIONS-001；SRC-OR-AGENTS-RETENTION-001 |
 | Oracle | OCI Operations Insights（GC-OR-02） | AIOps | 官方文档支持数据库/主机资源与容量洞察、SQL/Exadata 分析；MySQL HeatWave 弃用与存量迁移需按文档执行 | SRC-OR-OPSINSIGHTS-001 |
-| Oracle | Fusion AI Agents（GC-OR-03） | 内嵌业务 Agent | 官方 25C 发布说明支持 AI Agents 页面、会话与聊天入口；统一 GA 范围未核实 | SRC-OR-FUSION-AI-001 |
+| Oracle | Fusion AI Agents（GC-OR-03） | 内嵌业务 Agent | 25C 发布说明提供 AI Agents 页面与会话入口；26D 官方指南 G59779-07 描述 AI Agent Studio agentic workflows；官方价格表（2026-11-05）列 AI Agents/AI Units/Agentic Applications 在售 SKU；应用/工作流支持 JSON/ZIP 跨环境迁移 | SRC-OR-FUSION-AI-001；SRC-OR-AIAAS-GUIDE-001；SRC-OR-FUSION-PRICELIST-001；SRC-OR-AIAAS-MIGRATE-001 |
 | SAP | Joule（GC-SAP-01） | 内嵌助手 | 官方页面支持 Joule Work/Assistants/Agents/Studio、跨 SAP 与非 SAP 工作流及 agent gateway；客户数据留在 SAP 租户，Joule 本身不存储客户数据；客户数据中心选项可在本地运行 Joule | SRC-SAP-AI-JOULE-001；SRC-SAP-JOULE-DATACENTER-001 |
 | SAP | Joule Agents and Joule Assistants（GC-SAP-02） | Agent 平台/业务 Agent | 官方页面描述跨 SAP/非 SAP 多步业务 Agent、人工监督、唯一身份、Agent 网关与沙箱；不证明 IT 运维能力 | SRC-SAP-JOULE-AGENTS-001 |
 | ServiceNow | ServiceNow Otto / AI Agents（GC-SN-01） | 内嵌助手 + Agent 平台 | 官方指南确认 Foundation/Advanced/Prime，自定义 Agent 需 Prime；Assists 按动作与工具数档位消耗并年度重置；新 Studio 对指定补丁版本以上 GA，但 2026-09-10 正文仍称不能删除 agentic solutions | SRC-SN-AI-AGENTS-001；SRC-SN-AI-AGENTS-GUIDE-001；SRC-SN-AGENT-STUDIO-2026-09-001 |
@@ -134,7 +134,7 @@ IBM 的已核验组合覆盖“**可观测 + FinOps + 自动化 + 安全**”（
 | GC-MS-03 Security Copilot | 商业云在售；E5/E7 分阶段启用；政府云不支持 | 未核实 | SCU；最低 1 provisioned SCU；示例 $4/SCU-h、$6/overage SCU | 可设 overage 上限；具体合同未核实 | 未核实 | 未核实 |
 | GC-AWS-03 CloudWatch Omni | 官方文档可用；整体 GA 范围未核实 | 官方公告列多个区域；完整清单需复核 | CloudWatch 标准摄取/存储费率；调查可能产生 API 费用 | 超额查询与具体账户价格未核实 | 调查数据存主 Region；跨 Region 推理可能移出主 Region | 报告可复制；默认 24 小时删除，可配置 7–90 天 |
 | GC-OR-02 OCI Ops Insights | 官方文档可用；MySQL HeatWave 弃用 | 未核实 | 文档列 OCPU/小时等计费；Autonomous AI DB Basic 免费 | 未核实 | 未核实 | 停用资源后 30 天清除；常规保留 25 个月 |
-| GC-OR-03 Fusion AI Agents | 25C 发布说明；统一 GA 未核实 | 未核实 | 需角色/权限/duty roles；商业费用未核实 | 未核实 | 未核实 | 未核实 |
+| GC-OR-03 Fusion AI Agents | 官方价格表在售 SKU（2026-11-05）；26D 指南 G59779-07（2026-11-10）；各 Agent 随季度 release 上线 | EPM 口径 GenAI 限 OC1/OC2/OC3/OC4/OC19/OC29/OC42 realm；Fusion Agent Studio 按 realm/region 受限；全产品区域清单未核实 | $150/Hosted Named User/月（B112537）或 $5/Hosted Employee/月（B112538）；AI Units $1,000/10 万池化单位（B112536）；Agentic Applications $500,000/年（B112535） | Named User 最低 50、Employee 最低 500；AI Units 耗尽须续购或停用，期末未用即作废、不退费 | 未核实 | 应用 JSON/工作流 ZIP 导出导入，导入后须发布并重配 Document/Email/REST 工具；全量业务数据导出与合同退出未核实 |
 | GC-SN-02 Control Tower | 官方 8–9 月发布说明；AI Gateway 2026-09-10 GA | 未核实 | Store 标记 paid；公开报价未核实 | 未核实 | 未核实 | 未核实 |
 | GC-GO-01 Gemini Cloud Assist | Preview/Pre-GA | 未核实 | 所有 Cloud 用户与 Code Assist Enterprise 权益分层 | 未核实 | 未核实 | 未核实 |
 | GC-GO-03 Gemini Enterprise | 基础功能；国内区域 GA+allowlist | global/us/eu；br/ca/in/JP/SG/UK | 月付/年付；项目与位置绑定许可；纯按量版无许可费 | 超额需有效非试用订阅；按预付余额或月度发票计费；项目月度支出上限可停止付费用量，但生效延迟可能超额 | at-rest DRZ/MLP 受模型与位置限制；不支持模型路由 global | 用户许可 CSV≤100 万条；关闭自动续订；内容批量导出未核实 |

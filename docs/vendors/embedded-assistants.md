@@ -135,7 +135,7 @@ flowchart TB
 | ServiceNow Now Assist / AI Agents（GC-SN-01） | Foundation/Advanced/Prime；自定义 Agent 需 Prime；新 Studio 指定补丁以上 GA，但 agentic solutions 删除仍受限 | 工单、事件、变更、AIOps（场景建议） | SRC-SN-AI-AGENTS-001；SRC-SN-AI-AGENTS-GUIDE-001；SRC-SN-AGENT-STUDIO-2026-09-001 |
 | Salesforce Agentforce（GC-SF-01） | 业务 Agent、CRM/Data 360 grounding、人工升级、Agent Builder 与多 Agent 编排 | 服务运营；未证明 IT 运维能力 | SRC-SF-AGENTFORCE-001 |
 | SAP Joule（GC-SAP-01） | Joule Work/Assistants/Agents/Studio；跨 SAP/非 SAP 工作流与 agent gateway；客户数据留在 SAP 租户 | 业务运营（场景建议） | SRC-SAP-AI-JOULE-001；SRC-SAP-JOULE-DATACENTER-001 |
-| Oracle Fusion AI Agents（GC-OR-03） | 25C 发布说明提供 AI Agents 页面与会话入口；统一 GA 未核实 | 业务运营 | SRC-OR-FUSION-AI-001 |
+| Oracle Fusion AI Agents（GC-OR-03） | 25C 发布说明提供 AI Agents 页面与会话入口；26D 指南与官方价格表在售 SKU；应用/工作流可 JSON/ZIP 跨环境迁移 | 业务运营 | SRC-OR-FUSION-AI-001；SRC-OR-AIAAS-GUIDE-001；SRC-OR-FUSION-PRICELIST-001；SRC-OR-AIAAS-MIGRATE-001 |
 | Workday Illuminate（EMB-ENT-01） | HR/Finance/Industry purpose-built agents；2025 发布说明称新 agents 2026 可用，当前 GA 未核实 | 企业运营（场景建议） | SRC-WORKDAY-ILLUMINATE-001 |
 | Atlassian Rovo（EMB-ENT-02） | 跨 SaaS 搜索/聊天/agents、Teamwork Graph 与管理员 AI 访问控制；支持 data residency | 研发/ITSM 协作（场景建议） | SRC-ATLASSIAN-ROVO-001；SRC-ATLASSIAN-ROVO-PRIVACY-001 |
 
@@ -174,7 +174,8 @@ flowchart TB
 | EMB-ENT-02 Atlassian Rovo | 官方产品/文档在列 | 支持 data residency；具体区域未核实 | 未核实 | 未核实 | 权限同步；LLM 提供商不留存输入输出 | 断开连接器后 30 天删除索引内容；全量导出未核实 |
 | EMB-ALI-01 QwenWork / AgentOne | QwenWork 国际版完整流程；AgentOne 2025-09 发布 | QwenWork 国际版；AgentOne 区域未核实 | QwenWork 套餐/积分/订阅；价格未核实 | 未核实 | 未核实 | QwenWork 交付物可下载；完整退出未核实 |
 | GC-SN-01 ServiceNow Otto AI Agents | 新 Studio 指定补丁以上 GA；整体未核实 | 未核实 | Foundation/Advanced/Prime；Assists 按动作与工具档位消耗 | 年度重置；最低量/超额价格未核实 | ServiceNow 管理 Azure；区域/驻留未核实 | 评估 CSV、Set Inactive；solution 删除受限；完整导出/退出未核实 |
-| ALI-01/15、GC-OR-03 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| ALI-01/15 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 | 未核实 |
+| GC-OR-03 Fusion AI Agents | 价格表在售 SKU（2026-11-05）；26D 指南 G59779-07 | EPM 口径限 OC1/OC2/OC3/OC4/OC19/OC29/OC42 realm；全产品区域清单未核实 | $150/Named User/月或 $5/Employee/月；AI Units $1,000/10 万；Agentic Applications $500,000/年 | 最低 50 Named User 或 500 Employee；AI Units 耗尽须续购或停用，期末未用作废 | 未核实 | 应用 JSON/工作流 ZIP 迁移，导入后须发布；全量数据导出与退出未核实 |
 
 ## 评估要点
 

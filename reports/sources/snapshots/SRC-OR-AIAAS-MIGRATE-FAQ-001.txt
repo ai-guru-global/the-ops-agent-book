@@ -1,0 +1,10 @@
+Can I migrate any workflow or supervisor agent from one environment to another?（Oracle AI for Fusion Applications, 26C）
+URL: https://docs.oracle.com/en/cloud/saas/fusion-ai/26c/aiaas/can-i-migrate-any-workflow-or-supervisor-agent-from-one-environment-to-another.html
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+页面 datePublished/dateModified: 2026-08-24
+
+逐字摘录：
+"Yes. As an administrator, you can migrate (import) any individual workflow or supervisor agent from one environment to another. However, if you've imported a workflow or supervisor agent that belongs to a product family you don't have access to, you can't view the imported workflow or supervisor agent in the new environment. For example, you're an Oracle Fusion Cloud Human Capital Management (HCM) administrator and you import a workflow or supervisor agent that belongs to Oracle Fusion Cloud Supply Chain & Manufacturing (SCM). If your user doesn't have access to SCM product family in AI Agent Studio, you won't be able to view the imported workflow or supervisor agent in the target environment."
+
+关联主题：Migrate Agentic Applications or Workflows from One Instance to Another；Migrate a Supervisor Agent from One Instance to Another。

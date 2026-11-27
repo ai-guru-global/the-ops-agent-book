@@ -1,0 +1,14 @@
+How do I use AI Agent Studio?（Oracle AI for Fusion Applications, 26D, G59779-07）
+URL: https://docs.oracle.com/en/cloud/saas/fusion-ai/aiaas/access-ai-agent-studio.html
+Captured: 2026-11-27
+Method: webfetch-markdown excerpt
+页面 datePublished/dateModified: 2026-11-10；访问 access-ai-agent-studio.html 时重定向至本书 index（How do I use AI Agent Studio?）
+
+元数据逐字：
+"Oracle AI for Fusion Applications — How do I use AI Agent Studio?"
+"G59779-07"
+"26D"
+"Copyright © 2025, 2026, Oracle and/or its affiliates."
+schema.org description: "Describes how administrators can use AI Agent Studio to create agentic workflows with topics, tools, and instructions."
+
+说明：该 URL 的正文由 JavaScript 渲染，抓取仅得书目元数据；可证明 26D 版官方指南存在且描述管理员用 AI Agent Studio 创建 agentic workflows。角色/权限细节见 26B SCM readiness 页（Access Requirements for AI Agent Studio：需配置 job role/duty roles）。

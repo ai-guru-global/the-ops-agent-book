@@ -2502,17 +2502,18 @@
       ],
       "closure_rule": "Close each field only with a citable official source and archived snapshot; unsupported fields remain unknown.",
       "source_ids": [
-        "SRC-OR-FUSION-AI-001"
+        "SRC-OR-FUSION-AI-001",
+        "SRC-OR-FUSION-PRICELIST-001",
+        "SRC-OR-AIAAS-MIGRATE-001",
+        "SRC-OR-AIAAS-MIGRATE-FAQ-001",
+        "SRC-OR-EPM-AI-AVAIL-001",
+        "SRC-OR-AIAAS-GUIDE-001"
       ],
       "last_evidence_update": "2026-11-26",
       "unverified_fields": [
         "data_residency",
         "export_exit",
-        "licensing_pricing",
-        "minimum_overage",
-        "other",
-        "region",
-        "status"
+        "region"
       ]
     },
     {
@@ -4001,13 +4002,13 @@
       "P2": 17
     },
     "unverified_field_counts": {
-      "status": 89,
+      "status": 88,
       "region": 104,
-      "licensing_pricing": 77,
-      "minimum_overage": 121,
+      "licensing_pricing": 76,
+      "minimum_overage": 120,
       "data_residency": 96,
       "export_exit": 119,
-      "other": 56
+      "other": 55
     }
   },
   "field_definitions": {
